@@ -33,6 +33,10 @@ fit <- lm(dist ~ speed, data = cars)
 fit
 ```
 
+```{r}
+knitr::include_url(url, height = "400px")
+```
+
 # Including Plots
 
 You can also embed plots. See Figure \@ref(fig:pie) for example:
