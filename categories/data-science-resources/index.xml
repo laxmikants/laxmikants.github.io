@@ -8,6 +8,7 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Sun, 05 Feb 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/categories/data-science-resources/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +16,7 @@
     <item>
       <title>Data Science Resources</title>
       <link>https://laxmikants.github.io/post/2018-02-06-ds-resources/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/2018-02-06-ds-resources/</guid>
       <description>R Programming 🐈   R is a programming language and software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. [ Source ]

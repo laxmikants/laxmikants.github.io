@@ -8,15 +8,36 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sun, 05 Mar 2017 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>R Markdown</title>
+      <link>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Regular expressions</title>
+      <link>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</guid>
+      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
+Regular expressions are the default pattern engine in stringr.</description>
+    </item>
+    
+    <item>
       <title>Tex formulas</title>
       <link>https://laxmikants.github.io/post/2017-03-05-math-tex/</link>
-      <pubDate>Sun, 05 Mar 2017 21:13:14 -0500</pubDate>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/2017-03-05-math-tex/</guid>
       <description>TeX can be used to code complex statistical formulas.
@@ -27,42 +48,9 @@ Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \s
     </item>
     
     <item>
-      <title>Scientific paper</title>
-      <link>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</link>
-      <pubDate>Thu, 05 Jan 2017 21:13:14 -0500</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</guid>
-      <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
-Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
- You can find out more at the Chocolatey Official Website
- For installation, please follow the Installation Guide
- To search for any package available, you can visit https://chocolatey.</description>
-    </item>
-    
-    <item>
-      <title>Including Code in markdown</title>
-      <link>https://laxmikants.github.io/post/2016-03-08-code-markdown/</link>
-      <pubDate>Tue, 08 Mar 2016 21:13:14 -0500</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2016-03-08-code-markdown/</guid>
-      <description>&lt;p&gt;The following are two code samples using syntax highlighting.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
       <title>Data Science Resources</title>
       <link>https://laxmikants.github.io/post/2018-02-06-ds-resources/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/2018-02-06-ds-resources/</guid>
       <description>R Programming 🐈   R is a programming language and software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. [ Source ]
@@ -70,13 +58,16 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
-      <title>Regular expressions</title>
-      <link>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Scientific paper</title>
+      <link>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</guid>
-      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
-Regular expressions are the default pattern engine in stringr.</description>
+      <guid>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</guid>
+      <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
+Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
+ You can find out more at the Chocolatey Official Website
+ For installation, please follow the Installation Guide
+ To search for any package available, you can visit https://chocolatey.</description>
     </item>
     
   </channel>

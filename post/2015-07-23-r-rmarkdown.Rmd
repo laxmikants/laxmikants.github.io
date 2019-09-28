@@ -2,8 +2,8 @@
 title: "R Markdown"
 description: "Implementing R markdown"
 author: "Laxmikant"
-date: 2015-07-23T21:13:14-05:00
-lastmod: 2017-07-26T15:01:05+08:00
+date: 2017-07-23
+lastmod: 2017-07-23
 categories: ["R"]
 subtitle: Using R markdown
 tags: ["R Markdown", "plot", "regression"]
@@ -31,10 +31,6 @@ You can embed an R code chunk like this:
 summary(cars)
 fit <- lm(dist ~ speed, data = cars)
 fit
-```
-
-```{r}
-knitr::include_url(url, height = "400px")
 ```
 
 # Including Plots

@@ -1,5 +1,18 @@
 ---
 title: "Regular expressions"
+description: "Implementing Regular expressions"
+author: "Laxmikant"
+date: 2017-07-23
+lastmod: 2017-07-23
+categories: ["Regular expression"]
+subtitle: Implementing Regular Expression
+tags: ["Regular expression"]
+lua:
+  image:
+    url: "/img/cover.png"
+    width: 800
+    height: 600
+  author: "Laxmikant"
 
 ---
 
