@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Laxmikant</title>
+    <link>https://laxmikants.github.io/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Laxmikant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
+    <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regression</title>
+      <link>https://laxmikants.github.io/post/2019-03-20-regression/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2019-03-20-regression/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

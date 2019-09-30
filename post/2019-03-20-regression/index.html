@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Regression",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/laxmikants.github.io\/post\/2019-03-20-regression\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/laxmikants.github.io\/img\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "post",
+  "keywords": "Statistics, Regression, Machine Learning",
+  "wordcount":  1047 ,
+  "url": "https:\/\/laxmikants.github.io\/post\/2019-03-20-regression\/",
+  "datePublished": "2019-03-05T00:00:00\x2b00:00",
+  "dateModified": "2019-03-05T00:00:00\x2b00:00",
+  "license": "This work is licensed.",
+   "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant"
+  },
+  "description" : "Statistics, Regression, Machine Learning"
+}
+</script>
+
+  
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Laxmikant</title>
+  <meta property="og:title" content="Posts and Resources on Data Science | Regression" />
+  <meta name="description" content="Statistics, Regression, Machine Learning">
+  <meta property="og:description" content="Statistics, Regression, Machine Learning">
+  <meta name="author" content="Laxmikant"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name" : "Laxmikant"
+  },
+  "headline": "Regression",
+  "description" : "Statistics, Regression, Machine Learning",
+  "inLanguage" : "en",
+  "wordCount":  1047 ,
+  "datePublished" : "2019-03-05T00:00:00",
+  "dateModified" : "2019-03-05T00:00:00",
+  "image" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+  "keywords" : [ "Statistics, Regression, Machine Learning" ],
+  "mainEntityOfPage" : "https:\/\/laxmikants.github.io\/post\/2019-03-20-regression\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+  <meta property="og:url" content="https://laxmikants.github.io/post/2019-03-20-regression/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="article" />
+
+  <meta content="Statistics, Regression, Machine Learning" property="og:description">
+  <meta property="og:url" content="https://laxmikants.github.io/post/2019-03-20-regression/" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="article:section" content="Machine Learning" />
+  <meta property="article:published_time" content="2019-03-05 00:00:00 &#43;0000 UTC" />
+  
+  
+  
+  <meta name="generator" content="Hugo 0.58.2" />
+  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Posts</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/2017-03-05-math-tex">Math formulas using Tex</a>
+                
+                  <a href="/post/2016-03-08-code-markdown">Code snippets in R markdown</a>
+                
+                  <a href="/post/2015-07-23-r-rmarkdown">Data Analysis in R markdown</a>
+                
+                  <a href="/post/2018-02-06-ds-resources">Data Science resources</a>
+                
+                  <a href="/post/2017-01-05-scientificpaper">Scientific paper</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Laxmikant" href="https://laxmikants.github.io">
+            <img class="avatar-img" src="https://laxmikants.github.io/img/avatar-icon.png" alt="Laxmikant" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Regression</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Regression</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1047&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <div id="definition" class="section level2">
+<h2>Definition</h2>
+<p>A linear equation that models a function such that if we give any <code>x</code> to it, it will predict a value <code>y</code> , where both <code>x and y</code> are input and output variables respectively. These are numerical and continous values.
+It is the most simple and well known algorithm used in machine learning.</p>
+</div>
+<div id="flowchart" class="section level2">
+<h2>Flowchart</h2>
+<p align="center">
+<img src = '/img/Linear_Reg_Flowchart.png'>
+</p>
+<p><br></p>
+<p>The above Flowchart represents that we choose our training set, feed it to an algorithm, it will learn the patterns and will output a function called <code>Hypothesis function 'H(x)'</code>. We then give any <code>x</code> value to that function and it will output an estimated <code>y</code> value for it.</p>
+<p>For historical reasons, this function <code>H(x)</code> is called <code>hypothesis function.</code></p>
+</div>
+<div id="cost-function" class="section level2">
+<h2>Cost Function</h2>
+<p>The best fit line to our data will be where we have least distance between the <code>predicted 'y' value</code> and <code>trained 'y' value</code>.</p>
+</div>
+<div id="formula-for-cost-function" class="section level2">
+<h2>Formula for Cost Function</h2>
+<p align="center">
+<img src = '/img/MSE.png'>
+</p>
+<blockquote>
+<p>Where :
+- h(x<sub>i</sub>) 👉 hypothesis function
+- y<sub>i</sub> 👉 actual values of <code>y</code>
+- 1/m 👉 gives Mean of Squared Errors
+- 1/2 👉 Mean is halved as a convenience for the computation of the <code>Gradient Descent</code>.</p>
+</blockquote>
+<pre class="r"><code>computeCost &lt;- function (X, y, theta){
+        # number of training examples
+        m &lt;- length(y);
+        # need to return
+        J &lt;- 0;
+        
+        predictions &lt;-  X %*% theta;
+        sqerrors = (predictions - y)^2;
+        J = 1/(2*m)* sum(sqerrors);
+        
+        J
+    }</code></pre>
+The above formula takes the sum of the distances between <i><code>predicted values</code> and <code>actual values</code> of training set, sqaure it, take the average and multiply it by <code>1/2</code>.</i>
+<br>
+<br>
+This cost function is also called as <code>Squared Error Function</code> or <code>Mean Squared Error</code>.
+<br>
+<br>
+Why do we take squares of the error’s?<br>
+The <code>MSE</code> function is commonly used and is a reasonable choice and works well for most Regression problems.
+<br>
+<br>
+Let’s subsititute <code>MSE</code> function to function <code>J</code> :
+<p align="center">
+<img src = '/img/MSE1.png'>
+</p>
+<p><br>
+<br></p>
+</div>
+<div id="gradient-descent" class="section level2">
+<h2>Gradient Descent</h2>
+<p>So now we have our hypothesis function and we have a way of measuring how well it fits into the data. Now we need to estimate the parameters in the hypothesis function. That’s where <code>Gradient Descent</code> comes in.<br>
+<code>Gradient Descent</code> is used to minimize the cost function <code>J</code>, minimizing <code>J</code> is same as minimizing <code>MSE</code> to get best possible fit line to our data.</p>
+<p><span class="math display">\[\displaystyle \min_{\theta_0,\theta_1}\frac{1}{2m}\sum_{i=1}^{m} \left(h_{\theta}(x^{(i)})-y^{(i)}\right)^2\]</span></p>
+</div>
+<div id="formula-for-gradient-descent" class="section level2">
+<h2>Formula for Gradient Descent</h2>
+<p align="center">
+<img src = '/img/Gradient_Descent.PNG'>
+</p>
+<blockquote>
+<p>Where :
+- <code>:=</code> Is the Assignment Operator
+- <code>α</code> is <code>Alpha</code>, it’s the number which is called learning rate. If its too high it may fail to converge and if too low then descending will be slow.
+- ‘θ<sub>j</sub>’ Taking Gradient Descent of a feature or a column of a dataset.
+- ∂/(∂θ<sub>j</sub>) J(θ<sub>0</sub>,θ<sub>1</sub>) Taking partial derivative of <code>MSE</code> cost function.</p>
+</blockquote>
+<p><br></p>
+<pre><code>    gradientDescent &lt;- function(X, y, theta, alpha, num_iters){
+        m &lt;- length(y);  
+        J_history = rep(0, num_iters);
+        for (iter in 1:num_iters){
+            predictions &lt;-  X %*% theta;
+            updates = t(X) %*% (predictions - y);
+            theta = theta - alpha * (1/m) * updates;
+            J_history[iter] &lt;- computeCost(X, y, theta);
+        }
+        list(&quot;theta&quot; = theta, &quot;J_history&quot; = J_history)  
+    }</code></pre>
+<p><strong>Now Let’s apply Gradient Descend to minmize our <code>MSE</code> function.</strong>
+<br>
+In order to apply <code>Gradient Descent</code>, we need to figure out the partial derivative term.<br>
+So let’s solve partial derivative of cost function <code>J</code>.</p>
+<p><br></p>
+<p align="center">
+<img src = '/img/Solving_Partial_Derivative.PNG'>
+</p>
+<p><br></p>
+<p>Now let’s plug these 2 values to our <code>Gradient Descent</code>:</p>
+<p><br></p>
+<p align="center">
+<img src = '/img/Final_Gradient_Descent.PNG'>
+</p>
+<p><br></p>
+</div>
+<div id="example-code-in-r" class="section level2">
+<h2>Example Code in R</h2>
+<pre class="r"><code>
+
+```r
+computeCost  &lt;- function(X, y, theta) {
+  m &lt;- length(y) 
+  dif &lt;- X %*% theta - y
+  J &lt;- (t(dif) %*% dif) / (2 * m)
+  J
+}</code></pre>
+<pre class="r"><code>linear_regression_gd &lt;- function(X, y, theta, alpha, num_iters) {
+  
+  m &lt;- length(y) 
+  
+  J_history = rep(0, num_iters + 1)
+  
+  theta_history = matrix(0, num_iters + 1, length(theta))
+  
+  theta_history[1,] = t(theta)
+  
+  J_history[1] = computeCost(X, y, theta)
+  
+  for (iter in 2:(num_iters + 1)) {
+
+        theta_prev = theta
+    
+        # number of features.
+        p = dim(X)[2]
+    
+        # simultaneous update theta using theta_prev.
+        for (j in 1:p) {
+          deriv = (t(X %*% theta_prev - y) %*% X[, j]) / m
+          theta[j] = theta_prev[j] - (alpha * deriv)
+        }
+    
+      # Save the cost J in every iteration
+      J_history[iter] = computeCost(X, y, theta)
+      theta_history[iter,] = t(theta)
+  }
+  
+  list(theta = theta, J_history = J_history, theta_history = theta_history)
+  # ------------------------------------------------------------
+}</code></pre>
+<pre class="r"><code>plotData &lt;- function (x, y) {
+  print(length(x))
+  print(length(y))
+  plot(
+    x, y, col = &quot;red&quot;, pch = 4,cex = 1.1,lwd = 2,
+    xlab = &#39;&#39;,
+    ylab = &#39;&#39;
+  )
+  
+  # ------------------------------------------------------------
+  
+}</code></pre>
+<pre class="r"><code>
+computeSlopeIntercept &lt;- function(X,y) {
+  
+  m &lt;- length(y) # number of training examples
+  
+  X &lt;- cbind(rep(1,m),X)
+  
+  X &lt;- as.matrix(X)
+  
+  theta &lt;- c(0,0)
+
+  iterations &lt;- 1000000
+  
+  alpha &lt;- 0.01
+  
+  gd &lt;- linear_regression_gd(X, y, theta, alpha, iterations)
+
+  theta &lt;- gd$theta
+  
+  J_history &lt;- gd$J_history
+  
+  
+  theta_history &lt;- gd$theta_history
+  
+  print(length(gd$theta_history))
+
+  plot(1:length(gd$J_history), gd$J_history, type = &#39;l&#39;)
+  
+  rm(gd)
+
+  list(intercept=theta[1], slope=theta[2])
+
+}</code></pre>
+<pre class="r"><code>predictY &lt;- function(newdata,theta) {
+    
+  X &lt;- cbind(rep(1,length(newdata)),newdata)
+  
+  predicted_y = as.matrix(X) %*% theta
+  
+  predicted_y
+
+}</code></pre>
+<pre class="r"><code>featureNormalize &lt;- function(X) {
+  
+  X_norm &lt;- X
+  mu &lt;- rep(0,dim(X)[2])
+  sigma &lt;- rep(0,dim(X)[2])
+
+    for (p in 1:dim(X)[2]) {
+    mu[p] &lt;- mean(X[,p])
+  }
+  
+  for (p in 1:dim(X)[2]) {
+    sigma[p] &lt;- sd(X[,p])
+  }
+  
+  for (p in 1:dim(X)[2]) {
+    if (sigma[p] != 0)
+      for (i in 1:dim(X)[1])
+        X_norm[i, p] &lt;- (X[i, p] - mu[p]) / sigma[p]
+      else
+        X_norm[, p] &lt;- t(rep(0,dim(X)[1]))
+  }
+  
+  list(X_norm = X_norm, mu = mu, sigma = sigma)
+}</code></pre>
+<pre class="r"><code>
+Input =(&quot;
+x       y  
+1       1
+2      4    
+3      9    
+&quot;)
+
+Data = read.table(textConnection(Input),header = TRUE)
+
+csi = computeSlopeIntercept(Data$x,Data$y)
+#&gt; [1] 2000002</code></pre>
+<p><img src="/post/2019-03-20-regression_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>
+
+newdata = c(4,5)
+
+theta = c(csi$intercept,csi$slope)
+
+ypredicted = predictY(as.vector(newdata),theta)
+
+print(ypredicted)
+#&gt;          [,1]
+#&gt; [1,] 12.66667
+#&gt; [2,] 16.66667
+
+print(csi)
+#&gt; $intercept
+#&gt; [1] -3.333333
+#&gt; 
+#&gt; $slope
+#&gt; [1] 4</code></pre>
+<pre><code>[1] 200002
+[1] &quot;coefficeints&quot;
+[1] -3.333333
+[1] 4
+[1] &quot;Predicted values for 4 &amp; 5&quot;
+[1] 12.66667 16.66667</code></pre>
+<div id="applications" class="section level3">
+<h3>Applications</h3>
+<ul>
+<li>Sales Forecasting</li>
+<li>Demand Supply Forecasting</li>
+<li>Operations cost optimization</li>
+<li>Insurance industry - claim prediction</li>
+<li>Banking</li>
+<li>Healthcare industry - cost prediction</li>
+<li>Ecommerce industry - Recommandation System</li>
+</ul>
+</div>
+<div id="key-points" class="section level3">
+<h3>Key Points</h3>
+<ul>
+<li><p>If sample is small ( &lt; 10000) then normal equation can be used to get the theta values</p></li>
+<li><p>As the training set size increases it is better to use gradient descent algorithm instead of normal equation</p></li>
+<li><p>If sample data contains large digits for x, y values then it is better to scale the values around mean before applying cost function and gradient descent</p></li>
+<li><p>In R language <code>lm(x~y)</code> can be used directly for determining theta values which is more efficient than using gradient descent algorithm</p></li>
+<li><p>Initially it is better to calculate correlation coeficient to ensure that variables are related in some way</p></li>
+<li><p>Normalizing data is important to deal with when individual values are numerically large ( &gt; 4 digits)</p></li>
+</ul>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://laxmikants.github.io/tags/statistics/">Statistics</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/regression/">Regression</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f&amp;text=Regression&amp;via=laxmikantsoni09" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f&amp;title=Regression" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f&amp;title=Regression" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f&amp;title=Regression" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2019-03-20-regression%2f&amp;description=Regression" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/2017-03-05-math-tex/">Tex formulas</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" data-toggle="tooltip" data-placement="top" title="R Markdown">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:laxmikant.soni@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/laxmikantsoni09" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/laxmikants" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/laxmikantsoni09" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/laxmikantsoni09" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/laxmikantsoni09" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+            
+          
+
+          
+          
+
+          
+            &nbsp;&bull;&nbsp;
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.58.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://laxmikants.github.io/js/main.js"></script>
+<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

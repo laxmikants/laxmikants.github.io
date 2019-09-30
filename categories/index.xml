@@ -8,9 +8,46 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/categories/machine-learning/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://laxmikants.github.io/categories/r/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular expression</title>
+      <link>https://laxmikants.github.io/categories/regular-expression/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/categories/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tex</title>
+      <link>https://laxmikants.github.io/categories/tex/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/categories/tex/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science Resources</title>
@@ -27,33 +64,6 @@
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/categories/pandoc/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R</title>
-      <link>https://laxmikants.github.io/categories/r/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regular Expression</title>
-      <link>https://laxmikants.github.io/categories/regular-expression/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/categories/regular-expression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tex</title>
-      <link>https://laxmikants.github.io/categories/tex/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/categories/tex/</guid>
       <description></description>
     </item>
     
