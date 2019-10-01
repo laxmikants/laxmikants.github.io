@@ -4,51 +4,21 @@
   
   <url>
     <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/machine-learning/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/machine-learning/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/post/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/post/2019-03-20-regression/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/regression/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/statistics/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/tags/plot/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/</loc>
     <lastmod>2017-07-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -68,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
+    <loc>https://laxmikants.github.io/tags/regression/</loc>
     <lastmod>2017-07-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,12 +48,27 @@
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</loc>
     <lastmod>2017-07-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2017-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/tags/latex/</loc>
+    <lastmod>2017-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/statistics/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
   </url>
   
