@@ -14,15 +14,6 @@
     
     
     <item>
-      <title>plot</title>
-      <link>https://laxmikants.github.io/tags/plot/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/plot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>R Markdown</title>
       <link>https://laxmikants.github.io/tags/r-markdown/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
@@ -32,20 +23,29 @@
     </item>
     
     <item>
-      <title>regression</title>
-      <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Regular expression</title>
       <link>https://laxmikants.github.io/tags/regular-expression/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plot</title>
+      <link>https://laxmikants.github.io/tags/plot/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>https://laxmikants.github.io/tags/regression/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/regression/</guid>
       <description></description>
     </item>
     
