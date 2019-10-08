@@ -8,26 +8,35 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sun, 23 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R Markdown</title>
-      <link>https://laxmikants.github.io/tags/r-markdown/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <title>Blogdown</title>
+      <link>https://laxmikants.github.io/tags/blogdown/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/r-markdown/</guid>
+      <guid>https://laxmikants.github.io/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Regular expression</title>
-      <link>https://laxmikants.github.io/tags/regular-expression/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <title>Github</title>
+      <link>https://laxmikants.github.io/tags/github/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
+      <guid>https://laxmikants.github.io/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Netlify</title>
+      <link>https://laxmikants.github.io/tags/netlify/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/netlify/</guid>
       <description></description>
     </item>
     
@@ -41,11 +50,29 @@
     </item>
     
     <item>
+      <title>R Markdown</title>
+      <link>https://laxmikants.github.io/tags/r-markdown/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>regression</title>
       <link>https://laxmikants.github.io/tags/regression/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular expression</title>
+      <link>https://laxmikants.github.io/tags/regular-expression/</link>
+      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
       <description></description>
     </item>
     

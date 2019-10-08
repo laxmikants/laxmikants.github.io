@@ -18,7 +18,7 @@
   },
   "genre": "post",
   "keywords": "R Markdown, plot, regression",
-  "wordcount":  159 ,
+  "wordcount":  732 ,
   "url": "https:\/\/laxmikants.github.io\/post\/2015-07-23-r-rmarkdown\/",
   "datePublished": "2017-07-23T00:00:00\x2b00:00",
   "dateModified": "2017-07-23T00:00:00\x2b00:00",
@@ -64,7 +64,7 @@
   "headline": "R Markdown",
   "description" : "Implementing R markdown",
   "inLanguage" : "en",
-  "wordCount":  159 ,
+  "wordCount":  732 ,
   "datePublished" : "2017-07-23T00:00:00",
   "dateModified" : "2017-07-23T00:00:00",
   "image" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
@@ -100,7 +100,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.58.2" />
   <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -276,10 +276,10 @@
   <i class="fas fa-calendar"></i>&nbsp;Posted on July 23, 2017
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;159&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;732&nbsp;words
   
   
     
@@ -328,6 +328,118 @@ fit
 ## Coefficients:
 ## (Intercept)        speed  
 ##     -17.579        3.932</code></pre>
+<div id="headers" class="section level3">
+<h3>Headers</h3>
+<p>Sometimes it’s useful to have different levels of headings to structure your documents.
+Start lines with a <code>#</code> to create headings. Multiple <code>##</code> in a row denote smaller heading sizes.</p>
+<p>You can use one <code>#</code> all the way up to <code>######</code> six for different heading sizes.</p>
+<p>If you’d like to include a quote, use the &gt; character before the line:</p>
+<blockquote>
+<p>My Software never has bugs. It just develops random features.</p>
+</blockquote>
+</div>
+<div id="lists" class="section level3">
+<h3>Lists</h3>
+<p>Sometimes you need numbered lists (here to some useful resources for markdown):</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://rmarkdown.rstudio.com/authoring_basics.html">Markdown Basics from R-Studio</a></li>
+<li><a href="https://guides.github.com/features/mastering-markdown/">Mastering Markdown from GitHub</a> (this is where most of the examples above come from)</li>
+</ol>
+<p>And sometimes you want bullet points (the kind of things you can do with R markdown
+if you want to go beyond the basics):</p>
+<ul>
+<li><a href="http://rmarkdown.rstudio.com/authoring_rcodechunks.html">Lots of options for embedded R code</a> (more details below)</li>
+<li><a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">Bibliographies and References</a></li>
+<li><a href="http://rmarkdown.rstudio.com/authoring_shiny.html">Interactive Documents</a></li>
+<li>And if you have sub points, put two spaces before:
+<ul>
+<li>Like this</li>
+<li>And this</li>
+</ul></li>
+</ul>
+</div>
+<div id="equations" class="section level3">
+<h3>Equations</h3>
+<p>Equation support can be very handy if you need to provide some formulas in your
+text, just use <span class="math inline">\(\LaTeX\)</span> <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">math</a>: <span class="math inline">\(x=\sum\beta\frac{\pi^2}{\gamma_i}\)</span></p>
+<p>Or more complicated large ones:</p>
+<p><span class="math display">\[
+f(n) =
+  \begin{cases}
+    n/2       &amp; \quad \text{if } n \text{ is even}\\
+    -(n+1)/2  &amp; \quad \text{if } n \text{ is odd}\\
+  \end{cases}
+\]</span></p>
+</div>
+<div id="images" class="section level3">
+<h3>Images</h3>
+<p>If you want to embed images, this is how you do it:</p>
+<div class="figure">
+<img src="http://i.space.com/images/i/000/048/999/i02/pluto-new-horizons-july-2015.jpg?1437582878" alt="Pluto loves you" />
+<p class="caption">Pluto loves you</p>
+</div>
+<p>And now time for a horizontal break and off to R!</p>
+<hr />
+</div>
+<div id="inline-code-snippets" class="section level2">
+<h2>inline code snippets</h2>
+<p><strong>R markdown</strong> is a version of Markdown that is expanded to support running R code
+in between your text. The blocks of R code are called <code>chunks</code> and you can treat
+them as individual little segments of code, you can jump back and forth between them,
+run just individual ones or run all of them when you click the <strong>Knit</strong> button - this
+will generate a document that includes both content as well as the output of any
+embedded R code chunks within the document. This is an R code chunk:</p>
+<pre class="r"><code>data &lt;- cars # get the cars data set as an example
+summary(data) # show a summary of the data set
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+<p>You can also print out your data in table format if you want to include it in
+your document:</p>
+<pre class="r"><code>library(knitr)
+kable(head(data))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">speed</th>
+<th align="right">dist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
+<p>Or you can print out the value of a variable in your text, say the value of <span class="math inline">\(\pi\)</span>
+with 4 significant digits: 3.142 or the number of data points in
+your data set: 50.</p>
+</div>
 </div>
 <div id="including-plots" class="section level1">
 <h1>Including Plots</h1>
@@ -345,6 +457,26 @@ pie(
 Figure 1: A fancy pie chart.
 </p>
 </div>
+<p>For additional information on R and R markdown, there are lots of great resources
+on the internet and the R user community is very active and extremely helpful. Often,
+googling what you’d like to achieve will provide a good starting point but I can
+also recommend the following resources specifically:</p>
+<ul>
+<li><a href="http://cran.r-project.org/doc/contrib/Short-refcard.pdf">R reference manual</a> (a great overview of many useful R commands)</li>
+<li><a href="http://cran.r-project.org/doc/contrib/Ricci-refcard-regression.pdf">Regression analysis functions</a> (statistical analysis is one of the great strengths of R, this is a handy overview of useful functionality)</li>
+<li><a href="http://stackoverflow.com/">Stack Overflow</a> (a Q&amp;A site for programming, searching for answers here often provides very helpful information)</li>
+</ul>
+<p>With that, time to jump to the last item</p>
+<hr />
+</div>
+<div id="including-slides" class="section level1">
+<h1>Including Slides</h1>
+<pre class="r"><code>knitr::include_url(&quot;https://laxmikants.github.io/R-markdown/slides/Lession1.html#1&quot;, height = &quot;400px&quot;)</code></pre>
+<iframe src="https://laxmikants.github.io/R-markdown/slides/Lession1.html#1" width="672" height="400px">
+</iframe>
+<pre class="r"><code>knitr::include_url(&quot;https://laxmikants.github.io/R-markdown/slides/Lession2.html#1&quot;, height = &quot;400px&quot;)</code></pre>
+<iframe src="https://laxmikants.github.io/R-markdown/slides/Lession2.html#1" width="672" height="400px">
+</iframe>
 </div>
 
 
@@ -430,6 +562,10 @@ Figure 1: A fancy pie chart.
               <a href="https://laxmikants.github.io/post/2015-06-23-regularexpressions/" data-toggle="tooltip" data-placement="top" title="Regular expressions">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://laxmikants.github.io/post/up-and-running-with-blogdown/" data-toggle="tooltip" data-placement="top" title="Websites with blogdown">Next Post &rarr;</a>
+            </li>
           
         </ul>
       
@@ -524,7 +660,7 @@ Figure 1: A fancy pie chart.
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.55.6</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.58.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
