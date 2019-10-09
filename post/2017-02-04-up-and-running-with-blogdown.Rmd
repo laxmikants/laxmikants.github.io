@@ -2,8 +2,8 @@
 title: Websites with blogdown
 author: Laxmikant 
 slug: up-and-running-with-blogdown
-date: 2017-01-03
-lastmod: 2017-01-03
+date: 2017-02-04
+lastmod: 2017-02-04
 categories:
   - R
 tags: ["Blogdown","Github","Netlify"]
