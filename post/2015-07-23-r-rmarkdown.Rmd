@@ -114,6 +114,25 @@ Or you can print out the value of a variable in your text, say the value of $\pi
 with 4 significant digits: `r signif(pi, 4)` or the number of data points in
 your data set: `r nrow(data)`.
 
+
+
+## Executing R code 
+
+```{r}
+Input =("
+Procrastination.level  low  medium  high
+Male                   8       12   6
+Female                 2       21   3
+")
+
+mat = as.matrix(read.table(textConnection(Input),
+                   header=TRUE, 
+                   row.names=1))
+chisq.test(mat,
+           correct=FALSE)                   
+
+```
+
 # Including Plots
 
 You can also embed plots. See Figure \@ref(fig:pie) for example:

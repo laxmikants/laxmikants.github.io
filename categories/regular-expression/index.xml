@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Regular Expression on Laxmikant</title>
+    <title>Regular expression on Laxmikant</title>
     <link>https://laxmikants.github.io/categories/regular-expression/</link>
-    <description>Recent content in Regular Expression on Laxmikant</description>
+    <description>Recent content in Regular expression on Laxmikant</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
@@ -20,26 +20,6 @@
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</guid>
       <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
-Regular expressions are the default pattern engine in stringr.</description>
-    </item>
-    
-    <item>
-      <title>Regular expressions</title>
-      <link>https://laxmikants.github.io/post/2015-06-23-regularexpressions.knit/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions.knit/</guid>
-      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr&amp;rsquo;s regular expressions, as implemented by stringi. It is not a tutorial, so if you&amp;rsquo;re unfamiliar regular expressions, I&amp;rsquo;d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I&amp;rsquo;d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
-Regular expressions are the default pattern engine in stringr.</description>
-    </item>
-    
-    <item>
-      <title>Regular expressions</title>
-      <link>https://laxmikants.github.io/post/2015-06-23-regularexpressions.utf8/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions.utf8/</guid>
-      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr&amp;rsquo;s regular expressions, as implemented by stringi. It is not a tutorial, so if you&amp;rsquo;re unfamiliar regular expressions, I&amp;rsquo;d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I&amp;rsquo;d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
 Regular expressions are the default pattern engine in stringr.</description>
     </item>
     
