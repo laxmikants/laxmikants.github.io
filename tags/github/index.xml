@@ -8,19 +8,10 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Fri, 05 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jan 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Websites with blogdown</title>
-      <link>https://laxmikants.github.io/post/up-and-running-with-blogdown/</link>
-      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
-      <description>A guide to getting up and running with blogdown, GitHub, and Netlify</description>
-    </item>
     
     <item>
       <title>Websites with blogdown</title>
