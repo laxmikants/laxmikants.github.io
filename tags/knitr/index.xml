@@ -8,17 +8,17 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Sep 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/knitr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Scientific paper</title>
-      <link>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <link>https://laxmikants.github.io/post/2016-09-05-scientificpaper/</link>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</guid>
+      <guid>https://laxmikants.github.io/post/2016-09-05-scientificpaper/</guid>
       <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
 Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
  You can find out more at the Chocolatey Official Website

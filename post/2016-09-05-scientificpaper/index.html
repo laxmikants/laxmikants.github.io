@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Scientific paper",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/post/2016-09-05-scientificpaper/"
+  },
+  
+  "genre": "post",
+  "keywords": "Scientific Paper, Latex, Markdown, MikTex, Knitr",
+  "wordcount": 2993,
+  "url": "https://laxmikants.github.io/post/2016-09-05-scientificpaper/",
+  "datePublished": "2016-09-05T00:00:00+00:00",
+  "dateModified": "2016-09-05T00:00:00+00:00",
+  "license": "This work is licensed.",
+   "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant"
+  },
+  "description" : "How to author Scientific Paper"
+}
+</script>
+
+  
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Laxmikant</title>
+  <meta property="og:title" content="Posts and Resources on Data Science | Scientific paper" />
+  <meta name="description" content="How to author Scientific Paper">
+  <meta property="og:description" content="How to author Scientific Paper">
+  <meta name="author" content="Laxmikant"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name" : "Laxmikant"
+  },
+  "headline": "Scientific paper",
+  "description" : "How to author Scientific Paper",
+  "inLanguage" : "en",
+  "wordCount": 2993,
+  "datePublished" : "2016-09-05T00:00:00",
+  "dateModified" : "2016-09-05T00:00:00",
+  "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+  "keywords" : [ "Scientific Paper, Latex, Markdown, MikTex, Knitr" ],
+  "mainEntityOfPage" : "https://laxmikants.github.io/post/2016-09-05-scientificpaper/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+  <meta property="og:url" content="https://laxmikants.github.io/post/2016-09-05-scientificpaper/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="article" />
+
+  <meta content="How to author Scientific Paper" property="og:description">
+  <meta property="og:url" content="https://laxmikants.github.io/post/2016-09-05-scientificpaper/" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="article:section" content="Pandoc" />
+  <meta property="article:published_time" content="2016-09-05 00:00:00 &#43;0000 UTC" />
+  
+  
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">About</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aboutme">About Me</a>
+                
+                  <a href="/page/consulting">Consulting</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Data Science Resources</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/ds-resources">Data Science Links</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Posts</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/2017-03-05-math-tex">Math formulas using Tex</a>
+                
+                  <a href="/post/2015-07-23-r-rmarkdown">Data Analysis in R markdown</a>
+                
+                  <a href="/post/2018-02-06-ds-resources">Data Science resources</a>
+                
+                  <a href="/post/2017-01-05-scientificpaper">Scientific paper</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Laxmikant" href="https://laxmikants.github.io">
+            <img class="avatar-img" src="https://laxmikants.github.io/img/avatar-icon.png" alt="Laxmikant" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Scientific paper</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Scientific Paper Authoring</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on September 5, 2016
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;15&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2993&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h1 id="installation-guide">Installation Guide</h1>
+
+<h2 id="package-managers">Package managers</h2>
+
+<p>A package manager will manage the installation of all other necessary programs and libraries. This will be done through the <strong>command/powershell</strong> (Windows) or the <strong>terminal</strong> (Mac/Linux).</p>
+
+<h3 id="installing-chocolatey-for-windows">Installing Chocolatey for Windows</h3>
+
+<p>If you are running windows, the best package manager right now is called <strong><em>Chocolatey</em></strong>.</p>
+
+<ol>
+<li><p>You can find out more at the <a href="https://chocolatey.org/">Chocolatey Official Website</a></p></li>
+
+<li><p>For installation, please follow the <a href="https://chocolatey.org/install">Installation Guide</a></p></li>
+
+<li><p>To search for any package available, you can visit <a href="https://chocolatey.org/packages">https://chocolatey.org/packages</a>`</p></li>
+</ol>
+
+<h3 id="installing-homebrew-for-mac">Installing Homebrew for Mac</h3>
+
+<p>If you are running a Mac, installing &lsquo;homebrew&rsquo; is quite straight-forward. Just paste the following command on the terminal and run it:</p>
+
+<p><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></p>
+
+<blockquote>
+<p>You can also find out more at <a href="https://brew.sh">their website</a> or search for available packages at <a href="https://formulae.brew.sh/formula/">https://formulae.brew.sh/formula/</a>.</p>
+</blockquote>
+
+<h3 id="usage">Usage</h3>
+
+<p>Once you have <strong><em>Chocolatey</em></strong> or <strong><em>Hombrew</em></strong> <em>up and running</em> you can easily install other packages by using the command <code>choco install PACKAGE_NAME</code> for Windows or <code>brew install PACKAGE_NAME</code> for Mac. <em>(changing <code>PACKAGE_NAME</code> for the name of the actual name of the package you wish to install.)</em></p>
+
+<h2 id="python-pip">Python &amp; pip</h2>
+
+<p>Now that we have <code>choco</code> or <code>brew</code> working, we need use install <code>python</code> and <code>pip</code> by copying and pasting the following commands on the terminal.</p>
+
+<h3 id="windows">Windows</h3>
+
+<ul>
+<li><code>choco install python2</code> to install Python 2.7</li>
+<li><code>choco install pip</code> to install <code>pip</code> (the python package manager)</li>
+</ul>
+
+<h3 id="mac">Mac</h3>
+
+<ul>
+<li><code>brew install python2</code> to install Python 2.7</li>
+<li><code>brew install pip</code> to install <code>pip</code> (the python package manager)</li>
+</ul>
+
+<h2 id="pandoc">Pandoc</h2>
+
+<p>Pandoc is a fantastic library for converting between a large list of markup document formats, such as <code>.docx</code>, <code>.pdf</code>, <code>html</code> or <code>epub</code>. It also manages references, citations, image numbering, templating and other fancy stuff.</p>
+
+<p>We will use <code>choco</code> or <code>brew</code> respectively to install <code>pandoc</code> on our computer. We will also be installing the following extensions:</p>
+
+<ol>
+<li><code>pandoc-citeproc</code> (to handle bibliography citations)</li>
+<li><code>pandoc-crossref</code> (to render image, table and equation references)</li>
+<li><code>miktex</code> - Technically NOT an extension, this is the $\LaTeX$ language renderer that pandoc uses under the hood.</li>
+</ol>
+
+<blockquote>
+<p>Pandoc and Miktex will also allow you to write fancy mathematical notation with little effort. Such as:
+$$f(x)=a^m_i + b^n_j$$</p>
+</blockquote>
+
+<h3 id="windows-1">Windows</h3>
+
+<p>Copy and paste the following commands on your windows command shell:</p>
+
+<ul>
+<li><code>choco install pandoc</code></li>
+<li><code>choco install pandoc-crossref</code></li>
+<li><code>choco install pandoc-citeproc</code></li>
+<li><code>choco install miktex</code></li>
+</ul>
+
+<h3 id="mac-1">Mac</h3>
+
+<p>Copy and paste the following commands on your linux terminal:</p>
+
+<ul>
+<li><code>brew install pandoc</code></li>
+<li><code>brew install pandoc-crossref</code></li>
+<li><code>brew install pandoc-citeproc</code></li>
+<li>To install miktex on a mac you need to run
+
+<ul>
+<li><code>brew tap miktex/miktex</code> and then</li>
+<li><code>brew install miktex</code></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<h3 id="miktex">Miktex</h3>
+
+<p>Just as a comment, MikTex is not a Pandoc extension. It is a program that installs the $\LaTeX$ language libraries that Pandoc uses to convert files. Sometimes, your default installation will come without some of the packages needed for a template and Pandoc will complain.<br />
+Most of the times, the solution is as easy as opening Miktex and searching for the missing package.</p>
+</blockquote>
+
+<h2 id="git">Git</h2>
+
+<p>And finally, a <strong><em>source control package</em></strong> will help you maintain your sanity while writting/coding. In short terms, it keeps track of the changes on your files as you advance in your projects.</p>
+
+<p>You can install it the same way as any other package.</p>
+
+<h3 id="for-widows">For widows</h3>
+
+<p>Copy and paste the following commands on your windows command shell:</p>
+
+<p><code>choco install git</code></p>
+
+<h3 id="for-mac">For Mac</h3>
+
+<p>Copy and paste the following commands on your linux terminal:</p>
+
+<p><code>brew install git</code></p>
+
+<h1 id="setting-up-the-text-editor">Setting up the text editor</h1>
+
+<p>By now, you should have all the necesary packages installed in your computer. The next step is to set up our environment for writting the paper.</p>
+
+<p>You could use any text editor to write your research paper, but in our case we are going to use Visual Studio Code.</p>
+
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+
+<p><img src="https://code.visualstudio.com/assets/docs/languages/cpp/languages_cpp.png" alt="Visual Studio Code" /></p>
+
+<p>VSC is a boiled down version of Visual Studio that is perfect for writing simple Python and C# scripts, but also amazingly good at Markdown syntax.</p>
+
+<blockquote>
+<p>Download Visual Studio Code at: <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</blockquote>
+
+<p>Other <strong>VERY</strong> good text editors are <em>SublimeText</em> and <em>Atom</em>, they all have a very similar design and behaviour; and you will find most of the functionality can be extended to your needs via packages/extensions, no matter the text editor you choose.</p>
+
+<p>We will also be making heavy use of VSC&rsquo;s extensions. You can install them directly from visual studio by pressing <code>CMD+SHIFT+X</code> on Mac or <code>CTRL+SHIFT+X</code> on Windows.</p>
+
+<p>Search and install the following extensions:</p>
+
+<ul>
+<li><strong>bibtexLanguage</strong> - by phr0s</li>
+<li><strong>Markdown All In One</strong> - by Yu Zhang</li>
+<li><strong>Markdown Footnotes</strong> - by Matt Bierner</li>
+<li><strong>Markdown Preview Enhanced</strong> - by Yiyi Wang</li>
+<li><strong>markdownlint</strong> - by David Anson</li>
+<li><strong>Python</strong> - by Microsoft (this one might come pre-installed)</li>
+<li><strong>RainbowCSV</strong> - by mechatroner (CSV colouring)</li>
+<li><strong>vscode-pandoc</strong> - by DougFinke (Research Paper PDF rendering through VSC)</li>
+<li><strong>vscode-pdf</strong> - by tomoki1207 (Visualize PDF without leaving VSC)</li>
+</ul>
+
+<p><strong>Optional</strong>, but still recomended:</p>
+
+<ul>
+<li><strong>GitLens</strong> - by Eric Amodio (Expands the Git capabilities of VSC)</li>
+<li><strong>C#</strong> - by Microsoft (if you write C#)</li>
+<li><strong>$\LaTeX$ Language Support</strong> - by Long Nhat Nguyen</li>
+</ul>
+
+<p>Nice color themes:</p>
+
+<ul>
+<li><strong>Gray Matter</strong> - by philipbe (Nice theme colors to write markdown)</li>
+<li><strong>Light+ Tweaked</strong> - by Per Ragnar Edin</li>
+<li>You can also customize your own!</li>
+</ul>
+
+<h2 id="visual-studio-settings">Visual Studio Settings</h2>
+
+<p>The only thing remaining is to tweak VSC&rsquo;s settings to be able to see all the features of the PDF also in the Preview.</p>
+
+<p>To access VSC&rsquo;s Settings panel, press <code>CNTRL + ,</code> on Windows, or <code>CMD + ,</code> on Mac.</p>
+
+<p><strong><em>If</em></strong> you have installed all the required extensions, just copy paste this into the User Settings Panel, just above the last <code>}</code>.</p>
+<div class="highlight"><pre class="chroma">    &#34;markdown.previewFrontMatter&#34;: &#34;show&#34;,
+    &#34;markdown.extension.toc.levels&#34;: &#34;1..2&#34;,
+    &#34;markdown.extension.toc.githubCompatibility&#34;: true,
+    &#34;markdown-preview-enhanced.frontMatterRenderingOption&#34;: &#34;table&#34;,
+    &#34;markdown-preview-enhanced.usePandocParser&#34;: true,
+    &#34;markdown-preview-enhanced.pandocMarkdownFlavor&#34;: &#34;markdown+implicit_figures+superscript+subscript+table_captions+definition_lists&#34;,
+    &#34;markdown-preview-enhanced.pandocArguments&#34;: &#34;--filter=pandoc-crossref&#34;,
+    &#34;markdown-preview-enhanced.previewTheme&#34;: &#34;gothic.css&#34;,
+    &#34;markdown-preview-enhanced.$\LaTeX$Engine&#34;: &#34;xelatex&#34;,
+    &#34;markdown-preview-enhanced.enableScriptExecution&#34;: false,
+    &#34;markdown-preview-enhanced.mermaidTheme&#34;: &#34;mermaid.forest.css&#34;,
+
+    &#34;pandoc.pdfOptString&#34;: &#34;-N -F pandoc-crossref -F pandoc-citeproc&#34;,</pre></div>
+<p>Some of them are pretty much self-explanatory but others, like <code>markdown-preview-enhanced.pandocMarkdownFlavor</code> and <code>markdown-preview-enhanced.pandocArguments</code>,
+require you to look into the Pandoc library to know the options you can use and what is the correct syntax. For now, just leave them like that, but you can find out everything you need about this in the <a href="http://pandoc.org/MANUAL.html">Pandoc Manual</a></p>
+
+<h2 id="trying-it-out">Trying it out</h2>
+
+<p>Let&rsquo;s try to publish a simple PDF in Paper format just to make sure everything is working correctly.</p>
+
+<p>In this repository, you will find a folder called <code>Paper</code> and inside there should be a file named <code>00 - Test.md</code>.</p>
+
+<blockquote>
+<p>Just in case you are wondering: the <code>.md</code> extension corresponds to a Markdown text file, you could also use the <code>.markdown</code> or even <code>.txt</code>, since Markdown is nothing more than plain text after all.</p>
+</blockquote>
+
+<p>Inside the <code>00 - Test.md</code>, the first thing you will find is a code block surrounded by <code>---</code>, this is called the <strong><em>YAML FrontMatter</em></strong> and it is a very important part of your Markdown file: it holds all the information that is not strictly text from your document, but should still go along with the document.</p>
+
+<p>Such as pdf meta-data, author, publisher, date, title, some Pandoc configuration, etc&hellip; You get the idea.</p>
+
+<blockquote>
+<p>The YAML Frontmatter has to be always enclosed around <code>---</code> in order to work properly.</p>
+</blockquote>
+
+<p>The test file contains the following YAML Frontmatter:</p>
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">---<span class="w">
+</span><span class="w"></span>title<span class="p">:</span><span class="w"> </span><span class="s1">&#39;A Title&#39;</span><span class="w">
+</span><span class="w"></span>author<span class="p">:</span><span class="w"> </span><span class="s1">&#39;An Author&#39;</span><span class="w">
+</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="s1">&#39;The Future&#39;</span><span class="w">
+</span><span class="w"></span>---</code></pre></div>
+<p>Go ahead and change it for your own personal details, and then press <code>CNTRL+K</code> (<code>CMD+K</code> for mac) and then, imediately after, press <code>P</code>; a menu will pop in the top of your screen giving you an option between <code>pdf</code>,<code>html</code> or <code>epub</code>. Select <code>pdf</code> and press <code>ENTER</code>.</p>
+
+<p><img src="/img/pandocRenderOptions.png" alt="The Pop-up menu for selecting an output format" /></p>
+
+<p>You will see a temp folder called <code>text2pdf.-#some-number</code> (see image below) while the PDF creation is in process, don&rsquo;t worry, it will be deleted once it finishes.</p>
+
+<p><img src="/img/pandocTempFolder.png" alt="TempFolder from Pandoc Extension" /></p>
+
+<p>After a couple of secconds, a PDF file named <code>00 - Test.pdf</code> should appear on the <code>Paper</code> folder. It should look something like this:</p>
+
+<p><img src="/img/testPaperScr.png" alt="First Paper Published" /></p>
+
+<p>But first, head to the next file to finish setting up everyting and print a test PDF to make sure.</p>
+
+<h1 id="markdown-syntax">Markdown Syntax</h1>
+
+<p>So, now that you have your machine printing a formated PDF out of a simple text file, you might be wondering:</p>
+
+<ol>
+<li><strong><em>WHAT</em></strong> can I do with this &lsquo;Markdown syntax&rsquo; you talk about so much?</li>
+<li><strong><em>HOW</em></strong> can I combine it with Pandoc to write something more complex than an fancy e-mail?</li>
+</ol>
+
+<p>Let&rsquo;s get to it:</p>
+
+<p>Markdown is based on very simple rules that allow you to concentrate only on writting and structure, without caring about the final appearance of the document.</p>
+
+<p>95% of the time, the PDF output will be exactly what you would expect, with no need for modifications. The other 5% of the time, there is a couple of solutions:</p>
+
+<ol>
+<li><p>you might need to go <em>under the hood</em> (using Latex templates) or,</p></li>
+
+<li><p>add an extra step to the workflow: outputing the file to <code>.docx</code> format using a preformatted template, and put the final touches in Word or,</p></li>
+
+<li><p>if InDesign is your thing, you can also export your document as a <code>.icml</code>(InCopy format).</p></li>
+</ol>
+
+<h2 id="simple-formating">Simple formating</h2>
+
+<h3 id="headings">Headings</h3>
+
+<p>You can do headings with <code>#</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="gh">#</span> Heading 1
+<span class="gu">##</span> Heading 2
+<span class="gu">###</span> Heading 3
+<span class="gu">####</span> Heading 4
+<span class="gu">#####</span> Heading 5
+###### Heading 6</code></pre></div>
+<p>will be rendered like:</p>
+
+<blockquote>
+<p><em>Heading 1 and 2 are missing because they were messing up the structure, but you get the idea:</em></p>
+
+<h3 id="heading-3">Heading 3</h3>
+
+<h4 id="heading-4">Heading 4</h4>
+
+<h5 id="heading-5">Heading 5</h5>
+
+<h6 id="heading-6">Heading 6</h6>
+</blockquote>
+
+<h3 id="lists">Lists</h3>
+
+<h4 id="bullet-lists">Bullet lists</h4>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="k">*</span> Item 1<span class="err">
+</span><span class="err"></span>+ Item 2
+  <span class="k">*</span> Nested item 1<span class="err">
+</span><span class="err"></span>    <span class="k">*</span> Nested item 2<span class="err">
+</span><span class="err"></span>- Item 3</code></pre></div>
+<p>will be rendered like:</p>
+
+<ul>
+<li>Item 1</li>
+<li>Item 2
+
+<ul>
+<li>Nested item 1</li>
+<li>Nested item 2</li>
+</ul></li>
+<li>Item 3</li>
+</ul>
+
+<blockquote>
+<p>Notice that you can use <code>*</code>, <code>+</code> and <code>-</code>, for bullet lists. Although <strong>Pandoc seems to prefer <code>*</code></strong>, so stick to that one.</p>
+</blockquote>
+
+<h4 id="ordered-lists">Ordered lists</h4>
+
+<p>Ordered/numbered lists use <code>1.</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="k">1.</span> Item 1<span class="err">
+</span><span class="err"></span><span class="k">2.</span> Item 2<span class="err">
+</span><span class="err"></span>    <span class="k">1.</span> A nested item<span class="err">
+</span><span class="err"></span>        <span class="k">1.</span>  Another nested item<span class="err">
+</span><span class="err"></span>3. Item 3</code></pre></div>
+<p>will be rendered like:</p>
+
+<ol>
+<li>Item 1</li>
+<li>Item 2
+
+<ol>
+<li>A nested item
+
+<ol>
+<li>Another nested item</li>
+</ol></li>
+</ol></li>
+<li>Item 3</li>
+</ol>
+
+<h3 id="tables">Tables</h3>
+
+<p>This is a Markdown  table:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">| Head 1 | Head 2 | Head 3 |<span class="err">
+</span><span class="err"></span>| ------ | ------ | ------ |<span class="err">
+</span><span class="err"></span>| Item 1 | Item 2 | Item 3 |<span class="err">
+</span><span class="err"></span>| Item 4 | Item 5 | Item 6 |</code></pre></div>
+<p>It will look like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>Head 1</th>
+<th>Head 2</th>
+<th>Head 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Item 1</td>
+<td>Item 2</td>
+<td>Item 3</td>
+</tr>
+
+<tr>
+<td>Item 4</td>
+<td>Item 5</td>
+<td>Item 6</td>
+</tr>
+</tbody>
+</table>
+
+<p>Table captions are not supported by Markdown but Pandoc has a special notation for them. This is a table with a caption.</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">| Head 1 | Head 2 | Head 3 |<span class="err">
+</span><span class="err"></span>| ------ | ------ | ------ |<span class="err">
+</span><span class="err"></span>| Item 1 | Item 2 | Item 3 |<span class="err">
+</span><span class="err"></span>| Item 4 | Item 5 | Item 6 |<span class="err">
+</span><span class="err"></span>: The caption of the table goes here</code></pre></div>
+<p>and will be rendered in your document like:</p>
+
+<table>
+<thead>
+<tr>
+<th>Head 1</th>
+<th>Head 2</th>
+<th>Head 3</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Item 1</td>
+<td>Item 2</td>
+<td>Item 3</td>
+</tr>
+
+<tr>
+<td>Item 4</td>
+<td>Item 5</td>
+<td>Item 6</td>
+</tr>
+</tbody>
+</table>
+
+<dl>
+<dd>The caption of the table goes here</dd>
+</dl>
+
+<h3 id="images">Images</h3>
+
+<p>You can reference an image from anywhere in your system (or the web) using</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">![<span class="nt">IMAGE_CAPTION_TEXT_GOES_HERE</span>](<span class="na">PATH_OR_LINK_TO_IMAGE</span>)</code></pre></div>
+<p>Let&rsquo;s try it out grabing the Google logo from the web:</p>
+<div class="highlight"><pre class="chroma"><code class="language-makrdown" data-lang="makrdown">![Google Logo](https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png)</code></pre></div>
+<p>The above text will render this:</p>
+
+<p><img src="https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" /></p>
+
+<h3 id="links">Links</h3>
+
+<p>Links have exactly the same notation as images but without the exclamation mark at the beginning so writting</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">[<span class="nt">LINK_TEXT</span>](<span class="na">WWW.SOME-WEBPAGE.COM</span>)</code></pre></div>
+<p>will result in</p>
+
+<p><a href="WWW.SOME-WEBPAGE.COM">LINK_TEXT</a></p>
+
+<h3 id="images-links">Images + Links</h3>
+
+<p>You can also nest an image in the <code>LINK_TEXT</code> and the whole image will become a link. Let&rsquo;s try it out with the Google logo again:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"> [<span class="nt">![Google Logo</span>](<span class="na">https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png</span>)](http://www.google.com)</code></pre></div>
+<p>Now clicking the image will take you to Google&rsquo;s website:</p>
+
+<p><a href="http://www.google.com"><img src="https://www.google.es/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo" /></a></p>
+
+<blockquote>
+<p>Be carefull with links as they don&rsquo;t play well with printed media, it&rsquo;s better to footnote web addresses so if your document get&rsquo;s printed it will not lose information.</p>
+</blockquote>
+
+<h3 id="references">References</h3>
+
+<h4 id="footnotes">Footnotes</h4>
+
+<p>You can make a footnote reference using <code>[^REFERENCE]</code> <strong><em>anywhere</em></strong> in the document, with the exception of nested footnotes (footnotes inside a footnote).</p>
+
+<p>Then you can add the footnote text using the same notation in a <strong>new line</strong>, followed by <code>:</code> and the text footnote text. Like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown {wrap-text=true}" data-lang="markdown {wrap-text=true}"></code></pre></div>
+<p>Notice that <code>REFERENCE</code> must be a <strong>unique name</strong>
+It is good practice to give it a <em>meaningful</em> name, don&rsquo;t try to number them: Pandoc will take care of the numbering for you.</p>
+
+<ul>
+<li><p>The footnote text must have a unique name, but you can reference that name as many times as needed in your document, AND</p></li>
+
+<li><p>You can add as many footnotes as you need, as long as you keep giving them <strong><em>unique identifiers</em></strong>.</p></li>
+</ul>
+
+<h4 id="bibliography">Bibliography</h4>
+
+<p>Very similar to the footnote notation, you can reference a book in  you bibiliography using <code>[@REFERENCE]</code>.</p>
+
+<p>The bibliography is a <em>special</em> kind of reference. It requires that your references be compiled in a <code>.bib</code> file. This is a standard format for scientific references (also, just a text file with fancy format).</p>
+
+<p>The magic about bib files is that you don&rsquo;t have to write any of the information of your papers because <em>&lsquo;the internet&rsquo;</em> has already done that fore you. It works like this:</p>
+
+<p>You have a bunch of papers you need to reference in your research:</p>
+
+<ol>
+<li>Go to <a href="http://scholar.google.com">Google Scholar</a></li>
+<li>Search for your paper name/author&hellip;</li>
+<li>Click on the &ldquo;Cite&rdquo; button <img src="/img/GoogleScholarCiteButton.png" alt="cite button" /></li>
+<li>A pop-up will appear with some pre-formated text references, <strong>ignore them</strong></li>
+<li>Click the BibTeX button in the lower left part and a new window should appear with the reference info in BibTeX format.<img src="/img/GoogleScholarBibtexButton.png" alt="GoogleBibtexButton" /></li>
+<li>Copy and paste it to your <code>.bib</code> file. If you don&rsquo;t have one, just create a new text file with the <code>.bib</code> extension. It should look like this:</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">@inproceedings{pottmann2008geometry<span class="p">,</span><span class="w">
+</span><span class="w">  </span>title={Geometry<span class="w"> </span>of<span class="w"> </span>architectural<span class="w"> </span>freeform<span class="w"> </span>structures.}<span class="p">,</span><span class="w">
+</span><span class="w">  </span>author={Pottmann<span class="p">,</span><span class="w"> </span>Helmut<span class="w"> </span>and<span class="w"> </span>Schiftner<span class="p">,</span><span class="w"> </span>Alexander<span class="w"> </span>and<span class="w"> </span>Wallner<span class="p">,</span><span class="w"> </span>Johannes}<span class="p">,</span><span class="w">
+</span><span class="w">  </span>booktitle={Symposium<span class="w"> </span>on<span class="w"> </span>Solid<span class="w"> </span>and<span class="w"> </span>Physical<span class="w"> </span>Modeling}<span class="p">,</span><span class="w">
+</span><span class="w">  </span>pages={<span class="m">9</span>}<span class="p">,</span><span class="w">
+</span><span class="w">  </span>year={<span class="m">2008</span>}<span class="w">
+</span><span class="w"></span>}</code></pre></div>
+<p>The last step is that you need to insert this line anywhere in your <strong><em>YAML Frontmatter</em></strong> to tell Pandoc where to find you <code>.bib</code> file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">bibliography<span class="p">:</span><span class="w"> </span>Your_Bib_File.bib</code></pre></div>
+<blockquote>
+<p>Remember to change <code>YOUR_BIB_FILE.bib</code> for the actual name of your file.</p>
+</blockquote>
+
+<p>Now your YAML Frontmatter should look like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
+</span><span class="w"></span>title<span class="p">:</span><span class="w"> </span><span class="s1">&#39;A Title&#39;</span><span class="w">
+</span><span class="w"></span>author<span class="p">:</span><span class="w"> </span><span class="s1">&#39;An Author&#39;</span><span class="w">
+</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="s1">&#39;The Future&#39;</span><span class="w">
+</span><span class="w"></span>bibliography<span class="p">:</span><span class="w"> </span>Your_Bib_File.bib<span class="w">
+</span><span class="w"></span>---</code></pre></div>
+<h4 id="figure-table-equation-references">Figure/Table/Equation references</h4>
+
+<p>References are placed using the format <code>[@type:label]</code> anywhere in the text, being <code>label</code> the unique name of the desired reference on the format, and <code>type</code> the type of reference.</p>
+
+<p>To give a reference code to an image, you use the same notation but with curly brackets <code>{}</code>.</p>
+
+<p>You can reference the different types:</p>
+
+<ul>
+<li>Images: <code>{#fig:LABEL}</code></li>
+<li>Tables: <code>{#tbl:LABEL}</code></li>
+<li>Equations: <code>{#eq:LABEL}</code></li>
+<li>Sections: <code>{#sec:LABEL}</code>
+
+<ul>
+<li>If sections are added, they will change all the reference names to include their corresponding sections.</li>
+</ul></li>
+<li>Code blocks: <code>{#lst:LABEL}</code></li>
+</ul>
+
+<h4 id="formulas">Formulas</h4>
+
+<p>LaTeX formulas and reference them can be inserted using <code>$$</code> if you want the formula to be centred in it&rsquo;s own line, and <code>$</code> if you need it to be inside a paragraph.</p>
+
+<p>For example writting this in a Markdown file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="sb">$$</span><span class="nb"> f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> a^</span><span class="m">2</span><span class="nb">_i </span><span class="o">+</span><span class="nb"> b^</span><span class="m">3</span><span class="nb">_j </span><span class="o">-</span><span class="nb"> c </span><span class="s">$$</span></code></pre></div>
+<p>will be rendered like this:</p>
+
+<blockquote>
+<p>$$ f(x) = a^2_i + b^3_j - c $$</p>
+</blockquote>
+
+<p>And:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown">This is a text with... $f(x) = 4$ ...a formula in it.</code></pre></div>
+<p>will be rendered as:</p>
+
+<blockquote>
+<p>This is a text with&hellip; $f(x) = 4$ &hellip;a formula in it.</p>
+</blockquote>
+
+<p>I won&rsquo;t go into any more detail but you will find a cheatsheet for $\LaTeX$ in the Symbols.PDF  file found in the &lsquo;images&rsquo; folder.</p>
+
+<h3 id="multi-image-figures">Multi-image figures</h3>
+
+<p>As a final example of what you can do with Markdown+Pandoc, you can use HTML mixed in Markdown to create a multi-figure, made up of smaller images. All of the images have their own reference, and the whole figure has it&rsquo;s reference too!</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;fig:multiFigure&#34;</span><span class="p">&gt;</span>
+![](https://dummyimage.com/150x150/f9f3f9/f1f1f1.png){#fig:figa width=30%}
+![](https://dummyimage.com/300x150/f9f3f9/f1f1f1.png){#fig:figb width=60%}
+![](https://dummyimage.com/50x150/f9f3f9/f1f1f1.png){#fig:figc width=10%}
+
+Difference between width-settings, nocaption option, etc... [@Fig:multiFigure] is a full figure reference, but you can also reference just one of the images, like [@Fig:figa;[@Fig:figb;[@Fig:figc].
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+<div id="fig:multiFigure">
+![](https://dummyimage.com/150x150/f1f1f1/ababab.png){#fig:figa width=28%}
+![](https://dummyimage.com/300x150/f9f3f9/ababab.png){#fig:figb width=59%}
+![](https://dummyimage.com/50x150/f1f6f0/ababab.png){#fig:figc width=9%}
+
+Difference between width-settings, nocaption option, etc... [@Fig:multiFigure] is a full figure reference, but you can also reference just one of the images, like [@Fig:figa;[@Fig:figb;[@Fig:figc].
+</div>
+
+<p>And it will look like this on your paper (please forgive the mismatched heights on the pictures&hellip;it&rsquo;s terrible&hellip;I know&hellip;)</p>
+
+<p><img src="/img/multi-figure-image.png" alt="multi-figure image" /></p>
+
+<h1 id="the-power-of-yaml">The power of YAML</h1>
+
+<p>So we&rsquo;ve been learning about <strong><em>only some</em></strong> the posibilities that Markdown+Pandoc offers to write our research paper. But that is just only one part of the story. Many more questions should be arising at this point:</p>
+
+<ol>
+<li>My paper should have an abstract, where do I put it?</li>
+<li>What if I want to change the margins of my page? Or my paper size?</li>
+<li>or if there is more than one author in the paper?</li>
+<li>Maybe I want to have a 2 column paper,</li>
+<li>or someone provided me a $\LaTeX$ template.</li>
+<li>Maybe I&rsquo;m writting a PhD and I need a more &lsquo;book-like&rsquo; structure&hellip;</li>
+<li>What if&hellip; maybe&hellip; what if&hellip; maybe&hellip;</li>
+</ol>
+
+<p><strong><em>NO WORRIES!</em></strong> Here is where the power of YAML comes in.</p>
+
+<p>If you have been following up to this point, you should have a YAML Frontmatter in your <code>.md</code> file that looks like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">---<span class="w">
+</span><span class="w"></span>title<span class="p">:</span><span class="w"> </span><span class="s1">&#39;A Title&#39;</span><span class="w">
+</span><span class="w"></span>author<span class="p">:</span><span class="w"> </span><span class="s1">&#39;An Author&#39;</span><span class="w">
+</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="s1">&#39;The Future&#39;</span><span class="w">
+</span><span class="w"></span>bibliography<span class="p">:</span><span class="w"> </span>Your_Bib_File.bib<span class="w">
+</span><span class="w"></span>---</code></pre></div>
+<p>Let&rsquo;s have a look at a more complex YAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-YAML" data-lang="YAML">---<span class="w">
+</span><span class="w"></span><span class="c"># LaTeX package includes</span><span class="w">
+</span><span class="w"></span><span class="c"># Use this to include packages required usually in custom templates.</span><span class="w">
+</span><span class="w"></span>header-includes<span class="p">:</span><span class="w">
+</span><span class="w">  </span>\usepackage<span class="p">[</span>multiple<span class="p">]</span>{footmisc}<span class="w">
+</span><span class="w">  </span>\usepackage{svg}<span class="w">
+</span><span class="w">  </span>\usepackage{svgcolor}<span class="w">
+</span><span class="w">  </span>\usepackage{algorithms}<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Enable PDF Links</span><span class="w">
+</span><span class="w"></span>link-citations<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span>link-references<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Select color for each type of link</span><span class="w">
+</span><span class="w"></span>colorlinks<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span>linkcolor<span class="p">:</span><span class="w"> </span>NavyBlue<span class="w">
+</span><span class="w"></span>toccolor<span class="p">:</span><span class="w"> </span>NavyBlue<span class="w">
+</span><span class="w"></span>citecolor<span class="p">:</span><span class="w"> </span>NavyBlue<span class="w">
+</span><span class="w"></span>urlcolor<span class="p">:</span><span class="w"> </span>NavyBlue<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Geometric aspects</span><span class="w">
+</span><span class="w"></span>papersize<span class="p">:</span><span class="w"> </span>A4<span class="w">
+</span><span class="w"></span>margin-left<span class="p">:</span><span class="w"> </span>1in<span class="w">
+</span><span class="w"></span>margin-right<span class="p">:</span><span class="w"> </span>1in<span class="w">
+</span><span class="w"></span>margin-top<span class="p">:</span><span class="w"> </span>1in<span class="w">
+</span><span class="w"></span>margin-bottom<span class="p">:</span><span class="w"> </span>1in<span class="w">
+</span><span class="w"></span>fontsize<span class="p">:</span><span class="w"> </span>10pt<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># TOC, LOF, LOT</span><span class="w">
+</span><span class="w"></span>toc<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Enable table of contents at the beginning of the document</span><span class="w">
+</span><span class="w"></span>toc-depth<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c"># Index depth</span><span class="w">
+</span><span class="w"></span>lof<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Enable list of figures at the beginning of the document</span><span class="w">
+</span><span class="w"></span>lot<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Enable list of tables at the beginning of the document</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c">#---- DOCUMENT META-DATA ------</span><span class="w">
+</span><span class="w"></span>title<span class="p">:</span><span class="w"> </span><span class="s2">&#34;A Title&#34;</span><span class="w">
+</span><span class="w"></span>subtitle<span class="p">:</span><span class="w"> </span><span class="s2">&#34;A Subtitle&#34;</span><span class="w">
+</span><span class="w"></span>institution<span class="p">:</span><span class="w"> </span><span class="s2">&#34;University of Whatever&#34;</span><span class="w">
+</span><span class="w"></span>author<span class="p">:</span><span class="w"> </span>Author<span class="w"> </span>A.<span class="p">,</span><span class="w"> </span>B.<span class="w"> </span>Author<span class="w">
+</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span>Aug<span class="w"> </span><span class="m">2959</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Abstract for your research</span><span class="w">
+</span><span class="w"></span>abstract<span class="p">:</span><span class="w">
+</span><span class="w">  </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet<span class="p">,</span><span class="w"> </span>consetetur<span class="w"> </span>sadipscing<span class="w"> </span>elitr<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>nonumy<span class="w"> </span>eirmod<span class="w"> </span>tempor<span class="w"> </span>invidunt<span class="w"> </span>ut<span class="w"> </span>labore<span class="w"> </span>et<span class="w"> </span>dolore<span class="w"> </span>magna<span class="w"> </span>aliquyam<span class="w"> </span>erat<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>voluptua.<span class="w"> </span>At<span class="w"> </span>vero<span class="w"> </span>eos<span class="w"> </span>et<span class="w"> </span>accusam<span class="w"> </span>et<span class="w"> </span>justo<span class="w"> </span>duo<span class="w"> </span>dolores<span class="w"> </span>et<span class="w"> </span>ea<span class="w"> </span>rebum.<span class="w"> </span>Stet<span class="w"> </span>clita<span class="w"> </span>kasd<span class="w"> </span>gubergren<span class="p">,</span><span class="w"> </span>no<span class="w"> </span>sea<span class="w"> </span>takimata<span class="w"> </span>sanctus<span class="w"> </span>est<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet.<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet<span class="p">,</span><span class="w"> </span>consetetur<span class="w"> </span>sadipscing<span class="w"> </span>elitr<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>nonumy<span class="w"> </span>eirmod<span class="w"> </span>tempor<span class="w"> </span>invidunt<span class="w"> </span>ut<span class="w"> </span>labore<span class="w"> </span>et<span class="w"> </span>dolore<span class="w"> </span>magna<span class="w"> </span>aliquyam<span class="w"> </span>erat<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>voluptua.<span class="w"> </span>At<span class="w"> </span>vero<span class="w"> </span>eos<span class="w"> </span>et<span class="w"> </span>accusam<span class="w"> </span>et<span class="w"> </span>justo<span class="w"> </span>duo<span class="w"> </span>dolores<span class="w"> </span>et<span class="w"> </span>ea<span class="w"> </span>rebum.<span class="w"> </span>Stet<span class="w"> </span>clita<span class="w"> </span>kasd<span class="w"> </span>gubergren<span class="p">,</span><span class="w"> </span>no<span class="w"> </span>sea<span class="w"> </span>takimata<span class="w"> </span>sanctus<span class="w"> </span>est<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet.<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet<span class="p">,</span><span class="w"> </span>consetetur<span class="w"> </span>sadipscing<span class="w"> </span>elitr<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>nonumy<span class="w"> </span>eirmod<span class="w"> </span>tempor<span class="w"> </span>invidunt<span class="w"> </span>ut<span class="w"> </span>labore<span class="w"> </span>et<span class="w"> </span>dolore<span class="w"> </span>magna<span class="w"> </span>aliquyam<span class="w"> </span>erat<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>voluptua.<span class="w"> </span>At<span class="w"> </span>vero<span class="w"> </span>eos<span class="w"> </span>et<span class="w"> </span>accusam<span class="w"> </span>et<span class="w"> </span>justo<span class="w"> </span>duo<span class="w"> </span>dolores<span class="w"> </span>et<span class="w"> </span>ea<span class="w"> </span>rebum.<span class="w"> </span>Stet<span class="w"> </span>clita<span class="w"> </span>kasd<span class="w"> </span>gubergren<span class="p">,</span><span class="w"> </span>no<span class="w"> </span>sea<span class="w"> </span>takimata<span class="w"> </span>sanctus<span class="w"> </span>est<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet.<span class="w">
+</span><span class="w"></span><span class="c"># Thanks section will appear as a footnote of the title in the default template. If you don&#39;t like this you can just erase it.</span><span class="w">
+</span><span class="w"></span>thanks<span class="p">:</span><span class="w">
+</span><span class="w">  </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet<span class="p">,</span><span class="w"> </span>consetetur<span class="w"> </span>sadipscing<span class="w"> </span>elitr<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>nonumy<span class="w"> </span>eirmod<span class="w"> </span>tempor<span class="w"> </span>invidunt<span class="w"> </span>ut<span class="w"> </span>labore<span class="w"> </span>et<span class="w"> </span>dolore<span class="w"> </span>magna<span class="w"> </span>aliquyam<span class="w"> </span>erat<span class="p">,</span><span class="w"> </span>sed<span class="w"> </span>diam<span class="w"> </span>voluptua.<span class="w"> </span>At<span class="w"> </span>vero<span class="w"> </span>eos<span class="w"> </span>et<span class="w"> </span>accusam<span class="w"> </span>et<span class="w"> </span>justo<span class="w"> </span>duo<span class="w"> </span>dolores<span class="w"> </span>et<span class="w"> </span>ea<span class="w"> </span>rebum.<span class="w"> </span>Stet<span class="w"> </span>clita<span class="w"> </span>kasd<span class="w"> </span>gubergren<span class="p">,</span><span class="w"> </span>no<span class="w"> </span>sea<span class="w"> </span>takimata<span class="w"> </span>sanctus<span class="w"> </span>est<span class="w"> </span>Lorem<span class="w"> </span>ipsum<span class="w"> </span>dolor<span class="w"> </span>sit<span class="w"> </span>amet.<span class="w">
+</span><span class="w"></span><span class="c"># Insert keywords here</span><span class="w">
+</span><span class="w"></span>keywords<span class="p">:</span><span class="w"> </span>some<span class="p">,</span><span class="w"> </span>keywords<span class="p">,</span><span class="w"> </span>for<span class="p">,</span><span class="w"> </span>your<span class="p">,</span><span class="w"> </span>paper.<span class="w">
+</span><span class="w"></span><span class="c"># Put your bibliography filename here. You can put relative paths if the file is inside a folder in your working directory, or even the complete file path.</span><span class="w">
+</span><span class="w"></span>bibliography<span class="p">:</span><span class="w"> </span>YOUR_BIBLIOGRAPHY_FILE.bib<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># DO NOT TOUCH THIS</span><span class="w">
+</span><span class="w"></span><span class="c"># CHANGE LATEX ENGINE FOR  PDF OUTPUT</span><span class="w">
+</span><span class="w"></span>output<span class="p">:</span><span class="w">
+</span><span class="w">  </span>pdf_document<span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>latex_engine<span class="p">:</span><span class="w"> </span>xelatex<span class="w"> </span><span class="c"># Default is pdftex but I had some trouble that xelatex seemed to solve. If nothing is wrong, don&#39;t touch this.</span><span class="w">
+</span><span class="w"></span>---</code></pre></div>
+<p>As you can see, YAML provides a way to quickly and easily change the configuration of your documents. And these options are just a few of all the options available.</p>
+
+<p>The code block above is actually my YAML template for pandoc so feel free to use it and tweak it to your needs.</p>
+
+<h2 id="output-a-refined-pdf">Output a refined PDF</h2>
+
+<p>Now, go to the Paper Folder and build a new pdf using the file <code>01 - Paper Template.md</code>. Remember to build a PDF, the comand is <code>CTRL+K</code> then <code>P</code> and choose PDF output.</p>
+
+<p>If everything went well, you should have a PDF file looking like this:</p>
+
+<p><img src="/img/paperTemplateResult.png" alt="Paper Template result" /></p>
+
+<h3 id="suggestions">Suggestions</h3>
+
+<ol>
+<li>Try changing the <code>documentclass</code> option to <code>book</code> or <code>report</code> and output your pdf again to check the differences</li>
+<li>Do the same with <code>classoption</code> (some of the options are commented in the same line)</li>
+<li>Play around with the margins</li>
+</ol>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://laxmikants.github.io/tags/scientific-paper/">Scientific Paper</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/latex/">Latex</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/markdown/">Markdown</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/miktex/">MikTex</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/knitr/">Knitr</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f&amp;text=Scientific%20paper&amp;via=laxmikantsoni09" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f&amp;title=Scientific%20paper" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f&amp;title=Scientific%20paper" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f&amp;title=Scientific%20paper" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-09-05-scientificpaper%2f&amp;description=Scientific%20paper" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/2016-01-05-math-tex/">Tex formulas</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/" data-toggle="tooltip" data-placement="top" title="R Markdown">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://laxmikants.github.io/post/up-and-running-with-blogdown/" data-toggle="tooltip" data-placement="top" title="Websites with blogdown">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:laxmikant.soni@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/laxmikantsoni09" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/laxmikants" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/laxmikantsoni09" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/laxmikantsoni09" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/laxmikantsoni09" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+            
+          
+
+          
+          
+
+          
+            &nbsp;&bull;&nbsp;
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://laxmikants.github.io/js/main.js"></script>
+<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -8,51 +8,28 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sun, 23 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R Markdown</title>
-      <link>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <title>Regression in ML</title>
+      <link>https://laxmikants.github.io/post/regression-in-ml/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Regular expressions</title>
-      <link>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2015-06-23-regularexpressions/</guid>
-      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
-Regular expressions are the default pattern engine in stringr.</description>
-    </item>
-    
-    <item>
-      <title>Tex formulas</title>
-      <link>https://laxmikants.github.io/post/2017-03-05-math-tex/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2017-03-05-math-tex/</guid>
-      <description>TeX can be used to code complex statistical formulas.
-Mean \(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\) $$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$
-population variance \(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
-sample variance \(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
-Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\) $$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</description>
+      <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
+      <description>Definition A linear equation that models a function such that if we give any x to it, it will predict a value y , where both x and y are input and output variables respectively. These are numerical and continous values. It is the most simple and well known algorithm used in machine learning.
+Flowchart 
+The above Flowchart represents that we choose our training set, feed it to an algorithm, it will learn the patterns and will output a function called Hypothesis function &#39;H(x)&#39;.</description>
     </item>
     
     <item>
       <title>Data Science Resources</title>
-      <link>https://laxmikants.github.io/post/2018-02-06-ds-resources/</link>
+      <link>https://laxmikants.github.io/post/2017-03-05-ds-resources/</link>
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2018-02-06-ds-resources/</guid>
+      <guid>https://laxmikants.github.io/post/2017-03-05-ds-resources/</guid>
       <description>R Programming 🐈  R is a programming language and software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. [ Source ]
   Free resources for learning R R for Data Science - Hadley Wickham Advanced R - Hadley Wickham swirl: Learn R, in R Data Analysis and Visualization Using R MANY R PROGRAMMING TUTORIALS A Handbook of Statistical Analyses Using R, Find Other Chapters Cookbook for R Learning R in 7 simple steps  Python 🐍  Python is a widely used high-level, general-purpose, interpreted, dynamic programming language.</description>
     </item>
@@ -60,7 +37,7 @@ Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \s
     <item>
       <title>Websites with blogdown</title>
       <link>https://laxmikants.github.io/post/up-and-running-with-blogdown/</link>
-      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
       <description>1 Read up on blogdown2 Caveats, disclaimers, etc.3 In GitHub4 In terminal5 In RStudio6 Build your site in RStudio7 Deploy in Netlify1 Read up on blogdownBefore you start, I recommend reading the following:
@@ -69,15 +46,69 @@ Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \s
     
     <item>
       <title>Scientific paper</title>
-      <link>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <link>https://laxmikants.github.io/post/2016-09-05-scientificpaper/</link>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2017-01-05-scientificpaper/</guid>
+      <guid>https://laxmikants.github.io/post/2016-09-05-scientificpaper/</guid>
       <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
 Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
  You can find out more at the Chocolatey Official Website
  For installation, please follow the Installation Guide
  To search for any package available, you can visit https://chocolatey.</description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/</link>
+      <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Regular expressions</title>
+      <link>https://laxmikants.github.io/post/2016-03-05-regularexpressions/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2016-03-05-regularexpressions/</guid>
+      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
+Regular expressions are the default pattern engine in stringr.</description>
+    </item>
+    
+    <item>
+      <title>Tex formulas</title>
+      <link>https://laxmikants.github.io/post/2016-01-05-math-tex/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2016-01-05-math-tex/</guid>
+      <description>TeX can be used to code complex statistical formulas.
+Mean \(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\) $$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$
+population variance \(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+sample variance \(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\) $$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hadoop</title>
+      <link>https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/</guid>
+      <description>&amp;ldquo;Hadoop&amp;rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
+However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time.</description>
+    </item>
+    
+    <item>
+      <title>Big Data Analytics</title>
+      <link>https://laxmikants.github.io/post/2015-01-09-big-data-analytics/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/2015-01-09-big-data-analytics/</guid>
+      <description>Big-data and Analytics: Do we know how we can reach at a decision based on mobile data or computer data or Aadhar number? How to find that the new accounts that are opened in the Pradhan Mantri&amp;rsquo;s Jan Dhan Yojana does not have enough money ?
+How does company know that their brand is making consumers happy or not? OK, this works based on the Big-data Analytics. Lets us understand what this is, When we call it Big Data Analytics then this directly links us i.</description>
     </item>
     
     <item>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Getting Started with Hadoop",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://laxmikants.github.io/img/path.jpg",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "post",
+  "keywords": "Hadoop,Big Data, Analytics",
+  "wordcount": 1070,
+  "url": "https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/",
+  "datePublished": "2016-01-01T00:00:00+00:00",
+  "dateModified": "2016-01-01T00:00:00+00:00",
+  "license": "This work is licensed.",
+   "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant"
+  },
+  "description" : "Hadoop is a Big Data Management software of the 21st century.&#34;"
+}
+</script>
+
+  
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Laxmikant</title>
+  <meta property="og:title" content="Posts and Resources on Data Science | Getting Started with Hadoop" />
+  <meta name="description" content="Hadoop is a Big Data Management software of the 21st century.&#34;">
+  <meta property="og:description" content="Hadoop is a Big Data Management software of the 21st century.&#34;">
+  <meta name="author" content="Laxmikant"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name" : "Laxmikant"
+  },
+  "headline": "Getting Started with Hadoop",
+  "description" : "Hadoop is a Big Data Management software of the 21st century.&#34;",
+  "inLanguage" : "en",
+  "wordCount": 1070,
+  "datePublished" : "2016-01-01T00:00:00",
+  "dateModified" : "2016-01-01T00:00:00",
+  "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+  "keywords" : [ "Hadoop,Big Data, Analytics" ],
+  "mainEntityOfPage" : "https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+  <meta property="og:url" content="https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="article" />
+
+  <meta content="Hadoop is a Big Data Management software of the 21st century.&#34;" property="og:description">
+  <meta property="og:url" content="https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="article:section" content="Big Data" /><meta property="article:section" content="Hadoop" />
+  <meta property="article:published_time" content="2016-01-01 00:00:00 &#43;0000 UTC" />
+  
+  
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">About</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aboutme">About Me</a>
+                
+                  <a href="/page/consulting">Consulting</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Data Science Resources</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/ds-resources">Data Science Links</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Posts</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/2017-03-05-math-tex">Math formulas using Tex</a>
+                
+                  <a href="/post/2015-07-23-r-rmarkdown">Data Analysis in R markdown</a>
+                
+                  <a href="/post/2018-02-06-ds-resources">Data Science resources</a>
+                
+                  <a href="/post/2017-01-05-scientificpaper">Scientific paper</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Laxmikant" href="https://laxmikants.github.io">
+            <img class="avatar-img" src="https://laxmikants.github.io/img/avatar-icon.png" alt="Laxmikant" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=1 
+      
+         
+          data-img-src-1="/img/path.jpg" 
+         
+         data-img-desc-1="Path"
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      <div class="intro-header big-img">
+        
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>Getting Started with Hadoop</h1>
+                  
+                    
+                      <h2 class="post-subheading">Understanding Hadoop</h2>
+                    
+                  
+                  
+                    <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 1, 2016
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1070&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="img-desc" style="display: inline;"></span>
+      </div>
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Getting Started with Hadoop</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Understanding Hadoop</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 1, 2016
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1070&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>&ldquo;Hadoop&rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.</p>
+
+<p>However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time. While from developers viewpoint, the face of Hadoop may be a set of jar files deployed over a set of machines providing services for navigating and working with distributed files thus enabling communication between client and Hadoop cluster for data analysis, the thinking, vision and systems that produce this end product are implemented over several years. The seeds of the Hadoop were first planted in 2002 when Doug cutting and Mike Cafarella took steps in creating a better open-source search engine. This project was as Nutch which can search over 700 million web sites and over a trillion web pages. In essence this is the first piece vision of the Hadoop Ecosystem &ndash; Search Engine.</p>
+
+<p>The first piece is Core Engine which has its roots in Nutch project, which was later evolved based on the Google&rsquo;s File System Paper in October 2003 and MapReduce paper in December 2004. These papers later helped in automating steps which were done manually in Nutch project hence in early 2006, when Doug Cutting joined Yahoo and set up a 300-node research cluster there, the storage and processing parts of the Nutch were automated based on the Google&rsquo;s File System and MapReduce framework to form Hadoop as an open-source Apache Software Foundation project and the Nutch web crawler remained its own separate project.</p>
+
+<p>MapReduce was developed by Google in 2004. It represents a programming framework for processing, generating and indexing large sets of data on the web. Google developed MapReduce as a general-purpose execution engine that handles the complexities of network communication, parallel programming and fault-tolerance for any kind of analytic application (hand-coded or analytics tool based).</p>
+
+<p>MapReduce is a framework for processing highly distributable problems across huge datasets. It is an algorithm based framework for computing distributed problems using divide and conquer approach cluster of nodes. MapReduce jobs are divided into two parts. The “Map” function divides a query into multiple parts and processes data at the node level. The “Reduce” function aggregates the results of the “Map” function to determine the “answer” to the query. It consists of Master node which maps input into smaller sub problems/distributes work to clusters, where these worker nodes process smaller problems, return answers back to master node and the master node reduces set of answers back to master node.</p>
+
+<p>It divides the basic problem into a set of smaller manageable tasks and assigns them to a large number of computers (nodes). An ideal MapReduce task is too large for any one node to process, but can be accomplished by multiple nodes efficiently.</p>
+
+<p>MapReduce is named for the two steps at the heart of the framework.</p>
+
+<p> Map step – The master node takes the input, divides it into smaller sub-problems, and distributes them to worker nodes. Each worker node processes its smaller problem, and passes the result back to its master node. There can be multiple levels of workers.</p>
+
+<p> Reduce step – The master node collects the results from all of the sub-problems, combines the results into groups based on the key and then assigns them to worker nodes called reducers. Each reducer processes those values and sends the result back to the master node.</p>
+
+<p>MapReduce can be a huge help in analyzing and processing large chunks of data: buying pattern analysis, customer usage and interest patterns in e-commerce, processing the large amount of data generated in the fields of science and medicine, and processing and analyzing security data, credit scores and other large data-sets in the financial industry.</p>
+
+<p>Although in 2006-era, the Hadoop was not able to handle production search workloads at web scale and only worked on 5 to 20 nodes at that point. Horizontal scalability was an issue because Hadoop was originally required to handle petabytes and exabytes of data distributed over multiple nodes in parallel.</p>
+
+<p>It took couple of years for Yahoo to move its web index into Hadoop. This transformation to Hadoop was completed by end of 2008. In 2008 Yahoo has created &ldquo;Production search index&rdquo; which was based on 10,000 core Hadoop clusters. Hadoop is used both in Production and research environments and many organisations are using Hadoop. Few examples are Facebook, AOL, Yahoo, IBM.</p>
+
+<p>IDC predicts that Hadoop software market will be worth 813 million in 2016. Hadoop has created many start-ups and spurred hundreds of millions in venture capital investment since 2008. Hadoop software is driving the big data market today and it will hit more than 23 billion by 2016.</p>
+
+<p>The second piece of Hadoop is the creation of Big-Data Hadoop platforms that would enhance efficiency and can help in analysing large datasets and provide meaningful information to help organizations in making business decisions. Two core platforms of the Big Data Analytics involving Hadoop as core component are Cloudera and Hottonworks both providing Hadoop Ecosystem capabilities which enables  analysis of more data at lower cost, Horizontal scalability, fault tolerance, improvement in programmability and data access, Co-ordination, workflow, management and deployment. Everyone selling any type of database, business intelligence software or anything else related to data at least connects to Hadoop in some capacity.</p>
+
+<p>Cloudera was the first commercial Hadoop company launched in march 2008, which helped enterprises adopt Hadoop which otherwise would have taken longer time for them to adopt.</p>
+
+<p>The third piece of Hadoop is the industry specific vertical applications that can ride on the aforesaid Core engine and platforms. This is where the opportunity lies for example in eCommerce &ldquo;Analysing customer behaviour in real time&rdquo;. There is huge scope for Big Data Hadoop applications in healthcare, education, eCommerce industries. The applications in BI, DW and analytics can be developed on a technology stack involving Hadoop HDFS and MapReduce (with HBase &amp; Hive).</p>
+
+<p>The fourth piece of Hadoop is the creation and administration of data centres which can help in Big Data processing and over which all the three pieces mentioned above can be deployed. Such data centres should protect the privacy of data and provide adequate security measures.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://laxmikants.github.io/tags/hadoopbig-data-analytics/">Hadoop,Big Data, Analytics</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f&amp;text=Getting%20Started%20with%20Hadoop&amp;via=laxmikantsoni09" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f&amp;title=Getting%20Started%20with%20Hadoop" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f&amp;title=Getting%20Started%20with%20Hadoop" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f&amp;title=Getting%20Started%20with%20Hadoop" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2f2016-01-01-a-brief-history-of-hadoop%2f&amp;description=Getting%20Started%20with%20Hadoop" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/2015-01-09-big-data-analytics/">Big Data Analytics</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://laxmikants.github.io/post/2015-01-09-big-data-analytics/" data-toggle="tooltip" data-placement="top" title="Big Data Analytics">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://laxmikants.github.io/post/2016-01-05-math-tex/" data-toggle="tooltip" data-placement="top" title="Tex formulas">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:laxmikant.soni@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/laxmikantsoni09" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/laxmikants" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/laxmikantsoni09" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/laxmikantsoni09" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/laxmikantsoni09" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+            
+          
+
+          
+          
+
+          
+            &nbsp;&bull;&nbsp;
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://laxmikants.github.io/js/main.js"></script>
+<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

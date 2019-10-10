@@ -8,7 +8,7 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sat, 04 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,7 +16,7 @@
     <item>
       <title>Blogdown</title>
       <link>https://laxmikants.github.io/tags/blogdown/</link>
-      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/blogdown/</guid>
       <description></description>
@@ -34,16 +34,25 @@
     <item>
       <title>Github</title>
       <link>https://laxmikants.github.io/tags/github/</link>
-      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Hadoopbig Data Analytics</title>
+      <link>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Knitr</title>
       <link>https://laxmikants.github.io/tags/knitr/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/knitr/</guid>
       <description></description>
@@ -52,16 +61,25 @@
     <item>
       <title>Latex</title>
       <link>https://laxmikants.github.io/tags/latex/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/latex/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/tags/machine-learning/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Markdown</title>
       <link>https://laxmikants.github.io/tags/markdown/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/markdown/</guid>
       <description></description>
@@ -70,7 +88,7 @@
     <item>
       <title>Miktex</title>
       <link>https://laxmikants.github.io/tags/miktex/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/miktex/</guid>
       <description></description>
@@ -79,7 +97,7 @@
     <item>
       <title>Netlify</title>
       <link>https://laxmikants.github.io/tags/netlify/</link>
-      <pubDate>Sat, 04 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/netlify/</guid>
       <description></description>
@@ -88,7 +106,7 @@
     <item>
       <title>Plot</title>
       <link>https://laxmikants.github.io/tags/plot/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/plot/</guid>
       <description></description>
@@ -97,7 +115,7 @@
     <item>
       <title>R Markdown</title>
       <link>https://laxmikants.github.io/tags/r-markdown/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/r-markdown/</guid>
       <description></description>
@@ -106,7 +124,7 @@
     <item>
       <title>Regression</title>
       <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/regression/</guid>
       <description></description>
@@ -115,7 +133,7 @@
     <item>
       <title>Regular Expression</title>
       <link>https://laxmikants.github.io/tags/regular-expression/</link>
-      <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
       <description></description>
@@ -124,7 +142,7 @@
     <item>
       <title>Scientific Paper</title>
       <link>https://laxmikants.github.io/tags/scientific-paper/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/scientific-paper/</guid>
       <description></description>
@@ -133,7 +151,7 @@
     <item>
       <title>Statistics</title>
       <link>https://laxmikants.github.io/tags/statistics/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/statistics/</guid>
       <description></description>
@@ -142,7 +160,7 @@
     <item>
       <title>Tex</title>
       <link>https://laxmikants.github.io/tags/tex/</link>
-      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/tex/</guid>
       <description></description>
