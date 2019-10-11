@@ -33,7 +33,7 @@
   
   
   
-  <meta name="generator" content="Hugo 0.58.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -94,8 +94,6 @@
               <div class="navlinks-children">
                 
                   <a href="/post/regression-in-ml/">Regression</a>
-                
-                  <a href="/post/data-science-resources/">Data Science Resources</a>
                 
                   <a href="/post/up-and-running-with-blogdown/">Blogdown</a>
                 
@@ -251,58 +249,12 @@
               </p>
               <div class="post-entry">
                 
-                  
-
-<p>TeX can be used to code complex statistical formulas.</p>
-
-<h3 id="mean">Mean</h3>
-<div class="highlight"><pre class="chroma">\(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\)</pre></div>
-<p>$$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$</p>
-
-<h3 id="population-variance">population variance</h3>
-<div class="highlight"><pre class="chroma">\(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\)</pre></div>
-<p>$$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$</p>
-
-<h3 id="sample-variance">sample variance</h3>
-<div class="highlight"><pre class="chroma">\(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\)</pre></div>
-<p>$$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$</p>
-
-<h3 id="population-standard-deviation">Population Standard Deviation</h3>
-<div class="highlight"><pre class="chroma">\(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\)</pre></div>
-<p>$$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</p>
-
-<h3 id="sample-standard-deviation">Sample Standard Deviation</h3>
-<div class="highlight"><pre class="chroma">\(s = \sqrt{s^2} = \sqrt{{\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\)</pre></div>
-<p>$$(s = \sqrt{s^2} = \sqrt{{\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</p>
-
-<h3 id="covariance">Covariance</h3>
-<div class="highlight"><pre class="chroma">\(Cov(x,y) = \frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y}) \)</pre></div>
-<p>$$(Cov(x,y) = \frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y}) )$$</p>
-
-<h3 id="z-score-population">Z-score population</h3>
-<div class="highlight"><pre class="chroma">\(z = \frac{x_i - \mu}{\sigma} \)</pre></div>
-<p>$$(z = \frac{x_i - \mu}{\sigma} )$$</p>
-
-<h3 id="z-score-sample">Z-score Sample</h3>
-<div class="highlight"><pre class="chroma">\(z = \frac{x_i - \bar{x}}{s} \)</pre></div>
-<p>$$(z = \frac{x_i - \bar{x}}{s} )$$</p>
-
-<h3 id="chi-square">Chi-square</h3>
-<div class="highlight"><pre class="chroma">\chi^2 = \sum \frac {(O - E)^2}{E}</pre></div>
-<p>$$\chi^2 = \sum \frac {(O - E)^2}{E}$$</p>
-
-<h3 id="linear-regression">Linear Regression</h3>
-<div class="highlight"><pre class="chroma">\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + \hat{\epsilon}_i</pre></div>
-<p>$$\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_i + \hat{\epsilon}_i$$</p>
-
-<h3 id="slope">Slope</h3>
-<div class="highlight"><pre class="chroma">\hat{\beta}_1 = \frac{\sum(X_i – \bar{X}) (Y_i – \bar{Y})} {\sum(X_i – \bar{X})^2}</pre></div>
-<p>$$\hat{\beta}_1 = \frac{\sum(X_i – \bar{X}) (Y_i – \bar{Y})} {\sum(X_i – \bar{X})^2}$$</p>
-
-<h3 id="intercept">Intercept</h3>
-<div class="highlight"><pre class="chroma">\hat{\beta}_0 = \bar{Y} – \hat{\beta}_1 \bar{X}</pre></div>
-<p>$$\hat{\beta}_0 = \bar{Y} – \hat{\beta}_1 \bar{X}$$</p>
-
+                  TeX can be used to code complex statistical formulas.
+Mean \(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\) $$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$
+population variance \(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+sample variance \(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\) $$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$
+                  <a href="https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/" class="post-read-more">[Read More]</a>
                 
               </div>
 
@@ -406,7 +358,7 @@
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.58.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

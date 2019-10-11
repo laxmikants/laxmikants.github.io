@@ -8,37 +8,10 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://laxmikants.github.io/tags/machine-learning/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistics</title>
-      <link>https://laxmikants.github.io/tags/statistics/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/statistics/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Blogdown</title>
@@ -59,11 +32,11 @@
     </item>
     
     <item>
-      <title>Netlify</title>
-      <link>https://laxmikants.github.io/tags/netlify/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <title>Hadoopbig Data Analytics</title>
+      <link>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/netlify/</guid>
+      <guid>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</guid>
       <description></description>
     </item>
     
@@ -86,6 +59,15 @@
     </item>
     
     <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/tags/machine-learning/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Markdown</title>
       <link>https://laxmikants.github.io/tags/markdown/</link>
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
@@ -95,7 +77,7 @@
     </item>
     
     <item>
-      <title>MikTex</title>
+      <title>Miktex</title>
       <link>https://laxmikants.github.io/tags/miktex/</link>
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
@@ -104,16 +86,16 @@
     </item>
     
     <item>
-      <title>Scientific Paper</title>
-      <link>https://laxmikants.github.io/tags/scientific-paper/</link>
-      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
+      <title>Netlify</title>
+      <link>https://laxmikants.github.io/tags/netlify/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/scientific-paper/</guid>
+      <guid>https://laxmikants.github.io/tags/netlify/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>plot</title>
+      <title>Plot</title>
       <link>https://laxmikants.github.io/tags/plot/</link>
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
@@ -131,11 +113,38 @@
     </item>
     
     <item>
-      <title>Regular expression</title>
+      <title>Regression</title>
+      <link>https://laxmikants.github.io/tags/regression/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular Expression</title>
       <link>https://laxmikants.github.io/tags/regular-expression/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scientific Paper</title>
+      <link>https://laxmikants.github.io/tags/scientific-paper/</link>
+      <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/scientific-paper/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://laxmikants.github.io/tags/statistics/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/statistics/</guid>
       <description></description>
     </item>
     
@@ -145,15 +154,6 @@
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/tex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hadoop,Big Data, Analytics</title>
-      <link>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</link>
-      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</guid>
       <description></description>
     </item>
     
