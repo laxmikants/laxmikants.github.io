@@ -3,13 +3,73 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://laxmikants.github.io/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/data-science-resources/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/machine-learning/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/regression/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/post/regression-in-ml/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2017-03-05-ds-resources/</loc>
+    <loc>https://laxmikants.github.io/tags/statistics/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/data-science-resources/</loc>
     <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/blogdown/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/github/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/netlify/</loc>
+    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,38 +78,118 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2016-09-05-scientificpaper/</loc>
+    <loc>https://laxmikants.github.io/tags/knitr/</loc>
     <lastmod>2016-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/</loc>
+    <loc>https://laxmikants.github.io/tags/latex/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/markdown/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/miktex/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/miktex/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/pandoc/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/scientific-paper/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/authoring-scientific-paper/</loc>
+    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/plot/</loc>
     <lastmod>2016-06-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2016-03-05-regularexpressions/</loc>
+    <loc>https://laxmikants.github.io/categories/r/</loc>
+    <lastmod>2016-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/r-markdown/</loc>
+    <lastmod>2016-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</loc>
+    <lastmod>2016-06-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2016-01-05-math-tex/</loc>
+    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2016-01-01-a-brief-history-of-hadoop/</loc>
+    <loc>https://laxmikants.github.io/categories/tex/</loc>
+    <lastmod>2016-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</loc>
+    <lastmod>2016-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/big-data/</loc>
     <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/2015-01-09-big-data-analytics/</loc>
-    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+    <loc>https://laxmikants.github.io/post/understanding-big-data-hadoop/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <loc>https://laxmikants.github.io/categories/hadoop/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</loc>
+    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/what-is-big-data-analytics/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -57,37 +197,7 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/big-data/</loc>
-    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/blogdown/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/page/consulting/</loc>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/data-science-resources/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/data-science-resources/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -95,140 +205,7 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/github/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/hadoop/</loc>
-    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</loc>
-    <lastmod>2016-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/knitr/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/latex/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/machine-learning/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/markdown/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/miktex/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/netlify/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/page/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/pandoc/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/plot/</loc>
-    <lastmod>2016-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/post/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/r/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/r-markdown/</loc>
-    <lastmod>2016-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/regression/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
-    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
-    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/scientific-paper/</loc>
-    <lastmod>2016-09-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/statistics/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/tex/</loc>
-    <lastmod>2016-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/tex/</loc>
-    <lastmod>2016-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

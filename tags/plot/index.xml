@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Plot on Laxmikant</title>
+    <title>plot on Laxmikant</title>
     <link>https://laxmikants.github.io/tags/plot/</link>
-    <description>Recent content in Plot on Laxmikant</description>
+    <description>Recent content in plot on Laxmikant</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
@@ -15,13 +15,11 @@
     
     <item>
       <title>R Markdown</title>
-      <link>https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/</link>
+      <link>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</link>
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2016-06-05-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <guid>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</guid>
+      <description>Getting Started with R markdown</description>
     </item>
     
   </channel>

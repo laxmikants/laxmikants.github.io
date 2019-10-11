@@ -1,11 +1,13 @@
 ---
 title: "R Markdown"
-description: "Implementing R markdown"
+description: "R markdown for Data analysis"
 author: "Laxmikant"
+slug: R markdown for Data analysis
 date: 2016-06-05
 lastmod: 2016-06-05
 categories: ["R"]
-subtitle: Using R markdown
+subtitle: Using R markdown for Data Analysis
+summary: Getting Started with R markdown
 tags: ["R Markdown", "plot", "regression"]
 lua:
   image:
@@ -14,6 +16,8 @@ lua:
     height: 600
   author: "Laxmikant"
 ---
+
+
 
 
 

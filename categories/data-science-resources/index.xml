@@ -8,19 +8,27 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sun, 05 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/categories/data-science-resources/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Regression in ML</title>
+      <link>https://laxmikants.github.io/post/regression-in-ml/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data Science Resources</title>
-      <link>https://laxmikants.github.io/post/2017-03-05-ds-resources/</link>
+      <link>https://laxmikants.github.io/post/data-science-resources/</link>
       <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/2017-03-05-ds-resources/</guid>
-      <description>R Programming 🐈  R is a programming language and software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. [ Source ]
-  Free resources for learning R R for Data Science - Hadley Wickham Advanced R - Hadley Wickham swirl: Learn R, in R Data Analysis and Visualization Using R MANY R PROGRAMMING TUTORIALS A Handbook of Statistical Analyses Using R, Find Other Chapters Cookbook for R Learning R in 7 simple steps  Python 🐍  Python is a widely used high-level, general-purpose, interpreted, dynamic programming language.</description>
+      <guid>https://laxmikants.github.io/post/data-science-resources/</guid>
+      <description>A guide to Data Science resources and learning path</description>
     </item>
     
   </channel>

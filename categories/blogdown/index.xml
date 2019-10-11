@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blogdown on Laxmikant</title>
+    <link>https://laxmikants.github.io/categories/blogdown/</link>
+    <description>Recent content in blogdown on Laxmikant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
+    <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/categories/blogdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Websites with blogdown</title>
+      <link>https://laxmikants.github.io/post/up-and-running-with-blogdown/</link>
+      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
+      <description>A guide to getting up and running with blogdown, GitHub, and Netlify</description>
+    </item>
+    
+  </channel>
+</rss>

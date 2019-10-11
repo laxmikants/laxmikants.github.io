@@ -2,10 +2,12 @@
 title: "Regular expressions"
 description: "Implementing Regular expressions"
 author: "Laxmikant"
+slug: Regular Expressions for pattern recognition
 date: 2016-03-05
 lastmod: 2016-03-05
 categories: ["Regular expression"]
 subtitle: Implementing Regular Expression
+summary: Regular expressions can be used for recognizing patterns in texts
 tags: ["Regular expression"]
 lua:
   image:
@@ -15,6 +17,7 @@ lua:
   author: "Laxmikant"
 
 ---
+
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(

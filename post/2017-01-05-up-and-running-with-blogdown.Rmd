@@ -1,14 +1,21 @@
 ---
 title: Websites with blogdown
 author: Laxmikant 
+description: "up-and-running-with-blogdown"
 slug: up-and-running-with-blogdown
 date: 2017-01-05
 lastmod: 2017-01-05
 categories:
-  - R
+  - blogdown
 tags: ["Blogdown","Github","Netlify"]
 summary: A guide to getting up and running with blogdown, GitHub, and Netlify
 subtitle: Building websites with blogdown
+lua:
+  image:
+    url: "/img/cover.png"
+    width: 800
+    height: 600
+  author: "Laxmikant"
 output:
   blogdown::html_page:
     toc: true

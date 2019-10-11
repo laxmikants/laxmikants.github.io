@@ -19,9 +19,16 @@
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
-      <description>Definition A linear equation that models a function such that if we give any x to it, it will predict a value y , where both x and y are input and output variables respectively. These are numerical and continous values. It is the most simple and well known algorithm used in machine learning.
-Flowchart 
-The above Flowchart represents that we choose our training set, feed it to an algorithm, it will learn the patterns and will output a function called Hypothesis function &#39;H(x)&#39;.</description>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science Resources</title>
+      <link>https://laxmikants.github.io/post/data-science-resources/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/data-science-resources/</guid>
+      <description>A guide to Data Science resources and learning path</description>
     </item>
     
   </channel>
