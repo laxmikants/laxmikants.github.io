@@ -5,8 +5,7 @@ description: "up-and-running-with-blogdown"
 slug: up-and-running-with-blogdown
 date: 2017-01-05
 lastmod: 2017-01-05
-categories:
-  - blogdown
+categories: ["blogdown"]
 tags: ["Blogdown","Github","Netlify"]
 summary: A guide to getting up and running with blogdown, GitHub, and Netlify
 subtitle: Building websites with blogdown
