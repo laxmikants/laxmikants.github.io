@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistics on Laxmikant</title>
+    <link>https://laxmikants.github.io/tags/statistics/</link>
+    <description>Recent content in Statistics on Laxmikant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
+    <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regression in ML</title>
+      <link>https://laxmikants.github.io/post/regression-in-ml/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tex formulas</title>
+      <link>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</guid>
+      <description>TeX is a typesetting language. Instead of visually formatting your text, you enter your manuscript text intertwined with TeX commands in a plain text file</description>
+    </item>
+    
+  </channel>
+</rss>
