@@ -175,19 +175,3 @@ if ( length(missing_pkgs <- setdiff(packages, rownames(installed.packages()))) >
   install.packages(missing_pkgs)
 }
 ```
-
-# Including Slides
-
-```{r}
-knitr::include_url("https://laxmikants.github.io/R-markdown/slides/Lession1.html#1", height = "400px")
-```
-
-
-
-```{r}
-knitr::include_url("https://laxmikants.github.io/R-markdown/slides/Lession2.html#1", height = "400px")
-```
-
-
-
-
