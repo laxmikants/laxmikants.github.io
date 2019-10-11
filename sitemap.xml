@@ -48,11 +48,6 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/data-science-resources/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/tags/blogdown/</loc>
     <lastmod>2017-01-05T00:00:00+00:00</lastmod>
   </url>
@@ -153,12 +148,12 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/tex/</loc>
+    <loc>https://laxmikants.github.io/categories/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/tex/</loc>
+    <loc>https://laxmikants.github.io/tags/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
   </url>
   

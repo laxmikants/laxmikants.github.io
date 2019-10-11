@@ -19,8 +19,7 @@
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/understanding-big-data-hadoop/</guid>
-      <description>&amp;ldquo;Hadoop&amp;rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
-However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time.</description>
+      <description>Hadoop is a Big Data Management software of the 21st century.</description>
     </item>
     
   </channel>

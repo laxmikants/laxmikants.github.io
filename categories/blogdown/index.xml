@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogdown on Laxmikant</title>
+    <title>blogdown on Laxmikant</title>
     <link>https://laxmikants.github.io/categories/blogdown/</link>
-    <description>Recent content in Blogdown on Laxmikant</description>
+    <description>Recent content in blogdown on Laxmikant</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
@@ -19,8 +19,7 @@
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
-      <description>1 Read up on blogdown2 Caveats, disclaimers, etc.3 In GitHub4 In terminal5 In RStudio6 Build your site in RStudio7 Deploy in Netlify1 Read up on blogdownBefore you start, I recommend reading the following:
-blogdown: Creating Websites with R Markdown by Yihui Xie and Amber ThomasMaking a Website Using blogdown, Hugo, and GitHub pages also by Amber ThomasGetting Started with blogdown by M.</description>
+      <description>A guide to getting up and running with blogdown, GitHub, and Netlify</description>
     </item>
     
   </channel>
