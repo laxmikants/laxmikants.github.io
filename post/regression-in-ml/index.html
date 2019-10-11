@@ -8,27 +8,27 @@
   "headline": "Regression in ML",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https:\/\/laxmikants.github.io\/post\/regression-in-ml\/"
+    "@id": "https://laxmikants.github.io/post/regression-in-ml/"
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https:\/\/laxmikants.github.io\/img\/cover.png",
-    "width":  800 ,
-    "height":  600 
+    "url": "https://laxmikants.github.io/img/cover.png",
+    "width": 800,
+    "height": 600
   },
   "genre": "post",
   "keywords": "Statistics, Regression, Machine Learning",
-  "wordcount":  1032 ,
-  "url": "https:\/\/laxmikants.github.io\/post\/regression-in-ml\/",
-  "datePublished": "2019-03-05T00:00:00\x2b00:00",
-  "dateModified": "2019-03-05T00:00:00\x2b00:00",
+  "wordcount": 1018,
+  "url": "https://laxmikants.github.io/post/regression-in-ml/",
+  "datePublished": "2018-03-05T00:00:00+00:00",
+  "dateModified": "2018-03-05T00:00:00+00:00",
   "license": "This work is licensed.",
    "publisher" : {
     "@type": "Organization",
     "name" : "Laxmikant",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
       "width": 60,
       "height": 60
     }
@@ -64,18 +64,18 @@
   "headline": "Regression in ML",
   "description" : "Regression in ML",
   "inLanguage" : "en",
-  "wordCount":  1032 ,
-  "datePublished" : "2019-03-05T00:00:00",
-  "dateModified" : "2019-03-05T00:00:00",
-  "image" : "https:\/\/laxmikants.github.io\/img\/cover.png",
+  "wordCount": 1018,
+  "datePublished" : "2018-03-05T00:00:00",
+  "dateModified" : "2018-03-05T00:00:00",
+  "image" : "https://laxmikants.github.io/img/cover.png",
   "keywords" : [ "Statistics, Regression, Machine Learning" ],
-  "mainEntityOfPage" : "https:\/\/laxmikants.github.io\/post\/regression-in-ml\/",
+  "mainEntityOfPage" : "https://laxmikants.github.io/post/regression-in-ml/",
   "publisher" : {
     "@type": "Organization",
     "name" : "Laxmikant",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
         "height" :  60 ,
         "width" :  60
     }
@@ -96,11 +96,11 @@
   <meta property="og:url" content="https://laxmikants.github.io/post/regression-in-ml/" />
   <meta property="og:site_name" content="Laxmikant" />
   <meta property="article:section" content="Data Science Resources" />
-  <meta property="article:published_time" content="2019-03-05 00:00:00 &#43;0000 UTC" />
+  <meta property="article:published_time" content="2018-03-05 00:00:00 &#43;0000 UTC" />
   
   
   
-  <meta name="generator" content="Hugo 0.58.2" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -271,13 +271,13 @@
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2018
   
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1032&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1018&nbsp;words
   
   
     
@@ -411,158 +411,138 @@ So let&rsquo;s solve partial derivative of cost function <code>J</code>.</p>
 <p><br></p>
 
 <h2 id="example-code-in-r">Example Code in R</h2>
-<div class="highlight"><pre class="chroma"><code class="language-R" data-lang="R"></code></pre></div>
-<p>{r}
-computeCost  &lt;- function(X, y, theta) {
-  m &lt;- length(y)
-  dif &lt;- X %<em>% theta - y
-  J &lt;- (t(dif) %</em>% dif) / (2 * m)
+<div class="highlight"><pre class="chroma"><code class="language-R" data-lang="R"><span class="sb">``</span>`<span class="p">{</span>r<span class="p">}</span>
+computeCost  <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>X<span class="p">,</span> y<span class="p">,</span> theta<span class="p">)</span> <span class="p">{</span>
+  m <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>y<span class="p">)</span> 
+  dif <span class="o">&lt;-</span> X <span class="o">%*%</span> theta <span class="o">-</span> y
+  J <span class="o">&lt;-</span> <span class="p">(</span><span class="kp">t</span><span class="p">(</span>dif<span class="p">)</span> <span class="o">%*%</span> dif<span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="m">2</span> <span class="o">*</span> m<span class="p">)</span>
   J
-}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}
-linear_regression_gd &lt;- function(X, y, theta, alpha, num_iters) {</p>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">linear_regression_gd <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>X<span class="p">,</span> y<span class="p">,</span> theta<span class="p">,</span> alpha<span class="p">,</span> num_iters<span class="p">)</span> <span class="p">{</span>
+  
+  m <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>y<span class="p">)</span> 
+  
+  J_history <span class="o">=</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> num_iters <span class="o">+</span> <span class="m">1</span><span class="p">)</span>
+  
+  theta_history <span class="o">=</span> <span class="kt">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> num_iters <span class="o">+</span> <span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>theta<span class="p">))</span>
+  
+  theta_history<span class="p">[</span><span class="m">1</span><span class="p">,]</span> <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>theta<span class="p">)</span>
+  
+  J_history<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> computeCost<span class="p">(</span>X<span class="p">,</span> y<span class="p">,</span> theta<span class="p">)</span>
+  
+  <span class="kr">for</span> <span class="p">(</span>iter <span class="kr">in</span> <span class="m">2</span><span class="o">:</span><span class="p">(</span>num_iters <span class="o">+</span> <span class="m">1</span><span class="p">))</span> <span class="p">{</span>
 
-<p>m &lt;- length(y)</p>
+        theta_prev <span class="o">=</span> theta
+    
+        <span class="c1"># number of features.</span>
+        p <span class="o">=</span> <span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">]</span>
+    
+        <span class="c1"># simultaneous update theta using theta_prev.</span>
+        <span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>p<span class="p">)</span> <span class="p">{</span>
+          deriv <span class="o">=</span> <span class="p">(</span><span class="kp">t</span><span class="p">(</span>X <span class="o">%*%</span> theta_prev <span class="o">-</span> y<span class="p">)</span> <span class="o">%*%</span> X<span class="p">[,</span> j<span class="p">])</span> <span class="o">/</span> m
+          theta<span class="p">[</span>j<span class="p">]</span> <span class="o">=</span> theta_prev<span class="p">[</span>j<span class="p">]</span> <span class="o">-</span> <span class="p">(</span>alpha <span class="o">*</span> deriv<span class="p">)</span>
+        <span class="p">}</span>
+    
+      <span class="c1"># Save the cost J in every iteration</span>
+      J_history<span class="p">[</span>iter<span class="p">]</span> <span class="o">=</span> computeCost<span class="p">(</span>X<span class="p">,</span> y<span class="p">,</span> theta<span class="p">)</span>
+      theta_history<span class="p">[</span>iter<span class="p">,]</span> <span class="o">=</span> <span class="kp">t</span><span class="p">(</span>theta<span class="p">)</span>
+  <span class="p">}</span>
+  
+  <span class="kt">list</span><span class="p">(</span>theta <span class="o">=</span> theta<span class="p">,</span> J_history <span class="o">=</span> J_history<span class="p">,</span> theta_history <span class="o">=</span> theta_history<span class="p">)</span>
+  <span class="c1"># ------------------------------------------------------------</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">plotData <span class="o">&lt;-</span> <span class="kr">function</span> <span class="p">(</span>x<span class="p">,</span> y<span class="p">)</span> <span class="p">{</span>
+  <span class="kp">print</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>x<span class="p">))</span>
+  <span class="kp">print</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>y<span class="p">))</span>
+  plot<span class="p">(</span>
+    x<span class="p">,</span> y<span class="p">,</span> col <span class="o">=</span> <span class="s">&#34;red&#34;</span><span class="p">,</span> pch <span class="o">=</span> <span class="m">4</span><span class="p">,</span>cex <span class="o">=</span> <span class="m">1.1</span><span class="p">,</span>lwd <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
+    xlab <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="p">,</span>
+    ylab <span class="o">=</span> <span class="s">&#39;&#39;</span>
+  <span class="p">)</span>
+  
+  <span class="c1"># ------------------------------------------------------------</span>
+  
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">computeSlopeIntercept <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>X<span class="p">,</span>y<span class="p">)</span> <span class="p">{</span>
+  
+  m <span class="o">&lt;-</span> <span class="kp">length</span><span class="p">(</span>y<span class="p">)</span> <span class="c1"># number of training examples</span>
+  
+  X <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span>m<span class="p">),</span>X<span class="p">)</span>
+  
+  X <span class="o">&lt;-</span> <span class="kp">as.matrix</span><span class="p">(</span>X<span class="p">)</span>
+  
+  theta <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
 
-<p>J_history = rep(0, num_iters + 1)</p>
+  iterations <span class="o">&lt;-</span> <span class="m">1000000</span>
+  
+  alpha <span class="o">&lt;-</span> <span class="m">0.01</span>
+  
+  gd <span class="o">&lt;-</span> linear_regression_gd<span class="p">(</span>X<span class="p">,</span> y<span class="p">,</span> theta<span class="p">,</span> alpha<span class="p">,</span> iterations<span class="p">)</span>
 
-<p>theta_history = matrix(0, num_iters + 1, length(theta))</p>
+  theta <span class="o">&lt;-</span> gd<span class="o">$</span>theta
+  
+  J_history <span class="o">&lt;-</span> gd<span class="o">$</span>J_history
+  
+  
+  theta_history <span class="o">&lt;-</span> gd<span class="o">$</span>theta_history
+  
+  <span class="kp">print</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>gd<span class="o">$</span>theta_history<span class="p">))</span>
 
-<p>theta_history[1,] = t(theta)</p>
+  plot<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>gd<span class="o">$</span>J_history<span class="p">),</span> gd<span class="o">$</span>J_history<span class="p">,</span> type <span class="o">=</span> <span class="s">&#39;l&#39;</span><span class="p">)</span>
+  
+  <span class="kp">rm</span><span class="p">(</span>gd<span class="p">)</span>
 
-<p>J_history[1] = computeCost(X, y, theta)</p>
+  <span class="kt">list</span><span class="p">(</span>intercept<span class="o">=</span>theta<span class="p">[</span><span class="m">1</span><span class="p">],</span> slope<span class="o">=</span>theta<span class="p">[</span><span class="m">2</span><span class="p">])</span>
 
-<p>for (iter in 2:(num_iters + 1)) {</p>
-<div class="highlight"><pre class="chroma">    theta_prev = theta
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">predictY <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>newdata<span class="p">,</span>theta<span class="p">)</span> <span class="p">{</span>
+    
+  X <span class="o">&lt;-</span> <span class="kp">cbind</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="kp">length</span><span class="p">(</span>newdata<span class="p">)),</span>newdata<span class="p">)</span>
+  
+  predicted_y <span class="o">=</span> <span class="kp">as.matrix</span><span class="p">(</span>X<span class="p">)</span> <span class="o">%*%</span> theta
+  
+  predicted_y
 
-    # number of features.
-    p = dim(X)[2]
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">featureNormalize <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>X<span class="p">)</span> <span class="p">{</span>
+  
+  X_norm <span class="o">&lt;-</span> X
+  mu <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">])</span>
+  sigma <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">])</span>
 
-    # simultaneous update theta using theta_prev.
-    for (j in 1:p) {
-      deriv = (t(X %*% theta_prev - y) %*% X[, j]) / m
-      theta[j] = theta_prev[j] - (alpha * deriv)
-    }
+    <span class="kr">for</span> <span class="p">(</span>p <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">])</span> <span class="p">{</span>
+    mu<span class="p">[</span>p<span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">mean</span><span class="p">(</span>X<span class="p">[,</span>p<span class="p">])</span>
+  <span class="p">}</span>
+  
+  <span class="kr">for</span> <span class="p">(</span>p <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">])</span> <span class="p">{</span>
+    sigma<span class="p">[</span>p<span class="p">]</span> <span class="o">&lt;-</span> sd<span class="p">(</span>X<span class="p">[,</span>p<span class="p">])</span>
+  <span class="p">}</span>
+  
+  <span class="kr">for</span> <span class="p">(</span>p <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">2</span><span class="p">])</span> <span class="p">{</span>
+    <span class="kr">if</span> <span class="p">(</span>sigma<span class="p">[</span>p<span class="p">]</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+      <span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">1</span><span class="p">])</span>
+        X_norm<span class="p">[</span>i<span class="p">,</span> p<span class="p">]</span> <span class="o">&lt;-</span> <span class="p">(</span>X<span class="p">[</span>i<span class="p">,</span> p<span class="p">]</span> <span class="o">-</span> mu<span class="p">[</span>p<span class="p">])</span> <span class="o">/</span> sigma<span class="p">[</span>p<span class="p">]</span>
+      <span class="kp">else</span>
+        X_norm<span class="p">[,</span> p<span class="p">]</span> <span class="o">&lt;-</span> <span class="kp">t</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="kp">dim</span><span class="p">(</span>X<span class="p">)[</span><span class="m">1</span><span class="p">]))</span>
+  <span class="p">}</span>
+  
+  <span class="kt">list</span><span class="p">(</span>X_norm <span class="o">=</span> X_norm<span class="p">,</span> mu <span class="o">=</span> mu<span class="p">,</span> sigma <span class="o">=</span> sigma<span class="p">)</span>
+<span class="p">}</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-r" data-lang="r">Input <span class="o">=</span><span class="p">(</span><span class="s">&#34;
+</span><span class="s">x       y  
+</span><span class="s">1       1
+</span><span class="s">2      4    
+</span><span class="s">3      9    
+</span><span class="s">&#34;</span><span class="p">)</span>
 
-  # Save the cost J in every iteration
-  J_history[iter] = computeCost(X, y, theta)
-  theta_history[iter,] = t(theta)</pre></div>
-<p>}</p>
+Data <span class="o">=</span> read.table<span class="p">(</span><span class="kp">textConnection</span><span class="p">(</span>Input<span class="p">),</span>header <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 
-<p>list(theta = theta, J_history = J_history, theta_history = theta_history)
-  # &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
-}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}
-plotData &lt;- function (x, y) {
-  print(length(x))
-  print(length(y))
-  plot(
-    x, y, col = &ldquo;red&rdquo;, pch = 4,cex = 1.1,lwd = 2,
-    xlab = &ldquo;,
-    ylab = &ldquo;
-  )</p>
+csi <span class="o">=</span> computeSlopeIntercept<span class="p">(</span>Data<span class="o">$</span>x<span class="p">,</span>Data<span class="o">$</span>y<span class="p">)</span>
 
-<p># &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
 
-<p>}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}</p>
+newdata <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 
-<p>computeSlopeIntercept &lt;- function(X,y) {</p>
+theta <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>csi<span class="o">$</span>intercept<span class="p">,</span>csi<span class="o">$</span>slope<span class="p">)</span>
 
-<p>m &lt;- length(y) # number of training examples</p>
+ypredicted <span class="o">=</span> predictY<span class="p">(</span><span class="kp">as.vector</span><span class="p">(</span>newdata<span class="p">),</span>theta<span class="p">)</span>
 
-<p>X &lt;- cbind(rep(1,m),X)</p>
+<span class="kp">print</span><span class="p">(</span>ypredicted<span class="p">)</span>
 
-<p>X &lt;- as.matrix(X)</p>
-
-<p>theta &lt;- c(0,0)</p>
-
-<p>iterations &lt;- 1000000</p>
-
-<p>alpha &lt;- 0.01</p>
-
-<p>gd &lt;- linear_regression_gd(X, y, theta, alpha, iterations)</p>
-
-<p>theta &lt;- gd$theta</p>
-
-<p>J_history &lt;- gd$J_history</p>
-
-<p>theta_history &lt;- gd$theta_history</p>
-
-<p>print(length(gd$theta_history))</p>
-
-<p>plot(1:length(gd$J_history), gd$J_history, type = &lsquo;l&rsquo;)</p>
-
-<p>rm(gd)</p>
-
-<p>list(intercept=theta[1], slope=theta[2])</p>
-
-<p>}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}
-predictY &lt;- function(newdata,theta) {</p>
-
-<p>X &lt;- cbind(rep(1,length(newdata)),newdata)</p>
-
-<p>predicted_y = as.matrix(X) %*% theta</p>
-
-<p>predicted_y</p>
-
-<p>}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}
-featureNormalize &lt;- function(X) {</p>
-
-<p>X_norm &lt;- X
-  mu &lt;- rep(0,dim(X)[2])
-  sigma &lt;- rep(0,dim(X)[2])</p>
-<div class="highlight"><pre class="chroma">for (p in 1:dim(X)[2]) {
-mu[p] &lt;- mean(X[,p])</pre></div>
-<p>}</p>
-
-<p>for (p in 1:dim(X)[2]) {
-    sigma[p] &lt;- sd(X[,p])
-  }</p>
-
-<p>for (p in 1:dim(X)[2]) {
-    if (sigma[p] != 0)
-      for (i in 1:dim(X)[1])
-        X_norm[i, p] &lt;- (X[i, p] - mu[p]) / sigma[p]
-      else
-        X_norm[, p] &lt;- t(rep(0,dim(X)[1]))
-  }</p>
-
-<p>list(X_norm = X_norm, mu = mu, sigma = sigma)
-}</p>
-<div class="highlight"><pre class="chroma"></pre></div>
-<p>{r}</p>
-
-<p>Input =(&rdquo;
-x       y<br />
-1       1
-2      4<br />
-3      9<br />
-&rdquo;)</p>
-
-<p>Data = read.table(textConnection(Input),header = TRUE)</p>
-
-<p>csi = computeSlopeIntercept(Data$x,Data$y)</p>
-
-<p>newdata = c(4,5)</p>
-
-<p>theta = c(csi$intercept,csi$slope)</p>
-
-<p>ypredicted = predictY(as.vector(newdata),theta)</p>
-
-<p>print(ypredicted)</p>
-
-<p>print(csi)</p>
-
-<p>```</p>
-<div class="highlight"><pre class="chroma">[1] 200002
+<span class="kp">print</span><span class="p">(</span>csi<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma">[1] 200002
 [1] &#34;coefficeints&#34;
 [1] -3.333333
 [1] 4
@@ -779,7 +759,7 @@ x       y<br />
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.58.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

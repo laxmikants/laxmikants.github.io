@@ -8,7 +8,7 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Mar 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -16,10 +16,12 @@
     <item>
       <title>Regression in ML</title>
       <link>https://laxmikants.github.io/post/regression-in-ml/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
-      <description></description>
+      <description>Definition A linear equation that models a function such that if we give any x to it, it will predict a value y , where both x and y are input and output variables respectively. These are numerical and continous values. It is the most simple and well known algorithm used in machine learning.
+Flowchart 
+The above Flowchart represents that we choose our training set, feed it to an algorithm, it will learn the patterns and will output a function called Hypothesis function &#39;H(x)&#39;.</description>
     </item>
     
     <item>
@@ -28,7 +30,8 @@
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
-      <description>A guide to getting up and running with blogdown, GitHub, and Netlify</description>
+      <description>1 Read up on blogdown2 Caveats, disclaimers, etc.3 In GitHub4 In terminal5 In RStudio6 Build your site in RStudio7 Deploy in Netlify1 Read up on blogdownBefore you start, I recommend reading the following:
+blogdown: Creating Websites with R Markdown by Yihui Xie and Amber ThomasMaking a Website Using blogdown, Hugo, and GitHub pages also by Amber ThomasGetting Started with blogdown by M.</description>
     </item>
     
     <item>
@@ -37,7 +40,11 @@
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/authoring-scientific-paper/</guid>
-      <description>Authoring scientific paper usin Pandoc</description>
+      <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
+Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
+ You can find out more at the Chocolatey Official Website
+ For installation, please follow the Installation Guide
+ To search for any package available, you can visit https://chocolatey.</description>
     </item>
     
     <item>
@@ -46,7 +53,9 @@
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</guid>
-      <description>Getting Started with R markdown</description>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
     <item>
@@ -55,7 +64,8 @@
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/</guid>
-      <description>Regular expressions can be used for recognizing patterns in texts</description>
+      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
+Regular expressions are the default pattern engine in stringr.</description>
     </item>
     
     <item>
@@ -64,7 +74,11 @@
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</guid>
-      <description>TeX is a typesetting language. Instead of visually formatting your text, you enter your manuscript text intertwined with TeX commands in a plain text file</description>
+      <description>TeX can be used to code complex statistical formulas.
+Mean \(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\) $$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$
+population variance \(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+sample variance \(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
+Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\) $$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</description>
     </item>
     
     <item>
@@ -73,7 +87,8 @@
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/understanding-big-data-hadoop/</guid>
-      <description>Hadoop is a Big Data Management software of the 21st century.</description>
+      <description>&amp;ldquo;Hadoop&amp;rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
+However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time.</description>
     </item>
     
     <item>
@@ -82,7 +97,8 @@
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/what-is-big-data-analytics/</guid>
-      <description>Power of Big Data Analytics</description>
+      <description>Big-data and Analytics: Do we know how we can reach at a decision based on mobile data or computer data or Aadhar number? How to find that the new accounts that are opened in the Pradhan Mantri&amp;rsquo;s Jan Dhan Yojana does not have enough money ?
+How does company know that their brand is making consumers happy or not? OK, this works based on the Big-data Analytics. Lets us understand what this is, When we call it Big Data Analytics then this directly links us i.</description>
     </item>
     
   </channel>
