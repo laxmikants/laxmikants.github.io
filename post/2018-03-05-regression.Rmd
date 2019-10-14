@@ -36,6 +36,8 @@ The above Flowchart represents that we choose our training set, feed it to an al
 
 For historical reasons, this function `H(x)` is called `hypothesis function.`
 
+
+
 ## Cost Function
 
 The best fit line to our data will be where we have least distance between the `predicted 'y' value` and `trained 'y' value`.
@@ -64,6 +66,8 @@ computeCost <- function (X, y, theta){
         
         J
     }
+    
+    
 
 ```
 The above formula takes the sum of the distances between <i>`predicted values` and `actual values` of training set, sqaure it, take the average and multiply it by `1/2`.</i>
@@ -291,6 +295,7 @@ x	    y
 2      4	
 3      9	
 ")
+
 
 Data = read.table(textConnection(Input),header = TRUE)
 

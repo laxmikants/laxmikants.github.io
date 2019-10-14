@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Decision Trees",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/post/decision-trees-in-ml/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://laxmikants.github.io/img/cover.png",
+    "width": 800,
+    "height": 600
+  },
+  "genre": "post",
+  "keywords": "Statistics, Regression, Machine Learning",
+  "wordcount": 3567,
+  "url": "https://laxmikants.github.io/post/decision-trees-in-ml/",
+  "datePublished": "2018-06-05T00:00:00+00:00",
+  "dateModified": "2018-06-05T00:00:00+00:00",
+  "license": "This work is licensed.",
+   "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant"
+  },
+  "description" : "Decision Trees in ML"
+}
+</script>
+
+  
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Laxmikant</title>
+  <meta property="og:title" content="Posts and Resources on Data Science | Decision Trees" />
+  <meta name="description" content="Decision Trees in ML">
+  <meta property="og:description" content="Decision Trees in ML">
+  <meta name="author" content="Laxmikant"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name" : "Laxmikant"
+  },
+  "headline": "Decision Trees",
+  "description" : "Decision Trees in ML",
+  "inLanguage" : "en",
+  "wordCount": 3567,
+  "datePublished" : "2018-06-05T00:00:00",
+  "dateModified" : "2018-06-05T00:00:00",
+  "image" : "https://laxmikants.github.io/img/cover.png",
+  "keywords" : [ "Statistics, Regression, Machine Learning" ],
+  "mainEntityOfPage" : "https://laxmikants.github.io/post/decision-trees-in-ml/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+  <meta property="og:url" content="https://laxmikants.github.io/post/decision-trees-in-ml/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="article" />
+
+  <meta content="Decision Trees in ML" property="og:description">
+  <meta property="og:url" content="https://laxmikants.github.io/post/decision-trees-in-ml/" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="article:section" content="Data Science Resources" />
+  <meta property="article:published_time" content="2018-06-05 00:00:00 &#43;0000 UTC" />
+  
+  
+  
+  <meta name="generator" content="Hugo 0.54.0" />
+  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">About</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aboutme">About Me</a>
+                
+                  <a href="/page/consulting">Consulting</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Data Science Resources</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/ds-resources">Data Science Links</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Posts</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/regression-in-ml/">Regression</a>
+                
+                  <a href="/post/up-and-running-with-blogdown/">Blogdown</a>
+                
+                  <a href="/post/authoring-scientific-paper/">Scientific paper</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Laxmikant" href="https://laxmikants.github.io">
+            <img class="avatar-img" src="https://laxmikants.github.io/img/avatar-icon.png" alt="Laxmikant" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Decision Trees</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Decision Trees in ML</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on June 5, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;17&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;3567&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<h1 id="decision-trees-concepts">Decision trees - Concepts</h1>
+
+<p>In Machine Learning Decision trees are a type of Supervised machine learning where data is split according to given parameter while constructing a tree to solve a given problem.
+Using Python, you can actually get generate a flowchart for you to make a decision. So if you have something you&rsquo;re trying to predict on some classification, you can use a decision tree to actually look at multiple attributes that you can decide upon at each level in the flowchart. You can print out an actual flowchart for you to use to make a decision from, based on actual machine learning.</p>
+
+<h1 id="how-it-works">How it works</h1>
+
+<p>Decision trees are one of the most interesting applications of machine learning. A
+decision tree basically gives you a flowchart of how to make some decision.You have some
+dependent variable, like whether or not I should go play outside today or not based on the weather.
+When you have a decision like that that depends on multiple attributes or multiple variables, a
+decision tree could be a good choice.</p>
+
+<p>There are many different aspects of the weather that might influence my decision of whether I should
+go outside and play. It might have to do with the humidity, the temperature, whether it&rsquo;s sunny or not,
+for example. A decision tree can look at all these different attributes of the weather, or anything else, and decide what are the thresholds? What are the decisions I need to make on each one of those
+attributes before I arrive at a decision of whether or not I should go play outside? That&rsquo;s all a
+decision tree is. So it&rsquo;s a form of supervised learning.</p>
+
+<p>The way it would work in this example would be as follows. I would have some sort of dataset of
+historical weather, and data about whether or not people went outside to play on a particular day. I
+would feed the model this data of whether it was sunny or not on each day, what the humidity was,
+and if it was windy or not; and whether or not it was a good day to go play outside. Given that
+training data, a decision tree algorithm can then arrive at a tree that gives us a flowchart that we can print out. It looks just like the following flow chart. You can just walk through and figure out whether or not it&rsquo;s a good day to play outside based on the current attributes. You can use that to predict the decision for a new set of values:</p>
+
+<p><img src="/img/dtree.jpg" alt="Example" /></p>
+
+<p>We have an algorithm that will make a flowchart automatically just based
+on observational data.</p>
+
+<h1 id="decision-tree-example">Decision tree example</h1>
+
+<p>Let&rsquo;s say I want to build a system that will automatically filter out resumes based on the information in them. A big problem that technology companies have is that we get tons and tons of resumes for our
+positions. We have to decide who we actually bring in for an interview, because it can be expensive
+to fly somebody out and actually take the time out of the day to conduct an interview. So what if there
+were a way to actually take historical data on who actually got hired and map that to things that are
+found on their resume ?</p>
+
+<p>We could construct a decision tree that will let us go through an individual resume and say, &ldquo;OK, this
+person actually has a high likelihood of getting hired, or not&rdquo;. We can train a decision tree on that
+historical data and walk through that for future candidates. Wouldn&rsquo;t that be a wonderful thing to have ?</p>
+
+<p>So let&rsquo;s make some totally fabricated hiring data that we&rsquo;re going to use in this example:</p>
+
+<table>
+<thead>
+<tr>
+<th>CandidateId</th>
+<th>Years of Experience</th>
+<th>Employed?</th>
+<th>Previous Employers</th>
+<th>Level of Education</th>
+<th>Top-tier school</th>
+<th>Interned</th>
+<th>Hired</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>10</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>7</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>20</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p>In the preceding table, we have candidates that are just identified by numerical identifiers. I&rsquo;m going
+to pick some attributes that I think might be interesting or helpful to predict whether or not they&rsquo;re a good hire or not. How many years of experience do they have? Are they currently employed? How
+many employers have they had previous to this one? What&rsquo;s their level of education? What degree do
+they have? Did they go to what we classify as a top-tier school? Did they do an internship while they
+were in college? We can take a look at this historical data, and the dependent variable here is Hired.
+Did this person actually get a job offer or not based on that information?</p>
+
+<p>Now, obviously there&rsquo;s a lot of information that isn&rsquo;t in this model that might be very important, but the decision tree that we train from this data might actually be useful in doing an initial pass at weeding out some candidates. What we end up with might be a tree that looks like the following:</p>
+
+<p><img src="/img/dtree1.jpg" alt="Example" /></p>
+
+<p>So it just turns out that in my totally fabricated data, anyone that did an internship in college
+actually ended up getting a job offer. So my first decision point is &ldquo;did this person do an
+internship or not?&rdquo; If yes, go ahead and bring them in. In my experience, internships are actually
+a pretty good predictor of how good a person is. If they have the initiative to actually go out and
+do an internship, and actually learn something at that internship, that&rsquo;s a good sign.
+Do they currently have a job? Well, if they are currently employed, in my very small fake dataset
+it turned out that they are worth hiring, just because somebody else thought they were worth
+hiring too. Obviously it would be a little bit more of a nuanced decision in the real world.
+If they&rsquo;re not currently employed, do they have less than one prior employer? If yes, this person
+has never held a job and they never did an internship either. Probably not a good hire decision.
+Don&rsquo;t hire that person.
+But if they did have a previous employer, did they at least go to a top-tier school? If not, it&rsquo;s kind
+of iffy. If so, then yes, we should hire this person based on the data that we trained on.</p>
+
+<h1 id="walking-through-a-decision-tree">Walking through a decision tree</h1>
+
+<p>So that&rsquo;s how you walk through the results of a decision tree. It&rsquo;s just like going through a flowchart, and it&rsquo;s kind of awesome that an algorithm can produce this for you. The algorithm itself is actually very simple. Let me explain how the algorithm works.</p>
+
+<p>At each step of the decision tree flowchart, we find the attribute that we can partition our data on that minimizes the entropy of the data at the next step. So we have a resulting set of classifications in this case hire or don&rsquo;t hire, and we want to choose the attribute decision at that step that will minimize the entropy at the next step.</p>
+
+<p>At each step we want to make all of the remaining choices result in either as many no hires or as many
+hire decisions as possible. We want to make that data more and more uniform so as we work our way
+down the flowchart, and we ultimately end up with a set of candidates that are either all hires or all
+no hires so we can classify into yes/no decisions on a decision tree. So we just walk down the tree,
+minimize entropy at each step by choosing the right attribute to decide on, and we keep on going until
+we run out.</p>
+
+<p>There&rsquo;s a fancy name for this algorithm. It&rsquo;s called <strong>ID3</strong> ( <strong>Iterative Dichotomiser 3</strong> ). It is what&rsquo;s known as a greedy algorithm. So as it goes down the tree, it just picks the attribute that will minimize entropy at that point. Now that might not actually result in an optimal tree that minimizes the number of choices that you have to make, but it will result in a tree that works, given the data that you gave it.</p>
+
+<h1 id="random-forests-technique">Random forests technique</h1>
+
+<p>Now one problem with decision trees is that they are very prone to overfitting, so you can end up
+with a decision tree that works beautifully for the data that you trained it on, but it might not be that great for actually predicting the correct classification for new people that it hasn&rsquo;t seen before. Decision trees are all about arriving at the right decision for the training data that you gave it, but maybe you didn&rsquo;t really take into account the right attributes, maybe you didn&rsquo;t give it enough of a representative sample of people to learn from. This can result in real problems.</p>
+
+<p>So to combat this issue, we use a technique called random forests, where the idea is that we sample
+the data that we train on, in different ways, for multiple different decision trees. Each decision tree
+takes a different random sample from our set of training data and constructs a tree from it. Then each
+resulting tree can vote on the right result.</p>
+
+<p>Now that technique of randomly resampling our data with the same model is a term called bootstrap
+aggregating, or bagging. This is a form of what we call ensemble learning, which we&rsquo;ll cover in more
+detail shortly. But the basic idea is that we have multiple trees, a forest of trees if you will, each that uses a random subsample of the data that we have to train on. Then each of these trees can vote on the final result, and that will help us combat overfitting for a given set of training data.</p>
+
+<p>The other thing random forests can do is actually restrict the number of attributes that it can choose,
+between at each stage, while it is trying to minimize the entropy as it goes. And we can randomly pick
+which attributes it can choose from at each level. So that also gives us more variation from tree to
+tree, and therefore we get more of a variety of algorithms that can compete with each other. They can
+all vote on the final result using slightly different approaches to arriving at the same answer.</p>
+
+<p>So that&rsquo;s how random forests work. Basically, it is a forest of decision trees where they are drawing
+from different samples and also different sets of attributes at each stage that it can choose between.</p>
+
+<p>So, with all that, let&rsquo;s go make some decision trees. We&rsquo;ll use random forests as well when we&rsquo;re
+done, because scikit-learn makes it really really easy to do, as you&rsquo;ll see soon.</p>
+
+<h1 id="decision-trees-predicting-hiring-decisions">Decision trees - Predicting hiring decisions</h1>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+<span class="n">input_file</span> <span class="o">=</span> <span class="s2">&#34;hiresdata.csv&#34;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    
+    </code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Years Experience</th>
+      <th>Employed?</th>
+      <th>Previous employers</th>
+      <th>Level of Education</th>
+      <th>Top-tier school</th>
+      <th>Interned</th>
+      <th>Hired</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>Y</td>
+      <td>4</td>
+      <td>BS</td>
+      <td>N</td>
+      <td>N</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>N</td>
+      <td>0</td>
+      <td>BS</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>N</td>
+      <td>6</td>
+      <td>BS</td>
+      <td>N</td>
+      <td>N</td>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>MS</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20</td>
+      <td>N</td>
+      <td>2</td>
+      <td>PhD</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>N</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>We will use pandas to read our CSV in, and create a DataFrame object out of it. Let&rsquo;s go ahead and run
+our code, and we can use the head() function on the DataFrame to print out the first few lines and make
+sure that it looks like it makes sense.</p>
+<div class="highlight"><pre class="chroma">df.head()</pre></div>
+<p>So, for each candidate ID, we have their years of past experience, whether or not they were
+employed, their number of previous employers, their highest level of education, whether they went to
+a top-tier school, and whether they did an internship; and finally here, in the Hired column, the
+answer - where we knew that we either extended a job offer to this person or not.</p>
+
+<p>As usual, most of the work is just in massaging your data, preparing your data, before you actually run
+the algorithms on it, and that&rsquo;s what we need to do here. Now scikit-learn requires everything to be
+numerical, so we can&rsquo;t have Ys and Ns and BSs and MSs and PhDs. We have to convert all those
+things to numbers for the decision tree model to work. The way to do this is to use some short-hand in
+pandas, which makes these things easy. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Hired&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Hired&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Employed?&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Employed?&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Top-tier school&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Top-tier school&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Interned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Interned&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;BS&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;MS&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;PhD&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Level of Education&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Level of Education&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Years Experience</th>
+      <th>Employed?</th>
+      <th>Previous employers</th>
+      <th>Level of Education</th>
+      <th>Top-tier school</th>
+      <th>Interned</th>
+      <th>Hired</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>1</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Basically, we&rsquo;re making a dictionary in Python that maps the letter Y to the number 1, and the letter N
+to the value 0. So, we want to convert all our Ys to 1s and Ns to 0s. So 1 will mean yes and 0 will
+mean no. What we do is just take the Hired column from the DataFrame, and call map() on it, using a
+dictionary. This will go through the entire Hired column, in the entire DataFrame and use that
+dictionary lookup to transform all the entries in that column. It returns a new DataFrame column that
+I&rsquo;m putting back into the Hired column. This replaces the Hired column with one that&rsquo;s been mapped
+to 1s and 0s.</p>
+
+<p>We do the same thing for Employed, Top-tier school and Interned, so all those get mapped using the
+yes/no dictionary. So, the Ys and Ns become 1s and 0s instead. For the Level of Education, we do the
+same trick, we just create a dictionary that assigns BS to 0, MS to 1, and PhD to 2 and uses that to
+remap those degree names to actual numerical values. So if I go ahead and run that and do a head()
+again, you can see that it worked:</p>
+
+<p>All my yeses are 1&rsquo;s, my nos are 0&rsquo;s, and my Level of Education is now represented by a numerical
+value that has real meaning.</p>
+
+<p>Next we need to prepare everything to actually go into our decision tree classifier, which isn&rsquo;t that
+hard. To do that, we need to separate our feature information, which are the attributes that we&rsquo;re trying
+to predict from, and our target column, which contains the thing that we&rsquo;re trying to predict.To extract
+the list of feature name columns, we are just going to create a list of columns up to number 6. We go
+ahead and print that out.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">features</span>
+<span class="c1">#We get the following output:</span></code></pre></div><div class="highlight"><pre class="chroma">[&#39;Years Experience&#39;,
+ &#39;Employed?&#39;,
+ &#39;Previous employers&#39;,
+ &#39;Level of Education&#39;,
+ &#39;Top-tier school&#39;,
+ &#39;Interned&#39;]</pre></div>
+<p>Above are the column names that contain our feature information: Years Experience, Employed?,
+Previous employers, Level of Education, Top-tier school, and Interned. These are the attributes of
+candidates that we want to predict hiring on.</p>
+
+<p>Next, we construct our <em>y</em> vector which is assigned what we&rsquo;re trying to predict, that is our Hired
+column:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&#34;Hired&#34;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span></code></pre></div>
+<p>This code extracts the entire Hired column and calls it y. Then it takes all of our columns for the
+feature data and puts them in something called X. This is a collection of all of the data and all of the feature columns, and X and y are the two things that our decision tree classifier needs.</p>
+
+<p>To actually create the classifier itself, two lines of code: we call tree.DecisionTreeClassifier() to create our classifier, and then we fit it to our feature data (X) and the answers (y)- whether or not people were hired. So, let&rsquo;s go ahead and run that.</p>
+
+<p>Displaying graphical data is a little bit tricky, and I don&rsquo;t want to distract us too much with the details here, so please just consider the following boilerplate code. You don&rsquo;t need to get into how Graph viz works here - and dot files and all that stuff: it&rsquo;s not important to our journey right now. The code you need to actually display the end results of a decision tree is simply:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="kn">import</span> <span class="n">StringIO</span>
+<span class="kn">import</span> <span class="nn">pydot</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">export_graphviz</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>
+<span class="n">feature_names</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
+<span class="p">(</span><span class="n">graph</span><span class="p">,)</span> <span class="o">=</span> <span class="n">pydot</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+
+<span class="c1"># This is what your output should now look like:</span></code></pre></div>
+<p><img src="/img/output_9_0.png" alt="png" /></p>
+
+<p>Now, let me show you how to read it. At each stage, we have a decision. Remember most of our data
+which is yes or no, is going to be <strong>0</strong> or <strong>1</strong>. So, the first decision point becomes: is Employed? less than
+<strong>0.5</strong>? Meaning that if we have an employment value of 0, that is no, we&rsquo;re going to go left.If
+employment is 1, that is yes, we&rsquo;re going to go right.</p>
+
+<p>So, were they previously employed? If not go left, if yes go right. It turns out that in my sample data,
+everyone who is currently employed actually got a job offer, so I can very quickly say if you are
+currently employed, yes, you&rsquo;re worth bringing in, we&rsquo;re going to follow down to the second level
+here.</p>
+
+<p>So, how do you interpret this? The gini score is basically a measure of entropy that it&rsquo;s using at each
+step. Remember as we&rsquo;re going down the algorithm is trying to minimize the amount of entropy. And
+the samples are the remaining number of samples that haven&rsquo;t beensectioned off by a previous
+decision.</p>
+
+<p>So say this person was employed. The way to read the right leaf node is the value column that tells
+you at this point we have 0 candidates that were no hires and 5 that were hires. So again, the way to
+interpret the first decision point is if Employed? was 1, I&rsquo;m going to go to the right, meaning that they
+are currently employed, and this brings me to a world where everybody got a job offer. So, that means
+I should hire this person.</p>
+
+<p>Now let&rsquo;s say that this person doesn&rsquo;t currently have a job. The next thing I&rsquo;m going to look at is, do
+they have an internship. If yes, then we&rsquo;re at a point where in our training data everybody got a job
+offer. So, at that point, we can say our entropy is now 0 (gini=0.0000), because everyone&rsquo;s the same,
+and they all got an offer at that point. However, you know if we keep going down(where the person
+has not done an internship),we&rsquo;ll be at a point where the entropy is 0.32. It&rsquo;s getting lower and lower,
+that&rsquo;s a good thing.</p>
+
+<p>Next we&rsquo;re going to look at how much experience they have, do they have less than one year of
+experience? And, if the case is that they do have some experience and they&rsquo;ve gotten this far they&rsquo;re a
+pretty good no hire decision. We end up at the point where we have zero entropy but, all three
+remaining samples in our training set were no hires. We have 3 no hires and 0 hires. But, if they do
+have less experience, then they&rsquo;re probably fresh out of college, they still might be worth looking at.</p>
+
+<p>The final thing we&rsquo;re going to look at is whether or not they went to a Top-tier school, and if so, they
+end up being a good prediction for being a hire. If not, they end up being a no hire. We end up with
+one candidate that fell into that category that was a no hire and 0 that were a hire. Whereas, in the
+case candidates did go to a top tier school, we have 0 no hires and 1 hire.</p>
+
+<p>So, you can see we just keep going until we reach an entropy of 0, if at all possible, for every case.</p>
+
+<p>Now, let&rsquo;s say we want to use a random forest, you know, we&rsquo;re worried that we might be over fitting
+our training data. It&rsquo;s actually very easy to create a random forest classifier of multiple decision trees.</p>
+
+<p>So, to do that, we can use the same data that we created before. You just need your <em>X</em> and <em>y</em> vectors,
+that is the set of features and the column that you&rsquo;re trying to predict on:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]))</span></code></pre></div><div class="highlight"><pre class="chroma">[1]
+[0]</pre></div>
+<p>We make a random forest classifier, also available from scikit-learn, and pass it the number of trees we want in our forest. So, we made ten trees in our random forest in the code above. We then fit that to the model.</p>
+
+<p>We use the predict() function on the model, that is on the classifier that we made. We pass in a list of all the different features for a given candidate that we want to predict employment for to get us the right decision based on the training data.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://laxmikants.github.io/tags/statistics/">Statistics</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/regression/">Regression</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f&amp;text=Decision%20Trees&amp;via=laxmikantsoni09" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f&amp;title=Decision%20Trees" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f&amp;title=Decision%20Trees" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f&amp;title=Decision%20Trees" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fdecision-trees-in-ml%2f&amp;description=Decision%20Trees" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/regression-in-ml/">Regression in ML</a></li>
+          
+            <li><a href="/post/apply-tex-coding-for-complex-mathematical-formulas/">Tex formulas</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://laxmikants.github.io/post/regression-in-ml/" data-toggle="tooltip" data-placement="top" title="Regression in ML">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:laxmikant.soni@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/laxmikantsoni09" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/laxmikants" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/laxmikantsoni09" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/laxmikantsoni09" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/laxmikantsoni09" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+            
+          
+
+          
+          
+
+          
+            &nbsp;&bull;&nbsp;
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://laxmikants.github.io/js/main.js"></script>
+<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
