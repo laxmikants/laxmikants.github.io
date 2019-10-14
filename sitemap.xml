@@ -63,13 +63,13 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
+    <loc>https://laxmikants.github.io/tags/blogdown/</loc>
     <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/blogdown/</loc>
+    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
     <lastmod>2017-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -137,13 +137,13 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/miktex/</loc>
+    <loc>https://laxmikants.github.io/tags/miktex/</loc>
     <lastmod>2016-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/miktex/</loc>
+    <loc>https://laxmikants.github.io/categories/miktex/</loc>
     <lastmod>2016-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -190,19 +190,25 @@
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/tags/random-forest/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/tags/regression/</loc>
     <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
+    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
+    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -226,13 +232,13 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/tex/</loc>
+    <loc>https://laxmikants.github.io/tags/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/tex/</loc>
+    <loc>https://laxmikants.github.io/categories/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
