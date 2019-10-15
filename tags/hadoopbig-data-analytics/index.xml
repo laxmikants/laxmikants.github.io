@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hadoopbig Data Analytics on Laxmikant</title>
+    <title>Hadoop,Big Data, Analytics on Laxmikant</title>
     <link>https://laxmikants.github.io/tags/hadoopbig-data-analytics/</link>
-    <description>Recent content in Hadoopbig Data Analytics on Laxmikant</description>
+    <description>Recent content in Hadoop,Big Data, Analytics on Laxmikant</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
@@ -19,8 +19,7 @@
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/understanding-big-data-hadoop/</guid>
-      <description>&amp;ldquo;Hadoop&amp;rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
-However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time.</description>
+      <description></description>
     </item>
     
     <item>
@@ -29,8 +28,7 @@ However, it is imperative to understand what it means to create a Hadoop Ecosyst
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/what-is-big-data-analytics/</guid>
-      <description>Big-data and Analytics: Do we know how we can reach at a decision based on mobile data or computer data or Aadhar number? How to find that the new accounts that are opened in the Pradhan Mantri&amp;rsquo;s Jan Dhan Yojana does not have enough money ?
-How does company know that their brand is making consumers happy or not? OK, this works based on the Big-data Analytics. Lets us understand what this is, When we call it Big Data Analytics then this directly links us i.</description>
+      <description></description>
     </item>
     
   </channel>

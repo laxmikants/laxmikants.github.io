@@ -19,8 +19,21 @@
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
-      <description>1 Read up on blogdown2 Caveats, disclaimers, etc.3 In GitHub4 In terminal5 In RStudio6 Build your site in RStudio7 Deploy in Netlify1 Read up on blogdownBefore you start, I recommend reading the following:
-blogdown: Creating Websites with R Markdown by Yihui Xie and Amber ThomasMaking a Website Using blogdown, Hugo, and GitHub pages also by Amber ThomasGetting Started with blogdown by M.</description>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#read-up-on-blogdown&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Read up on blogdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#caveats-disclaimers-etc.&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; Caveats, disclaimers, etc.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-github&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; In GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-terminal&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; In terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-rstudio&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; In RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#build-your-site-in-rstudio&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Build your site in RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#deploy-in-netlify&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Deploy in Netlify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+</description>
     </item>
     
   </channel>

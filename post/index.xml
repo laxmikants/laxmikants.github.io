@@ -19,7 +19,7 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/decision-trees-in-ml/</guid>
-      <description>Decision trees - Concepts In Machine Learning Decision trees are a type of Supervised machine learning where data is split according to given parameter while constructing a tree to solve a given problem. Using Python, you can actually get generate a flowchart for you to make a decision. So if you have something you&amp;rsquo;re trying to predict on some classification, you can use a decision tree to actually look at multiple attributes that you can decide upon at each level in the flowchart.</description>
+      <description></description>
     </item>
     
     <item>
@@ -28,9 +28,10 @@
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
-      <description>HUGOMORE42 DefinitionA linear equation that models a function such that if we give any x to it, it will predict a value y , where both x and y are input and output variables respectively. These are numerical and continous values.It is the most simple and well known algorithm used in machine learning.
-Flowchart
-The above Flowchart represents that we choose our training set, feed it to an algorithm, it will learn the patterns and will output a function called Hypothesis function &#39;H(x)&#39;.</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -39,8 +40,21 @@ The above Flowchart represents that we choose our training set, feed it to an al
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
-      <description>1 Read up on blogdown2 Caveats, disclaimers, etc.3 In GitHub4 In terminal5 In RStudio6 Build your site in RStudio7 Deploy in Netlify1 Read up on blogdownBefore you start, I recommend reading the following:
-blogdown: Creating Websites with R Markdown by Yihui Xie and Amber ThomasMaking a Website Using blogdown, Hugo, and GitHub pages also by Amber ThomasGetting Started with blogdown by M.</description>
+      <description>
+
+&lt;div id=&#34;TOC&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#read-up-on-blogdown&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;1&lt;/span&gt; Read up on blogdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#caveats-disclaimers-etc.&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;2&lt;/span&gt; Caveats, disclaimers, etc.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-github&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;3&lt;/span&gt; In GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-terminal&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;4&lt;/span&gt; In terminal&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#in-rstudio&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;5&lt;/span&gt; In RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#build-your-site-in-rstudio&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;6&lt;/span&gt; Build your site in RStudio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#deploy-in-netlify&#34;&gt;&lt;span class=&#34;toc-section-number&#34;&gt;7&lt;/span&gt; Deploy in Netlify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+</description>
     </item>
     
     <item>
@@ -49,11 +63,7 @@ The above Flowchart represents that we choose our training set, feed it to an al
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/authoring-scientific-paper/</guid>
-      <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
-Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
- You can find out more at the Chocolatey Official Website
- For installation, please follow the Installation Guide
- To search for any package available, you can visit https://chocolatey.</description>
+      <description></description>
     </item>
     
     <item>
@@ -62,9 +72,10 @@ Installing Chocolatey for Windows If you are running windows, the best package m
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -73,8 +84,10 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/</guid>
-      <description>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by stringi. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at http://r4ds.had.co.nz/strings.html. If you want to master the details, I’d recommend reading the classic Mastering Regular Expressions by Jeffrey E. F. Fried.
-Regular expressions are the default pattern engine in stringr.</description>
+      <description>
+
+
+</description>
     </item>
     
     <item>
@@ -83,11 +96,7 @@ Regular expressions are the default pattern engine in stringr.</description>
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</guid>
-      <description>TeX can be used to code complex statistical formulas.
-Mean \(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i }\) $$(\bar{x} = {\frac{1}{n} \sum\limits_{i=1}^{n} x_i })$$
-population variance \(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(\sigma^2 = {\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
-sample variance \(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }\) $$(s^2 = {\frac{1}{n - 1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 })$$
-Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }}\) $$(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 }})$$</description>
+      <description></description>
     </item>
     
     <item>
@@ -96,8 +105,7 @@ Population Standard Deviation \(\sigma = \sqrt{\sigma^2} = \sqrt{{\frac{1}{n} \s
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/understanding-big-data-hadoop/</guid>
-      <description>&amp;ldquo;Hadoop&amp;rdquo; is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
-However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time.</description>
+      <description></description>
     </item>
     
     <item>
@@ -106,8 +114,7 @@ However, it is imperative to understand what it means to create a Hadoop Ecosyst
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/what-is-big-data-analytics/</guid>
-      <description>Big-data and Analytics: Do we know how we can reach at a decision based on mobile data or computer data or Aadhar number? How to find that the new accounts that are opened in the Pradhan Mantri&amp;rsquo;s Jan Dhan Yojana does not have enough money ?
-How does company know that their brand is making consumers happy or not? OK, this works based on the Big-data Analytics. Lets us understand what this is, When we call it Big Data Analytics then this directly links us i.</description>
+      <description></description>
     </item>
     
   </channel>

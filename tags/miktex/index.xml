@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Miktex on Laxmikant</title>
+    <title>MikTex on Laxmikant</title>
     <link>https://laxmikants.github.io/tags/miktex/</link>
-    <description>Recent content in Miktex on Laxmikant</description>
+    <description>Recent content in MikTex on Laxmikant</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
@@ -19,11 +19,7 @@
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/authoring-scientific-paper/</guid>
-      <description>Installation Guide Package managers A package manager will manage the installation of all other necessary programs and libraries. This will be done through the command/powershell (Windows) or the terminal (Mac/Linux).
-Installing Chocolatey for Windows If you are running windows, the best package manager right now is called Chocolatey.
- You can find out more at the Chocolatey Official Website
- For installation, please follow the Installation Guide
- To search for any package available, you can visit https://chocolatey.</description>
+      <description></description>
     </item>
     
   </channel>
