@@ -1,0 +1,91 @@
+---
+title: "Time-Series Forecasting"
+author: Laxmikant 
+description: "Time-Series data analysis"
+slug: Time-Series data analysis
+date: 2018-09-05
+lastmod: 2018-09-05
+categories: ["blogdown"]
+tags: ["Gold","Prophet","Time series"]
+summary: Time-Series data analysis
+subtitle: Time-Series data analysis
+lua:
+  image:
+    url: "/img/cover.png"
+    width: 800
+    height: 600
+  author: "Laxmikant"
+  output:
+  html_document:
+    df_print: kable
+    toc: true
+---
+
+<!--more-->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+#### Loading all libraries
+
+```{r load-all-libraries}
+library(Quandl)
+library(quantmod)
+library(prophet)
+```
+
+#### Setting up api-keys
+
+```{r setup-api-keys}
+Quandl.api_key("YBM9uPgpnsaDYPkAn539")
+```
+
+#### Getting the data
+
+```{r get-the-data}
+
+daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2019-10-19",type="raw")
+
+names(daily_gold) <- c('ds','y')
+
+daily_gold[2] <- daily_gold[2] / 28
+
+```
+
+#### Creating prophet model
+
+```{r setup-prophet}
+model = prophet(daily_gold)
+```
+
+#### Create a holder for future dates
+
+```{r create-future-dates}
+future <- make_future_dataframe(model, periods = 365 * 1)
+tail(future)
+```
+
+#### Predict future trend
+
+```{r predict-future-trend}
+forecast <- predict(model, future)
+tail(forecast)
+```
+
+#### Plot forecast
+
+```{r plot-forecast}
+plot(model,forecast)
+```
+
+#### Plot forecast components
+
+```{r plot-forecast-components}
+prophet_plot_components(model,forecast)
+```

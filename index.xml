@@ -8,10 +8,22 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Time-Series Forecasting</title>
+      <link>https://laxmikants.github.io/post/time-series-data-analysis/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/time-series-data-analysis/</guid>
+      <description>
+
+
+</description>
+    </item>
     
     <item>
       <title>Decision Trees</title>

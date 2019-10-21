@@ -8,10 +8,19 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blogdown</title>
+      <link>https://laxmikants.github.io/categories/blogdown/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/categories/blogdown/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science Resources</title>
@@ -19,15 +28,6 @@
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/categories/data-science-resources/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>blogdown</title>
-      <link>https://laxmikants.github.io/categories/blogdown/</link>
-      <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/categories/blogdown/</guid>
       <description></description>
     </item>
     

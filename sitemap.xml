@@ -4,12 +4,53 @@
   
   <url>
     <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/gold/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/prophet/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/time-series/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/time-series-data-analysis/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -31,31 +72,19 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/post/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/tags/random-forest/</loc>
     <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/statistics/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
-    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/tags/regression/</loc>
+    <lastmod>2018-06-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/statistics/</loc>
     <lastmod>2018-06-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -86,12 +115,6 @@
   <url>
     <loc>https://laxmikants.github.io/post/up-and-running-with-blogdown/</loc>
     <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
-    <lastmod>2017-01-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

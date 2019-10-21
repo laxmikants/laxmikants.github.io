@@ -8,10 +8,37 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gold</title>
+      <link>https://laxmikants.github.io/tags/gold/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/gold/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prophet</title>
+      <link>https://laxmikants.github.io/tags/prophet/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/prophet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time series</title>
+      <link>https://laxmikants.github.io/tags/time-series/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/time-series/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Machine Learning</title>
@@ -32,20 +59,20 @@
     </item>
     
     <item>
+      <title>Regression</title>
+      <link>https://laxmikants.github.io/tags/regression/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Statistics</title>
       <link>https://laxmikants.github.io/tags/statistics/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/statistics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>regression</title>
-      <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/regression/</guid>
       <description></description>
     </item>
     
