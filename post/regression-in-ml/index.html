@@ -18,7 +18,7 @@
   },
   "genre": "post",
   "keywords": "Statistics, Regression, Machine Learning",
-  "wordcount":  1040 ,
+  "wordcount":  1039 ,
   "url": "https:\/\/laxmikants.github.io\/post\/regression-in-ml\/",
   "datePublished": "2018-03-05T00:00:00\x2b00:00",
   "dateModified": "2018-03-05T00:00:00\x2b00:00",
@@ -64,7 +64,7 @@
   "headline": "Regression in ML",
   "description" : "Regression in ML",
   "inLanguage" : "en",
-  "wordCount":  1040 ,
+  "wordCount":  1039 ,
   "datePublished" : "2018-03-05T00:00:00",
   "dateModified" : "2018-03-05T00:00:00",
   "image" : "https:\/\/laxmikants.github.io\/img\/cover.png",
@@ -277,7 +277,7 @@
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1040&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1039&nbsp;words
   
   
     
@@ -302,7 +302,8 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <div id="definition" class="section level2">
+        <!--more-->
+<div id="definition" class="section level2">
 <h2>Definition</h2>
 <p>A linear equation that models a function such that if we give any <code>x</code> to it, it will predict a value <code>y</code> , where both <code>x and y</code> are input and output variables respectively. These are numerical and continous values.
 It is the most simple and well known algorithm used in machine learning.</p>
@@ -380,7 +381,7 @@ Let’s subsititute <code>MSE</code> function to function <code>J</code> :
 - ∂/(∂θ<sub>j</sub>) J(θ<sub>0</sub>,θ<sub>1</sub>) Taking partial derivative of <code>MSE</code> cost function.</p>
 </blockquote>
 <p><br></p>
-<pre><code>    gradientDescent &lt;- function(X, y, theta, alpha, num_iters){
+<pre class="r"><code>    gradientDescent &lt;- function(X, y, theta, alpha, num_iters){
         m &lt;- length(y);  
         J_history = rep(0, num_iters);
         for (iter in 1:num_iters){
@@ -409,10 +410,7 @@ So let’s solve partial derivative of cost function <code>J</code>.</p>
 </div>
 <div id="example-code-in-r" class="section level2">
 <h2>Example Code in R</h2>
-<pre class="r"><code>
-
-```r
-computeCost  &lt;- function(X, y, theta) {
+<pre class="r"><code>computeCost  &lt;- function(X, y, theta) {
   m &lt;- length(y) 
   dif &lt;- X %*% theta - y
   J &lt;- (t(dif) %*% dif) / (2 * m)

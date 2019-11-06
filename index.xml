@@ -8,10 +8,23 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Classification with Naive Bayes</title>
+      <link>https://laxmikants.github.io/post/classification-with-naive-bayes/</link>
+      <pubDate>Fri, 05 Oct 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/classification-with-naive-bayes/</guid>
+      <description>
+  &lt;link rel=&#34;stylesheet&#34; href=&#34;css/customh5.css&#34; type=&#34;text/css&#34; /&gt;
+
+
+</description>
+    </item>
     
     <item>
       <title>Time-Series Forecasting</title>

@@ -21,6 +21,18 @@ lua:
 <!--more-->
 
 
+<!--more-->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+
 ## Definition
 
 A linear equation that models a function such that if we give any `x` to it, it will predict a value `y` , where both `x and y` are input and output variables respectively. These are numerical and continous values.
@@ -106,7 +118,7 @@ $$\displaystyle \min_{\theta_0,\theta_1}\frac{1}{2m}\sum_{i=1}^{m} \left(h_{\the
 
 <br>
 
-```
+```{r}
     gradientDescent <- function(X, y, theta, alpha, num_iters){
         m <- length(y);  
         J_history = rep(0, num_iters);
@@ -145,7 +157,6 @@ Now let's plug these 2 values to our `Gradient Descent`:
 ## Example Code in R
 
 
-```R
 
 ```{r}
 computeCost  <- function(X, y, theta) {

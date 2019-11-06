@@ -89,7 +89,7 @@ Some of the years have 366 days (leap years). So if your time series data has lo
 **Yearly data** Frequency = 1
 
 
-### Some useful packages
+### Some useful softwares
 
 1.  forecast: For forecasting functions
     
@@ -106,6 +106,8 @@ Some of the years have 366 days (leap years). So if your time series data has lo
 7.  ARIMA
 
 8.  prophet
+
+9.  SPSS
     
 
 **Now, let’s understand prophet**
