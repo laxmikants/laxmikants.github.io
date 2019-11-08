@@ -4,53 +4,12 @@
   
   <url>
     <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/classification/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/post/classification-with-naive-bayes/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/naive-bayes/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/post/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/supervised-machine-learning/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
-    <lastmod>2018-10-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -61,7 +20,19 @@
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/post/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/tags/prophet/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -75,6 +46,12 @@
   <url>
     <loc>https://laxmikants.github.io/post/time-series-data-analysis/</loc>
     <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/blogdown/</loc>
+    <lastmod>2018-09-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -211,13 +188,13 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
+    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/regular-expression/</loc>
+    <loc>https://laxmikants.github.io/tags/regular-expression/</loc>
     <lastmod>2016-03-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -228,13 +205,13 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/tex/</loc>
+    <loc>https://laxmikants.github.io/categories/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/categories/tex/</loc>
+    <loc>https://laxmikants.github.io/tags/tex/</loc>
     <lastmod>2016-01-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -274,6 +251,10 @@
   
   <url>
     <loc>https://laxmikants.github.io/page/aboutme/</loc>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/page/cv/</loc>
   </url>
   
   <url>
