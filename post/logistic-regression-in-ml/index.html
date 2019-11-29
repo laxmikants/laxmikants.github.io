@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Logistic Regression in ML",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/laxmikants.github.io\/post\/logistic-regression-in-ml\/"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https:\/\/laxmikants.github.io\/img\/cover.png",
+    "width":  800 ,
+    "height":  600 
+  },
+  "genre": "post",
+  "keywords": "Statistics, Regression, Machine Learning",
+  "wordcount":  1747 ,
+  "url": "https:\/\/laxmikants.github.io\/post\/logistic-regression-in-ml\/",
+  "datePublished": "2018-04-05T00:00:00\x2b00:00",
+  "dateModified": "2018-04-05T00:00:00\x2b00:00",
+  "license": "This work is licensed.",
+   "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant"
+  },
+  "description" : "Logistic Regression in ML"
+}
+</script>
+
+  
+  
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Laxmikant</title>
+  <meta property="og:title" content="Posts and Resources on Data Science | Logistic Regression in ML" />
+  <meta name="description" content="Logistic Regression in ML">
+  <meta property="og:description" content="Logistic Regression in ML">
+  <meta name="author" content="Laxmikant"/>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "@type": "Person",
+    "name" : "Laxmikant"
+  },
+  "headline": "Logistic Regression in ML",
+  "description" : "Logistic Regression in ML",
+  "inLanguage" : "en",
+  "wordCount":  1747 ,
+  "datePublished" : "2018-04-05T00:00:00",
+  "dateModified" : "2018-04-05T00:00:00",
+  "image" : "https:\/\/laxmikants.github.io\/img\/cover.png",
+  "keywords" : [ "Statistics, Regression, Machine Learning" ],
+  "mainEntityOfPage" : "https:\/\/laxmikants.github.io\/post\/logistic-regression-in-ml\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "Laxmikant",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/laxmikants.github.io\/img\/avatar-icon.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+  <meta property="og:url" content="https://laxmikants.github.io/post/logistic-regression-in-ml/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:type" content="article" />
+
+  <meta content="Logistic Regression in ML" property="og:description">
+  <meta property="og:url" content="https://laxmikants.github.io/post/logistic-regression-in-ml/" />
+  <meta property="og:site_name" content="Laxmikant" />
+  <meta property="article:section" content="Data Science Resources" />
+  <meta property="article:published_time" content="2018-04-05 00:00:00 &#43;0000 UTC" />
+  
+  
+  
+  <meta name="generator" content="Hugo 0.55.6" />
+  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+<script src="http://yihui.org/js/math-code.js"></script>
+
+<script async
+  src="http://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">About</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/aboutme">About Me</a>
+                
+                  <a href="/page/consulting">Consulting</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Data Science Resources</a>
+              <div class="navlinks-children">
+                
+                  <a href="/page/ds-resources">Data Science Links</a>
+                
+              </div>
+            </li>
+          
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent">Posts</a>
+              <div class="navlinks-children">
+                
+                  <a href="/post/regression-in-ml/">Regression</a>
+                
+                  <a href="/post/up-and-running-with-blogdown/">Blogdown</a>
+                
+                  <a href="/post/authoring-scientific-paper/">Scientific paper</a>
+                
+              </div>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Laxmikant" href="https://laxmikants.github.io">
+            <img class="avatar-img" src="https://laxmikants.github.io/img/avatar-icon.png" alt="Laxmikant" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Logistic Regression in ML</h1>
+              
+              
+              
+                
+                  <h2 class="post-subheading">Getting started with Logistic Regression in ML</h2>
+                
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on April 5, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;9&nbsp;minutes
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1747&nbsp;words
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmikant
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <!--more-->
+<div id="logistic-regression" class="section level1">
+<h1>Logistic Regression</h1>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>Logistic regression is a classification algorithm used to assign
+observations to a discrete set of classes. Unlike linear regression
+which outputs continuous number values, logistic regression transforms
+its output using the logistic sigmoid function to return a probability
+value which can then be mapped to two or more discrete classes.</p>
+<div id="comparison-to-linear-regression" class="section level3">
+<h3>Comparison to linear regression</h3>
+<p>Given data on time spent studying and exam scores. linear_regression
+and logistic regression can predict different things:</p>
+<blockquote>
+<ul>
+<li><strong>Linear Regression</strong> could help us predict the student’s test
+score on a scale of 0 - 100. Linear regression predictions are
+continuous (numbers in a range).</li>
+<li><strong>Logistic Regression</strong> could help use predict whether the student
+passed or failed. Logistic regression predictions are discrete
+(only specific values or categories are allowed). We can also view
+probability scores underlying the model’s classifications.</li>
+</ul>
+</blockquote>
+</div>
+<div id="types-of-logistic-regression" class="section level3">
+<h3>Types of logistic regression</h3>
+<blockquote>
+<ul>
+<li>Binary (Pass/Fail)</li>
+<li>Multi (Cats, Dogs, Sheep)</li>
+<li>Ordinal (Low, Medium, High)</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="binary-logistic-regression" class="section level2">
+<h2>Binary logistic regression</h2>
+<p>Say we’re given on student exam results and our goal is to predict whether a student
+will pass or fail based on number of hours slept and hours spent
+studying. We have two features (hours slept, hours studied) and two
+classes: passed (1) and failed (0).</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Studied</strong></td>
+<td align="left"><strong>Slept</strong></td>
+<td align="left"><strong>Passed</strong></td>
+</tr>
+<tr class="even">
+<td align="left">4.85</td>
+<td align="left">9.63</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">8.62</td>
+<td align="left">3.23</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">5.43</td>
+<td align="left">8.23</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">9.21</td>
+<td align="left">6.34</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<p>Graphically we could represent our data with a scatter plot.</p>
+<div class="figure">
+<img src="/img/logistic_regression_exam_scores_scatter.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<div id="sigmoid-activation" class="section level3">
+<h3>Sigmoid activation</h3>
+<p>In order to map predicted values to probabilities, we use the
+sigmoid function. The function maps any real
+value into another value between 0 and 1. In machine learning, we use
+sigmoid to map predictions to probabilities.</p>
+<p><strong>Math</strong></p>
+<p><span class="math display">\[S(z) = \frac{1} {1 + e^{-z}}\]</span></p>
+<blockquote>
+<p><strong>note</strong></p>
+<ul>
+<li><span class="math inline">\(s(z)\)</span> = output between 0 and 1 (probability estimate)</li>
+<li><span class="math inline">\(z\)</span> = input to the function (your algorithm’s prediction e.g. mx +
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol></li>
+<li><span class="math inline">\(e\)</span> = base of natural log</li>
+</ul>
+</blockquote>
+<p><strong>Graph</strong></p>
+<div class="figure">
+<img src="/img/sigmoid.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p><strong>Code</strong></p>
+<pre class="r"><code>sigmoid &lt;- function(z) {
+  #SIGMOID Compute sigmoid functoon
+  #   J &lt;- SIGMOID(z) computes the sigmoid of z.
+  
+  # You need to return the following variables correctly
+  z &lt;- as.matrix(z)
+  g &lt;- matrix(0,dim(z)[1],dim(z)[2])
+  
+  # ----------------------- YOUR CODE HERE -----------------------
+  # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
+  #               vector or scalar).
+  
+  g &lt;- 1 / (1 + exp(-1 * z))
+  g
+  # ----------------------------------------------------
+}</code></pre>
+</div>
+<div id="decision-boundary" class="section level3">
+<h3>Decision boundary</h3>
+<p>Our current prediction function returns a probability score between 0
+and 1. In order to map this to a discrete class (true/false, cat/dog),
+we select a threshold value or tipping point above which we will
+classify values into class 1 and below which we classify values into
+class 2.</p>
+<p><span class="math display">\[p \geq 0.5, class=1 \\
+p &lt; 0.5, class=0\]</span></p>
+<p>For example, if our threshold was .5 and our prediction function
+returned .7, we would classify this observation as positive. If our
+prediction was .2 we would classify the observation as negative. For
+logistic regression with multiple classes we could select the class with
+the highest predicted probability.</p>
+<div class="figure">
+<img src="/img/logistic_regression_sigmoid_w_threshold.png" alt="image" />
+<p class="caption">image</p>
+</div>
+</div>
+<div id="making-predictions" class="section level3">
+<h3>Making predictions</h3>
+<p>Using our knowledge of sigmoid functions and decision boundaries, we can
+now write a prediction function. A prediction function in logistic
+regression returns the probability of our observation being positive,
+True, or “Yes”. We call this class 1 and its notation is <span class="math inline">\(P(class=1)\)</span>.
+As the probability gets closer to 1, our model is more confident that
+the observation is in class 1.</p>
+<p><strong>Math</strong></p>
+<p><span class="math display">\[z = W_0 + W_1 Studied \]</span></p>
+<p>This time however we will transform the output using the sigmoid
+function to return a probability value between 0 and 1.</p>
+<p><span class="math display">\[P(class=1) = \frac{1} {1 + e^{-z}}\]</span></p>
+<p>If the model returns .4 it believes there is only a 40% chance of
+passing. If our decision boundary was .5, we would categorize this
+observation as “Fail.”"</p>
+<p><strong>Code</strong></p>
+<pre class="r"><code>predict &lt;- function(theta, X) {
+  
+  m &lt;- dim(X)[1] # Number of training examples
+  
+  p &lt;- rep(0,m)
+  
+  p[sigmoid(X %*% theta) &gt;= 0.5] &lt;- 1
+  
+  p
+  # ----------------------------------------------------
+}</code></pre>
+<p>A group of 20 students spend between 0 and 6 hours studying for an exam. How does the number of hours spent studying affect the probability that the student will pass the exam?</p>
+<pre class="r"><code>Hours &lt;- c(0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 1.75, 2.00, 2.25,
+           2.50, 2.75, 3.00, 3.25, 3.50,    4.00,   4.25,   4.50,   4.75,
+           5.00, 5.50)
+Pass    &lt;- c(0, 0, 0, 0, 0, 0, 1,   0, 1, 0, 1, 0, 1, 0, 1, 1, 1,   1, 1, 1)
+
+HrsStudying &lt;- data.frame(Hours, Pass)</code></pre>
+<p>The table shows the number of hours each student spent studying, and whether they passed (1) or failed (0).</p>
+<pre class="r"><code>HrsStudying_Table &lt;- t(HrsStudying); HrsStudying_Table</code></pre>
+<pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+## Hours  0.5 0.75    1 1.25  1.5 1.75 1.75    2 2.25   2.5  2.75     3  3.25
+## Pass   0.0 0.00    0 0.00  0.0 0.00 1.00    0 1.00   0.0  1.00     0  1.00
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20]
+## Hours   3.5     4  4.25   4.5  4.75     5   5.5
+## Pass    0.0     1  1.00   1.0  1.00     1   1.0</code></pre>
+<p>The graph shows the probability of passing the exam versus the number of hours studying, with the logistic regression curve fitted to the data.</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>ggplot(HrsStudying, aes(Hours, Pass)) +
+  geom_point(aes()) +
+  geom_smooth(method=&#39;glm&#39;, family=&quot;binomial&quot;, se=FALSE) +
+  labs (x=&quot;Hours Studying&quot;, y=&quot;Probability of Passing Exam&quot;,
+        title=&quot;Probability of Passing Exam vs Hours Studying&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: family</code></pre>
+<p><img src="/post/2018-04-05-regression-logistic_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+The logistic regression analysis gives the following output.</p>
+<pre class="r"><code>model &lt;- glm(Pass ~.,family=binomial(link=&#39;logit&#39;),data=HrsStudying)
+model$coefficients</code></pre>
+<pre><code>## (Intercept)       Hours 
+##   -4.077713    1.504645</code></pre>
+<p>Coefficient Std.Error z-value P-value (Wald)
+Intercept -4.0777 1.7610 -2.316 0.0206
+Hours 1.5046 0.6287 2.393 0.0167</p>
+<p>The output indicates that hours studying is significantly associated with the probability of passing the exam (p=0.0167, Wald test). The output also provides the coefficients for Intercept = -4.0777 and Hours = 1.5046. These coefficients are entered in the logistic regression equation to estimate the probability of passing the exam:</p>
+<p>Probability of passing exam =1/(1+exp(-(-4.0777+1.5046* Hours)))</p>
+<p>For example, for a student who studies 2 hours, entering the value Hours =2 in the equation gives the estimated probability of passing the exam of p=0.26:</p>
+<pre class="r"><code>StudentHours &lt;- 2
+ProbabilityOfPassingExam &lt;- 1/(1+exp(-(-4.0777+1.5046*StudentHours)))
+ProbabilityOfPassingExam</code></pre>
+<pre><code>## [1] 0.2556884</code></pre>
+<p>This table shows the probability of passing the exam for several values of hours studying.</p>
+<pre class="r"><code>ExamPassTable &lt;- data.frame(column1=c(1, 2, 3, 4, 5),
+                            column2=c(1/(1+exp(-(-4.0777+1.5046*1))),
+                                      1/(1+exp(-(-4.0777+1.5046*2))),
+                                      1/(1+exp(-(-4.0777+1.5046*3))),
+                                      1/(1+exp(-(-4.0777+1.5046*4))),
+                                      1/(1+exp(-(-4.0777+1.5046*5)))))
+names(ExamPassTable) &lt;- c(&quot;Hours of study&quot;, &quot;Probability of passing exam&quot;)
+ExamPassTable</code></pre>
+<pre><code>##   Hours of study Probability of passing exam
+## 1              1                  0.07088985
+## 2              2                  0.25568845
+## 3              3                  0.60732935
+## 4              4                  0.87442903
+## 5              5                  0.96909067</code></pre>
+</div>
+<div id="cost-function" class="section level3">
+<h3>Cost function</h3>
+<p>Instead of Mean Squared Error, we use a cost function called Cross-entropy loss can be
+divided into two separate cost functions: one for <span class="math inline">\(y=1\)</span> and one for
+<span class="math inline">\(y=0\)</span>.</p>
+<div class="figure">
+<img src="/img/ng_cost_function_logistic.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p>The benefits of taking the logarithm reveal themselves when you look at
+the cost function graphs for y=1 and y=0. These smooth monotonic
+functions [^2] (always increasing or always decreasing) make it easy to
+calculate the gradient and minimize cost. Image from Andrew Ng’s slides
+on logistic regression [^3].</p>
+<div class="figure">
+<img src="/img/y1andy2_logistic_function.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p>The key thing to note is the cost function penalizes confident and wrong
+predictions more than it rewards confident and right predictions! The
+corollary is increasing prediction accuracy (closer to 0 or 1) has
+diminishing returns on reducing cost due to the logistic nature of our
+cost function.</p>
+<p><strong>Above functions compressed into one</strong></p>
+<div class="figure">
+<img src="/img/logistic_cost_function_joined.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p>Multiplying by <span class="math inline">\(y\)</span> and <span class="math inline">\((1-y)\)</span> in the above equation is a sneaky trick
+that let’s us use the same equation to solve for both y=1 and y=0 cases.
+If y=0, the first side cancels out. If y=1, the second side cancels out.
+In both cases we only perform the operation we need to perform.</p>
+<p><strong>Vectorized cost function</strong></p>
+<div class="figure">
+<img src="/img/logistic_cost_function_vectorized.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p><strong>Code</strong></p>
+<pre class="r"><code>costFunction  &lt;- function(X, y) {
+  
+  #COSTFUNCTION Compute cost for logistic regression
+  #   J &lt;- COSTFUNCTION(theta, X, y) computes the cost of using theta as the
+  #   parameter for logistic regression.
+  
+  function(theta) {
+    # Initialize some useful values
+    m &lt;- length(y) # number of training examples
+    
+    # You need to return the following variable correctly
+    J &lt;- 0
+    
+  
+    h &lt;- sigmoid(X %*% theta)
+    J &lt;- (t(-y) %*% log(h) - t(1 - y) %*% log(1 - h)) / m
+    J
+    # ----------------------------------------------------
+  }
+}</code></pre>
+</div>
+<div id="gradient-descent" class="section level3">
+<h3>Gradient descent</h3>
+<p>Remember that the general form of gradient descent is:</p>
+<p><span class="math display">\[\begin{align*}&amp; Repeat \; \lbrace \newline &amp; \; \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j}J(\theta) \newline &amp; \rbrace\end{align*}\]</span></p>
+<p>We can work out the derivative part using calculus to get:</p>
+<p><span class="math display">\[\begin{align*} &amp; Repeat \; \lbrace \newline &amp; \; \theta_j := \theta_j - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \newline &amp; \rbrace \end{align*}\]</span></p>
+<p>A vectorized implementation is:</p>
+<p><span class="math display">\[\begin{align*} \newline &amp; \; \theta := \theta - \frac{\alpha}{m} {X^T (g(X\theta}) - y^ \rightarrow  )\end{align*}\]</span></p>
+<pre class="r"><code>grad &lt;- function(X, y) {
+  #COSTFUNCTION Compute gradient for logistic regression
+    #   J &lt;- COSTFUNCTION(theta, X, y) computes the gradient of the cost
+    #   w.r.t. to the parameters.
+  function(theta) {
+
+    # You need to return the following variable correctly
+    grad &lt;- matrix(0,dim(as.matrix(theta)))
+    m &lt;- length(y)
+
+    h &lt;- sigmoid(X %*% theta)
+
+    # calculate grads
+    
+    grad &lt;- (t(X) %*% (h - y)) / m
+    
+    grad
+    # ----------------------------------------------------
+    
+  }
+}</code></pre>
+<p><strong>Pseudocode</strong></p>
+<pre><code>Repeat {
+
+  1. Calculate gradient average
+  2. Multiply by learning rate
+  3. Subtract from weights
+
+}</code></pre>
+<p><strong>Cost history</strong></p>
+<div class="figure">
+<img src="/img/logistic_regression_loss_history.png" alt="image" />
+<p class="caption">image</p>
+</div>
+<p><strong>Accuracy</strong></p>
+<p>Accuracy measures how correct our predictions
+were. In this case we simply compare predicted labels to true labels and
+divide by the total.</p>
+<p><strong>Decision boundary</strong></p>
+<p>Another helpful technique is to plot the decision boundary on top of our
+predictions to see how our labels compare to the actual labels. This
+involves plotting our predicted probabilities and coloring them with
+their true labels.</p>
+<div class="figure">
+<img src="/img/logistic_regression_final_decision_boundary.png" alt="image" />
+<p class="caption">image</p>
+</div>
+</div>
+</div>
+<div id="multiclass-logistic-regression" class="section level2">
+<h2>Multiclass logistic regression</h2>
+<p>Instead of <span class="math inline">\(y = {0,1}\)</span> we will expand our definition so that
+<span class="math inline">\(y = {0,1...n}\)</span>. Basically we re-run binary classification multiple
+times, once for each class.</p>
+<div id="procedure" class="section level3">
+<h3>Procedure</h3>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Divide the problem into n+1 binary classification problems (+1
+because the index starts at 0?).</li>
+<li>For each class…</li>
+<li>Predict the probability the observations are in that single class.</li>
+<li>prediction = &lt;math&gt;max(probability of the classes)</li>
+</ol>
+</blockquote>
+<p>For each sub-problem, we select one class (YES) and lump all the others
+into a second class (NO). Then we take the class with the highest
+predicted value.</p>
+<p>Since y = {0,1…n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that ‘y’ is a member of one of our classes.</p>
+<p><span class="math display">\[\begin{align*}&amp; y \in \lbrace0, 1 ... n\rbrace \newline&amp; h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \newline&amp; h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \newline&amp; \cdots \newline&amp; h_\theta^{(n)}(x) = P(y = n | x ; \theta) \newline&amp; \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\newline\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://laxmikants.github.io/tags/statistics/">Statistics</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/regression/">Regression</a>&nbsp;
+            
+              <a href="https://laxmikants.github.io/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f&amp;text=Logistic%20Regression%20in%20ML&amp;via=laxmikantsoni09" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f&amp;title=Logistic%20Regression%20in%20ML" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f&amp;title=Logistic%20Regression%20in%20ML" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f&amp;title=Logistic%20Regression%20in%20ML" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2flogistic-regression-in-ml%2f&amp;description=Logistic%20Regression%20in%20ML" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/regression-in-ml/">Regression in ML</a></li>
+          
+            <li><a href="/post/apply-tex-coding-for-complex-mathematical-formulas/">Tex formulas</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://laxmikants.github.io/post/regression-in-ml/" data-toggle="tooltip" data-placement="top" title="Regression in ML">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://laxmikants.github.io/post/decision-trees-in-ml/" data-toggle="tooltip" data-placement="top" title="Decision Trees">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:laxmikant.soni@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/laxmikantsoni09" title="Facebook">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/laxmikants" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/laxmikantsoni09" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/laxmikantsoni09" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/laxmikantsoni09" title="Instagram">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+            
+          
+
+          
+          
+
+          
+            &nbsp;&bull;&nbsp;
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.55.6</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://laxmikants.github.io/js/main.js"></script>
+<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,412 @@
+
+---
+title: Logistic Regression in ML
+author: "Laxmikant"
+description: "Logistic Regression in ML"
+slug: Logistic Regression in ML
+date: 2018-04-05
+lastmod: 2018-04-05
+categories: ["Data Science Resources"]
+subtitle: Getting started with Logistic Regression in ML
+tags: ["Statistics","Regression","Machine Learning"]
+summary: "Getting Started with Logistic Regression in ML"
+lua:
+  image:
+    url: "/img/cover.png"
+    width: 800
+    height: 600
+  author: "Laxmikant"
+---
+
+
+<!--more-->
+
+
+<!--more-->
+
+Logistic Regression
+===================
+
+Introduction
+------------
+
+Logistic regression is a classification algorithm used to assign
+observations to a discrete set of classes. Unlike linear regression
+which outputs continuous number values, logistic regression transforms
+its output using the logistic sigmoid function to return a probability
+value which can then be mapped to two or more discrete classes.
+
+### Comparison to linear regression
+
+Given data on time spent studying and exam scores. linear\_regression
+and logistic regression can predict different things:
+
+> -   **Linear Regression** could help us predict the student's test
+>     score on a scale of 0 - 100. Linear regression predictions are
+>     continuous (numbers in a range).
+> -   **Logistic Regression** could help use predict whether the student
+>     passed or failed. Logistic regression predictions are discrete
+>     (only specific values or categories are allowed). We can also view
+>     probability scores underlying the model's classifications.
+
+### Types of logistic regression
+
+> -   Binary (Pass/Fail)
+> -   Multi (Cats, Dogs, Sheep)
+> -   Ordinal (Low, Medium, High)
+
+Binary logistic regression
+--------------------------
+
+Say we're given on student exam results and our goal is to predict whether a student
+will pass or fail based on number of hours slept and hours spent
+studying. We have two features (hours slept, hours studied) and two
+classes: passed (1) and failed (0).
+
+  --------------- -------------- --------------
+  **Studied**     **Slept**      **Passed**
+  4.85            9.63           1
+  8.62            3.23           0
+  5.43            8.23           1
+  9.21            6.34           0
+  --------------- -------------- --------------
+
+Graphically we could represent our data with a scatter plot.
+
+![image](/img/logistic_regression_exam_scores_scatter.png)
+
+### Sigmoid activation
+
+In order to map predicted values to probabilities, we use the
+sigmoid  function. The function maps any real
+value into another value between 0 and 1. In machine learning, we use
+sigmoid to map predictions to probabilities.
+
+**Math**
+
+$$S(z) = \frac{1} {1 + e^{-z}}$$
+
+
+
+
+> **note**
+>
+> -   $s(z)$ = output between 0 and 1 (probability estimate)
+> -   $z$ = input to the function (your algorithm's prediction e.g. mx +
+>     b)
+> -   $e$ = base of natural log
+
+**Graph**
+
+![image](/img/sigmoid.png)
+
+**Code**
+
+```{r}
+sigmoid <- function(z) {
+  #SIGMOID Compute sigmoid functoon
+  #   J <- SIGMOID(z) computes the sigmoid of z.
+  
+  # You need to return the following variables correctly
+  z <- as.matrix(z)
+  g <- matrix(0,dim(z)[1],dim(z)[2])
+  
+  # ----------------------- YOUR CODE HERE -----------------------
+  # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
+  #               vector or scalar).
+  
+  g <- 1 / (1 + exp(-1 * z))
+  g
+  # ----------------------------------------------------
+}
+```
+
+### Decision boundary
+
+Our current prediction function returns a probability score between 0
+and 1. In order to map this to a discrete class (true/false, cat/dog),
+we select a threshold value or tipping point above which we will
+classify values into class 1 and below which we classify values into
+class 2.
+
+$$p \geq 0.5, class=1 \\
+p < 0.5, class=0$$
+
+For example, if our threshold was .5 and our prediction function
+returned .7, we would classify this observation as positive. If our
+prediction was .2 we would classify the observation as negative. For
+logistic regression with multiple classes we could select the class with
+the highest predicted probability.
+
+![image](/img/logistic_regression_sigmoid_w_threshold.png)
+
+### Making predictions
+
+Using our knowledge of sigmoid functions and decision boundaries, we can
+now write a prediction function. A prediction function in logistic
+regression returns the probability of our observation being positive,
+True, or "Yes". We call this class 1 and its notation is $P(class=1)$.
+As the probability gets closer to 1, our model is more confident that
+the observation is in class 1.
+
+**Math**
+
+
+$$z = W_0 + W_1 Studied $$
+
+This time however we will transform the output using the sigmoid
+function to return a probability value between 0 and 1.
+
+$$P(class=1) = \frac{1} {1 + e^{-z}}$$
+
+If the model returns .4 it believes there is only a 40% chance of
+passing. If our decision boundary was .5, we would categorize this
+observation as "Fail.""
+
+
+**Code**
+
+```{r}
+predict <- function(theta, X) {
+  
+  m <- dim(X)[1] # Number of training examples
+  
+  p <- rep(0,m)
+  
+  p[sigmoid(X %*% theta) >= 0.5] <- 1
+  
+  p
+  # ----------------------------------------------------
+}
+```
+A group of 20 students spend between 0 and 6 hours studying for an exam. How does the number of hours spent studying affect the probability that the student will pass the exam?
+```{r}
+
+Hours <- c(0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 1.75, 2.00, 2.25,
+           2.50, 2.75, 3.00, 3.25, 3.50,    4.00,   4.25,   4.50,   4.75,
+           5.00, 5.50)
+Pass    <- c(0, 0, 0, 0, 0, 0, 1,   0, 1, 0, 1, 0, 1, 0, 1, 1, 1,   1, 1, 1)
+
+HrsStudying <- data.frame(Hours, Pass)
+
+```
+The table shows the number of hours each student spent studying, and whether they passed (1) or failed (0).
+
+```{r}
+HrsStudying_Table <- t(HrsStudying); HrsStudying_Table
+
+```
+The graph shows the probability of passing the exam versus the number of hours studying, with the logistic regression curve fitted to the data.
+
+```{r}
+library(ggplot2)
+ggplot(HrsStudying, aes(Hours, Pass)) +
+  geom_point(aes()) +
+  geom_smooth(method='glm', family="binomial", se=FALSE) +
+  labs (x="Hours Studying", y="Probability of Passing Exam",
+        title="Probability of Passing Exam vs Hours Studying")
+
+```
+The logistic regression analysis gives the following output.
+
+
+```{r}
+model <- glm(Pass ~.,family=binomial(link='logit'),data=HrsStudying)
+model$coefficients
+```
+
+Coefficient Std.Error z-value P-value (Wald)
+Intercept -4.0777 1.7610 -2.316 0.0206
+Hours 1.5046 0.6287 2.393 0.0167
+
+The output indicates that hours studying is significantly associated with the probability of passing the exam (p=0.0167, Wald test). The output also provides the coefficients for Intercept = -4.0777 and Hours = 1.5046. These coefficients are entered in the logistic regression equation to estimate the probability of passing the exam:
+
+Probability of passing exam =1/(1+exp(-(-4.0777+1.5046* Hours)))
+
+For example, for a student who studies 2 hours, entering the value Hours =2 in the equation gives the estimated probability of passing the exam of p=0.26:
+
+```{r}
+
+StudentHours <- 2
+ProbabilityOfPassingExam <- 1/(1+exp(-(-4.0777+1.5046*StudentHours)))
+ProbabilityOfPassingExam
+```
+
+This table shows the probability of passing the exam for several values of hours studying.
+
+```{r}
+ExamPassTable <- data.frame(column1=c(1, 2, 3, 4, 5),
+                            column2=c(1/(1+exp(-(-4.0777+1.5046*1))),
+                                      1/(1+exp(-(-4.0777+1.5046*2))),
+                                      1/(1+exp(-(-4.0777+1.5046*3))),
+                                      1/(1+exp(-(-4.0777+1.5046*4))),
+                                      1/(1+exp(-(-4.0777+1.5046*5)))))
+names(ExamPassTable) <- c("Hours of study", "Probability of passing exam")
+ExamPassTable
+```
+
+### Cost function
+
+
+Instead of Mean Squared Error, we use a cost function called Cross-entropy loss can be
+divided into two separate cost functions: one for $y=1$ and one for
+$y=0$.
+
+![image](/img/ng_cost_function_logistic.png)
+
+The benefits of taking the logarithm reveal themselves when you look at
+the cost function graphs for y=1 and y=0. These smooth monotonic
+functions [^2] (always increasing or always decreasing) make it easy to
+calculate the gradient and minimize cost. Image from Andrew Ng's slides
+on logistic regression [^3].
+
+![image](/img/y1andy2_logistic_function.png)
+
+The key thing to note is the cost function penalizes confident and wrong
+predictions more than it rewards confident and right predictions! The
+corollary is increasing prediction accuracy (closer to 0 or 1) has
+diminishing returns on reducing cost due to the logistic nature of our
+cost function.
+
+**Above functions compressed into one**
+
+![image](/img/logistic_cost_function_joined.png)
+
+Multiplying by $y$ and $(1-y)$ in the above equation is a sneaky trick
+that let's us use the same equation to solve for both y=1 and y=0 cases.
+If y=0, the first side cancels out. If y=1, the second side cancels out.
+In both cases we only perform the operation we need to perform.
+
+**Vectorized cost function**
+
+![image](/img/logistic_cost_function_vectorized.png)
+
+**Code**
+
+```{r}
+costFunction  <- function(X, y) {
+  
+  #COSTFUNCTION Compute cost for logistic regression
+  #   J <- COSTFUNCTION(theta, X, y) computes the cost of using theta as the
+  #   parameter for logistic regression.
+  
+  function(theta) {
+    # Initialize some useful values
+    m <- length(y) # number of training examples
+    
+    # You need to return the following variable correctly
+    J <- 0
+    
+  
+    h <- sigmoid(X %*% theta)
+    J <- (t(-y) %*% log(h) - t(1 - y) %*% log(1 - h)) / m
+    J
+    # ----------------------------------------------------
+  }
+}
+
+```
+
+### Gradient descent
+
+Remember that the general form of gradient descent is:
+
+
+
+\begin{align*}& Repeat \; \lbrace \newline & \; \theta_j := \theta_j - \alpha \dfrac{\partial}{\partial \theta_j}J(\theta) \newline & \rbrace\end{align*}
+
+We can work out the derivative part using calculus to get:
+
+
+\begin{align*} & Repeat \; \lbrace \newline & \; \theta_j := \theta_j - \frac{\alpha}{m} \sum_{i=1}^m (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} \newline & \rbrace \end{align*}
+
+
+
+A vectorized implementation is:
+
+\begin{align*} \newline & \; \theta := \theta - \frac{\alpha}{m} {X^T (g(X\theta}) - y^ \rightarrow  )\end{align*}
+
+
+
+
+```{r}
+
+grad <- function(X, y) {
+  #COSTFUNCTION Compute gradient for logistic regression
+    #   J <- COSTFUNCTION(theta, X, y) computes the gradient of the cost
+    #   w.r.t. to the parameters.
+  function(theta) {
+
+    # You need to return the following variable correctly
+    grad <- matrix(0,dim(as.matrix(theta)))
+    m <- length(y)
+
+    h <- sigmoid(X %*% theta)
+
+    # calculate grads
+    
+    grad <- (t(X) %*% (h - y)) / m
+    
+    grad
+    # ----------------------------------------------------
+    
+  }
+}
+```
+
+**Pseudocode**
+
+    Repeat {
+
+      1. Calculate gradient average
+      2. Multiply by learning rate
+      3. Subtract from weights
+
+    }
+
+
+
+
+
+**Cost history**
+
+![image](/img/logistic_regression_loss_history.png)
+
+**Accuracy**
+
+Accuracy  measures how correct our predictions
+were. In this case we simply compare predicted labels to true labels and
+divide by the total.
+
+**Decision boundary**
+
+Another helpful technique is to plot the decision boundary on top of our
+predictions to see how our labels compare to the actual labels. This
+involves plotting our predicted probabilities and coloring them with
+their true labels.
+
+![image](/img/logistic_regression_final_decision_boundary.png)
+
+
+Multiclass logistic regression
+------------------------------
+
+Instead of $y = {0,1}$ we will expand our definition so that
+$y = {0,1...n}$. Basically we re-run binary classification multiple
+times, once for each class.
+
+### Procedure
+
+> 1.  Divide the problem into n+1 binary classification problems (+1
+>     because the index starts at 0?).
+> 2.  For each class...
+> 3.  Predict the probability the observations are in that single class.
+> 4.  prediction = \<math\>max(probability of the classes)
+
+For each sub-problem, we select one class (YES) and lump all the others
+into a second class (NO). Then we take the class with the highest
+predicted value.
+
+Since y = {0,1...n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that 'y' is a member of one of our classes.
+
+\begin{align*}& y \in \lbrace0, 1 ... n\rbrace \newline& h_\theta^{(0)}(x) = P(y = 0 | x ; \theta) \newline& h_\theta^{(1)}(x) = P(y = 1 | x ; \theta) \newline& \cdots \newline& h_\theta^{(n)}(x) = P(y = n | x ; \theta) \newline& \mathrm{prediction} = \max_i( h_\theta ^{(i)}(x) )\newline\end{align*}

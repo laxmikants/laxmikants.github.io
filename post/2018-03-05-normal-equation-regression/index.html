@@ -1,0 +1,61 @@
+
+
+
+<blockquote>
+<p>Normal Equation is an analytical approach to Linear Regression with a Least Square Cost Function. We can directly find out the value of θ without… Read More »</p>
+</blockquote>
+<div id="ml-normal-equation-in-linear-regression---geeksforgeeks" class="section level1">
+<h1>ML | Normal Equation in Linear Regression - GeeksforGeeks</h1>
+<p>_perm_identity_User Actions</p>
+<p><strong>Normal Equation</strong> is an analytical approach to Linear Regression with a Least Square Cost Function. We can directly find out the value of θ without using <a href="https://www.geeksforgeeks.org/gradient-descent-in-linear-regression/">Gradient Descent</a>. Following this approach is an effective and a time-saving option when are working with a dataset with small features.</p>
+<p><strong>Normal Equation is a follows :</strong><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-1-10.png" /><br />
+In the above equation,<br />
+<strong>θ :</strong> hypothesis parameters that define it the best.<br />
+<strong>X :</strong> Input feature value of each instance.<br />
+<strong>Y :</strong> Output value of each instance.</p>
+<div id="maths-behind-the-equation" class="section level4">
+<h4>Maths Behind the equation –</h4>
+<p>Given the hypothesis function <img src="https://media.geeksforgeeks.org/wp-content/uploads/1-80.jpg" /><br />
+where,<br />
+<strong>n :</strong> the no. of features in the data set.<br />
+<strong>x0 :</strong> 1 (for vector multiplication)</p>
+<p>Notice that this is dot product between θ and x values. So for the convenience to solve we can write it as :<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/1.1-2.jpg" /><br />
+The motive in Linear Regression is to minimize the <strong>cost function</strong> :</p>
+<div class="figure">
+<img src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-aa707afad8bcd0f7a4424e31cb616000_l3.svg" title="Rendered by QuickLaTeX.com" alt="J() =  _{i = 1}^{m}  [h_{}(x^{(i)}) - y^{(i)}]^{2}" />
+<p class="caption">J() =  _{i = 1}^{m}  [h_{}(x^{(i)}) - y^{(i)}]^{2}</p>
+</div>
+<p>where,<br />
+<strong>xi :</strong> the input value of iih training example.<br />
+<strong>m :</strong> no. of training instances<br />
+<strong>n :</strong> no. of data-set features<br />
+<strong>yi :</strong> the expected result of ith instance</p>
+<p>Let us representing cost function in a vector form.<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/3-43.jpg" /><br />
+we have ignored 1/2m here as it will not make any difference in the working. It was used for the mathematical convenience while calculation gradient descent. But it is no more needed here.<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/5-20.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/6-12.jpg" /><br />
+<strong>xij :</strong> value of jih feature in iih training example.</p>
+<p>This can further be reduced to <img src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-5d5fec1d098a79e423c82b25450a90af_l3.svg" title="Rendered by QuickLaTeX.com" alt="X- y" /><br />
+But each residual value is squared. We cannot simply square the above expression. As the square of a vector/matrix is not equal to the square of each of its values. So to get the squared value, multiply the vector/matrix with its transpose. So, the final equation derived is<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/8-7.jpg" /><br />
+Therefore, the cost function is<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/9-5.jpg" /><br />
+So, now getting the value of θ using derivative<br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/10-4.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/11-11.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/12-4.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/13.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/14.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/16.jpg" /><br />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/Untitled-drawing-1-10.png" /><br />
+So, this is the finally derived <strong>Normal Equation with θ giving the minimum cost value.</strong></p>
+<hr />
+<hr />
+<p>If you like GeeksforGeeks and would like to contribute, you can also write an article using <a href="https://contribute.geeksforgeeks.org/">contribute.geeksforgeeks.org</a> or mail your article to <a href="mailto:contribute@geeksforgeeks.org" class="email">contribute@geeksforgeeks.org</a>. See your article appearing on the GeeksforGeeks main page and help other Geeks.</p>
+<p>Please Improve this article if you find anything incorrect by clicking on the “Improve Article” button below.</p>
+<p>Writing code in comment? Please use <a href="https://ide.geeksforgeeks.org/">ide.geeksforgeeks.org</a>, generate link and share the link here.</p>
+</div>
+</div>

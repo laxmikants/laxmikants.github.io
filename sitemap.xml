@@ -90,6 +90,11 @@
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/post/logistic-regression-in-ml/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/post/regression-in-ml/</loc>
     <lastmod>2018-03-05T00:00:00+00:00</lastmod>
   </url>
@@ -247,6 +252,11 @@
   <url>
     <loc>https://laxmikants.github.io/post/what-is-big-data-analytics/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/post/2018-03-05-normal-equation-regression/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
