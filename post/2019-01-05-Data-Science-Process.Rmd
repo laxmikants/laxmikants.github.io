@@ -35,7 +35,7 @@ knitr::opts_chunk$set(
 
 ## What is Data Science Process? 
 
-Data exploration helps a data consumer to focus on searching for information, with a view to forming a true analysis from the gathered information. Furthermore, with the completion of the steps of data munging, analysis, modeling, and evaluation, users can generate insights and valuable points from their focused data.
+Data science process helps a data consumer to focus on searching for information, with a view to forming a true analysis from the gathered information. Furthermore, with the completion of the steps of data munging, analysis, modeling, and evaluation, users can generate insights and valuable points from their focused data.
 
 In a real data science project, there are six steps involved in the
 process. They are as follows:
@@ -51,14 +51,14 @@ process. They are as follows:
 
 ### 1 Asking the right questions 
 
-When the user presents their question, for example "What are my expected findings after the exploration is finished?", or "What kind of information can I extract through the
-exploration?," different results will be given. Therefore, asking the right
-question and setting a research goal is essential in the first place, for the question itself determines the objective and target of the exploration.
+When the user presents their question, for example "What are my expected findings after the project is finished?", or "What kind of information can I extract through the
+data science process?," different results will be given. Therefore, asking the right
+question and setting a research goal is essential in the first place, for the question itself determines the objective and target of the data science project.
 
 
 ### 2 Data collection 
 
-Once the goal of exploration is determined, the user can start collecting or extracting relevant data from the data source, with regard to the exploration target. Mostly, data collected from disparate systems appears unorganized and diverse in format. Clearly, the original data may be from different sources, such as files, databases, or the
+Once the goal of Data science project is determined, the user can start collecting or extracting relevant data from the data source, with regard to the project goal. Mostly, data collected from disparate systems appears unorganized and diverse in format. Clearly, the original data may be from different sources, such as files, databases, or the
 Internet. To retrieve data from these sources requires the assistance of the file IO function, JDBC/ODBC, web crawler, and so on. This extracted data is called raw data , which is because it has not been subjected to processing, or been through any other manipulation. Most raw data is not easily consumed by the majority of analysis tools or visualization programs. During this step both internal and external data is collected from respective stakeholders.
 
 ### 3 Data munging or Data Preparation
