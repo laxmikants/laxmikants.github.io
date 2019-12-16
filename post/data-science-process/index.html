@@ -18,7 +18,7 @@
   },
   "genre": "post",
   "keywords": "Data Science",
-  "wordcount":  779 ,
+  "wordcount":  1164 ,
   "url": "https:\/\/laxmikants.github.io\/post\/data-science-process\/",
   "datePublished": "2019-01-05T00:00:00\x2b00:00",
   "dateModified": "2019-01-05T00:00:00\x2b00:00",
@@ -64,7 +64,7 @@
   "headline": "Data Science Process",
   "description" : "Data Science Process",
   "inLanguage" : "en",
-  "wordCount":  779 ,
+  "wordCount":  1164 ,
   "datePublished" : "2019-01-05T00:00:00",
   "dateModified" : "2019-01-05T00:00:00",
   "image" : "https:\/\/laxmikants.github.io\/img\/cover.png",
@@ -95,12 +95,12 @@
   <meta content="Data Science Process" property="og:description">
   <meta property="og:url" content="https://laxmikants.github.io/post/data-science-process/" />
   <meta property="og:site_name" content="Laxmikant" />
-  <meta property="article:section" content="blogdown" />
+  <meta property="article:section" content="Data Science" />
   <meta property="article:published_time" content="2019-01-05 00:00:00 &#43;0000 UTC" />
   
   
   
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.58.2" />
   <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -279,10 +279,10 @@
   <i class="fas fa-calendar"></i>&nbsp;Posted on January 5, 2019
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;779&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;1164&nbsp;words
   
   
     
@@ -307,8 +307,8 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <div id="what-is-data-science-process" class="section level2">
-<h2>What is Data Science Process?</h2>
+        <div id="data-science-process" class="section level2">
+<h2>Data Science Process?</h2>
 <p>Data science process helps a data consumer to focus on searching for information, with a view to forming a true analysis from the gathered information. Furthermore, with the completion of the steps of data munging, analysis, modeling, and evaluation, users can generate insights and valuable points from their focused data.</p>
 <p>In a real data science project, there are six steps involved in the
 process. They are as follows:</p>
@@ -326,6 +326,21 @@ process. They are as follows:</p>
 <p>When the user presents their question, for example “What are my expected findings after the project is finished?”, or “What kind of information can I extract through the
 data science process?,” different results will be given. Therefore, asking the right
 question and setting a research goal is essential in the first place, for the question itself determines the objective and target of the data science project.</p>
+<pre class="r"><code>## Examples of specific questions ?
+
+#  - Will this tire fail in the next 1,000 miles ?
+
+#  - If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
+  
+#  - What will the temperature be next Tuesday ?
+
+#  - What will my fourth quarter sales in region A be ?
+  
+#  - Which viewers like the same types of movies?
+  
+#  - Which animal is in this image ?
+
+#  - What will be the Stock price next month ?</code></pre>
 </div>
 <div id="data-collection" class="section level3">
 <h3>2 Data collection</h3>
@@ -335,20 +350,61 @@ Internet. To retrieve data from these sources requires the assistance of the fil
 <div id="data-munging-or-data-preparation" class="section level3">
 <h3>3 Data munging or Data Preparation</h3>
 <p>The next phase is data munging (or wrangling), a step to help map raw data into a more convenient format for consumption. During this phase, there are many processes, such as data parsing,sorting, splitting, merging, filtering, missing value completion, and other processes to transform and organize the data, and enable it to fit into a consume structure. Later, the mapped data can be further utilized for data aggregation, analysis, or visualization.
-This step involves Data Cleansing, Data tranformation and combining data. For example during the cleansing process it is necessary to check for missing values, during transformation it is necessary to aggregate and reduce number of variables, combing data includes creating data views and merging or joining data sets.</p>
+This step involves Data Cleansing, Data tranformation and combining data. For example during the cleansing process it is necessary to check for missing values, during transformation it is necessary to aggregate and reduce number of variables, combing data includes creating data views and merging or joining data sets. Once data is clean we look for statistical properties such as distributions,correlations, and outliers.</p>
+<p>Common data errors found during this phase are</p>
+<ul>
+<li>Mistakes during data entry</li>
+<li>Redundant white space</li>
+<li>Impossible values</li>
+<li>Missing values</li>
+<li>Outliers</li>
+</ul>
 </div>
 <div id="basic-exploratory-data-analysis" class="section level3">
 <h3>4 Basic exploratory data analysis</h3>
 <p>After the data munging phase, users can conduct further analysis toward data processing. The most basic analysis is to perform exploratory data analysis. Exploratory data analysis involves analyzing a dataset by summarizing its characteristics. Performing basic statistical, aggregation, and visual methods are also crucial tasks to help the user understand data characteristics, which are beneficial for the user to capture the majority, trends, and outliers easily through plots. Basing exploratory analysis includes creating simple graphs, combined graphs and summarising the findings based on the graphs.</p>
+<p>Experimental Data Analysis is the process of looking at a data set to see what are the appropriate statistical inferences that can possibly be learned. For univariate data, we can ask if the data is approximately normal, longer tailed, or shorter tailed? Does it have symmetry, or is it skewed? Is it unimodal, bimodal or multi-modal. The main tool is the proper use of computer graphics.</p>
+<ul>
+<li><p>barplots for categorical data</p></li>
+<li><p>histogram, dot plots, stem and leaf plots to see the shape of numerical distributions</p></li>
+<li><p>boxplots to see summaries of a numerical distribution, useful in comparing distributions and identifying long and short-tailed distributions.</p></li>
+<li><p>normal probability plots To see if data is approximately normal</p></li>
+</ul>
+<pre class="r"><code># Example R code snippet for bar plot and histogram
+# barplot(table(train.data$Survived), main=&quot;Passenger Survival&quot;, names= c(&quot;Perished&quot;,  &quot;Survived&quot;))
+# hist(train.data$Age, main=&quot;Passenger Age&quot;, xlab = &quot;Age&quot;)</code></pre>
 </div>
 <div id="advanced-exploratory-data-analysis" class="section level3">
 <h3>5 Advanced exploratory data analysis</h3>
 <p>Until now, the descriptive statistic gives a general description of data features. However, one would like to generate an inference rule for the user to prepare and predict data features based on input parameters. Therefore, the application of machine learning enables the user to generate an inferential model, where the user can input a training dataset to generate a predictive model. After this, the prediction model can be utilized to predict the output value or label based on given parameters.</p>
+<pre class="r"><code># For example, we can either perform Naïve Bayes for spam
+# mail filtering, conduct k-means clustering for customer segmentation, use
+# linear regression to forecast house prices, or implement a hidden Markov
+# model to predict the stock markets prices
+
+# R code-snippet example
+# library(e1071)
+# classifier = naiveBayes(trainset[, !names(trainset) %in% c(&quot;churn&quot;)], trainset$churn)
+
+
+# Python code-snippet example
+# from sklearn.naive_bayes import GaussianNB
+# gnb = GaussianNB()
+# fit = gnb.fit(X_train,y_train)
+# predicted = fit.predict(X_test)</code></pre>
 </div>
 <div id="model-building-and-assessment" class="section level3">
 <h3>6 Model building and assessment</h3>
 <p>To assess whether the generating model performs the best in the data estimation of a given problem, one must perform a model selection. The selection method here involves many
 steps, including data preprocessing, tuning parameters, and even switching the machine learning algorithm. However, one thing that is important to keep in mind is that the simplest model frequently achieves the best results in predictive or exploratory power whereas complex models often result in over fitting.</p>
+<pre class="r"><code># For example the assessment can be done by using the confusion matrix provided by the caret package in R to generate a confusion matrix, which is one method to measure the accuracy of predictions.
+
+# R code-snippet
+# library(e1071)
+# confusionMatrix(bayes.table)
+
+# Python code-snippet example
+# confusion_matrix(y_test, predicted)</code></pre>
 </div>
 <div id="presentation-and-automation" class="section level3">
 <h3>7 Presentation and Automation</h3>
@@ -431,6 +487,13 @@ save time.</p>
         
           
           
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/data-science-terminology/">Data Science Terminology</a></li>
+          
+          </ul>
+          
         
       </article>
 
@@ -438,7 +501,7 @@ save time.</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://laxmikants.github.io/post/time-series-data-analysis/" data-toggle="tooltip" data-placement="top" title="Time-Series Forecasting">&larr; Previous Post</a>
+              <a href="https://laxmikants.github.io/post/data-science-terminology/" data-toggle="tooltip" data-placement="top" title="Data Science Terminology">&larr; Previous Post</a>
             </li>
           
           
@@ -535,7 +598,7 @@ save time.</p>
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.55.6</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.58.2</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

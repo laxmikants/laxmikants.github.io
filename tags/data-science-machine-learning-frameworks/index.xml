@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science, Machine Learning Frameworks on Laxmikant</title>
+    <link>https://laxmikants.github.io/tags/data-science-machine-learning-frameworks/</link>
+    <description>Recent content in Data Science, Machine Learning Frameworks on Laxmikant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
+    <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Wed, 05 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/tags/data-science-machine-learning-frameworks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Machine Learning Frameworks</title>
+      <link>https://laxmikants.github.io/post/machine-learning-frameworks/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/machine-learning-frameworks/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

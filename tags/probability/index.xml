@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Probability on Laxmikant</title>
+    <link>https://laxmikants.github.io/tags/probability/</link>
+    <description>Recent content in Probability on Laxmikant</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
+    <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/tags/probability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Science Terminology</title>
+      <link>https://laxmikants.github.io/post/data-science-terminology/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
