@@ -8,10 +8,19 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Science QAs</title>
+      <link>https://laxmikants.github.io/post/data-science-qas/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/post/data-science-qas/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science Process</title>
@@ -19,18 +28,6 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/post/data-science-process/</guid>
-      <description>
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>Data Science Terminology</title>
-      <link>https://laxmikants.github.io/post/data-science-terminology/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
       <description>
 
 
@@ -95,12 +92,15 @@
     </item>
     
     <item>
-      <title>Data Science QAs</title>
-      <link>https://laxmikants.github.io/post/data-science-qas/</link>
+      <title>Data Science Terminology</title>
+      <link>https://laxmikants.github.io/post/data-science-terminology/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/post/data-science-qas/</guid>
-      <description></description>
+      <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
+      <description>
+
+
+</description>
     </item>
     
     <item>

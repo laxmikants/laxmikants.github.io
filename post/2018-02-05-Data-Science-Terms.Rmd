@@ -3,8 +3,8 @@ title: "Data Science Terminology"
 author: Laxmikant 
 description: "Data Science Terminology"
 slug: Data Science Terminology
-date: 2019-01-01
-lastmod: 2019-01-01
+date: 2018-02-05
+lastmod: 2018-02-05
 categories: ["Data Science"]
 tags: ["Data Science","Statistical Population","Probability","False Positives","Statistical Inference"]
 summary: Data Science Terminology
@@ -70,3 +70,17 @@ An independent variable (also known as a predictor) is the one that is manipulat
 scientist in an effort to determine its relationship with a dependent variable. A dependent variable is a variable that the data scientist is measuring.
 
 More precisely, regression is the process that helps the data scientist comprehend how the typical value of the dependent variable (or criterion variable) changes when any one or more of the independent variables is varied while the other independent variables are held fixed
+
+
+#### Fitting
+
+Fitting is the process of measuring how well a statistical model or process describes a data scientist's observations pertaining to a recordset or experiment. These measures will attempt to point out the
+discrepancy between observed values and probable values. The probable values of a model or process are known as a distribution or a probability distribution. Therefore, a probability distribution fitting (or distribution fitting) is when the data scientist fits a
+probability distribution to a series of data concerning the repeated measurement of a variable phenomenon.
+
+The object of a data scientist performing a distribution fitting is to predict the probability or to forecast the frequency of, the occurrence of the phenomenon at a certain interval.
+One of the most common uses of fitting is to test whether two samples are drawn from identical distributions. There are numerous probability distributions a data scientist can select from. Some will fit better to
+the observed frequency of the data than others will. The distribution giving a close fit is supposed to lead to good predictions; therefore, the data scientist needs to select a distribution that suits the data
+well.
+
+### Categorical data

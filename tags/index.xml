@@ -8,10 +8,46 @@
     <managingEditor>laxmikant.soni@gmail.com (Laxmikant)</managingEditor>
     <webMaster>laxmikant.soni@gmail.com (Laxmikant)</webMaster>
     <copyright>This work is licensed.</copyright>
-    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/tags/machine-learning/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest</title>
+      <link>https://laxmikants.github.io/tags/random-forest/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/random-forest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regression</title>
+      <link>https://laxmikants.github.io/tags/regression/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistics</title>
+      <link>https://laxmikants.github.io/tags/statistics/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
+      <guid>https://laxmikants.github.io/tags/statistics/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Data Science</title>
@@ -19,42 +55,6 @@
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
       <guid>https://laxmikants.github.io/tags/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>False Positives</title>
-      <link>https://laxmikants.github.io/tags/false-positives/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/false-positives/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Probability</title>
-      <link>https://laxmikants.github.io/tags/probability/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/probability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistical Inference</title>
-      <link>https://laxmikants.github.io/tags/statistical-inference/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/statistical-inference/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Statistical Population</title>
-      <link>https://laxmikants.github.io/tags/statistical-population/</link>
-      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/statistical-population/</guid>
       <description></description>
     </item>
     
@@ -95,38 +95,38 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
-      <link>https://laxmikants.github.io/tags/machine-learning/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>False Positives</title>
+      <link>https://laxmikants.github.io/tags/false-positives/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
+      <guid>https://laxmikants.github.io/tags/false-positives/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Random Forest</title>
-      <link>https://laxmikants.github.io/tags/random-forest/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Probability</title>
+      <link>https://laxmikants.github.io/tags/probability/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/random-forest/</guid>
+      <guid>https://laxmikants.github.io/tags/probability/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Regression</title>
-      <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Statistical Inference</title>
+      <link>https://laxmikants.github.io/tags/statistical-inference/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/regression/</guid>
+      <guid>https://laxmikants.github.io/tags/statistical-inference/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Statistics</title>
-      <link>https://laxmikants.github.io/tags/statistics/</link>
-      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Statistical Population</title>
+      <link>https://laxmikants.github.io/tags/statistical-population/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
       <author>laxmikant.soni@gmail.com (Laxmikant)</author>
-      <guid>https://laxmikants.github.io/tags/statistics/</guid>
+      <guid>https://laxmikants.github.io/tags/statistical-population/</guid>
       <description></description>
     </item>
     
