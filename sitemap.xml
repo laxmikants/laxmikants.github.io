@@ -6,6 +6,7 @@
 <priority>1.0</priority>
 <image:image>
 <image:loc>https://laxmikants.github.io/img/avatar-icon.png</image:loc>
+<image:title>Laxmikant</image:title>
 <image:caption>Laxmikant</image:caption>
 </image:image>
 </url>
@@ -17,6 +18,7 @@
 <priority>1.0</priority>
 <image:image>
 <image:loc>https://laxmikants.github.io/img/avatar-icon.png</image:loc>
+<image:title>Laxmikant Soni</image:title>
 <image:caption>Laxmikant Soni</image:caption>
 </image:image>
 </url>
