@@ -1,0 +1,24 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+<loc>https://laxmikants.github.io/index.html</loc>
+<lastmod>2019-12-20T07:55:06+00:00</lastmod>
+<changefreq>hourly</changefreq>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://laxmikants.github.io/img/avatar-icon.png</image:loc>
+<image:caption>Laxmikant</image:caption>
+</image:image>
+</url>
+
+<url>
+<loc>https://laxmikants.github.io/post/data-science-process/</loc>
+<lastmod>2019-12-20T07:55:06+00:00</lastmod>
+<changefreq>hourly</changefreq>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://laxmikants.github.io/img/avatar-icon.png</image:loc>
+<image:caption>Laxmikant Soni</image:caption>
+</image:image>
+</url>
+
+</urlset>
