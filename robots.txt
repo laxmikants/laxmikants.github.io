@@ -4,3 +4,5 @@ Disallow:
 Allow: /*.jpg**************
 Allow: /*.gif**************
 Allow: /*.png**************
+
+Sitemap: https://laxmikants.github.io/sitemap.xml
