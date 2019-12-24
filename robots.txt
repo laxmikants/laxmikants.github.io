@@ -6,3 +6,4 @@ Allow: /*.gif**************
 Allow: /*.png**************
 
 Sitemap: https://laxmikants.github.io/sitemap.xml
+Sitemap: https://laxmikants.github.io/sitemap-image.xml
