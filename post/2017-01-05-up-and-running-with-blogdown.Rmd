@@ -1,6 +1,6 @@
 ---
 title: Websites with blogdown
-author: Laxmikant 
+author: Laxmi K Soni 
 description: "up-and-running-with-blogdown"
 slug: up-and-running-with-blogdown
 date: 2017-01-05
@@ -14,7 +14,7 @@ lua:
     url: "/img/cover.png"
     width: 800
     height: 600
-  author: "Laxmikant"
+  author: "Laxmi K Soni"
 output:
   blogdown::html_page:
     toc: true

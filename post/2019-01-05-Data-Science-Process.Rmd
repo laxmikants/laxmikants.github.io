@@ -1,6 +1,6 @@
 ---
 title: "Data Science Process"
-author: Laxmikant 
+author: Laxmi K Soni 
 description: "Data Science Process"
 slug: Data Science Process
 date: 2019-01-05
@@ -14,7 +14,7 @@ lua:
     url: "/img/cover.png"
     width: 800
     height: 600
-  author: "Laxmikant"
+  author: "Laxmi K Soni"
   output:
   html_document:
     df_print: kable

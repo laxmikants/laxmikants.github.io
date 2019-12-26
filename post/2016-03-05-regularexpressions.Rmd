@@ -1,7 +1,7 @@
 ---
 title: "Regular expressions"
 description: "Implementing Regular expressions"
-author: "Laxmikant"
+author: "Laxmi K Soni"
 slug: Regular Expressions for pattern recognition
 date: 2016-03-05
 lastmod: 2016-03-05
@@ -14,7 +14,7 @@ lua:
     url: "/img/cover.png"
     width: 800
     height: 600
-  author: "Laxmikant"
+  author: "Laxmi K Soni"
 
 ---
 

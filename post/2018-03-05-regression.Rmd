@@ -1,7 +1,7 @@
 
 ---
 title: Regression in ML
-author: "Laxmikant"
+author: "Laxmi K Soni"
 description: "Regression in ML"
 slug: Regression in ML
 date: 2018-03-05
@@ -15,7 +15,7 @@ lua:
     url: "/img/cover.png"
     width: 800
     height: 600
-  author: "Laxmikant"
+  author: "Laxmi K Soni"
 ---
 
 <!--more-->
