@@ -4,9 +4,9 @@
     <loc>http://laxmikants.github.io/</loc>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>http://laxmikants.github.io/img/cover.jpg</image:loc>
-      <image:title>Laxmikant</image:title>
-      <image:caption>Laxmikant</image:caption>
+      <image:loc>http://laxmikants.github.io/img/Laxmikant.jpg</image:loc>
+      <image:title>Laxmi kant Soni</image:title>
+      <image:caption>Laxmi kant Soni</image:caption>
     </image:image>
   </url>
   
@@ -15,9 +15,9 @@
 	<loc>https://laxmikants.github.io/post/data-science-process/</loc>
 	<priority>1.0</priority>
 	<image:image>
-		<image:loc>https://laxmikants.github.io/img/cover.jpg</image:loc>
-		<image:title>Laxmikant Soni</image:title>
-		<image:caption>Laxmikant Soni</image:caption>
+		<image:loc>https://laxmikants.github.io/img/Laxmikant.jpg</image:loc>
+		<image:title>Laxmi kant Soni</image:title>
+		<image:caption>Laxmi kant Soni</image:caption>
 	</image:image>
 </url>
 
