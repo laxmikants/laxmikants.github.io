@@ -89,6 +89,10 @@ Categorical variables are measured on nominal or ordinal measurement scales, In 
 Sometimes an observer may decide to record his/her observation using categories. 
 The type and number of categories depend upon the type of interaction and the observer’s choice about how to classify the observation. For example, passive/active (two categories); introvert/extrovert (two categories); always/sometimes/never (three categories); strongly agree/agree/uncertain/disagree/strongly disagree (five categories). 
 
+> Categorical data is displayed graphically by bar charts and pie charts.
+> Categorical data can take numerical values, but those numbers don’t have any mathematical meaning.
+> Chi-square test of goodness of fit can be applied to categorical variables
+
 ### Classification
 
 Statistical classification of data is the process of identifying which category (discussed in the previous section) a data point, observation, or variable should be grouped into. The data science process that carries out a classification process is known as a classifier.
@@ -96,4 +100,7 @@ Statistical classification of data is the process of identifying which category 
 Determining whether a book is fiction or non-fiction is a simple example
 classification. An analysis of data about restaurants might lead to the classification of them among several genres.
 
+> Accuracy metric is not a good idea for imbalanced class problems.
+> Precision and recall metrics are good for imbalanced class problems.
+> Linear Classifiers: Logistic Regression, Naive Bayes Classifier, Nearest Neighbor, Support Vector Machines,Decision Trees,Boosted Trees,Random Forest,Neural Networks
 

@@ -1,14 +1,1 @@
-####################################################
-# ALLOW MEDIA BOT TO CRAWL ANYWHERE
-#####
-User-agent: Mediapartners-Google
-Allow: /
-
-####################################################
-# ALLOW IMAGE BOT TO CRAWL ANYWHERE
-#####
-User-agent: Googlebot-Image
-Allow: /
-
-Sitemap: https://laxmikants.github.io/sitemap.xml
-Sitemap: https://laxmikants.github.io/sitemap-image.xml
+User-agent: *
