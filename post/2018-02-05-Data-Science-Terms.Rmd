@@ -148,4 +148,31 @@ The four major ways of comparing means from data that is assumed to be normally 
 
 If you have non-normal data (or if you don’t know what distribution your data comes from), you can’t use any of the above tests for comparison of means. You must use a non-parametric test (non-parametric basically means that you don’t know the distributions’s parameters) for ex. Mann-Whitney U test and Wilcoxon Signed Rank
 
+#### Coding
+
+Coding or statistical coding is again a process that a data scientist will use to prepare data for analysis. In this process, both quantitative data values (such as income or years of education) and qualitative data (such as race or gender) are categorized or coded in a consistent way.
+
+Coding is performed by a data scientist for various reasons such as follows:
+
+- More effective for running statistical models 
+
+- Computers understand the variables
+
+- Accountability--so the data scientist can run models blind, or without knowing what variables stand for, to reduce programming bias
+
+
+#### Distributions
+
+The distribution of a statistical recordset (or of a population) is a visualization showing all the possible values (or sometimes referred to as intervals) of the data and how often they occur. When a distribution of categorical data is created by a data scientist, it attempts to show the number or percentage of individuals in each group or category.
+
+It is a visualization showing the probability of occurrence of different possible outcomes in an experiment.
+
+Types of Distributions:
+
+1. Bernoulli Distribution
+2. Uniform Distribution
+3. Binomial Distribution
+4. Normal Distribution
+5. Poisson Distribution
+6. Exponential Distribution
 
