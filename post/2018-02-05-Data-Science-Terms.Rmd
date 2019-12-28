@@ -38,14 +38,14 @@ Based upon personal experience, research, and various industry experts' advice, 
 into the art of data science should take every opportunity to understand and gain experience as well as proficiency with the following list of common data science terms:
 
   
-#### Statistical population
+### Statistical population
 
 Statistical population as a recordset (or a set of records). This set or group of records will be of similar items or events that are of interest to the data scientist for some experiment. 
 
 If a sample of a population is chosen accurately, characteristics of the entire population (that the sample is drawn from) can be estimated from the corresponding characteristics of the sample.
 
 
-#### Probability
+### Probability
 
 This is possible upcoming events and the likelihood of them actually occurring. 
 This compares to a statistical thought process that involves analyzing the
@@ -54,27 +54,27 @@ frequency of past events in an attempt to explain or make sense of the observati
 In addition, the data scientist will associate various individual events, studying the relationship of these events. How these different events relate to each other governs the methods and rules that will need to be followed when we're studying their probabilities.
 
 
-#### False Positives
+### False Positives
 
 The idea of false positives is a very important statistical (data science) concept. A false positive is a mistake or an errored result. That is, it is a scenario where the results of a process or experiment indicate a fulfilled or true condition when, in fact, the condition is not true (not fulfilled). This situation is also referred to by some data scientists as a false alarm and is most easily understood by considering the idea of a recordset or statistical population that is determined not only by the accuracy of the processing but by the characteristics of the sampled population. In other words, the data scientist has made errors during the statistical process, or the recordset is a population that does not have an appropriate sample (or characteristics) for what is being investigated. The idea of false positives closely relates to confusion matrix.
 
 > sklearn.metrics.confusion_matrix(y_true, y_pred, labels=None, sample_weight=None, normalize=None)
 
-#### Statistical Inference
+### Statistical Inference
 
 Given a sample from a population, Statistical inference makes estimates about population characteristics. This can be either point estimate or interval estimate.
 It includes testing various hypotheses and deriving estimates.
 
 > statsmodels in a python library for difference statistical models
 
-#### Regression
+### Regression
 
 Regression is a process or method (selected by the data scientist as the best fit technique for the experiment at hand) used for determining the relationships among variables. 
 
 More precisely, regression is the process that helps the data scientist comprehend how the typical value of the dependent variable (or criterion variable) changes when any one or more of the independent variables is varied while the other independent variables are held fixed
 
 
-#### Fitting
+### Fitting
 
 Fitting is the process of measuring how well a statistical model or process describes a data scientist's observations pertaining to a recordset or experiment. These measures will attempt to point out the discrepancy between observed values and probable values. The probable values of a model or process are known as a distribution or a probability distribution. Therefore, a probability distribution fitting (or distribution fitting) is when the data scientist fits a
 probability distribution to a series of data concerning the repeated measurement of a variable phenomenon.
@@ -148,7 +148,7 @@ The four major ways of comparing means from data that is assumed to be normally 
 
 If you have non-normal data (or if you don’t know what distribution your data comes from), you can’t use any of the above tests for comparison of means. You must use a non-parametric test (non-parametric basically means that you don’t know the distributions’s parameters) for ex. Mann-Whitney U test and Wilcoxon Signed Rank
 
-#### Coding
+### Coding
 
 Coding or statistical coding is again a process that a data scientist will use to prepare data for analysis. In this process, both quantitative data values (such as income or years of education) and qualitative data (such as race or gender) are categorized or coded in a consistent way.
 
@@ -161,7 +161,7 @@ Coding is performed by a data scientist for various reasons such as follows:
 - Accountability--so the data scientist can run models blind, or without knowing what variables stand for, to reduce programming bias
 
 
-#### Distributions
+### Distributions
 
 The distribution of a statistical recordset (or of a population) is a visualization showing all the possible values (or sometimes referred to as intervals) of the data and how often they occur. When a distribution of categorical data is created by a data scientist, it attempts to show the number or percentage of individuals in each group or category.
 
