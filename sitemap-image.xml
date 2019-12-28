@@ -4,9 +4,9 @@
     <loc>http://laxmikants.github.io/</loc>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>http://laxmikants.github.io/img/Laxmi-K-Soni.jpg</image:loc>
-      <image:title>Laxmi K Soni</image:title>
-      <image:caption>Laxmi K Soni</image:caption>
+      <image:loc>http://laxmikants.github.io/img/avatar-icon.jpg</image:loc>
+      <image:title>Laxmikant Soni</image:title>
+      <image:caption>Laxmikant Soni</image:caption>
     </image:image>
   </url>
   
@@ -16,8 +16,8 @@
 	<priority>1.0</priority>
 	<image:image>
 		<image:loc>https://laxmikants.github.io/img/avatar-icon.jpg</image:loc>
-		<image:title>Laxmi K Soni</image:title>
-		<image:caption>Laxmi K Soni</image:caption>
+		<image:title>Laxmikant Soni</image:title>
+		<image:caption>Laxmikant Soni</image:caption>
 	</image:image>
 </url>
 
