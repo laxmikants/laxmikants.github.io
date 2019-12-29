@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Laxmi K Soni</title>
+    <title>Posts on Laxmikant Soni</title>
     <link>https://laxmikants.github.io/post/</link>
-    <description>Recent content in Posts on Laxmi K Soni</description>
+    <description>Recent content in Posts on Laxmikant Soni</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>laxmikant.soni@gmail.com (Laxmi K Soni)</managingEditor>
-    <webMaster>laxmikant.soni@gmail.com (Laxmi K Soni)</webMaster>
     <copyright>This work is licensed.</copyright>
     <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
@@ -17,7 +15,7 @@
       <title>Data Science QAs</title>
       <link>https://laxmikants.github.io/post/data-science-qas/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/data-science-qas/</guid>
       <description></description>
     </item>
@@ -26,7 +24,7 @@
       <title>Data Science Process</title>
       <link>https://laxmikants.github.io/post/data-science-process/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/data-science-process/</guid>
       <description>
 
@@ -38,7 +36,7 @@
       <title>Machine Learning Frameworks</title>
       <link>https://laxmikants.github.io/post/machine-learning-frameworks/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/machine-learning-frameworks/</guid>
       <description>
 
@@ -50,7 +48,7 @@
       <title>Time-Series Forecasting</title>
       <link>https://laxmikants.github.io/post/time-series-data-analysis/</link>
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/time-series-data-analysis/</guid>
       <description>
 
@@ -62,7 +60,7 @@
       <title>Decision Trees</title>
       <link>https://laxmikants.github.io/post/decision-trees-in-ml/</link>
       <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/decision-trees-in-ml/</guid>
       <description></description>
     </item>
@@ -71,7 +69,7 @@
       <title>Logistic Regression in ML</title>
       <link>https://laxmikants.github.io/post/logistic-regression-in-ml/</link>
       <pubDate>Thu, 05 Apr 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/logistic-regression-in-ml/</guid>
       <description>
 
@@ -83,7 +81,7 @@
       <title>Regression in ML</title>
       <link>https://laxmikants.github.io/post/regression-in-ml/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/regression-in-ml/</guid>
       <description>
 
@@ -95,7 +93,7 @@
       <title>Data Science Terminology</title>
       <link>https://laxmikants.github.io/post/data-science-terminology/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
       <description>
 
@@ -107,7 +105,7 @@
       <title>Websites with blogdown</title>
       <link>https://laxmikants.github.io/post/up-and-running-with-blogdown/</link>
       <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/up-and-running-with-blogdown/</guid>
       <description>
 
@@ -130,7 +128,7 @@
       <title>Scientific paper</title>
       <link>https://laxmikants.github.io/post/authoring-scientific-paper/</link>
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/authoring-scientific-paper/</guid>
       <description></description>
     </item>
@@ -139,7 +137,7 @@
       <title>R Markdown</title>
       <link>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</link>
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/r-markdown-for-data-analysis/</guid>
       <description>
 
@@ -151,7 +149,7 @@
       <title>Regular expressions</title>
       <link>https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/</guid>
       <description>
 
@@ -163,7 +161,7 @@
       <title>Tex formulas</title>
       <link>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</link>
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/apply-tex-coding-for-complex-mathematical-formulas/</guid>
       <description></description>
     </item>
@@ -172,7 +170,7 @@
       <title>Getting Started with Hadoop</title>
       <link>https://laxmikants.github.io/post/understanding-big-data-hadoop/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/understanding-big-data-hadoop/</guid>
       <description></description>
     </item>
@@ -181,7 +179,7 @@
       <title>Big Data Analytics</title>
       <link>https://laxmikants.github.io/post/what-is-big-data-analytics/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/what-is-big-data-analytics/</guid>
       <description></description>
     </item>

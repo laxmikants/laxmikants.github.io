@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Laxmi K Soni</title>
+    <title>Categories on Laxmikant Soni</title>
     <link>https://laxmikants.github.io/categories/</link>
-    <description>Recent content in Categories on Laxmi K Soni</description>
+    <description>Recent content in Categories on Laxmikant Soni</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>laxmikant.soni@gmail.com (Laxmi K Soni)</managingEditor>
-    <webMaster>laxmikant.soni@gmail.com (Laxmi K Soni)</webMaster>
     <copyright>This work is licensed.</copyright>
     <lastBuildDate>Tue, 05 Feb 2019 00:00:00 +0000</lastBuildDate>
     
@@ -17,7 +15,7 @@
       <title>Data Science Resources</title>
       <link>https://laxmikants.github.io/categories/data-science-resources/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/data-science-resources/</guid>
       <description></description>
     </item>
@@ -26,7 +24,7 @@
       <title>Data Science</title>
       <link>https://laxmikants.github.io/categories/data-science/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/data-science/</guid>
       <description></description>
     </item>
@@ -35,7 +33,7 @@
       <title>blogdown</title>
       <link>https://laxmikants.github.io/categories/blogdown/</link>
       <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/blogdown/</guid>
       <description></description>
     </item>
@@ -44,7 +42,7 @@
       <title>Miktex</title>
       <link>https://laxmikants.github.io/categories/miktex/</link>
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/miktex/</guid>
       <description></description>
     </item>
@@ -53,7 +51,7 @@
       <title>Pandoc</title>
       <link>https://laxmikants.github.io/categories/pandoc/</link>
       <pubDate>Mon, 05 Sep 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/pandoc/</guid>
       <description></description>
     </item>
@@ -62,7 +60,7 @@
       <title>R</title>
       <link>https://laxmikants.github.io/categories/r/</link>
       <pubDate>Sun, 05 Jun 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/r/</guid>
       <description></description>
     </item>
@@ -71,7 +69,7 @@
       <title>Regular expression</title>
       <link>https://laxmikants.github.io/categories/regular-expression/</link>
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/regular-expression/</guid>
       <description></description>
     </item>
@@ -80,7 +78,7 @@
       <title>Tex</title>
       <link>https://laxmikants.github.io/categories/tex/</link>
       <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/tex/</guid>
       <description></description>
     </item>
@@ -89,7 +87,7 @@
       <title>Big Data</title>
       <link>https://laxmikants.github.io/categories/big-data/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/big-data/</guid>
       <description></description>
     </item>
@@ -98,7 +96,7 @@
       <title>Hadoop</title>
       <link>https://laxmikants.github.io/categories/hadoop/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/categories/hadoop/</guid>
       <description></description>
     </item>

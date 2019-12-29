@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>False Positives on Laxmi K Soni</title>
+    <title>False Positives on Laxmikant Soni</title>
     <link>https://laxmikants.github.io/tags/false-positives/</link>
-    <description>Recent content in False Positives on Laxmi K Soni</description>
+    <description>Recent content in False Positives on Laxmikant Soni</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>laxmikant.soni@gmail.com (Laxmi K Soni)</managingEditor>
-    <webMaster>laxmikant.soni@gmail.com (Laxmi K Soni)</webMaster>
     <copyright>This work is licensed.</copyright>
     <lastBuildDate>Mon, 05 Feb 2018 00:00:00 +0000</lastBuildDate>
     
@@ -17,7 +15,7 @@
       <title>Data Science Terminology</title>
       <link>https://laxmikants.github.io/post/data-science-terminology/</link>
       <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
-      <author>laxmikant.soni@gmail.com (Laxmi K Soni)</author>
+      
       <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
       <description>
 
