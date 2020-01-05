@@ -30,20 +30,20 @@
     </item>
     
     <item>
-      <title>Regression</title>
-      <link>https://laxmikants.github.io/tags/regression/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Statistics</title>
       <link>https://laxmikants.github.io/tags/statistics/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>https://laxmikants.github.io/tags/regression/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/regression/</guid>
       <description></description>
     </item>
     
@@ -224,6 +224,15 @@
       <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proportion test in R</title>
+      <link>https://laxmikants.github.io/tags/proportion-test-in-r/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/proportion-test-in-r/</guid>
       <description></description>
     </item>
     
