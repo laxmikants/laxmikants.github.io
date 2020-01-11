@@ -12,20 +12,20 @@
     
     
     <item>
+      <title>Data Science</title>
+      <link>https://laxmikants.github.io/tags/data-science/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Machine Learning</title>
       <link>https://laxmikants.github.io/tags/machine-learning/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Random Forest</title>
-      <link>https://laxmikants.github.io/tags/random-forest/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/tags/random-forest/</guid>
       <description></description>
     </item>
     
@@ -44,15 +44,6 @@
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/statistics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Science</title>
-      <link>https://laxmikants.github.io/tags/data-science/</link>
-      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/tags/data-science/</guid>
       <description></description>
     </item>
     
@@ -89,6 +80,15 @@
       <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/time-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest</title>
+      <link>https://laxmikants.github.io/tags/random-forest/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/random-forest/</guid>
       <description></description>
     </item>
     
