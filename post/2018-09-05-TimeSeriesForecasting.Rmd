@@ -5,7 +5,7 @@ description: "Time-Series data analysis"
 slug: Time-Series data analysis
 date: 2018-09-05
 lastmod: 2018-09-05
-categories: ["blogdown"]
+categories: ["Posts and Resources on Data Science | Laxmikant Soni", " Statistical population", "Probability", "False positives", "Statistical inference", "Regression", "Fitting", "Categorical data", "Classification", "Clustering", "Statistical comparison", "CodingDistributions", "Data mining", "Decision trees", "Machine learning", "Munging and wrangling", "Visualization", "D3", "Regularization", "Assessment", "Cross-validation", "Neural networks", "Boosting", "Lift", "Mode", "Outlier", "Predictive modeling", "Big data", "Confidence interval", "Python", " R", " Jupyter Notebook", " Tensorflow", " Javascript", " ReactJS", " NodeJS", " Posts and Resources on Data Science", " Data Science", " Hadoop", " Java", " Spring", " Hibernate", " Struts", " MySQL", " Oracle", " DB2", " Websphere", " Weblogic","AWS"]
 tags: ["Gold","Prophet","Time series"]
 summary: Time-Series data analysis
 subtitle: Time-Series data analysis

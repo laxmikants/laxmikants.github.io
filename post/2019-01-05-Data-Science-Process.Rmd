@@ -35,74 +35,71 @@ knitr::opts_chunk$set(
 
 ##  Data Science Process? 
 
-Data science process helps a data consumer to focus on searching for information, with a view to forming a true analysis from the gathered information. Furthermore, with the completion of the steps of data munging, analysis, modeling, and evaluation, users can generate insights and valuable points from their focused data.
+A Data science process is a life cycle process for delivering a data science project that helps a data consumer to gain insights from the data. 
 
-In a real data science project, there are six steps involved in the
-process. They are as follows:
+It involves the following steps.  They are as follows:
 
-1. Asking the right questions.
-2. Data collection.
-3. Data munging.
-4. Basic exploratory data analysis.
-5. Advanced exploratory data analysis.
-6. Model building and assessment.
+1. Describing the data problem by asking the right questions
+2. Collecting the data 
+3. Transforming the raw data in to the format required applying Data munging techniques
+4. Exploring Data by using EDA techniques
+5. Advanced Exploratory data analysis.
+6. Building model and perform model assessment
 7. Presentation and Automation
 
 
-### 1 Asking the right questions 
+### 1 Describing the data problem by asking the right questions 
 
-When the user presents their question, for example "What are my expected findings after the project is finished?", or "What kind of information can I extract through the
-data science process?," different results will be given. Therefore, asking the right
+When the user presents their question, for example "What are my expected findings after the project is finished?", or "What kind of information can I extract through the data science process?," different results will be given. Therefore, asking the right
 question and setting a research goal is essential in the first place, for the question itself determines the objective and target of the data science project.
 
 
 ```{r}
-
 ## Examples of specific questions ?
 
-#  - Will this tire fail in the next 1,000 miles ?
+#  - For future farming technique for a specified plant which treatment condition gives the largest plant yields on average
 
-#  - If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-  
-#  - What will the temperature be next Tuesday ?
+#  - Which web-site design is most viewed by customers  ?
 
-#  - What will my fourth quarter sales in region A be ?
+#  - What will the temperature be next Thurseday ?
+
+#  - What will my fourth quarter sales in region C be ?
   
 #  - Which viewers like the same types of movies?
   
-#  - Which animal is in this image ?
+#  - Which plant is in this image ?
 
-#  - What will be the Stock price next month ?
+#  - What will be the Share price next month ?
 
 ```
 
-### 2 Data collection 
+### 2 Collecting the data 
 
-Once the goal of Data science project is determined, the user can start collecting or extracting relevant data from the data source, with regard to the project goal. Mostly, data collected from disparate systems appears unorganized and diverse in format. Clearly, the original data may be from different sources, such as files, databases, or the
-Internet. To retrieve data from these sources requires the assistance of the file IO function, JDBC/ODBC, web crawler, and so on. This extracted data is called raw data , which is because it has not been subjected to processing, or been through any other manipulation. Most raw data is not easily consumed by the majority of analysis tools or visualization programs. During this step both internal and external data is collected from respective stakeholders.
-
+Next step is to collect the relevent data from the data source. The collected data is known as raw data. The data can be extracted by file IO, JDBC/ODBC or using web crawler. The data is collected from the conerned stakeholders over a period of time and may be unstructured/raw format.
 
 
 ### 3 Data munging or Data Preparation
 
-The next phase is data munging (or wrangling), a step to help map raw data into a more convenient format for consumption. During this phase, there are many processes, such as data parsing,sorting, splitting, merging, filtering, missing value completion, and other processes to transform and organize the data, and enable it to fit into a consume structure. Later, the mapped data can be further utilized for data aggregation, analysis, or visualization. 
-This step involves Data Cleansing, Data tranformation and combining data. For example during the cleansing process it is necessary to check for missing values, during transformation it is necessary to aggregate and reduce number of variables, combing data includes creating data views and merging or joining data sets. Once data is clean we look for statistical properties such as distributions,correlations, and outliers.
+The next step is data munging (or wrangling), a step to help map raw data into a more convenient format for further processing. During this step, there are many processes, such as data parsing, sorting, splitting, merging, filtering, missing value completion, and other processes to convert and organize the data, and enable it to fit into a consumable structure. Later, the mapped data can be further used for data aggregation, analysis, or visualization. 
+This step involves Data Cleansing, Data tranformation and combining data. For example during the cleansing process it is necessary to check for null values, during transformation it is necessary to combine and reduce number of variables, combing data includes creating data views and merging or joining data sets. Once data is clean we look for statistical properties such as distributions,correlations, and outliers.
 
 Common data errors found during this phase are
 
 - Mistakes during data entry
-- Redundant white space 
-- Impossible values 
-- Missing values 
-- Outliers
+- Redundant white space: Present of white spaces 
+- Impossible values: values which are not possible in the given context 
+- Missing values: features or data not labeled or having null values
+- Outliers: Data points that are significantly spread out by the majority of the observations
+
+For example to detect outliers statistical methods such as IQR and boxplot is used. 
+Describe the data as unimodal, bimodal, multimodal; symmetric, right-skewed, left-skewed to find out the outliers.
 
 
+### 4 Exploring Data by using EDA techniques
 
-### 4 Basic exploratory data analysis
+After the data munging step, users can do further analysis toward data processing. The most basic analysis is to perform exploratory data analysis. Exploratory data analysis involves analyzing a datamatrix by summarizing its characteristics. Performing basic statistical, aggregation, and visual methods are also crucial tasks to help the user understand data characteristics, which are beneficial for the user to capture the majority, trends, and outliers easily through plots. Basic exploratory analysis includes creating simple graphs, combined graphs and summarising the findings based on the graphs.
 
-After the data munging phase, users can conduct further analysis toward data processing. The most basic analysis is to perform exploratory data analysis. Exploratory data analysis involves analyzing a dataset by summarizing its characteristics. Performing basic statistical, aggregation, and visual methods are also crucial tasks to help the user understand data characteristics, which are beneficial for the user to capture the majority, trends, and outliers easily through plots. Basing exploratory analysis includes creating simple graphs, combined graphs and summarising the findings based on the graphs.
-
-Experimental Data Analysis is the process of looking at a data set to see what are the appropriate statistical inferences that can possibly be learned. For univariate data, we can ask if the data is approximately normal, longer tailed, or shorter tailed? Does it have symmetry, or is it skewed? Is it unimodal, bimodal or multi-modal. The main tool is the proper use of computer graphics.
+Experimental Data Analysis is a process of looking at a data set to see what are the appropriate statistical inferences that can possibly be learned. For univariate data, we can ask if the data is approximately normal, longer tailed, or shorter tailed? Does it have symmetry, or is it skewed? Is it unimodal, bimodal or multi-modal. The main tool is the proper use of computer graphics.
 
 
 - barplots for categorical data
@@ -114,64 +111,42 @@ Experimental Data Analysis is the process of looking at a data set to see what a
 - normal probability plots To see if data is approximately normal
 
 
-```{r}
-
-# Example R code snippet for bar plot and histogram
-# barplot(table(train.data$Survived), main="Passenger Survival", names= c("Perished",  "Survived"))
-# hist(train.data$Age, main="Passenger Age", xlab = "Age")
-
-```
-
 ### 5 Advanced exploratory data analysis 
 
 Until now, the descriptive statistic gives a general description of data features. However, one would like to generate an inference rule for the user to prepare and predict data features based on input parameters. Therefore, the application of machine learning enables the user to generate an inferential model, where the user can input a training dataset to generate a predictive model. After this, the prediction model can be utilized to predict the output value or label based on given parameters.
 
+Example: Applying anova to  plantgrowth dataset
+
 ```{r}
-
-# For example, we can either perform Naïve Bayes for spam
-# mail filtering, conduct k-means clustering for customer segmentation, use
-# linear regression to forecast house prices, or implement a hidden Markov
-# model to predict the stock markets prices
-
-# R code-snippet example
-# library(e1071)
-# classifier = naiveBayes(trainset[, !names(trainset) %in% c("churn")], trainset$churn)
-
-
-# Python code-snippet example
-# from sklearn.naive_bayes import GaussianNB
-# gnb = GaussianNB()
-# fit = gnb.fit(X_train,y_train)
-# predicted = fit.predict(X_test)
-
-
+require(stats); require(graphics)
+boxplot(weight ~ group, data = PlantGrowth, main = "PlantGrowth data",
+        ylab = "Dried weight of plants", col = "lightgray",
+        notch = TRUE, varwidth = TRUE)
+anova(lm(weight ~ group, data = PlantGrowth))
 ```
 
 ### 6 Model building and assessment 
 
-To assess whether the generating model performs the best in the data estimation of a given problem, one must perform a model selection. The selection method here involves many
-steps, including data preprocessing, tuning parameters, and even switching the machine learning algorithm. However, one thing that is important to keep in mind is that the simplest model frequently achieves the best results in predictive or exploratory power whereas complex models often result in over fitting. 
+To assess whether the generating model performs the best in the data estimation of a given problem, one must perform a model selection. The selection method here involves many steps, including data preprocessing, tuning parameters, and even switching the machine learning algorithm. However, one thing that is important to keep in mind is that the simplest model frequently achieves the best results in predictive or exploratory power whereas complex models often result in over fitting. 
+
+
+Example: Simple prediction using confidence and prediction intervals
 
 ```{r}
-
-# For example the assessment can be done by using the confusion matrix provided by the caret package in R to generate a confusion matrix, which is one method to measure the accuracy of predictions.
-
-# R code-snippet
-# library(e1071)
-# confusionMatrix(bayes.table)
-
-# Python code-snippet example
-# confusion_matrix(y_test, predicted)
-
+## Predictions
+x <- rnorm(15)
+y <- x + rnorm(15)
+predict(lm(y ~ x))
+new <- data.frame(x = seq(-3, 3, 0.5))
+predict(lm(y ~ x), new, se.fit = TRUE)
+pred.w.plim <- predict(lm(y ~ x), new, interval = "prediction")
+pred.w.clim <- predict(lm(y ~ x), new, interval = "confidence")
+matplot(new$x, cbind(pred.w.clim, pred.w.plim[,-1]),
+        lty = c(1,2,2,3,3), type = "l", ylab = "predicted y")
 
 ``` 
 
 ### 7 Presentation and Automation
 
-Finally,The last step of the data science model is presenting your results and automating the analysis, if needed. One goal of a project is to change a process and/or make
-better decisions. We may still need to convince the business that our findings
-will indeed change the business process as expected. This is where we can
-shine in as influencer role. The importance of this step is more apparent in
-projects on a strategic and tactical level. Certain projects require to perform
-the business process over and over again, so automating the project will
-save time.
+Finally,The last step of the data science model is presenting your results and automating the analysis, if needed. One goal of a project is to change a process and/or make better decisions. We may still need to convince the business that our findings will indeed change the business process as expected. This is where we can shine in as influencer role. The importance of this step is more apparent in
+projects on a strategic and tactical level. Certain projects require to perform the business process over and over again, so automating the project will save time.

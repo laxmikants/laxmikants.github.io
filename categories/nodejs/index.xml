@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> NodeJS on Laxmikant Soni</title>
+    <link>https://laxmikants.github.io/categories/nodejs/</link>
+    <description>Recent content in  NodeJS on Laxmikant Soni</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>This work is licensed.</copyright>
+    <lastBuildDate>Wed, 05 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/categories/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Time-Series Forecasting</title>
+      <link>https://laxmikants.github.io/post/time-series-data-analysis/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/post/time-series-data-analysis/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Decision Trees</title>
+      <link>https://laxmikants.github.io/post/decision-trees-in-ml/</link>
+      <pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/post/decision-trees-in-ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science Terminology</title>
+      <link>https://laxmikants.github.io/post/data-science-terminology/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/post/data-science-terminology/</guid>
+      <description>
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Big Data Analytics</title>
+      <link>https://laxmikants.github.io/post/what-is-big-data-analytics/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/post/what-is-big-data-analytics/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
