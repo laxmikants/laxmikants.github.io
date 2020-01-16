@@ -1,384 +1,32 @@
-<!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
-  <head>
-<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
-<script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js',new Date());
- 
- gtag('config','UA-155379268-1');
-
-</script>	  <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Regular expressions",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/"
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https:\/\/laxmikants.github.io\/img\/cover.png",
-    "width":  800 ,
-    "height":  600 
-  },
-  "genre": "post",
-  "keywords": "Regular expression",
-  "wordcount":  2249 ,
-  "url": "https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/",
-  "datePublished": "2016-03-05",
-  "dateModified": "2016-03-05",
-  "license": "This work is licensed.",
-   "publisher" : {
-    "@type": "Organization",
-    "name" : "Laxmi K Soni",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/laxmikants.github.io\/img\/laxmikant-soni-1.jpg",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Laxmi K Soni"
-  },
-  "description" : "Implementing Regular expressions"
-}
-</script>
-
-  
-  
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  
-  <meta name= "keywords" content="Posts and Resources on Data Science | Laxmikant Soni, Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python, R, Jupyter Notebook, Tensorflow, Javascript, ReactJS, NodeJS, Posts and Resources on Data Science, Data Science, Hadoop, Java, Spring, Hibernate, Struts, MySQL, Oracle, DB2, Websphere, Weblogic">
-  <meta name="robots" content="index">
-
-  <meta name="description" content="Posts and Resources on Data Science | Laxmikant Soni">
-
-
-  <title>Laxmikant Soni</title>
-  <meta property="og:title" content="Posts and Resources on Data Science | Regular expressions" />
-  <meta property="fb:app_id" content="428818034507005" />
-  <meta name="description" content="Implementing Regular expressions">
-  <meta property="og:description" content="Implementing Regular expressions">
-  <meta name="author" content="Laxmikant Soni"/>
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "@type": "Person",
-    "name" : "Laxmi K Soni"
-  },
-  "headline": "Regular expressions",
-  "description" : "Implementing Regular expressions",
-  "inLanguage" : "en",
-  "wordCount":  2249 ,
-  "datePublished" : "2016-03-05",
-  "dateModified" : "2016-03-05",
-  "image" : "https:\/\/laxmikants.github.io\/img\/cover.png",
-  "keywords" : [ "Regular expression" ],
-  "mainEntityOfPage" : "https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/",
-  "publisher" : {
-    "@type": "Organization",
-    "name" : "Laxmi K Soni",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/laxmikants.github.io\/img\/laxmikant-soni-1.jpg",
-        "height" :  60 ,
-        "width" :  60
-    }
-  }
-}
-</script>
-
-  <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta property="og:image" content="https://laxmikants.github.io/img/laxmikant-soni-1.jpg" />
-  <meta property="fb:app_id" content="428818034507005" />
-  <meta property="og:url" content="https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="Laxmikant Soni" />
-  <meta property="og:description" content="Data Science blog: Posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
-  <meta property="og:locale" content="en_IN" />
-  <meta property="og:type" content="article" />
-
-  <meta content="Implementing Regular expressions" property="og:description">
-  <meta property="og:url" content="https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/" />
-  <meta property="og:site_name" content="Laxmikant Soni" />
-  <meta property="article:section" content="Regular expression" />
-  <meta property="article:published_time" content="2016-03-05 00:00:00 &#43;0000 UTC" />
-  
-<meta name="twitter:site" content="@laxmikantsoni09">
-<meta name="twitter:creator" content="@laxmikantsoni09">
-
-<meta name="twitter:description" content="
-
-
-" />
-<meta name="twitter:title" content="Regular expressions" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="" /> 
-  
-  
-  <meta name="generator" content="Hugo 0.55.6" />
-  <link rel="alternate" href="https://laxmikants.github.io/index.xml" type="application/rss+xml" title="Laxmikant Soni"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://laxmikants.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://laxmikants.github.io/css/highlight.min.css" /><link rel="stylesheet" href="https://laxmikants.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
-<script src="https://yihui.org/js/math-code.js"></script>
-
-<script async
-  src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-155379268-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-
-
-
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="https://laxmikants.github.io">Laxmikant Soni</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-          
-            <li class="navlinks-container">
-              <a class="navlinks-parent">About</a>
-              <div class="navlinks-children">
-                
-                  <a href="https://laxmikants.github.io/page/aboutme">About Me</a>
-                
-                  <a href="https://laxmikants.github.io/page/consulting">Consulting</a>
-                
-              </div>
-            </li>
-          
-        
-          
-            <li class="navlinks-container">
-              <a class="navlinks-parent">Data Science Resources</a>
-              <div class="navlinks-children">
-                
-                  <a href="https://laxmikants.github.io/page/ds-resources">Data Science Links</a>
-                
-              </div>
-            </li>
-          
-        
-          
-            <li class="navlinks-container">
-              <a class="navlinks-parent">Posts</a>
-              <div class="navlinks-children">
-                
-                  <a href="https://laxmikants.github.io/post/regression-in-ml/">Regression</a>
-                
-                  <a href="https://laxmikants.github.io/post/up-and-running-with-blogdown/">Blogdown</a>
-                
-                  <a href="https://laxmikants.github.io/post/authoring-scientific-paper/">Scientific paper</a>
-                
-              </div>
-            </li>
-          
-        
-
-        
-
-        
-      </ul>
-    </div>
-
-    
-      <div class="avatar-container">
-        <div class="avatar-img-border">
-          <a title="Laxmikant Soni" href="https://laxmikants.github.io">
-            <img class="avatar-img" src="https://laxmikants.github.io/img/laxmikant-soni-1.jpg" alt="Laxmikant Soni" />
-          </a>
-        </div>
-      </div>
-    
-
-  </div>
-</nav>
-
-
-
-    
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
-</div>
-
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  <header class="header-section ">
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              
-                <h1>Regular expressions</h1>
-              
-              
-              
-                
-                  <h2 class="post-subheading">Implementing Regular Expression</h2>
-                
-              
-              
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2016
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2249&nbsp;words
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmi K Soni
-    
-  
-  
-</span>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <p>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by <a href="https://github.com/gagolews/stringi">stringi</a>. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at <a href="http://r4ds.had.co.nz/strings.html" class="uri">http://r4ds.had.co.nz/strings.html</a>. If you want to master the details, I’d recommend reading the classic <a href="https://amzn.com/0596528124"><em>Mastering Regular Expressions</em></a> by Jeffrey E. F. Fried.</p>
-<p>Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it’s equivalent to wrapping it in a call to <code>regex()</code>:</p>
-<pre class="r"><code># The regular call:
+<!doctype html><html lang=en itemscope itemtype=http://schema.org/WebPage><head><script data-ad-client=ca-pub-3804322353139756 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-155379268-1');</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Regular expressions","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/"},"image":{"@type":"ImageObject","url":"https:\/\/laxmikants.github.io\/img\/cover.png","width":800,"height":600},"genre":"post","keywords":"Regular expression","wordcount":2249,"url":"https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/","datePublished":"2016-03-05","dateModified":"2016-03-05","license":"This work is licensed.","publisher":{"@type":"Organization","name":"Laxmi K Soni","logo":{"@type":"ImageObject","url":"https:\/\/laxmikants.github.io\/img\/laxmikant-soni-1.jpg","width":60,"height":60}},"author":{"@type":"Person","name":"Laxmi K Soni"},"description":"Implementing Regular expressions"}</script><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta name=keywords content="Posts and Resources on Data Science | Laxmikant Soni,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow,Javascript,ReactJS,NodeJS,Posts and Resources on Data Science,Data Science,Hadoop,Java,Spring,Hibernate,Struts,MySQL,Oracle,DB2,Websphere,Weblogic"><meta name=robots content=index><meta name=description content="Posts and Resources on Data Science | Laxmikant Soni"><title>Laxmikant Soni</title><meta property=og:title content="Posts and Resources on Data Science | Regular expressions"><meta property=fb:app_id content=428818034507005><meta name=description content="Implementing Regular expressions"><meta property=og:description content="Implementing Regular expressions"><meta name=author content="Laxmikant Soni"><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"@type":"Person","name":"Laxmi K Soni"},"headline":"Regular expressions","description":"Implementing Regular expressions","inLanguage":"en","wordCount":2249,"datePublished":"2016-03-05","dateModified":"2016-03-05","image":"https:\/\/laxmikants.github.io\/img\/cover.png","keywords":["Regular expression"],"mainEntityOfPage":"https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition\/","publisher":{"@type":"Organization","name":"Laxmi K Soni","logo":{"@type":"ImageObject","url":"https:\/\/laxmikants.github.io\/img\/laxmikant-soni-1.jpg","height":60,"width":60}}}</script><link href=https://laxmikants.github.io/img/favicon.ico rel=icon type=image/x-icon><meta property=og:image content=https://laxmikants.github.io/img/laxmikant-soni-1.jpg><meta property=fb:app_id content=428818034507005><meta property=og:url content=https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/><meta property=og:type content=article><meta property=og:site_name content="Laxmikant Soni"><meta property=og:description content="Data Science blog: Posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc."><meta property=og:locale content=en_IN><meta property=og:type content=article><meta content="Implementing Regular expressions" property=og:description><meta property=og:url content=https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition/><meta property=og:site_name content="Laxmikant Soni"><meta property=article:section content="Regular expression"><meta property=article:published_time content="2016-03-05 00:00:00 &#43;0000 UTC"><meta name=twitter:site content=@laxmikantsoni09><meta name=twitter:creator content=@laxmikantsoni09><meta name=twitter:description content><meta name=twitter:title content="Regular expressions"><meta name=twitter:card content=summary_large_image><meta name=twitter:image content><meta name=generator content="Hugo 0.55.6"><link rel=alternate href=https://laxmikants.github.io/index.xml type=application/rss+xml title="Laxmikant Soni"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css integrity=sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y crossorigin=anonymous><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous><link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://laxmikants.github.io/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"><link rel=stylesheet href=https://laxmikants.github.io/css/highlight.min.css><link rel=stylesheet href=https://laxmikants.github.io/css/codeblock.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css integrity=sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css integrity=sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R crossorigin=anonymous><script src=https://yihui.org/js/math-code.js></script><script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-155379268-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><span itemscope itemtype=https://schema.org/Organization><link itemprop=url href=http://laxmikants.github.io><a itemprop=sameAs href=http://www.facebook.com/laxmikantsoni09>FB</a>
+<a itemprop=sameAs href=http://www.twitter.com/laxmikantsoni09>Twitter</a></span><nav class="navbar navbar-default navbar-fixed-top navbar-custom"><div class=container-fluid><div class=navbar-header><button type=button class=navbar-toggle data-toggle=collapse data-target=#main-navbar>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button>
+<a class=navbar-brand href=https://laxmikants.github.io>Laxmikant Soni</a></div><div class="collapse navbar-collapse" id=main-navbar><ul class="nav navbar-nav navbar-right"><li class=navlinks-container><a class=navlinks-parent>About</a><div class=navlinks-children><a href=https://laxmikants.github.io/page/aboutme>About Me</a>
+<a href=https://laxmikants.github.io/page/consulting>Consulting</a></div></li><li class=navlinks-container><a class=navlinks-parent>Data Science Resources</a><div class=navlinks-children><a href=https://laxmikants.github.io/page/ds-resources>Data Science Links</a></div></li><li class=navlinks-container><a class=navlinks-parent>Posts</a><div class=navlinks-children><a href=https://laxmikants.github.io/post/regression-in-ml/>Regression</a>
+<a href=https://laxmikants.github.io/post/up-and-running-with-blogdown/>Blogdown</a>
+<a href=https://laxmikants.github.io/post/authoring-scientific-paper/>Scientific paper</a></div></li></ul></div><div class=avatar-container><div class=avatar-img-border><a title="Laxmikant Soni" href=https://laxmikants.github.io><img class=avatar-img src=https://laxmikants.github.io/img/laxmikant-soni-1.jpg alt="Laxmikant Soni"></a></div></div></div></nav><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><header class=header-section><div class="intro-header no-img"><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class=post-heading><h1>Regular expressions</h1><h2 class=post-subheading>Implementing Regular Expression</h2><span class=post-meta><i class="fas fa-calendar"></i>&nbsp;Posted on March 5, 2016
+&nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
+&nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2249&nbsp;words
+&nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Laxmi K Soni</span></div></div></div></div></div></header><div class=container role=main><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><article role=main class=blog-post><p>Regular expressions are a concise and flexible tool for describing patterns in strings. This post describes the key features of stringr’s regular expressions, as implemented by <a href=https://github.com/gagolews/stringi>stringi</a>. It is not a tutorial, so if you’re unfamiliar regular expressions, I’d recommend starting at <a href=http://r4ds.had.co.nz/strings.html class=uri>http://r4ds.had.co.nz/strings.html</a>. If you want to master the details, I’d recommend reading the classic <a href=https://amzn.com/0596528124><em>Mastering Regular Expressions</em></a> by Jeffrey E. F. Fried.</p><p>Regular expressions are the default pattern engine in stringr. That means when you use a pattern matching function with a bare string, it’s equivalent to wrapping it in a call to <code>regex()</code>:</p><pre class=r><code># The regular call:
 str_extract(fruit, &quot;nana&quot;)
 # Is shorthand for
-str_extract(fruit, regex(&quot;nana&quot;))</code></pre>
-<p>You will need to use <code>regex()</code> explicitly if you want to override the default options, as you’ll see in examples below.</p>
-<div id="basic-matches" class="section level2">
-<h2>Basic matches</h2>
-<p>The simplest patterns match exact strings:</p>
-<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+str_extract(fruit, regex(&quot;nana&quot;))</code></pre><p>You will need to use <code>regex()</code> explicitly if you want to override the default options, as you’ll see in examples below.</p><div id=basic-matches class="section level2"><h2>Basic matches</h2><p>The simplest patterns match exact strings:</p><pre class=r><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
 str_extract(x, &quot;an&quot;)
-#&gt; [1] NA   &quot;an&quot; NA</code></pre>
-<p>You can perform a case-insensitive match using <code>ignore_case = TRUE</code>:</p>
-<pre class="r"><code>bananas &lt;- c(&quot;banana&quot;, &quot;Banana&quot;, &quot;BANANA&quot;)
+#&gt; [1] NA   &quot;an&quot; NA</code></pre><p>You can perform a case-insensitive match using <code>ignore_case = TRUE</code>:</p><pre class=r><code>bananas &lt;- c(&quot;banana&quot;, &quot;Banana&quot;, &quot;BANANA&quot;)
 str_detect(bananas, &quot;banana&quot;)
 #&gt; [1]  TRUE FALSE FALSE
 str_detect(bananas, regex(&quot;banana&quot;, ignore_case = TRUE))
-#&gt; [1] TRUE TRUE TRUE</code></pre>
-<p>The next step up in complexity is <code>.</code>, which matches any character except a newline:</p>
-<pre class="r"><code>str_extract(x, &quot;.a.&quot;)
-#&gt; [1] NA    &quot;ban&quot; &quot;ear&quot;</code></pre>
-<p>You can allow <code>.</code> to match everything, including <code>\n</code>, by setting <code>dotall = TRUE</code>:</p>
-<pre class="r"><code>str_detect(&quot;\nX\n&quot;, &quot;.X.&quot;)
+#&gt; [1] TRUE TRUE TRUE</code></pre><p>The next step up in complexity is <code>.</code>, which matches any character except a newline:</p><pre class=r><code>str_extract(x, &quot;.a.&quot;)
+#&gt; [1] NA    &quot;ban&quot; &quot;ear&quot;</code></pre><p>You can allow <code>.</code> to match everything, including <code>\n</code>, by setting <code>dotall = TRUE</code>:</p><pre class=r><code>str_detect(&quot;\nX\n&quot;, &quot;.X.&quot;)
 #&gt; [1] FALSE
 str_detect(&quot;\nX\n&quot;, regex(&quot;.X.&quot;, dotall = TRUE))
-#&gt; [1] TRUE</code></pre>
-</div>
-<div id="escaping" class="section level2">
-<h2>Escaping</h2>
-<p>If “<code>.</code>” matches any character, how do you match a literal “<code>.</code>”? You need to use an “escape” to tell the regular expression you want to match it exactly, not use its special behaviour. Like strings, regexps use the backslash, <code>\</code>, to escape special behaviour. So to match an <code>.</code>, you need the regexp <code>\.</code>. Unfortunately this creates a problem. We use strings to represent regular expressions, and <code>\</code> is also used as an escape symbol in strings. So to create the regular expression <code>\.</code> we need the string <code>"\\."</code>.</p>
-<pre class="r"><code># To create the regular expression, we need \\
+#&gt; [1] TRUE</code></pre></div><div id=escaping class="section level2"><h2>Escaping</h2><p>If “<code>.</code>” matches any character, how do you match a literal “<code>.</code>”? You need to use an “escape” to tell the regular expression you want to match it exactly, not use its special behaviour. Like strings, regexps use the backslash, <code>\</code>, to escape special behaviour. So to match an <code>.</code>, you need the regexp <code>\.</code>. Unfortunately this creates a problem. We use strings to represent regular expressions, and <code>\</code> is also used as an escape symbol in strings. So to create the regular expression <code>\.</code> we need the string <code>"\\."</code>.</p><pre class=r><code># To create the regular expression, we need \\
 dot &lt;- &quot;\\.&quot;
 
 # But the expression itself only contains one:
@@ -387,145 +35,59 @@ writeLines(dot)
 
 # And this tells R to look for an explicit .
 str_extract(c(&quot;abc&quot;, &quot;a.c&quot;, &quot;bef&quot;), &quot;a\\.c&quot;)
-#&gt; [1] NA    &quot;a.c&quot; NA</code></pre>
-<p>If <code>\</code> is used as an escape character in regular expressions, how do you match a literal <code>\</code>? Well you need to escape it, creating the regular expression <code>\\</code>. To create that regular expression, you need to use a string, which also needs to escape <code>\</code>. That means to match a literal <code>\</code> you need to write <code>"\\\\"</code> — you need four backslashes to match one!</p>
-<pre class="r"><code>x &lt;- &quot;a\\b&quot;
+#&gt; [1] NA    &quot;a.c&quot; NA</code></pre><p>If <code>\</code> is used as an escape character in regular expressions, how do you match a literal <code>\</code>? Well you need to escape it, creating the regular expression <code>\\</code>. To create that regular expression, you need to use a string, which also needs to escape <code>\</code>. That means to match a literal <code>\</code> you need to write <code>"\\\\"</code> — you need four backslashes to match one!</p><pre class=r><code>x &lt;- &quot;a\\b&quot;
 writeLines(x)
 #&gt; a\b
 
 str_extract(x, &quot;\\\\&quot;)
-#&gt; [1] &quot;\\&quot;</code></pre>
-<p>In this vignette, I use <code>\.</code> to denote the regular expression, and <code>"\\."</code> to denote the string that represents the regular expression.</p>
-<p>An alternative quoting mechanism is <code>\Q...\E</code>: all the characters in <code>...</code> are treated as exact matches. This is useful if you want to exactly match user input as part of a regular expression.</p>
-<pre class="r"><code>x &lt;- c(&quot;a.b.c.d&quot;, &quot;aeb&quot;)
+#&gt; [1] &quot;\\&quot;</code></pre><p>In this vignette, I use <code>\.</code> to denote the regular expression, and <code>"\\."</code> to denote the string that represents the regular expression.</p><p>An alternative quoting mechanism is <code>\Q...\E</code>: all the characters in <code>...</code> are treated as exact matches. This is useful if you want to exactly match user input as part of a regular expression.</p><pre class=r><code>x &lt;- c(&quot;a.b.c.d&quot;, &quot;aeb&quot;)
 starts_with &lt;- &quot;a.b&quot;
 
 str_detect(x, paste0(&quot;^&quot;, starts_with))
 #&gt; [1] TRUE TRUE
 str_detect(x, paste0(&quot;^\\Q&quot;, starts_with, &quot;\\E&quot;))
-#&gt; [1]  TRUE FALSE</code></pre>
-</div>
-<div id="special-characters" class="section level2">
-<h2>Special characters</h2>
-<p>Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p>
-<ul>
-<li><p><code>\xhh</code>: 2 hex digits.</p></li>
-<li><p><code>\x{hhhh}</code>: 1-6 hex digits.</p></li>
-<li><p><code>\uhhhh</code>: 4 hex digits.</p></li>
-<li><p><code>\Uhhhhhhhh</code>: 8 hex digits.</p></li>
-<li><p><code>\N{name}</code>, e.g. <code>\N{grinning face}</code> matches the basic smiling emoji.</p></li>
-</ul>
-<p>Similarly, you can specify many common control characters:</p>
-<ul>
-<li><p><code>\a</code>: bell.</p></li>
-<li><p><code>\cX</code>: match a control-X character.</p></li>
-<li><p><code>\e</code>: escape (<code>\u001B</code>).</p></li>
-<li><p><code>\f</code>: form feed (<code>\u000C</code>).</p></li>
-<li><p><code>\n</code>: line feed (<code>\u000A</code>).</p></li>
-<li><p><code>\r</code>: carriage return (<code>\u000D</code>).</p></li>
-<li><p><code>\t</code>: horizontal tabulation (<code>\u0009</code>).</p></li>
-<li><p><code>\0ooo</code> match an octal character. ‘ooo’ is from one to three octal digits,
-from 000 to 0377. The leading zero is required.</p></li>
-</ul>
-<p>(Many of these are only of historical interest and are only included here for the sake of completeness.)</p>
-</div>
-<div id="matching-multiple-characters" class="section level2">
-<h2>Matching multiple characters</h2>
-<p>There are a number of patterns that match more than one character. You’ve already seen <code>.</code>, which matches any character (except a newline). A closely related operator is <code>\X</code>, which matches a <strong>grapheme cluster</strong>, a set of individual elements that form a single symbol. For example, one way of representing “á” is as the letter “a” plus an accent: <code>.</code> will match the component “a”, while <code>\X</code> will match the complete symbol:</p>
-<pre class="r"><code>x &lt;- &quot;a\u0301&quot;
+#&gt; [1]  TRUE FALSE</code></pre></div><div id=special-characters class="section level2"><h2>Special characters</h2><p>Escapes also allow you to specify individual characters that are otherwise hard to type. You can specify individual unicode characters in five ways, either as a variable number of hex digits (four is most common), or by name:</p><ul><li><p><code>\xhh</code>: 2 hex digits.</p></li><li><p><code>\x{hhhh}</code>: 1-6 hex digits.</p></li><li><p><code>\uhhhh</code>: 4 hex digits.</p></li><li><p><code>\Uhhhhhhhh</code>: 8 hex digits.</p></li><li><p><code>\N{name}</code>, e.g. <code>\N{grinning face}</code> matches the basic smiling emoji.</p></li></ul><p>Similarly, you can specify many common control characters:</p><ul><li><p><code>\a</code>: bell.</p></li><li><p><code>\cX</code>: match a control-X character.</p></li><li><p><code>\e</code>: escape (<code>\u001B</code>).</p></li><li><p><code>\f</code>: form feed (<code>\u000C</code>).</p></li><li><p><code>\n</code>: line feed (<code>\u000A</code>).</p></li><li><p><code>\r</code>: carriage return (<code>\u000D</code>).</p></li><li><p><code>\t</code>: horizontal tabulation (<code>\u0009</code>).</p></li><li><p><code>\0ooo</code> match an octal character. ‘ooo’ is from one to three octal digits,
+from 000 to 0377. The leading zero is required.</p></li></ul><p>(Many of these are only of historical interest and are only included here for the sake of completeness.)</p></div><div id=matching-multiple-characters class="section level2"><h2>Matching multiple characters</h2><p>There are a number of patterns that match more than one character. You’ve already seen <code>.</code>, which matches any character (except a newline). A closely related operator is <code>\X</code>, which matches a <strong>grapheme cluster</strong>, a set of individual elements that form a single symbol. For example, one way of representing “á” is as the letter “a” plus an accent: <code>.</code> will match the component “a”, while <code>\X</code> will match the complete symbol:</p><pre class=r><code>x &lt;- &quot;a\u0301&quot;
 str_extract(x, &quot;.&quot;)
 #&gt; [1] &quot;a&quot;
 str_extract(x, &quot;\\X&quot;)
-#&gt; [1] &quot;a´&quot;</code></pre>
-<p>There are five other escaped pairs that match narrower classes of characters:</p>
-<ul>
-<li><p><code>\d</code>: matches any digit. The complement, <code>\D</code>, matches any character that
-is not a decimal digit.</p>
-<pre class="r"><code>str_extract_all(&quot;1 + 2 = 3&quot;, &quot;\\d+&quot;)[[1]]
-#&gt; [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<p>Technically, <code>\d</code> includes any character in the Unicode Category of Nd
+#&gt; [1] &quot;a´&quot;</code></pre><p>There are five other escaped pairs that match narrower classes of characters:</p><ul><li><p><code>\d</code>: matches any digit. The complement, <code>\D</code>, matches any character that
+is not a decimal digit.</p><pre class=r><code>str_extract_all(&quot;1 + 2 = 3&quot;, &quot;\\d+&quot;)[[1]]
+#&gt; [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre><p>Technically, <code>\d</code> includes any character in the Unicode Category of Nd
 (“Number, Decimal Digit”), which also includes numeric symbols from other
-languages:</p>
-<pre class="r"><code># Some Laotian numbers
+languages:</p><pre class=r><code># Some Laotian numbers
 str_detect(&quot;១២៣&quot;, &quot;\\d&quot;)
-#&gt; [1] TRUE</code></pre></li>
-<li><p><code>\s</code>: matches any whitespace. This includes tabs, newlines, form feeds,
+#&gt; [1] TRUE</code></pre></li><li><p><code>\s</code>: matches any whitespace. This includes tabs, newlines, form feeds,
 and any character in the Unicode Z Category (which includes a variety of
 space characters and other separators.). The complement, <code>\S</code>, matches any
-non-whitespace character.</p>
-<pre class="r"><code>(text &lt;- &quot;Some  \t badly\n\t\tspaced \f text&quot;)
+non-whitespace character.</p><pre class=r><code>(text &lt;- &quot;Some  \t badly\n\t\tspaced \f text&quot;)
 #&gt; [1] &quot;Some  \t badly\n\t\tspaced \f text&quot;
 str_replace_all(text, &quot;\\s+&quot;, &quot; &quot;)
-#&gt; [1] &quot;Some badly spaced text&quot;</code></pre></li>
-<li><p><code>\p{property name}</code> matches any character with specific unicode property,
+#&gt; [1] &quot;Some badly spaced text&quot;</code></pre></li><li><p><code>\p{property name}</code> matches any character with specific unicode property,
 like <code>\p{Uppercase}</code> or <code>\p{Diacritic}</code>. The complement,
 <code>\P{property name}</code>, matches all characters without the property.
 A complete list of unicode properties can be found at
-<a href="http://www.unicode.org/reports/tr44/#Property_Index" class="uri">http://www.unicode.org/reports/tr44/#Property_Index</a>.</p>
-<pre class="r"><code>(text &lt;- c(&#39;&quot;Double quotes&quot;&#39;, &quot;«Guillemet»&quot;, &quot;“Fancy quotes”&quot;))
+<a href=http://www.unicode.org/reports/tr44/#Property_Index class=uri>http://www.unicode.org/reports/tr44/#Property_Index</a>.</p><pre class=r><code>(text &lt;- c(&#39;&quot;Double quotes&quot;&#39;, &quot;«Guillemet»&quot;, &quot;“Fancy quotes”&quot;))
 #&gt; [1] &quot;\&quot;Double quotes\&quot;&quot; &quot;«Guillemet»&quot;       &quot;“Fancy quotes”&quot;
 str_replace_all(text, &quot;\\p{quotation mark}&quot;, &quot;&#39;&quot;)
-#&gt; [1] &quot;&#39;Double quotes&#39;&quot; &quot;&#39;Guillemet&#39;&quot;     &quot;&#39;Fancy quotes&#39;&quot;</code></pre></li>
-<li><p><code>\w</code> matches any “word” character, which includes alphabetic characters,
+#&gt; [1] &quot;&#39;Double quotes&#39;&quot; &quot;&#39;Guillemet&#39;&quot;     &quot;&#39;Fancy quotes&#39;&quot;</code></pre></li><li><p><code>\w</code> matches any “word” character, which includes alphabetic characters,
 marks and decimal numbers. The complement, <code>\W</code>, matches any non-word
-character.</p>
-<pre class="r"><code>str_extract_all(&quot;Don&#39;t eat that!&quot;, &quot;\\w+&quot;)[[1]]
+character.</p><pre class=r><code>str_extract_all(&quot;Don&#39;t eat that!&quot;, &quot;\\w+&quot;)[[1]]
 #&gt; [1] &quot;Don&quot;  &quot;t&quot;    &quot;eat&quot;  &quot;that&quot;
 str_split(&quot;Don&#39;t eat that!&quot;, &quot;\\W&quot;)[[1]]
-#&gt; [1] &quot;Don&quot;  &quot;t&quot;    &quot;eat&quot;  &quot;that&quot; &quot;&quot;</code></pre>
-<p>Technically, <code>\w</code> also matches connector punctuation, <code>\u200c</code> (zero width
+#&gt; [1] &quot;Don&quot;  &quot;t&quot;    &quot;eat&quot;  &quot;that&quot; &quot;&quot;</code></pre><p>Technically, <code>\w</code> also matches connector punctuation, <code>\u200c</code> (zero width
 connector), and <code>\u200d</code> (zero width joiner), but these are rarely seen in
-the wild.</p></li>
-<li><p><code>\b</code> matches word boundaries, the transition between word and non-word
+the wild.</p></li><li><p><code>\b</code> matches word boundaries, the transition between word and non-word
 characters. <code>\B</code> matches the opposite: boundaries that have either both
-word or non-word characters on either side.</p>
-<pre class="r"><code>str_replace_all(&quot;The quick brown fox&quot;, &quot;\\b&quot;, &quot;_&quot;)
+word or non-word characters on either side.</p><pre class=r><code>str_replace_all(&quot;The quick brown fox&quot;, &quot;\\b&quot;, &quot;_&quot;)
 #&gt; [1] &quot;_The_ _quick_ _brown_ _fox_&quot;
 str_replace_all(&quot;The quick brown fox&quot;, &quot;\\B&quot;, &quot;_&quot;)
-#&gt; [1] &quot;T_h_e q_u_i_c_k b_r_o_w_n f_o_x&quot;</code></pre></li>
-</ul>
-<p>You can also create your own <strong>character classes</strong> using <code>[]</code>:</p>
-<ul>
-<li><code>[abc]</code>: matches a, b, or c.</li>
-<li><code>[a-z]</code>: matches every character between a and z
-(in Unicode code point order).</li>
-<li><code>[^abc]</code>: matches anything except a, b, or c.</li>
-<li><code>[\^\-]</code>: matches <code>^</code> or <code>-</code>.</li>
-</ul>
-<p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p>
-<ul>
-<li><code>[:punct:]</code>: punctuation.</li>
-<li><code>[:alpha:]</code>: letters.</li>
-<li><code>[:lower:]</code>: lowercase letters.</li>
-<li><code>[:upper:]</code>: upperclass letters.</li>
-<li><code>[:digit:]</code>: digits.</li>
-<li><code>[:xdigit:]</code>: hex digits.</li>
-<li><code>[:alnum:]</code>: letters and numbers.</li>
-<li><code>[:cntrl:]</code>: control characters.</li>
-<li><code>[:graph:]</code>: letters, numbers, and punctuation.</li>
-<li><code>[:print:]</code>: letters, numbers, punctuation, and whitespace.</li>
-<li><code>[:space:]</code>: space characters (basically equivalent to <code>\s</code>).</li>
-<li><code>[:blank:]</code>: space and tab.</li>
-</ul>
-<p>These all go inside the <code>[]</code> for character classes, i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p>
-<p>You can also using Unicode properties, like <code>[\p{Letter}]</code>, and various set operations, like <code>[\p{Letter}--\p{script=latin}]</code>. See <code>?"stringi-search-charclass"</code> for details.</p>
-</div>
-<div id="alternation" class="section level2">
-<h2>Alternation</h2>
-<p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p>
-<pre class="r"><code>str_detect(c(&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;), &quot;abc|def&quot;)
-#&gt; [1]  TRUE  TRUE FALSE</code></pre>
-<p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p>
-</div>
-<div id="grouping" class="section level2">
-<h2>Grouping</h2>
-<p>You can use parentheses to override the default precedence rules:</p>
-<pre class="r"><code>str_extract(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gre|ay&quot;)
+#&gt; [1] &quot;T_h_e q_u_i_c_k b_r_o_w_n f_o_x&quot;</code></pre></li></ul><p>You can also create your own <strong>character classes</strong> using <code>[]</code>:</p><ul><li><code>[abc]</code>: matches a, b, or c.</li><li><code>[a-z]</code>: matches every character between a and z
+(in Unicode code point order).</li><li><code>[^abc]</code>: matches anything except a, b, or c.</li><li><code>[\^\-]</code>: matches <code>^</code> or <code>-</code>.</li></ul><p>There are a number of pre-built classes that you can use inside <code>[]</code>:</p><ul><li><code>[:punct:]</code>: punctuation.</li><li><code>[:alpha:]</code>: letters.</li><li><code>[:lower:]</code>: lowercase letters.</li><li><code>[:upper:]</code>: upperclass letters.</li><li><code>[:digit:]</code>: digits.</li><li><code>[:xdigit:]</code>: hex digits.</li><li><code>[:alnum:]</code>: letters and numbers.</li><li><code>[:cntrl:]</code>: control characters.</li><li><code>[:graph:]</code>: letters, numbers, and punctuation.</li><li><code>[:print:]</code>: letters, numbers, punctuation, and whitespace.</li><li><code>[:space:]</code>: space characters (basically equivalent to <code>\s</code>).</li><li><code>[:blank:]</code>: space and tab.</li></ul><p>These all go inside the <code>[]</code> for character classes, i.e. <code>[[:digit:]AX]</code> matches all digits, A, and X.</p><p>You can also using Unicode properties, like <code>[\p{Letter}]</code>, and various set operations, like <code>[\p{Letter}--\p{script=latin}]</code>. See <code>?"stringi-search-charclass"</code> for details.</p></div><div id=alternation class="section level2"><h2>Alternation</h2><p><code>|</code> is the <strong>alternation</strong> operator, which will pick between one or more possible matches. For example, <code>abc|def</code> will match <code>abc</code> or <code>def</code>.</p><pre class=r><code>str_detect(c(&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;), &quot;abc|def&quot;)
+#&gt; [1]  TRUE  TRUE FALSE</code></pre><p>Note that the precedence for <code>|</code> is low, so that <code>abc|def</code> matches <code>abc</code> or <code>def</code> not <code>abcyz</code> or <code>abxyz</code>.</p></div><div id=grouping class="section level2"><h2>Grouping</h2><p>You can use parentheses to override the default precedence rules:</p><pre class=r><code>str_extract(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gre|ay&quot;)
 #&gt; [1] &quot;gre&quot; &quot;ay&quot;
 str_extract(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gr(e|a)y&quot;)
-#&gt; [1] &quot;grey&quot; &quot;gray&quot;</code></pre>
-<p>Parenthesis also define “groups” that you can refer to with <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code>str_match()</code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p>
-<pre class="r"><code>pattern &lt;- &quot;(..)\\1&quot;
+#&gt; [1] &quot;grey&quot; &quot;gray&quot;</code></pre><p>Parenthesis also define “groups” that you can refer to with <strong>backreferences</strong>, like <code>\1</code>, <code>\2</code> etc, and can be extracted with <code>str_match()</code>. For example, the following regular expression finds all fruits that have a repeated pair of letters:</p><pre class=r><code>pattern &lt;- &quot;(..)\\1&quot;
 fruit %&gt;% 
   str_subset(pattern)
 #&gt; [1] &quot;banana&quot;      &quot;coconut&quot;     &quot;cucumber&quot;    &quot;jujube&quot;      &quot;papaya&quot;     
@@ -540,136 +102,54 @@ fruit %&gt;%
 #&gt; [3,] &quot;cucu&quot; &quot;cu&quot;
 #&gt; [4,] &quot;juju&quot; &quot;ju&quot;
 #&gt; [5,] &quot;papa&quot; &quot;pa&quot;
-#&gt; [6,] &quot;alal&quot; &quot;al&quot;</code></pre>
-<p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p>
-<pre class="r"><code>str_match(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gr(e|a)y&quot;)
+#&gt; [6,] &quot;alal&quot; &quot;al&quot;</code></pre><p>You can use <code>(?:...)</code>, the non-grouping parentheses, to control precedence but not capture the match in a group. This is slightly more efficient than capturing parentheses.</p><pre class=r><code>str_match(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gr(e|a)y&quot;)
 #&gt;      [,1]   [,2]
 #&gt; [1,] &quot;grey&quot; &quot;e&quot; 
 #&gt; [2,] &quot;gray&quot; &quot;a&quot;
 str_match(c(&quot;grey&quot;, &quot;gray&quot;), &quot;gr(?:e|a)y&quot;)
 #&gt;      [,1]  
 #&gt; [1,] &quot;grey&quot;
-#&gt; [2,] &quot;gray&quot;</code></pre>
-<p>This is most useful for more complex cases where you need to capture matches and control precedence independently.</p>
-</div>
-<div id="anchors" class="section level2">
-<h2>Anchors</h2>
-<p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p>
-<ul>
-<li><code>^</code> matches the start of string.</li>
-<li><code>$</code> matches the end of the string.</li>
-</ul>
-<pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
+#&gt; [2,] &quot;gray&quot;</code></pre><p>This is most useful for more complex cases where you need to capture matches and control precedence independently.</p></div><div id=anchors class="section level2"><h2>Anchors</h2><p>By default, regular expressions will match any part of a string. It’s often useful to <strong>anchor</strong> the regular expression so that it matches from the start or end of the string:</p><ul><li><code>^</code> matches the start of string.</li><li><code>$</code> matches the end of the string.</li></ul><pre class=r><code>x &lt;- c(&quot;apple&quot;, &quot;banana&quot;, &quot;pear&quot;)
 str_extract(x, &quot;^a&quot;)
 #&gt; [1] &quot;a&quot; NA  NA
 str_extract(x, &quot;a$&quot;)
-#&gt; [1] NA  &quot;a&quot; NA</code></pre>
-<p>To match a literal “$” or “^”, you need to escape them, <code>\$</code>, and <code>\^</code>.</p>
-<p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>. This changes the behaviour of <code>^</code> and <code>$</code>, and introduces three new operators:</p>
-<ul>
-<li><p><code>^</code> now matches the start of each line.</p></li>
-<li><p><code>$</code> now matches the end of each line.</p></li>
-<li><p><code>\A</code> matches the start of the input.</p></li>
-<li><p><code>\z</code> matches the end of the input.</p></li>
-<li><p><code>\Z</code> matches the end of the input, but before the final line terminator,
-if it exists.</p></li>
-</ul>
-<pre class="r"><code>x &lt;- &quot;Line 1\nLine 2\nLine 3\n&quot;
+#&gt; [1] NA  &quot;a&quot; NA</code></pre><p>To match a literal “$” or “^”, you need to escape them, <code>\$</code>, and <code>\^</code>.</p><p>For multiline strings, you can use <code>regex(multiline = TRUE)</code>. This changes the behaviour of <code>^</code> and <code>$</code>, and introduces three new operators:</p><ul><li><p><code>^</code> now matches the start of each line.</p></li><li><p><code>$</code> now matches the end of each line.</p></li><li><p><code>\A</code> matches the start of the input.</p></li><li><p><code>\z</code> matches the end of the input.</p></li><li><p><code>\Z</code> matches the end of the input, but before the final line terminator,
+if it exists.</p></li></ul><pre class=r><code>x &lt;- &quot;Line 1\nLine 2\nLine 3\n&quot;
 str_extract_all(x, &quot;^Line..&quot;)[[1]]
 #&gt; [1] &quot;Line 1&quot;
 str_extract_all(x, regex(&quot;^Line..&quot;, multiline = TRUE))[[1]]
 #&gt; [1] &quot;Line 1&quot; &quot;Line 2&quot; &quot;Line 3&quot;
 str_extract_all(x, regex(&quot;\\ALine..&quot;, multiline = TRUE))[[1]]
-#&gt; [1] &quot;Line 1&quot;</code></pre>
-</div>
-<div id="repetition" class="section level2">
-<h2>Repetition</h2>
-<p>You can control how many times a pattern matches with the repetition operators:</p>
-<ul>
-<li><code>?</code>: 0 or 1.</li>
-<li><code>+</code>: 1 or more.</li>
-<li><code>*</code>: 0 or more.</li>
-</ul>
-<pre class="r"><code>x &lt;- &quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;
+#&gt; [1] &quot;Line 1&quot;</code></pre></div><div id=repetition class="section level2"><h2>Repetition</h2><p>You can control how many times a pattern matches with the repetition operators:</p><ul><li><code>?</code>: 0 or 1.</li><li><code>+</code>: 1 or more.</li><li><code>*</code>: 0 or more.</li></ul><pre class=r><code>x &lt;- &quot;1888 is the longest year in Roman numerals: MDCCCLXXXVIII&quot;
 str_extract(x, &quot;CC?&quot;)
 #&gt; [1] &quot;CC&quot;
 str_extract(x, &quot;CC+&quot;)
 #&gt; [1] &quot;CCC&quot;
 str_extract(x, &#39;C[LX]+&#39;)
-#&gt; [1] &quot;CLXXX&quot;</code></pre>
-<p>Note that the precedence of these operators is high, so you can write: <code>colou?r</code> to match either American or British spellings. That means most uses will need parentheses, like <code>bana(na)+</code>.</p>
-<p>You can also specify the number of matches precisely:</p>
-<ul>
-<li><code>{n}</code>: exactly n</li>
-<li><code>{n,}</code>: n or more</li>
-<li><code>{n,m}</code>: between n and m</li>
-</ul>
-<pre class="r"><code>str_extract(x, &quot;C{2}&quot;)
+#&gt; [1] &quot;CLXXX&quot;</code></pre><p>Note that the precedence of these operators is high, so you can write: <code>colou?r</code> to match either American or British spellings. That means most uses will need parentheses, like <code>bana(na)+</code>.</p><p>You can also specify the number of matches precisely:</p><ul><li><code>{n}</code>: exactly n</li><li><code>{n,}</code>: n or more</li><li><code>{n,m}</code>: between n and m</li></ul><pre class=r><code>str_extract(x, &quot;C{2}&quot;)
 #&gt; [1] &quot;CC&quot;
 str_extract(x, &quot;C{2,}&quot;)
 #&gt; [1] &quot;CCC&quot;
 str_extract(x, &quot;C{2,3}&quot;)
-#&gt; [1] &quot;CCC&quot;</code></pre>
-<p>By default these matches are “greedy”: they will match the longest string possible. You can make them “lazy”, matching the shortest string possible by putting a <code>?</code> after them:</p>
-<ul>
-<li><code>??</code>: 0 or 1, prefer 0.</li>
-<li><code>+?</code>: 1 or more, match as few times as possible.</li>
-<li><code>*?</code>: 0 or more, match as few times as possible.</li>
-<li><code>{n,}?</code>: n or more, match as few times as possible.</li>
-<li><code>{n,m}?</code>: between n and m, , match as few times as possible, but at least n.</li>
-</ul>
-<pre class="r"><code>str_extract(x, c(&quot;C{2,3}&quot;, &quot;C{2,3}?&quot;))
+#&gt; [1] &quot;CCC&quot;</code></pre><p>By default these matches are “greedy”: they will match the longest string possible. You can make them “lazy”, matching the shortest string possible by putting a <code>?</code> after them:</p><ul><li><code>??</code>: 0 or 1, prefer 0.</li><li><code>+?</code>: 1 or more, match as few times as possible.</li><li><code>*?</code>: 0 or more, match as few times as possible.</li><li><code>{n,}?</code>: n or more, match as few times as possible.</li><li><code>{n,m}?</code>: between n and m, , match as few times as possible, but at least n.</li></ul><pre class=r><code>str_extract(x, c(&quot;C{2,3}&quot;, &quot;C{2,3}?&quot;))
 #&gt; [1] &quot;CCC&quot; &quot;CC&quot;
 str_extract(x, c(&quot;C[LX]+&quot;, &quot;C[LX]+?&quot;))
-#&gt; [1] &quot;CLXXX&quot; &quot;CL&quot;</code></pre>
-<p>You can also make the matches possessive by putting a <code>+</code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p>
-<ul>
-<li><code>?+</code>: 0 or 1, possessive.</li>
-<li><code>++</code>: 1 or more, possessive.</li>
-<li><code>*+</code>: 0 or more, possessive.</li>
-<li><code>{n}+</code>: exactly n, possessive.</li>
-<li><code>{n,}+</code>: n or more, possessive.</li>
-<li><code>{n,m}+</code>: between n and m, possessive.</li>
-</ul>
-<p>A related concept is the <strong>atomic-match</strong> parenthesis, <code>(?&gt;...)</code>. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:</p>
-<pre class="r"><code>str_detect(&quot;ABC&quot;, &quot;(?&gt;A|.B)C&quot;)
+#&gt; [1] &quot;CLXXX&quot; &quot;CL&quot;</code></pre><p>You can also make the matches possessive by putting a <code>+</code> after them, which means that if later parts of the match fail, the repetition will not be re-tried with a smaller number of characters. This is an advanced feature used to improve performance in worst-case scenarios (called “catastrophic backtracking”).</p><ul><li><code>?+</code>: 0 or 1, possessive.</li><li><code>++</code>: 1 or more, possessive.</li><li><code>*+</code>: 0 or more, possessive.</li><li><code>{n}+</code>: exactly n, possessive.</li><li><code>{n,}+</code>: n or more, possessive.</li><li><code>{n,m}+</code>: between n and m, possessive.</li></ul><p>A related concept is the <strong>atomic-match</strong> parenthesis, <code>(?&gt;...)</code>. If a later match fails and the engine needs to back-track, an atomic match is kept as is: it succeeds or fails as a whole. Compare the following two regular expressions:</p><pre class=r><code>str_detect(&quot;ABC&quot;, &quot;(?&gt;A|.B)C&quot;)
 #&gt; [1] FALSE
 str_detect(&quot;ABC&quot;, &quot;(?:A|.B)C&quot;)
-#&gt; [1] TRUE</code></pre>
-<p>The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match succeeds because it matches A, but then C doesn’t match, so it back-tracks and tries B instead.</p>
-</div>
-<div id="look-arounds" class="section level2">
-<h2>Look arounds</h2>
-<p>These assertions look ahead or behind the current match without “consuming” any characters (i.e. changing the input position).</p>
-<ul>
-<li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the
-current input.</p></li>
-<li><p><code>(?!...)</code>: negative look-ahead assertion. Matches if <code>...</code> <strong>does not</strong>
-match at the current input.</p></li>
-<li><p><code>(?&lt;=...)</code>: positive look-behind assertion. Matches if <code>...</code> matches text
+#&gt; [1] TRUE</code></pre><p>The atomic match fails because it matches A, and then the next character is a C so it fails. The regular match succeeds because it matches A, but then C doesn’t match, so it back-tracks and tries B instead.</p></div><div id=look-arounds class="section level2"><h2>Look arounds</h2><p>These assertions look ahead or behind the current match without “consuming” any characters (i.e. changing the input position).</p><ul><li><p><code>(?=...)</code>: positive look-ahead assertion. Matches if <code>...</code> matches at the
+current input.</p></li><li><p><code>(?!...)</code>: negative look-ahead assertion. Matches if <code>...</code> <strong>does not</strong>
+match at the current input.</p></li><li><p><code>(?&lt;=...)</code>: positive look-behind assertion. Matches if <code>...</code> matches text
 preceding the current position, with the last character of the match
-being the character just before the current position. Length must be bounded<br />
-(i.e. no <code>*</code> or <code>+</code>).</p></li>
-<li><p><code>(?&lt;!...)</code>: negative look-behind assertion. Matches if <code>...</code> <strong>does not</strong>
-match text preceding the current position. Length must be bounded<br />
-(i.e. no <code>*</code> or <code>+</code>).</p></li>
-</ul>
-<p>These are useful when you want to check that a pattern exists, but you don’t want to include it in the result:</p>
-<pre class="r"><code>x &lt;- c(&quot;1 piece&quot;, &quot;2 pieces&quot;, &quot;3&quot;)
+being the character just before the current position. Length must be bounded<br>(i.e. no <code>*</code> or <code>+</code>).</p></li><li><p><code>(?&lt;!...)</code>: negative look-behind assertion. Matches if <code>...</code> <strong>does not</strong>
+match text preceding the current position. Length must be bounded<br>(i.e. no <code>*</code> or <code>+</code>).</p></li></ul><p>These are useful when you want to check that a pattern exists, but you don’t want to include it in the result:</p><pre class=r><code>x &lt;- c(&quot;1 piece&quot;, &quot;2 pieces&quot;, &quot;3&quot;)
 str_extract(x, &quot;\\d+(?= pieces?)&quot;)
 #&gt; [1] &quot;1&quot; &quot;2&quot; NA
 
 y &lt;- c(&quot;100&quot;, &quot;$400&quot;)
 str_extract(y, &quot;(?&lt;=\\$)\\d+&quot;)
-#&gt; [1] NA    &quot;400&quot;</code></pre>
-</div>
-<div id="comments" class="section level2">
-<h2>Comments</h2>
-<p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p>
-<pre class="r"><code>str_detect(&quot;xyz&quot;, &quot;x(?#this is a comment)&quot;)
-#&gt; [1] TRUE</code></pre>
-<p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p>
-<pre class="r"><code>phone &lt;- regex(&quot;
+#&gt; [1] NA    &quot;400&quot;</code></pre></div><div id=comments class="section level2"><h2>Comments</h2><p>There are two ways to include comments in a regular expression. The first is with <code>(?#...)</code>:</p><pre class=r><code>str_detect(&quot;xyz&quot;, &quot;x(?#this is a comment)&quot;)
+#&gt; [1] TRUE</code></pre><p>The second is to use <code>regex(comments = TRUE)</code>. This form ignores spaces and newlines, and anything everything after <code>#</code>. To match a literal space, you’ll need to escape it: <code>"\\ "</code>. This is a useful way of describing complex regular expressions:</p><pre class=r><code>phone &lt;- regex(&quot;
   \\(?     # optional opening parens
   (\\d{3}) # area code
   [)- ]?   # optional closing parens, dash, or space
@@ -680,199 +160,4 @@ str_extract(y, &quot;(?&lt;=\\$)\\d+&quot;)
 
 str_match(&quot;514-791-8141&quot;, phone)
 #&gt;      [,1]          [,2]  [,3]  [,4] 
-#&gt; [1,] &quot;514-791-814&quot; &quot;514&quot; &quot;791&quot; &quot;814&quot;</code></pre>
-</div>
-
-
-        
-          <div class="blog-tags">
-            
-              <a href="https://laxmikants.github.io/tags/regular-expression/">Regular expression</a>&nbsp;
-            
-          </div>
-        
-
-        
-            <hr/>
-            <section id="social-share">
-              <div class="list-inline footer-links">
-                
-
-<div class="share-box" aria-hidden="true">
-    <ul class="share">
-      
-      <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;text=Regular%20expressions&amp;via=" target="_blank" title="Share on Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f" target="_blank" title="Share on Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target="_blank" title="Share on Reddit">
-          <i class="fab fa-reddit"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target="_blank" title="Share on LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target="_blank" title="Share on StumbleUpon">
-          <i class="fab fa-stumbleupon"></i>
-        </a>
-      </li>
-  
-      
-      <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;description=Regular%20expressions" target="_blank" title="Share on Pinterest">
-          <i class="fab fa-pinterest"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  
-
-              </div>
-            </section>
-        
-
-        
-          
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://laxmikants.github.io/post/proportion-test-in-r/" data-toggle="tooltip" data-placement="top" title="Proportion test in R">&larr; Previous Post</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://laxmikants.github.io/post/r-markdown-for-data-analysis/" data-toggle="tooltip" data-placement="top" title="R Markdown">Next Post &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-          
-          <div class="disqus-comments">                  
-            <button id="show-comments" class="btn btn-default" type="button">Show <span class="disqus-comment-count" data-disqus-url="https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition">comments</span></button>
-            <div id="disqus_thread"></div>
-
-            <script type="text/javascript">
-              var disqus_config = function () {
-              this.page.url = 'https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition';
-            };
-
-          </script>
-          </div>
-          
-        
-        
-      
-
-    </div>
-  </div>
-</div>
-
-    <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <ul class="list-inline text-center footer-links">
-          
-          
-          <li>
-            <a href="" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-        <p class="credits copyright text-muted">
-          
-            
-            
-          
-
-          
-          
-
-          
-            &nbsp;&bull;&nbsp;
-          
-        </p>
-        
-        <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.55.6</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
-          
-        </p>
-      </div>
-    </div>
-  </div>
-</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-<script src="https://laxmikants.github.io/js/main.js"></script>
-<script src="https://laxmikants.github.io/js/highlight.min.js"></script>
-<script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://laxmikants.github.io/js/load-photoswipe.js"></script>
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-$(function(){
-  $('#show-comments').on('click', function(){
-    var disqus_shortname = 'lsoni';
-      
-    (function() {
-      var disqus = document.createElement('script'); 
-      disqus.type = 'text/javascript'; 
-      disqus.async = true;
-      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
-    })();
-      
-    $(this).hide(); 
-    });
-  });
-      
-</script>
-<script id="dsq-count-scr" src="//lsoni.disqus.com/count.js" async></script>
-
-
-
-
-  </body>
-</html>
-
+#&gt; [1,] &quot;514-791-814&quot; &quot;514&quot; &quot;791&quot; &quot;814&quot;</code></pre></div><div class=blog-tags><a href=https://laxmikants.github.io/tags/regular-expression/>Regular expression</a>&nbsp;</div><hr><section id=social-share><div class="list-inline footer-links"><div class=share-box aria-hidden=true><ul class=share><li><a href="//twitter.com/share?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;text=Regular%20expressions&amp;via=" target=_blank title="Share on Twitter"><i class="fab fa-twitter"></i></a></li><li><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f" target=_blank title="Share on Facebook"><i class="fab fa-facebook"></i></a></li><li><a href="//reddit.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target=_blank title="Share on Reddit"><i class="fab fa-reddit"></i></a></li><li><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target=_blank title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a></li><li><a href="//www.stumbleupon.com/submit?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;title=Regular%20expressions" target=_blank title="Share on StumbleUpon"><i class="fab fa-stumbleupon"></i></a></li><li><a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2flaxmikants.github.io%2fpost%2fregular-expressions-for-pattern-recognition%2f&amp;description=Regular%20expressions" target=_blank title="Share on Pinterest"><i class="fab fa-pinterest"></i></a></li></ul></div></div></section></article><ul class="pager blog-pager"><li class=previous><a href=https://laxmikants.github.io/post/proportion-test-in-r/ data-toggle=tooltip data-placement=top title="Proportion test in R">&larr; Previous Post</a></li><li class=next><a href=https://laxmikants.github.io/post/r-markdown-for-data-analysis/ data-toggle=tooltip data-placement=top title="R Markdown">Next Post &rarr;</a></li></ul><div class=disqus-comments><button id=show-comments class="btn btn-default" type=button>Show <span class=disqus-comment-count data-disqus-url=https://laxmikants.github.io/post/regular-expressions-for-pattern-recognition>comments</span></button><div id=disqus_thread></div><script type=text/javascript>var disqus_config=function(){this.page.url='https:\/\/laxmikants.github.io\/post\/regular-expressions-for-pattern-recognition';};</script></div></div></div></div><footer><div class=container><div class=row><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center footer-links"><li><a href title=RSS><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-rss fa-stack-1x fa-inverse"></i></span></a></li></ul><p class="credits copyright text-muted">&nbsp;&bull;&nbsp;</p><p class="credits theme-by text-muted"><a href=http://gohugo.io>Hugo v0.55.6</a> powered &nbsp;&bull;&nbsp; Theme by <a href=http://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a> adapted to <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a></p></div></div></div></footer><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous></script><script src=https://code.jquery.com/jquery-1.12.4.min.js integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin=anonymous></script><script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js integrity=sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa crossorigin=anonymous></script><script src=https://laxmikants.github.io/js/main.js></script><script src=https://laxmikants.github.io/js/highlight.min.js></script><script>hljs.initHighlightingOnLoad();</script><script>$(document).ready(function(){$("pre.chroma").css("padding","0");});</script><script>renderMathInElement(document.body);</script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js integrity=sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js integrity=sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q crossorigin=anonymous></script><script src=https://laxmikants.github.io/js/load-photoswipe.js></script><script type=text/javascript>$(function(){$('#show-comments').on('click',function(){var disqus_shortname='lsoni';(function(){var disqus=document.createElement('script');disqus.type='text/javascript';disqus.async=true;disqus.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(disqus);})();$(this).hide();});});</script><script id=dsq-count-scr src=//lsoni.disqus.com/count.js async></script></body></html>
