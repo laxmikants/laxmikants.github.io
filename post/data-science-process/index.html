@@ -114,7 +114,7 @@
   <meta content="Data Science Process" property="og:description">
   <meta property="og:url" content="https://laxmikants.github.io/post/data-science-process/" />
   <meta property="og:site_name" content="Laxmikant Soni" />
-  <meta property="article:section" content="Data Science" />
+  <meta property="article:section" content="Posts and Resources on Data Science | Laxmikant Soni" /><meta property="article:section" content=" Statistical population" /><meta property="article:section" content="Probability" /><meta property="article:section" content="False positives" /><meta property="article:section" content="Statistical inference" /><meta property="article:section" content="Regression" /><meta property="article:section" content="Fitting" /><meta property="article:section" content="Categorical data" /><meta property="article:section" content="Classification" /><meta property="article:section" content="Clustering" /><meta property="article:section" content="Statistical comparison" /><meta property="article:section" content="CodingDistributions" /><meta property="article:section" content="Data mining" /><meta property="article:section" content="Decision trees" /><meta property="article:section" content="Machine learning" /><meta property="article:section" content="Munging and wrangling" /><meta property="article:section" content="Visualization" /><meta property="article:section" content="D3" /><meta property="article:section" content="Regularization" /><meta property="article:section" content="Assessment" /><meta property="article:section" content="Cross-validation" /><meta property="article:section" content="Neural networks" /><meta property="article:section" content="Boosting" /><meta property="article:section" content="Lift" /><meta property="article:section" content="Mode" /><meta property="article:section" content="Outlier" /><meta property="article:section" content="Predictive modeling" /><meta property="article:section" content="Big data" /><meta property="article:section" content="Confidence interval" /><meta property="article:section" content="Python" /><meta property="article:section" content=" R" /><meta property="article:section" content=" Jupyter Notebook" /><meta property="article:section" content=" Tensorflow" /><meta property="article:section" content=" Javascript" /><meta property="article:section" content=" ReactJS" /><meta property="article:section" content=" NodeJS" /><meta property="article:section" content=" Posts and Resources on Data Science" /><meta property="article:section" content=" Data Science" /><meta property="article:section" content=" Hadoop" /><meta property="article:section" content=" Java" /><meta property="article:section" content=" Spring" /><meta property="article:section" content=" Hibernate" /><meta property="article:section" content=" Struts" /><meta property="article:section" content=" MySQL" /><meta property="article:section" content=" Oracle" /><meta property="article:section" content=" DB2" /><meta property="article:section" content=" Websphere" /><meta property="article:section" content=" Weblogic" /><meta property="article:section" content="AWS" />
   <meta property="article:published_time" content="2019-01-05 00:00:00 &#43;0000 UTC" />
   
 <meta name="twitter:site" content="@laxmikantsoni09">
@@ -438,32 +438,32 @@ x &lt;- rnorm(15)
 y &lt;- x + rnorm(15)
 predict(lm(y ~ x))</code></pre>
 <pre><code>##           1           2           3           4           5           6 
-## -0.24185558  2.77173637  0.75925639 -1.11729200 -1.45028248 -0.02357814 
+## -0.69178757 -0.51501402  0.55628272  1.36866471  0.52162273 -0.32736066 
 ##           7           8           9          10          11          12 
-##  1.55207932  2.19154052  0.06195999  0.12501159  2.04102751 -3.03730039 
+##  0.00890468  1.43094671 -0.06511197 -1.26066336 -0.75650966 -0.72756829 
 ##          13          14          15 
-##  0.08994364 -0.13542690  1.66967140</code></pre>
+##  0.01830869 -2.35618926 -1.14931303</code></pre>
 <pre class="r"><code>new &lt;- data.frame(x = seq(-3, 3, 0.5))
 predict(lm(y ~ x), new, se.fit = TRUE)</code></pre>
 <pre><code>## $fit
-##          1          2          3          4          5          6 
-## -3.6066305 -2.9370386 -2.2674466 -1.5978546 -0.9282627 -0.2586707 
-##          7          8          9         10         11         12 
-##  0.4109213  1.0805132  1.7501052  2.4196972  3.0892891  3.7588811 
-##         13 
-##  4.4284731 
+##           1           2           3           4           5           6 
+## -4.13692341 -3.46123953 -2.78555565 -2.10987177 -1.43418789 -0.75850401 
+##           7           8           9          10          11          12 
+## -0.08282013  0.59286375  1.26854762  1.94423150  2.61991538  3.29559926 
+##          13 
+##  3.97128314 
 ## 
 ## $se.fit
 ##         1         2         3         4         5         6         7 
-## 0.8866601 0.7568549 0.6316081 0.5142612 0.4116266 0.3374088 0.3125525 
+## 0.9504497 0.7952508 0.6428554 0.4958550 0.3609035 0.2576828 0.2330654 
 ##         8         9        10        11        12        13 
-## 0.3478070 0.4285867 0.5346398 0.6537806 0.7800350 0.9104485 
+## 0.3066081 0.4306594 0.5733206 0.7236680 0.8777609 1.0339261 
 ## 
 ## $df
 ## [1] 13
 ## 
 ## $residual.scale
-## [1] 1.209513</code></pre>
+## [1] 0.8872355</code></pre>
 <pre class="r"><code>pred.w.plim &lt;- predict(lm(y ~ x), new, interval = &quot;prediction&quot;)
 pred.w.clim &lt;- predict(lm(y ~ x), new, interval = &quot;confidence&quot;)
 matplot(new$x, cbind(pred.w.clim, pred.w.plim[,-1]),

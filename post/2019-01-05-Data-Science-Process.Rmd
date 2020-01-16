@@ -5,7 +5,7 @@ description: "Data Science Process"
 slug: Data Science Process
 date: 2019-01-05
 lastmod: 2019-01-05
-categories: ["Data Science"]
+categories: ["Posts and Resources on Data Science | Laxmikant Soni", " Statistical population", "Probability", "False positives", "Statistical inference", "Regression", "Fitting", "Categorical data", "Classification", "Clustering", "Statistical comparison", "CodingDistributions", "Data mining", "Decision trees", "Machine learning", "Munging and wrangling", "Visualization", "D3", "Regularization", "Assessment", "Cross-validation", "Neural networks", "Boosting", "Lift", "Mode", "Outlier", "Predictive modeling", "Big data", "Confidence interval", "Python", " R", " Jupyter Notebook", " Tensorflow", " Javascript", " ReactJS", " NodeJS", " Posts and Resources on Data Science", " Data Science", " Hadoop", " Java", " Spring", " Hibernate", " Struts", " MySQL", " Oracle", " DB2", " Websphere", " Weblogic","AWS"]
 tags: ["Data Science"]
 summary: Data Science Process
 subtitle: Data Science Process

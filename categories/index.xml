@@ -12,6 +12,15 @@
     
     
     <item>
+      <title> DB2</title>
+      <link>https://laxmikants.github.io/categories/db2/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/categories/db2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title> Data Science</title>
       <link>https://laxmikants.github.io/categories/data-science/</link>
       <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
@@ -21,27 +30,9 @@
     </item>
     
     <item>
-      <title>blogdown</title>
-      <link>https://laxmikants.github.io/categories/blogdown/</link>
-      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/categories/blogdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title> DB2</title>
-      <link>https://laxmikants.github.io/categories/db2/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/categories/db2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title> Hadoop</title>
       <link>https://laxmikants.github.io/categories/hadoop/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/hadoop/</guid>
       <description></description>
@@ -50,7 +41,7 @@
     <item>
       <title> Hibernate</title>
       <link>https://laxmikants.github.io/categories/hibernate/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/hibernate/</guid>
       <description></description>
@@ -59,7 +50,7 @@
     <item>
       <title> Java</title>
       <link>https://laxmikants.github.io/categories/java/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/java/</guid>
       <description></description>
@@ -68,7 +59,7 @@
     <item>
       <title> Javascript</title>
       <link>https://laxmikants.github.io/categories/javascript/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/javascript/</guid>
       <description></description>
@@ -77,7 +68,7 @@
     <item>
       <title> Jupyter Notebook</title>
       <link>https://laxmikants.github.io/categories/jupyter-notebook/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/jupyter-notebook/</guid>
       <description></description>
@@ -86,7 +77,7 @@
     <item>
       <title> MySQL</title>
       <link>https://laxmikants.github.io/categories/mysql/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/mysql/</guid>
       <description></description>
@@ -95,7 +86,7 @@
     <item>
       <title> NodeJS</title>
       <link>https://laxmikants.github.io/categories/nodejs/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/nodejs/</guid>
       <description></description>
@@ -104,7 +95,7 @@
     <item>
       <title> Oracle</title>
       <link>https://laxmikants.github.io/categories/oracle/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/oracle/</guid>
       <description></description>
@@ -113,7 +104,7 @@
     <item>
       <title> Posts and Resources on Data Science</title>
       <link>https://laxmikants.github.io/categories/posts-and-resources-on-data-science/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/posts-and-resources-on-data-science/</guid>
       <description></description>
@@ -122,7 +113,7 @@
     <item>
       <title> R</title>
       <link>https://laxmikants.github.io/categories/r/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/r/</guid>
       <description></description>
@@ -131,7 +122,7 @@
     <item>
       <title> ReactJS</title>
       <link>https://laxmikants.github.io/categories/reactjs/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/reactjs/</guid>
       <description></description>
@@ -140,7 +131,7 @@
     <item>
       <title> Spring</title>
       <link>https://laxmikants.github.io/categories/spring/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/spring/</guid>
       <description></description>
@@ -149,7 +140,7 @@
     <item>
       <title> Statistical population</title>
       <link>https://laxmikants.github.io/categories/statistical-population/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/statistical-population/</guid>
       <description></description>
@@ -158,7 +149,7 @@
     <item>
       <title> Struts</title>
       <link>https://laxmikants.github.io/categories/struts/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/struts/</guid>
       <description></description>
@@ -167,7 +158,7 @@
     <item>
       <title> Tensorflow</title>
       <link>https://laxmikants.github.io/categories/tensorflow/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/tensorflow/</guid>
       <description></description>
@@ -176,7 +167,7 @@
     <item>
       <title> Weblogic</title>
       <link>https://laxmikants.github.io/categories/weblogic/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/weblogic/</guid>
       <description></description>
@@ -185,7 +176,7 @@
     <item>
       <title> Websphere</title>
       <link>https://laxmikants.github.io/categories/websphere/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/websphere/</guid>
       <description></description>
@@ -194,7 +185,7 @@
     <item>
       <title>AWS</title>
       <link>https://laxmikants.github.io/categories/aws/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/aws/</guid>
       <description></description>
@@ -203,7 +194,7 @@
     <item>
       <title>Assessment</title>
       <link>https://laxmikants.github.io/categories/assessment/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/assessment/</guid>
       <description></description>
@@ -212,7 +203,7 @@
     <item>
       <title>Big data</title>
       <link>https://laxmikants.github.io/categories/big-data/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/big-data/</guid>
       <description></description>
@@ -221,7 +212,7 @@
     <item>
       <title>Boosting</title>
       <link>https://laxmikants.github.io/categories/boosting/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/boosting/</guid>
       <description></description>
@@ -230,7 +221,7 @@
     <item>
       <title>Categorical data</title>
       <link>https://laxmikants.github.io/categories/categorical-data/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/categorical-data/</guid>
       <description></description>
@@ -239,7 +230,7 @@
     <item>
       <title>Classification</title>
       <link>https://laxmikants.github.io/categories/classification/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/classification/</guid>
       <description></description>
@@ -248,7 +239,7 @@
     <item>
       <title>Clustering</title>
       <link>https://laxmikants.github.io/categories/clustering/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/clustering/</guid>
       <description></description>
@@ -257,7 +248,7 @@
     <item>
       <title>CodingDistributions</title>
       <link>https://laxmikants.github.io/categories/codingdistributions/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/codingdistributions/</guid>
       <description></description>
@@ -266,7 +257,7 @@
     <item>
       <title>Confidence interval</title>
       <link>https://laxmikants.github.io/categories/confidence-interval/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/confidence-interval/</guid>
       <description></description>
@@ -275,7 +266,7 @@
     <item>
       <title>Cross-validation</title>
       <link>https://laxmikants.github.io/categories/cross-validation/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/cross-validation/</guid>
       <description></description>
@@ -284,7 +275,7 @@
     <item>
       <title>D3</title>
       <link>https://laxmikants.github.io/categories/d3/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/d3/</guid>
       <description></description>
@@ -293,7 +284,7 @@
     <item>
       <title>Data mining</title>
       <link>https://laxmikants.github.io/categories/data-mining/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/data-mining/</guid>
       <description></description>
@@ -302,7 +293,7 @@
     <item>
       <title>Decision trees</title>
       <link>https://laxmikants.github.io/categories/decision-trees/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/decision-trees/</guid>
       <description></description>
@@ -311,7 +302,7 @@
     <item>
       <title>False positives</title>
       <link>https://laxmikants.github.io/categories/false-positives/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/false-positives/</guid>
       <description></description>
@@ -320,7 +311,7 @@
     <item>
       <title>Fitting</title>
       <link>https://laxmikants.github.io/categories/fitting/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/fitting/</guid>
       <description></description>
@@ -329,7 +320,7 @@
     <item>
       <title>Lift</title>
       <link>https://laxmikants.github.io/categories/lift/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/lift/</guid>
       <description></description>
@@ -338,7 +329,7 @@
     <item>
       <title>Machine learning</title>
       <link>https://laxmikants.github.io/categories/machine-learning/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/machine-learning/</guid>
       <description></description>
@@ -347,7 +338,7 @@
     <item>
       <title>Mode</title>
       <link>https://laxmikants.github.io/categories/mode/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/mode/</guid>
       <description></description>
@@ -356,7 +347,7 @@
     <item>
       <title>Munging and wrangling</title>
       <link>https://laxmikants.github.io/categories/munging-and-wrangling/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/munging-and-wrangling/</guid>
       <description></description>
@@ -365,7 +356,7 @@
     <item>
       <title>Neural networks</title>
       <link>https://laxmikants.github.io/categories/neural-networks/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/neural-networks/</guid>
       <description></description>
@@ -374,7 +365,7 @@
     <item>
       <title>Outlier</title>
       <link>https://laxmikants.github.io/categories/outlier/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/outlier/</guid>
       <description></description>
@@ -383,7 +374,7 @@
     <item>
       <title>Posts and Resources on Data Science | Laxmikant Soni</title>
       <link>https://laxmikants.github.io/categories/posts-and-resources-on-data-science-laxmikant-soni/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/posts-and-resources-on-data-science-laxmikant-soni/</guid>
       <description></description>
@@ -392,7 +383,7 @@
     <item>
       <title>Predictive modeling</title>
       <link>https://laxmikants.github.io/categories/predictive-modeling/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/predictive-modeling/</guid>
       <description></description>
@@ -401,7 +392,7 @@
     <item>
       <title>Probability</title>
       <link>https://laxmikants.github.io/categories/probability/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/probability/</guid>
       <description></description>
@@ -410,7 +401,7 @@
     <item>
       <title>Python</title>
       <link>https://laxmikants.github.io/categories/python/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/python/</guid>
       <description></description>
@@ -419,7 +410,7 @@
     <item>
       <title>Regression</title>
       <link>https://laxmikants.github.io/categories/regression/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/regression/</guid>
       <description></description>
@@ -428,7 +419,7 @@
     <item>
       <title>Regularization</title>
       <link>https://laxmikants.github.io/categories/regularization/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/regularization/</guid>
       <description></description>
@@ -437,7 +428,7 @@
     <item>
       <title>Statistical comparison</title>
       <link>https://laxmikants.github.io/categories/statistical-comparison/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/statistical-comparison/</guid>
       <description></description>
@@ -446,7 +437,7 @@
     <item>
       <title>Statistical inference</title>
       <link>https://laxmikants.github.io/categories/statistical-inference/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/statistical-inference/</guid>
       <description></description>
@@ -455,9 +446,18 @@
     <item>
       <title>Visualization</title>
       <link>https://laxmikants.github.io/categories/visualization/</link>
-      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/categories/visualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogdown</title>
+      <link>https://laxmikants.github.io/categories/blogdown/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/categories/blogdown/</guid>
       <description></description>
     </item>
     
