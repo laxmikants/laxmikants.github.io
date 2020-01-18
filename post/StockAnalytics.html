@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Stock Analysis!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Laxmikant" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+       gtag('config','UA-155379268-1');
+    </script>
+    
+     <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "R Markdown",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://laxmikants.github.io/R-markdown/slides/Lession1.html"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://laxmikants.github.io/img/cover.png",
+        "width": 800,
+        "height": 600
+      },
+      "genre": "post",
+      "keywords": "R Markdown",
+      "wordcount": 159,
+      "url": "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "datePublished": "2017-07-23T00:00:00+00:00",
+      "dateModified": "2017-07-23T00:00:00+00:00",
+      "license": "This work is licensed.",
+       "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+          "width": 60,
+          "height": 60
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laxmikant"
+      },
+      "description" : "R markdown"
+    }
+    </script>
+    
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+      <title>Data Science Posts and Resources | Laxmikant</title>
+      <meta property="og:title" content="Posts and Resources on Data Science | R Markdown" />
+      <meta name="description" content="Implementing R markdown">
+      <meta property="og:description" content="Implementing R markdown">
+      <meta name="author" content="Laxmikant"/>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name" : "Laxmikant"
+      },
+      "headline": "R Markdown",
+      "description" : "Implementing R markdown",
+      "inLanguage" : "en",
+      "wordCount": 159,
+      "datePublished" : "2017-07-23T00:00:00",
+      "dateModified" : "2017-07-23T00:00:00",
+      "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "keywords" : [ "R Markdown, plot, regression" ],
+      "mainEntityOfPage" : "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+            "height" :  60 ,
+            "width" :  60
+        }
+      }
+    }
+    </script>
+    
+    <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+    <meta property="og:url" content="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="article" />
+    
+    <meta content="R markdown" property="og:description">
+    <meta property="og:url" content="https://laxmikants.github.io/R-markdown/slides/Lession1.html" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="article:section" content="R" />
+    <meta property="article:published_time" content="2017-07-23 00:00:00 &#43;0000 UTC" />
+    <meta name="generator" content="Hugo 0.54.0" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide
+
+
+
+.row[
+.col-10[
+.title[
+# Stock Analysis 
+]
+.subtitle[
+## Stock Analysis
+]
+.author[
+### Laxmikant Soni &lt;br&gt; [Web-Site](https://laxmikants.github.io) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/laxmiaknts) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/laxmikantsoni09)
+]
+
+.affiliation[
+]
+
+]
+
+.col-5[
+
+.logo[
+![](figures/rmarkdown.png)&lt;!-- --&gt;
+]
+
+Slides:&lt;br&gt; [laxmikants.github.io/datasets/slides](https://laxmikants.github.io/datasets/slides/Plantgrowth.html#1)
+
+Materials:&lt;br&gt; [github.com/laxmikants/datasets](https://github.com/laxmikants/datasets)
+
+
+]
+
+]
+
+---
+class: inverse, center, middle
+
+#  Getting the Dataset 
+
+
+---
+class: body
+
+# 1. Getting the dataset
+
+--
+.pull-left[
+
+[1] import `quandl`
+
+[2] `quandl`.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
+
+[3] `dataset` = `quandl`.get("NSE/INFY",start_date = "2000-01-01", end_date = "2020-01-16")  
+
+[4] `dataset`.dropna()  
+
+[5] `dataset` = `dataset`[['Open', 'High', 'Low', 'Close']]  
+
+]
+
+--
+.pull-right[
+
+| Date | Open |  High  |   Low  | Close  |
+|------|------|--------|--------|--------|
+| 2018-12-31 |  660.00 |  662.0 |  655.80 | 658.95 |
+| 2019-01-01 |  660.95 | 666.3  | 654.15  | 665.05 |
+
+&gt; Where :  
+
+&gt; 👉 Date: The date on which the stock opened  
+
+&gt; 👉 Open: The opening price of the stock  
+
+&gt; 👉 Close: The closing price of the stock  
+
+&gt; 👉 Low: The lowest price of the stock on that date
+
+]
+
+|Quandl           |
+|-----------------------|
+|Quandl is a marketplace for financial, economic and alternative data delivered in modern formats for today's analysts, including Python, Excel, Matlab, R|
+
+---
+
+
+class: inverse, center, middle
+
+#  Preparing the Dataset 
+
+
+---
+class: body
+
+# 2. Preparing the dataset
+
+--
+.pull-left[
+
+[1] `dataset`['O-C'] = `dataset`['Close'] - `dataset`['Open'])  
+
+[2] `dataset`['3day MA'] = `dataset`['Close'].shift(1).rolling(window = 3).`mean()`  
+
+[3] `dataset`['10day MA'] = `dataset`['Close'].shift(1).rolling(window = 10).`mean()`  
+
+[4] `dataset`['30day MA'] = `dataset`['Close'].shift(1).rolling(window = 30).`mean()`  
+
+[5] `dataset`['Std_dev']= `dataset`['Close'].rolling(5).`std()`  
+
+[6] `dataset`['RSI'] = talib.`RSI`(`dataset`['Close'].values, timeperiod = 9)    
+
+[7] `dataset`['Williams %R'] = talib.`WILLR`(dataset['High'].values,dataset['Low'].values, dataset['Close'].values, 7)
+
+]
+
+--
+.pull-right[
+
+
+| Date        | 3day MA     |  ...   |   RSI  | Williams %R  |
+|------------ |------------ |--------|--------|--------------|
+| 2018-12-31  |  652.600000 |...     |  6.352854 | 34 |
+| 2019-01-01  |  657.566667 |...     |  6.352854  | 51 |
+
+
+&gt; 👉 High minus Low price  
+&gt; 👉 Close minus Open price  
+&gt; 👉 Three day moving average  
+&gt; 👉 Ten day moving average  
+&gt; 👉 30 day moving average  
+&gt; 👉 Standard deviation for a period of 5 days  
+&gt; 👉 Relative Strength Index: strength or weakness of a stock or market based on the closing prices of a recent trading period  
+&gt; 👉 Williams %R:  is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days
+
+--
+
+]
+
+
+---
+
+class: body
+
+# 2. Preparing the dataset.. cont..
+
+--
+.pull-left[
+
+[1] dataset[‘Price_Rise’] = np.where(dataset[‘Close’].shift(-1) &gt; dataset[‘Close’], 1,0)
+
+[2] dataset = dataset.dropna()
+
+[3] X = dataset.iloc[[:, 4:-1]]  
+
+[4] y = dataset.iloc[[:, -1]]
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 Define the output value as price rise, which is a binary variable storing 1 when the closing price of tomorrow is greater than the closing price of today.
+
+&gt; 👉 Clean dataset by dropping null values
+
+&gt; 👉 Dataframe X stores the input features
+
+&gt; 👉 Dataframe y stores the value we want to predict i.e price rise
+
+]
+
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Splitting the Dataset 
+
+
+---
+class: body
+
+# 3. Splitting the dataset
+
+--
+.pull-left[
+
+[1] split = int(len(dataset)*0.8)  
+
+[2] X_train, X_test, y_train, y_test = X[:split], X[split:], y[:split], y[split:]  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 Train Set: Dataset used to train the model  
+
+&gt; 👉 Test Set: Dataset used to validate the model
+
+]
+
+
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Feature Scaling 
+
+
+---
+class: body
+
+# 4. Feature scaling
+
+--
+.pull-left[
+
+[1] from sklearn.preprocessing import StandardScaler  
+
+[2] sc = StandardScaler()  
+
+[3] X_train = sc.fit_transform(X_train)  
+
+[4] X_test = sc.transform(X_test)  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 makes the mean of all the`input features equal to zero 
+
+&gt; 👉 converts their variance to 1
+
+&gt; 👉 ensures that there is no bias while training the model due to the different scales of all input features
+
+]
+
+
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Building the Artificial Neural Network 
+
+
+---
+class: body
+
+# 5. Building the Artificial Neural Network
+
+--
+.pull-left[
+
+[1] from keras.models import Sequential  
+
+[2] from keras.layers import Dense  
+
+[3] from keras.layers import Dropout  
+
+[4] classifier = Sequential()  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 sequentially build the layers of the neural networks
+
+
+
+]
+
+
+
+---
+
+
+
+
+class: inverse, center, middle
+
+#  Building the Artificial Neural Network 
+
+
+---
+class: body
+
+# 5. Building the Artificial Neural Network...
+
+--
+.pull-left[
+
+[1] classifier.add(Dense(units = 128, kernel_initializer = ‘uniform’, activation = ‘relu’, input_dim = X.shape[1]))  
+
+[2] classifier.add(Dense(units = 128, kernel_initializer = ‘uniform’, activation = ‘relu’))  
+
+[3] classifier.add(Dense(units = 1, kernel_initializer = ‘uniform’, activation = ‘sigmoid’))
+
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 Units: This defines the number of nodes or neurons in that particular layer. 
+
+&gt; 👉 Kernel_initializer: This defines the starting values for the weights of the different neurons in the hidden layer
+
+&gt; 👉 Activation: This is the activation function for the neurons in the particular hidden layer
+
+&gt; 👉 Input_dim: This defines the number of inputs to the hidden layer, we have defined this value to be equal to the number
+of columns of our input feature dataframe
+
+
+
+]
+
+
+
+---
+
+
+
+
+class: inverse, center, middle
+
+#  Building the Artificial Neural Network 
+
+
+---
+class: body
+
+# 5. Building the Artificial Neural Network...
+
+--
+.pull-left[
+
+[1] classifier.compile(optimizer = ‘adam’, loss = ‘mean_squared_error’, metrics = [‘accuracy’])
+
+[2] classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
+]
+
+--
+.pull-right[
+
+&gt; 👉 Optimizer: The optimizer is chosen to be ‘adam’, which is an extension of the stochastic gradient descent.
+
+&gt; 👉 Loss: This defines the loss to be optimized during the training period. We define this loss to be the mean squared error.
+
+&gt; 👉 Metrics: This defines the list of metrics to be evaluated by the model during the testing and training phase. We have chosen accuracy
+as our evaluation metric  
+
+&gt; 👉 fit the neural network that we have created to our train datasets
+
+
+]
+
+---
+
+
+
+
+class: inverse, center, middle
+
+#  Predicting the Movement of a Stock 
+
+
+---
+class: body
+
+# 6. Predicting the Movement of a Stock...
+
+--
+.pull-left[
+
+[1] y_pred = classifier.predict(X_test)  
+
+[2] y_pred = (y_pred &gt; 0.5)  
+
+[3] dataset[‘y_pred’] = np.NaN  
+
+[4] dataset.iloc[(len(dataset) - len(y_pred)):,-1:] = y_pred  
+
+[5] trade_dataset = dataset.dropna()  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 use the predict() method for making the prediction  
+
+&gt; 👉 store the result in a variable named y_pred  
+
+&gt; 👉 convert y_pred to store binary values by storing the condition y_pred &gt; 0.5
+
+&gt; 👉 create a new column in the dataframe dataset with the column header ‘y_pred’ and store NaN values in the column
+
+&gt; 👉 store the values of y_pred into this new column, starting from the rows of the test dataset 
+
+]
+
+
+
+---
+
+
+
+
+class: inverse, center, middle
+
+#  Computing Strategy Returns 
+
+
+---
+class: body
+
+# 6. Computing Strategy Returns
+
+--
+.pull-left[
+
+[1] trade_dataset[‘Tomorrows Returns’] = 0.  
+
+[2] trade_dataset[‘Tomorrows Returns’] = np.log(trade_dataset[‘Close’]/trade_dataset[‘Close’].shift(1))  
+
+[3] trade_dataset[‘Tomorrows Returns’] = trade_dataset[‘Tomorrows Returns’].shift(-1)  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 long position if predicted value of y is true and short position when the predicted signal is false   
+
+&gt; 👉 Tomorrows Returns is the closing price of today divided by the closing price of yesterday   
+
+&gt; 👉 Shift these values upwards by one element so that tomorrow’s returns are stored against the prices of today
+
+] 
+---
+
+
+
+class: inverse, center, middle
+
+#  Computing Strategy Returns 
+
+
+---
+class: body
+
+# 6. Computing Strategy Returns...
+
+--
+.pull-left[
+
+[1] trade_dataset[‘Strategy Returns’] = 0.  
+
+[2] trade_dataset[‘Strategy Returns’] = np.where(trade_dataset[‘y_pred’] ==  True, trade_dataset[‘Tomorrows Returns’], - trade_dataset[‘Tomorrows Returns’])  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 compute the Strategy Returns
+
+&gt; 👉 positive if the value in the ‘y_pred’ column stores True (a long position), else we
+would store negative of the value in the column ‘Tomorrows Returns’ (a short position); into the ‘Strategy Returns’
+column.
+
+] 
+---
+
+
+class: inverse, center, middle
+
+#  Computing Strategy Returns 
+
+
+---
+class: body
+
+# 6. Computing Strategy Returns...
+
+--
+.pull-left[
+
+[1] trade_dataset[‘Cumulative Market Returns’] = np.cumsum(trade_dataset[‘Tomorrows Returns’])  
+
+[2] trade_dataset[‘Cumulative Strategy Returns’] = np.cumsum(trade_dataset[‘Strategy Returns’])  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 compute the cumulative returns for both the market and the strategy
+
+&gt; 👉 use the cumulative sum to plot the graph of market and strategy returns
+
+] 
+---
+
+
+class: inverse, center, middle
+
+#  Plotting the graph of the results 
+
+
+---
+class: body
+
+# 7. Plotting the graph of the results
+
+--
+.pull-left[
+
+[1] import matplotlib.pyplot as plt  
+
+[2] plt.figure(figsize=(10,5))  
+
+[3] plt.plot(trade_dataset[‘Cumulative Market Returns’], color=’r’, label=’Market Returns’)  
+
+[4] plt.plot(trade_dataset[‘Cumulative Strategy Returns’], color=’g’, label=’Strategy Returns’)  
+
+[5] plt.legend()  
+
+[6] plt.show()  
+
+]
+
+--
+.pull-right[
+
+&gt; 👉 plot the market returns and our strategy returns to visualize how our strategy is performing against
+the market
+
+&gt; 👉 ![Graph of Returns](./stockprediction.jpg)
+
+] 
+
+---
+
+class: inverse, center, middle
+# Thanks
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script src="libs/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
