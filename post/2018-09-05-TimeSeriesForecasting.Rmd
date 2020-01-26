@@ -35,12 +35,10 @@ knitr::opts_chunk$set(
 
 ## What is time series? 
 
-A time series is a sequence of observations collected at some time intervals. 
-Time plays an important role here. The observations collected are dependent on the time at which it is collected.
-The sale of an item say Turkey wings in a retail store like Walmart will be a time series. 
-The sale could be at daily level or weekly level. 
-The number of people flying from Bangalore to Kolkata on daily basis is a time series. 
-Time is important here. During Durga Puja holidays, this number would be humongous compared to the other days. This is know as seasonality.
+A time series is a series of observations collected at some time intervals. 
+Time is an important component here. The observations collected are dependent on the time at which it is collected.
+The sale items in a retail store like Walmart will be a time series. The sale could be at daily level or weekly level. 
+The number of people flying from Bangalore to delhi on daily basis is a time series. 
 
 Time-series forecasting uses historical time basesd data to forecast a variable for example 
 
@@ -55,27 +53,32 @@ Time-series forecasting uses historical time basesd data to forecast a variable 
 
 
 ### What is the difference between a time series and a normal series?
-Time component is important here. The time series is dependent on the time. However a normal series say 1, 2, 3...100 has no time component to it. 
+
+Time component is important. The time series is dependent on the time. However a normal series say 1, 2, 3...100 has no time component to it. 
 When the value that a series will take depends on the time it was recorded, it is a time series.
 
 ### How to define a time series object in R
 
-ts() function is used for equally spaced time series data, it can be at any level. Daily, weekly, monthly, quarterly, yearly or even at minutes level. 
-If you wish to use unequally spaced observations then you will have to use other packages. ts() is used for numerical observations and you can set frequency of the data. ts() takes a single frequency argument. 
+The function ts is used to create time-series objects. As.ts and is.ts coerce an object to a time-series and 
+test whether an object is a time series.
+
+for example:
+
+```{r,echo=TRUE}
+require(graphics)
+ts(1:10, frequency = 4, start = c(1959,2)) # 2nd qurter of 1959
+print(ts(1:10, frequency = 7, start = c(12,2)), calendar = TRUE)
+
+gnp = ts(cumsum(1 + round(rnorm(100),2)), start = c(1954,7), frequency = 12)
+plot(gnp)
+
+```
+
 
 ### Frequency
 
-When setting the frequency, many people are confused what should be the correct value. This is the simple definition of frequency. Frequency is the number of observations per cycle. Now, how you define what a cycle is for a time series?
-
-Say, you have electricity consumption of Bangalore at hourly level. The cycle could be a day, a week or even annual. I will cover what frequency would be for all different type of time series.
-
-Before we proceed I will reiterate this.
-
-> Frequency is the number of observations per cycle.
-
-  
+The number of observations per unit of time is known as frequency.
 We will see what values frequency takes for different interval time series.  
-
 **Daily data** There could be a weekly cycle or annual cycle. So the frequency could be 7 or 365.25.
 
 Some of the years have 366 days (leap years). So if your time series data has longer periods, it is better to use frequency = 365.25. This takes care of the leap year as well which may come in your data.
@@ -110,10 +113,9 @@ Some of the years have 366 days (leap years). So if your time series data has lo
 9.  SPSS
     
 
-**Now, let’s understand prophet**
+**prophet**
 
-
-The idea behind Prophet is quite simple. It represents a **time-series as a combination of trend, seasonality and holidays**. Patterns are represented at different scales — daily, weekly, seasonally, and yearly — along with an overall trend. For example, even though the usage of bikes is higher during summer, there exists an overall trend based on the population size of the city. This decomposable time series model can be represented by the following equation:
+Prophet represents a **time-series as a combination of trend, seasonality and holidays**. Patterns are represented at different scales — daily, weekly, seasonally, and yearly — along with an overall trend. For example, even though the usage of bikes is higher during summer, there exists an overall trend based on the population size of the city. This decomposable time series model can be represented by the following equation:
 
 ![Capture10](/img/ts.png)
 
@@ -122,6 +124,7 @@ where:
 *   **g(t)** is the trend function which models non-periodic changes in the time series
 *   **s(t)** represents periodic changes (e.g., weekly and yearly seasonality)
 *   **h(t)** represents the effects of holidays
+
 *   **εt**: the error term represents information that was missed by the model
 
 ### Trend
@@ -138,8 +141,6 @@ Holidays and events provide large but **predictable shocks** to many business ti
 
 For those interested in understanding the complete behind-the-scenes of Prophet, you can read to the original paper [“Forecasting at scale”](https://peerj.com/preprints/3190/).
 
-
-**Now, let’s implement prophet in R**
 
 #### Implementing prophet in R
 
@@ -221,7 +222,7 @@ legend('topleft', legend = c('Actual Data', 'ARIMA Predictions'),
 
 #### Summary
 
-The main aim of time-series modeling is to carefully collect 
-and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series. 
-The model is then used to generate the future values for the series. 
+The main aim of time-series modeling is to carefully collect and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series.  The model is then used to generate the future values for the series. 
 Time series forecasting is thus can be termed as act of predicting the future by understanding the past. 
+
+

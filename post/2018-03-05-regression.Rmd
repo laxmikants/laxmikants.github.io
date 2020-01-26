@@ -82,7 +82,7 @@ computeCost <- function (X, y, theta){
     
 
 ```
-The above formula takes the sum of the distances between <i>`predicted values` and `actual values` of training set, sqaure it, take the average and multiply it by `1/2`.</i>
+This formula inputs the sum of the distances between <i>`predicted values` and `actual values` of training set, does sqaure it and take the average and multiply it by 0.5</i>
 <br>
 <br>
 This cost function is also called as `Squared Error Function` or `Mean Squared Error`.
@@ -137,7 +137,7 @@ $$\displaystyle \min_{\theta_0,\theta_1}\frac{1}{2m}\sum_{i=1}^{m} \left(h_{\the
 **Now Let's apply Gradient Descend to minmize our `MSE` function.**
 <br>
 In order to apply `Gradient Descent`, we need to figure out the partial derivative term.<br>
-So let's solve partial derivative of cost function `J`.
+So lets solve partial derivative of cost function `J`.
 
 <br>
 
@@ -145,7 +145,7 @@ So let's solve partial derivative of cost function `J`.
 
 <br>
 
-Now let's plug these 2 values to our `Gradient Descent`:
+Now let's plug these two values to our `Gradient Descent`:
 
 <br>
 
@@ -358,3 +358,5 @@ print(csi)
 - Initially it is better to calculate correlation coeficient to ensure that variables are related in some way
 
 - Normalizing data is important to deal with when individual values are numerically large ( > 4 digits)
+
+

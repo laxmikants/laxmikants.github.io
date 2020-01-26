@@ -47,30 +47,30 @@ boxplot(weight ~ group, data = PlantGrowth, main = &quot;PlantGrowth data&quot;,
 x &lt;- rnorm(15)
 y &lt;- x + rnorm(15)
 predict(lm(y ~ x))</code></pre><pre><code>##           1           2           3           4           5           6 
-##  0.25682218 -0.05895322 -0.36170901 -0.14957199 -0.32229820 -0.45376857 
+## -0.20288959 -0.16281071  0.99448733  0.46801170 -1.68336273  0.75855480 
 ##           7           8           9          10          11          12 
-##  0.14518299 -0.26654188  0.05094654 -0.26651859 -0.09898601  0.12121273 
+##  0.43049632  0.25265517  1.25327830  0.19048083 -1.14091519  1.61439029 
 ##          13          14          15 
-##  0.56293491  0.30849249 -0.21118456</code></pre><pre class=r><code>new &lt;- data.frame(x = seq(-3, 3, 0.5))
+##  1.16751408  0.10597961  0.09437954</code></pre><pre class=r><code>new &lt;- data.frame(x = seq(-3, 3, 0.5))
 predict(lm(y ~ x), new, se.fit = TRUE)</code></pre><pre><code>## $fit
-##           1           2           3           4           5           6 
-## -1.22792316 -1.03664254 -0.84536192 -0.65408130 -0.46280068 -0.27152006 
-##           7           8           9          10          11          12 
-## -0.08023945  0.11104117  0.30232179  0.49360241  0.68488303  0.87616364 
-##          13 
-##  1.06744426 
+##          1          2          3          4          5          6 
+## -2.6465464 -2.1468963 -1.6472462 -1.1475961 -0.6479460 -0.1482959 
+##          7          8          9         10         11         12 
+##  0.3513542  0.8510043  1.3506544  1.8503045  2.3499546  2.8496047 
+##         13 
+##  3.3492548 
 ## 
 ## $se.fit
 ##         1         2         3         4         5         6         7 
-## 1.0272646 0.8699662 0.7149366 0.5640496 0.4217750 0.3006008 0.2356947 
+## 0.7818748 0.6594604 0.5398447 0.4253947 0.3216728 0.2428382 0.2178340 
 ##         8         9        10        11        12        13 
-## 0.2710493 0.3796156 0.5171777 0.6660045 0.8199852 0.9766853 
+## 0.2625208 0.3512363 0.4591307 0.5755166 0.6961480 0.8191513 
 ## 
 ## $df
 ## [1] 13
 ## 
 ## $residual.scale
-## [1] 0.907266</code></pre><pre class=r><code>pred.w.plim &lt;- predict(lm(y ~ x), new, interval = &quot;prediction&quot;)
+## [1] 0.8403275</code></pre><pre class=r><code>pred.w.plim &lt;- predict(lm(y ~ x), new, interval = &quot;prediction&quot;)
 pred.w.clim &lt;- predict(lm(y ~ x), new, interval = &quot;confidence&quot;)
 matplot(new$x, cbind(pred.w.clim, pred.w.plim[,-1]),
         lty = c(1,2,2,3,3), type = &quot;l&quot;, ylab = &quot;predicted y&quot;)</code></pre><p><img src=https://laxmikants.github.io/post/2019-01-05-Data-Science-Process_files/figure-html/unnamed-chunk-3-1.png width=672></p></div><div id=presentation-and-automation class="section level3"><h3>7 Presentation and Automation</h3><p>Finally,The last step of the data science model is presenting your results and automating the analysis, if needed. One goal of a project is to change a process and/or make better decisions. We may still need to convince the business that our findings will indeed change the business process as expected. This is where we can shine in as influencer role. The importance of this step is more apparent in
