@@ -1,11 +1,6 @@
 /* --- Fonts --- */
 
-/* lora-regular - latin */
 
-a, a > code {
-  color: rgb(249, 38, 114);
-  text-decoration: none;
-}
 .footnote {
   position: absolute;
   bottom: 3em;
