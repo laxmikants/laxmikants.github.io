@@ -1,11 +1,14 @@
 /* --- Fonts --- */
 
-
+a, a > code {
+  color: rgb(249, 38, 114);
+  text-decoration: none;
+}
 .footnote {
   position: absolute;
   bottom: 3em;
   padding-right: 4em;
-  font-size: 80%;
+  font-size: 90%;
 }
 .remark-code-line-highlighted     { background-color: #ffff88; }
 
