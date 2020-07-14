@@ -1,6 +1,8 @@
-// creates equal-width column headers with css class multicolhead for styling
-// ...titles is a comma-separated list a values to determine number and contents of columns
-
+/*!
+ * creates equal-width column headers with css class multicolhead for styling
+ * titles is a comma-separated list a values to determine number and contents of columns
+ */
+ 
 remark.macros.col_header = function (...titles) {
   
   var num_items = titles.length;
