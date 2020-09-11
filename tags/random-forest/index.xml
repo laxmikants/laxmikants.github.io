@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Random Forest on Laxmikant Soni</title><link>https://laxmikants.github.io/tags/random-forest/</link><description>Recent content in Random Forest on Laxmikant Soni</description><generator>Hugo -- gohugo.io</generator><copyright>This work is licensed.</copyright><lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/random-forest/index.xml" rel="self" type="application/rss+xml"/><item><title>Decision Trees</title><link>https://laxmikants.github.io/post/decision-trees-in-ml/</link><pubDate>Tue, 05 Jun 2018 00:00:00 +0000</pubDate><guid>https://laxmikants.github.io/post/decision-trees-in-ml/</guid><description>HUGOMORE42 Decision trees
-Decision trees area tree-like tool which can be used to represent a cause and its effect.
-In Machine Learning Decision trees are a type of Supervised machine learning where data
-is split according to given parameter while constructing a tree to solve a given problem.
-In decision tree there is a predictor variable and target variable or the desired output.
-The predictor variable could be anything such as technical indicators etc and the target
-variable could be desired output for example whether to invest in a given financial security or not.</description></item></channel></rss>
