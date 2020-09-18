@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>News Groups!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Laxmikant" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+       gtag('config','UA-155379268-1');
+    </script>
+    
+     <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "R Markdown",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://laxmikants.github.io/R-markdown/slides/Lession1.html"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://laxmikants.github.io/img/cover.png",
+        "width": 800,
+        "height": 600
+      },
+      "genre": "post",
+      "keywords": "R Markdown",
+      "wordcount": 159,
+      "url": "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "datePublished": "2017-07-23T00:00:00+00:00",
+      "dateModified": "2017-07-23T00:00:00+00:00",
+      "license": "This work is licensed.",
+       "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+          "width": 60,
+          "height": 60
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laxmikant"
+      },
+      "description" : "R markdown"
+    }
+    </script>
+    
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+      <title>Data Science Posts and Resources | Laxmikant</title>
+      <meta property="og:title" content="Posts and Resources on Data Science | R Markdown" />
+      <meta name="description" content="Implementing R markdown">
+      <meta property="og:description" content="Implementing R markdown">
+      <meta name="author" content="Laxmikant"/>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name" : "Laxmikant"
+      },
+      "headline": "R Markdown",
+      "description" : "Implementing R markdown",
+      "inLanguage" : "en",
+      "wordCount": 159,
+      "datePublished" : "2017-07-23T00:00:00",
+      "dateModified" : "2017-07-23T00:00:00",
+      "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "keywords" : [ "R Markdown, plot, regression" ],
+      "mainEntityOfPage" : "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+            "height" :  60 ,
+            "width" :  60
+        }
+      }
+    }
+    </script>
+    
+    <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+    <meta property="og:url" content="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="article" />
+    
+    <meta content="R markdown" property="og:description">
+    <meta property="og:url" content="https://laxmikants.github.io/R-markdown/slides/Lession1.html" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="article:section" content="R" />
+    <meta property="article:published_time" content="2017-07-23 00:00:00 &#43;0000 UTC" />
+    <meta name="generator" content="Hugo 0.54.0" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\default.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\stackpath.bootstrapcdn.com\bootstrap\4.3.1\css\bootstrap-grid.min.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\my_styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide
+
+
+
+.row[
+.col-7[
+.title[
+# News Groups 
+]
+.subtitle[
+## Exploring News Groups dataset
+]
+.author[
+### Laxmikant Soni &lt;br&gt; [Web-Site](https://laxmikants.github.io) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/laxmiaknts) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/laxmikantsoni09)
+]
+
+.affiliation[
+]
+
+]
+
+.col-5[
+
+.logo[
+![](https://laxmikants.github.io/img/rmarkdown.png)&lt;!-- --&gt;
+
+
+]
+
+Slides:&lt;br&gt; [laxmikants.github.io/datasets/slides](https://laxmikants.github.io/datasets/slides/NewsGroupsAnalysis.html#1)
+
+Materials:&lt;br&gt; [github.com/laxmikants/datasets](https://github.com/laxmikants/datasets)
+
+
+]
+
+]
+
+---
+class: inverse, center, middle
+
+# The Newsgroups data set presents the problem of building a classifier that uses newsgroups posts to predict if a given article belongs to one of the 20 newsgroups (target_names).
+
+---
+
+class: inverse, center, middle
+
+#  Getting the Dataset 
+
+
+---
+class: body
+
+# 1. Getting the dataset
+  ### 1.1 Fetch the dataset 
+  
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+[1] from sklearn.datasets import fetch_20newsgroups
+
+[2] dataset_full = fetch_20newsgroups(subset='all', remove=('headers', 'footers', 'quotes'), shuffle=True, random_state=42)
+
+[3] dataset_full.keys() 
+
+[4] newsgroups_full.target_names
+
+
+]
+
+--
+.pull-right[
+
+
+ 'alt.atheism',
+ 
+ 'comp.graphics',
+ 
+ 'comp.os.ms-windows.misc',
+ 
+ 'comp.sys.ibm.pc.hardware',
+ 
+ 'comp.sys.mac.hardware',
+ 
+ 'comp.windows.x'
+ 
+ ...
+
+]
+ &lt;hr&gt;
+
+&gt; `Newsgroups`: The 20 newsgroups dataset comprises around 18000 newsgroups posts on 20 topics 
+
+
+---
+
+class: inverse, center, middle
+
+#  What's stored in the  Dataset 
+
+
+---
+
+class: body
+
+# 2. What's stored in the  Dataset
+###2.1 What are the different values inside the dataset ?
+&lt;hr&gt;
+--
+.pull-left[
+
+[1] dir(dataset_full)
+
+[1] dataset_full.keys()
+
+[2] dataset_full['target_names']
+
+[3] dataset_full['target']
+
+[4] dataset_full['file_names'] 
+
+]
+
+--
+.pull-right[
+
+  ['DESCR', 'data', 'filenames', 'target', 'target_names']  
+  
+  alt.atheism', 'comp.graphics', 'comp.os.ms-windows.misc
+ 
+  target:  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19
+       
+  C:\\Users\\slaxm\\scikit_learn_data\\20news_home\\20news-bydate-train\\rec.autos\\102994      
+
+--
+
+]
+ &lt;hr&gt;
+
+&gt; `keys`: different identification keys for fetching the details
+
+&gt; `target_names`: different categories in which data is stored
+
+&gt; `target`: 20 different unique index corresponding to target_names
+
+&gt; `data`: actual daa is stored in different files having some `file_names`
+
+---
+
+class: body
+
+# 2. What's stored in the  Dataset...cont
+###2.2 Print sample article from the newsgroup dataset ?
+&lt;hr&gt;
+--
+.pull-left[
+
+[1] dataset_full.data\[0\]
+
+[2] dataset_full.target\[0\]
+
+[3] dataset_full.target_names\[dataset_full.target\[0\]\]
+
+]
+
+--
+.pull-right[
+
+`data` From: lerxst@wam.umd.edu (where's my thing)\nSubject: WHAT car is this!?\nNntp-Posting-Host: rac3.wam.umd.edu\nOrganization: University of Maryland, College Park\nLines: 15\n\n I was wondering if anyone out there could enlighten me on this car I saw\nthe other day. It was a 2-door sports car, looked to be from the late 60s/\nearly 70s. It wa
+
+`target` 7
+
+`target_name` rec.autos 
+
+
+]
+&lt;hr&gt;
+The first document is from the `rec.autos` newsgroup, which was assigned the number `7`. 
+Reading this post, we can easily figure out it's about cars. The word car actually occurs a number of times in the document. Words such as bumper also seem very car-oriented
+
+
+
+---
+
+
+class: inverse, center, middle
+
+#  cleaning the  data 
+
+---
+
+
+class: body
+
+# 3. cleaning the  data (Stemming and lemmatizing).. cont
+###3.1 Split textual data into smaller and more meaningful components called tokens
+--
+
+.pull-left[
+
+[1] def `normal_tokenizer(str_input)`:
+
+[2] words = re.sub(r"\[^A-Za-z\-\]", " ", str_input).lower().split()
+    
+[3] return words
+
+]
+
+--
+.pull-right[
+
+text = "A \ letter 09 words having a84 kind * 1234 and other stuff"
+
+will get converted to 
+
+
+\['a', 'letter', 'words', 'having', 'a', 'kind', 'and', 'other', 'stuff'\]
+
+
+]
+--
+
+
+&lt;hr&gt;
+
+&gt; `normal_tokenizer` removes non english characters and alpha numeric words and split them on spaces
+
+
+---
+
+class: body
+
+# 3. cleaning the  data (Stemming and lemmatizing).. cont
+### 3.2 Remove all the endings from the words to get base form of the word
+
+--
+.pull-left[
+
+[1] def `stem_tokenizer(str_input)`:
+
+[2] words = re.sub(r"[^A-Za-z]", " ", str_input).lower().split()
+
+[3] words = [porter_stemmer.stem(word) for word in words if len(word) &gt; 2]
+
+[4] return words
+
+]
+
+--
+.pull-right[
+
+text = "A \ letter 09 words having a84 kind * 1234 and other stuff"
+
+will get converted to 
+
+
+['letter', 'word', 'have', 'kind', 'and', 'other', 'stuff']
+
+]
+--
+
+]
+
+&lt;hr&gt;
+
+&gt; `stem_tokenizer` keeps only words having more than two characters
+
+&gt; `stem_tokenizer` strips the endings off of words
+
+
+---
+
+
+class: body
+
+# 3. cleaning the  data (Stemming and lemmatizing).. cont
+###3.3 Get the root form of the word present in the dictionary using lemmatization
+
+--
+.pull-left[
+
+[1] lemmatizer = `WordNetLemmatizer()`
+
+[2] def `lemma_tokenizer`(str_input):
+      
+[3] words = re.sub(r"\[^A-Za-z\]", " ", str_input).lower().split()
+
+[4]    words = \[lemmatizer.`lemmatize(word)` for word in words if len(word) &gt; 2 and word in validwords\]
+
+[5]    return words
+
+]
+
+--
+.pull-right[
+
+text = "A \ letter 09 words having a84 kind * 1234 and other stuff"
+
+will get converted to 
+
+
+['letter', 'word', 'have', 'kind', 'and', 'other', 'stuff']
+
+]
+--
+
+]
+
+&lt;hr&gt;
+
+&gt; `lemma_tokenizer` keeps only words having more than two characters
+
+&gt; `lemma_tokenizer` guarantees to return a valid word
+
+
+
+
+---
+
+
+class: inverse, center, middle
+
+#  Exploring the newsgroup dataset  
+
+---
+
+
+class: body
+
+# 4 Exploring the Dataset 
+  ### Show the plot of how the data is structured ?
+
+&lt;hr&gt;
+--
+.pull-left[
+
+[1] import seaborn as sns
+
+[2] import matplotlib.pyplot as plt
+
+[3] sns.distplot(dataset_full.target)
+
+[4] plt.show()
+
+]
+
+--
+
+.pull-right[
+
+![](https://laxmikants.github.io/img/ngdist.png)&lt;!-- --&gt;
+
+
+]
+
+`distribution:` It is good to visualize to get a general idea of how the data is structured
+
+
+
+
+---
+
+
+class: body
+
+# 4 Exploring the Dataset (Pie chart distribution)
+  ### Show the pie chart of the newsgroup distribution ?
+&lt;hr&gt;
+--
+.pull-left[
+
+
+[1] labels = newsgroups_full\.target_names
+
+[2] slices = \[\]
+
+[3] for key in newsgroups\_full\_dnry:
+     
+     slices.append(newsgroups_full_dnry[key])
+    
+[4] fig , ax = plt.subplots()
+
+[5] ax.pie(slices, labels = labels , autopct = '%1.1f%%', shadow = True, startangle = 90)
+
+]
+
+--
+
+.pull-right[
+
+![](https://laxmikants.github.io/img/newgroupspie.png)&lt;!-- --&gt;
+
+
+]
+
+
+&lt;hr&gt;
+
+`Pie Distribution:` It is better to view relative distribution of articles as pie chart
+
+---
+
+
+class: body
+
+# 4 Exploring the Dataset 
+  ### What is newsgroup wise count of words ?
+&lt;hr&gt;
+--
+.pull-left[
+
+
+[1] for ind in range(len(newsgroups\_full.data)):
+
+[2]    grp_name = newsgroups\_full.target_names\[newsgroups_full.target\[ind\]]
+
+[3]    if grp\_name in newsgroups\_full\_dnry:
+
+[4]        newsgroups\_full\_dnry\[grp_name\] += 1
+
+[5]    else:
+
+[6]        newsgroups\_full\_dnry\[grp_name\] = 1
+
+]
+
+--
+
+.pull-right[
+
+Total number of articles in dataset 18846
+
+Number of articles category wise: 
+
+{'rec.sport.hockey': 999, 'comp.sys.ibm.pc.hardware': 982, 'talk.politics.mideast': 940, 'comp.sys.mac.hardware': 963, 'sci.electronics': 984, 'talk.religion.misc': 628, 'sci.crypt': 991, 'sci.med': 990, 'alt.atheism': 799, 'rec.motorcycles': 996, 'rec.autos': 990, 'comp.windows.x': 988, 'comp.graphics': 973
+
+
+]
+
+
+&lt;hr&gt;
+
+`Word count:` A simple word count category wise gives general idea about what people are posting 
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Feature extraction  
+
+
+---
+
+
+
+class: body
+
+# 5. Feature extraction
+  ### What are the feature in the newsgroups dataset ?
+&lt;hr&gt;
+--
+.pull-left[
+
+[1] from sklearn.feature_extraction_text import CountVectorizer
+
+[2] count_vectorizer = CountVectorizer(stop_words='english', tokenizer = lemma_tokenizer)
+
+[3] extracted = count_vectorizer.fit_transform(dataset_full.data)
+
+[4] extracted.get_feature_names()
+
+]
+
+--
+
+.pull-right[
+
+ 'car'  : 1147,
+ 'like' : 356,
+ 'ani'  : 353,
+ 'use'  : 344,
+ 'know' : 252,
+ 'drive': 235,
+ 'think': 229,
+ 'new'  : 227,
+ 'good' : 222,
+ 'time' : 219,
+ 'veri' : 207,
+ 'look' : 205,
+ 'year' : 199,
+]
+
+&lt;hr&gt;
+
+
+`feature engineering`: The variable being predicted is referred to by a number of different names, such as target, label, and outcome. The variables being used to make the predictions are
+variously called predictors, regressors, features, and attributes.Determining what
+attributes to use for making predictions is called feature engineering.
+
+---
+
+
+
+class: inverse, center, middle
+
+#  Creating text classifier   
+
+
+---
+
+
+class: body
+
+# 6. Creating text classifer
+  ### 6.1. Split the data in training and testing set
+&lt;hr&gt;
+--
+.pull-left[
+
+[1] from sklearn.model\_selection import train\_test\_split
+
+[2] import numpy as np
+
+[3] X\_train, X\_test, Y\_train_source, Y\_test_source, train\_source\_names, test\_source\_names = train\_test\_split(np.array(newsgroups\_full\_df\['clean_text'\]), np.array(newsgroups_full_df\['source'\]),np.array(newsgroups\_full\_df['source\_name']),
+test\_size=0.33, random\_state=42)
+
+[4] X_train.shape, X_test.shape
+]
+
+--
+
+.pull-right[
+
+| source_name              | train_count | test_count |
+|--------------------------|-------------|------------|
+| rec.sport.baseball       | 693         | 301        |
+| sci.space                | 670         | 317        |
+| comp.os.ms-windows.misc  | 669         | 316        |
+| comp.sys.ibm.pc.hardware | 667         | 315        |
+]
+
+&lt;hr&gt;
+
+
+`train_test_split`:We need to randomly split the original dataset into two sets, the training and testing sets, which simulate learning data and prediction data respectively. Generally, the proportion of the original dataset to include in the testing split can be 25%, 33.3%, or 40%. We use the train\_test\_split function from scikit-learn to do the random splitting and to preserve the percentage of samples for each class
+
+---
+
+
+class: body
+
+# 6. Creating text classifer
+  ###6.2. Build the MultiNomialNB classifier
+&lt;hr&gt;
+--
+.pull-left[
+
+
+[1] cv = CountVectorizer(stop\_words = 'english',binary=False, min_df=2, max_df= 0.95)
+cv\_train\_features = cv.fit\_transform(X\_train)
+
+[2] cv\_test\_features = cv.transform(X\_test)
+
+[3] mnb = MultinomialNB(alpha=.05)
+
+[4] mnb.fit(cv\_train\_features, train\_source\_names)
+]
+
+--
+
+.pull-right[
+
+BOW model:
+ Train features shape: 	 (15076, 28489),
+ Test features shape: 	 (3770, 28489)
+
+]
+
+&lt;hr&gt;
+
+
+`MultiNomialNB`:The multinomial Naive Bayes classifier is suitable for classification with discrete features (e.g., word counts). 
+
+
+
+---
+
+class: inverse, center, middle
+
+#  Performance evaluation   
+
+---
+
+
+class: body
+
+# 7. Performance evaluation of the model
+  ###7.1. What is the accuracy of the model ?
+&lt;hr&gt;
+--
+.pull-left[
+
+
+[1] mnb\_bow\_cv\_scores = cross\_val\_score(mnb, cv\_train\_features, train\_source\_names, cv=5)
+
+[2] mnb\_bow\_cv\_mean_score = np.mean(mnb\_bow\_cv\_scores)
+
+[3] mnb\_bow\_test\_score = mnb.score(cv\_test\_features, test\_source\_names)
+
+]
+
+--
+
+.pull-right[
+
+CV Accuracy (5-fold): [0.72015915 0.71608624 0.72039801 0.72769486 0.70912106]
+
+Mean CV Accuracy: 0.7186918634062225
+
+Test Accuracy: 0.7238726790450929
+]
+
+&lt;hr&gt;
+
+
+`Accuracy`: Accuracy is one metric for evaluating classification models. Accuracy is the fraction of predictions our model got right.
+
+
+---
+
+
+class: body
+
+# 7. Performance evaluation of the model
+  ###7.2 Draw the a confusion matrix of the model ?
+&lt;hr&gt;
+--
+.pull-left[
+
+
+[1] conf\_mat = confusion\_matrix(test\_source\_names, Y\_pred)
+
+[2] fig, ax = plt.subplots(figsize=(15, 10))
+
+[3] sns.heatmap(conf_mat, annot=True, cmap = "Set3", fmt ="d", xticklabels=labels, yticklabels=labels)
+
+[4] plt.ylabel('Actual')
+
+[5] plt.xlabel('Predicted')
+
+[6] plt.show()
+
+]
+
+--
+
+.pull-right[
+
+
+![](https://laxmikants.github.io/img/newgroupsheatmap.png)&lt;!-- --&gt;
+
+
+
+]
+
+&lt;hr&gt;
+
+
+`Confusion matrix`: The heat map shows a confusion matrix. It is a good tool to evalute the performance of the model.
+
+---
+
+
+class: inverse, center, middle
+# Thanks
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://laxmikants.github.io/js/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

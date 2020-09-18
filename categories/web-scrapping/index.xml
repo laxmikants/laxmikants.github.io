@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Scrapping on Data Science Posts and Resources</title>
+    <link>https://example.com/categories/web-scrapping/</link>
+    <description>Recent content in Web Scrapping on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/web-scrapping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web Scrapping Basics</title>
+      <link>https://example.com/blog/web-scrapping/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/blog/web-scrapping/</guid>
+      <description>A beginer level introduction to Web Scrapping using Python</description>
+    </item>
+    
+  </channel>
+</rss>

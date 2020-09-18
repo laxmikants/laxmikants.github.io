@@ -1,0 +1,222 @@
+---
+title: "Python - 1"
+author: Laxmi K Soni 
+description: "Introduction to Python."
+slug: Python Basics
+date: 2019-01-05
+lastmod: 2019-01-05
+categories: ["Python"]
+tags: ["Python"]
+Summary: Introduction to Python.
+subtitle: Python Basics
+featured: "img/main/Python_Basics-19.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+
+## VARIABLES AND DATA TYPES
+
+Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
+In this chapter we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.
+
+
+### NUMERICAL DATA TYPES
+
+The types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.
+
+
+| NUMERICAL DATA TYPES |         |                         |
+|----------------------|---------|-------------------------|
+| Integer              | int     | whole number          |
+| Float                | float   | floating point number |
+| Complex              | complex | complex number        |
+
+
+As you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.
+
+### STRINGS
+A string defines characters sequences. Our text that we printed in the last chapter was a string. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .
+
+
+### BOOLEANS
+
+Boolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool .
+
+### SEQUENCES
+
+Sequences are a topic that we will cover in a later chapter. But since sequences are also data types we will at least mention that they exist.
+
+| SEQUENCE TYPES |         |                         |
+|----------------|---------|-------------------------|
+| List           | list    | Colection of values    |
+| Tuple          | tuple   | Imutable list          |
+| Dictionary     | dict    | List of key nd value pairs |
+
+
+### CREATING VARIABLES
+
+Creating variables in Python is very simple. We just choose a name and assign a value.
+
+```{python}
+myNumber = 10
+myText = 'Hello' 
+```
+Here, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.
+
+### USING VARIABLES
+
+Now that we have defined our variables, we can start to use them. For example, we could print the values.
+
+```{python}
+print (myNumber)
+print (myText)
+```
+Since we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .
+
+### TYPECASTING
+
+Sometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here  “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.
+
+```{python}
+value = '10'
+number = int (value)
+```
+
+Typecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int  keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often. 
+
+## Python loops and types
+
+## 1. For loop
+
+
+```{python, echo = TRUE}
+numbers = [10,20,30,40]
+
+for num in numbers:
+  print(num)
+  
+```
+
+```{python, echo=TRUE}
+for num in range(10,41,10):
+  print(num)
+```
+## 2. While loop
+
+
+
+```{python, echo = TRUE}
+number = 0
+
+while number < 10:
+  number += 1
+  if number == 5:
+    break
+  print(number)
+```
+
+```{python, echo = TRUE}
+num =  0
+while num < 10:
+  num += 1
+  if num == 5:
+    continue
+  print(num)
+
+```
+
+## 3. Sequences - Lists
+
+
+```{python, echo = TRUE}
+numbers = [10, 20, 30 ,40]
+
+names = ['Arun','Varun','Karun']
+
+mixed = [10,'Arun', 28.3,True ]
+
+print(numbers[3])
+
+print(names[0])
+
+print(mixed[3])
+
+numbers[3] = 3
+
+names[2] = 'Bob'
+
+print(numbers[3])
+
+print(names[2])
+
+```
+
+## 4. Sequences - Lists - Operations
+
+
+
+
+| LIST OPERATIONS             |                                   |
+|-----------------------------|-----------------------------------|
+| OPERATION                   | RESULT                            |
+| [10, 20, 30] + [40, 50, 60] | [10, 20, 30, 40, 50, 60]          |
+| [10, “Bob”] * 3             | [10, “Bob”, 10, “Bob”, 10, “Bob”] |
+
+---
+
+## 5. Sequences - Lists - Functions
+
+
+
+| LIST FUNCTIONS |                                     |
+|----------------|-------------------------------------|
+| FUNCTION       | DESCRIPTION                         |
+| len(list)      | Returns the length of a list        |
+| max(list)      | Returns the item with maximum value |
+| min(list)      | Returns the item with minimum value |
+| list(element)  | Typecasts element into list         |
+---
+
+
+## 6. Sequences - Lists - METHODS
+
+
+| LIST METHODS   |                                                           |
+|----------------|-----------------------------------------------------------|
+| METHOD         | DESCRIPTION                                               |
+| list.append(x) | Appends element to the list                               |
+| list.count(x)  | Counts how many times an element appears in the list      |
+| list.index(x)  | Returns the first index at which the given element occurs |
+| list.pop()     | Removes and returns last element                          |
+| list.reverse() | Reverses the order of the elements                        |
+| list.sort()    | Sorts the elements of a list                              |
+
+---
+
+## 7. Sequences - Tupples
+
+
+```{python, echo = TRUE}
+tpl = (10,20,30)
+len(tpl)
+max(tpl)
+min(tpl)
+```

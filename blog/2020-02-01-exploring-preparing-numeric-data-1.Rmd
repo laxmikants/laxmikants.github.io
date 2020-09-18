@@ -1,0 +1,130 @@
+---
+title: "Handling numeric data"
+author: Laxmi K Soni 
+description: "Handling numeric data using mtcars dataset. Numeric data is easiar to deal with in Data analysis projects"
+slug: Handling numeric data
+date: 2020-02-01
+lastmod: 2020-02-01
+categories: ["Numeric data"]
+tags: ["Numeric data"]
+Summary: Handling numeric data using mtcars dataset. Numeric data is easiar to deal with in Data analysis projects
+subtitle: Handling numeric data
+featured: "img/main/numeric_data03.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+```
+
+## Introduction
+
+In data analysis projects Numeric data present is very different from the text data. The numeric data is relatively clean than the text data that is why it is easiear to deal with them. In this post, we'll learn few common operations used to prepare numeric data for use in analysis and predictive models using mtcars dataset.
+
+
+#### Getting the dataset
+
+To get the dataset into `pandas dataframe` simply call the function `read_csv`.
+
+```{python}
+import pandas as pd
+import numpy as np
+mt_car = pd.read_csv("../data/mtcars/mt_car.csv")      # Read the data
+```
+
+#### Center and Scale
+
+To center and scale the dataset we substract the mean value from each data point. Subtracting the mean centers the data around zero and sets the new mean to zero. Lets try do it with mtcars dataset.
+
+```{python}
+
+print (mt_car.head() )
+
+col_means = mt_car.sum()/mt_car.shape[0]  # Get column means
+
+col_means
+```
+
+
+Now we need to subtract the means of the column from each row in element-wise way to zero center the data. Pandas can peform math operations involving dataframews and columns on element-wise row-by-row basis by default so it can be simply subtracted from column means series from the dataset to center it.
+
+
+```{python}
+
+center_ed = mt_car - col_means
+
+print(center_ed.describe())
+
+```
+
+After centering the data we see that negative values are below average while positive values are above average. Next we can put it on common scale using the standard deviation as.
+
+```{python}
+
+col_deviations = mt_car.std(axis=0)   # Get column standard deviations
+
+center_n_scale = center_ed/col_deviations 
+
+print(center_n_scale.describe())
+```
+
+
+We see that after dividing by the standard deviation, every variable now has a standard deviation of 1. At this point, all the columns have roughly the same mean and scale of spread about the mean.
+
+Manually centering and scaling is a good exercise, but it is often possible to perform common data preprocessing using functions available in the Python libraries. The Python library scikit-learn, a package for predictive modeling and data analysis, has pre-processing tools including a scale() function for centering and scaling data:
+
+```{python}
+
+from sklearn import preprocessing
+
+scale_data = preprocessing.scale(mt_car)  
+ 
+scale_car = pd.DataFrame(scale_data, index = mt_car.index,
+                           columns=mt_car.columns)
+
+print(scale_car.describe() )
+```
+
+`preprocessing.scale()` returns ndarrays which needs to be converted back to dataframe.
+
+#### Handling Skewed-data
+To understand whether the data is skewed or not we need to plot it. The overall shape and how the data is spread out can have a significant impact on the analysis and modeling
+
+
+```{python, eval = FALSE}
+
+norm_dist = np.random.normal(size=10000) 
+norm_dist= pd.DataFrame(norm_dist)
+norm_dist.hist(figsize=(8,8), bins=30)
+
+```
+
+![](/img/main/normdist.png)
+
+Notice how the normally distributed data looks roughly symmetric with a bell-shaped curve. Now let's generate some skewed data
+
+```{python,eval = FALSE}
+
+skew = np.random.exponential(scale=2, size= 10000) 
+skew = pd.DataFrame(skew)
+skew.hist(figsize=(8,8),bins=50)
+
+```
+
+![](/img/main/skewedist.png)
+
+#### Correlation
+
+The model that we use in predictive modeling have features and each feature is related to other features in some way or the other. Using corr() we can find how these features are related with each other

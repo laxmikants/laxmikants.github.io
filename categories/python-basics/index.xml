@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python Basics on Data Science Posts and Resources</title>
+    <link>https://example.com/categories/python-basics/</link>
+    <description>Recent content in Python Basics on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/python-basics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Basics</title>
+      <link>https://example.com/blog/python-basics/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/blog/python-basics/</guid>
+      <description>Introduction to Python.</description>
+    </item>
+    
+  </channel>
+</rss>

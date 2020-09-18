@@ -1,0 +1,286 @@
+---
+title: "Python - Classes and Objects"
+author: Laxmi K Soni 
+description: "Introduction to Python Classes and Objects"
+slug: Python Basics - 2
+date: 2019-01-12
+lastmod: 2019-01-12
+categories: ["Python"]
+tags: ["Python"]
+Summary: Introduction to Python.
+subtitle: Python Classes and Objects
+featured: "img/main/Python-Classes-Objects-20.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+
+### CLASSES AND OBJECTS
+
+Python is an object-oriented language which means that the code can be divided into individual units, namely objects . Each of these objects is an instance of a so-called class . You can think of the class as some sort of blueprint. For example, the blueprint of a car could be the class and an object would be the actual physical car. So a class has specific attributes and functions but the values vary from object to object.
+
+### CREATING CLASSES
+
+In Python, we use the keyword class in order to define a new class. Everything that is indented after the colon belongs to the class.
+
+```{python}
+class Car:
+  def __init__ ( self , manufacturer, model, hp):
+         self .manufacturer = manufacturer
+         self .model = model
+         self .hp = hp
+```         
+After the class keyword, we put the class name. In this example, this is Car .
+
+### CONSTRUCTOR
+
+What we notice first here, is a special function called __init__ . This is the so-called constructor. Every time we create an instance or an object of our class, we use this constructor. As you can see, it accepts a couple of parameters. The first one is the parameter self and it is mandatory. Every function of the class needs to have at least this parameter.
+The other parameters are just our custom attributes. In this case, we have chosen the manufacturer, the model and the horse power (hp).
+When we write self.attribute , we refer to the actual attribute of the respective object. We then assign the value of the parameters to it.
+
+### ADDING FUNCTIONS
+
+We can simply add functions to our class that perform certain actions. These functions can also access the attributes of the class.
+
+```{python}
+class Car:
+  def __init__ ( self , manufacturer, model, hp):
+    self .manufacturer = manufacturer
+    self .model = model
+    self .hp = hp
+    
+    def print_info( self ):
+      print ( 'Manufacturer: {}, Model: {}, HP; {}'.format( self .manufacturer, self.model,self.hp))
+```      
+   
+      
+Here we have the function print_info that prints out information about the attributes of the respective object. Notice that we also need the parameter self here.
+
+### CLASS VARIABLES
+
+In the following code, you can see that we can use one and the same variable across all the objects of the class, when it is defined without referring to self .
+
+```{python}
+class Car:
+  amount_cars = 0
+  def __init__ ( self , manufacturer, model, hp):
+    self .manufacturer = manufacturer
+    self .model = model
+    self .hp = hp
+    Car.amount_cars += 1
+    
+  def print_car_amount( self ):
+    print ( 'Amount: {}'.format(Car.amount_cars)) 
+  
+  def print_info( self ):
+    print ( 'Manufacturer: {}, Model: {}, HP; {}'.format( self .manufacturer, self.model,self.hp))  
+```  
+
+The variable amount_cars doesn’t belong to the individual object since it’s not addressed with self . It is a class variable and its value is the same for all objects or instances.
+Whenever we create a new car object, it increases by one. Then, every object can access and print the amount of existing cars.
+
+### DESTRUCTORS
+
+In Python, we can also specify a method that gets called when our object gets destroyed or deleted and is no longer needed. This function is called destructor and it is the opposite of the constructor .
+
+```{python}
+class Car:
+  amount_cars = 0
+  
+  def __init__ ( self , manufacturer, model, hp):
+    self.manufacturer = manufacturer
+    self.model = model
+    self.hp = hp
+    Car.amount_cars += 1
+    
+  def __del__ ( self ):
+    print ( 'Object gets deleted!' )
+    Car.amount_cars -= 1 
+    
+  def print_car_amount( self ):
+    print ( 'Amount: {}'.format(Car.amount_cars)) 
+  
+  def print_info( self ):
+    print ( 'Manufacturer: {}, Model: {}, HP; {}'.format( self .manufacturer, self.model,self.hp))     
+```
+
+The destructor function is called __del__ . In this example, we print an informational message and decrease the amount of existing cars by one, when an object gets deleted.
+
+### CREATING OBJECTS
+
+Now that we have implemented our class, we can start to create some objects of it.
+
+```{python}
+myCar1 = Car( 'Tesla' , 'Model X' , 525 )
+```
+
+First, we specify the name of our object, like we do with ordinary variables. In this case, our object’s name is myCar1 . We then create an object of the Car class by writing the class name as a function. This calls the constructor, so we can pass our parameters. We can then use the functions of our car object.
+
+```{python}
+myCar1.print_info()
+myCar1.print_car_amount()
+```
+
+The results look like this:
+Manufacturer: Tesla, Model: Model X, HP; 525
+Amount: 1
+What you can also do is directly access the attributes of an object.
+
+```{python}
+print (myCar1.manufacturer)
+print (myCar1.model)
+print (myCar1.hp)
+```
+
+Now let’s create some more cars and see how the amount changes.
+
+```{python}
+myCar1 = Car( 'Tesla' , 'Model X' , 525 )
+myCar2 = Car( 'BMW' , 'X3' , 200 )
+myCar3 = Car( 'VW' , 'Golf' , 100 )
+myCar4 = Car( 'Porsche' , '911' , 520 )
+del myCar3
+myCar1.print_car_amount()
+```
+
+Here we first create four different car objects. We then delete one of them and finally we print out the car amount. The result is the following:
+Object gets deleted!
+Amount: 3
+Notice that all the objects get deleted automatically when our program ends. But we can manually delete them before that happens by using the del keyword.
+
+### HIDDEN ATTRIBUTES
+
+If we want to create hidden attributes that can only be accessed within the class, we can do this with underlines .
+
+```{python}
+class MyClass:
+
+  def __init__ ( self ):
+    self.__hidden = 'Hello'
+    print ( self .__hidden) # Works
+    
+m1 = MyClass()
+# print (m1.__hidden) # Doesn't Work 
+```
+By putting two underlines before the attribute name, we make it invisible from outside the class. The first print function works because it is inside of the class. But when we try to access this attribute from the object, we can’t.
+
+### INHERITANCE
+
+One very important and powerful concept of object-oriented programming is inheritance . It allows us to use existing classes and to extend them with new attributes and functions.
+For example, we could have the parent class which represents a Person and then we could have many child classes  like Dancer, Policeman, Artist etc. All of these would be considered a person and they would have the same basic attributes. But they are special kinds of persons with more attributes and functions.
+
+```{python}
+class Person:
+  def __init__ ( self , name, age):
+    self .name = name
+    self .age = age
+    
+  def get_older( self , years):
+    self .age += years
+    
+class Programmer(Person):
+  def __init__ ( self , name, age, language):
+    super (Programmer, self ). __init__ (name, age)
+    self .language = language
+    
+def print_language( self ):
+  print ( 'Favorite Programming Language: {}'.format( self .language)) 
+```
+
+You can see that we created two classes here. The first one is the Person class, which has the attributes name and age . Additionally, it has a function get_older that increases the age.
+The second class is the Programmer class and it inherits from the Person class. This is stated in the parentheses after the class name. In the constructor we have one additional attribute language . First we need to pass our class to the super function. This function allows us to call the constructor of the parent class Person . There we pass our first two parameters. We also have an additional function print_language .
+
+```{python}
+p1 = Programmer( 'Mike' , 30 , 'Python' )
+print (p1.age)
+print (p1.name)
+print (p1.language)
+p1.get_older( 5 )
+print (p1.age)
+```
+
+Our Programmer object can now access all the attributes and functions of its parent class, additionally to its new values. These are the results of the statements:
+
+30
+Mike
+Python
+35
+
+### OVERWRITING METHODS
+
+When one class inherits from another class, it can overwrite its methods. This is automatically done by defining a method with the same name and the same amount of parameters.
+
+```{python}
+class Animal:
+  def __init__ ( self , name):
+    self .name = name
+    
+  def make_sound( self ):
+    print ( 'Some sound!' )
+    
+class Dog(Animal):
+  def __init__ ( self , name):
+    super (Dog, self ). __init__ (name)
+    
+  def make_sound( self ):
+    print ( 'Bark!' )
+```
+
+Here the function make_sound was overwritten in the child class Dog . It now has a different functionality than the function of the parent class Animal .
+
+### OPERATOR OVERLOADING
+
+When we create a class with various attributes, it is not clear what should happen when we perform certain operations on them. For example, what should happen when we add two humans or when we multiply them? Since there is no default solution for this question, we can overload and define the operators ourselves. That allows us to choose what happens when we apply the operators on our objects.
+
+```{python}
+class Vector():
+  def __init__ ( self , x, y):
+    self .x = x
+    self .y = y
+    
+  def __str__ ( self ):
+    return 'X: %d, Y: %d' % ( self .x,self .y)
+    
+  def __add__ ( self , other):
+    return Vector( self .x + other.x,self .y + other.y)
+    
+  def __sub__ ( self , other):
+    return Vector( self .x - other.x,self .y - other.y)
+```
+
+Here you see a class that represents the function of a Vector . When you add a vector to another, you need to add the individual values. This is the same for subtracting. If you don’t know what vectors are mathematically, forget about them. This is just one example.
+We use the functions __add__ and __sub__ to define what happens when we apply the + and the – operator. The __str__ function determines what happens when we print the object.
+
+```{python}
+v1 = Vector( 3 , 5 )
+v2 = Vector( 6 , 2 )
+v3 = v1 + v2
+v4 = v1 - v2
+print (v1)
+print (v2)
+print (v3)
+print (v4)
+```
+The results are the following:
+X: 3, Y: 5
+X: 6, Y: 2
+X: 9, Y: 7
+X: -3, Y: 3
+

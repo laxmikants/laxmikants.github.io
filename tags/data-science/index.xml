@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science on Data Science Posts and Resources</title>
+    <link>https://example.com/tags/data-science/</link>
+    <description>Recent content in Data Science on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://example.com/blog/data-science-overview/</link>
+      <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/blog/data-science-overview/</guid>
+      <description>A Data science process is a life cycle process for delivering a data science project that helps a data consumer to gain insights from the data.</description>
+    </item>
+    
+  </channel>
+</rss>

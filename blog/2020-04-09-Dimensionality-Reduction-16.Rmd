@@ -1,0 +1,55 @@
+---
+title: "Dimensionality Reduction"
+author: Laxmi K Soni 
+description: "Dimensionality reduction is an important machine learning technique that reduces the number of features "
+slug: Applying Logistic Regression
+date: 2020-04-09
+lastmod: 2020-04-09
+categories: ["Dimensionality Reduction"]
+tags: ["Dimensionality Reduction"]
+Summary: Dimensionality reduction is an important machine learning technique that reduces the number of features 
+subtitle: Dimensionality reduction is an important machine learning technique
+featured: "img/main/logistic-stock-8.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+import_from_path("investpy","c:\\users\\slaxm\\.conda\\envs\\myenv1\\lib\\site-packages")
+```
+
+
+
+***1:Loading Stock data***
+
+***1.1:Importing libraries and data***
+
+
+```{python}
+
+import investpy
+from datetime import datetime
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+from sklearn import metrics
+import numpy as np
+import pandas as pd
+import seaborn as sn
+import matplotlib.pyplot as plt
+import talib
+
+````
+

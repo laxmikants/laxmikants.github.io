@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Gradient Descent!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Laxmikant  " />
+    <script src="libs/header-attrs-2.1/header-attrs.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+       gtag('config','UA-155379268-1');
+    </script>
+
+     <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "R Markdown",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://laxmikants.github.io/R-markdown/slides/Lession1.html"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://laxmikants.github.io/img/cover.png",
+        "width": 800,
+        "height": 600
+      },
+      "genre": "post",
+      "keywords": "R Markdown",
+      "wordcount": 159,
+      "url": "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "datePublished": "2017-07-23T00:00:00+00:00",
+      "dateModified": "2017-07-23T00:00:00+00:00",
+      "license": "This work is licensed.",
+       "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+          "width": 60,
+          "height": 60
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laxmikant"
+      },
+      "description" : "R markdown"
+    }
+    </script>
+
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      <title>Data Science Posts and Resources | Laxmikant</title>
+      <meta property="og:title" content="Posts and Resources on Data Science | R Markdown" />
+      <meta name="description" content="Implementing R markdown">
+      <meta property="og:description" content="Implementing R markdown">
+      <meta name="author" content="Laxmikant"/>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name" : "Laxmikant"
+      },
+      "headline": "R Markdown",
+      "description" : "Implementing R markdown",
+      "inLanguage" : "en",
+      "wordCount": 159,
+      "datePublished" : "2017-07-23T00:00:00",
+      "dateModified" : "2017-07-23T00:00:00",
+      "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "keywords" : [ "R Markdown, plot, regression" ],
+      "mainEntityOfPage" : "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+            "height" :  60 ,
+            "width" :  60
+        }
+      }
+    }
+    </script>
+
+    <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+    <meta property="og:url" content="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="article" />
+
+    <meta content="R markdown" property="og:description">
+    <meta property="og:url" content="https://laxmikants.github.io/R-markdown/slides/Lession1.html" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="article:section" content="R" />
+    <meta property="article:published_time" content="2017-07-23 00:00:00 &#43;0000 UTC" />
+    <meta name="generator" content="Hugo 0.54.0" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\default.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\stackpath.bootstrapcdn.com\bootstrap\4.3.1\css\bootstrap-grid.min.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\my_styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide
+
+
+
+.row[
+.col-7[
+.title[
+# Gradient Descent (One variable)
+]
+.subtitle[
+## Gradient Descent for linear regression with one variable 
+]
+.author[
+### Laxmikant Soni &lt;br&gt; [Web-Site](https://laxmikants.github.io) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/laxmiaknts) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/laxmikantsoni09)
+]
+
+.affiliation[
+]
+
+]
+
+.col-5[
+
+.logo[
+&lt;img src="figures/rmarkdown.png" width="281" /&gt;
+]
+
+
+]
+
+]
+
+---
+class: inverse, center, middle
+
+# Linear Regression with One Variable
+
+
+---
+class: very-large-body
+
+.pull-top[
+
+## Hypothesis function
+
+Hypothesis function in general form: `\(h_\theta(x) = \theta_0 + \theta_1 x\)`  
+Example: first row from training set `\(x_1 = 2, y_1 = 10\)`.  
+
+Now we can randomly iterate through `\(\theta_0\)` and `\(\theta_1\)`.  
+
+So that `\(h_\theta\)` for `\(\theta_0=3\)` and `\(\theta_1\)`=5 becomes `\(h_\theta(x) = 3 + 5x\)`, and for given `\(x_1 = 2\)` our `\(h_\theta = 13\)`. It’s greater by 3 from `\(y_1\)`
+
+]
+
+
+---
+
+# Some example with R
+
+.pull-left[
+
+Hypothesis function is represented as: `\(h_\theta(x) = \theta_0 x_0 + \theta_1 x_1\)`, where `\(x_0=1\)` all times for matrix multiplication.
+
+
+
+```r
+theta &lt;- c(3, 5)
+x1 &lt;- c(1, 2) # add 1 as x_0
+# find h_theta
+h &lt;- x1 %*% theta 
+print(paste("h =", h[1]))
+```
+
+```
+## [1] "h = 13"
+```
+
+```r
+# or we can calculate h for all training set at once
+x &lt;- matrix(c(rep(1, 3), c(10,20,30)), ncol=2)
+x
+```
+
+```
+##      [,1] [,2]
+## [1,]    1   10
+## [2,]    1   20
+## [3,]    1   30
+```
+
+```r
+x %*% theta
+```
+
+```
+##      [,1]
+## [1,]   53
+## [2,]  103
+## [3,]  153
+```
+
+]
+
+
+---
+
+# Cost Function 
+
+
+
+.pull-left[
+
+This function is also known as “Squared error function”, or “Mean squared error”.
+
+`\(J(\theta_0, \theta_1) = \dfrac {1}{2m} \displaystyle \sum _{i=1}^m \left (h_\theta (x_{i}) - y_{i} \right)^2\)`
+
+]
+
+--
+.pull-right[
+
+```r
+computeCost &lt;- function (X, y, theta){
+    # number of training examples
+    m &lt;- length(y);
+    # need to return
+    J &lt;- 0;
+    
+    predictions &lt;-  X %*% theta;
+    sqerrors = (predictions - y)^2;
+    J = 1/(2*m)* sum(sqerrors);
+    
+    J
+}
+```
+]
+
+---
+
+#  Example
+
+.pull-left[
+
+Given `\(x_1 = 2, y_1 = 10, m = 1\)`  
+
+`\(\theta_0=3, \theta_1=5\)`
+
+`\(h_\theta(x) = 3 + 5 x\)`  
+
+for given `\(x_1 = 2\)`, our `\(h_\theta = 13\)`
+
+It is greater by 3 from `\(y_1\)`
+
+`\(J(3, 5) = \dfrac {1}{2 * 1} \displaystyle \sum _{i=1}^1 \left (13 - 10 \right)^2 = \dfrac {9}{2} = 4.5\)`
+
+
+```r
+theta
+```
+
+```
+## [1] 3 5
+```
+
+```r
+x1
+```
+
+```
+## [1] 1 2
+```
+
+```r
+print(paste("J =", computeCost(x1, 10, theta)))
+```
+
+```
+## [1] "J = 4.5"
+```
+]
+---
+
+
+#  Gradient Descent 
+
+.pull-left[
+
+Repeat until convergence:
+
+`\(\begin{align*} \lbrace &amp; \newline \theta_0 := &amp; \theta_0 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}(h_\theta(x_{i}) - y_{i}) \newline \theta_1 := &amp; \theta_1 - \alpha \frac{1}{m} \sum\limits_{i=1}^{m}\left((h_\theta(x_{i}) - y_{i}) x_{i}\right) \newline \rbrace&amp; \end{align*}\)`
+]
+
+
+Where:
+
+m – size of training set,
+
+`\(\theta_0,\theta_1\)` – values to change simultaneously,
+
+`\(x_i,y_i\)` – items of training set,
+
+α – step size.
+--
+
+.pull-right[
+
+```r
+gradientDescent &lt;- function(X, y, theta, alpha, num_iters){
+    m &lt;- length(y);  
+    J_history = rep(0, num_iters);
+    for (iter in 1:num_iters){
+        predictions &lt;-  X %*% theta;
+        updates = t(X) %*% (predictions - y);
+        theta = theta - alpha * (1/m) * updates;
+        J_history[iter] &lt;- computeCost(X, y, theta);
+    }
+    list("theta" = theta, "J_history" = J_history)  
+}
+```
+]
+
+---
+
+
+
+#  Example 
+
+.pull-left[
+
+```r
+theta &lt;- c(0, 0)
+iterations &lt;- 1500
+alpha &lt;- 0.01
+X.test &lt;- matrix(c(1, 1, 3, 3), ncol=2)
+y.test &lt;- matrix(c(10, 10), ncol=1)
+# answer must be 1,3
+# h(1, 3) = 1 + 3*x = 1 + 3*3 = 10
+result.test &lt;- gradientDescent(X.test, y.test, theta, alpha, iterations)
+result.test$theta
+```
+
+```
+##      [,1]
+## [1,]    1
+## [2,]    3
+```
+]
+
+---
+
+
+#  Demo 
+
+.pull-left[
+
+Create demo data
+
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](figures/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+]
+
+--
+
+.pull-right[
+
+
+```r
+gradientDescent &lt;- function(X, y, theta, alpha, num_iters){
+    m &lt;- length(y);  
+    J_history = rep(0, num_iters);
+    for (iter in 1:num_iters){
+        predictions &lt;-  X %*% theta;
+        updates = t(X) %*% (predictions - y);
+        theta = theta - alpha * (1/m) * updates;
+        J_history[iter] &lt;- computeCost(X, y, theta);
+    }
+    list("theta" = theta, "J_history" = J_history)  
+}
+```
+]
+
+---
+
+#  Demo (Cont..)
+
+.pull-left[
+
+Add column of ones to x
+
+
+```r
+X &lt;- matrix(c(rep(1,length(x)),x),ncol = 2)
+head(X)
+```
+
+```
+##      [,1]     [,2]
+## [1,]    1 5.124754
+## [2,]    1 5.382075
+## [3,]    1 5.579243
+## [4,]    1 4.706252
+## [5,]    1 4.171651
+## [6,]    1 4.667286
+```
+]
+
+--
+
+.pull-right[
+
+Run Gradient Descent
+
+
+```r
+# Initialize 
+
+theta &lt;- c(0, 0)
+
+iterations &lt;- 1500
+# to be precise pick alpha=0.0002
+
+alpha &lt;- 0.0001 # for difference on plot
+
+
+# run gradient descent
+result &lt;- gradientDescent(X, y, theta, alpha, iterations);
+theta &lt;- result$theta
+
+print("theta found:");print(theta)
+```
+
+```
+## [1] "theta found:"
+```
+
+```
+##           [,1]
+## [1,] 0.3725434
+## [2,] 1.9043863
+```
+]
+
+
+
+---
+
+#  Demo (Cont..)
+
+.pull-left[
+
+Let’s show new line based on found theta.
+
+
+
+```r
+#data = data.frame(x=x, y=y, test = X%*%theta)
+#ggplot(data, aes(x=x, y=y, test=test))  + 
+ #   geom_point(alpha=1/3, size=4) +
+  #  stat_smooth(method = "lm", formula = test ~ x, size = 1, se = FALSE,
+   #             aes(color="Gradient Descent")) +
+  #  geom_smooth(method="lm", se=F, aes(color="Training set")) +
+   # scale_colour_manual(name="Method", values=c("red", "steelblue")) +
+    #theme(legend.position = "bottom") +
+    #labs(title = "Gradient Descent – Results")
+```
+]
+
+--
+
+.pull-right[
+
+
+
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
+![](figures/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+#  Demo (Cont..) 
+
+.pull-left[
+
+History of executed cost functions stored in result$J_history.
+
+
+
+```r
+#data &lt;- data.frame(x=seq(1, length(result$J_history)),
+ #                  y=result$J_history)
+#ggplot(data, aes(x=x, y=y)) +
+ #   geom_line() +
+  #  labs(title="Gradient descent iterations",
+   #      x="Iterations", y="Cost J")
+```
+]
+
+--
+
+.pull-right[
+
+
+![](figures/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+
+#  Demo (Cont..)
+
+.pull-left[
+
+Make predictions
+
+
+```r
+#predict1 &lt;- c(1, 3.5) %*% theta
+#predict2 &lt;- c(1, 7) %*% theta
+```
+]
+
+--
+
+.pull-right[
+
+
+
+]
+
+For x = 3.5, we predict y of 7.038
+For x = 7, we predict y of 13.703
+
+
+---
+
+#  Demo (Cont..)  
+
+.pull-left[
+
+Run again Gradient Descent with α=0.0002 (more precise) to compare:
+
+
+```r
+#theta &lt;- c(0, 0)
+#iterations &lt;- 1500
+#alpha &lt;- 0.0002 # set alpha more precisely
+#result &lt;- gradientDescent(X, y, theta, alpha, iterations);
+#matrix(c(1, 1, 3.5, 7), ncol=2) %*% result$theta
+```
+]
+
+--
+
+.pull-right[
+
+
+
+```
+##           [,1]
+## [1,]  7.177233
+## [2,] 13.974120
+```
+For x = 3.5, we predict y of 7.038
+For x = 7, we predict y of 13.703
+
+]
+
+
+---
+
+# Using predict.lm in R
+
+.pull-left[
+
+predict using predict.lm
+
+
+```r
+#lm &lt;- lm(y ~ x)
+#newdata &lt;- data.frame(x=c(3.5, 7))
+#predict(lm, newdata, interval="none") 
+```
+]
+
+--
+
+.pull-right[
+
+
+
+```
+##         1         2 
+##  7.202689 13.953160
+```
+]
+
+
+
+
+
+---
+
+
+class: very-large-body
+# Take aways ...
+
+To make gradient descent converge we must slowly decrease alpha over time. If alpha is too large it may fail to converge  
+ 
+
+Gradient descent can converge to a local minimum, even with a fixed learning rate alpha.  
+
+
+
+Gradient Descent  will not always converge to global minimum  
+
+---
+
+class: inverse, center, middle
+# Thanks
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://laxmikants.github.io/js/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

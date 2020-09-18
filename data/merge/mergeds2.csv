@@ -1,0 +1,9 @@
+Per_ID,sex,visits,checkup,follow_up,illness,surgery,ER
+1,male,1,1,0,0,0,0
+2,male,2,1,0,0,0,1
+4,female,4,1,1,2,0,0
+5,female,12,1,2,7,2,0
+7,female,2,1,0,1,0,0
+8,male,2,1,0,1,0,0
+9,male,1,0,0,0,0,1
+10,female,1,0,0,0,0,1

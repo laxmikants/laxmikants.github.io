@@ -1,0 +1,1417 @@
+---
+title: "ReactJS"
+author: Laxmi K Soni 
+description: "ReactJS"
+slug: ReactJS
+date: 2020-06-26
+lastmod: 2020-06-26
+categories: ["ReactJS","ReactJS"]
+tags: ["ReactJS","ReactJS"]
+Summary: ReactJS
+subtitle: ReactJS
+featured: "img/main/logistic-stock-8.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+import_from_path("investpy","c:\\users\\slaxm\\.conda\\envs\\myenv1\\lib\\site-packages")
+```
+
+
+# ReactJS 
+
+
+
+## What is ReactJS
+
+ReactJS is an open-source, component based front end library responsible only for the view layer of the
+application. It is maintained by Facebook.
+
+ReactJS uses virtual DOM based mechanism to fill in data (views) in HTML DOM. The virtual DOM works fast owning
+to the fact that it only changes individual DOM elements instead of reloading complete DOM every time
+
+>A React application is made up of multiple components, each responsible for outputting a small,
+reusable piece of HTML. Components can be nested within other components to allow complex
+applications to be built out of simple building blocks. A component may also maintain internal state - for
+example, a TabList component may store a variable corresponding to the currently open tab.
+
+
+React allows us to write components using a domain-specific language called JSX. JSX allows us to write our
+components using HTML, whilst mixing in JavaScript events. React will internally convert this into a virtual DOM, and
+will ultimately output our HTML for us.
+
+React "reacts" to state changes in your components quickly and automatically to rerender the components in the
+HTML DOM by utilizing the virtual DOM. The virtual DOM is an in-memory representation of an actual DOM. By
+doing most of the processing inside the virtual DOM rather than directly in the browser's DOM, React can act
+quickly and only add, update, and remove components which have changed since the last render cycle occurred.
+
+
+## Installation or Setup
+
+ReactJS is a JavaScript library contained in a single file react-<version>.js that can be included in any HTML page.
+People also commonly install the React DOM library react-dom-<version>.js along with the main React file:
+
+Basic Inclusion
+
+```{html}
+<!DOCTYPE html>
+<html>
+ <head></head>
+ <body>
+ <script type="text/javascript" src="/path/to/react.js"></script>
+ <script type="text/javascript" src="/path/to/react-dom.js"></script>
+ <script type="text/babel">
+ // Use react JSX code here or in a separate file
+ </script>
+ </body>
+</html>
+```
+
+
+
+>React  supports JSX syntax. JSX is an extension created by Facebook that adds XML syntax to JavaScript. In order
+to use JSX you need to include the Babel library and change <script type=text/javascript> to <script
+type="ext/babel> in order to translate JSX to Javascript code.
+
+## Installing via npm
+ 
+
+You can also install React using npm by doing the following:
+npm install --save react react-dom
+To use React in your JavaScript project, you can do the following:
+
+```js
+var React = require('react');
+var ReactDOM = require('react-dom')
+ReactDOM.render(<App />, ...);
+```
+
+Installing via Yarn
+
+Facebook released its own package manager named Yarn, which can also be used to install React. After installing
+
+Yarn you just need to run this command:
+
+```{js}
+yarn add react react-dom
+```
+
+You can then use React in your project in exactly the same way as if you had installed React via npm
+
+
+
+## Stateless Functions
+ 
+
+Stateless components are getting their philosophy from functional programming. Which implies that: A function
+returns all time the same thing exactly on what is given to it
+
+for example 
+
+```{js}
+const statelessSum = (a,b) => a + b;
+
+let a = 0;
+const statefullSum = () => a++;
+```
+
+The most basic type of react component is one without state. React components that are pure functions of their
+props and do not require any internal state management can be written as simple JavaScript functions. These are
+said to be Stateless Functional Components because they are a function only of props, without having any state
+to keep track of.
+
+Here is an example
+
+```{js}
+<div id="element"></div>
+
+const MyComponent = props => {
+return <h1>Hello {props.name}</h1>;
+}
+
+ReactDOM.render(<MyComponent name = "Arun"/>,element)
+
+//will render <h1>Hello Arun</h1>
+```
+
+]
+
+
+## Stateless Functions
+ 
+
+Note that all that this component does is render an h1 element containing the name prop. This component doesn't
+keep track of any state. Here's an ES6 example as well:
+for example 
+
+```{js}
+import react from 'React';
+
+const Greeting = (props) => (
+<h1> Hello, {props.name} </h1>
+)
+
+Greeting.propTypes = {
+  name: React.propTypes.string.isRequired
+}
+
+export default Greeting;
+
+```
+
+
+
+## Re-usable Components
+ 
+Components and Props
+
+As React concerns itself only with an application's view, the bulk of development in React will be the creation of
+components. A component represents a portion of the view of your application. "Props" are simply the attributes
+used on a JSX node (e.g. <SomeComponent someProp="some prop's value" />), and are the primary way our
+application interacts with our components. 
+
+In the snippet , inside of SomeComponent, we would have access to this.props, whose value would be the object {someProp: "some prop's value"}.
+
+It can be useful to think of React components as simple functions - they take input in the form of "props", and
+produce output as markup. Many simple components take this a step further, making themselves "Pure Functions",
+meaning they do not issue side effects, and are idempotent (given a set of inputs, the component will always
+produce the same output). This goal can be formally enforced by actually creating components as functions, rather
+than "classes". There are three ways of creating a React component:
+
+
+
+## Re-usable Components
+ 
+Ways to create re-usable components
+
+Functional ("Stateless") Components
+
+```{js}
+const FirstComponent = (props) => (
+<div>{props.content}</div>
+)
+```
+
+React.createClass()
+
+```{js}
+
+const SecondComponent = React.createClass({
+  render: function(){
+    return <div>{this.props.content}</div>
+  };
+
+})
+
+
+```
+
+ES2015 Classes
+
+```{js}
+class ThirdComponent extends React.Component {
+  render(){
+    return (
+    <div>{this.props.content}</div>
+    )
+  }
+}
+```
+
+]
+
+
+
+```{js}
+
+const ParentComponent = function(props) {
+  const someText = "FooBar";
+  
+  return (
+    <FirstComponent content = {someText}>
+    <SecondComponent content = {someText}>
+    <ThirdComponent content = {someText}>
+  )
+}
+
+```
+
+Functional components cannot have "state" within them. So if your component needs to have a state, then go for
+class based components. Refer Creating Components for more information.
+
+As a final note, react props are immutable once they have been passed in, meaning they cannot be modified from
+within a component. If the parent of a component changes the value of a prop, React handles replacing the old
+props with the new, the component will rerender itself using the new values.
+
+
+]
+
+## Create React-app
+ 
+create-react-app is a React app boilerplate generator created by Facebook. It provides a development environment
+configured for ease-of-use with minimal setup, including:
+
+
+ES6 and JSX transpilation
+
+Dev server with hot module reloading
+
+Code linting
+
+CSS auto-prefixing
+
+Build script with JS, CSS and image bundling, and sourcemaps
+
+Jest testing framework
+
+
+Install and build
+
+
+```{js}
+npm install -g create-react-app
+
+create-react-app my-app
+
+cd my-app/
+
+npm start
+
+npm run build
+
+```
+
+
+## Simple React-app
+ 
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<!-- Include the React and ReactDOM libraries -->
+<script src="https://fb.me/react-15.2.1.js"></script>
+<script src="https://fb.me/react-dom-15.2.1.js"></script>
+<!-- Include the Babel library -->
+<script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+// create a React element rElement using JSX
+var rElement = <h1>Hello, world!</h1>;
+// dElement is a DOM container
+var dElement = document.getElementById('example');
+// render the React element in the DOM container
+ReactDOM.render(rElement, dElement);
+</script>
+</body>
+</html>
+```
+
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Simple React-app using ES6 Classes
+ 
+
+```js
+//Greeting.js
+
+import React from 'react';
+
+class Greeting extends React.Component {
+
+  render() {
+    return <h1>Hello, {this.props.name}</h1>
+  }
+}
+
+export default Greeting;
+```
+
+The example above shows how the component can render an arbitrary string passed into the name prop by its
+parent. Note that a component cannot modify the props it receives.
+
+A component can be rendered within any other component, or directly into the DOM if it's the topmost component,
+using ReactDOM.render and providing it with both the component and the DOM Node where you want the React
+tree to be rendered:
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## App.js 
+ 
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Greeting from './Greeting';
+
+ReactDOM.render(<Greeting name = 'Arun'/>, document.getElementById('main'))
+
+```
+
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Greeting.js 
+ 
+
+```js
+import React from 'react';
+
+class Greeting extends React.Component {
+
+  constructor(props) {
+    super(props);
+    
+    let firstName =  this.props.name.split(" ")[0];
+    
+    this.state = {
+      name: firstName
+    }
+  }
+  
+  render() {
+    
+      return <h1>Hello, {this.state.name}</h1>
+    
+  }
+}
+
+```
+
+Each component can have it's own state or accept it's parent's state as a prop.
+
+
+]
+
+---
+
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Components: Creating Components 
+ 
+
+```js
+import React, {Component} from 'react';
+
+import render from 'react-dom';
+
+class FirstComponent extends Component {
+
+  render() {
+    
+      return <div>Hello, {this.props.name} I am first component</div>
+    
+  }
+}
+
+render(
+  <FirstComponent name = {'user'}/>, document.getElementById('content')
+);
+```
+
+The above example is called a stateless component as it does not contain state
+
+
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Components: Stateless Functional Components
+
+In many applications there are smart components that hold state but render dumb components that simply receive
+props and return HTML as JSX. Stateless functional components are much more reusable and have a positive
+performance impact on your application.
+
+They have 2 main characteristics:
+
+1. When rendered they receive an object with all the props that were passed down
+2. They must return the JSX to be rendered
+ 
+
+```js
+
+import React from 'react';
+
+import PropTypes from 'propTypes';
+
+const FirstComponent = (props) => (
+
+  <div> Hello, {props.name}  I am first Component </div>
+)
+
+FirstComponent.propTypes = {
+  name: PropTypes.String.isRequired,
+}
+
+export default FirstComponent;
+
+```
+
+
+
+]
+
+---
+
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Components: Stateful Components
+
+
+```js
+import React, {Component} from 'react';
+class SecondComponent extends Component {
+  
+    constructor(props) {
+      super(props);
+      
+      this.state = {
+        toggle: true;
+      }
+      
+      this.onClick = this.onClick.bind(this);
+    }
+    onClick() {
+      this.setState((prevState,props)=> ({
+          toggle: !prevState.toggle
+      }));
+      
+    }
+    render() {
+      return (
+        <div onClick = {this.onClick}>
+          Hello, {this.props.name}, I am second component.
+          <br/>
+          
+          Toggle is {this.state.toggle}
+        </div>
+      );
+    }
+}
+
+```
+
+]
+
+---
+
+
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Basic Component
+
+
+```js
+//scripts/Example.js
+
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+
+class FirstComponent extends Component {
+  render() {
+    return(
+      <div className = "FirstComponent">
+        Hello I am first Component
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<FirstComponent>,document.getElementById('content'))
+```
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+</head>
+<body>
+<div id="content">
+<div className="firstComponent">
+Hello, world! I am a FirstComponent.
+</div>
+</div>
+<script type="text/babel" src="scripts/Example.js"></script>
+```
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Nesting Component
+
+A lot of the power of ReactJS is its ability to allow nesting of components. Take the following two components:
+```js
+var React = require('react');
+var createReactClass = require('create-react-class');
+var CommentList = reactCreateClass({
+    render: function(){
+      return (
+        <div className = "commentList">
+          Hello world ! I am comment list
+        </div>
+      )
+    }
+});
+var CommentForm = reactCreateClass({
+  render: function() {
+    return(
+      <div className="commentForm">
+      Hello world ! I am comment Form
+      </div>
+    )
+  }
+
+})
+var CommentBox = reactCreateClass({
+  render: function(){
+  <div className="commentBox">
+    <h1>Comments</h1>
+    <CommentList/>
+    <CommentForm/>
+  </div>
+  }
+})
+```
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Nesting without using Children
+
+```js
+var React = require('react');
+var createReactClass = require('create-react-class');
+var CommentList = reactCreateClass({
+    render: function(){
+      return (
+        <div className = "commentList">
+          <ListTitle/>
+          Hello, I am comment list
+        </div>
+      )
+    }
+});
+```
+
+
+Easy and fast to separate UI elements
+
+Easy to inject props down to children based on the parent component's state
+
+- Good if
+
+B and C are just presentational components
+
+B should be responsible for C's lifecycle
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Nesting  using Children
+
+```js
+var CommentBox = reactCreateClass({
+render: function() {
+  return (
+    <div className="commentBox">
+      <h1>Comments</h1>
+      <CommentList>
+        <ListTitel/>
+      </CommentList>
+    </div>
+  )
+}
+})
+
+
+```
+
+Better components lifecycle management
+
+Better visibility into the composition architecture
+
+Better reusuability
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Nesting  using Props
+
+```js
+var CommentBox = reactCreateClass({
+render: function() {
+  return (
+    <div className="commentBox">
+      <h1>Comments</h1>
+      <CommentList title = {ListTitle}>
+      <CommentForm/>
+      </CommentList>
+    </div>
+  )
+}
+})
+
+
+```
+Composition as a feature
+
+Easy validation
+
+Better composaiblility
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Props
+
+
+Props are a way to pass information into a React component, they can have any type including functions -
+
+sometimes referred to as callbacks.
+
+In JSX props are passed with the attribute syntax
+
+```js
+<MyComponent userId={123}/>
+```
+Inside the definition for MyComponent userID will now be accessible from the props object
+```js
+render() {
+  return (
+    <span> The userid is {this.props.userId} </span>
+  )
+}
+It's important to define all props, their types, and where applicable, their default value:
+
+```
+```js
+MyComponent.propTypes = {
+someObject: React.PropTypes.Object,
+userId: React.PropTypes.number.isRequired,
+title: ReactPropTpyes.String
+};
+
+MyComponent.defaultProps = {
+someObject: {},
+title: 'Some title'
+}
+```
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Component States
+
+
+```js
+
+var Button = ReactBootStrap.Button
+var Form = ReactBootStrap.Form
+
+var FormGroup = ReactBootStrap.FormGroup
+var FormControl = ReactBootStrap.FormControl
+
+var Comment = reactCreateClass({
+  getInitialState: function() {
+    return {show: false,newTitle:'Some title'}; 
+  },
+  handleTitleSubmit: function(e) {
+    
+  },
+  handleTitleChange: function(e) {
+    this.setState({newTitle: e.target.value})
+  },
+  changeComponent: function(e) {
+    this.setState({show: !this.state.show})
+  }
+})
+```
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Component States
+
+
+```js
+render: function() {
+  var clickableTitle;
+  if(this.state.show) {
+    clickableTitle = <Form inline onSubmit
+                        = {this.handleSubmit}>
+                          <FormGroup>
+                          <FormControl type = "text" onChange = {this.handleTitleChange}/>
+                          </FormGroup>    
+                      </Form>
+  }
+} else {
+    clickabletitle = <div>
+                      <Button bsStyle="link"      onClick={this.changeComponent}>
+                      <h3> Default Text </h3>
+                    </Button>
+                    </div>;
+  }
+return (
+<div className="comment">
+{clickableTitle}
+</div>
+);
+}
+});
+ReactDOM.render(
+<Comment />, document.getElementById('content')
+);
+```
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## Variations of Stateless functional Components
+
+
+```js
+const languages = [
+  'JavaScript',
+  'Python',
+  'Java',
+  'Elm',
+  'TypeScript',
+  'C#',
+  'F#'
+]
+
+//one liner
+const Language = ({language}) = > <li>{language}</li>
+
+Language.PropTypes = {
+message: React.PropTypes.string.isRequired
+}
+
+const LanguageList = ({languages}) => {
+  <ul>
+    languages.map(language => <Language language = {language}/>
+  </ul>
+    )
+
+}
+
+LanguageList.PropTypes = {
+  langugaes: React.PropTypes.array.isRequired
+}
+
+
+```
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+## 
+
+
+```js
+const LanguageSelection = ({header,languages}) =>
+
+{
+
+  const formattedLanguages = languages.map(language=>language.toUpperCase())
+  return (
+    <fieldSet>
+    <legend>{header}</legend>
+    <LanguagesList languages = {formattedLanguages}/>
+    </filedSet>
+  
+  )
+
+}
+
+LanguagesSelection.PropTypes = {
+  
+  header: React.PropTypes.string.isRequired,
+  languages: React.PropTypes.array.isRequired
+
+}
+
+ReactDOM.render(
+<LanguagesSelection header = "languages"  languages = {languages}/>, document.getElementById("app")
+)
+```
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  SetState pitfalls
+
+
+```js
+class MyClass extends React.Component {
+  
+    constructor(props){
+      super(props);
+      this.state = {
+        user: {}
+      };
+    }
+    
+    componentDidMount() {
+      this.fetchUser();
+    }
+    
+    fetchUser(){
+    $.get('/api/users/self').
+      then((user) => this.setState({user: user}))
+    }
+    render() {
+      return <h1>{this.state.user}</h1>
+    }
+
+}
+```
+]
+
+This could call problems - if the callback is called after the Component is dismounted
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  SetState pitfalls
+
+
+```js
+class MyClass extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        user: {},
+        xhr: null
+      };
+    }
+    
+    componentWillUnmount() {
+      let xhr = this.state.xhr;
+      if(xhr && xhr.readyState !=4) {
+        xhr.abort();
+      }
+    }
+    
+    fetchUser(){
+    let xhr = $.get('/api/users/self').
+      then((user) => this.setState({user: user}))
+      this.setState({xhr: xhr})  
+    }
+
+}
+```
+]
+The async method is saved as a state. In the componentWillUnmount you perform all your cleanup - including
+canceling the XHR request.
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  State in React
+
+State in React components is essential to manage and communicate data in your application. It is represented as a
+JavaScript object and has component level scope, it can be thought of as the private data of your component.
+
+```js
+class ExampleComponent extends React.Component {
+  constructor(props){
+  super(props);
+// Set-up our initial state
+this.state = {
+greeting: 'Hiya Buddy!'
+};
+}
+render() {
+// We can access the greeting property through this.state
+return(
+<div>{this.state.greeting}</div>
+);
+}
+}
+```
+
+]
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Props in React
+
+props are used to pass data and methods from a parent component to a child component. 
+
+
+1. They are immutable.
+2. They allow us to create reusable components.
+
+```js
+class Parent extends React.Component {
+
+  doSomething(){
+    console.log("something");
+  }
+  
+  render(){
+    return(
+      <div>
+        <child onClick = {this.doSomething}>
+        </child>
+      </div>
+    )
+  }
+}
+
+```
+
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Default Props
+
+DefaultProps allows you to set default, or fallback, values for your component props. defaultProps are useful
+when you call components from different views with fixed props, but in some views you need to pass different
+value.
+
+
+```js
+class MyClass extends React.Component {
+...
+}
+MyClass.defaultProps = {randomeObject:{},...}
+```
+
+]
+
+The result of getDefaultProps() or defaultProps will be cached and used to ensure that this.props.randomObject will have a value if it was not specified by the parent component.
+---
+
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Prop Types
+
+propTypes allows you to specify what props your component needs and the type they should be. 
+
+```js
+class MyClass extends React.Component {
+...
+}
+MyClass.propTypes = 
+{
+  randomObject: React.PropTypes.object,
+  callback:React.PropTypes.fun.isRequired,
+  ...
+}
+
+```
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Spread Operator
+
+Instead of 
+
+```js
+
+var component = <Component foo = {this.props.x} bar = {this.props.y}/>
+
+
+```
+
+```js
+var component = <Component {...props}/>;
+
+```
+
+The properties of the object that you pass in are copied onto the component's props.
+
+```js
+const { foo, bar, other } = this.props 
+var component = <Component {...{foo, bar}} />;
+const { foo, bar } = component.props
+console.log(foo, bar); // 'foo bar'
+```
+]
+
+---
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Props children and component composition
+
+The "child" components of a component are available on a special prop, props.children. This prop is very useful
+for "Compositing" components together, and can make JSX markup more intuitive or reflective of the intended final
+structure of the DOM:
+
+```js
+
+var SomeComponent = function() {
+return (
+  <article className="textBox">
+    <header>{this.props.heading}</header>
+    <div className="paragraphs">
+    {this.props.children}
+    </div>
+  </article>  
+)
+}
+```
+
+Which allows us to include an arbitrary number of sub-elements when using the component later:
+
+```js
+var ParentComponent = function() {
+return (
+<SomeComponent heading="">
+<p className="first"> Lots of Content </p>
+<p> or Not </p>
+</SomeComponent>
+)
+}
+
+```
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  React Component Life cycle
+
+When a React component is created, a number of functions are called:
+If you are using React.createClass (ES5), 5 user defined functions are called
+If you are using class Component extends React.Component (ES6), 3 user defined functions are called
+
+```js
+getDefaultProps() (ES5 only)
+getInitialState() (ES5 only)
+componentWillMount() (ES5 and ES6)
+componentDidMount() (ES5 and ES6)
+componentWillUnmount()
+```
+
+]
+
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Life cycle method calls in different states
+
+
+```js
+//When a component is initalized
+getDefaultProps(), getInitialState(),componentWillMount(),render(),componentDidMount()
+
+//when a component has state changed
+shouldComponentUpdate(),componentWillUpdate(),render(),componentDidUpdate()
+
+//When a component has props changed
+componentWillRecieveProps(), shouldComponentUpdate(),componentWillUpdate(), render(), componentDidUpdate()
+
+//When a component is unmounting
+componentWillUnmount()
+```
+]
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  React component container
+
+Presetational and Container components
+
+
+```js
+
+import React, {Component} from 'react';
+import Api from 'path/to/api';
+
+class CommentsListContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = { comments: [] }
+  }
+  
+  componentDidMount() {
+    Api.getComments().then(comments => this.setState({ comments }));
+  }
+  
+  render() {
+    return (
+      <CommentsList comments = {this.state.comments}/>
+    )
+  }
+
+}
+
+const CommentsList = ({comments}) => {
+  <div>
+    {comments.map(comment => (<div>{comment}))}
+  </div>  
+
+}
+
+CommentsList.propTypes = {
+ comments: React.PropTypes.arrayOf(React.PropTypes.string)
+}
+```
+]
+---
+
+
+class: large-body
+
+# 
+
+.pull-top[
+
+##  Controlled Component
+
+Controlled form components are defined with a value property. The value of controlled inputs is managed by
+React, user inputs will not have any direct influence on the rendered input. Instead, a change to the value property
+needs to reflect this change.
+
+```js
+
+import React, {Component} from 'react';
+
+class Form extends React.Component {
+
+constructor() {
+  super();
+  
+  this.onChange = this.onChange.bind(this);
+  
+  this.state = 
+      {
+          name: ''
+      }
+  }
+
+
+onChange(e) {
+  this.setState({name: e.target.value})
+}
+
+render() {
+  return(
+    <div>
+     <label for='name-input'>Name: </label>
+  <input
+  id='name-input'
+  onChange={this.onChange}
+  value={this.state.name} />
+ </div>
+  )
+}
+}
+
+```
+Uncontrolled components are inputs that do not have a value property. In opposite to controlled components, it is
+the application's responsibility to keep the component state and the input value in sync.
+
+]
+---
+
+
+class: inverse, center, middle
+# Thanks
+
+---

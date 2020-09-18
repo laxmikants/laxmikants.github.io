@@ -1,0 +1,325 @@
+---
+title: "Exploring and preparing data"
+author: Laxmi K Soni 
+description: "Exploring and preparing data with titanic dataset"
+slug: Exploring and preparing data
+date: 2020-01-08
+lastmod: 2020-01-08
+categories: ["Exploring Dataset"]
+tags: ["Exploring Dataset"]
+Summary: In data analysis and predictive modeling preparation of data paves the way for further insights.
+subtitle: Exploring and preparing data 
+featured: "img/main/eda_iris05.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+```
+
+```{css}
+.badCode {
+background-color: black;
+}
+```
+
+## Introduction
+
+
+The first a part of any data analysis or predictive modeling task is an initial exploration of the datasets. Albeit we collected the datasets ourself and we have already got an inventory of questions in mind that we simply want to answer, it's important to explore the datasets before doing any serious analysis, since oddities within the datasets can cause bugs and muddle your results. Before exploring deeper questions, we got to answer many simpler ones about the shape and quality of datasets . That said, it's important to travel into initial data exploration with an enormous picture question in mind.
+
+This post aims to boost a number of the questions we ought to consider once we check out a replacement data set for the primary time and show the way to perform various Python operations associated with those questions. 
+
+In this post, we'll explore the Titanic disaster training set available from Kaggle.co. The dataset consists of 889 passengers who rode aboard the Titanic.
+
+
+## Getting the dataset
+
+To get the dataset into `pandas dataframe` simply call the function `read_csv`.
+
+```{python, class.source="bg-success"}
+import pandas as pd
+import numpy as np
+
+tit_train = pd.read_csv("../data/titanic/train.csv")      # Read the data
+
+
+```
+
+Checking the dimensions of the dataset with `df.shape` and the variable data types of `df.dtypes`.
+
+```{python}
+tit_train.shape
+
+tit_train.dtypes
+```
+
+The output displays that we re working with a set of 891 records and 12 columns. Most of the column variables are encoded as numeric data types (ints and floats) but a some of them are encoded as "object". 
+
+Check the head of the data to get a better sense of what the variables look like:
+
+```{python}
+tit_train.head(5)
+```
+
+We have a combination of numeric columns and columns with text data. 
+
+In dataset analysis, variables or features that split records into a fixed number of unique categories, such as Sex, are called as categorical variables. 
+
+Pandas can be used to interpret categorical variables as such when we load dataset, but we can convert a variable to categorical if necessary
+
+After getting a sense of the datasets structure, it is a good practice to look at a statistical summary of the features with df.describe():
+
+```{python}
+tit_train.describe().transpose()
+```
+
+we notice that the non-numeric columns are omitted from the statistical summary provided by `df.describe()`.
+
+We can find the summary of the categorical variables by passing only those columns to describe():
+
+```{python}
+
+cat_vars = tit_train.dtypes[tit_train.dtypes == "object"].index
+
+print(cat_vars)
+
+
+tit_train[cat_vars].describe().transpose()
+```
+
+
+The summary of the categorical features shows the count of non-NaN records, the number of unique categories, the most frequent occurring value and the number of occurrences of the most frequent value.
+
+Although describe() gives a concise overview of each variable, it does not necessarily give us enough information to determine what each variable means.
+
+Certain features like "Age" and "Fare" are easy to understand, while others like "SibSp" and "Parch" are not. The details of these are provided by kaggle on the data download page.
+
+
+
+```{python}
+# VARIABLE DESCRIPTIONS:
+# survival        Survival
+#                 (0 = No; 1 = Yes)
+# pclass          Passenger Class
+#                 (1 = 1st; 2 = 2nd; 3 = 3rd)
+# name            Name
+# sex             Sex
+# age             Age
+# sibsp           Number of Siblings/Spouses Aboard
+# parch           Number of Parents/Children Aboard
+# ticket          Ticket Number
+# fare            Passenger Fare
+# cabin           Cabin
+# embarked        Port of Embarkation
+#                 (C = Cherbourg; Q = Queenstown; S = Southampton)
+```
+
+After looking at the data we  ask yourself a few questions:
+
+
+| QUESTIONS 
+|---------------------------------------------------------|
+| Do we require all of the variables ?                 |
+| Should we transform any variables ?                     |
+| Check if there are any NA values, outliers etc ? |
+| Should we create new variables?                         |
+
+
+#### Do we require all of the Variables?
+
+
+Removal of unnecessary variables is a  first step when dealing with any data set, since removing variables reduces complexity and can make computation on the data faster. 
+
+Whether we should get rid of a variable or not will depend on size of the data set and the goal of the analysis. With a dataset like the titanic data, there's no requirement to remove variables from a computing perspective.
+But it can be helpful to drop variables that will only distract from your goal.
+
+Let's go through each variable and consider whether we should keep it or not in the context of survival prediction.
+
+"PassengerId" is just a number assigned to each passenger. We can remove it
+
+```{python}
+del tit_train['PassengerId']
+```
+
+
+Variable "Survived" shows whether each passenger lived or died. Since survival prediction is our goal, we definitely need to keep it.
+
+Features describing passengers numerically or grouping them into a few broad categories could be useful for survival prediction. Therefore variables Pclass, Sex, Age, SibSp, Parch, Fare and Embarked can be kept.
+
+further, "Name" appears to be a character string of the name of each passenger and it will also help in identifying passenger so we can keep it
+
+Next, let's see at "Ticket"
+
+
+```{python}
+tit_train['Ticket'][0:10]
+```
+
+```{python}
+tit_train['Ticket'].describe()
+```
+
+
+Ticket has 681 unique values: almost as many as there are passengers. Categorical variables with this many levels are generally not very useful for prediction. Let's remove it
+
+```{python}
+del tit_train['Ticket']
+```
+
+Lastly let's see the "Cabin" variable
+
+```{python}
+tit_train['Cabin'][0:10]
+```
+
+```{python}
+tit_train['Cabin'].describe()
+```
+
+Cabin also has 147 unique values, which shows it may not be useful for prediction. On the other hand, the names of the different levels for the cabin variable seem to have a some structure, each starts with a capital letter followed by a number. We can use that structure to reduce the number of levels to make categories large enough that they might be useful for prediction later on. So Lets Keep Cabin for now.
+
+
+####  Should we transform Any Variables?
+
+`Pclass` is an integer variable that indicates a passenger's class, with 1 being first class, 2 as second class and 3 as third class. We can transform this by transforming Pclass into an ordered categorical variable
+
+```{python}
+
+pclass_new = pd.Categorical(tit_train['Pclass'], ordered=True)
+
+pclass_new = pclass_new.rename_categories(["class1","class2","class3"])
+
+pclass_new.describe()
+
+```
+
+
+```{python}
+tit_train['Pclass'] = pclass_new
+```
+
+Now see the Cabin variable. It appears that each Cabin is in a general section of the ship indicated by the capital letter at the start of each factor level
+
+```{python}
+tit_train['Cabin'].unique()
+```
+
+If we grouped the cabin just by this letter, we could lesser the number of levels while getting some useful information.
+
+```{python}
+
+chr_cabin = tit_train["Cabin"].astype(str)
+
+n_Cabin = np.array([cabin[0] for cabin in chr_cabin]) 
+
+n_Cabin = pd.Categorical(n_Cabin)
+
+n_Cabin.describe()
+```
+
+The output of describe() shows we can group Cabin into broader categories, but we also discovered something interesting: 688 of the records have Cabin are "n" which is shortened from "nan". In other words, more than 2/3 of the passengers do not have a cabin. 
+
+
+A missing cabin variable could be an indication that a passenger died.
+
+We can keep the new variable cabin
+
+```{python}
+tit_train["Cabin"] = n_Cabin
+```
+
+### Checking to if there are null Values, Outliers or Other garbage Values?
+
+To check the missing values we us `pd.isnull()` function for example
+
+```{python}
+
+mock_vector = pd.Series([1,None,3,None,7,8])
+
+mock_vector.isnull()
+
+```
+
+If the missing values are numeric then they can be simple deleted. If missing values are categorical then they can be treated as additional category with value as NA.
+
+To check if there is missing age values in titanic dataset 
+
+```{python}
+tit_train["Age"].describe()
+```
+
+We see that the  count of age (712) is less than the total row count of dataset(889). 
+To check indexes of the missing ages we use `np.where()`
+
+```{python}
+missvalues = np.where(tit_train["Age"].isnull() == True)
+missvalues
+```
+
+```{python}
+len(missvalues)
+```
+
+Before we do anything with missing values its good to check the distribution of the missing values to know the central tendency of age.
+
+```{python, eval = FALSE}
+tit_train.hist(column='Age',    
+                   figsize=(9,6),   
+                   bins=20)         
+```
+
+![](/img/main/titdsage.png)
+
+The histogram shows that couple of passengers are near age 80. 
+
+To check the `fare` variable we create the box plot
+
+```{python, eval=FALSE}
+tit_train["Fare"].plot(kind="box",
+                           figsize=(9,9))
+```
+
+![](/img/main/titdsfare.png)
+
+50% of the data in the box plot represents the median. There are outliers in the data. There are passengers who paid double the amount than any other passenger. We can check this using `np.where()` function
+
+```{python}
+ind = np.where(tit_train["Fare"] == max(tit_train["Fare"]) )
+
+tit_train.loc[ind]
+```
+
+Before modeling datasets using ML models it is better to address missing values, outliers, mislabeled data, bad data because they can corrupt the analysis and lead to wrong results.
+
+### Should we Create New Variables?
+
+
+The decision to create new variables should be taken while preparing the data. The new variable could represent aggregate of existing variables, for example in titanic dataset we can create a new variable called `family` which stores the number of members in that family.
+
+```{python}
+tit_train["Family"] = tit_train["SibSp"] + tit_train["Parch"]
+```
+
+we can check who has most family members on the board
+
+```{python}
+mostfamily = np.where(tit_train["Family"] == max(tit_train["Family"]))
+
+tit_train.loc[mostfamily]
+```
+
+## Summary
+
+There are question that should be answered while investing any dataset. Once the basic questions are answered one can move further to find relationship between variables/features and build the machine learning models.

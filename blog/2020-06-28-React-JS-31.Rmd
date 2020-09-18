@@ -1,0 +1,36 @@
+---
+title: "React- JS"
+author: Laxmi K Soni 
+description: "React JS Programming"
+slug: React JS 
+date: 2020-06-28
+lastmod: 2020-06-28
+categories: ["Slides"]
+tags: ["Slides"]
+Summary: React-JS Introduction
+subtitle: React-JS
+featured: "img/main/2020-06-28-React-JS-31.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+```
+
+*** React-JS
+
+
+```{r, echo=FALSE}
+knitr::include_url('/slides/GettingStartedwithReact.html')
+```

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Data Science Posts and Resources</title>
+    <link>https://laxmikants.github.io/categories/python/</link>
+    <description>Recent content in Python on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 12 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python - Classes and Objects</title>
+      <link>https://laxmikants.github.io/blog/python-basics-2/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-basics-2/</guid>
+      <description>Introduction to Python.</description>
+    </item>
+    
+    <item>
+      <title>Python - 1</title>
+      <link>https://laxmikants.github.io/blog/python-basics/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-basics/</guid>
+      <description>Introduction to Python.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,96 @@
+---
+title: "Python - Pandas"
+author: Laxmi K Soni 
+description: "Introduction to Pandas"
+slug: Pandas
+date: 2019-03-11
+lastmod: 2019-03-11
+categories: ["Python"]
+tags: ["Python"]
+Summary: Pandas
+subtitle: Pandas
+featured: "img/main/Python_Basics-19.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+## Pandas
+
+Threads are lightweight processes that perform certain actions in a program and they are part of a process themselves. These threads can work in parallel with each other in the same way as two individual applications can.
+
+Since threads in the same process share the memory space for the variables and the data, they can exchange information and communicate efficiently. Also, threads need fewer resources than processes. That’s why they’re often called lightweight processes.
+
+### HOW A THREAD WORKS
+
+A thread has a beginning or a start, a working sequence and an end. But it can also be stopped or put on hold at any time. The latter is also called sleep .
+There are two types of threads: Kernel Threads and User Threads . Kernel threads are part of the operating system, whereas user threads are managed by the programmer. That’s why we will focus on user threads in this book.
+
+In Python, a thread is a class that we can create instances of. Each of these instances then represents an individual thread which we can start, pause or stop. They are all independent from each other and they can perform different operations at the same time.
+
+For example, in a video game, one thread could be rendering all the graphics, while another thread processes the keyboard and mouse inputs. It would be unthinkable to serially perform these tasks one after the other.
+
+### STARTING THREADS
+
+In order to work with threads in Python, we will need to import the respective library threading .
+
+```{python}
+import threading
+```
+Then, we need to define our target function. This will be the function that contains the code that our thread shall be executing. Let’s just keep it simple for the beginning and write a hello world function.
+
+```{python}
+import threading
+def hello():
+  print ( 'Hello World!' )
+  t1 = threading.Thread( target =hello)
+  t1.start()
+```
+
+After we have defined the function, we create our first thread. For this, we use the class Thread of the imported threading module. As a parameter, we specify the target to be the hello function. Notice that we don’t put parentheses after our function name here, since we are not calling it but just referring to it. By using the start method we put our thread to work and it executes our function.
+
+### START VS RUN
+
+In this example, we used the function start to put our thread to work. Another alternative would be the function run . The difference between these two functions gets important, when we are dealing with more than just one thread.
+When we use the run function to execute our threads, they run serially one after the other. They wait for each other to finish. The start function puts all of them to work simultaneously.
+The following example demonstrates this difference quite well.
+
+```{python, eval= FALSE}
+import threading
+
+def function1():
+  for x in range ( 1000 ):
+  print ( 'ONE' )
+def function2():
+  for x in range ( 1000 ):
+  print ( 'TWO' )
+  
+t1 = threading.Thread( target =function1)
+
+t2 = threading.Thread( target =function2)
+
+t1.start()
+
+t2.start()
+```
+When you run this script, you will notice that the output alternates between ONEs and TWOs . Now if you use the run  function instead of the start function, you will see 1000 times ONE followed by 1000 times TWO . This shows you that the threads are run serially and not in parallel.
+
+One more thing that you should know is that the application itself is also the main thread, which continues to run in the background. So while your threads are running, the code of the script will be executed unless you wait for the threads to finish.
+
+### WAITING FOR THREADS

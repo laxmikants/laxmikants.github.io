@@ -1,0 +1,42 @@
+---
+title: "Working with Big Data"
+author: Laxmi K Soni 
+description: "The amount of data is increasing at exponential rates. Today's systems are generating and recording information on customer behavior..."
+slug:  Working with Big Data
+date: 2020-01-08
+lastmod: 2020-01-08
+categories: ["Big Data"]
+tags: ["Big Data"]
+Summary: The amount of data is increasing at exponential rates. Today's systems are generating and recording information on customer behavior...
+subtitle: Working with Big Data
+featured: "img/main/Big-Data-14.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+## Introduction:
+
+The amount of data is increasing at exponential rates. Today's systems are generating and recording information on customer behavior, distributed systems, network analysis, sensors and many, many more sources. While the current big trend of mobile data is pushing the current growth, the next big thing—the Internet of Things (IoT)—is going to further increase the rate of growth.
+
+What this means for data mining is a new way of thinking. The complex algorithms with high run times need to be improved or discarded, while simpler algorithms that can deal with more samples are becoming more popular to use. As an example, while support vector machines are great classifiers, some variants are difficult to use on very large datasets. In contrast, simpler algorithms such as logistic regression can manage more easily in these scenarios.
+
+In this chapter, we will investigate the following:
+
+Big data challenges and applications
+The MapReduce paradigm
+Hadoop MapReduce
+mrjob, a python library to run MapReduce programs on Amazon's infrastructure
+
+#### The Meaning of Big Data
+
+What makes big data different? Most big-data proponents talk about the four Vs of big data:
+
+Volume: The amount of data that we generate and store is growing at an increasing rate, and predictions of the future generally only suggest further increases. Today's multi-gigabyte sized hard drives will turn into exabyte hard drives in a few years, and network throughput traffic will be increasing as well. The signal to noise ratio can be quite difficult, with important data being lost in the mountain of non-important data.
+Velocity: While related to volume, the velocity of data is increasing too. Modern cars have hundreds of sensors that stream data into their computers, and the information from these sensors needs to be analyzed at a subsecond level to operate the car. It isn't just a case of finding answers in the volume of data; those answers often need to come quickly.
+Variety: Nice datasets with clearly defined columns are only a small part of the dataset that we have these days. Consider a social media post, which may have text, photos, user mentions, likes, comments, videos, geographic information, and other fields. Simply ignoring parts of this data that don't fit your model will lead to a loss of information, but integrating that information itself can be very difficult.
+Veracity: With the increase in the amount of data, it can be hard to determine whether the data is being correctly collected—whether it is outdated, noisy, contains outliers, or generally whether it is useful at all. Being able to trust the data is hard when a human can't reliably verify the data itself. External datasets are being increasingly merged into internal ones too, giving rise to more troubles relating to the veracity of the data.

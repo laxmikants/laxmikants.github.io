@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Web Scrapping Basics - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name= "keywords" content="Posts and Resources on Data Science | Laxmikant Soni, Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python, R, Jupyter Notebook, Tensorflow, Javascript, ReactJS, NodeJS, Posts and Resources on Data Science, Data Science, Hadoop, Java, Spring, Hibernate, Struts, MySQL, Oracle, DB2, Websphere, Weblogic">
+<meta name="robots" content="index">
+<meta name="description" content="Posts and Resources on Data Science | Laxmikant Soni">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Web Scrapping Basics">
+<meta itemprop="description" content="A beginer level introduction to Web Scrapping using Python">
+<meta itemprop="datePublished" content="2020-04-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="651">
+
+
+
+<meta itemprop="keywords" content="Web Scrapping," />
+<meta property="og:title" content="Web Scrapping Basics" />
+<meta property="og:description" content="A beginer level introduction to Web Scrapping using Python" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/blog/web-scrapping/" />
+<meta property="article:published_time" content="2020-04-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Web Scrapping Basics"/>
+<meta name="twitter:description" content="A beginer level introduction to Web Scrapping using Python"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Web Scrapping Basics : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Web Scrapping Basics">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://example.com/blog/web-scrapping/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="A beginer level introduction to Web Scrapping using Python">
+<meta name="description" content="A beginer level introduction to Web Scrapping using Python">
+<meta property="og:updated_time" content="2020-04-12T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://example.com/">
+<meta property="article:published_time" content="2020-04-12T00:00:00Z">
+<meta property="article:modified_time" content="2020-04-12T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Web Scrapping Basics",
+  "alternativeHeadline": "A beginer level introduction to Web Scrapping using Python",
+  "url": "https://example.com/blog/web-scrapping/",
+  "image": "https://example.com/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.com/blog/web-scrapping/"
+  },
+  "description": "A beginer level introduction to Web Scrapping using Python",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/"
+    }
+  },
+  "datePublished": "2020-04-12T00:00:00Z",
+  "dateModified": "2020-04-12T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"what-is-web-scrapping\" class=\"section level3\"\u003e\r\n\u003ch3\u003eWhat is web scrapping\u003c/h3\u003e\r\n\u003cp\u003eWeb scrapping is a process of extracting data from the web. Usually bots do most of the work to crawl the web sites and store information into the databases.\u003c/p\u003e\r\n\u003cp\u003eFeatures:\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eLarge amounts of data can be extracted from websites\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eConvert unstructred data to structured data\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eThere is a Crawler in webscrapping to index and search content\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eThere is a Scrapper in webscrapping which extracts the data from the web page\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eWebsites, News resources, RSS feeds, Pricing Websites, Social Media, Company information, Schemas/charts/tables/graphs are the main sources of unstructured data which a webscrapper uses to get data.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"how-it-works\" class=\"section level3\"\u003e\r\n\u003ch3\u003eHow it works\u003c/h3\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eGet Request is sent using http protocol to the site the scrapper is targetting\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eWeb server processes the request and then allowed to read and extract the html of the web page\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eThe data is retrieved in html format after which it is carefully parsed to extricate the raw data we want from th noise surrounding it.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eFinally the data is stored in the format to exact the specifications of the project.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"common-python-libraries-for-web-scrapping\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCommon python libraries for web-scrapping\u003c/h3\u003e\r\n\u003cdiv id=\"beautifulsoup\" class=\"section level4\"\u003e\r\n\u003ch4\u003eBeautifulSoup\u003c/h4\u003e\r\n\u003cp\u003eThe most common library is BeautifulSoup.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eIt parses html document\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eIt extracts text from it\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eIt searches tags by their attributes\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eIt has findAll and find functions are commonly used to find all attributes.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cp\u003eExample#1: Getting covid-19 data from the web\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport requests\r\nfrom bs4 import BeautifulSoup\r\n\r\nurl = \u0026quot;https://www.worldometers.info/coronavirus/\u0026quot;\r\n\r\npage = requests.get(url)\r\n\r\nsoup = BeautifulSoup(page.text,\u0026#39;html.parser\u0026#39;)\r\n\r\ntotal = soup.find(\u0026quot;div\u0026quot;,class_ = \u0026quot;maincounter-number\u0026quot;).text\r\n\r\ntotal = total[1:len(total)-1]\r\n\r\nother = soup.find_all(\u0026quot;span\u0026quot;,class_=\u0026quot;number-table\u0026quot;)\r\n\r\nrecovered = other[2].text\r\n\r\ndeaths = other[3].text\r\n\r\ndeaths = deaths[1:]\r\n\r\nans = {\u0026quot;total cases\u0026quot;: total, \u0026quot;recovered\u0026quot;: recovered, \u0026quot;deaths\u0026quot;: deaths}\r\n\r\nprint(ans)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## {\u0026#39;total cases\u0026#39;: \u0026#39;28,745,675 \u0026#39;, \u0026#39;recovered\u0026#39;: \u0026#39;20,652,620\u0026#39;, \u0026#39;deaths\u0026#39;: \u0026#39;921,174\u0026#39;}\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eExample#2: Scrapping yourdictionary.com\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport requests\r\nfrom bs4 import BeautifulSoup\r\n\r\nurl = \u0026quot;https://examples.yourdictionary.com/20-words-to-avoid-on-your-resume.html\u0026quot;\r\n\r\npage = requests.get(url)\r\n\r\nsoup = BeautifulSoup(page.text,\u0026#39;html.parser\u0026#39;)\r\n\r\nparas = soup.findAll(\u0026#39;p\u0026#39;)\r\n\r\nfor p in paras:\r\n  print(p.text + \u0026#39;\\n\u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eExample#2: Getting top mathematicians from web\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom urllib.request import urlopen as uReq\r\nfrom bs4 import BeautifulSoup as BeautifulSoup, Tag\r\nimport pandas as pd\r\n\r\nhtml = uReq(\u0026quot;http://www.fabpedigree.com/james/gmat200.htm\u0026quot;).read()\r\n\r\nsoup = BeautifulSoup(html,\u0026#39;html5lib\u0026#39;)\r\n\r\nnames = []\r\nfor item in soup.find_all(\u0026#39;li\u0026#39;):\r\n  if isinstance(item, Tag):\r\n    names.append(item.text.rstrip())\r\n\r\nnames_df = pd.DataFrame(names)    \r\n\r\n\r\nprint(names_df.head())    \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                    0\r\n## 0       Isaac Newton\r\n## 1         Archimedes\r\n## 2      Carl F. Gauss\r\n## 3     Leonhard Euler\r\n## 4   Bernhard Riemann\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"lxml\" class=\"section level4\"\u003e\r\n\u003ch4\u003eLXML\u003c/h4\u003e\r\n\u003cp\u003ePython provides lxml library which is easier to use and has lots of features. lxml and Beautiful soup have similarity. It allows to parse XML and HTML documents easily. Ease of use and performance are the key features of lxml library.\u003c/p\u003e\r\n\u003cp\u003eExample:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom lxml import html\r\nimport requests\r\n\r\npage = requests.get(\u0026#39;https://projecteuler.net/problem=1\u0026#39;)\r\ntree = html.fromstring(page.content)\r\ntext=tree.xpath(\u0026#39;//div[@role=\u0026quot;problem\u0026quot;]/p/text()\u0026#39;)\r\nprint (text)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.\u0026#39;, \u0026#39;Find the sum of all the multiples of 3 or 5 below 1000.\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"machenical-soup\" class=\"section level4\"\u003e\r\n\u003ch4\u003eMachenical Soup\u003c/h4\u003e\r\n\u003cp\u003eIt is a library for automating interaction with the websites. User can login and logout of the website, submit forms etc.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"python-requests\" class=\"section level4\"\u003e\r\n\u003ch4\u003ePython Requests\u003c/h4\u003e\r\n\u003cp\u003eSubmitting a form with the Requests library can be done in four lines, including the\r\nimport and the instruction to print the content (yes, it’s that easy):\u003c/p\u003e\r\n\u003cp\u003eExample#3 Getting exchange rates\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nimport requests\r\nimport pandas as pd\r\n # base_url variable store base url  \r\nbase_url = \u0026quot;https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE\u0026quot;\r\n\r\nfrom_currency = \u0026quot;USD\u0026quot;\r\n\r\nto_currency = \u0026quot;INR\u0026quot;\r\n\r\nmain_url = base_url + \u0026quot;\u0026amp;from_currency=\u0026quot; + from_currency + \u0026quot;\u0026amp;to_currency=\u0026quot; + to_currency + \u0026quot;\u0026amp;apikey=4RSKNH0KOBS5TMP1\u0026quot;\r\n\r\nreq_ob = requests.get(main_url) \r\n\r\nresult = req_ob.json() \r\n\r\n\r\noneusdequals = result[\u0026quot;Realtime Currency Exchange Rate\u0026quot;][\u0026#39;5. Exchange Rate\u0026#39;]\r\n\r\n\r\nprint(float(oneusdequals))\r\n  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 73.43\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport requests\r\nparams = {\u0026#39;firstname\u0026#39;: \u0026#39;Arun\u0026#39;, \u0026#39;lastname\u0026#39;: \u0026#39;solanki\u0026#39;}\r\nr = requests.post(\u0026quot;http://pythonscraping.com/files/processing.php\u0026quot;, data=params)\r\nprint(r.text)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Hello there,  !\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport requests\r\nr = requests.get(\u0026#39;https://github.com/timeline.json\u0026#39;)\r\nprint(r.text)\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"scrapy\" class=\"section level4\"\u003e\r\n\u003ch4\u003eScrapy\u003c/h4\u003e\r\n\u003cp\u003eProblems associated with crawling the web are handled by scrapy. It is powerful framework for web scrapping.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport scrapy\r\n\r\nclass ExampleSpider(scrapy.Spider):\r\n    name = \u0026quot;example\u0026quot;\r\n    minimum = 15\r\n    maximum = 25\r\n\r\n    def start_requests(self):\r\n        for i in range(self.minimum, self.maximum + 1):\r\n            url = \u0026#39;http://example1.com/page.aspx?id={}\u0026#39;.format(i)\r\n            yield scrapy.Request(url)\r\n\r\n    def parse(self, response):\r\n        pass\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Web%20Scrapping%20Basics&amp;url=https%3a%2f%2fexample.com%2fblog%2fweb-scrapping%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fweb-scrapping%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
+    
+    
+      <p>A beginer level introduction to Web Scrapping using Python</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+    <p>Laxmi K Soni</p>
+    <p>4-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Web%20Scrapping%20Basics&amp;url=https%3a%2f%2fexample.com%2fblog%2fweb-scrapping%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fweb-scrapping%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://example.com/img/main/web_scrapping02.jpg');">
+    <img src="https://example.com/img/main/web_scrapping02.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="what-is-web-scrapping" class="section level3">
+<h3>What is web scrapping</h3>
+<p>Web scrapping is a process of extracting data from the web. Usually bots do most of the work to crawl the web sites and store information into the databases.</p>
+<p>Features:</p>
+<ul>
+<li><p>Large amounts of data can be extracted from websites</p></li>
+<li><p>Convert unstructred data to structured data</p></li>
+<li><p>There is a Crawler in webscrapping to index and search content</p></li>
+<li><p>There is a Scrapper in webscrapping which extracts the data from the web page</p></li>
+<li><p>Websites, News resources, RSS feeds, Pricing Websites, Social Media, Company information, Schemas/charts/tables/graphs are the main sources of unstructured data which a webscrapper uses to get data.</p></li>
+</ul>
+</div>
+<div id="how-it-works" class="section level3">
+<h3>How it works</h3>
+<ul>
+<li><p>Get Request is sent using http protocol to the site the scrapper is targetting</p></li>
+<li><p>Web server processes the request and then allowed to read and extract the html of the web page</p></li>
+<li><p>The data is retrieved in html format after which it is carefully parsed to extricate the raw data we want from th noise surrounding it.</p></li>
+<li><p>Finally the data is stored in the format to exact the specifications of the project.</p></li>
+</ul>
+</div>
+<div id="common-python-libraries-for-web-scrapping" class="section level3">
+<h3>Common python libraries for web-scrapping</h3>
+<div id="beautifulsoup" class="section level4">
+<h4>BeautifulSoup</h4>
+<p>The most common library is BeautifulSoup.</p>
+<ul>
+<li><p>It parses html document</p></li>
+<li><p>It extracts text from it</p></li>
+<li><p>It searches tags by their attributes</p></li>
+<li><p>It has findAll and find functions are commonly used to find all attributes.</p></li>
+</ul>
+<p>Example#1: Getting covid-19 data from the web</p>
+<pre class="python"><code>import requests
+from bs4 import BeautifulSoup
+
+url = &quot;https://www.worldometers.info/coronavirus/&quot;
+
+page = requests.get(url)
+
+soup = BeautifulSoup(page.text,&#39;html.parser&#39;)
+
+total = soup.find(&quot;div&quot;,class_ = &quot;maincounter-number&quot;).text
+
+total = total[1:len(total)-1]
+
+other = soup.find_all(&quot;span&quot;,class_=&quot;number-table&quot;)
+
+recovered = other[2].text
+
+deaths = other[3].text
+
+deaths = deaths[1:]
+
+ans = {&quot;total cases&quot;: total, &quot;recovered&quot;: recovered, &quot;deaths&quot;: deaths}
+
+print(ans)</code></pre>
+<pre><code>## {&#39;total cases&#39;: &#39;28,745,675 &#39;, &#39;recovered&#39;: &#39;20,652,620&#39;, &#39;deaths&#39;: &#39;921,174&#39;}</code></pre>
+<p>Example#2: Scrapping yourdictionary.com</p>
+<pre class="python"><code>import requests
+from bs4 import BeautifulSoup
+
+url = &quot;https://examples.yourdictionary.com/20-words-to-avoid-on-your-resume.html&quot;
+
+page = requests.get(url)
+
+soup = BeautifulSoup(page.text,&#39;html.parser&#39;)
+
+paras = soup.findAll(&#39;p&#39;)
+
+for p in paras:
+  print(p.text + &#39;\n&#39;)</code></pre>
+<p>Example#2: Getting top mathematicians from web</p>
+<pre class="python"><code>from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as BeautifulSoup, Tag
+import pandas as pd
+
+html = uReq(&quot;http://www.fabpedigree.com/james/gmat200.htm&quot;).read()
+
+soup = BeautifulSoup(html,&#39;html5lib&#39;)
+
+names = []
+for item in soup.find_all(&#39;li&#39;):
+  if isinstance(item, Tag):
+    names.append(item.text.rstrip())
+
+names_df = pd.DataFrame(names)    
+
+
+print(names_df.head())    </code></pre>
+<pre><code>##                    0
+## 0       Isaac Newton
+## 1         Archimedes
+## 2      Carl F. Gauss
+## 3     Leonhard Euler
+## 4   Bernhard Riemann</code></pre>
+</div>
+<div id="lxml" class="section level4">
+<h4>LXML</h4>
+<p>Python provides lxml library which is easier to use and has lots of features. lxml and Beautiful soup have similarity. It allows to parse XML and HTML documents easily. Ease of use and performance are the key features of lxml library.</p>
+<p>Example:</p>
+<pre class="python"><code>from lxml import html
+import requests
+
+page = requests.get(&#39;https://projecteuler.net/problem=1&#39;)
+tree = html.fromstring(page.content)
+text=tree.xpath(&#39;//div[@role=&quot;problem&quot;]/p/text()&#39;)
+print (text)</code></pre>
+<pre><code>## [&#39;If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.&#39;, &#39;Find the sum of all the multiples of 3 or 5 below 1000.&#39;]</code></pre>
+</div>
+<div id="machenical-soup" class="section level4">
+<h4>Machenical Soup</h4>
+<p>It is a library for automating interaction with the websites. User can login and logout of the website, submit forms etc.</p>
+</div>
+<div id="python-requests" class="section level4">
+<h4>Python Requests</h4>
+<p>Submitting a form with the Requests library can be done in four lines, including the
+import and the instruction to print the content (yes, it’s that easy):</p>
+<p>Example#3 Getting exchange rates</p>
+<pre class="python"><code>
+import requests
+import pandas as pd
+ # base_url variable store base url  
+base_url = &quot;https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&quot;
+
+from_currency = &quot;USD&quot;
+
+to_currency = &quot;INR&quot;
+
+main_url = base_url + &quot;&amp;from_currency=&quot; + from_currency + &quot;&amp;to_currency=&quot; + to_currency + &quot;&amp;apikey=4RSKNH0KOBS5TMP1&quot;
+
+req_ob = requests.get(main_url) 
+
+result = req_ob.json() 
+
+
+oneusdequals = result[&quot;Realtime Currency Exchange Rate&quot;][&#39;5. Exchange Rate&#39;]
+
+
+print(float(oneusdequals))
+  </code></pre>
+<pre><code>## 73.43</code></pre>
+<pre class="python"><code>import requests
+params = {&#39;firstname&#39;: &#39;Arun&#39;, &#39;lastname&#39;: &#39;solanki&#39;}
+r = requests.post(&quot;http://pythonscraping.com/files/processing.php&quot;, data=params)
+print(r.text)</code></pre>
+<pre><code>## Hello there,  !</code></pre>
+<pre class="python"><code>import requests
+r = requests.get(&#39;https://github.com/timeline.json&#39;)
+print(r.text)</code></pre>
+</div>
+<div id="scrapy" class="section level4">
+<h4>Scrapy</h4>
+<p>Problems associated with crawling the web are handled by scrapy. It is powerful framework for web scrapping.</p>
+<pre class="python"><code>import scrapy
+
+class ExampleSpider(scrapy.Spider):
+    name = &quot;example&quot;
+    minimum = 15
+    maximum = 25
+
+    def start_requests(self):
+        for i in range(self.minimum, self.maximum + 1):
+            url = &#39;http://example1.com/page.aspx?id={}&#39;.format(i)
+            yield scrapy.Request(url)
+
+    def parse(self, response):
+        pass</code></pre>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/web-scrapping/">Web Scrapping</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/web-scrapping/">Web Scrapping</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="f45104474745026feab1e203c958f900">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/support-vector-machines/" class="button left"><span>Support Vector Machines</span></a>
+    
+    
+      <a href="/blog/linear-regression/" class="button right"><span>Decision Trees</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://example.com/img/main/2020-06-28-React-JS-31.jpg');">
+    <img src="https://example.com/img/main/2020-06-28-React-JS-31.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/support-vector-machines/" class="image" style="--bg-image: url('https://example.com/img/main/support_vector_machines-18.jpg');">
+    <img src="https://example.com/img/main/support_vector_machines-18.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/support-vector-machines/">Support Vector Machines</a></h2>
+          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://example.com/img/main/web_scrapping02.jpg');">
+    <img src="https://example.com/img/main/web_scrapping02.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
+          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">12</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/slides/">slides<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.fcfc9e1d76e9b508f36f1e2dbd43f12bee856cb74ea5748029231e02ab7d382e.js" integrity="sha256-/PyeHXbptQjzbx4tvUPxK&#43;6FbLdOpXSAKSMeAqt9OC4="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>

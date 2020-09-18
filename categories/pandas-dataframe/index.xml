@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pandas DataFrame on Data Science Posts and Resources</title>
+    <link>https://example.com/categories/pandas-dataframe/</link>
+    <description>Recent content in Pandas DataFrame on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/pandas-dataframe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pandas DataFrame</title>
+      <link>https://example.com/blog/pandas-dataframe/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/blog/pandas-dataframe/</guid>
+      <description>DataFrames are labeled 2-dimensional structures, that essentially function as spreadsheet tables.</description>
+    </item>
+    
+  </channel>
+</rss>

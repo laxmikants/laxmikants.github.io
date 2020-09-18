@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Python - 1 - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Python - 1">
+<meta itemprop="description" content="Introduction to Python.">
+<meta itemprop="datePublished" content="2019-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="883">
+
+
+
+<meta itemprop="keywords" content="Python," />
+<meta property="og:title" content="Python - 1" />
+<meta property="og:description" content="Introduction to Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-basics/" />
+<meta property="article:published_time" content="2019-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python - 1"/>
+<meta name="twitter:description" content="Introduction to Python."/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Python - 1 : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Python - 1">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-basics/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to Python.">
+<meta name="description" content="Introduction to Python.">
+<meta property="og:updated_time" content="2019-01-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2019-01-05T00:00:00Z">
+<meta property="article:modified_time" content="2019-01-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python - 1",
+  "alternativeHeadline": "Python Basics",
+  "url": "https://laxmikants.github.io/blog/python-basics/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/python-basics/"
+  },
+  "description": "Introduction to Python.",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2019-01-05T00:00:00Z",
+  "dateModified": "2019-01-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"variables-and-data-types\" class=\"section level2\"\u003e\r\n\u003ch2\u003eVARIABLES AND DATA TYPES\u003c/h2\u003e\r\n\u003cp\u003eVariables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.\r\nIn this chapter we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.\u003c/p\u003e\r\n\u003cdiv id=\"numerical-data-types\" class=\"section level3\"\u003e\r\n\u003ch3\u003eNUMERICAL DATA TYPES\u003c/h3\u003e\r\n\u003cp\u003eThe types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.\u003c/p\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eNUMERICAL DATA TYPES\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eInteger\u003c/td\u003e\r\n\u003ctd\u003eint\u003c/td\u003e\r\n\u003ctd\u003ewhole number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eFloat\u003c/td\u003e\r\n\u003ctd\u003efloat\u003c/td\u003e\r\n\u003ctd\u003efloating point number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eComplex\u003c/td\u003e\r\n\u003ctd\u003ecomplex\u003c/td\u003e\r\n\u003ctd\u003ecomplex number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003cp\u003eAs you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSTRINGS\u003c/h3\u003e\r\n\u003cp\u003eA string defines characters sequences. Our text that we printed in the last chapter was a string. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"booleans\" class=\"section level3\"\u003e\r\n\u003ch3\u003eBOOLEANS\u003c/h3\u003e\r\n\u003cp\u003eBoolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSEQUENCES\u003c/h3\u003e\r\n\u003cp\u003eSequences are a topic that we will cover in a later chapter. But since sequences are also data types we will at least mention that they exist.\u003c/p\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eSEQUENCE TYPES\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eList\u003c/td\u003e\r\n\u003ctd\u003elist\u003c/td\u003e\r\n\u003ctd\u003eColection of values\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eTuple\u003c/td\u003e\r\n\u003ctd\u003etuple\u003c/td\u003e\r\n\u003ctd\u003eImutable list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eDictionary\u003c/td\u003e\r\n\u003ctd\u003edict\u003c/td\u003e\r\n\u003ctd\u003eList of key nd value pairs\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-variables\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCREATING VARIABLES\u003c/h3\u003e\r\n\u003cp\u003eCreating variables in Python is very simple. We just choose a name and assign a value.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emyNumber = 10\r\nmyText = \u0026#39;Hello\u0026#39; \u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"using-variables\" class=\"section level3\"\u003e\r\n\u003ch3\u003eUSING VARIABLES\u003c/h3\u003e\r\n\u003cp\u003eNow that we have defined our variables, we can start to use them. For example, we could print the values.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (myNumber)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (myText)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Hello\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eSince we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"typecasting\" class=\"section level3\"\u003e\r\n\u003ch3\u003eTYPECASTING\u003c/h3\u003e\r\n\u003cp\u003eSometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003evalue = \u0026#39;10\u0026#39;\r\nnumber = int (value)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eTypecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"python-loops-and-types\" class=\"section level2\"\u003e\r\n\u003ch2\u003ePython loops and types\u003c/h2\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"for-loop\" class=\"section level2\"\u003e\r\n\u003ch2\u003e1. For loop\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumbers = [10,20,30,40]\r\n\r\nfor num in numbers:\r\n  print(num)\r\n  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\r\n## 20\r\n## 30\r\n## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor num in range(10,41,10):\r\n  print(num)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\r\n## 20\r\n## 30\r\n## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"while-loop\" class=\"section level2\"\u003e\r\n\u003ch2\u003e2. While loop\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumber = 0\r\n\r\nwhile number \u0026lt; 10:\r\n  number += 1\r\n  if number == 5:\r\n    break\r\n  print(number)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1\r\n## 2\r\n## 3\r\n## 4\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enum =  0\r\nwhile num \u0026lt; 10:\r\n  num += 1\r\n  if num == 5:\r\n    continue\r\n  print(num)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1\r\n## 2\r\n## 3\r\n## 4\r\n## 6\r\n## 7\r\n## 8\r\n## 9\r\n## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists\" class=\"section level2\"\u003e\r\n\u003ch2\u003e3. Sequences - Lists\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumbers = [10, 20, 30 ,40]\r\n\r\nnames = [\u0026#39;Arun\u0026#39;,\u0026#39;Varun\u0026#39;,\u0026#39;Karun\u0026#39;]\r\n\r\nmixed = [10,\u0026#39;Arun\u0026#39;, 28.3,True ]\r\n\r\nprint(numbers[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(names[0])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Arun\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(mixed[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumbers[3] = 3\r\n\r\nnames[2] = \u0026#39;Bob\u0026#39;\r\n\r\nprint(numbers[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 3\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(names[2])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Bob\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---operations\" class=\"section level2\"\u003e\r\n\u003ch2\u003e4. Sequences - Lists - Operations\u003c/h2\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST OPERATIONS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eOPERATION\u003c/td\u003e\r\n\u003ctd\u003eRESULT\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003e[10, 20, 30] + [40, 50, 60]\u003c/td\u003e\r\n\u003ctd\u003e[10, 20, 30, 40, 50, 60]\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003e[10, “Bob”] * 3\u003c/td\u003e\r\n\u003ctd\u003e[10, “Bob”, 10, “Bob”, 10, “Bob”]\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---functions\" class=\"section level2\"\u003e\r\n\u003ch2\u003e5. Sequences - Lists - Functions\u003c/h2\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST FUNCTIONS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eFUNCTION\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elen(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the length of a list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003emax(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the item with maximum value\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003emin(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the item with minimum value\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist(element)\u003c/td\u003e\r\n\u003ctd\u003eTypecasts element into list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---methods\" class=\"section level2\"\u003e\r\n\u003ch2\u003e6. Sequences - Lists - METHODS\u003c/h2\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST METHODS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eMETHOD\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.append(x)\u003c/td\u003e\r\n\u003ctd\u003eAppends element to the list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.count(x)\u003c/td\u003e\r\n\u003ctd\u003eCounts how many times an element appears in the list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.index(x)\u003c/td\u003e\r\n\u003ctd\u003eReturns the first index at which the given element occurs\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.pop()\u003c/td\u003e\r\n\u003ctd\u003eRemoves and returns last element\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.reverse()\u003c/td\u003e\r\n\u003ctd\u003eReverses the order of the elements\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.sort()\u003c/td\u003e\r\n\u003ctd\u003eSorts the elements of a list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---tupples\" class=\"section level2\"\u003e\r\n\u003ch2\u003e7. Sequences - Tupples\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etpl = (10,20,30)\r\nlen(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 3\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emax(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 30\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emin(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%201&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/python-basics/">Python - 1</a></h2>
+    
+    
+      <p>Introduction to Python.</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2019-01-05 00:00:00 &#43;0000 UTC">January 5, 2019</time>
+    <p>Laxmi K Soni</p>
+    <p>5-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%201&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/python-basics/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Python_Basics-19.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Python_Basics-19.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="variables-and-data-types" class="section level2">
+<h2>VARIABLES AND DATA TYPES</h2>
+<p>Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
+In this chapter we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.</p>
+<div id="numerical-data-types" class="section level3">
+<h3>NUMERICAL DATA TYPES</h3>
+<p>The types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.</p>
+<table>
+<thead>
+<tr class="header">
+<th>NUMERICAL DATA TYPES</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer</td>
+<td>int</td>
+<td>whole number</td>
+</tr>
+<tr class="even">
+<td>Float</td>
+<td>float</td>
+<td>floating point number</td>
+</tr>
+<tr class="odd">
+<td>Complex</td>
+<td>complex</td>
+<td>complex number</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.</p>
+</div>
+<div id="strings" class="section level3">
+<h3>STRINGS</h3>
+<p>A string defines characters sequences. Our text that we printed in the last chapter was a string. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .</p>
+</div>
+<div id="booleans" class="section level3">
+<h3>BOOLEANS</h3>
+<p>Boolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool .</p>
+</div>
+<div id="sequences" class="section level3">
+<h3>SEQUENCES</h3>
+<p>Sequences are a topic that we will cover in a later chapter. But since sequences are also data types we will at least mention that they exist.</p>
+<table>
+<thead>
+<tr class="header">
+<th>SEQUENCE TYPES</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>List</td>
+<td>list</td>
+<td>Colection of values</td>
+</tr>
+<tr class="even">
+<td>Tuple</td>
+<td>tuple</td>
+<td>Imutable list</td>
+</tr>
+<tr class="odd">
+<td>Dictionary</td>
+<td>dict</td>
+<td>List of key nd value pairs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="creating-variables" class="section level3">
+<h3>CREATING VARIABLES</h3>
+<p>Creating variables in Python is very simple. We just choose a name and assign a value.</p>
+<pre class="python"><code>myNumber = 10
+myText = &#39;Hello&#39; </code></pre>
+<p>Here, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.</p>
+</div>
+<div id="using-variables" class="section level3">
+<h3>USING VARIABLES</h3>
+<p>Now that we have defined our variables, we can start to use them. For example, we could print the values.</p>
+<pre class="python"><code>print (myNumber)</code></pre>
+<pre><code>## 10</code></pre>
+<pre class="python"><code>print (myText)</code></pre>
+<pre><code>## Hello</code></pre>
+<p>Since we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .</p>
+</div>
+<div id="typecasting" class="section level3">
+<h3>TYPECASTING</h3>
+<p>Sometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.</p>
+<pre class="python"><code>value = &#39;10&#39;
+number = int (value)</code></pre>
+<p>Typecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often.</p>
+</div>
+</div>
+<div id="python-loops-and-types" class="section level2">
+<h2>Python loops and types</h2>
+</div>
+<div id="for-loop" class="section level2">
+<h2>1. For loop</h2>
+<pre class="python"><code>numbers = [10,20,30,40]
+
+for num in numbers:
+  print(num)
+  </code></pre>
+<pre><code>## 10
+## 20
+## 30
+## 40</code></pre>
+<pre class="python"><code>for num in range(10,41,10):
+  print(num)</code></pre>
+<pre><code>## 10
+## 20
+## 30
+## 40</code></pre>
+</div>
+<div id="while-loop" class="section level2">
+<h2>2. While loop</h2>
+<pre class="python"><code>number = 0
+
+while number &lt; 10:
+  number += 1
+  if number == 5:
+    break
+  print(number)</code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4</code></pre>
+<pre class="python"><code>num =  0
+while num &lt; 10:
+  num += 1
+  if num == 5:
+    continue
+  print(num)</code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4
+## 6
+## 7
+## 8
+## 9
+## 10</code></pre>
+</div>
+<div id="sequences---lists" class="section level2">
+<h2>3. Sequences - Lists</h2>
+<pre class="python"><code>numbers = [10, 20, 30 ,40]
+
+names = [&#39;Arun&#39;,&#39;Varun&#39;,&#39;Karun&#39;]
+
+mixed = [10,&#39;Arun&#39;, 28.3,True ]
+
+print(numbers[3])</code></pre>
+<pre><code>## 40</code></pre>
+<pre class="python"><code>print(names[0])</code></pre>
+<pre><code>## Arun</code></pre>
+<pre class="python"><code>print(mixed[3])</code></pre>
+<pre><code>## True</code></pre>
+<pre class="python"><code>numbers[3] = 3
+
+names[2] = &#39;Bob&#39;
+
+print(numbers[3])</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>print(names[2])</code></pre>
+<pre><code>## Bob</code></pre>
+</div>
+<div id="sequences---lists---operations" class="section level2">
+<h2>4. Sequences - Lists - Operations</h2>
+<table>
+<thead>
+<tr class="header">
+<th>LIST OPERATIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OPERATION</td>
+<td>RESULT</td>
+</tr>
+<tr class="even">
+<td>[10, 20, 30] + [40, 50, 60]</td>
+<td>[10, 20, 30, 40, 50, 60]</td>
+</tr>
+<tr class="odd">
+<td>[10, “Bob”] * 3</td>
+<td>[10, “Bob”, 10, “Bob”, 10, “Bob”]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sequences---lists---functions" class="section level2">
+<h2>5. Sequences - Lists - Functions</h2>
+<table>
+<thead>
+<tr class="header">
+<th>LIST FUNCTIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FUNCTION</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>len(list)</td>
+<td>Returns the length of a list</td>
+</tr>
+<tr class="odd">
+<td>max(list)</td>
+<td>Returns the item with maximum value</td>
+</tr>
+<tr class="even">
+<td>min(list)</td>
+<td>Returns the item with minimum value</td>
+</tr>
+<tr class="odd">
+<td>list(element)</td>
+<td>Typecasts element into list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sequences---lists---methods" class="section level2">
+<h2>6. Sequences - Lists - METHODS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>LIST METHODS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>METHOD</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>list.append(x)</td>
+<td>Appends element to the list</td>
+</tr>
+<tr class="odd">
+<td>list.count(x)</td>
+<td>Counts how many times an element appears in the list</td>
+</tr>
+<tr class="even">
+<td>list.index(x)</td>
+<td>Returns the first index at which the given element occurs</td>
+</tr>
+<tr class="odd">
+<td>list.pop()</td>
+<td>Removes and returns last element</td>
+</tr>
+<tr class="even">
+<td>list.reverse()</td>
+<td>Reverses the order of the elements</td>
+</tr>
+<tr class="odd">
+<td>list.sort()</td>
+<td>Sorts the elements of a list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sequences---tupples" class="section level2">
+<h2>7. Sequences - Tupples</h2>
+<pre class="python"><code>tpl = (10,20,30)
+len(tpl)</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>max(tpl)</code></pre>
+<pre><code>## 30</code></pre>
+<pre class="python"><code>min(tpl)</code></pre>
+<pre><code>## 10</code></pre>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="68dda6508821242d5f3ded9b9b485c19">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/python-basics-2/" class="button left"><span>Python - Classes and Objects</span></a>
+    
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/python-basics-2/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Python-Classes-Objects-20.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Python-Classes-Objects-20.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/python-basics-2/">Python - Classes and Objects</a></h2>
+          <time class="published" datetime="2019-01-12 00:00:00 &#43;0000 UTC">January 12, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/python-basics/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Python_Basics-19.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Python_Basics-19.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/python-basics/">Python - 1</a></h2>
+          <time class="published" datetime="2019-01-05 00:00:00 &#43;0000 UTC">January 5, 2019</time>
+        </header>
+      </article>
+      
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">2</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2019 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>

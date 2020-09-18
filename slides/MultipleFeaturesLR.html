@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Linear regression!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Laxmikant  " />
+    <script src="libs/header-attrs-2.1/header-attrs.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+       gtag('config','UA-155379268-1');
+    </script>
+
+     <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "R Markdown",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://laxmikants.github.io/R-markdown/slides/Lession1.html"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://laxmikants.github.io/img/cover.png",
+        "width": 800,
+        "height": 600
+      },
+      "genre": "post",
+      "keywords": "R Markdown",
+      "wordcount": 159,
+      "url": "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "datePublished": "2017-07-23T00:00:00+00:00",
+      "dateModified": "2017-07-23T00:00:00+00:00",
+      "license": "This work is licensed.",
+       "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+          "width": 60,
+          "height": 60
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laxmikant"
+      },
+      "description" : "R markdown"
+    }
+    </script>
+
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      <title>Data Science Posts and Resources | Laxmikant</title>
+      <meta property="og:title" content="Posts and Resources on Data Science | R Markdown" />
+      <meta name="description" content="Implementing R markdown">
+      <meta property="og:description" content="Implementing R markdown">
+      <meta name="author" content="Laxmikant"/>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name" : "Laxmikant"
+      },
+      "headline": "R Markdown",
+      "description" : "Implementing R markdown",
+      "inLanguage" : "en",
+      "wordCount": 159,
+      "datePublished" : "2017-07-23T00:00:00",
+      "dateModified" : "2017-07-23T00:00:00",
+      "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "keywords" : [ "R Markdown, plot, regression" ],
+      "mainEntityOfPage" : "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+            "height" :  60 ,
+            "width" :  60
+        }
+      }
+    }
+    </script>
+
+    <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+    <meta property="og:url" content="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="article" />
+
+    <meta content="R markdown" property="og:description">
+    <meta property="og:url" content="https://laxmikants.github.io/R-markdown/slides/Lession1.html" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="article:section" content="R" />
+    <meta property="article:published_time" content="2017-07-23 00:00:00 &#43;0000 UTC" />
+    <meta name="generator" content="Hugo 0.54.0" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\default.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\stackpath.bootstrapcdn.com\bootstrap\4.3.1\css\bootstrap-grid.min.css" type="text/css" />
+    <link rel="stylesheet" href="https:\\laxmikants.github.io\css\my_styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+.row[
+.col-7[
+.title[
+# Linear Regression
+]
+.subtitle[
+## Linear regression with multiple features 
+]
+.author[
+### Laxmikant Soni &lt;br&gt; [Web-Site](https://laxmikants.github.io) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/laxmiaknts) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/laxmikantsoni09)
+]
+
+.affiliation[
+]
+
+]
+
+.col-5[
+
+.logo[
+&lt;img src="figures/rmarkdown.png" width="281" /&gt;
+]
+
+
+]
+
+]
+
+---
+class: very-large-body
+
+
+# Multiple features
+
+.pull-top[
+
+
+Linear regression with multiple variables is also known as “multivariate linear regression”.
+
+We now introduce notation for equations where we can have any number of input variables.
+
+
+`\(\begin{align*}x_j^{(i)} &amp;= \text{value of feature } j \text{ in the }i^{th}\text{ training example} \newline x^{(i)}&amp; = \text{the column vector of all the feature inputs of the }i^{th}\text{ training example} \newline m &amp;= \text{the number of training examples} \newline n &amp;= \left| x^{(i)} \right| ; \text{(the number of features)} \end{align*}\)`
+]
+
+
+---
+class: large-body
+
+# Hypothesis function
+
+.pull-top[
+
+
+`\(h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_3 + ... + \theta_n x_n\)`
+
+In order to develop intuition about this function, we can think about θ0 as the basic price of a house, θ1 as the price per square meter, θ2 as the price per floor, etc. x1 will be the number of square meters in the house, x2 the number of floors, etc.
+
+Using the definition of matrix multiplication, our multivariate hypothesis function can be concisely represented as:
+
+`\(h_\theta (x) = \left [ \matrix { \theta_0 &amp; \theta_1 ... &amp; \theta_n } \right ]  \left [ \matrix { x_0 \\ x_1 \\ ... \\ x_n} \right ] = \theta^T x\)`
+
+]
+
+---
+
+class: large-body
+
+# Hypothesis function
+
+.pull-top[
+
+
+
+This is a vectorization of our hypothesis function for one training example; see the lessons on vectorization to learn more.
+
+`\(x_{0}^{(i)} = 1 \ for \ (i \in 1, ..., m)\)`
+`\(h_\theta(x) = \theta_0 + \theta_1x_1 + \theta_2 x_2 + \theta_3 x_3 + ... + \theta_n x_n\)`
+
+[Note: So that we can do matrix operations with theta and x, we will set `\(x_{(0)}^{(i)} = 1\)`, for all values of i. This makes the two vectors ‘theta’ and `\(x_{(i)}\)` match each other element-wise (that is, have the same number of elements: n+1).]
+
+The training examples are stored in X row-wise, like such:
+
+`\(\left[\matrix{x_{(0)}^{(1)} &amp; x_{(1)}^{(1)} \\ x_{(0)}^{(2)} &amp; x_{(1)}^{(2)} \\ x_{(0)}^{(3)} &amp; x_{(1)}^{(3)}} \right] , \theta = \left[\matrix {\theta_0 \\ \theta_1}\right]\)`
+
+You can calculate the hypothesis as a column vector of size (m x 1) with:
+
+`\(h_\theta (X) = X\theta\)`
+
+]
+
+---
+
+
+
+class: large-body
+
+# Cost function
+
+.pull-top[
+
+
+For the parameter vector `\(\theta\)`, the cost function is 
+
+`\(J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} (h_\theta (x_i) - y_i)^2\)`
+
+The vectorized version is:
+
+`\(J(\theta) = \frac{1}{2m} (X \theta - \bar{y})^T (X \theta - \bar{y})\)`
+
+where `\(\bar{y}\)` denotes the vector of all y values
+
+
+
+]
+
+---
+
+class: large-body
+
+# Gradient Descent for Multiple Variables
+
+.pull-top[
+
+
+The gradient descent equation itself is generally the same form; we just have to repeat it for our ‘n’ features:
+
+repeat until convergence:
+
+`\(\theta_0 := \theta_0 - \alpha \frac{1}{m} \sum_{i = 1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) * x_0^{(i)}\)`
+
+`\(\theta_1 := \theta_1 - \alpha \frac{1}{m} \sum_{i = 1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) * x_1^{(i)}\)`
+
+`\(\theta_2 := \theta_2 - \alpha \frac{1}{m} \sum_{i = 1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) * x_2^{(i)}\)`
+
+In other words:
+
+repeat until convergence: {
+
+`\(\theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i = 1}^{m} (h_\theta(x^{(i)}) - y^{(i)}) * x_0^{(i)} \  for \ j := 0..n\)`
+
+}
+
+]
+
+
+---
+
+class: large-body
+
+# Feature normalization
+
+.pull-top[
+
+
+ Mean normalization involves subtracting the average value for an input variable from the values for that input variable, resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:
+ 
+`\(x_i := \frac{x_i - \mu_i}{s_i}\)`
+
+Where μi is the average of all the values for feature (i) and si is the range of values (max - min), or si is the standard deviation.
+
+]
+
+---
+
+
+class: large-body
+
+# Features and polynomial regression 
+
+.pull-top[
+
+
+
+We can improve our features and the form of our hypothesis function in a couple different ways.
+
+
+Our hypothesis function need not be linear (a straight line) if that does not fit the data well.
+
+We can change the behavior or curve of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).
+
+`\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_1^2 + \theta_3 x_1^3\)`
+
+To make it a square root function, we could do `\(h_\theta(x) = \theta_0 + \theta_1 x_1 + \theta_2 \sqrt{x_1}\)`
+
+
+]
+
+---
+
+class: large-body
+
+# Normal Equation 
+
+.pull-top[
+
+
+The “Normal Equation” is a method of finding the optimum theta without iteration.
+
+`\(\theta = (X^T X)^{-1} X^T y\)`
+
+There is no need to do feature scaling with the normal equation.
+
+
+
+]
+
+---
+
+
+
+class: inverse, center, middle
+# Thanks
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://laxmikants.github.io/js/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

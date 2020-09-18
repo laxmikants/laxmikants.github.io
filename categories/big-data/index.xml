@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Big Data on Data Science Posts and Resources</title>
+    <link>https://example.com/categories/big-data/</link>
+    <description>Recent content in Big Data on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/big-data/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Big Data Analytics</title>
+      <link>https://example.com/blog/big-data-analytics/</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/blog/big-data-analytics/</guid>
+      <description>Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.</description>
+    </item>
+    
+  </channel>
+</rss>

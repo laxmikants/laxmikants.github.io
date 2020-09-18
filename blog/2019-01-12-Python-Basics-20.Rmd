@@ -1,0 +1,73 @@
+---
+title: "Python - Classes and Objects"
+author: Laxmi K Soni 
+description: "Introduction to Python Classes and Objects"
+slug: Python Basics - 2
+date: 2019-01-12
+lastmod: 2019-01-12
+categories: ["Python"]
+tags: ["Python"]
+Summary: Introduction to Python.
+subtitle: Python Classes and Objects
+featured: "img/main/Python_Basics-19.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+
+### CLASSES AND OBJECTS
+
+Python is an object-oriented language which means that the code can be divided into individual units, namely objects . Each of these objects is an instance of a so-called class . You can think of the class as some sort of blueprint. For example, the blueprint of a car could be the class and an object would be the actual physical car. So a class has specific attributes and functions but the values vary from object to object.
+
+### CREATING CLASSES
+
+In Python, we use the keyword class in order to define a new class. Everything that is indented after the colon belongs to the class.
+
+```{python}
+class Car:
+  def __init__ ( self , manufacturer, model, hp):
+         self .manufacturer = manufacturer
+         self .model = model
+         self .hp = hp
+```         
+After the class keyword, we put the class name. In this example, this is Car .
+
+### CONSTRUCTOR
+
+What we notice first here, is a special function called __init__ . This is the so-called constructor. Every time we create an instance or an object of our class, we use this constructor. As you can see, it accepts a couple of parameters. The first one is the parameter self and it is mandatory. Every function of the class needs to have at least this parameter.
+The other parameters are just our custom attributes. In this case, we have chosen the manufacturer, the model and the horse power (hp).
+When we write self.attribute , we refer to the actual attribute of the respective object. We then assign the value of the parameters to it.
+
+### ADDING FUNCTIONS
+
+We can simply add functions to our class that perform certain actions. These functions can also access the attributes of the class.
+
+```{python}
+class Car:
+  def __init__ ( self , manufacturer, model, hp):
+    self .manufacturer = manufacturer
+    self .model = model
+    self .hp = hp
+    
+    def print_info( self ):
+      print ( 'Manufacturer: {}, Model: {}, HP; {}'.format( self .manufacturer, self .model,self .hp)) 
+
+```
+Here we have the function print_info that prints out information about the attributes of the respective object. Notice that we also need the parameter self here.

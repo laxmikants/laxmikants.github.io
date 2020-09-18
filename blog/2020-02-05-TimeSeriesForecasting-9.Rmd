@@ -1,0 +1,115 @@
+---
+title: "Time-Series Forecasting"
+author: Laxmi K Soni 
+description: "Introduction to time-series forecasting"
+slug: Time Series
+date: 2020-02-05
+lastmod: 2020-02-05
+categories: ["Time Series"]
+tags: ["Time series"]
+Summary: A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time.
+subtitle: Time-Series Forecasting
+featured: "img/main/time-series09.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+
+## What is time series? 
+
+A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time at which it is collected. The sale of the items in a retail store like Walmart will be a time series. The periodicity of the the sale could be at daily level or weekly level. The number of people flying from Bangalore to Delhi on daily basis is a time series.
+Time-series forecasting uses historical time based data to forecast a variable for example
+
+- At Supermarket the demand for a grocery product each day
+- Count of the downloads of an App in a country for the coming month
+- Product sales in units sold each day in a retail store
+- Yearly unemployment rate
+- The closing price of a stock
+- Expected yearly yield of a crop
+- Population growth in a country
+- Daily demand for a bus/airline/train
+
+
+### Time series and a normal series?
+
+Time component is important in time series. The time series is primarily dependent on the time. But a normal series say 1, 2, 3…100 has no time component to it. When a value that a series will take depends on the time it was recorded, it is called as time series.
+
+### How to define a time series object using R language
+
+The function ts() helps to create time-series objects. As.ts() and is.ts() coerce an object to a time-series and test whether an object is a time series or not
+for example:
+
+
+### Frequency
+
+The count of number of observations per unit of time is called as frequency. Frequency can further be distinguished as Frequency for yearly data is 1, Frequency for weekly data is 7, Frequency for quarterly data is 4 and so on…
+
+
+
+### Some useful softwares
+
+1.  forecast: For forecasting functions
+    
+2.  tseries: For unit root tests and GARC models
+    
+3.  Mcomp: Time series data from forecasting competitions
+    
+4.  fma: For data
+    
+5.  expsmooth: For data
+    
+6.  fpp: For data
+
+7.  ARIMA
+
+8.  prophet
+
+9.  SPSS
+    
+
+### prophet
+
+Prophet represents a time-series as a combination of trend, seasonality and holidays. This decomposed time series model can be represented by the following equation:
+
+![Capture10](/img/main/ts.png)
+
+where:
+
+*   **g(t)** defines the trend function that models the non-periodic changes in the time series
+*   **s(t)** defines the periodic changes (e.g., weekly and yearly seasonality)
+*   **h(t)** means the effect of holidays
+
+*   **εt**: is the error notation representing information that was missed by the model
+
+### Trend
+
+Prophet provides two variants for the trend function, g(t) which are logistic growth modeling non-linear growth and constant rate of growth or Piece wise Linear Model.
+
+### Seasonality
+
+s(t) is called as the seasonal component which allows to flexibly model the periodic changes due to weekly and yearly seasonability. For example, a 5-day work week can produce effects on a time series that repeat each week, while vacation schedules and school breaks can produce effects that repeat each year. 
+
+### Holidays and Events
+
+There are events which can provide predictable outcome to business. These events are holidays or any other important ocasion such as black friday.Prophet provides list of such past and future events for modeling into time-series component.
+
+
+#### Summary
+
+The main aim of time-series modeling is to carefully collect and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series.  The model is then used to generate the future values for the series. 
+Time series forecasting is thus can be termed as act of predicting the future by understanding the past. 
+
+
