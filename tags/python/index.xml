@@ -6,10 +6,19 @@
     <description>Recent content in Python on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 12 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python - Multithreading</title>
+      <link>https://laxmikants.github.io/blog/python-multithreading/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-multithreading/</guid>
+      <description>Python Multithreading</description>
+    </item>
     
     <item>
       <title>Python - Classes and Objects</title>
