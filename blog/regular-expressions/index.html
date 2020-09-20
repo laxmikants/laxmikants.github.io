@@ -28,7 +28,7 @@
 <meta itemprop="description" content="Introduction to Regular Expressions">
 <meta itemprop="datePublished" content="2019-02-22T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-02-22T00:00:00+00:00" />
-<meta itemprop="wordCount" content="951">
+<meta itemprop="wordCount" content="964">
 
 
 
@@ -36,7 +36,7 @@
 <meta property="og:title" content="Python - Regular Expressions" />
 <meta property="og:description" content="Introduction to Regular Expressions" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/blog/regular-expressions/" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/regular-expressions/" />
 <meta property="article:published_time" content="2019-02-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-02-22T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
@@ -54,7 +54,7 @@
 
 <meta property="og:title" content="Python - Regular Expressions">
 <meta property="og:site_name" content="Data Science Posts and Resources">
-<meta property="og:url" content="https://example.com/blog/regular-expressions/">
+<meta property="og:url" content="https://laxmikants.github.io/blog/regular-expressions/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:description" content="Introduction to Regular Expressions">
@@ -62,7 +62,7 @@
 <meta property="og:updated_time" content="2019-02-22T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
-<meta property="article:author" content="https://example.com/">
+<meta property="article:author" content="https://laxmikants.github.io">
 <meta property="article:published_time" content="2019-02-22T00:00:00Z">
 <meta property="article:modified_time" content="2019-02-22T00:00:00Z">
 <script type="application/ld+json">
@@ -71,11 +71,11 @@
   "@type": "Article",
   "headline": "Python - Regular Expressions",
   "alternativeHeadline": "Regular Expressions",
-  "url": "https://example.com/blog/regular-expressions/",
-  "image": "https://example.com/",
+  "url": "https://laxmikants.github.io/blog/regular-expressions/",
+  "image": "https://laxmikants.github.io/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.com/blog/regular-expressions/"
+    "@id": "https://laxmikants.github.io/blog/regular-expressions/"
   },
   "description": "Introduction to Regular Expressions",
   "author": {
@@ -87,12 +87,12 @@
     "name": "Data Science Posts and Resources",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.com/"
+      "url": "https://laxmikants.github.io/"
     }
   },
   "datePublished": "2019-02-22T00:00:00Z",
   "dateModified": "2019-02-22T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"regular-expressions\" class=\"section level2\"\u003e\r\n\u003ch2\u003eREGULAR EXPRESSIONS\u003c/h2\u003e\r\n\u003cp\u003eIn programming, you will oftentimes have to deal with long texts from which we want to extract specific information. Also, when we want to process certain inputs, we need to check for a specific pattern. For example, think about emails. They need to have some text, followed by an @ character, then again some text and finally a dot and again some little text.\u003c/p\u003e\r\n\u003cp\u003eIn order to make the validations easier, more efficient and more compact, we use so-called regular expressions .\u003c/p\u003e\r\n\u003cp\u003eThe topic of regular expressions is very huge and you could write a whole book only about it. This is why we are not going to focus too much on the various placeholders and patterns of the expressions themselves but on the implementation of RegEx in Python.\r\nSo in order to confuse you right in the beginning, let’s look at a regular expression that checks if the format of an email-address is valid.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e^[a-zA-Z0-9.!#$%\u0026amp;\u0026#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow you can see why this is a huge field to learn. In this chapter, we are not going to build regular expressions like this. We are going to focus on quite simple examples and how to properly implement them in Python.\u003c/p\u003e\r\n\u003cdiv id=\"identifier\" class=\"section level3\"\u003e\r\n\u003ch3\u003eIDENTIFIER\u003c/h3\u003e\r\n\u003cp\u003eLet’s get started with some basic knowledge first. So-called identifiers define what kind of\r\ncharacter should be at a certain place. Here you have some examples:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| |REGEX IDENTIFIERS |                                      |\r\n|--------------------|--------------------------------------|\r\n| IDENTIFIER         | DESCRIPTION                          |\r\n| \\d                 | Some digit                           |\r\n| \\D                 | Everything BUT a digit               |\r\n| \\s                 | White space                          |\r\n| \\S                 | Everything BUT a white space         |\r\n| \\w                 | Some letter                          |\r\n| \\W                 | Everything BUT a letter              |\r\n| .                  | Every character except for new lines |\r\n| \\b                 | White spaces around a word           |\r\n| \\.                 | A dot                                |\u003c/code\u003e\u003c/pre\u003e\r\n\u003cdiv id=\"modifier\" class=\"section level4\"\u003e\r\n\u003ch4\u003eMODIFIER\u003c/h4\u003e\r\n\u003cp\u003eThe modifiers extend the regular expressions and the identifiers. They might be seen as some kind of operator for regular expressions.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| REGEX MODIFIERS |                                            |\r\n|-----------------|--------------------------------------------|\r\n| MODIFIER        | DESCRIPTION                                |\r\n| {x,y}           | A number that has a length between x and y |\r\n| +               | At least one                               |\r\n| ?               | None or one                                |\r\n| *               | Everything                                 |\r\n| $               | At the end of a string                     |\r\n| ^               | At the beginning of a string               |\r\n| |               | Either Or                                  |\r\n|                 | Example: x | y = either x or y             |\r\n| []              | Value range                                |\r\n| {x}             | x times                                    |\r\n| {x,y}           | x to y times                               |\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"escape-characters\" class=\"section level4\"\u003e\r\n\u003ch4\u003eESCAPE CHARACTERS\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| REGEX ESCAPE CHARATCERS |             |\r\n|-------------------------|-------------|\r\n| CHARACTER               | DESCRIPTION |\r\n| \\n                      | New Line    |\r\n| \\t                      | Tab         |\r\n| \\s                      | White Space |\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"applying-regular-expressions\" class=\"section level4\"\u003e\r\n\u003ch4\u003eAPPLYING REGULAR EXPRESSIONS\u003c/h4\u003e\r\n\u003cp\u003e\u003ccode\u003eFINDING STRINGS\u003c/code\u003e\u003c/p\u003e\r\n\u003cp\u003eIn order to apply these regular expressions in Python, we need to import the module re .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow we can start by trying to find some patterns in our strings.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etext = \u0026#39;\u0026#39;\u0026#39;\r\nMike is 20 years old and George is 29!\r\nMy grandma is even 104 years old!\r\n\u0026#39;\u0026#39;\u0026#39;\r\nages = re.findall( r\u0026#39;\\d{1,3}\u0026#39; , text)\r\nprint (ages)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;20\u0026#39;, \u0026#39;29\u0026#39;, \u0026#39;104\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn this example, we have a text with three ages in it. What we want to do is to filter these out and print them separately.\u003c/p\u003e\r\n\u003cp\u003eAs you can see, we use the function findall in order to apply the regular expression onto our string. In this case, we are looking for numbers that are one to three digits long. Notice that we are using an r character before we write our expression. This indicates that the given string is a regular expression.\u003c/p\u003e\r\n\u003cp\u003eAt the end, we print our result and get the following output:\u003c/p\u003e\r\n\u003cp\u003e[‘20’, ‘29’, ‘104’]\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"matching-strings\" class=\"section level4\"\u003e\r\n\u003ch4\u003eMATCHING STRINGS\u003c/h4\u003e\r\n\u003cp\u003eWhat we can also do is to check if a string matches a certain regular expression. For example, we can apply our regular expression for mails here.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\r\n\r\ntext = \u0026#39;test@mail.com\u0026#39;\r\n\r\nresult = re.fullmatch( r\u0026#39;^[a-zA-Z0-9.!#$%\u0026amp;\u0026#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\u0026#39; , text)\r\n\r\nif result != None :\r\n  print ( \u0026#39;VALID!\u0026#39; )\r\nelse :\r\n  print ( \u0026#39;INVALID!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe are not going to talk about the regular expression itself here. It is very long and complicated. But what we see here is a new function called fullmatch . This function returns the checked string if it matches the regular expression. In this case, this happens when the string has a valid mail format.\u003c/p\u003e\r\n\u003cp\u003eIf the expression doesn’t match the string, the function returns None . In our example above, we get the message “VALID!” since the expression is met. If we enter something like “Hello World!”, we will get the other message.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"manipulating-strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003eMANIPULATING STRINGS\u003c/h3\u003e\r\n\u003cp\u003eFinally, we are going to take a look at manipulating strings with regular expressions. By using the function sub we can replace all the parts of a string that match the expression by something else.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\r\ntext = \u0026#39;\u0026#39;\u0026#39;\r\nMike is 20 years old and George is 29!\r\nMy grandma is even 104 years old!\r\n\u0026#39;\u0026#39;\u0026#39;\r\ntext = re.sub( r\u0026#39;\\d{1,3}\u0026#39; , \u0026#39;100\u0026#39; , text)\r\nprint (text)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Mike is 100 years old and George is 100!\r\n## My grandma is even 100 years old!\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn this example, we replace all ages by 100 . This is what gets printed:\r\nMike is 100 years old and George is 100!\r\nMy grandma is even 100 years old!\u003c/p\u003e\r\n\u003cp\u003eThese are the basic functions that we can operate with in Python when dealing with regular expressions. If you want to learn more about regular expressions just google and you will find a lot of guides. Play around with the identifiers and modifiers a little bit until you feel like you understand how they work.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#regular-expressions\"\u003eREGULAR EXPRESSIONS\u003c/a\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#identifier\"\u003eIDENTIFIER\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#modifier\"\u003eMODIFIER\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#escape-characters\"\u003eESCAPE CHARACTERS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#applying-regular-expressions\"\u003eAPPLYING REGULAR EXPRESSIONS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#matching-strings\"\u003eMATCHING STRINGS\u003c/a\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#manipulating-strings\"\u003eMANIPULATING STRINGS\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"regular-expressions\" class=\"section level1\"\u003e\r\n\u003ch1\u003eREGULAR EXPRESSIONS\u003c/h1\u003e\r\n\u003cp\u003eIn programming, you will oftentimes have to deal with long texts from which we want to extract specific information. Also, when we want to process certain inputs, we need to check for a specific pattern. For example, think about emails. They need to have some text, followed by an @ character, then again some text and finally a dot and again some little text.\u003c/p\u003e\r\n\u003cp\u003eIn order to make the validations easier, more efficient and more compact, we use so-called regular expressions .\u003c/p\u003e\r\n\u003cp\u003eThe topic of regular expressions is very huge and you could write a whole book only about it. This is why we are not going to focus too much on the various placeholders and patterns of the expressions themselves but on the implementation of RegEx in Python.\r\nSo in order to confuse you right in the beginning, let’s look at a regular expression that checks if the format of an email-address is valid.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e^[a-zA-Z0-9.!#$%\u0026amp;\u0026#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow you can see why this is a huge field to learn. In this chapter, we are not going to build regular expressions like this. We are going to focus on quite simple examples and how to properly implement them in Python.\u003c/p\u003e\r\n\u003cdiv id=\"identifier\" class=\"section level2\"\u003e\r\n\u003ch2\u003eIDENTIFIER\u003c/h2\u003e\r\n\u003cp\u003eLet’s get started with some basic knowledge first. So-called identifiers define what kind of\r\ncharacter should be at a certain place. Here you have some examples:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| |REGEX IDENTIFIERS |                                      |\r\n|--------------------|--------------------------------------|\r\n| IDENTIFIER         | DESCRIPTION                          |\r\n| \\d                 | Some digit                           |\r\n| \\D                 | Everything BUT a digit               |\r\n| \\s                 | White space                          |\r\n| \\S                 | Everything BUT a white space         |\r\n| \\w                 | Some letter                          |\r\n| \\W                 | Everything BUT a letter              |\r\n| .                  | Every character except for new lines |\r\n| \\b                 | White spaces around a word           |\r\n| \\.                 | A dot                                |\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"modifier\" class=\"section level2\"\u003e\r\n\u003ch2\u003eMODIFIER\u003c/h2\u003e\r\n\u003cp\u003eThe modifiers extend the regular expressions and the identifiers. They might be seen as some kind of operator for regular expressions.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| REGEX MODIFIERS |                                            |\r\n|-----------------|--------------------------------------------|\r\n| MODIFIER        | DESCRIPTION                                |\r\n| {x,y}           | A number that has a length between x and y |\r\n| +               | At least one                               |\r\n| ?               | None or one                                |\r\n| *               | Everything                                 |\r\n| $               | At the end of a string                     |\r\n| ^               | At the beginning of a string               |\r\n| |               | Either Or                                  |\r\n|                 | Example: x | y = either x or y             |\r\n| []              | Value range                                |\r\n| {x}             | x times                                    |\r\n| {x,y}           | x to y times                               |\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"escape-characters\" class=\"section level2\"\u003e\r\n\u003ch2\u003eESCAPE CHARACTERS\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e| REGEX ESCAPE CHARATCERS |             |\r\n|-------------------------|-------------|\r\n| CHARACTER               | DESCRIPTION |\r\n| \\n                      | New Line    |\r\n| \\t                      | Tab         |\r\n| \\s                      | White Space |\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"applying-regular-expressions\" class=\"section level2\"\u003e\r\n\u003ch2\u003eAPPLYING REGULAR EXPRESSIONS\u003c/h2\u003e\r\n\u003cp\u003e\u003ccode\u003eFINDING STRINGS\u003c/code\u003e\u003c/p\u003e\r\n\u003cp\u003eIn order to apply these regular expressions in Python, we need to import the module re .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow we can start by trying to find some patterns in our strings.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etext = \u0026#39;\u0026#39;\u0026#39;\r\nMike is 20 years old and George is 29!\r\nMy grandma is even 104 years old!\r\n\u0026#39;\u0026#39;\u0026#39;\r\nages = re.findall( r\u0026#39;\\d{1,3}\u0026#39; , text)\r\nprint (ages)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;20\u0026#39;, \u0026#39;29\u0026#39;, \u0026#39;104\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn this example, we have a text with three ages in it. What we want to do is to filter these out and print them separately.\u003c/p\u003e\r\n\u003cp\u003eAs you can see, we use the function findall in order to apply the regular expression onto our string. In this case, we are looking for numbers that are one to three digits long. Notice that we are using an r character before we write our expression. This indicates that the given string is a regular expression.\u003c/p\u003e\r\n\u003cp\u003eAt the end, we print our result and get the following output:\u003c/p\u003e\r\n\u003cp\u003e[‘20’, ‘29’, ‘104’]\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"matching-strings\" class=\"section level2\"\u003e\r\n\u003ch2\u003eMATCHING STRINGS\u003c/h2\u003e\r\n\u003cp\u003eWhat we can also do is to check if a string matches a certain regular expression. For example, we can apply our regular expression for mails here.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\r\n\r\ntext = \u0026#39;test@mail.com\u0026#39;\r\n\r\nresult = re.fullmatch( r\u0026#39;^[a-zA-Z0-9.!#$%\u0026amp;\u0026#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$\u0026#39; , text)\r\n\r\nif result != None :\r\n  print ( \u0026#39;VALID!\u0026#39; )\r\nelse :\r\n  print ( \u0026#39;INVALID!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe are not going to talk about the regular expression itself here. It is very long and complicated. But what we see here is a new function called fullmatch . This function returns the checked string if it matches the regular expression. In this case, this happens when the string has a valid mail format.\u003c/p\u003e\r\n\u003cp\u003eIf the expression doesn’t match the string, the function returns None . In our example above, we get the message “VALID!” since the expression is met. If we enter something like “Hello World!”, we will get the other message.\u003c/p\u003e\r\n\u003cdiv id=\"manipulating-strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003eMANIPULATING STRINGS\u003c/h3\u003e\r\n\u003cp\u003eFinally, we are going to take a look at manipulating strings with regular expressions. By using the function sub we can replace all the parts of a string that match the expression by something else.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport re\r\ntext = \u0026#39;\u0026#39;\u0026#39;\r\nMike is 20 years old and George is 29!\r\nMy grandma is even 104 years old!\r\n\u0026#39;\u0026#39;\u0026#39;\r\ntext = re.sub( r\u0026#39;\\d{1,3}\u0026#39; , \u0026#39;100\u0026#39; , text)\r\nprint (text)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Mike is 100 years old and George is 100!\r\n## My grandma is even 100 years old!\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn this example, we replace all ages by 100 . This is what gets printed:\r\nMike is 100 years old and George is 100!\r\nMy grandma is even 100 years old!\u003c/p\u003e\r\n\u003cp\u003eThese are the basic functions that we can operate with in Python when dealing with regular expressions. If you want to learn more about regular expressions just google and you will find a lot of guides. Play around with the identifiers and modifiers a little bit until you feel like you understand how they work.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -169,13 +169,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Regular%20Expressions&amp;url=https%3a%2f%2fexample.com%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Regular%20Expressions&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -273,13 +273,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Regular%20Expressions&amp;url=https%3a%2f%2fexample.com%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Regular%20Expressions&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fregular-expressions%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -287,23 +287,38 @@ if (!doNotTrack) {
 
     </div>
     <div class="content">
-      <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://example.com/img/main/2019-02-22-Python-Regex-27.jpg');">
-    <img src="https://example.com/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
+      <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
   </a>
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#regular-expressions">REGULAR EXPRESSIONS</a>
+<ul>
+<li><a href="#identifier">IDENTIFIER</a></li>
+<li><a href="#modifier">MODIFIER</a></li>
+<li><a href="#escape-characters">ESCAPE CHARACTERS</a></li>
+<li><a href="#applying-regular-expressions">APPLYING REGULAR EXPRESSIONS</a></li>
+<li><a href="#matching-strings">MATCHING STRINGS</a>
+<ul>
+<li><a href="#manipulating-strings">MANIPULATING STRINGS</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
 
-<div id="regular-expressions" class="section level2">
-<h2>REGULAR EXPRESSIONS</h2>
+<div id="regular-expressions" class="section level1">
+<h1>REGULAR EXPRESSIONS</h1>
 <p>In programming, you will oftentimes have to deal with long texts from which we want to extract specific information. Also, when we want to process certain inputs, we need to check for a specific pattern. For example, think about emails. They need to have some text, followed by an @ character, then again some text and finally a dot and again some little text.</p>
 <p>In order to make the validations easier, more efficient and more compact, we use so-called regular expressions .</p>
 <p>The topic of regular expressions is very huge and you could write a whole book only about it. This is why we are not going to focus too much on the various placeholders and patterns of the expressions themselves but on the implementation of RegEx in Python.
 So in order to confuse you right in the beginning, let’s look at a regular expression that checks if the format of an email-address is valid.</p>
 <pre class="python"><code>^[a-zA-Z0-9.!#$%&amp;&#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$</code></pre>
 <p>Now you can see why this is a huge field to learn. In this chapter, we are not going to build regular expressions like this. We are going to focus on quite simple examples and how to properly implement them in Python.</p>
-<div id="identifier" class="section level3">
-<h3>IDENTIFIER</h3>
+<div id="identifier" class="section level2">
+<h2>IDENTIFIER</h2>
 <p>Let’s get started with some basic knowledge first. So-called identifiers define what kind of
 character should be at a certain place. Here you have some examples:</p>
 <pre class="python"><code>| |REGEX IDENTIFIERS |                                      |
@@ -318,8 +333,9 @@ character should be at a certain place. Here you have some examples:</p>
 | .                  | Every character except for new lines |
 | \b                 | White spaces around a word           |
 | \.                 | A dot                                |</code></pre>
-<div id="modifier" class="section level4">
-<h4>MODIFIER</h4>
+</div>
+<div id="modifier" class="section level2">
+<h2>MODIFIER</h2>
 <p>The modifiers extend the regular expressions and the identifiers. They might be seen as some kind of operator for regular expressions.</p>
 <pre class="python"><code>| REGEX MODIFIERS |                                            |
 |-----------------|--------------------------------------------|
@@ -336,8 +352,8 @@ character should be at a certain place. Here you have some examples:</p>
 | {x}             | x times                                    |
 | {x,y}           | x to y times                               |</code></pre>
 </div>
-<div id="escape-characters" class="section level4">
-<h4>ESCAPE CHARACTERS</h4>
+<div id="escape-characters" class="section level2">
+<h2>ESCAPE CHARACTERS</h2>
 <pre class="python"><code>| REGEX ESCAPE CHARATCERS |             |
 |-------------------------|-------------|
 | CHARACTER               | DESCRIPTION |
@@ -345,8 +361,8 @@ character should be at a certain place. Here you have some examples:</p>
 | \t                      | Tab         |
 | \s                      | White Space |</code></pre>
 </div>
-<div id="applying-regular-expressions" class="section level4">
-<h4>APPLYING REGULAR EXPRESSIONS</h4>
+<div id="applying-regular-expressions" class="section level2">
+<h2>APPLYING REGULAR EXPRESSIONS</h2>
 <p><code>FINDING STRINGS</code></p>
 <p>In order to apply these regular expressions in Python, we need to import the module re .</p>
 <pre class="python"><code>import re</code></pre>
@@ -363,8 +379,8 @@ print (ages)</code></pre>
 <p>At the end, we print our result and get the following output:</p>
 <p>[‘20’, ‘29’, ‘104’]</p>
 </div>
-<div id="matching-strings" class="section level4">
-<h4>MATCHING STRINGS</h4>
+<div id="matching-strings" class="section level2">
+<h2>MATCHING STRINGS</h2>
 <p>What we can also do is to check if a string matches a certain regular expression. For example, we can apply our regular expression for mails here.</p>
 <pre class="python"><code>import re
 
@@ -378,8 +394,6 @@ else :
   print ( &#39;INVALID!&#39; )</code></pre>
 <p>We are not going to talk about the regular expression itself here. It is very long and complicated. But what we see here is a new function called fullmatch . This function returns the checked string if it matches the regular expression. In this case, this happens when the string has a valid mail format.</p>
 <p>If the expression doesn’t match the string, the function returns None . In our example above, we get the message “VALID!” since the expression is met. If we enter something like “Hello World!”, we will get the other message.</p>
-</div>
-</div>
 <div id="manipulating-strings" class="section level3">
 <h3>MANIPULATING STRINGS</h3>
 <p>Finally, we are going to take a look at manipulating strings with regular expressions. By using the function sub we can replace all the parts of a string that match the expression by something else.</p>
@@ -397,6 +411,7 @@ print (text)</code></pre>
 Mike is 100 years old and George is 100!
 My grandma is even 100 years old!</p>
 <p>These are the basic functions that we can operate with in Python when dealing with regular expressions. If you want to learn more about regular expressions just google and you will find a lot of guides. Play around with the identifiers and modifiers a little bit until you feel like you understand how they work.</p>
+</div>
 </div>
 </div>
 
@@ -494,32 +509,32 @@ My grandma is even 100 years old!</p>
       </header>
       
       <article class="mini-post">
-          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://example.com/img/main/Neural-Networks-32.jpg');">
-    <img src="https://example.com/img/main/Neural-Networks-32.jpg" alt="">
+          <a href="/blog/numpy/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
-          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
+          <h2><a href="/blog/numpy/">Python - Numpy</a></h2>
+          <time class="published" datetime="2019-02-28 00:00:00 &#43;0000 UTC">February 28, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://example.com/img/main/Clustering-31.jpg');">
-    <img src="https://example.com/img/main/Clustering-31.jpg" alt="">
+          <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/clustering/">Clustering</a></h2>
-          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+          <h2><a href="/blog/regular-expressions/">Python - Regular Expressions</a></h2>
+          <time class="published" datetime="2019-02-22 00:00:00 &#43;0000 UTC">February 22, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/support-vector-machines/" class="image" style="--bg-image: url('https://example.com/img/main/support_vector_machines-18.jpg');">
-    <img src="https://example.com/img/main/support_vector_machines-18.jpg" alt="">
+          <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/support-vector-machines/">Support Vector Machines</a></h2>
-          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+          <h2><a href="/blog/python-logging/">Python - Logging</a></h2>
+          <time class="published" datetime="2019-02-16 00:00:00 &#43;0000 UTC">February 16, 2019</time>
         </header>
       </article>
       
@@ -541,70 +556,7 @@ My grandma is even 100 years old!</p>
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">13</span></a>
-          
-          <li>
-              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/classification/">classification<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/eda/">eda<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+              <a href="/categories/python/">python<span class="count">10</span></a>
           
           </li>
         </ul>
@@ -665,7 +617,7 @@ My grandma is even 100 years old!</p>
       </ul>
   
   <p class="copyright">
-    © 2020 Data Science Posts and Resources
+    © 2019 Data Science Posts and Resources
       <br>
   </p>
 </footer>
@@ -675,8 +627,19 @@ My grandma is even 100 years old!</p>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.fcfc9e1d76e9b508f36f1e2dbd43f12bee856cb74ea5748029231e02ab7d382e.js" integrity="sha256-/PyeHXbptQjzbx4tvUPxK&#43;6FbLdOpXSAKSMeAqt9OC4="></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
     <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
     </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 ---
-title: "Python - 1"
+title: "Python - Basics"
 author: Laxmi K Soni 
 description: "Introduction to Python."
 slug: Python Basics
@@ -11,12 +11,12 @@ Summary: Introduction to Python.
 subtitle: Python Basics
 featured: "img/main/Python_Basics-19.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
-
+    toc: true
 ---
 
 
@@ -32,13 +32,13 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 ```
 
 
-## VARIABLES AND DATA TYPES
+## `Variables and Data Types`
 
 Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
 In this chapter we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.
 
 
-### NUMERICAL DATA TYPES
+### `NUMERICAL DATA TYPES`
 
 The types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.
 
@@ -52,15 +52,16 @@ The types you probably already know from mathematics are numerical data types. T
 
 As you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.
 
-### STRINGS
+### `STRINGS`
+
 A string defines characters sequences. Our text that we printed in the last chapter was a string. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .
 
 
-### BOOLEANS
+### `BOOLEANS`
 
 Boolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool .
 
-### SEQUENCES
+### `SEQUENCES`
 
 Sequences are a topic that we will cover in a later chapter. But since sequences are also data types we will at least mention that they exist.
 
@@ -71,7 +72,7 @@ Sequences are a topic that we will cover in a later chapter. But since sequences
 | Dictionary     | dict    | List of key nd value pairs |
 
 
-### CREATING VARIABLES
+### `CREATING VARIABLES`
 
 Creating variables in Python is very simple. We just choose a name and assign a value.
 
@@ -81,7 +82,7 @@ myText = 'Hello'
 ```
 Here, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.
 
-### USING VARIABLES
+### `USING VARIABLES`
 
 Now that we have defined our variables, we can start to use them. For example, we could print the values.
 
@@ -91,7 +92,7 @@ print (myText)
 ```
 Since we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .
 
-### TYPECASTING
+### `TYPECASTING`
 
 Sometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here  “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.
 
@@ -102,9 +103,9 @@ number = int (value)
 
 Typecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int  keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often. 
 
-## Python loops and types
+## `Python loops and types`
 
-## 1. For loop
+### 1. For loop
 
 
 ```{python, echo = TRUE}
@@ -119,7 +120,7 @@ for num in numbers:
 for num in range(10,41,10):
   print(num)
 ```
-## 2. While loop
+### 2. While loop
 
 
 
@@ -143,7 +144,7 @@ while num < 10:
 
 ```
 
-## 3. Sequences - Lists
+### 3. Sequences - Lists
 
 
 ```{python, echo = TRUE}
@@ -169,7 +170,7 @@ print(names[2])
 
 ```
 
-## 4. Sequences - Lists - Operations
+### 4. Sequences - Lists - Operations
 
 
 
@@ -182,7 +183,7 @@ print(names[2])
 
 ---
 
-## 5. Sequences - Lists - Functions
+### 5. Sequences - Lists - Functions
 
 
 
@@ -196,7 +197,7 @@ print(names[2])
 ---
 
 
-## 6. Sequences - Lists - METHODS
+### 6. Sequences - Lists - METHODS
 
 
 | LIST METHODS   |                                                           |
@@ -211,7 +212,7 @@ print(names[2])
 
 ---
 
-## 7. Sequences - Tupples
+### 7. Sequences - Tupples
 
 
 ```{python, echo = TRUE}

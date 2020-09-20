@@ -11,6 +11,8 @@ Summary: Introduction to Python.
 subtitle: Python Classes and Objects
 featured: "img/main/Python-Classes-Objects-20.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
@@ -32,11 +34,13 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 ```
 
 
-### CLASSES AND OBJECTS
+<hr>
+
+# `Classes and Objects`
 
 Python is an object-oriented language which means that the code can be divided into individual units, namely objects . Each of these objects is an instance of a so-called class . You can think of the class as some sort of blueprint. For example, the blueprint of a car could be the class and an object would be the actual physical car. So a class has specific attributes and functions but the values vary from object to object.
 
-### CREATING CLASSES
+## `Creating Classes`
 
 In Python, we use the keyword class in order to define a new class. Whatever which is indented after the colon belongs to the class.
 
@@ -49,13 +53,13 @@ class Car:
 ```         
 After the class keyword, we put the class name. In this example, this is Car .
 
-### CONSTRUCTOR
+### `Constructor`
 
 What we find first in this case, is a special function called __init__ . This is the so-called constructor. Every time we create an instance or an object of our class, we use this constructor. As you can see, it accepts a couple of parameters. The first one is the parameter self and it is mandatory. Every function of the class needs to have at least this parameter.
 The other parameters are just our custom attributes. In this case, we have chosen the manufacturer, the model and the horse power (hp).
 When we write self.attribute , we refer to the actual attribute of the respective object. We then assign the value of the parameters to it.
 
-### ADDING FUNCTIONS
+### `Adding Functions`
 
 We can simply create and add functions to our class that perform certain actions. These functions can also access the attributes of the class.
 
@@ -73,7 +77,7 @@ class Car:
       
 Here we have the function print_info that prints out information about the attributes of the respective object. Notice that we also need the parameter self here.
 
-### CLASS VARIABLES
+### `Class Variables`
 
 In the following code, you can see that we can use one and the same variable across all the objects of the class, when it is defined without referring to self .
 
@@ -96,7 +100,7 @@ class Car:
 The variable amount_cars doesn’t belong to the individual object since it’s not addressed with self . It is a class variable and its value is the same for all objects or instances.
 Whenever we create a new car object, it increases by one. Then, every object can access and print the amount of existing cars.
 
-### DESTRUCTORS
+### `Destructors`
 
 In Python, we can also specify a method that gets called when our object gets destroyed or deleted and is no longer needed. This function is called destructor and it is the opposite of the constructor .
 
@@ -123,7 +127,7 @@ class Car:
 
 The destructor function is called __del__ . In this example, we print an informational message and decrease the amount of existing cars by one, when an object gets deleted.
 
-### CREATING OBJECTS
+### `Creating Objects`
 
 Now that we have implemented our class, we can start to create some objects of it.
 
@@ -165,7 +169,7 @@ Object gets deleted!
 Amount: 3
 Notice that all the objects get deleted automatically when our program ends. But we can manually delete them before that happens by using the del keyword.
 
-### HIDDEN ATTRIBUTES
+### `Hidden Attributes`
 
 If we want to create hidden attributes that can only be accessed within the class, we can do this with underlines .
 
@@ -181,7 +185,7 @@ m1 = MyClass()
 ```
 By putting two underlines before the attribute name, we make it invisible from outside the class. The first print function works because it is inside of the class. But when we try to access this attribute from the object, we can’t.
 
-### INHERITANCE
+## `Inheritence`
 
 One very important and powerful concept of object-oriented programming is inheritance . It allows us to use existing classes and to extend them with new attributes and functions.
 For example, we could have the parent class which represents a Person and then we could have many child classes  like Dancer, Policeman, Artist etc. All of these would be considered a person and they would have the same basic attributes. But they are special kinds of persons with more attributes and functions.

@@ -28,7 +28,7 @@
 <meta itemprop="description" content="Introduction to Python Queues">
 <meta itemprop="datePublished" content="2019-01-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-01-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="942">
+<meta itemprop="wordCount" content="945">
 
 
 
@@ -36,7 +36,7 @@
 <meta property="og:title" content="Python - Queues" />
 <meta property="og:description" content="Introduction to Python Queues" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/blog/python-queues/" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-queues/" />
 <meta property="article:published_time" content="2019-01-26T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-01-26T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
@@ -54,7 +54,7 @@
 
 <meta property="og:title" content="Python - Queues">
 <meta property="og:site_name" content="Data Science Posts and Resources">
-<meta property="og:url" content="https://example.com/blog/python-queues/">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-queues/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:description" content="Introduction to Python Queues">
@@ -62,7 +62,7 @@
 <meta property="og:updated_time" content="2019-01-26T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
-<meta property="article:author" content="https://example.com/">
+<meta property="article:author" content="https://laxmikants.github.io">
 <meta property="article:published_time" content="2019-01-26T00:00:00Z">
 <meta property="article:modified_time" content="2019-01-26T00:00:00Z">
 <script type="application/ld+json">
@@ -71,11 +71,11 @@
   "@type": "Article",
   "headline": "Python - Queues",
   "alternativeHeadline": "Python Queues",
-  "url": "https://example.com/blog/python-queues/",
-  "image": "https://example.com/",
+  "url": "https://laxmikants.github.io/blog/python-queues/",
+  "image": "https://laxmikants.github.io/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.com/blog/python-queues/"
+    "@id": "https://laxmikants.github.io/blog/python-queues/"
   },
   "description": "Introduction to Python Queues",
   "author": {
@@ -87,12 +87,12 @@
     "name": "Data Science Posts and Resources",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.com/"
+      "url": "https://laxmikants.github.io/"
     }
   },
   "datePublished": "2019-01-26T00:00:00Z",
   "dateModified": "2019-01-26T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"queues\" class=\"section level2\"\u003e\r\n\u003ch2\u003eQueues\u003c/h2\u003e\r\n\u003cp\u003eIn Python, queues are structures that take in data in a certain order to then output it in a certain order. The default queue type is the so-called FIFO queue . This stands for first in first out and the name describes exactly what it does. The elements that enter the queue first are also the elements that will leave the queue first.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\n\r\nq = queue.Queue()\r\nfor x in range ( 5 ):\r\n  q.put(x)\r\n  \r\nfor x in range ( 5 ):\r\n  print (q.get(x))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn order to work with queues in Python, we need to import the module queue . We can then create an instance of the class Queue by using the constructor.\u003c/p\u003e\r\n\u003cp\u003eAs you can see, we are using two functions here – put and get . The put function adds an element to the queue that can then be extracted by the get function.\u003c/p\u003e\r\n\u003cp\u003eHere, we put in the numbers one to five into our queue. Then, we just get the elements and print them. The order stays the same, since the default queue is FIFO .\u003c/p\u003e\r\n\u003cdiv id=\"queuing-resources\" class=\"section level3\"\u003e\r\n\u003ch3\u003eQUEUING RESOURCES\u003c/h3\u003e\r\n\u003cp\u003eLet’s say we have a list of numbers that need to be processed. We decide to use multiple threads, in order to speed up the process. But there might be a problem. The threads don’t know which number has already been processed and they might do the same work twice, which would be unnecessary. Also, solving the problem with a counter variable won’t always work, because too many threads access the same variable and numbers might get skipped.\r\nIn this case we can just use queues to solve our problems. We fill up our queue with the numbers and every thread just uses the get function, to get the next number and process it.\r\nLet’s say we have the following worker function:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport threading\r\nimport queue\r\nimport math\r\nq = queue.Queue()\r\nthreads = []\r\ndef worker():\r\n  while True :\r\n    item = q.get()\r\n    if item is None :\r\n      break\r\n    print (math.factorial(item))\r\n    q.task_done()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe start out with an empty queue and an empty list for threads. Our function has an endless loop that gets numbers from the list and calculates the factorial of them. For this factorial function, we need to import the module math . But you can ignore this part, since it is only used because the computation requires a lot of resources and takes time. At the end, we use the function task_done of the queue, in order to signal that the element was processed.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor x in range ( 5 ):\r\n  t = threading.Thread( target =worker)\r\n  t.start()\r\n  threads.append(t)\r\n  \r\nzahlen = [ 134000 , 14 , 5 , 300 , 98 , 88 , 11 , 23 ]\r\nfor item in zahlen:\r\n  q.put(item)\r\n  q.join()\r\n  for i in range ( 5 ):\r\n    q.put( None )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe then use a for loop to create and start five threads that we also add to our list. After that, we create a list of numbers, which we then all put into the queue.\u003c/p\u003e\r\n\u003cp\u003eThe method join of the queue waits for all elements to be extracted and processed. Basically, it waits for all the task_done functions. After that, we put None elements into the queue, so that our loops break.\u003c/p\u003e\r\n\u003cp\u003eNotice that our threads can’t process the same element twice or even skip one because they can only get them by using the get function.\r\nIf we would use a counter for this task, two threads might increase it at the same time and then skip an element. Or they could just access the same element simultaneously. Queues are irreplaceable for tasks like this. We will see a quite powerful application of queues in the chapter about networking .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"lifo-queues\" class=\"section level3\"\u003e\r\n\u003ch3\u003eLIFO QUEUES\u003c/h3\u003e\r\n\u003cp\u003eAn alternative to the FIFO queues would be the LIFO queues . That stands for last in first out . You can imagine this queue like some sort of stack. The element you put last on top of the stack is the first that you can get from it.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\nq = queue.LifoQueue()\r\nnumbers = [ 1 , 2 , 3 , 4 , 5 ]\r\nfor x in numbers:\r\n  q.put(x)\r\n  while not q.empty():\r\n                                                                                                                                                                                      print (q.get())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBy using the LifoQueue class from the queue module, we can create an instance of this type. When we now put in the numbers one to five in ascending order, we will get them back in descending order.\r\nThe result would be:\r\n5 4 3 2 1\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"prioritizing-queues\" class=\"section level3\"\u003e\r\n\u003ch3\u003ePRIORITIZING QUEUES\u003c/h3\u003e\r\n\u003cp\u003eWhat we can also do in Python, is creating prioritized queues . In these, every element gets assigned a level of priority that determines when they will leave the queue.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\nq = queue.PriorityQueue()\r\nq.put(( 8 , \u0026#39;Some string\u0026#39; ))\r\nq.put(( 1 , 2023 ))\r\nq.put(( 90 , True ))\r\nq.put(( 2 , 10.23 ))\r\nwhile not q.empty():\r\n  print (q.get())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere, we create a new instance of the class PriorityQueue . When we put a new element into this queue, we need to pass a tuple as a parameter. The first element of the tuple is the level of importance (the lower the number, the higher the priority) and the second element is the actual object or value that we want to put into the queue.\u003c/p\u003e\r\n\u003cp\u003eWhen we execute the print statement of the loop, we get the following results:\u003c/p\u003e\r\n\u003cp\u003e(1, 2023)\r\n(2, 10.23)\r\n(8, ‘Some string’)\r\n(90, True)\u003c/p\u003e\r\n\u003cp\u003eAs you can see, the elements got sorted by their priority number. If you only want to access the actual value, you need to address the index one because it is the second value of the tuple.\r\nwhile not q.empty():\r\nprint (q.get()[ 1 ])\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#queues\"\u003eQueues\u003c/a\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#queuing-resources\"\u003eQUEUING RESOURCES\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#lifo-queues\"\u003eLIFO QUEUES\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#prioritizing-queues\"\u003ePRIORITIZING QUEUES\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"queues\" class=\"section level2\"\u003e\r\n\u003ch2\u003eQueues\u003c/h2\u003e\r\n\u003cp\u003eIn Python, queues are structures that take in data in a certain order to then output it in a certain order. The default queue type is the so-called FIFO queue . This stands for first in first out and the name describes exactly what it does. The elements that enter the queue first are also the elements that will leave the queue first.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\n\r\nq = queue.Queue()\r\nfor x in range ( 5 ):\r\n  q.put(x)\r\n  \r\nfor x in range ( 5 ):\r\n  print (q.get(x))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn order to work with queues in Python, we need to import the module queue . We can then create an instance of the class Queue by using the constructor.\u003c/p\u003e\r\n\u003cp\u003eAs you can see, we apply two functions here – put and get . The put function adds an element to the queue that can then be extracted by the get function.\u003c/p\u003e\r\n\u003cp\u003eHere, we keep numbers one to five into our queue. Then, we just get the elements and print them. The order stays the same, since the default queue is FIFO .\u003c/p\u003e\r\n\u003cdiv id=\"queuing-resources\" class=\"section level3\"\u003e\r\n\u003ch3\u003eQUEUING RESOURCES\u003c/h3\u003e\r\n\u003cp\u003eLet’s say we have a list of numbers that need to be processed. We decide to use multiple threads, in order to speed up the process. But there might be a problem. The threads don’t know which number has already been processed and they might do the same work twice, which would be unnecessary. Also, solving the problem with a counter variable won’t always work, because too many threads access the same variable and numbers might get skipped.\r\nIn this case we can just use queues to solve our problems. We fill up our queue with the numbers and every thread just uses the get function, to get the next number and process it.\r\nLet’s assume we have the following worker function:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport threading\r\nimport queue\r\nimport math\r\nq = queue.Queue()\r\nthreads = []\r\ndef worker():\r\n  while True :\r\n    item = q.get()\r\n    if item is None :\r\n      break\r\n    print (math.factorial(item))\r\n    q.task_done()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe start out with an empty queue and an empty list for threads. Our function has an endless loop that gets numbers from the list and calculates the factorial of them. For this factorial function, we need to import the module math . But you can ignore this part, since it is only used because the computation requires a lot of resources and takes time. At the end, we use the function task_done of the queue, in order to signal that the element was processed.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor x in range ( 5 ):\r\n  t = threading.Thread( target =worker)\r\n  t.start()\r\n  threads.append(t)\r\n  \r\nzahle = [ 1340000 , 13 , 3, 300 , 98 , 88 , 11 , 23 ]\r\nfor item in zahle:\r\n  q.put(item)\r\n  q.join()\r\n  for i in range ( 5 ):\r\n    q.put( None )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe then use a for loop to create and start five threads that we also add to our list. After that, we create a list of numbers, which we then all put into the queue.\u003c/p\u003e\r\n\u003cp\u003eThe method join of the queue waits for all elements to be extracted and processed. Basically, it is going to wait for all the task_done functions. After that, we put None elements into the queue, so that our loops break.\u003c/p\u003e\r\n\u003cp\u003eNotice that our threads can’t process the same element twice or even skip one because they can only get them by using the get function.\r\nIf we would use a counter for this task, two threads might increase it at the same time and then skip an element. Or they could just access the same element simultaneously. Queues are irreplaceable for tasks like this. We will see a quite powerful application of queues in the chapter about networking .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"lifo-queues\" class=\"section level3\"\u003e\r\n\u003ch3\u003eLIFO QUEUES\u003c/h3\u003e\r\n\u003cp\u003eAlternative to the FIFO queues is LIFO queues . That stands for last in first out . You can imagine this queue like some sort of stack. The element you put last on top of the stack is the first that you can get from it.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\nq = queue.LifoQueue()\r\nnumbers = [ 1 , 2 , 3 , 4 , 5 ]\r\nfor x in numbers:\r\n  q.put(x)\r\n  while not q.empty():\r\n                                                                                                                                                                                      print (q.get())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBy using the LifoQueue class from the queue module, we can create an instance of this type. When we now put in the numbers one to five in ascending order, we will get them back in descending order.\r\nThe result would be:\r\n5 4 3 2 1\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"prioritizing-queues\" class=\"section level3\"\u003e\r\n\u003ch3\u003ePRIORITIZING QUEUES\u003c/h3\u003e\r\n\u003cp\u003eWhat you can also do in Python, is creating prioritized queues . In these, every element gets assigned a level of priority that determines when they will leave the queue.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport queue\r\nq = queue.PriorityQueue()\r\nq.put(( 8 , \u0026#39;Some string\u0026#39; ))\r\nq.put(( 1 , 2023 ))\r\nq.put(( 90 , True ))\r\nq.put(( 2 , 10.23 ))\r\nwhile not q.empty():\r\n  print (q.get())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere, we create a new instance of the class PriorityQueue . When we put a new element into this queue, we need to pass a tuple as a parameter. The first element of the tuple is the level of importance (the lower the number, the higher the priority) and the second element is the actual object or value that we want to put into the queue.\u003c/p\u003e\r\n\u003cp\u003eWhen we execute the print statement of the loop, we get the following results:\u003c/p\u003e\r\n\u003cp\u003e(1, 2023)\r\n(2, 10.23)\r\n(8, ‘Some string’)\r\n(90, True)\u003c/p\u003e\r\n\u003cp\u003eAs you can see, the elements got sorted by their priority number. If you only want to access the actual value, you need to address the index one because it is the second value of the tuple.\r\nwhile not q.empty():\r\nprint (q.get()[ 1 ])\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -169,13 +169,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Queues&amp;url=https%3a%2f%2fexample.com%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Queues&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -273,13 +273,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Queues&amp;url=https%3a%2f%2fexample.com%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Queues&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-queues%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -287,12 +287,22 @@ if (!doNotTrack) {
 
     </div>
     <div class="content">
-      <a href="/blog/python-queues/" class="image" style="--bg-image: url('https://example.com/img/main/Python_Queues-22.jpg');">
-    <img src="https://example.com/img/main/Python_Queues-22.jpg" alt="">
+      <a href="/blog/python-queues/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Python_Queues-22.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Python_Queues-22.jpg" alt="">
   </a>
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#queues">Queues</a>
+<ul>
+<li><a href="#queuing-resources">QUEUING RESOURCES</a></li>
+<li><a href="#lifo-queues">LIFO QUEUES</a></li>
+<li><a href="#prioritizing-queues">PRIORITIZING QUEUES</a></li>
+</ul></li>
+</ul>
+</div>
 
 <div id="queues" class="section level2">
 <h2>Queues</h2>
@@ -306,13 +316,13 @@ for x in range ( 5 ):
 for x in range ( 5 ):
   print (q.get(x))</code></pre>
 <p>In order to work with queues in Python, we need to import the module queue . We can then create an instance of the class Queue by using the constructor.</p>
-<p>As you can see, we are using two functions here – put and get . The put function adds an element to the queue that can then be extracted by the get function.</p>
-<p>Here, we put in the numbers one to five into our queue. Then, we just get the elements and print them. The order stays the same, since the default queue is FIFO .</p>
+<p>As you can see, we apply two functions here – put and get . The put function adds an element to the queue that can then be extracted by the get function.</p>
+<p>Here, we keep numbers one to five into our queue. Then, we just get the elements and print them. The order stays the same, since the default queue is FIFO .</p>
 <div id="queuing-resources" class="section level3">
 <h3>QUEUING RESOURCES</h3>
 <p>Let’s say we have a list of numbers that need to be processed. We decide to use multiple threads, in order to speed up the process. But there might be a problem. The threads don’t know which number has already been processed and they might do the same work twice, which would be unnecessary. Also, solving the problem with a counter variable won’t always work, because too many threads access the same variable and numbers might get skipped.
 In this case we can just use queues to solve our problems. We fill up our queue with the numbers and every thread just uses the get function, to get the next number and process it.
-Let’s say we have the following worker function:</p>
+Let’s assume we have the following worker function:</p>
 <pre class="python"><code>import threading
 import queue
 import math
@@ -331,20 +341,20 @@ def worker():
   t.start()
   threads.append(t)
   
-zahlen = [ 134000 , 14 , 5 , 300 , 98 , 88 , 11 , 23 ]
-for item in zahlen:
+zahle = [ 1340000 , 13 , 3, 300 , 98 , 88 , 11 , 23 ]
+for item in zahle:
   q.put(item)
   q.join()
   for i in range ( 5 ):
     q.put( None )</code></pre>
 <p>We then use a for loop to create and start five threads that we also add to our list. After that, we create a list of numbers, which we then all put into the queue.</p>
-<p>The method join of the queue waits for all elements to be extracted and processed. Basically, it waits for all the task_done functions. After that, we put None elements into the queue, so that our loops break.</p>
+<p>The method join of the queue waits for all elements to be extracted and processed. Basically, it is going to wait for all the task_done functions. After that, we put None elements into the queue, so that our loops break.</p>
 <p>Notice that our threads can’t process the same element twice or even skip one because they can only get them by using the get function.
 If we would use a counter for this task, two threads might increase it at the same time and then skip an element. Or they could just access the same element simultaneously. Queues are irreplaceable for tasks like this. We will see a quite powerful application of queues in the chapter about networking .</p>
 </div>
 <div id="lifo-queues" class="section level3">
 <h3>LIFO QUEUES</h3>
-<p>An alternative to the FIFO queues would be the LIFO queues . That stands for last in first out . You can imagine this queue like some sort of stack. The element you put last on top of the stack is the first that you can get from it.</p>
+<p>Alternative to the FIFO queues is LIFO queues . That stands for last in first out . You can imagine this queue like some sort of stack. The element you put last on top of the stack is the first that you can get from it.</p>
 <pre class="python"><code>import queue
 q = queue.LifoQueue()
 numbers = [ 1 , 2 , 3 , 4 , 5 ]
@@ -358,7 +368,7 @@ The result would be:
 </div>
 <div id="prioritizing-queues" class="section level3">
 <h3>PRIORITIZING QUEUES</h3>
-<p>What we can also do in Python, is creating prioritized queues . In these, every element gets assigned a level of priority that determines when they will leave the queue.</p>
+<p>What you can also do in Python, is creating prioritized queues . In these, every element gets assigned a level of priority that determines when they will leave the queue.</p>
 <pre class="python"><code>import queue
 q = queue.PriorityQueue()
 q.put(( 8 , &#39;Some string&#39; ))
@@ -473,32 +483,32 @@ print (q.get()[ 1 ])</p>
       </header>
       
       <article class="mini-post">
-          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://example.com/img/main/Neural-Networks-32.jpg');">
-    <img src="https://example.com/img/main/Neural-Networks-32.jpg" alt="">
+          <a href="/blog/numpy/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
-          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
+          <h2><a href="/blog/numpy/">Python - Numpy</a></h2>
+          <time class="published" datetime="2019-02-28 00:00:00 &#43;0000 UTC">February 28, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://example.com/img/main/Clustering-31.jpg');">
-    <img src="https://example.com/img/main/Clustering-31.jpg" alt="">
+          <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/clustering/">Clustering</a></h2>
-          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+          <h2><a href="/blog/regular-expressions/">Python - Regular Expressions</a></h2>
+          <time class="published" datetime="2019-02-22 00:00:00 &#43;0000 UTC">February 22, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/support-vector-machines/" class="image" style="--bg-image: url('https://example.com/img/main/support_vector_machines-18.jpg');">
-    <img src="https://example.com/img/main/support_vector_machines-18.jpg" alt="">
+          <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/support-vector-machines/">Support Vector Machines</a></h2>
-          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+          <h2><a href="/blog/python-logging/">Python - Logging</a></h2>
+          <time class="published" datetime="2019-02-16 00:00:00 &#43;0000 UTC">February 16, 2019</time>
         </header>
       </article>
       
@@ -520,70 +530,7 @@ print (q.get()[ 1 ])</p>
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">13</span></a>
-          
-          <li>
-              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/classification/">classification<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/eda/">eda<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+              <a href="/categories/python/">python<span class="count">10</span></a>
           
           </li>
         </ul>
@@ -644,7 +591,7 @@ print (q.get()[ 1 ])</p>
       </ul>
   
   <p class="copyright">
-    © 2020 Data Science Posts and Resources
+    © 2019 Data Science Posts and Resources
       <br>
   </p>
 </footer>
@@ -654,8 +601,19 @@ print (q.get()[ 1 ])</p>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.fcfc9e1d76e9b508f36f1e2dbd43f12bee856cb74ea5748029231e02ab7d382e.js" integrity="sha256-/PyeHXbptQjzbx4tvUPxK&#43;6FbLdOpXSAKSMeAqt9OC4="></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
     <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
     </div>
   </body>
 </html>

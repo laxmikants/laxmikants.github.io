@@ -11,11 +11,12 @@ Summary: Regular Expressions
 subtitle: Regular Expressions
 featured: "img/main/2019-02-22-Python-Regex-27.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
@@ -31,7 +32,7 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ```
 
-## REGULAR EXPRESSIONS
+# REGULAR EXPRESSIONS
 
 In programming, you will oftentimes have to deal with long texts from which we want to extract specific information. Also, when we want to process certain inputs, we need to check for a specific pattern. For example, think about emails. They need to have some text, followed by an @ character, then again some text and finally a dot and again some little text.
 
@@ -46,7 +47,7 @@ So in order to confuse you right in the beginning, let’s look at a regular exp
 
 Now you can see why this is a huge field to learn. In this chapter, we are not going to build regular expressions like this. We are going to focus on quite simple examples and how to properly implement them in Python.
 
-### IDENTIFIER
+## IDENTIFIER
 
 Let’s get started with some basic knowledge first. So-called identifiers define what kind of
 character should be at a certain place. Here you have some examples:
@@ -65,7 +66,7 @@ character should be at a certain place. Here you have some examples:
 | \b                 | White spaces around a word           |
 | \.                 | A dot                                |
 ```
-#### MODIFIER
+## MODIFIER
 
 The modifiers extend the regular expressions and the identifiers. They might be seen as some kind of operator for regular expressions.
 
@@ -88,7 +89,7 @@ The modifiers extend the regular expressions and the identifiers. They might be 
 
 ```
 
-#### ESCAPE CHARACTERS
+## ESCAPE CHARACTERS
 
 ```{python, eval = FALSE}
 
@@ -100,7 +101,7 @@ The modifiers extend the regular expressions and the identifiers. They might be 
 | \s                      | White Space |
 ```
 
-#### APPLYING REGULAR EXPRESSIONS
+## APPLYING REGULAR EXPRESSIONS
 
 `FINDING STRINGS`
 
@@ -129,7 +130,7 @@ At the end, we print our result and get the following output:
 
 ['20', '29', '104']
 
-#### MATCHING STRINGS
+## MATCHING STRINGS
 
 What we can also do is to check if a string matches a certain regular expression. For example, we can apply our regular expression for mails here.
 

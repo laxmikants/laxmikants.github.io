@@ -28,7 +28,7 @@
 <meta itemprop="description" content="Introduction to Python Logging">
 <meta itemprop="datePublished" content="2019-02-16T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-02-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="923">
+<meta itemprop="wordCount" content="933">
 
 
 
@@ -36,7 +36,7 @@
 <meta property="og:title" content="Python - Logging" />
 <meta property="og:description" content="Introduction to Python Logging" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/blog/python-logging/" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-logging/" />
 <meta property="article:published_time" content="2019-02-16T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-02-16T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
@@ -54,7 +54,7 @@
 
 <meta property="og:title" content="Python - Logging">
 <meta property="og:site_name" content="Data Science Posts and Resources">
-<meta property="og:url" content="https://example.com/blog/python-logging/">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-logging/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:description" content="Introduction to Python Logging">
@@ -62,7 +62,7 @@
 <meta property="og:updated_time" content="2019-02-16T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
-<meta property="article:author" content="https://example.com/">
+<meta property="article:author" content="https://laxmikants.github.io">
 <meta property="article:published_time" content="2019-02-16T00:00:00Z">
 <meta property="article:modified_time" content="2019-02-16T00:00:00Z">
 <script type="application/ld+json">
@@ -71,11 +71,11 @@
   "@type": "Article",
   "headline": "Python - Logging",
   "alternativeHeadline": "Python Logging",
-  "url": "https://example.com/blog/python-logging/",
-  "image": "https://example.com/",
+  "url": "https://laxmikants.github.io/blog/python-logging/",
+  "image": "https://laxmikants.github.io/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.com/blog/python-logging/"
+    "@id": "https://laxmikants.github.io/blog/python-logging/"
   },
   "description": "Introduction to Python Logging",
   "author": {
@@ -87,12 +87,12 @@
     "name": "Data Science Posts and Resources",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.com/"
+      "url": "https://laxmikants.github.io/"
     }
   },
   "datePublished": "2019-02-16T00:00:00Z",
   "dateModified": "2019-02-16T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"logging\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLOGGING\u003c/h2\u003e\r\n\u003cp\u003eNo matter what we do in computer science, sooner or later we will need logs. Every system that has a certain size produces errors or conditions in which specific people should be warned or informed. Nowadays, everything gets logged or recorded. Bank transactions, flights, networking activities, operating systems and much more. Log files help us to find problems and to get information about the state of our systems. They are an essential tool for avoiding and understanding errors.\r\nUp until now, we have always printed some message onto the console screen when we encountered an error. But when our applications grow, this becomes confusing and we need to categorize and outsource our logs. In addition, not every message is equally relevant. Some messages are urgent because a critical component fails and some just provide nice information.\u003c/p\u003e\r\n\u003cdiv id=\"security-levels\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSECURITY LEVELS\u003c/h4\u003e\r\n\u003cp\u003eIn Python, we have got five security levels. A higher level means higher importance or urgency.\u003c/p\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eDEBUG\r\nINFO\r\nWARNING\r\nERROR\r\nCRITICAL\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cp\u003eNotice that when we choose a certain security level, we also get all the messages of the levels above. So for example, INFO also prints the messages of WARNING, ERROR and CRITICAL but not of DEBUG .\r\nDEBUG is mainly used for tests, experiments or in order to check something. We typically use this mode, when we are looking for errors (troubleshooting).\r\nWe use INFO when we want to log all the important events that inform us about what is happening. This might be something like “User A logged in successfully!” or “Now we have 17 users online!”\r\nWARNING messages are messages that inform us about irregularities and things that might go wrong and become a problem. For example messages like “Only 247 MB of RAM left!”\r\nAn ERROR message gets logged or printed when something didn’t go according to the plan. When we get an exception this is a classical error.\r\nCRITICAL messages tell us that critical for the whole system or application happened. This might be the case when a crucial component fails and we have to immediately stop all operations.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-loggers\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCREATING LOGGERS\u003c/h4\u003e\r\n\u003cp\u003eIn order to create a logger in Python, we need to import the logging module.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow we can just log messages by directly using the respective functions of the logging module.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogging.info( \u0026#39;First informational message!\u0026#39; )\r\nlogging.critical( \u0026#39;This is serious!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThis works because we are using the root logger. We haven’t created our own loggers yet. The output looks like this:\u003c/p\u003e\r\n\u003cp\u003eCRITICAL:root:This is serious!\u003c/p\u003e\r\n\u003cp\u003e\u003ca href=\"INFO:root:Logger\" class=\"uri\"\u003eINFO:root:Logger\u003c/a\u003e successfully created!\u003c/p\u003e\r\n\u003cp\u003eSo let’s create our own logger now. This is done by either using the constructor of the Logger class or by using the method getLogger .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogger = logging.getLogger()\r\nlogger = logging.Logger( \u0026#39;MYLOGGER\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNotice that we need to specify a name for our logger, if we use the constructor. Now we can log our messages.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogger.info( \u0026#39;Logger successfully created!\u0026#39; )\r\nlogger.log(logging.INFO, \u0026#39;Successful!\u0026#39; )\r\nlogger.critical( \u0026#39;Critical Message!\u0026#39; )\r\nlogger.log(logging.CRITICAL, \u0026#39;Critical!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we also have two different options for logging messages. We can either directly call the function of the respective security level or we can use the method log and specify the security level in the parameters.\u003c/p\u003e\r\n\u003cp\u003eBut when you now execute the script, you will notice that it will only print the critical messages. This has two reasons. First of all, we need to adjust the level of the logger and second of all, we need to remove all of the handlers from the default root logger.\u003c/p\u003e\r\n\u003cp\u003efor handler in logging.root.handlers:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogging.root.removeHandler(handler)\r\nlogging.basicConfig( level =logging.INFO)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we just use a for loop in order to remove all the handlers from the root logger. Then we use the basicConfig method, in order to set our logging level to INFO . When we now run our code again, the output is the following:\u003c/p\u003e\r\n\u003cp\u003e\u003ca href=\"INFO:MYLOGGER:Logger\" class=\"uri\"\u003eINFO:MYLOGGER:Logger\u003c/a\u003e successfully created!\r\n\u003ca href=\"INFO:MYLOGGER:Successful\" class=\"uri\"\u003eINFO:MYLOGGER:Successful\u003c/a\u003e!\r\nCRITICAL:MYLOGGER:Critical Message!\r\nCRITICAL:MYLOGGER:Critical!\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"logging-into-files\" class=\"section level4\"\u003e\r\n\u003ch4\u003eLOGGING INTO FILES\u003c/h4\u003e\r\n\u003cp\u003eWhat we are mainly interested in is logging into files. For this, we need a so-called FileHandler . It is an object that we add to our logger, in order to make it log everything into a specific file.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\r\nlogger = logging.getLogger( \u0026#39;MYLOGGER\u0026#39; )\r\nlogger.setLevel(logging.INFO)\r\nhandler = logging.FileHandler( \u0026#39;logfile.log\u0026#39; )\r\nhandler.setLevel(logging.INFO)\r\nlogger.addHandler(handler)\r\nlogger.info( \u0026#39;Log this into the file!\u0026#39; )\r\nlogger.critical( \u0026#39;This is critical!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe start again by defining a logger. Then we set the security level to INFO by using the function setLevel . After that, we create a FileHandler that logs into the file logfile.log . Here we also need to set the security level. Finally, we add the handler to our logger using the addHandler function and start logging messages.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"formatting-logs\" class=\"section level4\"\u003e\r\n\u003ch4\u003eFORMATTING LOGS\u003c/h4\u003e\r\n\u003cp\u003eOne thing that you will notice is that we don’t have any format in our logs. We don’t know which logger was used or which security level our message has. For this, we can use a so-called formatter .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\r\nlogger = logging.getLogger()\r\nlogger.setLevel(logging.INFO)\r\nhandler = logging.FileHandler( \u0026#39;logfile.log\u0026#39; )\r\nhandler.setLevel(logging.INFO)\r\nformatter = logging.Formatter( \u0026#39;%(asctime)s: %(levelname)s - %(message)s\u0026#39; )\r\nhandler.setFormatter(formatter)\r\nlogger.addHandler(handler)\r\nlogger.info( \u0026#39;This will get into the file!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe create a formatter by using the constructor of the respective class. Then we use the keywords for the timestamp, the security level name and the message. Last but not least, we assign the formatter to our handler and start logging again. When we now look into our file, we will find a more detailed message.\r\n2019-06-25 15:41:43,523: INFO - This will get into the file!\r\nThese log messages can be very helpful, if they are used wisely. Place them wherever something important or alarming happens in your code\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#logging\"\u003eLOGGING\u003c/a\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#security-levels\"\u003eSECURITY LEVELS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#creating-loggers\"\u003eCREATING LOGGERS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#logging-into-files\"\u003eLOGGING INTO FILES\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#formatting-logs\"\u003eFORMATTING LOGS\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"logging\" class=\"section level1\"\u003e\r\n\u003ch1\u003eLOGGING\u003c/h1\u003e\r\n\u003cp\u003eNo matter what we do in computer science, sooner or later we will need logs. Every system that has a certain size produces errors or conditions in which specific people should be warned or informed. Nowadays, everything gets logged or recorded. Bank transactions, flights, networking activities, operating systems and much more. Log files help us to find problems and to get information about the state of our systems. They are an essential tool for avoiding and understanding errors.\r\nUp until now, we have always printed some message onto the console screen when we encountered an error. But when our applications grow, this becomes confusing and we need to categorize and outsource our logs. In addition, not every message is equally relevant. Some messages are urgent because a critical component fails and some just provide nice information.\u003c/p\u003e\r\n\u003cdiv id=\"security-levels\" class=\"section level2\"\u003e\r\n\u003ch2\u003eSECURITY LEVELS\u003c/h2\u003e\r\n\u003cp\u003eIn Python, we have got five security levels. A higher level means higher importance or urgency.\u003c/p\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eDEBUG\r\nINFO\r\nWARNING\r\nERROR\r\nCRITICAL\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cp\u003eNotice that when we choose a certain security level, we also get all the messages of the levels above. So for example, INFO also prints the messages of WARNING, ERROR and CRITICAL but not of DEBUG .\r\nDEBUG is mainly used for tests, experiments or in order to check something. We typically use this mode, when we are looking for errors (troubleshooting).\r\nWe use INFO when we want to log all the important events that inform us about what is happening. This might be something like “User A logged in successfully!” or “Now we have 17 users online!”\r\nWARNING messages are messages that inform us about irregularities and things that might go wrong and become a problem. For example messages like “Only 247 MB of RAM left!”\r\nAn ERROR message gets logged or printed when something didn’t go according to the plan. When we get an exception this is a classical error.\r\nCRITICAL messages tell us that critical for the whole system or application happened. This might be the case when a crucial component fails and we have to immediately stop all operations.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-loggers\" class=\"section level2\"\u003e\r\n\u003ch2\u003eCREATING LOGGERS\u003c/h2\u003e\r\n\u003cp\u003eIn order to create a logger in Python, we need to import the logging module.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow we can just log messages by directly using the respective functions of the logging module.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogging.info( \u0026#39;First informational message!\u0026#39; )\r\nlogging.critical( \u0026#39;This is serious!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThis works because we are using the root logger. We haven’t created our own loggers yet. The output looks like this:\u003c/p\u003e\r\n\u003cp\u003eCRITICAL:root:This is serious!\u003c/p\u003e\r\n\u003cp\u003e\u003ca href=\"INFO:root:Logger\" class=\"uri\"\u003eINFO:root:Logger\u003c/a\u003e successfully created!\u003c/p\u003e\r\n\u003cp\u003eSo let’s create our own logger now. This is done by either using the constructor of the Logger class or by using the method getLogger .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogger = logging.getLogger()\r\nlogger = logging.Logger( \u0026#39;MYLOGGER\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNotice that we need to specify a name for our logger, if we use the constructor. Now we can log our messages.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogger.info( \u0026#39;Logger successfully created!\u0026#39; )\r\nlogger.log(logging.INFO, \u0026#39;Successful!\u0026#39; )\r\nlogger.critical( \u0026#39;Critical Message!\u0026#39; )\r\nlogger.log(logging.CRITICAL, \u0026#39;Critical!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we also have two different options for logging messages. We can either directly call the function of the respective security level or we can use the method log and specify the security level in the parameters.\u003c/p\u003e\r\n\u003cp\u003eBut when you now execute the script, you will notice that it will only print the critical messages. This has two reasons. First of all, we need to adjust the level of the logger and second of all, we need to remove all of the handlers from the default root logger.\u003c/p\u003e\r\n\u003cp\u003efor handler in logging.root.handlers:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elogging.root.removeHandler(handler)\r\nlogging.basicConfig( level =logging.INFO)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we just use a for loop in order to remove all the handlers from the root logger. Then we use the basicConfig method, in order to set our logging level to INFO . When we now run our code again, the output is the following:\u003c/p\u003e\r\n\u003cp\u003e\u003ca href=\"INFO:MYLOGGER:Logger\" class=\"uri\"\u003eINFO:MYLOGGER:Logger\u003c/a\u003e successfully created!\r\n\u003ca href=\"INFO:MYLOGGER:Successful\" class=\"uri\"\u003eINFO:MYLOGGER:Successful\u003c/a\u003e!\r\nCRITICAL:MYLOGGER:Critical Message!\r\nCRITICAL:MYLOGGER:Critical!\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"logging-into-files\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLOGGING INTO FILES\u003c/h2\u003e\r\n\u003cp\u003eWhat we are mainly interested in is logging into files. For this, we need a so-called FileHandler . It is an object that we add to our logger, in order to make it log everything into a specific file.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\r\nlogger = logging.getLogger( \u0026#39;MYLOGGER\u0026#39; )\r\nlogger.setLevel(logging.INFO)\r\nhandler = logging.FileHandler( \u0026#39;logfile.log\u0026#39; )\r\nhandler.setLevel(logging.INFO)\r\nlogger.addHandler(handler)\r\nlogger.info( \u0026#39;Log this into the file!\u0026#39; )\r\nlogger.critical( \u0026#39;This is critical!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe start again by defining a logger. Then we set the security level to INFO by using the function setLevel . After that, we create a FileHandler that logs into the file logfile.log . Here we also need to set the security level. Finally, we add the handler to our logger using the addHandler function and start logging messages.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"formatting-logs\" class=\"section level2\"\u003e\r\n\u003ch2\u003eFORMATTING LOGS\u003c/h2\u003e\r\n\u003cp\u003eOne thing that you will notice is that we don’t have any format in our logs. We don’t know which logger was used or which security level our message has. For this, we can use a so-called formatter .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\r\nlogger = logging.getLogger()\r\nlogger.setLevel(logging.INFO)\r\nhandler = logging.FileHandler( \u0026#39;logfile.log\u0026#39; )\r\nhandler.setLevel(logging.INFO)\r\nformatter = logging.Formatter( \u0026#39;%(asctime)s: %(levelname)s - %(message)s\u0026#39; )\r\nhandler.setFormatter(formatter)\r\nlogger.addHandler(handler)\r\nlogger.info( \u0026#39;This will get into the file!\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe create a formatter by using the constructor of the respective class. Then we use the keywords for the timestamp, the security level name and the message. Last but not least, we assign the formatter to our handler and start logging again. When we now look into our file, we will find a more detailed message.\r\n2019-06-25 15:41:43,523: INFO - This will get into the file!\r\nThese log messages can be very helpful, if they are used wisely. Place them wherever something important or alarming happens in your code\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -169,13 +169,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Logging&amp;url=https%3a%2f%2fexample.com%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Logging&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -273,13 +273,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python%20-%20Logging&amp;url=https%3a%2f%2fexample.com%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Python%20-%20Logging&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-logging%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -287,19 +287,30 @@ if (!doNotTrack) {
 
     </div>
     <div class="content">
-      <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://example.com/img/main/2019-02-16-Python-Logging-26.jpg');">
-    <img src="https://example.com/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
+      <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
   </a>
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
+<div id="TOC">
+<ul>
+<li><a href="#logging">LOGGING</a>
+<ul>
+<li><a href="#security-levels">SECURITY LEVELS</a></li>
+<li><a href="#creating-loggers">CREATING LOGGERS</a></li>
+<li><a href="#logging-into-files">LOGGING INTO FILES</a></li>
+<li><a href="#formatting-logs">FORMATTING LOGS</a></li>
+</ul></li>
+</ul>
+</div>
 
-<div id="logging" class="section level2">
-<h2>LOGGING</h2>
+<div id="logging" class="section level1">
+<h1>LOGGING</h1>
 <p>No matter what we do in computer science, sooner or later we will need logs. Every system that has a certain size produces errors or conditions in which specific people should be warned or informed. Nowadays, everything gets logged or recorded. Bank transactions, flights, networking activities, operating systems and much more. Log files help us to find problems and to get information about the state of our systems. They are an essential tool for avoiding and understanding errors.
 Up until now, we have always printed some message onto the console screen when we encountered an error. But when our applications grow, this becomes confusing and we need to categorize and outsource our logs. In addition, not every message is equally relevant. Some messages are urgent because a critical component fails and some just provide nice information.</p>
-<div id="security-levels" class="section level4">
-<h4>SECURITY LEVELS</h4>
+<div id="security-levels" class="section level2">
+<h2>SECURITY LEVELS</h2>
 <p>In Python, we have got five security levels. A higher level means higher importance or urgency.</p>
 <blockquote>
 <p>DEBUG
@@ -315,8 +326,8 @@ WARNING messages are messages that inform us about irregularities and things tha
 An ERROR message gets logged or printed when something didn’t go according to the plan. When we get an exception this is a classical error.
 CRITICAL messages tell us that critical for the whole system or application happened. This might be the case when a crucial component fails and we have to immediately stop all operations.</p>
 </div>
-<div id="creating-loggers" class="section level4">
-<h4>CREATING LOGGERS</h4>
+<div id="creating-loggers" class="section level2">
+<h2>CREATING LOGGERS</h2>
 <p>In order to create a logger in Python, we need to import the logging module.</p>
 <pre class="python"><code>import logging</code></pre>
 <p>Now we can just log messages by directly using the respective functions of the logging module.</p>
@@ -344,8 +355,8 @@ logging.basicConfig( level =logging.INFO)</code></pre>
 CRITICAL:MYLOGGER:Critical Message!
 CRITICAL:MYLOGGER:Critical!</p>
 </div>
-<div id="logging-into-files" class="section level4">
-<h4>LOGGING INTO FILES</h4>
+<div id="logging-into-files" class="section level2">
+<h2>LOGGING INTO FILES</h2>
 <p>What we are mainly interested in is logging into files. For this, we need a so-called FileHandler . It is an object that we add to our logger, in order to make it log everything into a specific file.</p>
 <pre class="python"><code>import logging
 logger = logging.getLogger( &#39;MYLOGGER&#39; )
@@ -357,8 +368,8 @@ logger.info( &#39;Log this into the file!&#39; )
 logger.critical( &#39;This is critical!&#39; )</code></pre>
 <p>We start again by defining a logger. Then we set the security level to INFO by using the function setLevel . After that, we create a FileHandler that logs into the file logfile.log . Here we also need to set the security level. Finally, we add the handler to our logger using the addHandler function and start logging messages.</p>
 </div>
-<div id="formatting-logs" class="section level4">
-<h4>FORMATTING LOGS</h4>
+<div id="formatting-logs" class="section level2">
+<h2>FORMATTING LOGS</h2>
 <p>One thing that you will notice is that we don’t have any format in our logs. We don’t know which logger was used or which security level our message has. For this, we can use a so-called formatter .</p>
 <pre class="python"><code>import logging
 logger = logging.getLogger()
@@ -469,32 +480,32 @@ These log messages can be very helpful, if they are used wisely. Place them wher
       </header>
       
       <article class="mini-post">
-          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://example.com/img/main/Neural-Networks-32.jpg');">
-    <img src="https://example.com/img/main/Neural-Networks-32.jpg" alt="">
+          <a href="/blog/numpy/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
-          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
+          <h2><a href="/blog/numpy/">Python - Numpy</a></h2>
+          <time class="published" datetime="2019-02-28 00:00:00 &#43;0000 UTC">February 28, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://example.com/img/main/Clustering-31.jpg');">
-    <img src="https://example.com/img/main/Clustering-31.jpg" alt="">
+          <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/clustering/">Clustering</a></h2>
-          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+          <h2><a href="/blog/regular-expressions/">Python - Regular Expressions</a></h2>
+          <time class="published" datetime="2019-02-22 00:00:00 &#43;0000 UTC">February 22, 2019</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/support-vector-machines/" class="image" style="--bg-image: url('https://example.com/img/main/support_vector_machines-18.jpg');">
-    <img src="https://example.com/img/main/support_vector_machines-18.jpg" alt="">
+          <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/support-vector-machines/">Support Vector Machines</a></h2>
-          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
+          <h2><a href="/blog/python-logging/">Python - Logging</a></h2>
+          <time class="published" datetime="2019-02-16 00:00:00 &#43;0000 UTC">February 16, 2019</time>
         </header>
       </article>
       
@@ -516,70 +527,7 @@ These log messages can be very helpful, if they are used wisely. Place them wher
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">13</span></a>
-          
-          <li>
-              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
-          
-          <li>
-              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/classification/">classification<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/eda/">eda<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+              <a href="/categories/python/">python<span class="count">10</span></a>
           
           </li>
         </ul>
@@ -640,7 +588,7 @@ These log messages can be very helpful, if they are used wisely. Place them wher
       </ul>
   
   <p class="copyright">
-    © 2020 Data Science Posts and Resources
+    © 2019 Data Science Posts and Resources
       <br>
   </p>
 </footer>
@@ -650,8 +598,19 @@ These log messages can be very helpful, if they are used wisely. Place them wher
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.fcfc9e1d76e9b508f36f1e2dbd43f12bee856cb74ea5748029231e02ab7d382e.js" integrity="sha256-/PyeHXbptQjzbx4tvUPxK&#43;6FbLdOpXSAKSMeAqt9OC4="></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
     <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
     </div>
   </body>
 </html>

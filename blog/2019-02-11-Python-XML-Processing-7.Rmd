@@ -11,11 +11,12 @@ Summary: Python XML Processing
 subtitle: Python XML Processing
 featured: "img/main/2019-02-11-Python-XML-Processing-25.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
@@ -31,28 +32,28 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ```
 
-##  XML PROCESSING
+#  XML PROCESSING
 
 Up until now, we either saved our data into regular text files or into professional databases. Sometimes however, our script is quite small and doesn’t need a big database but we still want to structure our data in files. For this, we can use XML .
 
 XML stands for Extensible Markup Language and is a language that allows us to hierarchically structure our data in files. It is platform-independent and also application-independent. XML files that you create with a Python script, can be read and processed by a C++ or Java application.
 
-#### XML PARSER
+## XML PARSER
 
 In Python, we can choose between two modules for parsing XML files – SAX and DOM .
 
-#### SIMPLE API FOR XML (SAX)
+## SIMPLE API FOR XML (SAX)
 
 SAX stands for Simple API for XML and is better suited for large XML files or in situations where we have very limited RAM memory space. This is because in this mode we never load the full file into our RAM. We read the file from our hard drive and only load the little parts that we need right at the moment into the RAM. An additional effect of this is that we can only read from the file and not manipulate it and change values.
 
-#### DOCUMENT OBJECT MODEL (DOM)
+## DOCUMENT OBJECT MODEL (DOM)
 
 DOM stands for Document Object Model and is the generally recommended option. It is a language-independent API for working with XML. Here we always load the full XML file into our RAM and then save it there in a hierarchical structure. Because of that, we can use all of the features and also manipulate the file.
 
 Obviously, DOM is a lot faster than SAX because it is using the RAM instead of the hard disk. The main memory is way more efficient than the hard drive. We only use SAX when our RAM is so limited that we can’t even load the full XML file into it without problems.
 There is no reason to not use both options in the same projects. We can choose depending on the use case.
 
-#### XML STRUCTURE
+## XML STRUCTURE
 
 For this chapter, we are going to use the following XML file:
 
@@ -96,7 +97,7 @@ For this chapter, we are going to use the following XML file:
 As you can see, the structure is quite simple. The first row is just a notation and indicates that we are using XML version one. After that we have various tags. Every tag that gets opened also gets closed at the end.
 Basically, we have one group tag. Within that, we have multiple person tags that all have the attribute id . And then again, every person has four tags with their values. These tags are the attributes of the respective person. We save this file as group.xml .
 
-#### XML WITH SAX
+## XML WITH SAX
 
 In order to work with SAX, we first need to import the module:
 
@@ -118,7 +119,7 @@ First we create an instance of the ContentHandler class. Then we use the method 
 
 Now, when we execute our script, we don’t see anything. This is because we need to define what happens when an element gets parsed.
 
-#### CONTENT HANDLER CLASS
+## CONTENT HANDLER CLASS
 
 For this, we will define our own content handler class. Let’s start with a very simple example.
 
@@ -137,7 +138,7 @@ We created a class GroupHandler that inherits from ContentHandler . Then we over
 
 Notice that the function has two parameters – name and attr . These represent the tag name and the attributes. In our simple example, we just print the tag names. So, let’s get to a more interesting example.
 
-#### PROCESSING XML DATA
+## PROCESSING XML DATA
 
 The following example is a bit more complex and includes two more functions.
 
@@ -198,7 +199,7 @@ Height: 185
 ...
 
 
-#### XML WITH DOM
+## XML WITH DOM
 
 Now, let’s look at the DOM option. Here we can not only read from XML files but also change values and attributes. In order to work with DOM, we again need to import the respective module.
 
@@ -247,7 +248,7 @@ Height: 185
 --- Person ---
 ...
 
-#### MANIPULATING XML FILES
+## MANIPULATING XML FILES
 
 Since we are now working with DOM , let’s manipulate our XML file and change some values.
 
@@ -289,7 +290,7 @@ Here we change the attribute id of the first person to 10 .
 </ person >
 ```
 
-#### CREATING NEW ELEMENTS
+## CREATING NEW ELEMENTS
 
 The last thing that we are going to look at in this chapter is creating new XML elements by using DOM. In order to do that, we first need to define a new person element.
 

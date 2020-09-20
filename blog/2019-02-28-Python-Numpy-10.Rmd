@@ -11,11 +11,12 @@ Summary: Numpy
 subtitle: Numpy
 featured: "img/main/2019-02-28-Python-Numpy-28.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
@@ -31,7 +32,7 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ```
 
-## NUMPY ARRAYS
+# NUMPY ARRAYS
 
 We can’t do a lot of data science with NumPy alone. But it provides the basis for all the high-level libraries or modules for data science. It is essential for the efficient management of arrays and linear algebra.
 
@@ -43,7 +44,7 @@ import numpy as np
 
 As you can see, we are also defining an alias here, so that we can address NumPy by just writing np .
 
-#### CREATING ARRAYS
+## CREATING ARRAYS
 
 To create a NumPy array, we just use the respective function array and pass a list to it.
 
@@ -59,7 +60,7 @@ print (a[ 0 ])
 print (b[ 2 ])
 ```
 
-#### MULTI-DIMENSIONAL ARRAYS
+## MULTI-DIMENSIONAL ARRAYS
 
 The arrays we created are one-dimensional arrays. With NumPy, we can create large multi-dimensional arrays that have the same structure as a matrix.
 
@@ -105,11 +106,11 @@ You can imagine this three-dimensional array as a cube. We have three rows, four
 
 Another thing that is worth mentioning is the parameter dtype . It stands for data type and allows us to specify which data type our values have. In this case we specified float and therefore our values will be stored as floating point numbers with the respective notation.
 
-#### FILLING ARRAYS
+## FILLING ARRAYS
 
 Instead of manually filling our arrays with values, we can also use pre-defined functions in certain cases. The only thing we need to specify is the desired function and the shape of the array.
 
-#### FULL FUNCTION
+## FULL FUNCTION
 
 By using the full function for example, we fill an array of a certain shape with the same number. In this case we create a 3x5x4 matrix, which is filled with sevens.
 
@@ -119,7 +120,7 @@ print (a)
 ```
 
 
-#### ZEROS AND ONES
+## ZEROS AND ONES
 
 For the cases that we want arrays full of zeros or ones, we even have specific functions.
 
@@ -130,7 +131,7 @@ b = np.ones(( 2 , 3 , 4 , 2 ))
 
 Here we create a 3x3 array full of zeros and a four-dimensional array full of ones.
 
-#### EMPTY AND RANDOM
+## EMPTY AND RANDOM
 
 Other options would be to create an empty array or one that is filled with random numbers. For this, we use the respective functions once again.
 
@@ -143,7 +144,7 @@ The function empty creates an array without initializing the values at all. This
 
 When using the random function, make sure that you are referring to the module np.random . You need to write it two times because otherwise you are calling the library.
 
-#### RANGES
+## RANGES
 
 Instead of just filling arrays with the same values, we can fill create sequences of values by specifying the boundaries. For this, we can use two different functions, namely arange and linspace .
 ```{python}
@@ -168,13 +169,13 @@ Here, we want to create a list that ranges from 0 to 100 and contains 11 element
 
 Of course, if we choose different parameters, the numbers don’t be that “beautiful”.
 
-#### NOT A NUMBER (NAN)
+## NOT A NUMBER (NAN)
 
 There is a special value in NumPy that represents values that are not numbers. It is called NaN and stands for Not a Number . We basically just use it as a placeholder for empty spaces. It can be seen as a value that indicates that something is missing at that place.
 
 When importing big data packets into our application, there will sometimes be missing data. Instead of just setting these values to zero or something else, we can set them to NaN and then filter these data sets out.
 
-#### ATTRIBUTES OF ARRAYS
+## ATTRIBUTES OF ARRAYS
 
 NumPy arrays have certain attributes that we can access and that provide information about the structure of it.
 
@@ -186,11 +187,11 @@ NumPy arrays have certain attributes that we can access and that provide informa
 | a.size                | Returns the amount of elements an array has      |
 | a.dtype               | Returns the data type of the values in the array |
 
-#### MATHEMATICAL OPERATIONS
+## MATHEMATICAL OPERATIONS
 
 Now that we know how to create an array and what attributes it has, let’s take a look at how to work with arrays. For this, we will start out with basic mathematical operations.
 
-#### ARITHMETIC OPERATIONS
+## ARITHMETIC OPERATIONS
 
 ```{python}
 a = np.array([
@@ -257,7 +258,7 @@ print (a+c)
 
 And of course it also works, when the shapes match exactly. The only problem is when the shapes differ too much and there is no reasonable way of performing the operations. In these cases, we get ValueErrors .
 
-#### MATHEMATICAL FUNCTIONS
+## MATHEMATICAL FUNCTIONS
 
 Another thing that the NumPy module offers us is mathematical functions that we can apply to each value in an array.
 
@@ -271,7 +272,7 @@ Another thing that the NumPy module offers us is mathematical functions that we 
 | np.log(a)                    | Returns the logarithm of each value   |
 | np.sqrt(a)                   | Returns the square root of each value |
 
-#### AGGREGATE FUNCTIONS
+## AGGREGATE FUNCTIONS
 
 Now we are getting into the statistics. NumPy offers us some so-called aggregate functions that we can use in order to get a key statistic from all of our values.
 
@@ -284,7 +285,7 @@ Now we are getting into the statistics. NumPy offers us some so-called aggregate
 | np.median(a)              | Returns the median value of the array                     |
 | np.std(a)                 | Returns the standard deviation of the values in the array |
 
-#### MANIPULATING ARRAYS
+## MANIPULATING ARRAYS
 
 NumPy offers us numerous ways in which we can manipulate the data of our arrays. Here, we are going to take a quick look at the most important functions and categories of functions.
 If you just want to change a single value however, you can just use the basic indexing of lists.
@@ -318,7 +319,7 @@ for x in a.flat:
 print (a.flat[ 5 ])
 ```
 
-#### JOINING FUNCTIONS
+## JOINING FUNCTIONS
 
 We use joining functions when we combine multiple arrays into one new array.
 
@@ -380,7 +381,7 @@ OR
 3: [[70, 80, 90]]
 4: [[100, 110, 120]]
 
-#### ADDING AND REMOVING
+## ADDING AND REMOVING
 
 The last manipulating functions that we are going to look at are the ones which allow us to add and to remove items.
 
@@ -391,11 +392,11 @@ The last manipulating functions that we are going to look at are the ones which 
 | np.insert(a, x, …)            | Insert a value at the index x of the array                                             |
 | np.delete(a, x, y)            | Delete axes of the array                                                               |
 
-#### LOADING AND SAVING ARRAYS
+## LOADING AND SAVING ARRAYS
 
 Now last but not least, we are going to talk about loading and saving NumPy arrays. For this, we can use the integrated NumPy format or CSV-files.
 
-#### NUMPY FORMAT
+## NUMPY FORMAT
 
 Basically, we are just serializing the object so that we can use it later. This is done by using the save function.
 
@@ -417,7 +418,7 @@ a = np.load( 'myarray.npy' )
 print (a)
 ```
 
-#### CSV FORMAT
+## CSV FORMAT
 
 As I already mentioned, we can also save our NumPy arrays into CSV files, which are just comma-separated text files. For this, we use the function savetxt .
 
