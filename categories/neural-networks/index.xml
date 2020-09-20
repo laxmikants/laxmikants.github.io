@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Neural Networks on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/neural-networks/</link>
+    <link>https://laxmikants.github.io/categories/neural-networks/</link>
     <description>Recent content in Neural Networks on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/neural-networks/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/neural-networks/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Neural Networks</title>
-      <link>https://example.com/blog/neural-networks/</link>
+      <link>https://laxmikants.github.io/blog/neural-networks/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/neural-networks/</guid>
+      <guid>https://laxmikants.github.io/blog/neural-networks/</guid>
       <description>The Neural Network is one of the most powerful learning algorithms (when a linear classifier doesn&amp;rsquo;t work, this is what I usually turn to).</description>
     </item>
     

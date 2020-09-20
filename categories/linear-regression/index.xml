@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linear Regression on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/linear-regression/</link>
+    <link>https://laxmikants.github.io/categories/linear-regression/</link>
     <description>Recent content in Linear Regression on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/linear-regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Student Grade Prediction</title>
-      <link>https://example.com/blog/student-grade-prediction/</link>
+      <link>https://laxmikants.github.io/blog/student-grade-prediction/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/student-grade-prediction/</guid>
+      <guid>https://laxmikants.github.io/blog/student-grade-prediction/</guid>
       <description>Predicting student grade using Linear Regression</description>
     </item>
     
     <item>
       <title>Linear Regression</title>
-      <link>https://example.com/blog/linear-regression/</link>
+      <link>https://laxmikants.github.io/blog/linear-regression/</link>
       <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/linear-regression/</guid>
+      <guid>https://laxmikants.github.io/blog/linear-regression/</guid>
       <description>A linear equation that models a function such that if we give any &lt;code&gt;x&lt;/code&gt; to it, it will predict a value &lt;code&gt;y&lt;/code&gt; , where both &lt;code&gt;x and y&lt;/code&gt; are input and output variables respectively</description>
     </item>
     

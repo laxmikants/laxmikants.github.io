@@ -36,7 +36,7 @@
 <meta property="og:title" content="Student Grade Prediction" />
 <meta property="og:description" content="Predicting student grade using Linear Regression" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/blog/student-grade-prediction/" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/student-grade-prediction/" />
 <meta property="article:published_time" content="2020-03-15T00:00:00+00:00" />
 <meta property="article:modified_time" content="2020-03-15T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
@@ -54,7 +54,7 @@
 
 <meta property="og:title" content="Student Grade Prediction">
 <meta property="og:site_name" content="Data Science Posts and Resources">
-<meta property="og:url" content="https://example.com/blog/student-grade-prediction/">
+<meta property="og:url" content="https://laxmikants.github.io/blog/student-grade-prediction/">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:description" content="Predicting student grade using Linear Regression">
@@ -62,7 +62,7 @@
 <meta property="og:updated_time" content="2020-03-15T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
-<meta property="article:author" content="https://example.com/">
+<meta property="article:author" content="https://laxmikants.github.io">
 <meta property="article:published_time" content="2020-03-15T00:00:00Z">
 <meta property="article:modified_time" content="2020-03-15T00:00:00Z">
 <script type="application/ld+json">
@@ -71,11 +71,11 @@
   "@type": "Article",
   "headline": "Student Grade Prediction",
   "alternativeHeadline": "Student Grade Prediction with Linear Regression",
-  "url": "https://example.com/blog/student-grade-prediction/",
-  "image": "https://example.com/",
+  "url": "https://laxmikants.github.io/blog/student-grade-prediction/",
+  "image": "https://laxmikants.github.io/",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://example.com/blog/student-grade-prediction/"
+    "@id": "https://laxmikants.github.io/blog/student-grade-prediction/"
   },
   "description": "Predicting student grade using Linear Regression",
   "author": {
@@ -87,12 +87,12 @@
     "name": "Data Science Posts and Resources",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://example.com/"
+      "url": "https://laxmikants.github.io/"
     }
   },
   "datePublished": "2020-03-15T00:00:00Z",
   "dateModified": "2020-03-15T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"linear-regression\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLinear Regression\u003c/h2\u003e\r\n\u003cp\u003eThe easiest and most basic machine learning algorithm is linear regression . It will be the first one that we are going to look at and it is a supervised learning algorithm. That means that we need both – inputs and outputs – to train the model.\u003c/p\u003e\r\n\u003cp\u003eIf we are applying this model to data of schools and we try to find a relation between missing hours, learning time and the resulting grade, we will probably get a less accurate result than by including 30 parameters. Logically, however, we then no longer have a straight line or flat surface but a hyperplane. This is the equivalent to a straight line, in higher dimensions.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-data\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLoading Data\u003c/h2\u003e\r\n\u003cp\u003eto get started with our code, we first need data that we want to work with. Here we use a dataset from UCI.\u003c/p\u003e\r\n\u003cp\u003eLink: \u003ca href=\"https://archive.ics.uci.edu/ml/datasets/student+performance\" class=\"uri\"\u003ehttps://archive.ics.uci.edu/ml/datasets/student+performance\u003c/a\u003e\u003c/p\u003e\r\n\u003cp\u003eThis is a dataset which contains a lot of information about student performance. We will use it as sample data for our models.\u003c/p\u003e\r\n\u003cp\u003eWe download the ZIP-file from the Data Folder and extract the file student-mat.csv from there into the folder in which we code our script.\u003c/p\u003e\r\n\u003cp\u003eNow we can start with our code. First of all, we will import the necessary libraries.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport numpy as np\r\nimport pandas as pd\r\nimport matplotlib.pyplot as plt\r\nfrom sklearn.linear_model import LinearRegression\r\nfrom sklearn.model_selection import train_test_split\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBesides the imports of the first three libraries that we already know, we have two more imports that are new to us. First, we import the LinearRegression module . This is the module that we will use for creating, training and using our regression model. Additionally, we import the train_test_split module, which we will use to prepare and split our data.\r\nOur first action is to load the data from the CSV file into a Pandas DataFrame. We do this with the function read_csv.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata = pd.read_csv( \u0026#39;../data/student/student-mat.csv\u0026#39; , sep = \u0026#39;;\u0026#39; )\r\nprint(data.tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##     school sex  age address famsize Pstatus  ...  Walc  health absences  G1  G2  G3\r\n## 390     MS   M   20       U     LE3       A  ...     5       4       11   9   9   9\r\n## 391     MS   M   17       U     LE3       T  ...     4       2        3  14  16  16\r\n## 392     MS   M   21       R     GT3       T  ...     3       3        3  10   8   7\r\n## 393     MS   M   18       R     LE3       T  ...     4       5        0  11  12  10\r\n## 394     MS   M   19       U     LE3       T  ...     3       5        5   8   9   9\r\n## \r\n## [5 rows x 33 columns]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIt is important that we change our separator to semicolon, since the default separator for CSV files is a comma and our file is separated by semicolons.\u003c/p\u003e\r\n\u003cp\u003eIn the next step, we think about which features (i.e. columns) are relevant for us, and what exactly we want to predict. A description of all features can be found on the previously mentioned website. In this example, we will limit ourselves to the following columns:\u003c/p\u003e\r\n\u003cp\u003eAge, Sex, Studytime, Absences, G1, G2, G3 (label)\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata = data[[ \u0026#39;age\u0026#39; , \u0026#39;sex\u0026#39; , \u0026#39;studytime\u0026#39; ,\u0026#39;absences\u0026#39; , \u0026#39;G1\u0026#39; , \u0026#39;G2\u0026#39; , \u0026#39;G3\u0026#39; ]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe columns G1, G2 and G3 are the three grades that the students get. Our goal is to predict the\r\nthird and final grade by looking at the other values like first grade, age, sex and so on.\u003c/p\u003e\r\n\u003cp\u003eSummarized that means that we only select these columns from our DataFrame, out of the 33 possible.\u003c/p\u003e\r\n\u003cp\u003eG3 is our label and the rest are our features. Each feature is an axis in the coordinate system and each point is a record, that is, one row in the table.\r\nBut we have a little problem here. The sex feature is not numeric, but stored as F (for female) or M (for male) . But for us to work with it and register it in the coordinate system, we have to convert it into numbers.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata[ \u0026#39;sex\u0026#39; ] = data[ \u0026#39;sex\u0026#39; ].map({ \u0026#39;F\u0026#39; : 0 , \u0026#39;M\u0026#39; : 1 })\r\nprediction = \u0026#39;G3\u0026#39; \u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe do this by using the map function. Here, we map a dictionary to our feature. Each F becomes a zero and every M becomes a one. Now we can work with it.\r\nFinally, we define the column of the desired label as a variable to make it easier to work with.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"preparing-data\" class=\"section level2\"\u003e\r\n\u003ch2\u003ePREPARING DATA\u003c/h2\u003e\r\n\u003cp\u003eOur data is now fully loaded and selected. However, in order to use it as training and testing data for our model, we have to reformat them. The sklearn models do not accept Pandas data frames, but only NumPy arrays. That’s why we turn our features into an x-array and our label into a y-array.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX = np.array(data.drop([prediction], 1 ))\r\nY = np.array(data[prediction])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe method np.array converts the selected columns into an array. The drop function returns the data frame without the specified column. Our X array now contains all of our columns, except for the final grade. The final grade is in the Y array.\r\nIn order to train and test our model, we have to split our available data. The first part is used to get the hyperplane to fit our data as well as possible. The second part then checks the accuracy of the prediction, with previously unknown data.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1 )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWith the function train_test_split , we divide our X and Y arrays into four arrays. The order must be exactly as shown here. The test_size parameter specifies what percentage of records to use for testing. In this case, it is 10%. This is also a good and recommended value. We do this to test how accurate it is with data that our model has never seen before.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"training-and-testing\" class=\"section level2\"\u003e\r\n\u003ch2\u003eTRAINING AND TESTING\u003c/h2\u003e\r\n\u003cp\u003eNow we can start training and testing our model. For that, we first define our model.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel = LinearRegression()\r\nmodel.fit(X_train, Y_train)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBy using the constructor of the LinearRegression class, we create our model. We then use the fit function and pass our training data. Now our model is already trained. It has now adjusted its hyperplane so that it fits all of our values.\r\nIn order to test how well our model performs, we can use the score method and pass our testing data.\u003c/p\u003e\r\n\u003cp\u003eaccuracy = model.score(X_test, Y_test)\r\nprint (accuracy)\r\nSince the splitting of training and test data is always random, we will have slightly different results on each run. An average result could look like this:\r\n0.9130676521162756\r\nActually, 91 percent is a pretty high and good accuracy. Now that we know that our model is somewhat reliable, we can enter new data and predict the final grade.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX_new = np.array([[ 18 , 1 , 3 , 40 , 15 , 16 ]])\r\nY_new = model.predict(X_new)\r\nprint (Y_new)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [17.16123658]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we define a new NumPy array with values for our features in the right order. Then we use the predict method, to calculate the likely final grade for our inputs.\u003c/p\u003e\r\n\u003cp\u003e[17.12142363]\u003c/p\u003e\r\n\u003cp\u003eIn this case, the final grade would probably be 17.\u003c/p\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"linear-regression\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLinear Regression\u003c/h2\u003e\r\n\u003cp\u003eThe easiest and most basic machine learning algorithm is linear regression . It will be the first one that we are going to look at and it is a supervised learning algorithm. That means that we need both – inputs and outputs – to train the model.\u003c/p\u003e\r\n\u003cp\u003eIf we are applying this model to data of schools and we try to find a relation between missing hours, learning time and the resulting grade, we will probably get a less accurate result than by including 30 parameters. Logically, however, we then no longer have a straight line or flat surface but a hyperplane. This is the equivalent to a straight line, in higher dimensions.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-data\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLoading Data\u003c/h2\u003e\r\n\u003cp\u003eto get started with our code, we first need data that we want to work with. Here we use a dataset from UCI.\u003c/p\u003e\r\n\u003cp\u003eLink: \u003ca href=\"https://archive.ics.uci.edu/ml/datasets/student+performance\" class=\"uri\"\u003ehttps://archive.ics.uci.edu/ml/datasets/student+performance\u003c/a\u003e\u003c/p\u003e\r\n\u003cp\u003eThis is a dataset which contains a lot of information about student performance. We will use it as sample data for our models.\u003c/p\u003e\r\n\u003cp\u003eWe download the ZIP-file from the Data Folder and extract the file student-mat.csv from there into the folder in which we code our script.\u003c/p\u003e\r\n\u003cp\u003eNow we can start with our code. First of all, we will import the necessary libraries.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport numpy as np\r\nimport pandas as pd\r\nimport matplotlib.pyplot as plt\r\nfrom sklearn.linear_model import LinearRegression\r\nfrom sklearn.model_selection import train_test_split\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBesides the imports of the first three libraries that we already know, we have two more imports that are new to us. First, we import the LinearRegression module . This is the module that we will use for creating, training and using our regression model. Additionally, we import the train_test_split module, which we will use to prepare and split our data.\r\nOur first action is to load the data from the CSV file into a Pandas DataFrame. We do this with the function read_csv.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata = pd.read_csv( \u0026#39;../data/student/student-mat.csv\u0026#39; , sep = \u0026#39;;\u0026#39; )\r\nprint(data.tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##     school sex  age address famsize Pstatus  ...  Walc  health absences  G1  G2  G3\r\n## 390     MS   M   20       U     LE3       A  ...     5       4       11   9   9   9\r\n## 391     MS   M   17       U     LE3       T  ...     4       2        3  14  16  16\r\n## 392     MS   M   21       R     GT3       T  ...     3       3        3  10   8   7\r\n## 393     MS   M   18       R     LE3       T  ...     4       5        0  11  12  10\r\n## 394     MS   M   19       U     LE3       T  ...     3       5        5   8   9   9\r\n## \r\n## [5 rows x 33 columns]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIt is important that we change our separator to semicolon, since the default separator for CSV files is a comma and our file is separated by semicolons.\u003c/p\u003e\r\n\u003cp\u003eIn the next step, we think about which features (i.e. columns) are relevant for us, and what exactly we want to predict. A description of all features can be found on the previously mentioned website. In this example, we will limit ourselves to the following columns:\u003c/p\u003e\r\n\u003cp\u003eAge, Sex, Studytime, Absences, G1, G2, G3 (label)\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata = data[[ \u0026#39;age\u0026#39; , \u0026#39;sex\u0026#39; , \u0026#39;studytime\u0026#39; ,\u0026#39;absences\u0026#39; , \u0026#39;G1\u0026#39; , \u0026#39;G2\u0026#39; , \u0026#39;G3\u0026#39; ]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe columns G1, G2 and G3 are the three grades that the students get. Our goal is to predict the\r\nthird and final grade by looking at the other values like first grade, age, sex and so on.\u003c/p\u003e\r\n\u003cp\u003eSummarized that means that we only select these columns from our DataFrame, out of the 33 possible.\u003c/p\u003e\r\n\u003cp\u003eG3 is our label and the rest are our features. Each feature is an axis in the coordinate system and each point is a record, that is, one row in the table.\r\nBut we have a little problem here. The sex feature is not numeric, but stored as F (for female) or M (for male) . But for us to work with it and register it in the coordinate system, we have to convert it into numbers.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata[ \u0026#39;sex\u0026#39; ] = data[ \u0026#39;sex\u0026#39; ].map({ \u0026#39;F\u0026#39; : 0 , \u0026#39;M\u0026#39; : 1 })\r\nprediction = \u0026#39;G3\u0026#39; \u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe do this by using the map function. Here, we map a dictionary to our feature. Each F becomes a zero and every M becomes a one. Now we can work with it.\r\nFinally, we define the column of the desired label as a variable to make it easier to work with.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"preparing-data\" class=\"section level2\"\u003e\r\n\u003ch2\u003ePREPARING DATA\u003c/h2\u003e\r\n\u003cp\u003eOur data is now fully loaded and selected. However, in order to use it as training and testing data for our model, we have to reformat them. The sklearn models do not accept Pandas data frames, but only NumPy arrays. That’s why we turn our features into an x-array and our label into a y-array.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX = np.array(data.drop([prediction], 1 ))\r\nY = np.array(data[prediction])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe method np.array converts the selected columns into an array. The drop function returns the data frame without the specified column. Our X array now contains all of our columns, except for the final grade. The final grade is in the Y array.\r\nIn order to train and test our model, we have to split our available data. The first part is used to get the hyperplane to fit our data as well as possible. The second part then checks the accuracy of the prediction, with previously unknown data.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.1 )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWith the function train_test_split , we divide our X and Y arrays into four arrays. The order must be exactly as shown here. The test_size parameter specifies what percentage of records to use for testing. In this case, it is 10%. This is also a good and recommended value. We do this to test how accurate it is with data that our model has never seen before.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"training-and-testing\" class=\"section level2\"\u003e\r\n\u003ch2\u003eTRAINING AND TESTING\u003c/h2\u003e\r\n\u003cp\u003eNow we can start training and testing our model. For that, we first define our model.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel = LinearRegression()\r\nmodel.fit(X_train, Y_train)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBy using the constructor of the LinearRegression class, we create our model. We then use the fit function and pass our training data. Now our model is already trained. It has now adjusted its hyperplane so that it fits all of our values.\r\nIn order to test how well our model performs, we can use the score method and pass our testing data.\u003c/p\u003e\r\n\u003cp\u003eaccuracy = model.score(X_test, Y_test)\r\nprint (accuracy)\r\nSince the splitting of training and test data is always random, we will have slightly different results on each run. An average result could look like this:\r\n0.9130676521162756\r\nActually, 91 percent is a pretty high and good accuracy. Now that we know that our model is somewhat reliable, we can enter new data and predict the final grade.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX_new = np.array([[ 18 , 1 , 3 , 40 , 15 , 16 ]])\r\nY_new = model.predict(X_new)\r\nprint (Y_new)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [17.44357893]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we define a new NumPy array with values for our features in the right order. Then we use the predict method, to calculate the likely final grade for our inputs.\u003c/p\u003e\r\n\u003cp\u003e[17.12142363]\u003c/p\u003e\r\n\u003cp\u003eIn this case, the final grade would probably be 17.\u003c/p\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -169,13 +169,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Student%20Grade%20Prediction&amp;url=https%3a%2f%2fexample.com%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Student%20Grade%20Prediction&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -273,13 +273,13 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Student%20Grade%20Prediction&amp;url=https%3a%2f%2fexample.com%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Student%20Grade%20Prediction&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fexample.com%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fstudent-grade-prediction%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
@@ -287,8 +287,8 @@ if (!doNotTrack) {
 
     </div>
     <div class="content">
-      <a href="/blog/student-grade-prediction/" class="image" style="--bg-image: url('https://example.com/img/main/linear_regression-10.jpg');">
-    <img src="https://example.com/img/main/linear_regression-10.jpg" alt="">
+      <a href="/blog/student-grade-prediction/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/linear_regression-10.jpg');">
+    <img src="https://laxmikants.github.io/img/main/linear_regression-10.jpg" alt="">
   </a>
       
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -363,7 +363,7 @@ Actually, 91 percent is a pretty high and good accuracy. Now that we know that o
 <pre class="python"><code>X_new = np.array([[ 18 , 1 , 3 , 40 , 15 , 16 ]])
 Y_new = model.predict(X_new)
 print (Y_new)</code></pre>
-<pre><code>## [17.16123658]</code></pre>
+<pre><code>## [17.44357893]</code></pre>
 <p>Here we define a new NumPy array with values for our features in the right order. Then we use the predict method, to calculate the likely final grade for our inputs.</p>
 <p>[17.12142363]</p>
 <p>In this case, the final grade would probably be 17.</p>
@@ -463,32 +463,32 @@ print (Y_new)</code></pre>
       </header>
       
       <article class="mini-post">
-          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://example.com/img/main/Neural-Networks-32.jpg');">
-    <img src="https://example.com/img/main/Neural-Networks-32.jpg" alt="">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
   </a>
         <header>
           <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
           <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://example.com/img/main/Clustering-31.jpg');">
-    <img src="https://example.com/img/main/Clustering-31.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/clustering/">Clustering</a></h2>
-          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/support-vector-machines/" class="image" style="--bg-image: url('https://example.com/img/main/support_vector_machines-18.jpg');">
-    <img src="https://example.com/img/main/support_vector_machines-18.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/support-vector-machines/">Support Vector Machines</a></h2>
-          <time class="published" datetime="2020-04-12 00:00:00 &#43;0000 UTC">April 12, 2020</time>
         </header>
       </article>
       
@@ -517,6 +517,9 @@ print (Y_new)</code></pre>
           
           <li>
               <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/slides/">slides<span class="count">2</span></a>
           
           <li>
               <a href="/categories/big-data/">big-data<span class="count">1</span></a>
@@ -582,6 +585,16 @@ print (Y_new)</code></pre>
   
 
   
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
 </section>
 
       <footer id="site-footer">
@@ -644,8 +657,19 @@ print (Y_new)</code></pre>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
-    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.fcfc9e1d76e9b508f36f1e2dbd43f12bee856cb74ea5748029231e02ab7d382e.js" integrity="sha256-/PyeHXbptQjzbx4tvUPxK&#43;6FbLdOpXSAKSMeAqt9OC4="></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
     <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
     </div>
   </body>
 </html>

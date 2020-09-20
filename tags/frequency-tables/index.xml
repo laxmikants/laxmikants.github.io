@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Frequency Tables on Data Science Posts and Resources</title>
-    <link>https://example.com/tags/frequency-tables/</link>
+    <link>https://laxmikants.github.io/tags/frequency-tables/</link>
     <description>Recent content in Frequency Tables on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 15 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/frequency-tables/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/tags/frequency-tables/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Understanding frequency tables</title>
-      <link>https://example.com/blog/exploring-frequency-tables/</link>
+      <link>https://laxmikants.github.io/blog/exploring-frequency-tables/</link>
       <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/exploring-frequency-tables/</guid>
+      <guid>https://laxmikants.github.io/blog/exploring-frequency-tables/</guid>
       <description>Frequency tables are a great tool to help explore datasets and get an idea about relationships between variables</description>
     </item>
     

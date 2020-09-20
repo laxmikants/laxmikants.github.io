@@ -21,6 +21,186 @@
     </item>
     
     <item>
+      <title>Neural Networks</title>
+      <link>https://laxmikants.github.io/tags/neural-networks/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clustering</title>
+      <link>https://laxmikants.github.io/tags/clustering/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Support Vector Machines</title>
+      <link>https://laxmikants.github.io/tags/support-vector-machines/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/support-vector-machines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decision Trees</title>
+      <link>https://laxmikants.github.io/tags/decision-trees/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/decision-trees/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://laxmikants.github.io/tags/logistic-regression/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stock Market</title>
+      <link>https://laxmikants.github.io/tags/stock-market/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/stock-market/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://laxmikants.github.io/tags/classification/</link>
+      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://laxmikants.github.io/tags/linear-regression/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Time series</title>
+      <link>https://laxmikants.github.io/tags/time-series/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/time-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nltk</title>
+      <link>https://laxmikants.github.io/tags/nltk/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/nltk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Text analytics</title>
+      <link>https://laxmikants.github.io/tags/text-analytics/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/text-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EDA</title>
+      <link>https://laxmikants.github.io/tags/eda/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/eda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Frequency Tables</title>
+      <link>https://laxmikants.github.io/tags/frequency-tables/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/frequency-tables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploring Dataset</title>
+      <link>https://laxmikants.github.io/tags/exploring-dataset/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/exploring-dataset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Numeric data</title>
+      <link>https://laxmikants.github.io/tags/numeric-data/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/numeric-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://laxmikants.github.io/tags/data-science/</link>
+      <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/tags/machine-learning/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bigdata</title>
+      <link>https://laxmikants.github.io/tags/bigdata/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/bigdata/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hadoop</title>
+      <link>https://laxmikants.github.io/tags/hadoop/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/hadoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>https://laxmikants.github.io/tags/big-data/</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pandas</title>
       <link>https://laxmikants.github.io/tags/pandas/</link>
       <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>

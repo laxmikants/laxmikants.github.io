@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exploring Dataset on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/exploring-dataset/</link>
+    <link>https://laxmikants.github.io/categories/exploring-dataset/</link>
     <description>Recent content in Exploring Dataset on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/exploring-dataset/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/exploring-dataset/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploring and preparing data</title>
-      <link>https://example.com/blog/exploring-and-preparing-data/</link>
+      <link>https://laxmikants.github.io/blog/exploring-and-preparing-data/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/exploring-and-preparing-data/</guid>
+      <guid>https://laxmikants.github.io/blog/exploring-and-preparing-data/</guid>
       <description>In data analysis and predictive modeling preparation of data paves the way for further insights.</description>
     </item>
     

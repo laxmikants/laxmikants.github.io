@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Support Vector Machines on Data Science Posts and Resources</title>
-    <link>https://example.com/tags/support-vector-machines/</link>
+    <link>https://laxmikants.github.io/tags/support-vector-machines/</link>
     <description>Recent content in Support Vector Machines on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/support-vector-machines/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/tags/support-vector-machines/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Support Vector Machines</title>
-      <link>https://example.com/blog/support-vector-machines/</link>
+      <link>https://laxmikants.github.io/blog/support-vector-machines/</link>
       <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/support-vector-machines/</guid>
+      <guid>https://laxmikants.github.io/blog/support-vector-machines/</guid>
       <description>In machine learning, support-vector machines are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.</description>
     </item>
     

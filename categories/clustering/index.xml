@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clustering on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/clustering/</link>
+    <link>https://laxmikants.github.io/categories/clustering/</link>
     <description>Recent content in Clustering on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 05 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/clustering/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/clustering/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Clustering</title>
-      <link>https://example.com/blog/clustering/</link>
+      <link>https://laxmikants.github.io/blog/clustering/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/clustering/</guid>
+      <guid>https://laxmikants.github.io/blog/clustering/</guid>
       <description>Clustering is Machine Learning method that helps in finding the pattern of similarity and relationships among data samples in dataset and then cluster these samples into various groups.</description>
     </item>
     

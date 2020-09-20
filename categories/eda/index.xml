@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EDA on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/eda/</link>
+    <link>https://laxmikants.github.io/categories/eda/</link>
     <description>Recent content in EDA on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 22 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/eda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/eda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>EDA with Iris dataset</title>
-      <link>https://example.com/blog/eda-with-iris-dataset/</link>
+      <link>https://laxmikants.github.io/blog/eda-with-iris-dataset/</link>
       <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/eda-with-iris-dataset/</guid>
+      <guid>https://laxmikants.github.io/blog/eda-with-iris-dataset/</guid>
       <description>Exploring datasets is an important topic in data science. To achieve this task EDA i.e Exploratory data analysis helps</description>
     </item>
     
