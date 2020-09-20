@@ -11,15 +11,16 @@ Summary: Machine learning is the science, in which we focus on teaching machines
 subtitle: Machine learning
 featured: "img/main/machine-learning-12.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
-<!--more-->
+
 
 
 ```{r setup, include=FALSE}

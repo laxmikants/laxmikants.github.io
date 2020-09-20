@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Slides</title>
+      <link>https://laxmikants.github.io/categories/slides/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/categories/slides/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Pandas</title>

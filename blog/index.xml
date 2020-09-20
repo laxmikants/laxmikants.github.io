@@ -6,10 +6,19 @@
     <description>Recent content in Blog on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React- JS</title>
+      <link>https://laxmikants.github.io/blog/react-js/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-js/</guid>
+      <description>React-JS Introduction</description>
+    </item>
     
     <item>
       <title>Pandas (Python)</title>

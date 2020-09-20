@@ -11,11 +11,12 @@ Summary: "Hadoop is a Big Data Management software of the 21st century."
 subtitle: Understanding Hadoop
 featured: "img/main/Hadoop-15.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 ---
 
 

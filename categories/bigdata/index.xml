@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bigdata on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/bigdata/</link>
+    <link>https://laxmikants.github.io/categories/bigdata/</link>
     <description>Recent content in Bigdata on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/bigdata/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/bigdata/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Hadoop</title>
-      <link>https://example.com/blog/hadoop/</link>
+      <link>https://laxmikants.github.io/blog/hadoop/</link>
       <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/hadoop/</guid>
+      <guid>https://laxmikants.github.io/blog/hadoop/</guid>
       <description>Hadoop is a Big Data Management software of the 21st century.</description>
     </item>
     

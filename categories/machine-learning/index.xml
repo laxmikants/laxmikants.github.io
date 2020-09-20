@@ -2,26 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Data Science Posts and Resources</title>
-    <link>https://example.com/categories/machine-learning/</link>
+    <link>https://laxmikants.github.io/categories/machine-learning/</link>
     <description>Recent content in Machine Learning on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Machine Learning Overview</title>
-      <link>https://example.com/blog/machine-learning-overview/</link>
+      <link>https://laxmikants.github.io/blog/machine-learning-overview/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/machine-learning-overview/</guid>
-      <description>
-&lt;script src=&#34;https://example.com/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
-
-
-</description>
+      <guid>https://laxmikants.github.io/blog/machine-learning-overview/</guid>
+      <description>Machine learning is the science, in which we focus on teaching machines or computers to perform certain tasks without being given specific instructions</description>
     </item>
     
   </channel>

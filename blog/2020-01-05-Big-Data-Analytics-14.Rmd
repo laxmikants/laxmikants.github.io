@@ -11,11 +11,12 @@ Summary: Big-data helps to come to conclusion based on the data points arrived f
 subtitle: Big Data
 featured: "img/main/Big-Data-14.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 ---
 
 
