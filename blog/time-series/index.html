@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Time-Series Forecasting - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Time-Series Forecasting">
+<meta itemprop="description" content="Introduction to time-series forecasting">
+<meta itemprop="datePublished" content="2020-03-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-03-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4899">
+
+
+
+<meta itemprop="keywords" content="Time series," />
+<meta property="og:title" content="Time-Series Forecasting" />
+<meta property="og:description" content="Introduction to time-series forecasting" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/time-series/" />
+<meta property="article:published_time" content="2020-03-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-03-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Time-Series Forecasting"/>
+<meta name="twitter:description" content="Introduction to time-series forecasting"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Time-Series Forecasting : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Time-Series Forecasting">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/time-series/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to time-series forecasting">
+<meta name="description" content="Introduction to time-series forecasting">
+<meta property="og:updated_time" content="2020-03-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2020-03-05T00:00:00Z">
+<meta property="article:modified_time" content="2020-03-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Time-Series Forecasting",
+  "alternativeHeadline": "Time-Series Forecasting",
+  "url": "https://laxmikants.github.io/blog/time-series/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/time-series/"
+  },
+  "description": "Introduction to time-series forecasting",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2020-03-05T00:00:00Z",
+  "dateModified": "2020-03-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"what-is-time-series\" class=\"section level2\"\u003e\r\n\u003ch2\u003eWhat is time series?\u003c/h2\u003e\r\n\u003cp\u003eA series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time at which it is collected. The sale of the items in a retail store like Walmart will be a time series. The periodicity of the the sale could be at daily level or weekly level. The number of people flying from Bangalore to Delhi on daily basis is a time series.\r\nTime-series forecasting uses historical time based data to forecast a variable for example\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eAt Supermarket the demand for a grocery product each day\u003c/li\u003e\r\n\u003cli\u003eCount of the downloads of an App in a country for the coming month\u003c/li\u003e\r\n\u003cli\u003eProduct sales in units sold each day in a retail store\u003c/li\u003e\r\n\u003cli\u003eYearly unemployment rate\u003c/li\u003e\r\n\u003cli\u003eThe closing price of a stock\u003c/li\u003e\r\n\u003cli\u003eExpected yearly yield of a crop\u003c/li\u003e\r\n\u003cli\u003ePopulation growth in a country\u003c/li\u003e\r\n\u003cli\u003eDaily demand for a bus/airline/train\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cdiv id=\"time-series-and-a-normal-series\" class=\"section level3\"\u003e\r\n\u003ch3\u003eTime series and a normal series?\u003c/h3\u003e\r\n\u003cp\u003eTime component is important in time series. The time series is primarily dependent on the time. But a normal series say 1, 2, 3…100 has no time component to it. When a value that a series will take depends on the time it was recorded, it is called as time series.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"how-to-define-a-time-series-object-using-r-language\" class=\"section level3\"\u003e\r\n\u003ch3\u003eHow to define a time series object using R language\u003c/h3\u003e\r\n\u003cp\u003eThe function ts() helps to create time-series objects. As.ts() and is.ts() coerce an object to a time-series and test whether an object is a time series or not\r\nfor example:\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"frequency\" class=\"section level3\"\u003e\r\n\u003ch3\u003eFrequency\u003c/h3\u003e\r\n\u003cp\u003eThe count of number of observations per unit of time is called as frequency. Frequency can further be distinguished as Frequency for yearly data is 1, Frequency for weekly data is 7, Frequency for quarterly data is 4 and so on…\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"some-useful-softwares\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSome useful softwares\u003c/h3\u003e\r\n\u003col style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003e\u003cp\u003eforecast: For forecasting functions\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003etseries: For unit root tests and GARC models\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eMcomp: Time series data from forecasting competitions\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003efma: For data\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eexpsmooth: For data\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003efpp: For data\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eARIMA\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eprophet\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eSPSS\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"prophet\" class=\"section level3\"\u003e\r\n\u003ch3\u003eprophet\u003c/h3\u003e\r\n\u003cp\u003eProphet represents a time-series as a combination of trend, seasonality and holidays. This decomposed time series model can be represented by the following equation:\u003c/p\u003e\r\n\u003cdiv class=\"figure\"\u003e\r\n\u003cimg src=\"/img/main/ts.png\" alt=\"\" /\u003e\r\n\u003cp class=\"caption\"\u003eCapture10\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cp\u003ewhere:\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003eg(t)\u003c/strong\u003e defines the trend function that models the non-periodic changes in the time series\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003es(t)\u003c/strong\u003e defines the periodic changes (e.g., weekly and yearly seasonality)\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003eh(t)\u003c/strong\u003e means the effect of holidays\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003eεt\u003c/strong\u003e: is the error notation representing information that was missed by the model\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"trend\" class=\"section level3\"\u003e\r\n\u003ch3\u003eTrend\u003c/h3\u003e\r\n\u003cp\u003eProphet provides two variants for the trend function, g(t) which are logistic growth modeling non-linear growth and constant rate of growth or Piece wise Linear Model.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"seasonality\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSeasonality\u003c/h3\u003e\r\n\u003cp\u003es(t) is called as the seasonal component which allows to flexibly model the periodic changes due to weekly and yearly seasonability. For example, a 5-day work week can produce effects on a time series that repeat each week, while vacation schedules and school breaks can produce effects that repeat each year.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"holidays-and-events\" class=\"section level3\"\u003e\r\n\u003ch3\u003eHolidays and Events\u003c/h3\u003e\r\n\u003cp\u003eThere are events which can provide predictable outcome to business. These events are holidays or any other important ocasion such as black friday.Prophet provides list of such past and future events for modeling into time-series component.\u003c/p\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003elibrary(Quandl)\r\nlibrary(quantmod)\r\nlibrary(prophet)\r\n\r\nQuandl.api_key(\u0026quot;YBM9uPgpnsaDYPkAn539\u0026quot;)\r\n\r\n#daily_gold = Quandl(\u0026quot;WGC/GOLD_DAILY_INR\u0026quot;,collapse=\u0026quot;daily\u0026quot;,start_date=\u0026quot;2000-01-01\u0026quot;,end_date = \u0026quot;2020-08-11\u0026quot;,type=\u0026quot;raw\u0026quot;)\r\n\r\n\r\ndaily_gold = Quandl(\u0026quot;LBMA/SILVER\u0026quot;,collapse=\u0026quot;daily\u0026quot;,start_date=\u0026quot;2020-01-01\u0026quot;,end_date = \u0026quot;2020-08-12\u0026quot;,type=\u0026quot;raw\u0026quot;)\r\n\r\nkeeps \u0026lt;- c(\u0026quot;Date\u0026quot;, \u0026quot;USD\u0026quot;)\r\n\r\ndaily_gold = daily_gold[keeps]\r\n\r\nnames(daily_gold) \u0026lt;- c(\u0026#39;ds\u0026#39;,\u0026#39;y\u0026#39;)\r\n\r\n\r\n\r\ndaily_gold[2] \u0026lt;- daily_gold[2] \r\n\r\nmodel = prophet(daily_gold)\r\n\r\nfuture \u0026lt;- make_future_dataframe(model, periods = 10)\r\n\r\n\r\nforecast \u0026lt;- predict(model, future)\r\n\r\nprint(forecast)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##             ds    trend additive_terms additive_terms_lower\r\n## 1   2020-01-02 18.67220      0.1719716            0.1719716\r\n## 2   2020-01-03 18.63388      0.1920116            0.1920116\r\n## 3   2020-01-06 18.51890      0.1161517            0.1161517\r\n## 4   2020-01-07 18.48058      0.1067298            0.1067298\r\n## 5   2020-01-08 18.44225      0.2188640            0.2188640\r\n## 6   2020-01-09 18.40392      0.1719716            0.1719716\r\n## 7   2020-01-10 18.36560      0.1920116            0.1920116\r\n## 8   2020-01-13 18.25062      0.1161517            0.1161517\r\n## 9   2020-01-14 18.21230      0.1067298            0.1067298\r\n## 10  2020-01-15 18.17397      0.2188640            0.2188640\r\n## 11  2020-01-16 18.13565      0.1719716            0.1719716\r\n## 12  2020-01-17 18.09732      0.1920116            0.1920116\r\n## 13  2020-01-20 17.98235      0.1161517            0.1161517\r\n## 14  2020-01-21 17.94402      0.1067298            0.1067298\r\n## 15  2020-01-22 17.90570      0.2188640            0.2188640\r\n## 16  2020-01-23 17.86737      0.1719716            0.1719716\r\n## 17  2020-01-24 17.82905      0.1920116            0.1920116\r\n## 18  2020-01-27 17.71407      0.1161517            0.1161517\r\n## 19  2020-01-28 17.67574      0.1067298            0.1067298\r\n## 20  2020-01-29 17.63742      0.2188640            0.2188640\r\n## 21  2020-01-30 17.59909      0.1719716            0.1719716\r\n## 22  2020-01-31 17.56077      0.1920116            0.1920116\r\n## 23  2020-02-03 17.44579      0.1161517            0.1161517\r\n## 24  2020-02-04 17.40747      0.1067298            0.1067298\r\n## 25  2020-02-05 17.36914      0.2188640            0.2188640\r\n## 26  2020-02-06 17.33082      0.1719716            0.1719716\r\n## 27  2020-02-07 17.29176      0.1920116            0.1920116\r\n## 28  2020-02-10 17.17459      0.1161517            0.1161517\r\n## 29  2020-02-11 17.13553      0.1067298            0.1067298\r\n## 30  2020-02-12 17.09647      0.2188640            0.2188640\r\n## 31  2020-02-13 17.05742      0.1719716            0.1719716\r\n## 32  2020-02-14 17.00788      0.1920116            0.1920116\r\n## 33  2020-02-17 16.85928      0.1161517            0.1161517\r\n## 34  2020-02-18 16.80975      0.1067298            0.1067298\r\n## 35  2020-02-19 16.76021      0.2188640            0.2188640\r\n## 36  2020-02-20 16.70263      0.1719716            0.1719716\r\n## 37  2020-02-21 16.64505      0.1920116            0.1920116\r\n## 38  2020-02-24 16.47231      0.1161517            0.1161517\r\n## 39  2020-02-25 16.41472      0.1067298            0.1067298\r\n## 40  2020-02-26 16.35714      0.2188640            0.2188640\r\n## 41  2020-02-27 16.29913      0.1719716            0.1719716\r\n## 42  2020-02-28 16.24113      0.1920116            0.1920116\r\n## 43  2020-03-02 16.06710      0.1161517            0.1161517\r\n## 44  2020-03-03 16.00909      0.1067298            0.1067298\r\n## 45  2020-03-04 15.95108      0.2188640            0.2188640\r\n## 46  2020-03-05 15.89307      0.1719716            0.1719716\r\n## 47  2020-03-06 15.83507      0.1920116            0.1920116\r\n## 48  2020-03-09 15.66104      0.1161517            0.1161517\r\n## 49  2020-03-10 15.60303      0.1067298            0.1067298\r\n## 50  2020-03-11 15.54502      0.2188640            0.2188640\r\n## 51  2020-03-12 15.48701      0.1719716            0.1719716\r\n## 52  2020-03-13 15.42900      0.1920116            0.1920116\r\n## 53  2020-03-16 15.25498      0.1161517            0.1161517\r\n## 54  2020-03-17 15.19697      0.1067298            0.1067298\r\n## 55  2020-03-18 15.13896      0.2188640            0.2188640\r\n## 56  2020-03-19 15.08098      0.1719716            0.1719716\r\n## 57  2020-03-20 15.02300      0.1920116            0.1920116\r\n## 58  2020-03-23 14.84905      0.1161517            0.1161517\r\n## 59  2020-03-24 14.79107      0.1067298            0.1067298\r\n## 60  2020-03-25 14.73308      0.2188640            0.2188640\r\n## 61  2020-03-26 14.70644      0.1719716            0.1719716\r\n## 62  2020-03-27 14.67979      0.1920116            0.1920116\r\n## 63  2020-03-30 14.59985      0.1161517            0.1161517\r\n## 64  2020-03-31 14.57320      0.1067298            0.1067298\r\n## 65  2020-04-01 14.54656      0.2188640            0.2188640\r\n## 66  2020-04-02 14.55587      0.1719716            0.1719716\r\n## 67  2020-04-03 14.56517      0.1920116            0.1920116\r\n## 68  2020-04-06 14.59310      0.1161517            0.1161517\r\n## 69  2020-04-07 14.60241      0.1067298            0.1067298\r\n## 70  2020-04-08 14.61172      0.2188640            0.2188640\r\n## 71  2020-04-09 14.64302      0.1719716            0.1719716\r\n## 72  2020-04-14 14.79949      0.1067298            0.1067298\r\n## 73  2020-04-15 14.83079      0.2188640            0.2188640\r\n## 74  2020-04-16 14.86208      0.1719716            0.1719716\r\n## 75  2020-04-17 14.89338      0.1920116            0.1920116\r\n## 76  2020-04-20 15.00470      0.1161517            0.1161517\r\n## 77  2020-04-21 15.04181      0.1067298            0.1067298\r\n## 78  2020-04-22 15.07892      0.2188640            0.2188640\r\n## 79  2020-04-23 15.11603      0.1719716            0.1719716\r\n## 80  2020-04-24 15.15314      0.1920116            0.1920116\r\n## 81  2020-04-27 15.26628      0.1161517            0.1161517\r\n## 82  2020-04-28 15.30399      0.1067298            0.1067298\r\n## 83  2020-04-29 15.34170      0.2188640            0.2188640\r\n## 84  2020-04-30 15.37942      0.1719716            0.1719716\r\n## 85  2020-05-01 15.41713      0.1920116            0.1920116\r\n## 86  2020-05-04 15.53329      0.1161517            0.1161517\r\n## 87  2020-05-05 15.57200      0.1067298            0.1067298\r\n## 88  2020-05-06 15.61072      0.2188640            0.2188640\r\n## 89  2020-05-07 15.64944      0.1719716            0.1719716\r\n## 90  2020-05-11 15.80432      0.1161517            0.1161517\r\n## 91  2020-05-12 15.84304      0.1067298            0.1067298\r\n## 92  2020-05-13 15.88176      0.2188640            0.2188640\r\n## 93  2020-05-14 15.92048      0.1719716            0.1719716\r\n## 94  2020-05-15 15.95920      0.1920116            0.1920116\r\n## 95  2020-05-18 16.07536      0.1161517            0.1161517\r\n## 96  2020-05-19 16.11408      0.1067298            0.1067298\r\n## 97  2020-05-20 16.15280      0.2188640            0.2188640\r\n## 98  2020-05-21 16.19152      0.1719716            0.1719716\r\n## 99  2020-05-22 16.23024      0.1920116            0.1920116\r\n## 100 2020-05-26 16.38512      0.1067298            0.1067298\r\n## 101 2020-05-27 16.42384      0.2188640            0.2188640\r\n## 102 2020-05-28 16.46256      0.1719716            0.1719716\r\n## 103 2020-05-29 16.50128      0.1920116            0.1920116\r\n## 104 2020-06-01 16.61744      0.1161517            0.1161517\r\n## 105 2020-06-02 16.65616      0.1067298            0.1067298\r\n## 106 2020-06-03 16.69488      0.2188640            0.2188640\r\n## 107 2020-06-04 16.73360      0.1719716            0.1719716\r\n## 108 2020-06-05 16.77232      0.1920116            0.1920116\r\n## 109 2020-06-08 16.88848      0.1161517            0.1161517\r\n## 110 2020-06-09 16.92720      0.1067298            0.1067298\r\n## 111 2020-06-10 16.96592      0.2188640            0.2188640\r\n## 112 2020-06-11 17.00464      0.1719716            0.1719716\r\n## 113 2020-06-12 17.04335      0.1920116            0.1920116\r\n## 114 2020-06-15 17.15951      0.1161517            0.1161517\r\n## 115 2020-06-16 17.19823      0.1067298            0.1067298\r\n## 116 2020-06-17 17.23695      0.2188640            0.2188640\r\n## 117 2020-06-18 17.27567      0.1719716            0.1719716\r\n## 118 2020-06-19 17.31439      0.1920116            0.1920116\r\n## 119 2020-06-22 17.43055      0.1161517            0.1161517\r\n## 120 2020-06-23 17.51737      0.1067298            0.1067298\r\n## 121 2020-06-24 17.60418      0.2188640            0.2188640\r\n## 122 2020-06-25 17.69100      0.1719716            0.1719716\r\n## 123 2020-06-26 17.77781      0.1920116            0.1920116\r\n## 124 2020-06-29 18.03825      0.1161517            0.1161517\r\n## 125 2020-06-30 18.21636      0.1067298            0.1067298\r\n## 126 2020-07-01 18.39447      0.2188640            0.2188640\r\n## 127 2020-07-02 18.57258      0.1719716            0.1719716\r\n## 128 2020-07-03 18.75069      0.1920116            0.1920116\r\n## 129 2020-07-06 19.28501      0.1161517            0.1161517\r\n## 130 2020-07-07 19.46312      0.1067298            0.1067298\r\n## 131 2020-07-08 19.64123      0.2188640            0.2188640\r\n## 132 2020-07-09 19.81934      0.1719716            0.1719716\r\n## 133 2020-07-10 19.99745      0.1920116            0.1920116\r\n## 134 2020-07-13 20.53177      0.1161517            0.1161517\r\n## 135 2020-07-14 20.70988      0.1067298            0.1067298\r\n## 136 2020-07-15 20.88799      0.2188640            0.2188640\r\n## 137 2020-07-16 21.06610      0.1719716            0.1719716\r\n## 138 2020-07-17 21.24421      0.1920116            0.1920116\r\n## 139 2020-07-20 21.77853      0.1161517            0.1161517\r\n## 140 2020-07-21 21.95664      0.1067298            0.1067298\r\n## 141 2020-07-22 22.13475      0.2188640            0.2188640\r\n## 142 2020-07-23 22.31286      0.1719716            0.1719716\r\n## 143 2020-07-24 22.49097      0.1920116            0.1920116\r\n## 144 2020-07-27 23.02529      0.1161517            0.1161517\r\n## 145 2020-07-28 23.20340      0.1067298            0.1067298\r\n## 146 2020-07-29 23.38151      0.2188640            0.2188640\r\n## 147 2020-07-30 23.55962      0.1719716            0.1719716\r\n## 148 2020-07-31 23.73773      0.1920116            0.1920116\r\n## 149 2020-08-03 24.27206      0.1161517            0.1161517\r\n## 150 2020-08-04 24.45016      0.1067298            0.1067298\r\n## 151 2020-08-05 24.62827      0.2188640            0.2188640\r\n## 152 2020-08-06 24.80638      0.1719716            0.1719716\r\n## 153 2020-08-07 24.98449      0.1920116            0.1920116\r\n## 154 2020-08-10 25.51882      0.1161517            0.1161517\r\n## 155 2020-08-11 25.69692      0.1067298            0.1067298\r\n## 156 2020-08-12 25.87503      0.2188640            0.2188640\r\n## 157 2020-08-13 26.05314      0.1719716            0.1719716\r\n## 158 2020-08-14 26.23125      0.1920116            0.1920116\r\n## 159 2020-08-15 26.40936     -0.4028644           -0.4028644\r\n## 160 2020-08-16 26.58747     -0.4028644           -0.4028644\r\n## 161 2020-08-17 26.76558      0.1161517            0.1161517\r\n## 162 2020-08-18 26.94368      0.1067298            0.1067298\r\n## 163 2020-08-19 27.12179      0.2188640            0.2188640\r\n## 164 2020-08-20 27.29990      0.1719716            0.1719716\r\n## 165 2020-08-21 27.47801      0.1920116            0.1920116\r\n## 166 2020-08-22 27.65612     -0.4028644           -0.4028644\r\n##     additive_terms_upper     weekly weekly_lower weekly_upper\r\n## 1              0.1719716  0.1719716    0.1719716    0.1719716\r\n## 2              0.1920116  0.1920116    0.1920116    0.1920116\r\n## 3              0.1161517  0.1161517    0.1161517    0.1161517\r\n## 4              0.1067298  0.1067298    0.1067298    0.1067298\r\n## 5              0.2188640  0.2188640    0.2188640    0.2188640\r\n## 6              0.1719716  0.1719716    0.1719716    0.1719716\r\n## 7              0.1920116  0.1920116    0.1920116    0.1920116\r\n## 8              0.1161517  0.1161517    0.1161517    0.1161517\r\n## 9              0.1067298  0.1067298    0.1067298    0.1067298\r\n## 10             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 11             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 12             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 13             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 14             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 15             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 16             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 17             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 18             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 19             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 20             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 21             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 22             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 23             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 24             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 25             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 26             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 27             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 28             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 29             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 30             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 31             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 32             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 33             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 34             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 35             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 36             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 37             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 38             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 39             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 40             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 41             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 42             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 43             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 44             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 45             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 46             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 47             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 48             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 49             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 50             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 51             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 52             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 53             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 54             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 55             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 56             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 57             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 58             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 59             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 60             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 61             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 62             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 63             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 64             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 65             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 66             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 67             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 68             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 69             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 70             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 71             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 72             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 73             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 74             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 75             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 76             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 77             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 78             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 79             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 80             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 81             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 82             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 83             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 84             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 85             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 86             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 87             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 88             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 89             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 90             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 91             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 92             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 93             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 94             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 95             0.1161517  0.1161517    0.1161517    0.1161517\r\n## 96             0.1067298  0.1067298    0.1067298    0.1067298\r\n## 97             0.2188640  0.2188640    0.2188640    0.2188640\r\n## 98             0.1719716  0.1719716    0.1719716    0.1719716\r\n## 99             0.1920116  0.1920116    0.1920116    0.1920116\r\n## 100            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 101            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 102            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 103            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 104            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 105            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 106            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 107            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 108            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 109            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 110            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 111            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 112            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 113            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 114            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 115            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 116            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 117            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 118            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 119            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 120            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 121            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 122            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 123            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 124            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 125            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 126            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 127            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 128            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 129            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 130            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 131            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 132            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 133            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 134            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 135            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 136            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 137            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 138            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 139            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 140            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 141            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 142            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 143            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 144            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 145            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 146            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 147            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 148            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 149            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 150            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 151            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 152            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 153            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 154            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 155            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 156            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 157            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 158            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 159           -0.4028644 -0.4028644   -0.4028644   -0.4028644\r\n## 160           -0.4028644 -0.4028644   -0.4028644   -0.4028644\r\n## 161            0.1161517  0.1161517    0.1161517    0.1161517\r\n## 162            0.1067298  0.1067298    0.1067298    0.1067298\r\n## 163            0.2188640  0.2188640    0.2188640    0.2188640\r\n## 164            0.1719716  0.1719716    0.1719716    0.1719716\r\n## 165            0.1920116  0.1920116    0.1920116    0.1920116\r\n## 166           -0.4028644 -0.4028644   -0.4028644   -0.4028644\r\n##     multiplicative_terms multiplicative_terms_lower multiplicative_terms_upper\r\n## 1                      0                          0                          0\r\n## 2                      0                          0                          0\r\n## 3                      0                          0                          0\r\n## 4                      0                          0                          0\r\n## 5                      0                          0                          0\r\n## 6                      0                          0                          0\r\n## 7                      0                          0                          0\r\n## 8                      0                          0                          0\r\n## 9                      0                          0                          0\r\n## 10                     0                          0                          0\r\n## 11                     0                          0                          0\r\n## 12                     0                          0                          0\r\n## 13                     0                          0                          0\r\n## 14                     0                          0                          0\r\n## 15                     0                          0                          0\r\n## 16                     0                          0                          0\r\n## 17                     0                          0                          0\r\n## 18                     0                          0                          0\r\n## 19                     0                          0                          0\r\n## 20                     0                          0                          0\r\n## 21                     0                          0                          0\r\n## 22                     0                          0                          0\r\n## 23                     0                          0                          0\r\n## 24                     0                          0                          0\r\n## 25                     0                          0                          0\r\n## 26                     0                          0                          0\r\n## 27                     0                          0                          0\r\n## 28                     0                          0                          0\r\n## 29                     0                          0                          0\r\n## 30                     0                          0                          0\r\n## 31                     0                          0                          0\r\n## 32                     0                          0                          0\r\n## 33                     0                          0                          0\r\n## 34                     0                          0                          0\r\n## 35                     0                          0                          0\r\n## 36                     0                          0                          0\r\n## 37                     0                          0                          0\r\n## 38                     0                          0                          0\r\n## 39                     0                          0                          0\r\n## 40                     0                          0                          0\r\n## 41                     0                          0                          0\r\n## 42                     0                          0                          0\r\n## 43                     0                          0                          0\r\n## 44                     0                          0                          0\r\n## 45                     0                          0                          0\r\n## 46                     0                          0                          0\r\n## 47                     0                          0                          0\r\n## 48                     0                          0                          0\r\n## 49                     0                          0                          0\r\n## 50                     0                          0                          0\r\n## 51                     0                          0                          0\r\n## 52                     0                          0                          0\r\n## 53                     0                          0                          0\r\n## 54                     0                          0                          0\r\n## 55                     0                          0                          0\r\n## 56                     0                          0                          0\r\n## 57                     0                          0                          0\r\n## 58                     0                          0                          0\r\n## 59                     0                          0                          0\r\n## 60                     0                          0                          0\r\n## 61                     0                          0                          0\r\n## 62                     0                          0                          0\r\n## 63                     0                          0                          0\r\n## 64                     0                          0                          0\r\n## 65                     0                          0                          0\r\n## 66                     0                          0                          0\r\n## 67                     0                          0                          0\r\n## 68                     0                          0                          0\r\n## 69                     0                          0                          0\r\n## 70                     0                          0                          0\r\n## 71                     0                          0                          0\r\n## 72                     0                          0                          0\r\n## 73                     0                          0                          0\r\n## 74                     0                          0                          0\r\n## 75                     0                          0                          0\r\n## 76                     0                          0                          0\r\n## 77                     0                          0                          0\r\n## 78                     0                          0                          0\r\n## 79                     0                          0                          0\r\n## 80                     0                          0                          0\r\n## 81                     0                          0                          0\r\n## 82                     0                          0                          0\r\n## 83                     0                          0                          0\r\n## 84                     0                          0                          0\r\n## 85                     0                          0                          0\r\n## 86                     0                          0                          0\r\n## 87                     0                          0                          0\r\n## 88                     0                          0                          0\r\n## 89                     0                          0                          0\r\n## 90                     0                          0                          0\r\n## 91                     0                          0                          0\r\n## 92                     0                          0                          0\r\n## 93                     0                          0                          0\r\n## 94                     0                          0                          0\r\n## 95                     0                          0                          0\r\n## 96                     0                          0                          0\r\n## 97                     0                          0                          0\r\n## 98                     0                          0                          0\r\n## 99                     0                          0                          0\r\n## 100                    0                          0                          0\r\n## 101                    0                          0                          0\r\n## 102                    0                          0                          0\r\n## 103                    0                          0                          0\r\n## 104                    0                          0                          0\r\n## 105                    0                          0                          0\r\n## 106                    0                          0                          0\r\n## 107                    0                          0                          0\r\n## 108                    0                          0                          0\r\n## 109                    0                          0                          0\r\n## 110                    0                          0                          0\r\n## 111                    0                          0                          0\r\n## 112                    0                          0                          0\r\n## 113                    0                          0                          0\r\n## 114                    0                          0                          0\r\n## 115                    0                          0                          0\r\n## 116                    0                          0                          0\r\n## 117                    0                          0                          0\r\n## 118                    0                          0                          0\r\n## 119                    0                          0                          0\r\n## 120                    0                          0                          0\r\n## 121                    0                          0                          0\r\n## 122                    0                          0                          0\r\n## 123                    0                          0                          0\r\n## 124                    0                          0                          0\r\n## 125                    0                          0                          0\r\n## 126                    0                          0                          0\r\n## 127                    0                          0                          0\r\n## 128                    0                          0                          0\r\n## 129                    0                          0                          0\r\n## 130                    0                          0                          0\r\n## 131                    0                          0                          0\r\n## 132                    0                          0                          0\r\n## 133                    0                          0                          0\r\n## 134                    0                          0                          0\r\n## 135                    0                          0                          0\r\n## 136                    0                          0                          0\r\n## 137                    0                          0                          0\r\n## 138                    0                          0                          0\r\n## 139                    0                          0                          0\r\n## 140                    0                          0                          0\r\n## 141                    0                          0                          0\r\n## 142                    0                          0                          0\r\n## 143                    0                          0                          0\r\n## 144                    0                          0                          0\r\n## 145                    0                          0                          0\r\n## 146                    0                          0                          0\r\n## 147                    0                          0                          0\r\n## 148                    0                          0                          0\r\n## 149                    0                          0                          0\r\n## 150                    0                          0                          0\r\n## 151                    0                          0                          0\r\n## 152                    0                          0                          0\r\n## 153                    0                          0                          0\r\n## 154                    0                          0                          0\r\n## 155                    0                          0                          0\r\n## 156                    0                          0                          0\r\n## 157                    0                          0                          0\r\n## 158                    0                          0                          0\r\n## 159                    0                          0                          0\r\n## 160                    0                          0                          0\r\n## 161                    0                          0                          0\r\n## 162                    0                          0                          0\r\n## 163                    0                          0                          0\r\n## 164                    0                          0                          0\r\n## 165                    0                          0                          0\r\n## 166                    0                          0                          0\r\n##     yhat_lower yhat_upper trend_lower trend_upper     yhat\r\n## 1     17.49245   20.26509    18.67220    18.67220 18.84417\r\n## 2     17.50027   20.16286    18.63388    18.63388 18.82589\r\n## 3     17.19407   20.05230    18.51890    18.51890 18.63505\r\n## 4     17.19200   19.97439    18.48058    18.48058 18.58730\r\n## 5     17.31936   20.08777    18.44225    18.44225 18.66111\r\n## 6     17.01353   19.93148    18.40392    18.40392 18.57590\r\n## 7     17.12443   19.94269    18.36560    18.36560 18.55761\r\n## 8     17.02199   19.82056    18.25062    18.25062 18.36678\r\n## 9     16.85435   19.67739    18.21230    18.21230 18.31903\r\n## 10    16.88307   19.81706    18.17397    18.17397 18.39284\r\n## 11    16.98395   19.73554    18.13565    18.13565 18.30762\r\n## 12    16.89375   19.71206    18.09732    18.09732 18.28933\r\n## 13    16.80435   19.45518    17.98235    17.98235 18.09850\r\n## 14    16.68676   19.39465    17.94402    17.94402 18.05075\r\n## 15    16.70323   19.51025    17.90570    17.90570 18.12456\r\n## 16    16.57916   19.46614    17.86737    17.86737 18.03934\r\n## 17    16.59141   19.40613    17.82905    17.82905 18.02106\r\n## 18    16.39755   19.25934    17.71407    17.71407 17.83022\r\n## 19    16.39515   19.18560    17.67574    17.67574 17.78247\r\n## 20    16.38923   19.26374    17.63742    17.63742 17.85628\r\n## 21    16.31840   19.17497    17.59909    17.59909 17.77107\r\n## 22    16.34328   19.07962    17.56077    17.56077 17.75278\r\n## 23    16.15922   18.91885    17.44579    17.44579 17.56194\r\n## 24    16.16321   18.92352    17.40747    17.40747 17.51420\r\n## 25    16.21419   19.02094    17.36914    17.36914 17.58801\r\n## 26    16.19849   18.92637    17.33082    17.33082 17.50279\r\n## 27    16.13829   18.96345    17.29176    17.29176 17.48377\r\n## 28    15.87350   18.61171    17.17459    17.17459 17.29074\r\n## 29    15.88247   18.73899    17.13553    17.13553 17.24226\r\n## 30    15.89540   18.64013    17.09647    17.09647 17.31534\r\n## 31    15.77958   18.68256    17.05742    17.05742 17.22939\r\n## 32    15.81528   18.67861    17.00788    17.00788 17.19989\r\n## 33    15.57608   18.30937    16.85928    16.85928 16.97543\r\n## 34    15.45598   18.24517    16.80975    16.80975 16.91648\r\n## 35    15.53028   18.32739    16.76021    16.76021 16.97908\r\n## 36    15.46680   18.30334    16.70263    16.70263 16.87460\r\n## 37    15.38600   18.26167    16.64505    16.64505 16.83706\r\n## 38    15.22793   17.88628    16.47231    16.47231 16.58846\r\n## 39    15.07722   17.94591    16.41472    16.41472 16.52145\r\n## 40    15.31855   18.11943    16.35714    16.35714 16.57601\r\n## 41    15.10367   17.85038    16.29913    16.29913 16.47111\r\n## 42    15.01892   17.80783    16.24113    16.24113 16.43314\r\n## 43    14.82058   17.63293    16.06710    16.06710 16.18325\r\n## 44    14.76009   17.52278    16.00909    16.00909 16.11582\r\n## 45    14.78016   17.54987    15.95108    15.95108 16.16995\r\n## 46    14.61919   17.47392    15.89307    15.89307 16.06505\r\n## 47    14.71173   17.41314    15.83507    15.83507 16.02708\r\n## 48    14.36249   17.26429    15.66104    15.66104 15.77719\r\n## 49    14.18971   17.16891    15.60303    15.60303 15.70976\r\n## 50    14.43314   17.07878    15.54502    15.54502 15.76389\r\n## 51    14.23892   17.05038    15.48701    15.48701 15.65898\r\n## 52    14.19554   16.99948    15.42900    15.42900 15.62102\r\n## 53    13.92229   16.73810    15.25498    15.25498 15.37113\r\n## 54    13.79525   16.67848    15.19697    15.19697 15.30370\r\n## 55    13.92402   16.74274    15.13896    15.13896 15.35782\r\n## 56    13.91802   16.70506    15.08098    15.08098 15.25295\r\n## 57    13.80722   16.70027    15.02300    15.02300 15.21501\r\n## 58    13.54676   16.51593    14.84905    14.84905 14.96520\r\n## 59    13.54807   16.33348    14.79107    14.79107 14.89780\r\n## 60    13.61974   16.38487    14.73308    14.73308 14.95195\r\n## 61    13.47258   16.31318    14.70644    14.70644 14.87841\r\n## 62    13.54975   16.31535    14.67979    14.67979 14.87180\r\n## 63    13.22108   16.28357    14.59985    14.59985 14.71600\r\n## 64    13.27809   16.03727    14.57320    14.57320 14.67993\r\n## 65    13.47191   16.27248    14.54656    14.54656 14.76542\r\n## 66    13.37009   16.21689    14.55587    14.55587 14.72784\r\n## 67    13.31556   16.12076    14.56517    14.56517 14.75719\r\n## 68    13.18937   16.10430    14.59310    14.59310 14.70925\r\n## 69    13.24913   16.10150    14.60241    14.60241 14.70914\r\n## 70    13.48745   16.23557    14.61172    14.61172 14.83058\r\n## 71    13.39417   16.24317    14.64302    14.64302 14.81499\r\n## 72    13.41232   16.29264    14.79949    14.79949 14.90622\r\n## 73    13.67280   16.39684    14.83079    14.83079 15.04965\r\n## 74    13.71328   16.49259    14.86208    14.86208 15.03405\r\n## 75    13.72425   16.50748    14.89338    14.89338 15.08539\r\n## 76    13.74383   16.50534    15.00470    15.00470 15.12086\r\n## 77    13.71188   16.50519    15.04181    15.04181 15.14854\r\n## 78    13.88813   16.68112    15.07892    15.07892 15.29779\r\n## 79    13.97128   16.70205    15.11603    15.11603 15.28800\r\n## 80    13.89099   16.79761    15.15314    15.15314 15.34515\r\n## 81    13.93498   16.85594    15.26628    15.26628 15.38243\r\n## 82    14.01052   16.86749    15.30399    15.30399 15.41072\r\n## 83    14.24963   17.04159    15.34170    15.34170 15.56057\r\n## 84    14.02584   17.05527    15.37942    15.37942 15.55139\r\n## 85    14.20547   17.05919    15.41713    15.41713 15.60914\r\n## 86    14.22056   17.02758    15.53329    15.53329 15.64944\r\n## 87    14.31422   17.06425    15.57200    15.57200 15.67873\r\n## 88    14.39343   17.26812    15.61072    15.61072 15.82959\r\n## 89    14.36444   17.20685    15.64944    15.64944 15.82141\r\n## 90    14.46138   17.37234    15.80432    15.80432 15.92047\r\n## 91    14.56765   17.39163    15.84304    15.84304 15.94977\r\n## 92    14.70673   17.60577    15.88176    15.88176 16.10062\r\n## 93    14.68343   17.52690    15.92048    15.92048 16.09245\r\n## 94    14.77311   17.61981    15.95920    15.95920 16.15121\r\n## 95    14.83058   17.81075    16.07536    16.07536 16.19151\r\n## 96    14.81716   17.68351    16.11408    16.11408 16.22081\r\n## 97    14.96292   17.75252    16.15280    16.15280 16.37166\r\n## 98    14.99880   17.67632    16.19152    16.19152 16.36349\r\n## 99    15.10300   17.80495    16.23024    16.23024 16.42225\r\n## 100   15.11259   17.92219    16.38512    16.38512 16.49185\r\n## 101   15.23680   18.13303    16.42384    16.42384 16.64270\r\n## 102   15.31674   18.04729    16.46256    16.46256 16.63453\r\n## 103   15.31075   18.11895    16.50128    16.50128 16.69329\r\n## 104   15.31493   18.12826    16.61744    16.61744 16.73359\r\n## 105   15.40868   18.07760    16.65616    16.65616 16.76289\r\n## 106   15.50473   18.32242    16.69488    16.69488 16.91374\r\n## 107   15.42236   18.37708    16.73360    16.73360 16.90557\r\n## 108   15.55048   18.46671    16.77232    16.77232 16.96433\r\n## 109   15.55707   18.41921    16.88848    16.88848 17.00463\r\n## 110   15.60099   18.44601    16.92720    16.92720 17.03393\r\n## 111   15.84665   18.64508    16.96592    16.96592 17.18478\r\n## 112   15.90809   18.63999    17.00464    17.00464 17.17661\r\n## 113   15.74256   18.60839    17.04335    17.04335 17.23537\r\n## 114   15.91470   18.65535    17.15951    17.15951 17.27567\r\n## 115   15.92045   18.68804    17.19823    17.19823 17.30496\r\n## 116   16.09947   18.89418    17.23695    17.23695 17.45582\r\n## 117   16.00257   18.87350    17.27567    17.27567 17.44765\r\n## 118   16.10157   18.99139    17.31439    17.31439 17.50641\r\n## 119   16.09568   18.99421    17.43055    17.43055 17.54671\r\n## 120   16.18015   19.02150    17.51737    17.51737 17.62410\r\n## 121   16.36957   19.20494    17.60418    17.60418 17.82305\r\n## 122   16.48417   19.19093    17.69100    17.69100 17.86297\r\n## 123   16.61537   19.47566    17.77781    17.77781 17.96982\r\n## 124   16.73637   19.64426    18.03825    18.03825 18.15440\r\n## 125   17.08868   19.78490    18.21636    18.21636 18.32309\r\n## 126   17.25213   19.98194    18.39447    18.39447 18.61333\r\n## 127   17.41083   20.18862    18.57258    18.57258 18.74455\r\n## 128   17.59623   20.33291    18.75069    18.75069 18.94270\r\n## 129   17.93479   20.77371    19.28501    19.28501 19.40116\r\n## 130   18.23606   21.17017    19.46312    19.46312 19.56985\r\n## 131   18.39003   21.25636    19.64123    19.64123 19.86009\r\n## 132   18.65406   21.38112    19.81934    19.81934 19.99131\r\n## 133   18.63216   21.69999    19.99745    19.99745 20.18946\r\n## 134   19.29960   21.99723    20.53177    20.53177 20.64793\r\n## 135   19.38993   22.27017    20.70988    20.70988 20.81661\r\n## 136   19.67142   22.44917    20.88799    20.88799 21.10685\r\n## 137   19.83968   22.71912    21.06610    21.06610 21.23807\r\n## 138   20.05965   22.75373    21.24421    21.24421 21.43622\r\n## 139   20.41647   23.24947    21.77853    21.77853 21.89469\r\n## 140   20.69527   23.59952    21.95664    21.95664 22.06337\r\n## 141   20.97987   23.73116    22.13475    22.13475 22.35362\r\n## 142   21.11915   23.81985    22.31286    22.31286 22.48483\r\n## 143   21.20964   24.05714    22.49097    22.49097 22.68298\r\n## 144   21.64232   24.56164    23.02529    23.02529 23.14145\r\n## 145   21.90918   24.64895    23.20340    23.20340 23.31013\r\n## 146   22.30302   25.09335    23.38151    23.38151 23.60038\r\n## 147   22.27895   25.04622    23.55962    23.55962 23.73159\r\n## 148   22.52465   25.34914    23.73773    23.73773 23.92974\r\n## 149   22.98682   25.78327    24.27206    24.27206 24.38821\r\n## 150   23.11633   25.91810    24.45016    24.45016 24.55689\r\n## 151   23.36519   26.26764    24.62827    24.62827 24.84714\r\n## 152   23.70931   26.55695    24.80638    24.80638 24.97835\r\n## 153   23.81079   26.60224    24.98449    24.98449 25.17650\r\n## 154   24.21907   27.08307    25.51882    25.51882 25.63497\r\n## 155   24.39941   27.26333    25.69692    25.69692 25.80365\r\n## 156   24.74820   27.42797    25.87503    25.87503 26.09390\r\n## 157   24.83771   27.52526    26.05314    26.05314 26.22511\r\n## 158   25.02495   27.78219    26.23125    26.23125 26.42326\r\n## 159   24.65118   27.38841    26.40704    26.41388 26.00649\r\n## 160   24.82539   27.48924    26.57822    26.59873 26.18460\r\n## 161   25.51337   28.16535    26.75046    26.78629 26.88173\r\n## 162   25.61209   28.49976    26.91988    26.97604 27.05041\r\n## 163   26.05460   28.76193    27.08666    27.16280 27.34066\r\n## 164   26.02833   28.92048    27.25375    27.35088 27.47187\r\n## 165   26.19634   29.10724    27.41629    27.54359 27.67002\r\n## 166   25.68057   28.71155    27.58004    27.73616 27.25326\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003eplot(model,forecast)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/load-all-libraries-1.png\" width=\"672\" /\u003e\u003c/p\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003eprophet_plot_components(model,forecast)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/load-all-libraries-2.png\" width=\"672\" /\u003e\u003c/p\u003e\r\n\u003cdiv id=\"implementing-forcasting-using-timeseries-object-in-r\" class=\"section level4\"\u003e\r\n\u003ch4\u003eImplementing forcasting using TimeSeries object in R\u003c/h4\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003elibrary(tseries)\r\nlibrary(zoo)\r\nlibrary(forecast)\r\nlibrary(normwhn.test)\r\n\r\ndat = structure(\r\nc(1100, 1150, 1200, 1150, 1150, 1200, 1300, 1100, 1200,1250, 1200, 1250, \r\n1300,1400,1550,1400,1450,1450,1450,1450,1500,1550,1600,1650,\r\n1650,1650,1650,1650,1750,1850,1750,1800,1850,1950,1950,2000,\r\n1950,2000,2050,2100,2150,2200,2250,2450,2650,2700,2850,2850,\r\n2750,2750,2750,2750,2800,2800,2850,2850,3000,2950,3000,2950,\r\n2900,2850,2750,2750,2450,2400,2450,2500,2750,2550,2600,2300,\r\n2470,2570,2570,2550,2500,2470,2550,2550,2470,2470,2370,2400,\r\n2870,2648,2656,2600,2656,2608,2460,2644,2564,2508,2524,2508,\r\n3006,3027,3129,3142,3119,2920,2902,2875,2880,2726,2543,2836,\r\n2887,2978,2901,2946,2890,2947,2811,2899,3017,2989,2967,2902,\r\n2994,3046,3074,3100,3141,3002,2934,2901,2908,3003,3097,3083,\r\n3205,3253,3221,3192,3170,3240,3345,3480,3750,3725,3800,4000,\r\n3800,4000,4200,4500,4800,5000,5100,5500,5500,5800,6000,6200), .Tsp = c(2008, 2020.91666666667, 12), class = \u0026quot;ts\u0026quot;)\r\n\r\narimaModel \u0026lt;- arima(dat, order=c(0, 1, 1), list(order=c(0, 1, 0), period = 12))\r\n\r\nsummary(arimaModel)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Call:\r\n## arima(x = dat, order = c(0, 1, 1), seasonal = list(order = c(0, 1, 0), period = 12))\r\n## \r\n## Coefficients:\r\n##           ma1\r\n##       -0.1067\r\n## s.e.   0.0720\r\n## \r\n## sigma^2 estimated as 22135:  log likelihood = -918.26,  aic = 1840.53\r\n## \r\n## Training set error measures:\r\n##                    ME     RMSE      MAE       MPE     MAPE     MASE        ACF1\r\n## Training set 14.32495 142.4436 105.2636 0.3245391 3.827641 1.189896 -0.02882344\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003epreds \u0026lt;- predict(arimaModel, n.ahead = 12)\r\n\r\nprint(preds)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## $pred\r\n##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug\r\n## 2021 5998.214 6198.214 6398.214 6698.214 6998.214 7198.214 7298.214 7698.214\r\n##           Sep      Oct      Nov      Dec\r\n## 2021 7698.214 7998.214 8198.214 8398.214\r\n## \r\n## $se\r\n##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug\r\n## 2021 148.7772 199.4956 239.7131 274.0916 304.6146 332.3461 357.9354 381.8136\r\n##           Sep      Oct      Nov      Dec\r\n## 2021 404.2839 425.5694 445.8398 465.2279\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003eplot(dat, col = \u0026#39;green\u0026#39;, main = \u0026#39;Acutal vs ARIMA Model\u0026#39;,\r\n     ylab = \u0026#39;Gold Rates\u0026#39;, lwd = 3)\r\n\r\nlines(arimaModel$fitted, col = \u0026#39;black\u0026#39;, lwd = 3, lty = 2)\r\n\r\nlegend(\u0026#39;topleft\u0026#39;, legend = c(\u0026#39;Actual\u0026#39;, \u0026#39;ARIMA Fit\u0026#39;),\r\n       col = c(\u0026#39;green\u0026#39;,\u0026#39;black\u0026#39;), lwd = c(3,3), lty = c(1,2))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/unnamed-chunk-1-1.png\" width=\"672\" /\u003e\u003c/p\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003ets.plot(dat, preds$pred, main = \u0026#39;Actual vs ARIMA Predictions\u0026#39;,\r\n        col = c(\u0026#39;green\u0026#39;,\u0026#39;black\u0026#39;), lty = c(1,2), lwd = c(3,3))\r\n\r\nlegend(\u0026#39;topleft\u0026#39;, legend = c(\u0026#39;Actual Data\u0026#39;, \u0026#39;ARIMA Predictions\u0026#39;),\r\n       col = c(\u0026#39;green\u0026#39;,\u0026#39;black\u0026#39;), lwd = c(3,3), lty = c(1,2))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/unnamed-chunk-1-2.png\" width=\"672\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"summary\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSummary\u003c/h4\u003e\r\n\u003cp\u003eThe main aim of time-series modeling is to carefully collect and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series. The model is then used to generate the future values for the series.\r\nTime series forecasting is thus can be termed as act of predicting the future by understanding the past.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Time-Series%20Forecasting&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftime-series%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2ftime-series%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/time-series/">Time-Series Forecasting</a></h2>
+    
+    
+      <p>Introduction to time-series forecasting</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-03-05 00:00:00 &#43;0000 UTC">March 5, 2020</time>
+    <p>Laxmi K Soni</p>
+    <p>23-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Time-Series%20Forecasting&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftime-series%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2ftime-series%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/time-series/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/time-series09.jpg');">
+    <img src="https://laxmikants.github.io/img/main/time-series09.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="what-is-time-series" class="section level2">
+<h2>What is time series?</h2>
+<p>A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time at which it is collected. The sale of the items in a retail store like Walmart will be a time series. The periodicity of the the sale could be at daily level or weekly level. The number of people flying from Bangalore to Delhi on daily basis is a time series.
+Time-series forecasting uses historical time based data to forecast a variable for example</p>
+<ul>
+<li>At Supermarket the demand for a grocery product each day</li>
+<li>Count of the downloads of an App in a country for the coming month</li>
+<li>Product sales in units sold each day in a retail store</li>
+<li>Yearly unemployment rate</li>
+<li>The closing price of a stock</li>
+<li>Expected yearly yield of a crop</li>
+<li>Population growth in a country</li>
+<li>Daily demand for a bus/airline/train</li>
+</ul>
+<div id="time-series-and-a-normal-series" class="section level3">
+<h3>Time series and a normal series?</h3>
+<p>Time component is important in time series. The time series is primarily dependent on the time. But a normal series say 1, 2, 3…100 has no time component to it. When a value that a series will take depends on the time it was recorded, it is called as time series.</p>
+</div>
+<div id="how-to-define-a-time-series-object-using-r-language" class="section level3">
+<h3>How to define a time series object using R language</h3>
+<p>The function ts() helps to create time-series objects. As.ts() and is.ts() coerce an object to a time-series and test whether an object is a time series or not
+for example:</p>
+</div>
+<div id="frequency" class="section level3">
+<h3>Frequency</h3>
+<p>The count of number of observations per unit of time is called as frequency. Frequency can further be distinguished as Frequency for yearly data is 1, Frequency for weekly data is 7, Frequency for quarterly data is 4 and so on…</p>
+</div>
+<div id="some-useful-softwares" class="section level3">
+<h3>Some useful softwares</h3>
+<ol style="list-style-type: decimal">
+<li><p>forecast: For forecasting functions</p></li>
+<li><p>tseries: For unit root tests and GARC models</p></li>
+<li><p>Mcomp: Time series data from forecasting competitions</p></li>
+<li><p>fma: For data</p></li>
+<li><p>expsmooth: For data</p></li>
+<li><p>fpp: For data</p></li>
+<li><p>ARIMA</p></li>
+<li><p>prophet</p></li>
+<li><p>SPSS</p></li>
+</ol>
+</div>
+<div id="prophet" class="section level3">
+<h3>prophet</h3>
+<p>Prophet represents a time-series as a combination of trend, seasonality and holidays. This decomposed time series model can be represented by the following equation:</p>
+<div class="figure">
+<img src="/img/main/ts.png" alt="" />
+<p class="caption">Capture10</p>
+</div>
+<p>where:</p>
+<ul>
+<li><p><strong>g(t)</strong> defines the trend function that models the non-periodic changes in the time series</p></li>
+<li><p><strong>s(t)</strong> defines the periodic changes (e.g., weekly and yearly seasonality)</p></li>
+<li><p><strong>h(t)</strong> means the effect of holidays</p></li>
+<li><p><strong>εt</strong>: is the error notation representing information that was missed by the model</p></li>
+</ul>
+</div>
+<div id="trend" class="section level3">
+<h3>Trend</h3>
+<p>Prophet provides two variants for the trend function, g(t) which are logistic growth modeling non-linear growth and constant rate of growth or Piece wise Linear Model.</p>
+</div>
+<div id="seasonality" class="section level3">
+<h3>Seasonality</h3>
+<p>s(t) is called as the seasonal component which allows to flexibly model the periodic changes due to weekly and yearly seasonability. For example, a 5-day work week can produce effects on a time series that repeat each week, while vacation schedules and school breaks can produce effects that repeat each year.</p>
+</div>
+<div id="holidays-and-events" class="section level3">
+<h3>Holidays and Events</h3>
+<p>There are events which can provide predictable outcome to business. These events are holidays or any other important ocasion such as black friday.Prophet provides list of such past and future events for modeling into time-series component.</p>
+<pre class="r"><code>library(Quandl)
+library(quantmod)
+library(prophet)
+
+Quandl.api_key(&quot;YBM9uPgpnsaDYPkAn539&quot;)
+
+#daily_gold = Quandl(&quot;WGC/GOLD_DAILY_INR&quot;,collapse=&quot;daily&quot;,start_date=&quot;2000-01-01&quot;,end_date = &quot;2020-08-11&quot;,type=&quot;raw&quot;)
+
+
+daily_gold = Quandl(&quot;LBMA/SILVER&quot;,collapse=&quot;daily&quot;,start_date=&quot;2020-01-01&quot;,end_date = &quot;2020-08-12&quot;,type=&quot;raw&quot;)
+
+keeps &lt;- c(&quot;Date&quot;, &quot;USD&quot;)
+
+daily_gold = daily_gold[keeps]
+
+names(daily_gold) &lt;- c(&#39;ds&#39;,&#39;y&#39;)
+
+
+
+daily_gold[2] &lt;- daily_gold[2] 
+
+model = prophet(daily_gold)
+
+future &lt;- make_future_dataframe(model, periods = 10)
+
+
+forecast &lt;- predict(model, future)
+
+print(forecast)</code></pre>
+<pre><code>##             ds    trend additive_terms additive_terms_lower
+## 1   2020-01-02 18.67220      0.1719716            0.1719716
+## 2   2020-01-03 18.63388      0.1920116            0.1920116
+## 3   2020-01-06 18.51890      0.1161517            0.1161517
+## 4   2020-01-07 18.48058      0.1067298            0.1067298
+## 5   2020-01-08 18.44225      0.2188640            0.2188640
+## 6   2020-01-09 18.40392      0.1719716            0.1719716
+## 7   2020-01-10 18.36560      0.1920116            0.1920116
+## 8   2020-01-13 18.25062      0.1161517            0.1161517
+## 9   2020-01-14 18.21230      0.1067298            0.1067298
+## 10  2020-01-15 18.17397      0.2188640            0.2188640
+## 11  2020-01-16 18.13565      0.1719716            0.1719716
+## 12  2020-01-17 18.09732      0.1920116            0.1920116
+## 13  2020-01-20 17.98235      0.1161517            0.1161517
+## 14  2020-01-21 17.94402      0.1067298            0.1067298
+## 15  2020-01-22 17.90570      0.2188640            0.2188640
+## 16  2020-01-23 17.86737      0.1719716            0.1719716
+## 17  2020-01-24 17.82905      0.1920116            0.1920116
+## 18  2020-01-27 17.71407      0.1161517            0.1161517
+## 19  2020-01-28 17.67574      0.1067298            0.1067298
+## 20  2020-01-29 17.63742      0.2188640            0.2188640
+## 21  2020-01-30 17.59909      0.1719716            0.1719716
+## 22  2020-01-31 17.56077      0.1920116            0.1920116
+## 23  2020-02-03 17.44579      0.1161517            0.1161517
+## 24  2020-02-04 17.40747      0.1067298            0.1067298
+## 25  2020-02-05 17.36914      0.2188640            0.2188640
+## 26  2020-02-06 17.33082      0.1719716            0.1719716
+## 27  2020-02-07 17.29176      0.1920116            0.1920116
+## 28  2020-02-10 17.17459      0.1161517            0.1161517
+## 29  2020-02-11 17.13553      0.1067298            0.1067298
+## 30  2020-02-12 17.09647      0.2188640            0.2188640
+## 31  2020-02-13 17.05742      0.1719716            0.1719716
+## 32  2020-02-14 17.00788      0.1920116            0.1920116
+## 33  2020-02-17 16.85928      0.1161517            0.1161517
+## 34  2020-02-18 16.80975      0.1067298            0.1067298
+## 35  2020-02-19 16.76021      0.2188640            0.2188640
+## 36  2020-02-20 16.70263      0.1719716            0.1719716
+## 37  2020-02-21 16.64505      0.1920116            0.1920116
+## 38  2020-02-24 16.47231      0.1161517            0.1161517
+## 39  2020-02-25 16.41472      0.1067298            0.1067298
+## 40  2020-02-26 16.35714      0.2188640            0.2188640
+## 41  2020-02-27 16.29913      0.1719716            0.1719716
+## 42  2020-02-28 16.24113      0.1920116            0.1920116
+## 43  2020-03-02 16.06710      0.1161517            0.1161517
+## 44  2020-03-03 16.00909      0.1067298            0.1067298
+## 45  2020-03-04 15.95108      0.2188640            0.2188640
+## 46  2020-03-05 15.89307      0.1719716            0.1719716
+## 47  2020-03-06 15.83507      0.1920116            0.1920116
+## 48  2020-03-09 15.66104      0.1161517            0.1161517
+## 49  2020-03-10 15.60303      0.1067298            0.1067298
+## 50  2020-03-11 15.54502      0.2188640            0.2188640
+## 51  2020-03-12 15.48701      0.1719716            0.1719716
+## 52  2020-03-13 15.42900      0.1920116            0.1920116
+## 53  2020-03-16 15.25498      0.1161517            0.1161517
+## 54  2020-03-17 15.19697      0.1067298            0.1067298
+## 55  2020-03-18 15.13896      0.2188640            0.2188640
+## 56  2020-03-19 15.08098      0.1719716            0.1719716
+## 57  2020-03-20 15.02300      0.1920116            0.1920116
+## 58  2020-03-23 14.84905      0.1161517            0.1161517
+## 59  2020-03-24 14.79107      0.1067298            0.1067298
+## 60  2020-03-25 14.73308      0.2188640            0.2188640
+## 61  2020-03-26 14.70644      0.1719716            0.1719716
+## 62  2020-03-27 14.67979      0.1920116            0.1920116
+## 63  2020-03-30 14.59985      0.1161517            0.1161517
+## 64  2020-03-31 14.57320      0.1067298            0.1067298
+## 65  2020-04-01 14.54656      0.2188640            0.2188640
+## 66  2020-04-02 14.55587      0.1719716            0.1719716
+## 67  2020-04-03 14.56517      0.1920116            0.1920116
+## 68  2020-04-06 14.59310      0.1161517            0.1161517
+## 69  2020-04-07 14.60241      0.1067298            0.1067298
+## 70  2020-04-08 14.61172      0.2188640            0.2188640
+## 71  2020-04-09 14.64302      0.1719716            0.1719716
+## 72  2020-04-14 14.79949      0.1067298            0.1067298
+## 73  2020-04-15 14.83079      0.2188640            0.2188640
+## 74  2020-04-16 14.86208      0.1719716            0.1719716
+## 75  2020-04-17 14.89338      0.1920116            0.1920116
+## 76  2020-04-20 15.00470      0.1161517            0.1161517
+## 77  2020-04-21 15.04181      0.1067298            0.1067298
+## 78  2020-04-22 15.07892      0.2188640            0.2188640
+## 79  2020-04-23 15.11603      0.1719716            0.1719716
+## 80  2020-04-24 15.15314      0.1920116            0.1920116
+## 81  2020-04-27 15.26628      0.1161517            0.1161517
+## 82  2020-04-28 15.30399      0.1067298            0.1067298
+## 83  2020-04-29 15.34170      0.2188640            0.2188640
+## 84  2020-04-30 15.37942      0.1719716            0.1719716
+## 85  2020-05-01 15.41713      0.1920116            0.1920116
+## 86  2020-05-04 15.53329      0.1161517            0.1161517
+## 87  2020-05-05 15.57200      0.1067298            0.1067298
+## 88  2020-05-06 15.61072      0.2188640            0.2188640
+## 89  2020-05-07 15.64944      0.1719716            0.1719716
+## 90  2020-05-11 15.80432      0.1161517            0.1161517
+## 91  2020-05-12 15.84304      0.1067298            0.1067298
+## 92  2020-05-13 15.88176      0.2188640            0.2188640
+## 93  2020-05-14 15.92048      0.1719716            0.1719716
+## 94  2020-05-15 15.95920      0.1920116            0.1920116
+## 95  2020-05-18 16.07536      0.1161517            0.1161517
+## 96  2020-05-19 16.11408      0.1067298            0.1067298
+## 97  2020-05-20 16.15280      0.2188640            0.2188640
+## 98  2020-05-21 16.19152      0.1719716            0.1719716
+## 99  2020-05-22 16.23024      0.1920116            0.1920116
+## 100 2020-05-26 16.38512      0.1067298            0.1067298
+## 101 2020-05-27 16.42384      0.2188640            0.2188640
+## 102 2020-05-28 16.46256      0.1719716            0.1719716
+## 103 2020-05-29 16.50128      0.1920116            0.1920116
+## 104 2020-06-01 16.61744      0.1161517            0.1161517
+## 105 2020-06-02 16.65616      0.1067298            0.1067298
+## 106 2020-06-03 16.69488      0.2188640            0.2188640
+## 107 2020-06-04 16.73360      0.1719716            0.1719716
+## 108 2020-06-05 16.77232      0.1920116            0.1920116
+## 109 2020-06-08 16.88848      0.1161517            0.1161517
+## 110 2020-06-09 16.92720      0.1067298            0.1067298
+## 111 2020-06-10 16.96592      0.2188640            0.2188640
+## 112 2020-06-11 17.00464      0.1719716            0.1719716
+## 113 2020-06-12 17.04335      0.1920116            0.1920116
+## 114 2020-06-15 17.15951      0.1161517            0.1161517
+## 115 2020-06-16 17.19823      0.1067298            0.1067298
+## 116 2020-06-17 17.23695      0.2188640            0.2188640
+## 117 2020-06-18 17.27567      0.1719716            0.1719716
+## 118 2020-06-19 17.31439      0.1920116            0.1920116
+## 119 2020-06-22 17.43055      0.1161517            0.1161517
+## 120 2020-06-23 17.51737      0.1067298            0.1067298
+## 121 2020-06-24 17.60418      0.2188640            0.2188640
+## 122 2020-06-25 17.69100      0.1719716            0.1719716
+## 123 2020-06-26 17.77781      0.1920116            0.1920116
+## 124 2020-06-29 18.03825      0.1161517            0.1161517
+## 125 2020-06-30 18.21636      0.1067298            0.1067298
+## 126 2020-07-01 18.39447      0.2188640            0.2188640
+## 127 2020-07-02 18.57258      0.1719716            0.1719716
+## 128 2020-07-03 18.75069      0.1920116            0.1920116
+## 129 2020-07-06 19.28501      0.1161517            0.1161517
+## 130 2020-07-07 19.46312      0.1067298            0.1067298
+## 131 2020-07-08 19.64123      0.2188640            0.2188640
+## 132 2020-07-09 19.81934      0.1719716            0.1719716
+## 133 2020-07-10 19.99745      0.1920116            0.1920116
+## 134 2020-07-13 20.53177      0.1161517            0.1161517
+## 135 2020-07-14 20.70988      0.1067298            0.1067298
+## 136 2020-07-15 20.88799      0.2188640            0.2188640
+## 137 2020-07-16 21.06610      0.1719716            0.1719716
+## 138 2020-07-17 21.24421      0.1920116            0.1920116
+## 139 2020-07-20 21.77853      0.1161517            0.1161517
+## 140 2020-07-21 21.95664      0.1067298            0.1067298
+## 141 2020-07-22 22.13475      0.2188640            0.2188640
+## 142 2020-07-23 22.31286      0.1719716            0.1719716
+## 143 2020-07-24 22.49097      0.1920116            0.1920116
+## 144 2020-07-27 23.02529      0.1161517            0.1161517
+## 145 2020-07-28 23.20340      0.1067298            0.1067298
+## 146 2020-07-29 23.38151      0.2188640            0.2188640
+## 147 2020-07-30 23.55962      0.1719716            0.1719716
+## 148 2020-07-31 23.73773      0.1920116            0.1920116
+## 149 2020-08-03 24.27206      0.1161517            0.1161517
+## 150 2020-08-04 24.45016      0.1067298            0.1067298
+## 151 2020-08-05 24.62827      0.2188640            0.2188640
+## 152 2020-08-06 24.80638      0.1719716            0.1719716
+## 153 2020-08-07 24.98449      0.1920116            0.1920116
+## 154 2020-08-10 25.51882      0.1161517            0.1161517
+## 155 2020-08-11 25.69692      0.1067298            0.1067298
+## 156 2020-08-12 25.87503      0.2188640            0.2188640
+## 157 2020-08-13 26.05314      0.1719716            0.1719716
+## 158 2020-08-14 26.23125      0.1920116            0.1920116
+## 159 2020-08-15 26.40936     -0.4028644           -0.4028644
+## 160 2020-08-16 26.58747     -0.4028644           -0.4028644
+## 161 2020-08-17 26.76558      0.1161517            0.1161517
+## 162 2020-08-18 26.94368      0.1067298            0.1067298
+## 163 2020-08-19 27.12179      0.2188640            0.2188640
+## 164 2020-08-20 27.29990      0.1719716            0.1719716
+## 165 2020-08-21 27.47801      0.1920116            0.1920116
+## 166 2020-08-22 27.65612     -0.4028644           -0.4028644
+##     additive_terms_upper     weekly weekly_lower weekly_upper
+## 1              0.1719716  0.1719716    0.1719716    0.1719716
+## 2              0.1920116  0.1920116    0.1920116    0.1920116
+## 3              0.1161517  0.1161517    0.1161517    0.1161517
+## 4              0.1067298  0.1067298    0.1067298    0.1067298
+## 5              0.2188640  0.2188640    0.2188640    0.2188640
+## 6              0.1719716  0.1719716    0.1719716    0.1719716
+## 7              0.1920116  0.1920116    0.1920116    0.1920116
+## 8              0.1161517  0.1161517    0.1161517    0.1161517
+## 9              0.1067298  0.1067298    0.1067298    0.1067298
+## 10             0.2188640  0.2188640    0.2188640    0.2188640
+## 11             0.1719716  0.1719716    0.1719716    0.1719716
+## 12             0.1920116  0.1920116    0.1920116    0.1920116
+## 13             0.1161517  0.1161517    0.1161517    0.1161517
+## 14             0.1067298  0.1067298    0.1067298    0.1067298
+## 15             0.2188640  0.2188640    0.2188640    0.2188640
+## 16             0.1719716  0.1719716    0.1719716    0.1719716
+## 17             0.1920116  0.1920116    0.1920116    0.1920116
+## 18             0.1161517  0.1161517    0.1161517    0.1161517
+## 19             0.1067298  0.1067298    0.1067298    0.1067298
+## 20             0.2188640  0.2188640    0.2188640    0.2188640
+## 21             0.1719716  0.1719716    0.1719716    0.1719716
+## 22             0.1920116  0.1920116    0.1920116    0.1920116
+## 23             0.1161517  0.1161517    0.1161517    0.1161517
+## 24             0.1067298  0.1067298    0.1067298    0.1067298
+## 25             0.2188640  0.2188640    0.2188640    0.2188640
+## 26             0.1719716  0.1719716    0.1719716    0.1719716
+## 27             0.1920116  0.1920116    0.1920116    0.1920116
+## 28             0.1161517  0.1161517    0.1161517    0.1161517
+## 29             0.1067298  0.1067298    0.1067298    0.1067298
+## 30             0.2188640  0.2188640    0.2188640    0.2188640
+## 31             0.1719716  0.1719716    0.1719716    0.1719716
+## 32             0.1920116  0.1920116    0.1920116    0.1920116
+## 33             0.1161517  0.1161517    0.1161517    0.1161517
+## 34             0.1067298  0.1067298    0.1067298    0.1067298
+## 35             0.2188640  0.2188640    0.2188640    0.2188640
+## 36             0.1719716  0.1719716    0.1719716    0.1719716
+## 37             0.1920116  0.1920116    0.1920116    0.1920116
+## 38             0.1161517  0.1161517    0.1161517    0.1161517
+## 39             0.1067298  0.1067298    0.1067298    0.1067298
+## 40             0.2188640  0.2188640    0.2188640    0.2188640
+## 41             0.1719716  0.1719716    0.1719716    0.1719716
+## 42             0.1920116  0.1920116    0.1920116    0.1920116
+## 43             0.1161517  0.1161517    0.1161517    0.1161517
+## 44             0.1067298  0.1067298    0.1067298    0.1067298
+## 45             0.2188640  0.2188640    0.2188640    0.2188640
+## 46             0.1719716  0.1719716    0.1719716    0.1719716
+## 47             0.1920116  0.1920116    0.1920116    0.1920116
+## 48             0.1161517  0.1161517    0.1161517    0.1161517
+## 49             0.1067298  0.1067298    0.1067298    0.1067298
+## 50             0.2188640  0.2188640    0.2188640    0.2188640
+## 51             0.1719716  0.1719716    0.1719716    0.1719716
+## 52             0.1920116  0.1920116    0.1920116    0.1920116
+## 53             0.1161517  0.1161517    0.1161517    0.1161517
+## 54             0.1067298  0.1067298    0.1067298    0.1067298
+## 55             0.2188640  0.2188640    0.2188640    0.2188640
+## 56             0.1719716  0.1719716    0.1719716    0.1719716
+## 57             0.1920116  0.1920116    0.1920116    0.1920116
+## 58             0.1161517  0.1161517    0.1161517    0.1161517
+## 59             0.1067298  0.1067298    0.1067298    0.1067298
+## 60             0.2188640  0.2188640    0.2188640    0.2188640
+## 61             0.1719716  0.1719716    0.1719716    0.1719716
+## 62             0.1920116  0.1920116    0.1920116    0.1920116
+## 63             0.1161517  0.1161517    0.1161517    0.1161517
+## 64             0.1067298  0.1067298    0.1067298    0.1067298
+## 65             0.2188640  0.2188640    0.2188640    0.2188640
+## 66             0.1719716  0.1719716    0.1719716    0.1719716
+## 67             0.1920116  0.1920116    0.1920116    0.1920116
+## 68             0.1161517  0.1161517    0.1161517    0.1161517
+## 69             0.1067298  0.1067298    0.1067298    0.1067298
+## 70             0.2188640  0.2188640    0.2188640    0.2188640
+## 71             0.1719716  0.1719716    0.1719716    0.1719716
+## 72             0.1067298  0.1067298    0.1067298    0.1067298
+## 73             0.2188640  0.2188640    0.2188640    0.2188640
+## 74             0.1719716  0.1719716    0.1719716    0.1719716
+## 75             0.1920116  0.1920116    0.1920116    0.1920116
+## 76             0.1161517  0.1161517    0.1161517    0.1161517
+## 77             0.1067298  0.1067298    0.1067298    0.1067298
+## 78             0.2188640  0.2188640    0.2188640    0.2188640
+## 79             0.1719716  0.1719716    0.1719716    0.1719716
+## 80             0.1920116  0.1920116    0.1920116    0.1920116
+## 81             0.1161517  0.1161517    0.1161517    0.1161517
+## 82             0.1067298  0.1067298    0.1067298    0.1067298
+## 83             0.2188640  0.2188640    0.2188640    0.2188640
+## 84             0.1719716  0.1719716    0.1719716    0.1719716
+## 85             0.1920116  0.1920116    0.1920116    0.1920116
+## 86             0.1161517  0.1161517    0.1161517    0.1161517
+## 87             0.1067298  0.1067298    0.1067298    0.1067298
+## 88             0.2188640  0.2188640    0.2188640    0.2188640
+## 89             0.1719716  0.1719716    0.1719716    0.1719716
+## 90             0.1161517  0.1161517    0.1161517    0.1161517
+## 91             0.1067298  0.1067298    0.1067298    0.1067298
+## 92             0.2188640  0.2188640    0.2188640    0.2188640
+## 93             0.1719716  0.1719716    0.1719716    0.1719716
+## 94             0.1920116  0.1920116    0.1920116    0.1920116
+## 95             0.1161517  0.1161517    0.1161517    0.1161517
+## 96             0.1067298  0.1067298    0.1067298    0.1067298
+## 97             0.2188640  0.2188640    0.2188640    0.2188640
+## 98             0.1719716  0.1719716    0.1719716    0.1719716
+## 99             0.1920116  0.1920116    0.1920116    0.1920116
+## 100            0.1067298  0.1067298    0.1067298    0.1067298
+## 101            0.2188640  0.2188640    0.2188640    0.2188640
+## 102            0.1719716  0.1719716    0.1719716    0.1719716
+## 103            0.1920116  0.1920116    0.1920116    0.1920116
+## 104            0.1161517  0.1161517    0.1161517    0.1161517
+## 105            0.1067298  0.1067298    0.1067298    0.1067298
+## 106            0.2188640  0.2188640    0.2188640    0.2188640
+## 107            0.1719716  0.1719716    0.1719716    0.1719716
+## 108            0.1920116  0.1920116    0.1920116    0.1920116
+## 109            0.1161517  0.1161517    0.1161517    0.1161517
+## 110            0.1067298  0.1067298    0.1067298    0.1067298
+## 111            0.2188640  0.2188640    0.2188640    0.2188640
+## 112            0.1719716  0.1719716    0.1719716    0.1719716
+## 113            0.1920116  0.1920116    0.1920116    0.1920116
+## 114            0.1161517  0.1161517    0.1161517    0.1161517
+## 115            0.1067298  0.1067298    0.1067298    0.1067298
+## 116            0.2188640  0.2188640    0.2188640    0.2188640
+## 117            0.1719716  0.1719716    0.1719716    0.1719716
+## 118            0.1920116  0.1920116    0.1920116    0.1920116
+## 119            0.1161517  0.1161517    0.1161517    0.1161517
+## 120            0.1067298  0.1067298    0.1067298    0.1067298
+## 121            0.2188640  0.2188640    0.2188640    0.2188640
+## 122            0.1719716  0.1719716    0.1719716    0.1719716
+## 123            0.1920116  0.1920116    0.1920116    0.1920116
+## 124            0.1161517  0.1161517    0.1161517    0.1161517
+## 125            0.1067298  0.1067298    0.1067298    0.1067298
+## 126            0.2188640  0.2188640    0.2188640    0.2188640
+## 127            0.1719716  0.1719716    0.1719716    0.1719716
+## 128            0.1920116  0.1920116    0.1920116    0.1920116
+## 129            0.1161517  0.1161517    0.1161517    0.1161517
+## 130            0.1067298  0.1067298    0.1067298    0.1067298
+## 131            0.2188640  0.2188640    0.2188640    0.2188640
+## 132            0.1719716  0.1719716    0.1719716    0.1719716
+## 133            0.1920116  0.1920116    0.1920116    0.1920116
+## 134            0.1161517  0.1161517    0.1161517    0.1161517
+## 135            0.1067298  0.1067298    0.1067298    0.1067298
+## 136            0.2188640  0.2188640    0.2188640    0.2188640
+## 137            0.1719716  0.1719716    0.1719716    0.1719716
+## 138            0.1920116  0.1920116    0.1920116    0.1920116
+## 139            0.1161517  0.1161517    0.1161517    0.1161517
+## 140            0.1067298  0.1067298    0.1067298    0.1067298
+## 141            0.2188640  0.2188640    0.2188640    0.2188640
+## 142            0.1719716  0.1719716    0.1719716    0.1719716
+## 143            0.1920116  0.1920116    0.1920116    0.1920116
+## 144            0.1161517  0.1161517    0.1161517    0.1161517
+## 145            0.1067298  0.1067298    0.1067298    0.1067298
+## 146            0.2188640  0.2188640    0.2188640    0.2188640
+## 147            0.1719716  0.1719716    0.1719716    0.1719716
+## 148            0.1920116  0.1920116    0.1920116    0.1920116
+## 149            0.1161517  0.1161517    0.1161517    0.1161517
+## 150            0.1067298  0.1067298    0.1067298    0.1067298
+## 151            0.2188640  0.2188640    0.2188640    0.2188640
+## 152            0.1719716  0.1719716    0.1719716    0.1719716
+## 153            0.1920116  0.1920116    0.1920116    0.1920116
+## 154            0.1161517  0.1161517    0.1161517    0.1161517
+## 155            0.1067298  0.1067298    0.1067298    0.1067298
+## 156            0.2188640  0.2188640    0.2188640    0.2188640
+## 157            0.1719716  0.1719716    0.1719716    0.1719716
+## 158            0.1920116  0.1920116    0.1920116    0.1920116
+## 159           -0.4028644 -0.4028644   -0.4028644   -0.4028644
+## 160           -0.4028644 -0.4028644   -0.4028644   -0.4028644
+## 161            0.1161517  0.1161517    0.1161517    0.1161517
+## 162            0.1067298  0.1067298    0.1067298    0.1067298
+## 163            0.2188640  0.2188640    0.2188640    0.2188640
+## 164            0.1719716  0.1719716    0.1719716    0.1719716
+## 165            0.1920116  0.1920116    0.1920116    0.1920116
+## 166           -0.4028644 -0.4028644   -0.4028644   -0.4028644
+##     multiplicative_terms multiplicative_terms_lower multiplicative_terms_upper
+## 1                      0                          0                          0
+## 2                      0                          0                          0
+## 3                      0                          0                          0
+## 4                      0                          0                          0
+## 5                      0                          0                          0
+## 6                      0                          0                          0
+## 7                      0                          0                          0
+## 8                      0                          0                          0
+## 9                      0                          0                          0
+## 10                     0                          0                          0
+## 11                     0                          0                          0
+## 12                     0                          0                          0
+## 13                     0                          0                          0
+## 14                     0                          0                          0
+## 15                     0                          0                          0
+## 16                     0                          0                          0
+## 17                     0                          0                          0
+## 18                     0                          0                          0
+## 19                     0                          0                          0
+## 20                     0                          0                          0
+## 21                     0                          0                          0
+## 22                     0                          0                          0
+## 23                     0                          0                          0
+## 24                     0                          0                          0
+## 25                     0                          0                          0
+## 26                     0                          0                          0
+## 27                     0                          0                          0
+## 28                     0                          0                          0
+## 29                     0                          0                          0
+## 30                     0                          0                          0
+## 31                     0                          0                          0
+## 32                     0                          0                          0
+## 33                     0                          0                          0
+## 34                     0                          0                          0
+## 35                     0                          0                          0
+## 36                     0                          0                          0
+## 37                     0                          0                          0
+## 38                     0                          0                          0
+## 39                     0                          0                          0
+## 40                     0                          0                          0
+## 41                     0                          0                          0
+## 42                     0                          0                          0
+## 43                     0                          0                          0
+## 44                     0                          0                          0
+## 45                     0                          0                          0
+## 46                     0                          0                          0
+## 47                     0                          0                          0
+## 48                     0                          0                          0
+## 49                     0                          0                          0
+## 50                     0                          0                          0
+## 51                     0                          0                          0
+## 52                     0                          0                          0
+## 53                     0                          0                          0
+## 54                     0                          0                          0
+## 55                     0                          0                          0
+## 56                     0                          0                          0
+## 57                     0                          0                          0
+## 58                     0                          0                          0
+## 59                     0                          0                          0
+## 60                     0                          0                          0
+## 61                     0                          0                          0
+## 62                     0                          0                          0
+## 63                     0                          0                          0
+## 64                     0                          0                          0
+## 65                     0                          0                          0
+## 66                     0                          0                          0
+## 67                     0                          0                          0
+## 68                     0                          0                          0
+## 69                     0                          0                          0
+## 70                     0                          0                          0
+## 71                     0                          0                          0
+## 72                     0                          0                          0
+## 73                     0                          0                          0
+## 74                     0                          0                          0
+## 75                     0                          0                          0
+## 76                     0                          0                          0
+## 77                     0                          0                          0
+## 78                     0                          0                          0
+## 79                     0                          0                          0
+## 80                     0                          0                          0
+## 81                     0                          0                          0
+## 82                     0                          0                          0
+## 83                     0                          0                          0
+## 84                     0                          0                          0
+## 85                     0                          0                          0
+## 86                     0                          0                          0
+## 87                     0                          0                          0
+## 88                     0                          0                          0
+## 89                     0                          0                          0
+## 90                     0                          0                          0
+## 91                     0                          0                          0
+## 92                     0                          0                          0
+## 93                     0                          0                          0
+## 94                     0                          0                          0
+## 95                     0                          0                          0
+## 96                     0                          0                          0
+## 97                     0                          0                          0
+## 98                     0                          0                          0
+## 99                     0                          0                          0
+## 100                    0                          0                          0
+## 101                    0                          0                          0
+## 102                    0                          0                          0
+## 103                    0                          0                          0
+## 104                    0                          0                          0
+## 105                    0                          0                          0
+## 106                    0                          0                          0
+## 107                    0                          0                          0
+## 108                    0                          0                          0
+## 109                    0                          0                          0
+## 110                    0                          0                          0
+## 111                    0                          0                          0
+## 112                    0                          0                          0
+## 113                    0                          0                          0
+## 114                    0                          0                          0
+## 115                    0                          0                          0
+## 116                    0                          0                          0
+## 117                    0                          0                          0
+## 118                    0                          0                          0
+## 119                    0                          0                          0
+## 120                    0                          0                          0
+## 121                    0                          0                          0
+## 122                    0                          0                          0
+## 123                    0                          0                          0
+## 124                    0                          0                          0
+## 125                    0                          0                          0
+## 126                    0                          0                          0
+## 127                    0                          0                          0
+## 128                    0                          0                          0
+## 129                    0                          0                          0
+## 130                    0                          0                          0
+## 131                    0                          0                          0
+## 132                    0                          0                          0
+## 133                    0                          0                          0
+## 134                    0                          0                          0
+## 135                    0                          0                          0
+## 136                    0                          0                          0
+## 137                    0                          0                          0
+## 138                    0                          0                          0
+## 139                    0                          0                          0
+## 140                    0                          0                          0
+## 141                    0                          0                          0
+## 142                    0                          0                          0
+## 143                    0                          0                          0
+## 144                    0                          0                          0
+## 145                    0                          0                          0
+## 146                    0                          0                          0
+## 147                    0                          0                          0
+## 148                    0                          0                          0
+## 149                    0                          0                          0
+## 150                    0                          0                          0
+## 151                    0                          0                          0
+## 152                    0                          0                          0
+## 153                    0                          0                          0
+## 154                    0                          0                          0
+## 155                    0                          0                          0
+## 156                    0                          0                          0
+## 157                    0                          0                          0
+## 158                    0                          0                          0
+## 159                    0                          0                          0
+## 160                    0                          0                          0
+## 161                    0                          0                          0
+## 162                    0                          0                          0
+## 163                    0                          0                          0
+## 164                    0                          0                          0
+## 165                    0                          0                          0
+## 166                    0                          0                          0
+##     yhat_lower yhat_upper trend_lower trend_upper     yhat
+## 1     17.49245   20.26509    18.67220    18.67220 18.84417
+## 2     17.50027   20.16286    18.63388    18.63388 18.82589
+## 3     17.19407   20.05230    18.51890    18.51890 18.63505
+## 4     17.19200   19.97439    18.48058    18.48058 18.58730
+## 5     17.31936   20.08777    18.44225    18.44225 18.66111
+## 6     17.01353   19.93148    18.40392    18.40392 18.57590
+## 7     17.12443   19.94269    18.36560    18.36560 18.55761
+## 8     17.02199   19.82056    18.25062    18.25062 18.36678
+## 9     16.85435   19.67739    18.21230    18.21230 18.31903
+## 10    16.88307   19.81706    18.17397    18.17397 18.39284
+## 11    16.98395   19.73554    18.13565    18.13565 18.30762
+## 12    16.89375   19.71206    18.09732    18.09732 18.28933
+## 13    16.80435   19.45518    17.98235    17.98235 18.09850
+## 14    16.68676   19.39465    17.94402    17.94402 18.05075
+## 15    16.70323   19.51025    17.90570    17.90570 18.12456
+## 16    16.57916   19.46614    17.86737    17.86737 18.03934
+## 17    16.59141   19.40613    17.82905    17.82905 18.02106
+## 18    16.39755   19.25934    17.71407    17.71407 17.83022
+## 19    16.39515   19.18560    17.67574    17.67574 17.78247
+## 20    16.38923   19.26374    17.63742    17.63742 17.85628
+## 21    16.31840   19.17497    17.59909    17.59909 17.77107
+## 22    16.34328   19.07962    17.56077    17.56077 17.75278
+## 23    16.15922   18.91885    17.44579    17.44579 17.56194
+## 24    16.16321   18.92352    17.40747    17.40747 17.51420
+## 25    16.21419   19.02094    17.36914    17.36914 17.58801
+## 26    16.19849   18.92637    17.33082    17.33082 17.50279
+## 27    16.13829   18.96345    17.29176    17.29176 17.48377
+## 28    15.87350   18.61171    17.17459    17.17459 17.29074
+## 29    15.88247   18.73899    17.13553    17.13553 17.24226
+## 30    15.89540   18.64013    17.09647    17.09647 17.31534
+## 31    15.77958   18.68256    17.05742    17.05742 17.22939
+## 32    15.81528   18.67861    17.00788    17.00788 17.19989
+## 33    15.57608   18.30937    16.85928    16.85928 16.97543
+## 34    15.45598   18.24517    16.80975    16.80975 16.91648
+## 35    15.53028   18.32739    16.76021    16.76021 16.97908
+## 36    15.46680   18.30334    16.70263    16.70263 16.87460
+## 37    15.38600   18.26167    16.64505    16.64505 16.83706
+## 38    15.22793   17.88628    16.47231    16.47231 16.58846
+## 39    15.07722   17.94591    16.41472    16.41472 16.52145
+## 40    15.31855   18.11943    16.35714    16.35714 16.57601
+## 41    15.10367   17.85038    16.29913    16.29913 16.47111
+## 42    15.01892   17.80783    16.24113    16.24113 16.43314
+## 43    14.82058   17.63293    16.06710    16.06710 16.18325
+## 44    14.76009   17.52278    16.00909    16.00909 16.11582
+## 45    14.78016   17.54987    15.95108    15.95108 16.16995
+## 46    14.61919   17.47392    15.89307    15.89307 16.06505
+## 47    14.71173   17.41314    15.83507    15.83507 16.02708
+## 48    14.36249   17.26429    15.66104    15.66104 15.77719
+## 49    14.18971   17.16891    15.60303    15.60303 15.70976
+## 50    14.43314   17.07878    15.54502    15.54502 15.76389
+## 51    14.23892   17.05038    15.48701    15.48701 15.65898
+## 52    14.19554   16.99948    15.42900    15.42900 15.62102
+## 53    13.92229   16.73810    15.25498    15.25498 15.37113
+## 54    13.79525   16.67848    15.19697    15.19697 15.30370
+## 55    13.92402   16.74274    15.13896    15.13896 15.35782
+## 56    13.91802   16.70506    15.08098    15.08098 15.25295
+## 57    13.80722   16.70027    15.02300    15.02300 15.21501
+## 58    13.54676   16.51593    14.84905    14.84905 14.96520
+## 59    13.54807   16.33348    14.79107    14.79107 14.89780
+## 60    13.61974   16.38487    14.73308    14.73308 14.95195
+## 61    13.47258   16.31318    14.70644    14.70644 14.87841
+## 62    13.54975   16.31535    14.67979    14.67979 14.87180
+## 63    13.22108   16.28357    14.59985    14.59985 14.71600
+## 64    13.27809   16.03727    14.57320    14.57320 14.67993
+## 65    13.47191   16.27248    14.54656    14.54656 14.76542
+## 66    13.37009   16.21689    14.55587    14.55587 14.72784
+## 67    13.31556   16.12076    14.56517    14.56517 14.75719
+## 68    13.18937   16.10430    14.59310    14.59310 14.70925
+## 69    13.24913   16.10150    14.60241    14.60241 14.70914
+## 70    13.48745   16.23557    14.61172    14.61172 14.83058
+## 71    13.39417   16.24317    14.64302    14.64302 14.81499
+## 72    13.41232   16.29264    14.79949    14.79949 14.90622
+## 73    13.67280   16.39684    14.83079    14.83079 15.04965
+## 74    13.71328   16.49259    14.86208    14.86208 15.03405
+## 75    13.72425   16.50748    14.89338    14.89338 15.08539
+## 76    13.74383   16.50534    15.00470    15.00470 15.12086
+## 77    13.71188   16.50519    15.04181    15.04181 15.14854
+## 78    13.88813   16.68112    15.07892    15.07892 15.29779
+## 79    13.97128   16.70205    15.11603    15.11603 15.28800
+## 80    13.89099   16.79761    15.15314    15.15314 15.34515
+## 81    13.93498   16.85594    15.26628    15.26628 15.38243
+## 82    14.01052   16.86749    15.30399    15.30399 15.41072
+## 83    14.24963   17.04159    15.34170    15.34170 15.56057
+## 84    14.02584   17.05527    15.37942    15.37942 15.55139
+## 85    14.20547   17.05919    15.41713    15.41713 15.60914
+## 86    14.22056   17.02758    15.53329    15.53329 15.64944
+## 87    14.31422   17.06425    15.57200    15.57200 15.67873
+## 88    14.39343   17.26812    15.61072    15.61072 15.82959
+## 89    14.36444   17.20685    15.64944    15.64944 15.82141
+## 90    14.46138   17.37234    15.80432    15.80432 15.92047
+## 91    14.56765   17.39163    15.84304    15.84304 15.94977
+## 92    14.70673   17.60577    15.88176    15.88176 16.10062
+## 93    14.68343   17.52690    15.92048    15.92048 16.09245
+## 94    14.77311   17.61981    15.95920    15.95920 16.15121
+## 95    14.83058   17.81075    16.07536    16.07536 16.19151
+## 96    14.81716   17.68351    16.11408    16.11408 16.22081
+## 97    14.96292   17.75252    16.15280    16.15280 16.37166
+## 98    14.99880   17.67632    16.19152    16.19152 16.36349
+## 99    15.10300   17.80495    16.23024    16.23024 16.42225
+## 100   15.11259   17.92219    16.38512    16.38512 16.49185
+## 101   15.23680   18.13303    16.42384    16.42384 16.64270
+## 102   15.31674   18.04729    16.46256    16.46256 16.63453
+## 103   15.31075   18.11895    16.50128    16.50128 16.69329
+## 104   15.31493   18.12826    16.61744    16.61744 16.73359
+## 105   15.40868   18.07760    16.65616    16.65616 16.76289
+## 106   15.50473   18.32242    16.69488    16.69488 16.91374
+## 107   15.42236   18.37708    16.73360    16.73360 16.90557
+## 108   15.55048   18.46671    16.77232    16.77232 16.96433
+## 109   15.55707   18.41921    16.88848    16.88848 17.00463
+## 110   15.60099   18.44601    16.92720    16.92720 17.03393
+## 111   15.84665   18.64508    16.96592    16.96592 17.18478
+## 112   15.90809   18.63999    17.00464    17.00464 17.17661
+## 113   15.74256   18.60839    17.04335    17.04335 17.23537
+## 114   15.91470   18.65535    17.15951    17.15951 17.27567
+## 115   15.92045   18.68804    17.19823    17.19823 17.30496
+## 116   16.09947   18.89418    17.23695    17.23695 17.45582
+## 117   16.00257   18.87350    17.27567    17.27567 17.44765
+## 118   16.10157   18.99139    17.31439    17.31439 17.50641
+## 119   16.09568   18.99421    17.43055    17.43055 17.54671
+## 120   16.18015   19.02150    17.51737    17.51737 17.62410
+## 121   16.36957   19.20494    17.60418    17.60418 17.82305
+## 122   16.48417   19.19093    17.69100    17.69100 17.86297
+## 123   16.61537   19.47566    17.77781    17.77781 17.96982
+## 124   16.73637   19.64426    18.03825    18.03825 18.15440
+## 125   17.08868   19.78490    18.21636    18.21636 18.32309
+## 126   17.25213   19.98194    18.39447    18.39447 18.61333
+## 127   17.41083   20.18862    18.57258    18.57258 18.74455
+## 128   17.59623   20.33291    18.75069    18.75069 18.94270
+## 129   17.93479   20.77371    19.28501    19.28501 19.40116
+## 130   18.23606   21.17017    19.46312    19.46312 19.56985
+## 131   18.39003   21.25636    19.64123    19.64123 19.86009
+## 132   18.65406   21.38112    19.81934    19.81934 19.99131
+## 133   18.63216   21.69999    19.99745    19.99745 20.18946
+## 134   19.29960   21.99723    20.53177    20.53177 20.64793
+## 135   19.38993   22.27017    20.70988    20.70988 20.81661
+## 136   19.67142   22.44917    20.88799    20.88799 21.10685
+## 137   19.83968   22.71912    21.06610    21.06610 21.23807
+## 138   20.05965   22.75373    21.24421    21.24421 21.43622
+## 139   20.41647   23.24947    21.77853    21.77853 21.89469
+## 140   20.69527   23.59952    21.95664    21.95664 22.06337
+## 141   20.97987   23.73116    22.13475    22.13475 22.35362
+## 142   21.11915   23.81985    22.31286    22.31286 22.48483
+## 143   21.20964   24.05714    22.49097    22.49097 22.68298
+## 144   21.64232   24.56164    23.02529    23.02529 23.14145
+## 145   21.90918   24.64895    23.20340    23.20340 23.31013
+## 146   22.30302   25.09335    23.38151    23.38151 23.60038
+## 147   22.27895   25.04622    23.55962    23.55962 23.73159
+## 148   22.52465   25.34914    23.73773    23.73773 23.92974
+## 149   22.98682   25.78327    24.27206    24.27206 24.38821
+## 150   23.11633   25.91810    24.45016    24.45016 24.55689
+## 151   23.36519   26.26764    24.62827    24.62827 24.84714
+## 152   23.70931   26.55695    24.80638    24.80638 24.97835
+## 153   23.81079   26.60224    24.98449    24.98449 25.17650
+## 154   24.21907   27.08307    25.51882    25.51882 25.63497
+## 155   24.39941   27.26333    25.69692    25.69692 25.80365
+## 156   24.74820   27.42797    25.87503    25.87503 26.09390
+## 157   24.83771   27.52526    26.05314    26.05314 26.22511
+## 158   25.02495   27.78219    26.23125    26.23125 26.42326
+## 159   24.65118   27.38841    26.40704    26.41388 26.00649
+## 160   24.82539   27.48924    26.57822    26.59873 26.18460
+## 161   25.51337   28.16535    26.75046    26.78629 26.88173
+## 162   25.61209   28.49976    26.91988    26.97604 27.05041
+## 163   26.05460   28.76193    27.08666    27.16280 27.34066
+## 164   26.02833   28.92048    27.25375    27.35088 27.47187
+## 165   26.19634   29.10724    27.41629    27.54359 27.67002
+## 166   25.68057   28.71155    27.58004    27.73616 27.25326</code></pre>
+<pre class="r"><code>plot(model,forecast)</code></pre>
+<p><img src="/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/load-all-libraries-1.png" width="672" /></p>
+<pre class="r"><code>prophet_plot_components(model,forecast)</code></pre>
+<p><img src="/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/load-all-libraries-2.png" width="672" /></p>
+<div id="implementing-forcasting-using-timeseries-object-in-r" class="section level4">
+<h4>Implementing forcasting using TimeSeries object in R</h4>
+<pre class="r"><code>library(tseries)
+library(zoo)
+library(forecast)
+library(normwhn.test)
+
+dat = structure(
+c(1100, 1150, 1200, 1150, 1150, 1200, 1300, 1100, 1200,1250, 1200, 1250, 
+1300,1400,1550,1400,1450,1450,1450,1450,1500,1550,1600,1650,
+1650,1650,1650,1650,1750,1850,1750,1800,1850,1950,1950,2000,
+1950,2000,2050,2100,2150,2200,2250,2450,2650,2700,2850,2850,
+2750,2750,2750,2750,2800,2800,2850,2850,3000,2950,3000,2950,
+2900,2850,2750,2750,2450,2400,2450,2500,2750,2550,2600,2300,
+2470,2570,2570,2550,2500,2470,2550,2550,2470,2470,2370,2400,
+2870,2648,2656,2600,2656,2608,2460,2644,2564,2508,2524,2508,
+3006,3027,3129,3142,3119,2920,2902,2875,2880,2726,2543,2836,
+2887,2978,2901,2946,2890,2947,2811,2899,3017,2989,2967,2902,
+2994,3046,3074,3100,3141,3002,2934,2901,2908,3003,3097,3083,
+3205,3253,3221,3192,3170,3240,3345,3480,3750,3725,3800,4000,
+3800,4000,4200,4500,4800,5000,5100,5500,5500,5800,6000,6200), .Tsp = c(2008, 2020.91666666667, 12), class = &quot;ts&quot;)
+
+arimaModel &lt;- arima(dat, order=c(0, 1, 1), list(order=c(0, 1, 0), period = 12))
+
+summary(arimaModel)</code></pre>
+<pre><code>## 
+## Call:
+## arima(x = dat, order = c(0, 1, 1), seasonal = list(order = c(0, 1, 0), period = 12))
+## 
+## Coefficients:
+##           ma1
+##       -0.1067
+## s.e.   0.0720
+## 
+## sigma^2 estimated as 22135:  log likelihood = -918.26,  aic = 1840.53
+## 
+## Training set error measures:
+##                    ME     RMSE      MAE       MPE     MAPE     MASE        ACF1
+## Training set 14.32495 142.4436 105.2636 0.3245391 3.827641 1.189896 -0.02882344</code></pre>
+<pre class="r"><code>preds &lt;- predict(arimaModel, n.ahead = 12)
+
+print(preds)</code></pre>
+<pre><code>## $pred
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 2021 5998.214 6198.214 6398.214 6698.214 6998.214 7198.214 7298.214 7698.214
+##           Sep      Oct      Nov      Dec
+## 2021 7698.214 7998.214 8198.214 8398.214
+## 
+## $se
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 2021 148.7772 199.4956 239.7131 274.0916 304.6146 332.3461 357.9354 381.8136
+##           Sep      Oct      Nov      Dec
+## 2021 404.2839 425.5694 445.8398 465.2279</code></pre>
+<pre class="r"><code>plot(dat, col = &#39;green&#39;, main = &#39;Acutal vs ARIMA Model&#39;,
+     ylab = &#39;Gold Rates&#39;, lwd = 3)
+
+lines(arimaModel$fitted, col = &#39;black&#39;, lwd = 3, lty = 2)
+
+legend(&#39;topleft&#39;, legend = c(&#39;Actual&#39;, &#39;ARIMA Fit&#39;),
+       col = c(&#39;green&#39;,&#39;black&#39;), lwd = c(3,3), lty = c(1,2))</code></pre>
+<p><img src="/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ts.plot(dat, preds$pred, main = &#39;Actual vs ARIMA Predictions&#39;,
+        col = c(&#39;green&#39;,&#39;black&#39;), lty = c(1,2), lwd = c(3,3))
+
+legend(&#39;topleft&#39;, legend = c(&#39;Actual Data&#39;, &#39;ARIMA Predictions&#39;),
+       col = c(&#39;green&#39;,&#39;black&#39;), lwd = c(3,3), lty = c(1,2))</code></pre>
+<p><img src="/blog/2020-03-05-TimeSeriesForecasting-23_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+</div>
+<div id="summary" class="section level4">
+<h4>Summary</h4>
+<p>The main aim of time-series modeling is to carefully collect and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series. The model is then used to generate the future values for the series.
+Time series forecasting is thus can be termed as act of predicting the future by understanding the past.</p>
+</div>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/time-series/">Time Series</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/time-series/">Time series</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="1a40358d717ea02a6f2ddeb11b700e84">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/linear-regression/" class="button left"><span>Linear Regression</span></a>
+    
+    
+      <a href="/blog/text-analytics/" class="button right"><span>Text analytics</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Clustering-31.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Clustering-31.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/clustering/">Clustering</a></h2>
+          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">13</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/slides/">slides<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>

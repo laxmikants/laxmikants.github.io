@@ -1,0 +1,445 @@
+---
+title: "Python - Numpy"
+author: Laxmi K Soni 
+description: "Introduction to Numpy"
+slug: Numpy
+date: 2019-02-28
+lastmod: 2019-02-28
+categories: ["Python"]
+tags: ["Python"]
+Summary: Numpy
+subtitle: Numpy
+featured: "img/main/2019-02-28-Python-Numpy-28.jpg"
+output:
+  blogdown::html_page:
+    toc: true
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: true
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+# NUMPY ARRAYS
+
+We can’t do a lot of data science with NumPy alone. But it provides the basis for all the high-level libraries or modules for data science. It is essential for the efficient management of arrays and linear algebra.
+
+In order to use NumPy, we of course have to import the respective module first.
+
+```{python}
+import numpy as np
+```
+
+As you can see, we are also defining an alias here, so that we can address NumPy by just writing np .
+
+## CREATING ARRAYS
+
+To create a NumPy array, we just use the respective function array and pass a list to it.
+
+```{python}
+a = np.array([ 10 , 20 , 30 ])
+b = np.array([ 1 , 77 , 2 , 3 ])
+```
+
+Now we can access the values in the same way as we would do it with a list.
+
+```{python}
+print (a[ 0 ])
+print (b[ 2 ])
+```
+
+## MULTI-DIMENSIONAL ARRAYS
+
+The arrays we created are one-dimensional arrays. With NumPy, we can create large multi-dimensional arrays that have the same structure as a matrix.
+
+```{python}
+a = np.array([
+[ 10 , 20 , 30 ],
+[ 40 , 50 , 60 ]
+])
+print (a)
+```
+
+Here, we pass two lists within a list as a parameter. This creates a 2x3 matrix. When we print the array, we get the following result:
+
+[[10 20 30]
+[40 50 60]]
+
+Since we now have two dimensions, we also need to address two indices, in order to access a specific element.
+
+```{python}
+print (a[ 1 ][ 2 ])
+```
+
+In this case, we are addressing the second row (index one) and the third element or column (index two). Therefore, our result is 60 .
+We can extend this principle as much as we want. For example, let’s create a much bigger array.
+
+```{python}
+a = np.array([
+[
+[ 10 , 20 , 30 , 40 ], [ 8 , 8 , 2 , 1 ], [ 1 , 1 , 1 , 2 ]
+],
+[
+[ 9 , 9 , 2 , 39 ], [ 1 , 2 , 3 , 3 ], [ 0 , 0 , 3 , 2 ]
+],
+[
+[ 12 , 33 , 22 , 1 ], [ 22 , 1 , 22 , 2 ], [ 0 , 2 , 3 , 1 ]
+]
+], dtype = float )
+```
+
+Here we have a 3x3x4 matrix and slowly but surely it becomes a bit irritating and we can’t really grasp the structure of the array. This is especially the case when we get into four or more dimensions, since we only perceive three dimensions in everyday life.
+
+You can imagine this three-dimensional array as a cube. We have three rows, four columns and three pages or layers. Such visualizations fail in higher dimensions.
+
+Another thing that is worth mentioning is the parameter dtype . It stands for data type and allows us to specify which data type our values have. In this case we specified float and therefore our values will be stored as floating point numbers with the respective notation.
+
+## FILLING ARRAYS
+
+Instead of manually filling our arrays with values, we can also use pre-defined functions in certain cases. The only thing we need to specify is the desired function and the shape of the array.
+
+## FULL FUNCTION
+
+By using the full function for example, we fill an array of a certain shape with the same number. In this case we create a 3x5x4 matrix, which is filled with sevens.
+
+```{python}
+a = np.full(( 3 , 5 , 4 ), 7 )
+print (a)
+```
+
+
+## ZEROS AND ONES
+
+For the cases that we want arrays full of zeros or ones, we even have specific functions.
+
+```{python}
+a = np.zeros(( 3 , 3 ))
+b = np.ones(( 2 , 3 , 4 , 2 ))
+```
+
+Here we create a 3x3 array full of zeros and a four-dimensional array full of ones.
+
+## EMPTY AND RANDOM
+
+Other options would be to create an empty array or one that is filled with random numbers. For this, we use the respective functions once again.
+
+```{python}
+a = np.empty(( 4 , 4 ))
+b = np.random.random(( 2 , 3 ))
+```
+
+The function empty creates an array without initializing the values at all. This makes it a little bit faster but also more dangerous to use, since the user needs to manually initialize all the values.
+
+When using the random function, make sure that you are referring to the module np.random . You need to write it two times because otherwise you are calling the library.
+
+## RANGES
+
+Instead of just filling arrays with the same values, we can fill create sequences of values by specifying the boundaries. For this, we can use two different functions, namely arange and linspace .
+```{python}
+a = np.arange( 10 , 50 , 5 )
+```
+
+The function arange creates a list with values that range from the minimum to the maximum. The step-size has to be specified in the parameters.
+
+[10 15 20 25 30 35 40 45]
+
+In this example, we create have count from 10 to 45 by always adding 5. The result can be seen above.
+
+By using linspace we also create a list from a minimum value to a maximum value. But instead of specifying the step-size, we specify the amount of values that we want to have in our list. They will all be spread evenly and have the same distance to their neighbors.
+
+```{python}
+b = np.linspace( 0 , 100 , 11 )
+```
+
+Here, we want to create a list that ranges from 0 to 100 and contains 11 elements. This fits smoothly with a difference of 10 between all numbers. So the result looks like this:
+
+[ 0.  10.  20.  30.  40.  50.  60.  70.  80.  90. 100.]
+
+Of course, if we choose different parameters, the numbers don’t be that “beautiful”.
+
+## NOT A NUMBER (NAN)
+
+There is a special value in NumPy that represents values that are not numbers. It is called NaN and stands for Not a Number . We basically just use it as a placeholder for empty spaces. It can be seen as a value that indicates that something is missing at that place.
+
+When importing big data packets into our application, there will sometimes be missing data. Instead of just setting these values to zero or something else, we can set them to NaN and then filter these data sets out.
+
+## ATTRIBUTES OF ARRAYS
+
+NumPy arrays have certain attributes that we can access and that provide information about the structure of it.
+
+| UMPY ARRAY ATTRIBUTES |                                                  |
+|-----------------------|--------------------------------------------------|
+| a.shape               | Returns the shape of the array                   |
+|                       | e.g. (3,3) or (3,4,7)                            |
+| a.ndim                | Returns how many dimensions our array has        |
+| a.size                | Returns the amount of elements an array has      |
+| a.dtype               | Returns the data type of the values in the array |
+
+## MATHEMATICAL OPERATIONS
+
+Now that we know how to create an array and what attributes it has, let’s take a look at how to work with arrays. For this, we will start out with basic mathematical operations.
+
+## ARITHMETIC OPERATIONS
+
+```{python}
+a = np.array([
+[ 1 , 4 , 2 ],
+[ 8 , 8 , 2 ]
+])
+print (a + 2 )
+print (a - 2 )
+print (a * 2 )
+print (a / 2 )
+```
+
+When we perform basic arithmetic operations like addition, subtraction, multiplication and division to an array and a scalar, we apply the operation on every single element in the array. Let’s take a look at the results:
+
+[[ 3  6  4]
+[10 10  4]]
+[[-1  2  0]
+[ 6  6  0]]
+[[ 2  8  4]
+[16 16  4]]
+[[0.5 2.  1. ]
+[4.  4.  1. ]]
+
+As you can see, when we multiply the array by two, we multiply every single value in it by two. This is also the case for addition, subtraction and division. But what happens when we apply these operations on two arrays?
+
+```{python}
+a = np.array([
+[ 1 , 4 , 2 ],
+[ 8 , 8 , 2 ]
+])
+b = np.array([
+[ 1 , 2 , 3 ]
+])
+c = np.array([
+[ 1 ],
+[ 2 ]
+])
+d = np.array([
+[ 1 , 2 , 3 ],
+[ 3 , 2 , 1 ]
+]) 
+```
+
+In order to apply these operations on two arrays, we need to take care of the shapes. They don’t have to be the same, but there has to be a reasonable way of performing the operations. We then again apply the operations on each element of the array.
+
+For example, look at a and b . They have different shapes but when we add these two, they share at least the amount of columns.
+
+```{python}
+print (a+b)
+```
+
+[[ 2  6  5]
+[ 9 10  5]]
+
+Since they match the columns, we can just say that we add the individual columns, even if the amount of rows differs.
+The same can also be done with a and c where the rows match and the columns differ.
+
+```{python}
+print (a+c)
+```
+
+[[ 2  5  3]
+[10 10  4]]
+
+And of course it also works, when the shapes match exactly. The only problem is when the shapes differ too much and there is no reasonable way of performing the operations. In these cases, we get ValueErrors .
+
+## MATHEMATICAL FUNCTIONS
+
+Another thing that the NumPy module offers us is mathematical functions that we can apply to each value in an array.
+
+
+| NUMPY MATHEMATICAL FUNCTIONS |                                       |
+|------------------------------|---------------------------------------|
+| np.exp(a)                    | Takes e to the power of each value    |
+| np.sin(a)                    | Returns the sine of each value        |
+| np.cos(a)                    | Returns the cosine of each value      |
+| np.tan(a)                    | Returns the tangent of each value     |
+| np.log(a)                    | Returns the logarithm of each value   |
+| np.sqrt(a)                   | Returns the square root of each value |
+
+## AGGREGATE FUNCTIONS
+
+Now we are getting into the statistics. NumPy offers us some so-called aggregate functions that we can use in order to get a key statistic from all of our values.
+
+| NUMPY AGGREGATE FUNCTIONS |                                                           |
+|---------------------------|-----------------------------------------------------------|
+| a.sum()                   | Returns the sum of all values in the array                |
+| a.min()                   | Returns the lowest value of the array                     |
+| a.max()                   | Returns the highest value of the array                    |
+| a.mean()                  | Returns the arithmetic mean of all values in the array    |
+| np.median(a)              | Returns the median value of the array                     |
+| np.std(a)                 | Returns the standard deviation of the values in the array |
+
+## MANIPULATING ARRAYS
+
+NumPy offers us numerous ways in which we can manipulate the data of our arrays. Here, we are going to take a quick look at the most important functions and categories of functions.
+If you just want to change a single value however, you can just use the basic indexing of lists.
+
+```{python}
+a = np.array([
+[ 4 , 2 , 9 ],
+[ 8 , 3 , 2 ]
+])
+a[ 1 ][ 2 ] = 7 
+```
+
+### SHAPE MANIPULATION FUNCTIONS
+
+One of the most important and helpful types of functions are the shape manipulating functions . These allow us to restructure our arrays without changing their values.
+
+| SHAPE MANIPULATION FUNCTIONS |                                                                            |
+|------------------------------|----------------------------------------------------------------------------|
+| a.reshape(x,y)               | Returns an array with the same values structured in a different shape      |
+| a.flatten()                  | Returns a flattened one-dimensional copy of the array                      |
+| a.ravel()                    | Does the same as flatten but works with the actual array instead of a copy |
+| a.transpose()                | Returns an array with the same values but swapped dimensions               |
+| a.swapaxes()                 | Returns an array with the same values but two swapped axes                 |
+| a.flat                       | Not a function but an iterator for the flattened version of the array      |
+
+There is one more element that is related to shape but it’s not a function. It is called flat and it is an iterator for the flattened one-dimensional version of the array. Flat is not callable but we can iterate over it with for loops or index it.
+
+```{python}
+for x in a.flat:
+  print (x)
+print (a.flat[ 5 ])
+```
+
+## JOINING FUNCTIONS
+
+We use joining functions when we combine multiple arrays into one new array.
+
+| JOINING FUNCTIONS   |                                              |
+|---------------------|----------------------------------------------|
+| FUNCTION            | DESCRIPTION                                  |
+| np.concatenate(a,b) | Joins multiple arrays along an existing axis |
+| np.stack(a,b)       | Joins multiple arrays along a new axis       |
+| np.hstack(a,b)      | Stacks the arrays horizontally (column-wise) |
+| np.vstack(a,b)      | Stacks the arrays vertically                 |
+|                     | (row-wise)                                   |
+
+In the following, you can see the difference between concatenate and stack :
+
+```{python}
+a = np.array([ 10 , 20 , 30 ])
+b = np.array([ 20 , 20 , 10 ])
+print (np.concatenate((a,b)))
+print (np.stack((a,b)))
+```
+[10 20 30 20 20 10]
+[[10 20 30]
+[20 20 10]]
+
+What concatenate does is, it joins the arrays together by just appending one onto the other. Stack  on the other hand, creates an additional axis that separates the two initial arrays.
+
+### SPLITTING FUNCTIONS
+
+We can not only join and combine arrays but also split them again. This is done by using splitting functions that split arrays into multiple sub-arrays.
+
+| SPLITTING FUNCTIONS |                                                                  |
+|---------------------|------------------------------------------------------------------|
+| np.split(a, x)      | Splits one array into multiple arrays                            |
+| np.hsplit(a, x)     | Splits one array into multiple arrays horizontally (column-wise) |
+| np.vsplit(a, x)     | Splits one array into multiple arrays vertically (row-wise)      |
+
+When splitting a list with the split function, we need to specify into how many sections we want to split our array.
+
+```{python}
+a = np.array([
+[ 10 , 20 , 30 ],
+[ 40 , 50 , 60 ],
+[ 70 , 80 , 90 ],
+[ 100 , 110 , 120 ]
+])
+print (np.split(a, 2 ))
+print (np.split(a, 4 ))
+```
+
+This array can be split into either two or four equally sized arrays on the default axis. The two possibilities are the following:
+
+1: [[10, 20, 30],[40, 50, 60]]
+2: [[70, 80, 90],[100, 110, 120]]
+
+OR
+
+1: [[10, 20, 30]]
+2: [[40, 50, 60]]
+3: [[70, 80, 90]]
+4: [[100, 110, 120]]
+
+## ADDING AND REMOVING
+
+The last manipulating functions that we are going to look at are the ones which allow us to add and to remove items.
+
+| ADDING AND REMOVING FUNCTIONS |                                                                                        |
+|-------------------------------|----------------------------------------------------------------------------------------|
+| np.resize(a, (x,y))           | Returns a resized version of the array and fills empty spaces by repeating copies of a |
+| np.append(a, […])             | Appends values at the end of the array                                                 |
+| np.insert(a, x, …)            | Insert a value at the index x of the array                                             |
+| np.delete(a, x, y)            | Delete axes of the array                                                               |
+
+## LOADING AND SAVING ARRAYS
+
+Now last but not least, we are going to talk about loading and saving NumPy arrays. For this, we can use the integrated NumPy format or CSV-files.
+
+## NUMPY FORMAT
+
+Basically, we are just serializing the object so that we can use it later. This is done by using the save function.
+
+```{python, eval=FALSE}
+a = np.array([
+[ 10 , 20 , 30 ],
+[ 40 , 50 , 60 ],
+[ 70 , 80 , 90 ],
+[ 100 , 110 , 120 ]
+])
+np.save( 'myarray.npy' , a)
+```
+
+Notice that you don’t have to use the file ending npy . In this example, we just use it for clarity. You can pick whatever you want.
+Now, in order to load the array into our script again, we will need the load function.
+
+```{python, eval=FALSE}
+a = np.load( 'myarray.npy' )
+print (a)
+```
+
+## CSV FORMAT
+
+As I already mentioned, we can also save our NumPy arrays into CSV files, which are just comma-separated text files. For this, we use the function savetxt .
+
+```{python, eval=FALSE}
+np.savetxt( 'myarray.csv' , a)
+```
+
+Our array is now stored in a CSV-file which is very useful, because it can then also be read by other applications and scripts.
+
+In order to read this CSV-file back into our script, we use the function loadtxt .
+
+```{python, eval=FALSE}
+a = np.loadtxt( 'myarray.csv' )
+print (a)
+```
+
+If we want to read in a CSV-file that uses another separator than the default one, we can specify a certain delimiter.
+
+```{python, eval=FALSE}
+a = np.loadtxt( 'myarray.csv' , delimiter = ';' )
+print (a)
+```
+
+Now it uses semi-colons as separator when reading the file. The same can also be done with the saving or writing function

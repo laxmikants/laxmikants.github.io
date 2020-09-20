@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Python - Networking - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Python - Networking">
+<meta itemprop="description" content="Introduction to Python Networking">
+<meta itemprop="datePublished" content="2019-01-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-01-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2000">
+
+
+
+<meta itemprop="keywords" content="Python," />
+<meta property="og:title" content="Python - Networking" />
+<meta property="og:description" content="Introduction to Python Networking" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-networking/" />
+<meta property="article:published_time" content="2019-01-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python - Networking"/>
+<meta name="twitter:description" content="Introduction to Python Networking"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Python - Networking : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Python - Networking">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-networking/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to Python Networking">
+<meta name="description" content="Introduction to Python Networking">
+<meta property="og:updated_time" content="2019-01-30T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2019-01-30T00:00:00Z">
+<meta property="article:modified_time" content="2019-01-30T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python - Networking",
+  "alternativeHeadline": "Python Networking",
+  "url": "https://laxmikants.github.io/blog/python-networking/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/python-networking/"
+  },
+  "description": "Introduction to Python Networking",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2019-01-30T00:00:00Z",
+  "dateModified": "2019-01-30T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#network-programming\"\u003eNETWORK PROGRAMMING\u003c/a\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#sockets\"\u003eSOCKETS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#creating-sockets\"\u003eCREATING SOCKETS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#server-socket-methods\"\u003eSERVER SOCKET METHODS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#client-server-architecture\"\u003eCLIENT-SERVER ARCHITECTURE\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#server-socket-methods-1\"\u003eSERVER SOCKET METHODS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#client-socket-methods\"\u003eCLIENT SOCKET METHODS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#other-socket-methods\"\u003eOTHER SOCKET METHODS\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#creating-a-server\"\u003eCREATING A SERVER\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#creating-a-client\"\u003eCREATING A CLIENT\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#connecting-server-and-client\"\u003eCONNECTING SERVER AND CLIENT\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#port-scanner\"\u003ePORT SCANNER\u003c/a\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003ca href=\"#threaded-port-scanner\"\u003eTHREADED PORT SCANNER\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"network-programming\" class=\"section level2\"\u003e\r\n\u003ch2\u003eNETWORK PROGRAMMING\u003c/h2\u003e\r\n\u003cp\u003eNow we get into one of the most interesting intermediate topics – network programming . It is about communicating with other applications and devices via some network. That can be the internet or just the local area network.\u003c/p\u003e\r\n\u003cdiv id=\"sockets\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSOCKETS\u003c/h3\u003e\r\n\u003cp\u003eWHAT ARE SOCKETS?\u003c/p\u003e\r\n\u003cp\u003eWhenever we talk about networking in programming, we also have to talk about sockets . They are the endpoints of the communication channels or basically, the endpoints that talk to each other. The communication may happen in the same process or even across different continents over the internet.\r\nWhat’s important is that in Python we have different access levels for the network services. At the lower layers, we can access the simple sockets that allow us to use the connection-oriented and connectionless protocols like TCP or UDP, whereas other Python modules like FTP or HTTP are working on a higher layer – the application layer .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-sockets\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCREATING SOCKETS\u003c/h3\u003e\r\n\u003cp\u003eIn order to work with sockets in Python, we need to import the module socket .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow, before we start defining and initializing our socket, we need to know a couple of things in advance:\r\n· Are we using an internet socket or a UNIX socket?\r\n· Which protocol are we going to use?\r\n· Which IP-address are we using?\r\n· Which port number are we using?\u003c/p\u003e\r\n\u003cp\u003eThe first question can be answered quite simply. Since we want to communicate over a network instead of the operating system, we will stick with the internet socket .\u003c/p\u003e\r\n\u003cp\u003eThe next question is a bit trickier. We choose between the protocols TCP ( Transmission Control Protocol) and UDP ( User Datagram Protocol). TCP is connection-oriented and more trustworthy than UDP. The chances of losing data are minimal in comparison to UDP. On the other hand, UDP is much faster than TCP. So the choice depends on the task we want to fulfil. For our examples, we will stick with TCP since we don’t care too much about speed for now.\u003c/p\u003e\r\n\u003cp\u003eThe IP-address should be the address of the host our application will run on. For now, we will use 127.0.0.1 which is the localhost address. This applies to every machine. But notice that this only works when you are running your scripts locally.\u003c/p\u003e\r\n\u003cp\u003eFor our port we can basically choose any number we want. But be careful with low numbers, since all numbers up to 1024 are standardized and all numbers from 1024 to 49151 are reserved . If you choose one of these numbers, you might have some conflicts with other applications or your operating system.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\ns = socket.socket(socket.AF_INET,socket.SOCK_STREAM)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we created our first socket, by initializing an instance of the class socket . Notice that we passed two parameters here. The first one AF_INET states that we want an internet socket rather than a UNIX socket . The second one SOCK_STREAM is for the protocol that we choose. In this case it stands\r\nfor TCP . If we wanted UDP , we would have to choose SOCK_DGRAM.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/client-server.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eA server opens up a session with every client that connects to it. This way, servers are able to serve multiple clients at once and individually.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"server-socket-methods\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSERVER SOCKET METHODS\u003c/h3\u003e\r\n\u003cp\u003eThere are three methods of the socket class that are of high importance for the servers.\r\nSo we have a socket that uses the IP protocol (internet) and the TCP protocol. Now, before we get into the actual setup of the socket, we need to talk a little bit about clients and servers.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"client-server-architecture\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCLIENT-SERVER ARCHITECTURE\u003c/h3\u003e\r\n\u003cp\u003eIn a nutshell, the server is basically the one who provides information and serves data, whereas the clients are the ones who request and receive the data from the server.A server opens up a session with every client that connects to it. This way, servers are able to serve multiple clients at once and individually.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"server-socket-methods-1\" class=\"section level3\"\u003e\r\n\u003ch3\u003eSERVER SOCKET METHODS\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eSERVER SOCKET METHODS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eMETHOD\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003ebind()\u003c/td\u003e\r\n\u003ctd\u003eBinds the address that consists of hostname and port to the socket\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elisten()\u003c/td\u003e\r\n\u003ctd\u003eWaits for a message or a signal\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eaccept()\u003c/td\u003e\r\n\u003ctd\u003eAccepts the connection with a client\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"client-socket-methods\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCLIENT SOCKET METHODS\u003c/h3\u003e\r\n\u003cp\u003eFor the client, there is only one specific and very important method, namely connect . With this method the client attempts to connect to a server which then has to accept this with the respective method.\r\nThere are three methods of the socket class that are of high importance for the servers.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"other-socket-methods\" class=\"section level3\"\u003e\r\n\u003ch3\u003eOTHER SOCKET METHODS\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eOTHER SOCKET METHODS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eMETHOD\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003erecv()\u003c/td\u003e\r\n\u003ctd\u003eReceives a TCP message\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003esend()\u003c/td\u003e\r\n\u003ctd\u003eSends a TCP message\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003erecvfrom()\u003c/td\u003e\r\n\u003ctd\u003eReceives a UDP message\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003esendto()\u003c/td\u003e\r\n\u003ctd\u003eSends a UDP message\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eclose()\u003c/td\u003e\r\n\u003ctd\u003eCloses a socket\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003egethostname()\u003c/td\u003e\r\n\u003ctd\u003eReturns hostname of a socket\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-a-server\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCREATING A SERVER\u003c/h3\u003e\r\n\u003cp\u003eNow that we understand the client-server architecture, we are going to implement our server. We decided that we want to use TCP and an internet socket. For the address we will use the localhost address 127.0.0.1 and as a port, we will choose 9999 .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003es = socket.socket(socket.AF_INET,\r\nsocket.SOCK_STREAM)\r\ns.bind(( \u0026#39;127.0.0.1\u0026#39; , 9999 ))\r\ns.listen()\r\nprint ( \u0026#39;Listening...\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we initialize our socket like we did in the beginning of this chapter. We then use the method bind , in order to assign the IP-address and the port we chose. Notice that we are passing a tuple as a parameter here. Last but not least, we put our socket to listening mode by using the method listen .After that, we just have to create a loop that accepts the client requests that will eventually come in.server.py\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\ns = socket.socket(socket.AF_INET,\r\nsocket.SOCK_STREAM)\r\ns.bind(( \u0026#39;127.0.0.1\u0026#39; , 9999 ))\r\ns.listen()\r\nprint ( \u0026#39;Listening...\u0026#39; )\r\nwhile True :\r\nclient, address = s.accept()\r\nprint ( \u0026#39;Connected to {}\u0026#39; .format(address))\r\nmessage = \u0026#39;Hello Client!\u0026#39;\r\nclient.send(message.encode( \u0026#39;ascii\u0026#39; ))\r\nclient.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe method accept waits for a connection attempt to come and accepts it. It then returns a client for responses and the address of the client that is connected. We can then use this client object in order to send the message. But it’s important that we encode the message first, because otherwise we can’t send it properly. At the end, we close the client because we don’t need it anymore.\r\nAlso, there are some other socket methods that are quite important in general.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-a-client\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCREATING A CLIENT\u003c/h3\u003e\r\n\u003cp\u003eNow our server is done and we just need some clients that connect to it. Our clients shall request a resource from the server. In this case, this is the message “Hello Client!” .\r\nFor our client we also need a socket but this time it will not use the function bind but the function connect . So let’s start writing our code into a new file.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\ns = socket.socket(socket.AF_INET,\r\nsocket.SOCK_STREAM)\r\ns.connect(( \u0026#39;127.0.0.1\u0026#39; , 9999 ))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe just create an ordinary internet socket that uses TCP and then connect it to the localhost IP-address at the port 9999.\r\nTo now get the message from the server and decode it, we will use the recv function.\r\nclient.py\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\ns = socket.socket(socket.AF_INET,socket.SOCK_STREAM)\r\ns.connect(( \u0026#39;127.0.0.1\u0026#39; , 9999 ))\r\nmessage = s.recv( 1024 )\r\ns.close()\r\nprint (message.decode( \u0026#39;ascii\u0026#39; ))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAfter we connect to the server, we try to receive up to 1024 bytes from it. We then save the message into our variable and then we decode and print it.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"connecting-server-and-client\" class=\"section level3\"\u003e\r\n\u003ch3\u003eCONNECTING SERVER AND CLIENT\u003c/h3\u003e\r\n\u003cp\u003eNow in order to connect these two entities, we first need to run our server. If there is no server listening on the respective port, our client can’t connect to anything. So we run our server.py script and start listening.\r\nAfter that, we can run our client.py script many times and they will all connect to the server. The results will look like this:\u003c/p\u003e\r\n\u003cp\u003eServer\r\nListening…\r\nConnected to (‘127.0.0.1’, 4935)\r\nConnected to (‘127.0.0.1’, 4942)\r\nConnected to (‘127.0.0.1’, 4943)\r\nConnected to (‘127.0.0.1’, 4944)\r\nConnected to (‘127.0.0.1’, 4945)\u003c/p\u003e\r\n\u003cp\u003eClient\r\nHello Client!\r\nOne thing you might optimize on that script if you want is the exception handling. If there is no server listening and our client tries to connect, we get a ConnectionRefusedError and our script crashes. Now you can fix this with the knowledge from the first book.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"port-scanner\" class=\"section level3\"\u003e\r\n\u003ch3\u003ePORT SCANNER\u003c/h3\u003e\r\n\u003cp\u003eNow we have learned a lot about multithreading, locking, queues and sockets. With all that knowledge, we can create a highly efficient and well working port scanner .\r\nWhat a port scanner basically does is: It tries to connect to certain ports at a host or a whole network, in order to find loopholes for future attacks. Open ports mean a security breach. And with our skills, we can already code our own penetration testing tool.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\ntarget = \u0026#39;10.0.0.5\u0026#39;\r\ndef portscan(port):\r\n  try :\r\n    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\r\n    conn = s.connect((target, port))\r\n    return True\r\n  except :\r\n    return False\r\n    \r\nfor x in range ( 1 , 501 ):\r\nif (portscan(x)):\r\n  print ( \u0026#39;Port {} is open!\u0026#39; .format(x))\r\nelse :\r\n  print ( \u0026#39;Port {} is closed!\u0026#39; .format(x))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eSo this scanner is quite simple. We define a target address. In this case, this is 10.0.0.5 . Our function portscan simply tries to connect to a certain port at that host. If it succeeds, the function returns True . If we get an error or an exception, it returns False .\r\nThis is as simple as a port scan can get. We then use a for loop to scan the first 500 ports and we always print if the port is open or closed.\u003c/p\u003e\r\n\u003cp\u003eJust choose a target address and run this script. You will see that it works.\r\nPort 21 is closed!\r\nPort 22 is open!\r\nPort 23 is closed!\r\nPort 24 is closed!\r\nPort 25 is open!\u003c/p\u003e\r\n\u003cp\u003eBut you will also notice that it is extremely slow. That’s because we serially scan one port after the other. And I think we have already learned how to handle that.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"threaded-port-scanner\" class=\"section level3\"\u003e\r\n\u003ch3\u003eTHREADED PORT SCANNER\u003c/h3\u003e\r\n\u003cp\u003eIn order to speed up the scanning process, we are going to use multithreading . And to make sure that every port gets scanned and also that no port is scanned twice, we will use queues.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport socket\r\nfrom queue import Queue\r\nimport threading\r\ntarget = \u0026#39;10.0.0.5\u0026#39;\r\nq = Queue()\r\nfor x in range ( 1 , 501 ):\r\n  q.put(x)\r\ndef portscan(port):\r\n  try :\r\n    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)\r\n    conn = s.connect((target, port))\r\n    return True\r\n  except :\r\n    return False\r\n    \r\ndef worker():\r\n  while True :\r\n    port = q.get()\r\n    if portscan(port):\r\n      print ( \u0026#39;Port {} is open!\u0026#39;.format(port))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eSo we start by creating a queue and filling it up with all numbers from 1 to 500. We then have two functions. The portscan function does the scanning itself and the worker function gets all the ports from the queue in order to pass them to the portscan function and prints the result. In order to not get confused with the output, we only print when a port is open because we don’t care when a port is closed.\u003c/p\u003e\r\n\u003cp\u003eNow we just have to decide how many threads we want to start and then we can go for it.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor x in range ( 30 ):\r\nt = threading.Thread( target =worker)\r\nt.start()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn this example, we start 30 threads at the same time. If you run this, you will see that it increases the scanning speed a lot. Within a few seconds, all the 500 ports are scanned. So if you want, you can increase the number to 5000.\u003c/p\u003e\r\n\u003cp\u003eThe results for my virtual server are the following:\r\nPort 25 is open!\r\nPort 22 is open!\r\nPort 80 is open!\r\nPort 110 is open!\r\nPort 119 is open!\r\nPort 143 is open!\r\nPort 443 is open!\r\nPort 465 is open!\u003c/p\u003e\r\n\u003cp\u003eAs you can see, there are a lot of vulnerabilities here. You now just have to google which ports are interesting and depending on your side you may either prepare for an attack or fix the security breaches. For example port 22 is SSH and quite dangerous.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Networking&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-networking%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-networking%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/python-networking/">Python - Networking</a></h2>
+    
+    
+      <p>Introduction to Python Networking</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2019-01-30 00:00:00 &#43;0000 UTC">January 30, 2019</time>
+    <p>Laxmi K Soni</p>
+    <p>10-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Networking&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-networking%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-networking%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/python-networking/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-01-30-Python-Networking-23.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-01-30-Python-Networking-23.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#network-programming">NETWORK PROGRAMMING</a>
+<ul>
+<li><a href="#sockets">SOCKETS</a></li>
+<li><a href="#creating-sockets">CREATING SOCKETS</a></li>
+<li><a href="#server-socket-methods">SERVER SOCKET METHODS</a></li>
+<li><a href="#client-server-architecture">CLIENT-SERVER ARCHITECTURE</a></li>
+<li><a href="#server-socket-methods-1">SERVER SOCKET METHODS</a></li>
+<li><a href="#client-socket-methods">CLIENT SOCKET METHODS</a></li>
+<li><a href="#other-socket-methods">OTHER SOCKET METHODS</a></li>
+<li><a href="#creating-a-server">CREATING A SERVER</a></li>
+<li><a href="#creating-a-client">CREATING A CLIENT</a></li>
+<li><a href="#connecting-server-and-client">CONNECTING SERVER AND CLIENT</a></li>
+<li><a href="#port-scanner">PORT SCANNER</a></li>
+<li><a href="#threaded-port-scanner">THREADED PORT SCANNER</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="network-programming" class="section level2">
+<h2>NETWORK PROGRAMMING</h2>
+<p>Now we get into one of the most interesting intermediate topics – network programming . It is about communicating with other applications and devices via some network. That can be the internet or just the local area network.</p>
+<div id="sockets" class="section level3">
+<h3>SOCKETS</h3>
+<p>WHAT ARE SOCKETS?</p>
+<p>Whenever we talk about networking in programming, we also have to talk about sockets . They are the endpoints of the communication channels or basically, the endpoints that talk to each other. The communication may happen in the same process or even across different continents over the internet.
+What’s important is that in Python we have different access levels for the network services. At the lower layers, we can access the simple sockets that allow us to use the connection-oriented and connectionless protocols like TCP or UDP, whereas other Python modules like FTP or HTTP are working on a higher layer – the application layer .</p>
+</div>
+<div id="creating-sockets" class="section level3">
+<h3>CREATING SOCKETS</h3>
+<p>In order to work with sockets in Python, we need to import the module socket .</p>
+<pre class="python"><code>import socket</code></pre>
+<p>Now, before we start defining and initializing our socket, we need to know a couple of things in advance:
+· Are we using an internet socket or a UNIX socket?
+· Which protocol are we going to use?
+· Which IP-address are we using?
+· Which port number are we using?</p>
+<p>The first question can be answered quite simply. Since we want to communicate over a network instead of the operating system, we will stick with the internet socket .</p>
+<p>The next question is a bit trickier. We choose between the protocols TCP ( Transmission Control Protocol) and UDP ( User Datagram Protocol). TCP is connection-oriented and more trustworthy than UDP. The chances of losing data are minimal in comparison to UDP. On the other hand, UDP is much faster than TCP. So the choice depends on the task we want to fulfil. For our examples, we will stick with TCP since we don’t care too much about speed for now.</p>
+<p>The IP-address should be the address of the host our application will run on. For now, we will use 127.0.0.1 which is the localhost address. This applies to every machine. But notice that this only works when you are running your scripts locally.</p>
+<p>For our port we can basically choose any number we want. But be careful with low numbers, since all numbers up to 1024 are standardized and all numbers from 1024 to 49151 are reserved . If you choose one of these numbers, you might have some conflicts with other applications or your operating system.</p>
+<pre class="python"><code>import socket
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)</code></pre>
+<p>Here we created our first socket, by initializing an instance of the class socket . Notice that we passed two parameters here. The first one AF_INET states that we want an internet socket rather than a UNIX socket . The second one SOCK_STREAM is for the protocol that we choose. In this case it stands
+for TCP . If we wanted UDP , we would have to choose SOCK_DGRAM.</p>
+<p><img src="/img/main/client-server.png" /></p>
+<p>A server opens up a session with every client that connects to it. This way, servers are able to serve multiple clients at once and individually.</p>
+</div>
+<div id="server-socket-methods" class="section level3">
+<h3>SERVER SOCKET METHODS</h3>
+<p>There are three methods of the socket class that are of high importance for the servers.
+So we have a socket that uses the IP protocol (internet) and the TCP protocol. Now, before we get into the actual setup of the socket, we need to talk a little bit about clients and servers.</p>
+</div>
+<div id="client-server-architecture" class="section level3">
+<h3>CLIENT-SERVER ARCHITECTURE</h3>
+<p>In a nutshell, the server is basically the one who provides information and serves data, whereas the clients are the ones who request and receive the data from the server.A server opens up a session with every client that connects to it. This way, servers are able to serve multiple clients at once and individually.</p>
+</div>
+<div id="server-socket-methods-1" class="section level3">
+<h3>SERVER SOCKET METHODS</h3>
+<table>
+<thead>
+<tr class="header">
+<th>SERVER SOCKET METHODS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>METHOD</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>bind()</td>
+<td>Binds the address that consists of hostname and port to the socket</td>
+</tr>
+<tr class="odd">
+<td>listen()</td>
+<td>Waits for a message or a signal</td>
+</tr>
+<tr class="even">
+<td>accept()</td>
+<td>Accepts the connection with a client</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="client-socket-methods" class="section level3">
+<h3>CLIENT SOCKET METHODS</h3>
+<p>For the client, there is only one specific and very important method, namely connect . With this method the client attempts to connect to a server which then has to accept this with the respective method.
+There are three methods of the socket class that are of high importance for the servers.</p>
+</div>
+<div id="other-socket-methods" class="section level3">
+<h3>OTHER SOCKET METHODS</h3>
+<table>
+<thead>
+<tr class="header">
+<th>OTHER SOCKET METHODS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>METHOD</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>recv()</td>
+<td>Receives a TCP message</td>
+</tr>
+<tr class="odd">
+<td>send()</td>
+<td>Sends a TCP message</td>
+</tr>
+<tr class="even">
+<td>recvfrom()</td>
+<td>Receives a UDP message</td>
+</tr>
+<tr class="odd">
+<td>sendto()</td>
+<td>Sends a UDP message</td>
+</tr>
+<tr class="even">
+<td>close()</td>
+<td>Closes a socket</td>
+</tr>
+<tr class="odd">
+<td>gethostname()</td>
+<td>Returns hostname of a socket</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="creating-a-server" class="section level3">
+<h3>CREATING A SERVER</h3>
+<p>Now that we understand the client-server architecture, we are going to implement our server. We decided that we want to use TCP and an internet socket. For the address we will use the localhost address 127.0.0.1 and as a port, we will choose 9999 .</p>
+<pre class="python"><code>s = socket.socket(socket.AF_INET,
+socket.SOCK_STREAM)
+s.bind(( &#39;127.0.0.1&#39; , 9999 ))
+s.listen()
+print ( &#39;Listening...&#39; )</code></pre>
+<p>Here we initialize our socket like we did in the beginning of this chapter. We then use the method bind , in order to assign the IP-address and the port we chose. Notice that we are passing a tuple as a parameter here. Last but not least, we put our socket to listening mode by using the method listen .After that, we just have to create a loop that accepts the client requests that will eventually come in.server.py</p>
+<pre class="python"><code>import socket
+s = socket.socket(socket.AF_INET,
+socket.SOCK_STREAM)
+s.bind(( &#39;127.0.0.1&#39; , 9999 ))
+s.listen()
+print ( &#39;Listening...&#39; )
+while True :
+client, address = s.accept()
+print ( &#39;Connected to {}&#39; .format(address))
+message = &#39;Hello Client!&#39;
+client.send(message.encode( &#39;ascii&#39; ))
+client.close()</code></pre>
+<p>The method accept waits for a connection attempt to come and accepts it. It then returns a client for responses and the address of the client that is connected. We can then use this client object in order to send the message. But it’s important that we encode the message first, because otherwise we can’t send it properly. At the end, we close the client because we don’t need it anymore.
+Also, there are some other socket methods that are quite important in general.</p>
+</div>
+<div id="creating-a-client" class="section level3">
+<h3>CREATING A CLIENT</h3>
+<p>Now our server is done and we just need some clients that connect to it. Our clients shall request a resource from the server. In this case, this is the message “Hello Client!” .
+For our client we also need a socket but this time it will not use the function bind but the function connect . So let’s start writing our code into a new file.</p>
+<pre class="python"><code>import socket
+s = socket.socket(socket.AF_INET,
+socket.SOCK_STREAM)
+s.connect(( &#39;127.0.0.1&#39; , 9999 ))</code></pre>
+<p>We just create an ordinary internet socket that uses TCP and then connect it to the localhost IP-address at the port 9999.
+To now get the message from the server and decode it, we will use the recv function.
+client.py</p>
+<pre class="python"><code>import socket
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect(( &#39;127.0.0.1&#39; , 9999 ))
+message = s.recv( 1024 )
+s.close()
+print (message.decode( &#39;ascii&#39; ))</code></pre>
+<p>After we connect to the server, we try to receive up to 1024 bytes from it. We then save the message into our variable and then we decode and print it.</p>
+</div>
+<div id="connecting-server-and-client" class="section level3">
+<h3>CONNECTING SERVER AND CLIENT</h3>
+<p>Now in order to connect these two entities, we first need to run our server. If there is no server listening on the respective port, our client can’t connect to anything. So we run our server.py script and start listening.
+After that, we can run our client.py script many times and they will all connect to the server. The results will look like this:</p>
+<p>Server
+Listening…
+Connected to (‘127.0.0.1’, 4935)
+Connected to (‘127.0.0.1’, 4942)
+Connected to (‘127.0.0.1’, 4943)
+Connected to (‘127.0.0.1’, 4944)
+Connected to (‘127.0.0.1’, 4945)</p>
+<p>Client
+Hello Client!
+One thing you might optimize on that script if you want is the exception handling. If there is no server listening and our client tries to connect, we get a ConnectionRefusedError and our script crashes. Now you can fix this with the knowledge from the first book.</p>
+</div>
+<div id="port-scanner" class="section level3">
+<h3>PORT SCANNER</h3>
+<p>Now we have learned a lot about multithreading, locking, queues and sockets. With all that knowledge, we can create a highly efficient and well working port scanner .
+What a port scanner basically does is: It tries to connect to certain ports at a host or a whole network, in order to find loopholes for future attacks. Open ports mean a security breach. And with our skills, we can already code our own penetration testing tool.</p>
+<pre class="python"><code>import socket
+target = &#39;10.0.0.5&#39;
+def portscan(port):
+  try :
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    conn = s.connect((target, port))
+    return True
+  except :
+    return False
+    
+for x in range ( 1 , 501 ):
+if (portscan(x)):
+  print ( &#39;Port {} is open!&#39; .format(x))
+else :
+  print ( &#39;Port {} is closed!&#39; .format(x))</code></pre>
+<p>So this scanner is quite simple. We define a target address. In this case, this is 10.0.0.5 . Our function portscan simply tries to connect to a certain port at that host. If it succeeds, the function returns True . If we get an error or an exception, it returns False .
+This is as simple as a port scan can get. We then use a for loop to scan the first 500 ports and we always print if the port is open or closed.</p>
+<p>Just choose a target address and run this script. You will see that it works.
+Port 21 is closed!
+Port 22 is open!
+Port 23 is closed!
+Port 24 is closed!
+Port 25 is open!</p>
+<p>But you will also notice that it is extremely slow. That’s because we serially scan one port after the other. And I think we have already learned how to handle that.</p>
+</div>
+<div id="threaded-port-scanner" class="section level3">
+<h3>THREADED PORT SCANNER</h3>
+<p>In order to speed up the scanning process, we are going to use multithreading . And to make sure that every port gets scanned and also that no port is scanned twice, we will use queues.</p>
+<pre class="python"><code>import socket
+from queue import Queue
+import threading
+target = &#39;10.0.0.5&#39;
+q = Queue()
+for x in range ( 1 , 501 ):
+  q.put(x)
+def portscan(port):
+  try :
+    s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    conn = s.connect((target, port))
+    return True
+  except :
+    return False
+    
+def worker():
+  while True :
+    port = q.get()
+    if portscan(port):
+      print ( &#39;Port {} is open!&#39;.format(port))</code></pre>
+<p>So we start by creating a queue and filling it up with all numbers from 1 to 500. We then have two functions. The portscan function does the scanning itself and the worker function gets all the ports from the queue in order to pass them to the portscan function and prints the result. In order to not get confused with the output, we only print when a port is open because we don’t care when a port is closed.</p>
+<p>Now we just have to decide how many threads we want to start and then we can go for it.</p>
+<pre class="python"><code>for x in range ( 30 ):
+t = threading.Thread( target =worker)
+t.start()</code></pre>
+<p>In this example, we start 30 threads at the same time. If you run this, you will see that it increases the scanning speed a lot. Within a few seconds, all the 500 ports are scanned. So if you want, you can increase the number to 5000.</p>
+<p>The results for my virtual server are the following:
+Port 25 is open!
+Port 22 is open!
+Port 80 is open!
+Port 110 is open!
+Port 119 is open!
+Port 143 is open!
+Port 443 is open!
+Port 465 is open!</p>
+<p>As you can see, there are a lot of vulnerabilities here. You now just have to google which ports are interesting and depending on your side you may either prepare for an attack or fix the security breaches. For example port 22 is SSH and quite dangerous.</p>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="841a2357c3fb41ee02524a4a70ad180b">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/python-database-programming/" class="button left"><span>Python - Database Programming</span></a>
+    
+    
+      <a href="/blog/python-queues/" class="button right"><span>Python - Queues</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Clustering-31.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Clustering-31.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/clustering/">Clustering</a></h2>
+          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">13</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/slides/">slides<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>
