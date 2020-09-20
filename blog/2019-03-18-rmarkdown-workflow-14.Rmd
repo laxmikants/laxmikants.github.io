@@ -1,0 +1,59 @@
+---
+title: "R markdown workflow"
+author: Laxmi K Soni 
+description: "RMarkdown is a collection of technologies that allow useRs to create rich documents."
+slug: RMarkdown
+date: 2019-03-18
+lastmod: 2019-03-18
+categories: ["R-markdown"]
+tags: ["R-markdown"]
+Summary: RMarkdown is a collection of technologies that allow useRs to create rich documents."
+subtitle: ["R-markdown"]
+featured: "img/main/2019-03-16-Python-Pandas-31.jpg"
+output:
+  blogdown::html_page:
+    toc: true
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: true
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+## RMarkdown Workflow
+
+RMarkdown is a collection of technologies that allow **useRs** to create rich documents or slides that include text, code, images and the potential for interactive content. Read more on [RStudio's dedicated RMarkdown website](http://rmarkdown.rstudio.com).
+
+There are three things you need to know about to understand the RMarkdown document creation workflow.
+
+### RStudio Projects
+
+RStudio projects help **useRs** to create transportable code that should work independent of operating system and remove the requirement to use `setwd()` in scripts.
+
+The folder this document is found in is an example of an RStudio project, because it contains a `.Rproj` file. This allows for relative file paths to be used for including images etc.
+
+### .Rmd files
+
+You write your report/presentation in an "RMarkdown file". RMarkdown files have the extension `.Rmd` and are "plain text" files.
+
+This means you can *technically* work with `.Rmd` files in any text editor. There's nothing special about the `.Rmd` file, it's the `rmarkdown` and `knitr` packages which take a `.Rmd` file and generate output.
+
+It's exactly like working with a `.html`, `.tex` or `.md` file.
+
+This document itself is an `.Rmd` file
+
+### Knitting files
+
+Generating output from an `.Rmd` file is achieved by clicking the "Knit" button in RStudio.

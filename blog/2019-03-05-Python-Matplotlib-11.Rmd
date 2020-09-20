@@ -2,7 +2,7 @@
 title: "Python - Matplotlib"
 author: Laxmi K Soni 
 description: "Introduction to Matplotlib"
-slug: Numpy
+slug: Matplotlib
 date: 2019-03-05
 lastmod: 2019-03-05
 categories: ["Python"]
@@ -11,11 +11,13 @@ Summary: Matplotlib
 subtitle: Matplotlib
 featured: "img/main/2019-03-05-Python-Matplotlib-29.png"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
+
 
 ---
 
@@ -30,12 +32,12 @@ conda_list()[[1]][1] %>%
 use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ```
+#  Matplotlib
 
-## Matplotlib
 
 Visualizing our data is crucial for data science. It gives us an overview and helps us to analyze data and make conclusions. Matplotlib is the library which we use for plotting and visualizing.
 
-#### PLOTTING MATHEMATICAL FUNCTIONS
+## PLOTTING MATHEMATICAL FUNCTIONS
 
 Now first we will be drawing some mathematical functions. 
 
@@ -88,7 +90,7 @@ The result looks like this:
 
 This function (6x – 30)²  is plotted with Matplotlib.
 
-#### VISUALIZING VALUES
+## VISUALIZING VALUES
 
 What we can also do, instead of plotting functions, is just visualizing values in form of single dots for example.
 
@@ -103,7 +105,7 @@ Here we generate 100 random numbers from 0 to 10. We then plot these numbers as 
 ![](/img/main/randomplot.png)
 
 
-#### MULTIPLE GRAPHS
+## MULTIPLE GRAPHS
 
 We can plot multiple functions in different color and shape.
 
@@ -122,7 +124,7 @@ In this example, we first generate 200 x-values from 0 to 5. Then we define thre
 
 ![](/img/main/lineplot.png)
 
-#### SUBPLOTS
+## SUBPLOTS
 
 Now, sometimes we want to draw multiple graphs but we don’t want them in the same plot necessarily. For this reason, we have so-called subplots . These are plots that are shown in the same window but independently from each other.
 
@@ -143,7 +145,7 @@ By using the function subplot we state that everything we plot now belongs to th
 ![](/img/main/subplots.png)
 As you can see, we have two subplots in one window and both have a different color and shape. Notice that the ratios between the x-axis and the y-axis differ in the two plots.
 
-#### MULTIPLE PLOTTING WINDOWS
+## MULTIPLE PLOTTING WINDOWS
 
 Instead of plotting into subplots, we can also go ahead and plot our graphs into multiple windows. In Matplotlib we call these figures .
 
@@ -158,7 +160,7 @@ plt.plot(x, y2, 'g--' )
 By doing this, we can show two windows with their graphs at the same time. Also, we can use subplots within figures.
 
 
-#### PLOTTING STYLES
+## PLOTTING STYLES
 
 In order to use a style, we need to import the style module of Matplotlib and then call the function use .
 
@@ -169,12 +171,12 @@ style.use( 'ggplot' )
 
 By using the from … import … notation we don’t need to specify the parent module matplotlib . Here we apply the style of ggplot . This adds a grid and some other design changes to our plots. For more information, check out the link above.
 
-#### LABELING DIAGRAMS
+## LABELING DIAGRAMS
 
 In order to make our graphs understandable, we need to label them properly. We should label the axes, we should give our windows titles and in some cases we should also add a legend.
 
 
-#### SETTING TITLES
+## SETTING TITLES
 
 Let’s start out by setting the titles of our graphs and windows.
 
@@ -196,7 +198,7 @@ If you want to change the title of the window, you can use the figure function t
 plt.figure( 'MyFigure' )
 ```
 
-#### LABELING AXES
+## LABELING AXES
 
 As a next step, we are going to label our axes. For this, we use the two functions xlabel and ylabel .
 ```{python, eval= FALSE}
@@ -213,7 +215,7 @@ You can choose whatever labels you like. When we combine all these pieces of cod
 In this case, the labels aren’t really necessary because it is obvious what we see here. But sometimes we want to describe what our values actually mean and what the plot is about.
 
 
-#### LEGENDS
+## LEGENDS
 
 Sometimes we will have multiple graphs and objects in a plot. We then use legends to label these individual elements, in order to make everything more readable.
 
@@ -233,7 +235,7 @@ Here we have three functions, sine , cosine and a logarithmic function. We draw 
 
 ![](/img/main/sinfunction2.png)
 
-#### SAVING DIAGRAMS
+## SAVING DIAGRAMS
 
 So now that we know quite a lot about plotting and graphing, let’s take a look at how to save our diagrams.
 

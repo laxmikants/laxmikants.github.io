@@ -11,11 +11,12 @@ Summary: Pandas is a software module for the Python programming language for the
 subtitle: Pandas and DataFrames
 featured: "img/main/2019-03-16-Python-Pandas-31.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
@@ -34,7 +35,7 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 
 
-***1:<mark> Pandas</mark>***
+# Pandas
 
 Pandas is probably the most powerful library. It provides high-performance tools for data manipulation and analysis. Furthermore, it is very effective at converting data formats and querying data out of databases. The two main data structures of Pandas are the series and the data frame. To work with Pandas, we need to import the module.
 
@@ -42,7 +43,7 @@ Pandas is probably the most powerful library. It provides high-performance tools
 import pandas as pd
 ```
 
-***1.1:<mark> Pandas Series </mark>***
+## Pandas Series 
 
 A series in Pandas is a one-dimensional array which is labeled. You can imagine it to be the  equivalent of an ordinary Python dictionary.
 
@@ -90,7 +91,7 @@ Our series now looks like this:
 print(series)
 ```
 
-#### PANDAS DataFrame
+## PANDAS DataFrame
 
 DataFrame is the main thing on which we’ll be mostly working on. Most manipulation or operation on the data will be applied by means of DataFrame. 
 

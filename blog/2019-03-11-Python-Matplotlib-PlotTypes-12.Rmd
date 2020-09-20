@@ -11,11 +11,12 @@ Summary: Matplotlib - Plot Types
 subtitle: Matplotlib - Plot Types
 featured: "img/main/2019-03-11-Python-Matplotlib-PlotTypes-30.jpg"
 output:
+  blogdown::html_page:
+    toc: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: true
 
 ---
 
