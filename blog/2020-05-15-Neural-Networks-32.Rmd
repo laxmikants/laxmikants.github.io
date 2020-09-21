@@ -1,13 +1,13 @@
 ---
 title: "Neural Networks"
 author: Laxmi K Soni 
-description: "The Neural Network is one of the most powerful learning algorithms (when a linear classifier doesn't work, this is what I usually turn to)."
+description: "The Neural Network is one of the most powerful learning algorithms."
 slug: Neural Networks
 date: 2020-05-15
 lastmod: 2020-05-15
 categories: ["Neural Networks"]
 tags: ["Neural Networks"]
-Summary: "The Neural Network is one of the most powerful learning algorithms (when a linear classifier doesn't work, this is what I usually turn to)."
+Summary: "The Neural Network is one of the most powerful learning algorithms."
 subtitle: Neural Networks
 featured: "img/main/Neural-Networks-32.jpg"
 output:

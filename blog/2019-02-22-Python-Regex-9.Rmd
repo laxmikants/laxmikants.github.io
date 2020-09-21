@@ -45,7 +45,7 @@ So in order to confuse you right in the beginning, let’s look at a regular exp
 ^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
 ```
 
-Now you can see why this is a huge field to learn. In this chapter, we are not going to build regular expressions like this. We are going to focus on quite simple examples and how to properly implement them in Python.
+Now you can see why this is a huge field to learn. We are going to focus on quite simple examples and how to properly implement them in Python.
 
 ## IDENTIFIER
 

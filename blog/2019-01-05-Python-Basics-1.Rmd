@@ -35,7 +35,7 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 ## `Variables and Data Types`
 
 Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
-In this chapter we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.
+In this post we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.
 
 
 ### `NUMERICAL DATA TYPES`
@@ -54,7 +54,7 @@ As you can see, it’s quite simple. An integer is just a regular whole number, 
 
 ### `STRINGS`
 
-A string defines characters sequences. Our text that we printed in the last chapter was a string. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .
+A string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .
 
 
 ### `BOOLEANS`
@@ -63,7 +63,6 @@ Boolean are the most simple data type in Python. They can only have one of two v
 
 ### `SEQUENCES`
 
-Sequences are a topic that we will cover in a later chapter. But since sequences are also data types we will at least mention that they exist.
 
 | SEQUENCE TYPES |         |                         |
 |----------------|---------|-------------------------|

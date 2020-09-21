@@ -34,8 +34,8 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 # Database Programming
 
-Databases are one of the most popular ways to store and manage data in computer science. Because of that, in this chapter we are going to take a look at database programming with Python.
-Notice that for most databases we use the query language SQL , which stands for Structured Query Language . We use this language in order to manage the database, the tables and the rows and columns. This chapter is not about database structure itself, nor is it about SQL. Maybe I will write a specific SQL book in the future but here we are only going to focus on the implementation in Python. We are not going to explain the SQL syntax in too much detail.
+Databases are one of the most popular ways to store and manage data in computer science. Because of that, in this post we are going to take a look at database programming with Python.
+Notice that for most databases we use the query language SQL , which stands for Structured Query Language . We use this language in order to manage the database, the tables and the rows and columns. 
 
 ## CONNECTING TO SQLITE
 

@@ -34,7 +34,7 @@ use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ## MATPLOTLIB PLOT TYPES
 
-In the last chapter, we mainly plotted functions and a couple of values. But Matplotlib offers a huge arsenal of different plot types. Here we are going to take a look at these.
+Matplotlib offers a huge arsenal of different plot types. Here we are going to take a look at these.
 
 #### HISTOGRAMS
 

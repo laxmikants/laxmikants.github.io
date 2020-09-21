@@ -124,7 +124,7 @@ s.listen()
 print ( 'Listening...' )
 ```
 
-Here we initialize our socket like we did in the beginning of this chapter. We then use the method bind , in order to assign the IP-address and the port we chose. Notice that we are passing a tuple as a parameter here. Last but not least, we put our socket to listening mode by using the method listen .After that, we just have to create a loop that accepts the client requests that will eventually come in.server.py
+Here we initialize our socket. We then use the method bind , in order to assign the IP-address and the port we chose. Notice that we are passing a tuple as a parameter here. Last but not least, we put our socket to listening mode by using the method listen .After that, we just have to create a loop that accepts the client requests that will eventually come in.server.py
 
 ```{python, eval = FALSE}
 

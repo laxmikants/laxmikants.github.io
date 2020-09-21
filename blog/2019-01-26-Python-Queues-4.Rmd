@@ -96,7 +96,7 @@ We then use a for loop to create and start five threads that we also add to our 
 The method join of the queue waits for all elements to be extracted and processed. Basically, it is going to wait for all the task_done functions. After that, we put None elements into the queue, so that our loops break.
 
 Notice that our threads can’t process the same element twice or even skip one because they can only get them by using the get function.
-If we would use a counter for this task, two threads might increase it at the same time and then skip an element. Or they could just access the same element simultaneously. Queues are irreplaceable for tasks like this. We will see a quite powerful application of queues in the chapter about networking .
+If we would use a counter for this task, two threads might increase it at the same time and then skip an element. Or they could just access the same element simultaneously. Queues are irreplaceable for tasks like this.
 
 
 ### LIFO QUEUES

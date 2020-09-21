@@ -55,7 +55,7 @@ There is no reason to not use both options in the same projects. We can choose d
 
 ## XML STRUCTURE
 
-For this chapter, we are going to use the following XML file:
+For this,we are going to use the following XML file:
 
 ```{python, eval=FALSE}
 <? xml version= '1.0' ?>
@@ -292,7 +292,7 @@ Here we change the attribute id of the first person to 10 .
 
 ## CREATING NEW ELEMENTS
 
-The last thing that we are going to look at in this chapter is creating new XML elements by using DOM. In order to do that, we first need to define a new person element.
+We first need to define a new person element.
 
 ```{python, eval = FALSE}
 newperson = domtree.createElement( 'person' )
