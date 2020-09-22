@@ -45,12 +45,14 @@ from datetime import datetime
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
+from scipy import stats 
 import numpy as np
 import pandas as pd
 import seaborn as sn
 import matplotlib.pyplot as plt
 import talib
 import quandl
+
 
 ````
 
@@ -80,7 +82,7 @@ print(df.tail())
 ```{python, echo = FALSE}
 
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='18/09/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='21/09/2020', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
@@ -91,8 +93,17 @@ df.drop(['Currency'], axis = 1)
 
 print(df.tail())
 
+
 ```
 
+## z-scores
+
+```{python}
+
+zscore = pd.DataFrame(stats.zscore(df['Close'])) 
+print(zscore.tail(30))
+
+```
 ```{python}
 pd.set_option('display.max_columns', 10)
 PP = pd.Series((df['High'] + df['Low'] + df['Close']) / 3)  
@@ -431,8 +442,6 @@ data = df_ret.copy()
 
 X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6"]]
 
-X["5d_ma"] = df[ '5d_ma' ]
-
 X["20d_ma"] = df[ '20d_ma' ]
 
 X["50d_ma"] =  df['50d_ma']
@@ -448,8 +457,6 @@ X['RSI'] = df['RSI']
 X['Williams %R'] = df['Williams %R']
 
 X['MACD_IND'] = df['MACD_IND'] 
-
-X['ADX'] = df['ADX'] 
 
 
 y = data["Direction"]
@@ -515,9 +522,10 @@ print(int(predict)) # 1: UP, -1: DOWN
 ```
 
 
-***3.11: Predicted prices ***
 
-```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=TRUE}
+
+```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=FALSE}
+***3.11: Predicted prices ***
 library(Quandl)
 library(quantmod)
 library(prophet)
