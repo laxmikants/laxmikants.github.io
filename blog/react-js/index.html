@@ -26,19 +26,19 @@
 
 <meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="React- JS">
 <meta itemprop="description" content="React JS Programming">
-<meta itemprop="datePublished" content="2020-06-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2020-06-28T00:00:00+00:00" />
-<meta itemprop="wordCount" content="4">
+<meta itemprop="datePublished" content="2020-07-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="648">
 
 
 
-<meta itemprop="keywords" content="Slides," />
+<meta itemprop="keywords" content="ReactJS," />
 <meta property="og:title" content="React- JS" />
 <meta property="og:description" content="React JS Programming" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://laxmikants.github.io/blog/react-js/" />
-<meta property="article:published_time" content="2020-06-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-06-28T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-05T00:00:00+00:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="React- JS"/>
 <meta name="twitter:description" content="React JS Programming"/>
@@ -59,12 +59,12 @@
 <meta property="og:locale" content="en">
 <meta property="og:description" content="React JS Programming">
 <meta name="description" content="React JS Programming">
-<meta property="og:updated_time" content="2020-06-28T00:00:00Z">
+<meta property="og:updated_time" content="2020-07-05T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
 <meta property="article:author" content="https://laxmikants.github.io">
-<meta property="article:published_time" content="2020-06-28T00:00:00Z">
-<meta property="article:modified_time" content="2020-06-28T00:00:00Z">
+<meta property="article:published_time" content="2020-07-05T00:00:00Z">
+<meta property="article:modified_time" content="2020-07-05T00:00:00Z">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -90,9 +90,9 @@
       "url": "https://laxmikants.github.io/"
     }
   },
-  "datePublished": "2020-06-28T00:00:00Z",
-  "dateModified": "2020-06-28T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cp\u003e*** React-JS\u003c/p\u003e\r\n\u003cp\u003e\u003ca href=\"/slides/GettingStartedwithReact.html\" target=\"_blank\"\u003eView Slides\u003c/a\u003e\u003c/p\u003e\r\n\u003ciframe src=\"/slides/GettingStartedwithReact.html\" width=\"672\" height=\"400px\"\u003e\r\n\u003c/iframe\u003e"
+  "datePublished": "2020-07-05T00:00:00Z",
+  "dateModified": "2020-07-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cp\u003e*** React-JS\u003c/p\u003e\r\n\u003cdiv id=\"setup\" class=\"section level2\"\u003e\r\n\u003ch2\u003eSetup\u003c/h2\u003e\r\n\u003cp\u003efirst, we need to create our React application using create-react-app. Once that is done, you can proceed to create your first React component.\u003c/p\u003e\r\n\u003cp\u003eInstall create-react-app globally by typing this command in your Terminal:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e  npm install -g create-react-app\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n  npm install -g create-react-app\r\n\u003c/script\u003e\r\n\u003cp\u003eOr you can use a shortcut:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e  npm i -g create-react-app\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n  npm i -g create-react-app\r\n\u003c/script\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"build-the-app\" class=\"section level2\"\u003e\r\n\u003ch2\u003eBuild the App\u003c/h2\u003e\r\n\u003cp\u003eLet’s build our first React application by following these steps:\u003c/p\u003e\r\n\u003cp\u003eCreate our React application with the following command:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003ecreate-react-app my-first-react-app\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\ncreate-react-app my-first-react-app\r\n\u003c/script\u003e\r\n\u003cp\u003eGo to the new application with cd my-first-react-app and start it with npm start.\r\nThe application should now be running at \u003ca href=\"http://localhost:3000\" class=\"uri\"\u003ehttp://localhost:3000\u003c/a\u003e.\u003c/p\u003e\r\n\u003cp\u003eCreate a new file called Home.js inside your src folder:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003eimport React, { Component } from \u0026#39;react\u0026#39;;\r\n\r\nclass Home extends Component {\r\n  render() {\r\n    return \u0026lt;h1\u0026gt;I\u0026#39;m Home Component\u0026lt;/h1\u0026gt;;\r\n  }\r\n}\r\n\r\nexport default Home;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\nimport React, { Component } from 'react';\r\n\r\nclass Home extends Component {\r\n  render() {\r\n    return \u003ch1\u003eI'm Home Component\u003c/h1\u003e;\r\n  }\r\n}\r\n\r\nexport default Home;\r\n\u003c/script\u003e\r\n\u003cp\u003eYou may have noticed that we are exporting our class component at the end of the file, but it’s fine to export it directly on the class declaration, like this:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    import React, { Component } from \u0026#39;react\u0026#39;;\r\n    export default class Home extends Component {\r\n      render() {\r\n        return \u0026lt;h1\u0026gt;I\u0026#39;m Home Component\u0026lt;/h1\u0026gt;;\r\n      }\r\n    }\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    import React, { Component } from 'react';\r\n    export default class Home extends Component {\r\n      render() {\r\n        return \u003ch1\u003eI'm Home Component\u003c/h1\u003e;\r\n      }\r\n    }\r\n\u003c/script\u003e\r\n\u003cp\u003eNow that we have created the first component, we need to render it. So we need to open the App.js file, import the Home component, and then add it to the render method of the App component. If we are opening this file for the first time, we will probably see a code like this in File: src/App.js\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    import React, { Component } from \u0026#39;react\u0026#39;;\r\n    import logo from \u0026#39;./logo.svg\u0026#39;;\r\n    import \u0026#39;./App.css\u0026#39;;\r\n    class App extends Component {\r\n      render() {\r\n        return (\r\n          \u0026lt;div className=\u0026#39;App\u0026#39;\u0026gt;\r\n            \u0026lt;header className=\u0026#39;App-header\u0026#39;\u0026gt;\r\n              \u0026lt;img src={logo} className=\u0026#39;App-logo\u0026#39; alt=\u0026#39;logo\u0026#39; /\u0026gt;\r\n              \u0026lt;h1 className=\u0026#39;App-title\u0026#39;\u0026gt;Welcome to React\u0026lt;/h1\u0026gt;\r\n            \u0026lt;/header\u0026gt;\r\n            \u0026lt;p className=\u0026#39;App-intro\u0026#39;\u0026gt;\r\n              To get started, edit \u0026lt;code\u0026gt;src/App.js\u0026lt;/code\u0026gt; \r\n              and save to reload.\r\n            \u0026lt;/p\u0026gt;\r\n          \u0026lt;/div\u0026gt;\r\n        );\r\n      }\r\n    }\r\n\r\n    export default App;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    import React, { Component } from 'react';\r\n    import logo from './logo.svg';\r\n    import './App.css';\r\n    class App extends Component {\r\n      render() {\r\n        return (\r\n          \u003cdiv className='App'\u003e\r\n            \u003cheader className='App-header'\u003e\r\n              \u003cimg src={logo} className='App-logo' alt='logo' /\u003e\r\n              \u003ch1 className='App-title'\u003eWelcome to React\u003c/h1\u003e\r\n            \u003c/header\u003e\r\n            \u003cp className='App-intro'\u003e\r\n              To get started, edit \u003ccode\u003esrc/App.js\u003c/code\u003e \r\n              and save to reload.\r\n            \u003c/p\u003e\r\n          \u003c/div\u003e\r\n        );\r\n      }\r\n    }\r\n\r\n    export default App;\r\n\u003c/script\u003e\r\nLet’s change this code a little bit. As I said before, we need to import our Home component and then add it to the JSX. We also need to replace the\r\n\u003cp\u003e\r\n\u003cp\u003eelement with our component, like this in File: src/App.js\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    import React, { Component } from \u0026#39;react\u0026#39;;\r\n    import logo from \u0026#39;./logo.svg\u0026#39;;\r\n\r\n    // We import our Home component here...\r\n    import Home from \u0026#39;./Home\u0026#39;;\r\n    import \u0026#39;./App.css\u0026#39;;\r\n\r\n    class App extends Component {\r\n      render() {\r\n        return (\r\n          \u0026lt;div className=\u0026#39;App\u0026#39;\u0026gt;\r\n            \u0026lt;header className=\u0026#39;App-header\u0026#39;\u0026gt;\r\n              \u0026lt;img src={logo} className=\u0026#39;App-logo\u0026#39; alt=\u0026#39;logo\u0026#39; /\u0026gt;\r\n              \u0026lt;h1 className=\u0026#39;App-title\u0026#39;\u0026gt;Welcome to React\u0026lt;/h1\u0026gt;\r\n            \u0026lt;/header\u0026gt;\r\n            {/* Here we add our Home component to be render it */}\r\n            \u0026lt;Home /\u0026gt;\r\n          \u0026lt;/div\u0026gt;\r\n        );\r\n      }\r\n    }\r\n\r\n    export default App;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    import React, { Component } from 'react';\r\n    import logo from './logo.svg';\r\n\r\n    // We import our Home component here...\r\n    import Home from './Home';\r\n    import './App.css';\r\n\r\n    class App extends Component {\r\n      render() {\r\n        return (\r\n          \u003cdiv className='App'\u003e\r\n            \u003cheader className='App-header'\u003e\r\n              \u003cimg src={logo} className='App-logo' alt='logo' /\u003e\r\n              \u003ch1 className='App-title'\u003eWelcome to React\u003c/h1\u003e\r\n            \u003c/header\u003e\r\n            {/* Here we add our Home component to be render it */}\r\n            \u003cHome /\u003e\r\n          \u003c/div\u003e\r\n        );\r\n      }\r\n    }\r\n\r\n    export default App;\r\n\u003c/script\u003e\r\n\u003cp\u003eAs you can see, we imported React and Component from the React library. You probably noticed that we are not using the React object directly. To write code in JSX, you need to import React. JSX is similar to HTML, but with a few differences. In the following recipes, you will learn more about JSX.\u003c/p\u003e\r\n\u003cp\u003eThis component is called a class component (React.Component), and there are different types: pure components (React.PureComponent) and functional components, also known as stateless components, which we will cover in the following recipes.\u003c/p\u003e\r\n\u003cp\u003eIf you run the application, you should see something like this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactapp.png\" /\u003e\u003c/p\u003e\r\n\u003ciframe src=\"/slides/GettingStartedwithReact.html\" width=\"672\" height=\"400px\"\u003e\r\n\u003c/iframe\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -259,9 +259,9 @@ if (!doNotTrack) {
     
   </div>
   <div class="meta">
-    <time datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+    <time datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
     <p>Laxmi K Soni</p>
-    <p>1-Minute Read</p>
+    <p>4-Minute Read</p>
   </div>
 </header>
 
@@ -295,9 +295,169 @@ if (!doNotTrack) {
 
 
 <p>*** React-JS</p>
-<p><a href="/slides/GettingStartedwithReact.html" target="_blank">View Slides</a></p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>first, we need to create our React application using create-react-app. Once that is done, you can proceed to create your first React component.</p>
+<p>Install create-react-app globally by typing this command in your Terminal:</p>
+<pre class="js"><code>  npm install -g create-react-app</code></pre>
+<script type="text/javascript">
+  npm install -g create-react-app
+</script>
+<p>Or you can use a shortcut:</p>
+<pre class="js"><code>  npm i -g create-react-app</code></pre>
+<script type="text/javascript">
+  npm i -g create-react-app
+</script>
+</div>
+<div id="build-the-app" class="section level2">
+<h2>Build the App</h2>
+<p>Let’s build our first React application by following these steps:</p>
+<p>Create our React application with the following command:</p>
+<pre class="js"><code>create-react-app my-first-react-app</code></pre>
+<script type="text/javascript">
+create-react-app my-first-react-app
+</script>
+<p>Go to the new application with cd my-first-react-app and start it with npm start.
+The application should now be running at <a href="http://localhost:3000" class="uri">http://localhost:3000</a>.</p>
+<p>Create a new file called Home.js inside your src folder:</p>
+<pre class="js"><code>import React, { Component } from &#39;react&#39;;
+
+class Home extends Component {
+  render() {
+    return &lt;h1&gt;I&#39;m Home Component&lt;/h1&gt;;
+  }
+}
+
+export default Home;</code></pre>
+<script type="text/javascript">
+import React, { Component } from 'react';
+
+class Home extends Component {
+  render() {
+    return <h1>I'm Home Component</h1>;
+  }
+}
+
+export default Home;
+</script>
+<p>You may have noticed that we are exporting our class component at the end of the file, but it’s fine to export it directly on the class declaration, like this:</p>
+<pre class="js"><code>    import React, { Component } from &#39;react&#39;;
+    export default class Home extends Component {
+      render() {
+        return &lt;h1&gt;I&#39;m Home Component&lt;/h1&gt;;
+      }
+    }</code></pre>
+<script type="text/javascript">
+    import React, { Component } from 'react';
+    export default class Home extends Component {
+      render() {
+        return <h1>I'm Home Component</h1>;
+      }
+    }
+</script>
+<p>Now that we have created the first component, we need to render it. So we need to open the App.js file, import the Home component, and then add it to the render method of the App component. If we are opening this file for the first time, we will probably see a code like this in File: src/App.js</p>
+<pre class="js"><code>    import React, { Component } from &#39;react&#39;;
+    import logo from &#39;./logo.svg&#39;;
+    import &#39;./App.css&#39;;
+    class App extends Component {
+      render() {
+        return (
+          &lt;div className=&#39;App&#39;&gt;
+            &lt;header className=&#39;App-header&#39;&gt;
+              &lt;img src={logo} className=&#39;App-logo&#39; alt=&#39;logo&#39; /&gt;
+              &lt;h1 className=&#39;App-title&#39;&gt;Welcome to React&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;p className=&#39;App-intro&#39;&gt;
+              To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; 
+              and save to reload.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        );
+      }
+    }
+
+    export default App;</code></pre>
+<script type="text/javascript">
+    import React, { Component } from 'react';
+    import logo from './logo.svg';
+    import './App.css';
+    class App extends Component {
+      render() {
+        return (
+          <div className='App'>
+            <header className='App-header'>
+              <img src={logo} className='App-logo' alt='logo' />
+              <h1 className='App-title'>Welcome to React</h1>
+            </header>
+            <p className='App-intro'>
+              To get started, edit <code>src/App.js</code> 
+              and save to reload.
+            </p>
+          </div>
+        );
+      }
+    }
+
+    export default App;
+</script>
+Let’s change this code a little bit. As I said before, we need to import our Home component and then add it to the JSX. We also need to replace the
+<p>
+<p>element with our component, like this in File: src/App.js</p>
+<pre class="js"><code>    import React, { Component } from &#39;react&#39;;
+    import logo from &#39;./logo.svg&#39;;
+
+    // We import our Home component here...
+    import Home from &#39;./Home&#39;;
+    import &#39;./App.css&#39;;
+
+    class App extends Component {
+      render() {
+        return (
+          &lt;div className=&#39;App&#39;&gt;
+            &lt;header className=&#39;App-header&#39;&gt;
+              &lt;img src={logo} className=&#39;App-logo&#39; alt=&#39;logo&#39; /&gt;
+              &lt;h1 className=&#39;App-title&#39;&gt;Welcome to React&lt;/h1&gt;
+            &lt;/header&gt;
+            {/* Here we add our Home component to be render it */}
+            &lt;Home /&gt;
+          &lt;/div&gt;
+        );
+      }
+    }
+
+    export default App;</code></pre>
+<script type="text/javascript">
+    import React, { Component } from 'react';
+    import logo from './logo.svg';
+
+    // We import our Home component here...
+    import Home from './Home';
+    import './App.css';
+
+    class App extends Component {
+      render() {
+        return (
+          <div className='App'>
+            <header className='App-header'>
+              <img src={logo} className='App-logo' alt='logo' />
+              <h1 className='App-title'>Welcome to React</h1>
+            </header>
+            {/* Here we add our Home component to be render it */}
+            <Home />
+          </div>
+        );
+      }
+    }
+
+    export default App;
+</script>
+<p>As you can see, we imported React and Component from the React library. You probably noticed that we are not using the React object directly. To write code in JSX, you need to import React. JSX is similar to HTML, but with a few differences. In the following recipes, you will learn more about JSX.</p>
+<p>This component is called a class component (React.Component), and there are different types: pure components (React.PureComponent) and functional components, also known as stateless components, which we will cover in the following recipes.</p>
+<p>If you run the application, you should see something like this:</p>
+<p><img src="/img/main/reactapp.png" /></p>
 <iframe src="/slides/GettingStartedwithReact.html" width="672" height="400px">
 </iframe>
+</div>
 
     </div>
     <footer>
@@ -306,7 +466,7 @@ if (!doNotTrack) {
     
       
         
-          <li><a class="article-terms-link" href="/categories/slides/">Slides</a></li>
+          <li><a class="article-terms-link" href="/categories/reactjs/">ReactJS</a></li>
         
       
     
@@ -315,7 +475,7 @@ if (!doNotTrack) {
     
       
         
-          <li><a class="article-terms-link" href="/tags/slides/">Slides</a></li>
+          <li><a class="article-terms-link" href="/tags/reactjs/">ReactJS</a></li>
         
       
     
@@ -339,7 +499,7 @@ if (!doNotTrack) {
           </h3>
 
           
-          <input type="hidden" name="options[entryId]" value="4437cecef199910797805b7d9e1072cb">
+          <input type="hidden" name="options[entryId]" value="8ef0d2cb606c982665845077aeae46d7">
           <input type='hidden' name='fields[replyThread]' value=''>
           <input type='hidden' name='fields[replyID]' value=''>
           <input type='hidden' name='fields[replyName]' value=''>
@@ -377,8 +537,10 @@ if (!doNotTrack) {
   
   <div class="pagination">
     
+      <a href="/blog/react-native/" class="button left"><span>React Native</span></a>
     
-      <a href="/blog/neural-networks/" class="button right"><span>Neural Networks</span></a>
+    
+      <a href="/blog/web-scrapping/" class="button right"><span>Web Scrapping Basics</span></a>
     
   </div>
 
@@ -391,32 +553,32 @@ if (!doNotTrack) {
       </header>
       
       <article class="mini-post">
+          <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-native/">React Native</a></h2>
+          <time class="published" datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
           <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
     <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
   </a>
         <header>
           <h2><a href="/blog/react-js/">React- JS</a></h2>
-          <time class="published" datetime="2020-06-28 00:00:00 &#43;0000 UTC">June 28, 2020</time>
+          <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
         </header>
       </article>
       
       <article class="mini-post">
-          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
-    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/web_scrapping02.jpg');">
+    <img src="https://laxmikants.github.io/img/main/web_scrapping02.jpg" alt="">
   </a>
         <header>
-          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
-          <time class="published" datetime="2020-05-15 00:00:00 &#43;0000 UTC">May 15, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/clustering/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Clustering-31.jpg');">
-    <img src="https://laxmikants.github.io/img/main/Clustering-31.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/clustering/">Clustering</a></h2>
-          <time class="published" datetime="2020-05-05 00:00:00 &#43;0000 UTC">May 5, 2020</time>
+          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
+          <time class="published" datetime="2020-06-15 00:00:00 &#43;0000 UTC">June 15, 2020</time>
         </header>
       </article>
       
@@ -492,7 +654,10 @@ if (!doNotTrack) {
               <a href="/categories/pandas/">pandas<span class="count">1</span></a>
           
           <li>
-              <a href="/categories/slides/">slides<span class="count">1</span></a>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
           
           <li>
               <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
@@ -505,6 +670,9 @@ if (!doNotTrack) {
           
           <li>
               <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
           
           </li>
         </ul>

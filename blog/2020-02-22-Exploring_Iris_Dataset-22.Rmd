@@ -1,0 +1,271 @@
+---
+title: "EDA with Iris dataset"
+author: Laxmi K Soni 
+description: "Exploring datasets is an important topic in data science. To achieve this task EDA i.e Exploratory data analysis helps"
+slug: EDA with Iris dataset 
+date: 2020-02-22
+lastmod: 2020-02-22
+categories: ["EDA"]
+tags: ["EDA"]
+Summary: Exploring datasets is an important topic in data science. To achieve this task EDA i.e Exploratory data analysis helps
+subtitle: EDA with Iris dataset
+featured: "img/main/eda_iris05.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+```
+
+### Loading the dataset
+
+Exploring datasets is an important topic in data science. To achieve this task EDA i.e Exploratory data analysis helps by means of summary statistics and other infographics. In this post we will take iris dataset and apply EDA techiniqes to better gain an insight into the dataset.
+
+
+```{python, echo=TRUE}
+from sklearn.datasets import load_iris
+
+
+iris_dataset = load_iris()
+
+print(type(iris_dataset))
+
+print(iris_dataset.keys())
+```
+
+The dataset is of `Bunch` datatypes having keys `'data', 'target', 'frame', 'target_names', 'DESCR', 'feature_names', 'filename'`.
+
+Before we go ahead we need to convert `Bunch` to pandas `DataFrame`.
+
+### creating dataframe from raw data
+
+```{python, echo=TRUE}
+
+import pandas as pd
+
+iris_df = pd.DataFrame(iris_dataset.data, columns = iris_dataset.feature_names)
+
+print(iris_df.head())
+
+```
+
+The columns shows the length, width but does not show the group to which this length or width belongs. The group to which these values belong is stored in target_names which can stored in seperate column in our dataframe as.
+
+```{python, echo=TRUE}
+
+group_names = pd.Series([iris_dataset.target_names[ind] for ind in iris_dataset.target], dtype = 'category')
+
+iris_df['group'] = group_names
+
+
+print(iris_df.head())
+```
+
+
+### Getting summary statistical measures
+
+To start with EDA, mean and median should be calculated for the numeric variables. To get the summary statistics we use `describe` function.
+
+
+```{python, echo=TRUE}
+iris_sumry = iris_df.describe().transpose()
+
+iris_sumry['std'] = iris_df.std()
+
+iris_sumry.head()
+```
+
+There is no feature which is having a mean as zero. The average sepal width and petal length are not much different. The median of petal length is much different from the mean.
+
+For sepal length 25% quartile is 5.1 i.e 25% of the dataset values for this feature are less than 5.1
+
+### Checking skewness and kurtosis
+
+To check whether the petal length is normaly distributed or not we find the skewness and kurtosis and perform the test as...
+
+```{python, echo=TRUE}
+from scipy.stats import skew, skewtest
+
+petal_length = iris_df['petal length (cm)']
+
+sk = skew(petal_length)
+
+z_score, p_value = skewtest(petal_length)
+
+print('Skewness %0.3f z-score %0.3f p-value %0.3f' % (sk, z_score, p_value))
+```
+
+
+```{python, echo = TRUE}
+
+from scipy.stats import kurtosis, kurtosistest
+
+petal_length = iris_df['petal length (cm)']
+
+ku = kurtosis(petal_length)
+
+z_score, p_value = kurtosistest(petal_length)
+
+print('Kurtosis %0.3f z-score %0.3f p-value %0.3f' % (ku, z_score, p_value))
+
+```
+
+
+From the values of `skewness` and `kurtosis` we see that the `petal length` of plants is skewed to the left.
+
+### Creating categorical dataframe
+
+To create a categorical dataframe from the quantitative data we can make use of the binning as. Binning transforms the numeric data into categorical data. In EDA this helps in reducing outliers.
+
+```{python, echo = TRUE}
+
+perct = [0,.25,.5,.75,1]
+
+iris_bin = pd.concat(
+
+    [pd.qcut(iris_df.iloc[:,0], perct, precision=1),
+
+    pd.qcut(iris_df.iloc[:,1], perct, precision=1),
+
+    pd.qcut(iris_df.iloc[:,2], perct, precision=1),
+
+    pd.qcut(iris_df.iloc[:,3], perct, precision=1)],
+
+    join='outer', axis = 1)
+
+```
+
+
+### Frequencies and Contingency tables
+
+The resulting frequencies of each class of species in iris dataset can be obtained as ...
+
+```{python, echo = TRUE}
+
+print(iris_df['group'].value_counts())
+
+```
+
+The resultant frequencies for the binned dataframe
+
+```{python, echo = TRUE}
+
+print(iris_bin['petal length (cm)'].value_counts())
+
+```
+
+We can describe the binned dataframe using the `describe` function
+
+```{python, echo = TRUE}
+iris_bin.describe().transpose()
+```
+
+Contingency tables based on groups and binning can be obtained as...
+
+```{python, echo = TRUE}
+print(pd.crosstab(iris_df['group'], iris_bin['petal length (cm)']))
+```
+
+Cross tabulation can further used to apply chi-square test to determine which feature has the effect on the species of the plant. Further chi-square test can help us understand the relationship between target outcome (plant group) and other independant variables (length and width). For example one can setup a chi-squre test to check if the petal length is statistically different from each other i.e values are significantly different across class of species.
+
+### Applying t-test to check statistical signifcance
+
+```{python, echo = TRUE}
+from scipy.stats import ttest_ind
+
+grp0 = iris_df['group'] == 'setosa'
+
+grp1 = iris_df['group'] == 'versicolor'
+
+grp2 = iris_df['group'] == 'virginica'
+
+petal_length = iris_df['petal length (cm)']
+
+
+print('var1 %0.3f var2 %03f' % (petal_length[grp1].var(),
+
+                                petal_length[grp2].var()))
+
+sepal_width = iris_df['sepal width (cm)']
+
+t, p_value = ttest_ind(sepal_width[grp1], sepal_width[grp2], axis=0, equal_var=False)
+
+print('t statistic %0.3f p-value %0.3f' % (t, p_value))
+```
+
+The p-value shows that group means are significantly different.
+
+Further we can check it among more than 2 groups using ANOVA
+
+
+
+##
+```{python, echo = TRUE}
+
+from scipy.stats import f_oneway
+
+sepal_width = iris_df['sepal width (cm)']
+
+f, p_value = f_oneway(sepal_width[grp0],
+
+                     sepal_width[grp1],
+
+                     sepal_width[grp2])
+
+print('One-way ANOVA F-value %0.3f p-value %0.3f' % (f,p_value))
+
+```
+
+
+### Applying chi-square to cagegorical variables
+
+```{python, echo = TRUE}
+
+from scipy.stats import chi2_contingency
+
+table = pd.crosstab(iris_df['group'],
+
+                    iris_bin['petal length (cm)'])
+
+chi2, p, dof, expected = chi2_contingency(table.values)
+
+print('Chi-square %0.2f p-value %0.3f' % (chi2, p))
+
+```
+The p-value  and chi-square value indicates that petal length variable can be effectively used for distinguishing between iris groups.
+
+
+### Visualising data
+
+
+#### Creating box plot 
+
+```{python, echo = TRUE, eval = FALSE}
+import seaborn as sns
+
+import matplotlib.pyplot as plt
+
+sns.boxplot(x="group",y="petal length (cm)",data=iris_df)
+
+plt.show()
+```
+
+![](/img/main/irisboxplot.png)
+
+The box plot shows that the 3 groups, setosa, versicolor, and virginica, have different petal lengths.
+
+### Conclusion
+
+In this artical we hv seen how to apply to do exploratary data analysis with iris dataset. We also learned the tools that help us understand the relationship between outcome variable and independent variables. We learned various techniqes in EDA that can be used before building the machine learning models.

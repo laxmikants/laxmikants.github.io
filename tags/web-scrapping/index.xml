@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Scrapping on Data Science Posts and Resources</title>
-    <link>https://example.com/tags/web-scrapping/</link>
+    <link>https://laxmikants.github.io/tags/web-scrapping/</link>
     <description>Recent content in Web Scrapping on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/web-scrapping/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://laxmikants.github.io/tags/web-scrapping/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Web Scrapping Basics</title>
-      <link>https://example.com/blog/web-scrapping/</link>
-      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      <link>https://laxmikants.github.io/blog/web-scrapping/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/web-scrapping/</guid>
+      <guid>https://laxmikants.github.io/blog/web-scrapping/</guid>
       <description>A beginer level introduction to Web Scrapping using Python</description>
     </item>
     

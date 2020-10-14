@@ -1,0 +1,208 @@
+---
+title: "Understanding frequency tables"
+author: Laxmi K Soni 
+description: "Frequency tables are a great tool to help explore datasets and get an idea about relationships between variables"
+slug: Exploring Frequency tables 
+date: 2020-02-15
+lastmod: 2020-02-15
+categories: ["Frequency Tables"]
+tags: ["Frequency Tables"]
+Summary: Frequency tables are a great tool to help explore datasets and get an idea about relationships between variables
+subtitle: Understanding Frequency tables
+featured: "img/main/freq_table01.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+
+```
+
+
+
+# Introduction
+
+To discover the relationship between variables is the main task of data analysis. Tools like frequency tables helps to explore the data and get an idea of the relationships between variables. A frequency table is just a data table that shows the counts of one or more categorical variables.
+
+To explore frequency tables, we will take the titanic dataset
+
+
+```{r engine='python',eval = TRUE, highlight=TRUE}
+
+import numpy as np
+import pandas as pd
+import os
+
+tit_train = pd.read_csv("../data/titanic/train.csv")
+
+cabin_as_text = tit_train['Cabin'].astype(str)
+
+new_cabin = np.array([cabin[0] for cabin in cabin_as_text])
+
+tit_train["Cabin"] = pd.Categorical(new_cabin)
+
+
+```
+
+
+
+## One-Way Tables
+
+In pandas frequency tables are known as crosstabs. Using the pd.crosstab() function we can get the frequency tables. This function takes one or more array type objects as indexes or columns and then constructs a new dataframe of the variable counts based on the supplied arrays.
+
+```{python}
+
+cross_tab_survived = pd.crosstab(index=tit_train["Survived"], columns="count")      
+print(cross_tab_survived)
+
+```                              
+
+We can  make a  more crosstabs to explore other variables
+
+```{python}
+cross_tab_plcass = pd.crosstab(index=tit_train["Pclass"], columns="count")   
+print(cross_tab_plcass)
+```                      
+
+```{python}
+cross_tab_sex = pd.crosstab(index=tit_train["Sex"], columns="count")   
+print(cross_tab_sex)
+```                      
+
+
+```{python}
+cross_tab_cab = pd.crosstab(index=tit_train["Cabin"], columns="count")   
+print(cross_tab_cab)
+```                      
+
+The one-way tables give us useful insights. We can see the distribution of records across the categories. For example we find that males are more than females by a significant margin and there were more third class travelers than first and second class combined.
+
+Since the crosstab function produces DataFrames, the DataFrame operations we've learned work on crosstabs:
+
+```{python}
+print (cross_tab_cab.sum(), "\n")   # Sum the counts
+
+print (cross_tab_cab.shape, "\n")   # Check number of rows and cols
+```
+
+One of the most useful feature of frequency tables is that they allow  to extract the proportion of the data that belongs to each category. With a one-way table, we can do this by dividing each table value by the total number of records in the table.
+
+
+```{python}
+cross_tab_cab / cross_tab_cab.sum()
+cross_tab_cab
+```
+
+# Two-Way Tables
+
+Two-way frequency tables, also called contingency tables, are tables of counts with two dimensions where each dimension is a different variable. Two-way tables can give us insight into the relationship between two variables. To create a two way table, pass two variables to the pd.crosstab() function instead of one.
+
+
+<h3>Table of survival vs. sex</h3>
+
+```{python}
+survive_sex = pd.crosstab(index=tit_train["Survived"], 
+                           columns=tit_train["Sex"])
+
+survive_sex.index= ["died","survived"]
+
+survive_sex
+```
+
+<h3>Table of survival vs passenger class</h3>
+
+```{python}
+survive_class = pd.crosstab(index=tit_train["Survived"], 
+                            columns=tit_train["Pclass"])
+
+survive_class.columns = ["class1","class2","class3"]
+survive_class.index= ["died","survived"]
+
+survive_class
+```
+
+<h3>Table of survival vs passenger class</h3>
+
+```{python}
+
+survived_class = pd.crosstab(index=tit_train["Survived"], 
+                            columns=tit_train["Pclass"],
+                             margins=True)   # Include row and column totals
+
+survived_class.columns = ["class1","class2","class3","rowtotal"]
+survived_class.index= ["died","survived","coltotal"]
+
+survived_class
+
+```
+
+To get the proportion of counts along each column (in this case, the survival rate within each passenger class) divide by the column totals:
+
+```{python}
+survived_class/survived_class.loc["coltotal"]
+```
+
+To get the proportion of counts along each row divide by the row totals. Use the df.div() to the get division to on a column by column basis:
+
+```{python}
+survived_class.div(survived_class["rowtotal"],
+                   axis=0)
+```
+
+
+Alternatively, you can transpose the table with df.T to swap rows and columns and perform row by row division as normal:
+
+```{python}
+survived_class.T/survived_class["rowtotal"]
+```
+
+
+### Higher Dimensional Tables
+
+The crosstab() function lets you create tables out of more than two categories. Higher dimensional tables can be a little confusing to look at, but they can also yield finer-grained insight into interactions between multiple variables. Let's create a 3-way table inspecting survival, sex and passenger class:
+
+
+```{python }
+surv_sex_class = pd.crosstab(index=tit_train["Survived"], 
+                             columns=[tit_train["Pclass"],
+                                      tit_train["Sex"]],
+                             margins=True)   # Include row and column totals
+
+surv_sex_class
+```
+
+
+Notice that by passing a second variable to the columns argument, the resulting table has columns categorized by both Pclass and Sex. 
+
+```{python}
+surv_sex_class[2]        
+```
+
+
+```{python}
+surv_sex_class[2]["female"]   
+```
+
+Due to the convenient hierarchical structure of the table, we still use one division to get the proportion of survival across each column:
+
+```{python}
+surv_sex_class/surv_sex_class.loc["All"]    # Divide by column totals
+```
+
+
+Here we see that over 90% of women in 1st class and 2nd class survived, but only 50% of women in 3rd class survived. Men in 1st class also survived with a greater rate than men in lower classes. Passenger class seems to have a significant impact on survival, so it would likely be useful to include as a feature in a predictive model.
+
+# Summary
+
+Frequency tables are effective tools for understanding relationships between features of a dataset. It is easy to inspect the data in the frequency tables.  Sometimes creating plots from the frequency tables helps in detecting the patterns in the data.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React Native on Data Science Posts and Resources</title>
+    <link>https://laxmikants.github.io/tags/react-native/</link>
+    <description>Recent content in React Native on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://laxmikants.github.io/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React Native</title>
+      <link>https://laxmikants.github.io/blog/react-native/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-native/</guid>
+      <description>React Native Introduction</description>
+    </item>
+    
+  </channel>
+</rss>
