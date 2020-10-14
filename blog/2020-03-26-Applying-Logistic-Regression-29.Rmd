@@ -177,7 +177,7 @@ df['Close'].plot()
 plt.show()
 ```
 
-![]("/img/main/stockplot.png")
+![](/img/main/stockplot.png)
 
 ***2.1:CandleStick Charts***
 
@@ -224,7 +224,7 @@ ax.xaxis_date()
 plt.show()
 ```
 
-![]("/img/main/candlestick.png")
+![](/img/main/candlestick.png)
 
 One candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close  price. 
 If the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.
