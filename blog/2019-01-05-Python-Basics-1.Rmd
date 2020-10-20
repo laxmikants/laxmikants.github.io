@@ -56,6 +56,41 @@ As you can see, it’s quite simple. An integer is just a regular whole number, 
 
 A string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .
 
+#### Traversing a String
+
+```{python}
+
+# Traversing
+
+name = "Welcome"
+
+for ch in name:
+  print(ch, '-', end = ' ')
+  
+  
+# Reversing a string
+name = "Reverse me"
+
+# The Slice notation in python has the syntax -
+
+# list[<start>:<stop>:<step>]
+# So, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.
+
+print(name[::-1])
+
+lgth = len(name)
+
+for a in range(-1, (-lgth-1), -1):
+  print(name[a])
+
+
+## Split the string into a list of characters, reverse the list, then rejoin into a single string
+
+print(''.join(reversed("Hello world")))
+
+```
+
+
 
 ### `BOOLEANS`
 
