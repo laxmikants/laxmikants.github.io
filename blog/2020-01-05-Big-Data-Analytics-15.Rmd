@@ -12,11 +12,11 @@ subtitle: Big Data
 featured: "img/main/Big-Data-14.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 ---
 
 

@@ -6,10 +6,19 @@
     <description>Recent content in Blog on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://laxmikants.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Neural Networks</title>
+      <link>https://laxmikants.github.io/blog/neural-networks/</link>
+      <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/neural-networks/</guid>
+      <description>The Neural Network is one of the most powerful learning algorithms.</description>
+    </item>
     
     <item>
       <title>Images Operations using CV</title>
@@ -18,6 +27,15 @@
       
       <guid>https://laxmikants.github.io/blog/images-operations-using-cv/</guid>
       <description>Images Operations using CV</description>
+    </item>
+    
+    <item>
+      <title>React Native</title>
+      <link>https://laxmikants.github.io/blog/react-native/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-native/</guid>
+      <description>React Native Introduction</description>
     </item>
     
     <item>
@@ -39,6 +57,15 @@
     </item>
     
     <item>
+      <title>React- JS</title>
+      <link>https://laxmikants.github.io/blog/react-js/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-js/</guid>
+      <description>React-JS Introduction</description>
+    </item>
+    
+    <item>
       <title>Web Scrapping Basics</title>
       <link>https://laxmikants.github.io/blog/web-scrapping/</link>
       <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
@@ -48,12 +75,12 @@
     </item>
     
     <item>
-      <title>Neural Networks</title>
-      <link>https://laxmikants.github.io/blog/neural-networks/</link>
-      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      <title>Web Scrapping Basics</title>
+      <link>https://laxmikants.github.io/blog/web-scrapping/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://laxmikants.github.io/blog/neural-networks/</guid>
-      <description>The Neural Network is one of the most powerful learning algorithms.</description>
+      <guid>https://laxmikants.github.io/blog/web-scrapping/</guid>
+      <description>A beginer level introduction to Web Scrapping using Python</description>
     </item>
     
     <item>
@@ -252,15 +279,6 @@
       
       <guid>https://laxmikants.github.io/blog/numpy/</guid>
       <description>Numpy</description>
-    </item>
-    
-    <item>
-      <title>Python - Regular Expressions</title>
-      <link>https://laxmikants.github.io/blog/regular-expressions/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/blog/regular-expressions/</guid>
-      <description>Regular Expressions</description>
     </item>
     
     <item>

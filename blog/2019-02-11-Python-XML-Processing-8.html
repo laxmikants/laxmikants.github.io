@@ -1,0 +1,256 @@
+---
+title: "Python - XML Processing"
+author: Laxmi K Soni 
+description: "Introduction to Python XML Processing"
+slug: Python XML Processing
+date: 2019-02-11
+lastmod: 2019-02-11
+categories: ["Python"]
+tags: ["Python"]
+Summary: Python XML Processing
+subtitle: Python XML Processing
+featured: "img/main/2019-02-11-Python-XML-Processing-25.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="xml-processing" class="section level1">
+<h1>XML PROCESSING</h1>
+<p>Up until now, we either saved our data into regular text files or into professional databases. Sometimes however, our script is quite small and doesn’t need a big database but we still want to structure our data in files. For this, we can use XML .</p>
+<p>XML stands for Extensible Markup Language and is a language that allows us to hierarchically structure our data in files. It is platform-independent and also application-independent. XML files that you create with a Python script, can be read and processed by a C++ or Java application.</p>
+<div id="xml-parser" class="section level2">
+<h2>XML PARSER</h2>
+<p>In Python, we can choose between two modules for parsing XML files – SAX and DOM .</p>
+</div>
+<div id="simple-api-for-xml-sax" class="section level2">
+<h2>SIMPLE API FOR XML (SAX)</h2>
+<p>SAX stands for Simple API for XML and is better suited for large XML files or in situations where we have very limited RAM memory space. This is because in this mode we never load the full file into our RAM. We read the file from our hard drive and only load the little parts that we need right at the moment into the RAM. An additional effect of this is that we can only read from the file and not manipulate it and change values.</p>
+</div>
+<div id="document-object-model-dom" class="section level2">
+<h2>DOCUMENT OBJECT MODEL (DOM)</h2>
+<p>DOM stands for Document Object Model and is the generally recommended option. It is a language-independent API for working with XML. Here we always load the full XML file into our RAM and then save it there in a hierarchical structure. Because of that, we can use all of the features and also manipulate the file.</p>
+<p>Obviously, DOM is a lot faster than SAX because it is using the RAM instead of the hard disk. The main memory is way more efficient than the hard drive. We only use SAX when our RAM is so limited that we can’t even load the full XML file into it without problems.
+There is no reason to not use both options in the same projects. We can choose depending on the use case.</p>
+</div>
+<div id="xml-structure" class="section level2">
+<h2>XML STRUCTURE</h2>
+<p>For this,we are going to use the following XML file:</p>
+<pre class="python"><code>&lt;? xml version= &#39;1.0&#39; ?&gt;
+&lt; group &gt;
+&lt; person id= &#39;1&#39; &gt;
+&lt; name &gt;John Smith&lt;/ name &gt;
+&lt; age &gt;20&lt;/ age &gt;
+&lt; weight &gt;80&lt;/ weight &gt;
+&lt; height &gt;188&lt;/ height &gt;
+&lt;/ person &gt;
+&lt; person id= &#39;2&#39; &gt;
+&lt; name &gt;Mike Davis&lt;/ name &gt;
+&lt; age &gt;45&lt;/ age &gt;
+&lt; weight &gt;82&lt;/ weight &gt;
+&lt; height &gt;185&lt;/ height &gt;
+&lt;/ person &gt;
+&lt; person id= &#39;3&#39; &gt;
+&lt; name &gt;Anna Johnson&lt;/ name &gt;
+&lt; age &gt;33&lt;/ age &gt;
+&lt; weight &gt;67&lt;/ weight &gt;
+&lt; height &gt;167&lt;/ height &gt;
+&lt;/ person &gt;
+&lt; person id= &#39;4&#39; &gt;
+&lt; name &gt;Bob Smith&lt;/ name &gt;
+&lt; age &gt;60&lt;/ age &gt;
+&lt; weight &gt;70&lt;/ weight &gt;
+&lt; height &gt;174&lt;/ height &gt;
+&lt;/ person &gt;
+&lt; person id= &#39;5&#39; &gt;
+&lt; name &gt;Sarah Pitt&lt;/ name &gt;
+&lt; age &gt;12&lt;/ age &gt;
+&lt; weight &gt;50&lt;/ weight &gt;
+&lt; height &gt;152&lt;/ height &gt;
+&lt;/ person &gt;
+&lt;/ group &gt;  </code></pre>
+<p>As you can see, the structure is quite simple. The first row is just a notation and indicates that we are using XML version one. After that we have various tags. Every tag that gets opened also gets closed at the end.
+Basically, we have one group tag. Within that, we have multiple person tags that all have the attribute id . And then again, every person has four tags with their values. These tags are the attributes of the respective person. We save this file as group.xml .</p>
+</div>
+<div id="xml-with-sax" class="section level2">
+<h2>XML WITH SAX</h2>
+<p>In order to work with SAX, we first need to import the module:</p>
+<pre class="python"><code>import xml.sax</code></pre>
+<p>Now, what we need in order to process the XML data is a content handler . It handles and processes the attributes and tags of the file.</p>
+<pre class="python"><code>import xml.sax
+handler = xml.sax.ContentHandler()
+parser = xml.sax.make_parser()
+parser.setContentHandler(handler)
+parser.parse( &#39;group.xml&#39; )</code></pre>
+<p>First we create an instance of the ContentHandler class. Then we use the method make_parser, in order to create a parser object. After that, we set our handler to the content handler of our parser. We can then parse the file by using the method parse .</p>
+<p>Now, when we execute our script, we don’t see anything. This is because we need to define what happens when an element gets parsed.</p>
+</div>
+<div id="content-handler-class" class="section level2">
+<h2>CONTENT HANDLER CLASS</h2>
+<p>For this, we will define our own content handler class. Let’s start with a very simple example.</p>
+<pre class="python"><code>import xml.sax
+class GroupHandler(xml.sax.ContentHandler):
+def startElement( self , name, attrs):
+print (name)
+handler = GroupHandler()
+parser = xml.sax.make_parser()
+parser.setContentHandler(handler)
+parser.parse( &#39;group.xml&#39; )</code></pre>
+<p>We created a class GroupHandler that inherits from ContentHandler . Then we overwrite the function startElement . Every time an element gets processed, this function gets called. So by manipulating it, we can define what shall happen during the parsing process.</p>
+<p>Notice that the function has two parameters – name and attr . These represent the tag name and the attributes. In our simple example, we just print the tag names. So, let’s get to a more interesting example.</p>
+</div>
+<div id="processing-xml-data" class="section level2">
+<h2>PROCESSING XML DATA</h2>
+<p>The following example is a bit more complex and includes two more functions.</p>
+<pre class="python"><code>import xml.sax
+class GroupHandler(xml.sax.ContentHandler):
+  def startElement( self , name, attrs):
+    self .current = name
+    if self .current == &#39;person&#39; :
+      print ( &#39;--- Person ---&#39; )
+      id = attrs[ &#39;id&#39; ]
+      print ( &#39;ID: %s&#39; % id)
+      
+  def endElement( self , name):
+    if self .current == &#39;name&#39; :
+      print ( &#39;Name: %s&#39; % self .name)
+    elif self .current == &#39;age&#39; :
+      print ( &#39;Age: %s&#39; % self .age)
+    elif self .current == &#39;weight&#39; :
+      print ( &#39;Weight: %s&#39; % self .weight)
+    elif self .current == &#39;height&#39; :
+      print ( &#39;Height: %s&#39; % self .height)
+    self .current = &#39;&#39; 
+    
+  def characters( self , content):
+    if self .current == &#39;name&#39; :
+      self .name = content
+    elif self .current == &#39;age&#39; :
+      self .age = content
+    elif self .current == &#39;weight&#39; :
+      self .weight = content
+    elif self .current == &#39;height&#39; :
+      self .height = content
+      
+  handler = GroupHandler()
+  parser = xml.sax.make_parser()
+  parser.setContentHandler(handler)
+  parser.parse( &#39;group.xml&#39; ) </code></pre>
+<p>The first thing you will notice here is that we have three functions instead of one. When we start processing an element, the function startElement gets called. Then we go on to process the individual characters which are name, age, weight and height . At the end of the element parsing, we call the endElement function.</p>
+<p>In this example, we first check if the element is a person or not. If this is the case we print the id just for information. We then go on with the characters method. It checks which tag belongs to which attribute and saves the values accordingly. At the end, we print out all the values. This is what the results look like:</p>
+<p>— Person —
+ID: 1
+Name: John Smith
+Age: 20
+Weight: 80
+Height: 188
+— Person —
+ID: 2
+Name: Mike Davis
+Age: 45
+Weight: 82
+Height: 185
+— Person —
+…</p>
+</div>
+<div id="xml-with-dom" class="section level2">
+<h2>XML WITH DOM</h2>
+<p>Now, let’s look at the DOM option. Here we can not only read from XML files but also change values and attributes. In order to work with DOM, we again need to import the respective module.</p>
+<pre class="python"><code>import xml.dom.minidom</code></pre>
+<p>When working with DOM, we need to create a so-called DOM-Tree and view all elements as collections or sequences.</p>
+<pre class="python"><code>domtree = xml.dom.minidom.parse( &#39;group.xml&#39; )
+group = domtree.documentElement </code></pre>
+<p>We parse the XML file by using the method parse . This returns a DOM-tree, which we save into a variable. Then we get the documentElement of our tree and in our case this is group . We also save this one into an object.</p>
+<pre class="python"><code>persons = group.getElementsByTagName( &#39;person&#39; )
+for person in persons:
+  print ( &#39;--- Person ---&#39; )
+  if person.hasAttribute( &#39;id&#39; ):
+    print ( &#39;ID: %s&#39; % person.getAttribute( &#39;id&#39; ))
+    name = person.getElementsByTagName( &#39;name&#39; )[ 0 ]
+    age = person.getElementsByTagName( &#39;age&#39; )[ 0 ]
+    weight = person.getElementsByTagName( &#39;weight&#39; )[ 0 ]
+    height = person.getElementsByTagName( &#39;height&#39; )[ 0 ] </code></pre>
+<p>Now, we can get all the individual elements by using the getElementsByTagName function. For example, we save all our person tags into a variable by using this method and specifying the name of our desired tags. Our persons variable is now a sequence that we can iterate over.</p>
+<p>By using the functions hasAttribute and getAttribute, we can also access the attributes of our tags. In this case, this is only the id . In order to get the tag values of the individual person, we again use the method getElementsByTagName .</p>
+<p>When we do all that and execute our script, we get the exact same result as with SAX .
+— Person —
+ID: 1
+Name: John Smith
+Age: 20
+Weight: 80
+Height: 188
+— Person —
+ID: 2
+Name: Mike Davis
+Age: 45
+Weight: 82
+Height: 185
+— Person —
+…</p>
+</div>
+<div id="manipulating-xml-files" class="section level2">
+<h2>MANIPULATING XML FILES</h2>
+<p>Since we are now working with DOM , let’s manipulate our XML file and change some values.</p>
+<pre class="python"><code>persons = group.getElementsByTagName( &#39;person&#39; )
+persons[ 0 ].getElementsByTagName( &#39;name&#39; )[ 0 ].childNodes[ 0 ].nodeValue = &#39;New Name&#39;</code></pre>
+<p>As you can see, we are using the same function, to access our elements. Here we adress the name tag of the first person object. Then we need to access the childNodes and change their nodeValue . Notice that we only have one element name and also only one child node but we still need to address the index zero, for the first element.</p>
+<p>In this example, we change the name of the first person to New Name . Now in order to apply these changes to the real file, we need to write into it.</p>
+<pre class="python"><code>domtree.writexml( open ( &#39;group.xml&#39; , &#39;w&#39; ))</code></pre>
+<p>We use the writexml method of our initial domtree object. As a parameter, we pass a file stream that writes into our XML file. After doing that, we can look at the changes.</p>
+<pre class="python"><code>&lt; person id= &#39;1&#39; &gt;
+&lt; name &gt;New Name&lt;/ name &gt;
+&lt; age &gt;20&lt;/ age &gt;
+&lt; weight &gt;80&lt;/ weight &gt;
+&lt; height &gt;188&lt;/ height &gt;
+&lt;/ person &gt;</code></pre>
+<p>We can also change the attributes by using the function setAttribute .</p>
+<p>persons[ 0 ].setAttribute( ‘id’ , ‘10’ )
+Here we change the attribute id of the first person to 10 .</p>
+<pre class="python"><code>&lt; person id= &#39;10&#39; &gt;
+&lt; name &gt;New Name&lt;/ name &gt;
+&lt; age &gt;20&lt;/ age &gt;
+&lt; weight &gt;80&lt;/ weight &gt;
+&lt; height &gt;188&lt;/ height &gt;
+&lt;/ person &gt;</code></pre>
+</div>
+<div id="creating-new-elements" class="section level2">
+<h2>CREATING NEW ELEMENTS</h2>
+<p>We first need to define a new person element.</p>
+<pre class="python"><code>newperson = domtree.createElement( &#39;person&#39; )
+newperson.setAttribute( &#39;id&#39; , &#39;6&#39; )</code></pre>
+<p>So we use the domtree object and the respective method, to create a new XML element. Then we set the id attribute to the next number.</p>
+<p>After that, we create all the elements that we need for the person and assign values to them.</p>
+<pre class="python"><code>name = domtree.createElement( &#39;name&#39; )
+name.appendChild(domtree.createTextNode( &#39;Paul Smith&#39; ))
+age = domtree.createElement( &#39;age&#39; )
+age.appendChild(domtree.createTextNode( &#39;45&#39; ))
+weight = domtree.createElement( &#39;weight&#39; )
+weight.appendChild(domtree.createTextNode( &#39;78&#39; ))
+height = domtree.createElement( &#39;height&#39; )
+height.appendChild(domtree.createTextNode( &#39;178&#39; )) </code></pre>
+<p>First, we create a new element for each attribute of the person. Then we use the method appendChild to put something in between the tags of our element. In this case we create a new TextNode , which is basically just text.</p>
+<p>Last but not least, we again need to use the method appendChild in order to define the hierarchical structure. The attribute elements are the childs of the person element and this itself is the child of the group element.</p>
+<pre class="python"><code>newperson.appendChild(name)
+newperson.appendChild(age)
+newperson.appendChild(weight)
+newperson.appendChild(height)
+group.appendChild(newperson)
+domtree.writexml( open ( &#39;group.xml&#39; , &#39;w&#39; ))</code></pre>
+<p>When we write these changes into our file, we can see the following results:</p>
+<pre class="python"><code>&lt; person id= &#39;6&#39; &gt;
+&lt; name &gt;Paul Smith&lt;/ name &gt;
+&lt; age &gt;45&lt;/ age &gt;
+&lt; weight &gt;78&lt;/ weight &gt;
+&lt; height &gt;178&lt;/ heigh</code></pre>
+</div>
+</div>

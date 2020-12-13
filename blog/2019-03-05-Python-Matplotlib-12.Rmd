@@ -12,11 +12,11 @@ subtitle: Matplotlib
 featured: "img/main/2019-03-05-Python-Matplotlib-29.png"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 
 ---

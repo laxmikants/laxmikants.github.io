@@ -12,11 +12,11 @@ subtitle: Regular Expressions
 featured: "img/main/2019-02-22-Python-Regex-27.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 ---
 

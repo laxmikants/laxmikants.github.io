@@ -1,21 +1,21 @@
 ---
-title: "Computer Vision Basics"
+title: "Images Operations using CV"
 author: Laxmi K Soni 
-description: "Computer Vision Basics"
-slug: Neural Networks
+description: "Images Operations using CV"
+slug: Images Operations using CV
 date: 2020-11-30
 lastmod: 2020-11-30
 categories: ["Computer Vision"]
 tags: ["Computer Vision"]
-Summary: "Computer vision using OpenCV."
-subtitle: Computer Vision
+Summary: "Images Operations using CV"
+subtitle: Images Operations using CV
 featured: "img/main/2020-11-30-Computer-Vision-Basics-34.jpg"
 output:
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: no
+    toc_float: no
 ---
 
 
@@ -30,14 +30,10 @@ conda_list()[[1]][1] %>%
 use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
 ```
-    
+  
 
-```{r}
-knitr::include_url('/slides/ComputerVisionBasics.html')
-```
-## Computer Vision Basics
 
-# Computer Vision Concepts
+## Computer Vision Concepts
 
 * Computers 'look' at images as multidimensional arrays or matricies but they can also be treated like functions (ex. taking the derivative over an image's x-axis).
 
@@ -345,3 +341,8 @@ print(thresh.shape)
 
 * Tracking: OpenCV's tracking algorithms help to track objects. MIL, BOOSTING, MEDIANFLOW,TLD, KCF are tracking algorithms
 
+
+## Slide show
+```{r}
+knitr::include_url('/slides/ComputerVisionBasics.html')
+```

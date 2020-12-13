@@ -1,0 +1,553 @@
+---
+title: "Pandas (Python)"
+author: Laxmi K Soni 
+description: "Pandas is a software module for the Python programming language for the purpose of data manipulation and analysis. It provides data structures and operations to  manipulate numerical tables and time series data. It is build on top of numpy. It is applied for fast analysis and data cleaning and preparation.In this post we will learn various wasy to work with Pandas DataFrames."
+slug: Pandas
+date: 2019-03-16
+lastmod: 2019-03-16
+categories: ["Pandas","Python"]
+tags: ["Pandas","Python"]
+Summary: Pandas is a software module for the Python programming language for the purpose of data manipulation and analysis. It provides data structures and operations to  manipulate numerical tables and time series data. It is build on top of numpy. It is applied for fast analysis and data cleaning and preparation
+subtitle: Pandas and DataFrames
+featured: "img/main/2019-03-16-Python-Pandas-31.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="pandas" class="section level1">
+<h1>Pandas</h1>
+<p>Pandas is probably the most powerful library. It provides high-performance tools for data manipulation and analysis. Furthermore, it is very effective at converting data formats and querying data out of databases. The two main data structures of Pandas are the series and the data frame. To work with Pandas, we need to import the module.</p>
+<pre class="python"><code>import pandas as pd</code></pre>
+<div id="pandas-series" class="section level2">
+<h2>Pandas Series</h2>
+<p>A series in Pandas is a one-dimensional array which is labeled. You can imagine it to be the equivalent of an ordinary Python dictionary.</p>
+<pre class="python"><code>series = pd.Series([ 10 , 20 , 30 , 40 ],
+[ &#39;A&#39; , &#39;B&#39; , &#39;C&#39; , &#39;D&#39; ])</code></pre>
+<p>In order to create a series, we use the constructor of the Series class. The first parameter that we pass is a list full of values (in this case numbers). The second parameter is the list of the indices or keys (in this case strings). When we now print our series, we can see what the structure looks like.</p>
+<pre class="python"><code>print(series)</code></pre>
+<pre><code>## A    10
+## B    20
+## C    30
+## D    40
+## dtype: int64</code></pre>
+<p>The first column represents the indices, whereas the second column represents the actual values.</p>
+<div id="accessing-values" class="section level4">
+<h4>ACCESSING VALUES</h4>
+<p>The accessing of values works in the same way that it works with dictionaries. We need to address the respective index or key to get our desired value.</p>
+<pre class="python"><code>print (series[ &#39;C&#39; ])</code></pre>
+<pre><code>## 30</code></pre>
+<pre class="python"><code>print (series[ 1 ])</code></pre>
+<pre><code>## 20</code></pre>
+<p>As you can see, we can choose how we want to access our elements. We can either address the key or the position that the respective element is at.</p>
+<p>CONVERTING DICTIONARIES</p>
+<p>Since series and dictionaries are quite similar, we can easily convert our Python dictionaries into Pandas series.</p>
+<pre class="python"><code>myDict = { &#39;A&#39; : 10 , &#39;B&#39; : 20 , &#39;C&#39; : 30 }
+series = pd.Series(myDict)</code></pre>
+<p>Now the keys are our indices and the values remain values. But what we can also do is, to change the order of the indices.</p>
+<pre class="python"><code>myDict = { &#39;A&#39; : 10 , &#39;B&#39; : 20 , &#39;C&#39; : 30 }
+series = pd.Series(myDict, index =[ &#39;C&#39; , &#39;A&#39; , &#39;B&#39; ])</code></pre>
+<p>Our series now looks like this:</p>
+<pre class="python"><code>print(series)</code></pre>
+<pre><code>## C    30
+## A    10
+## B    20
+## dtype: int64</code></pre>
+</div>
+</div>
+<div id="pandas-dataframe" class="section level2">
+<h2>PANDAS DataFrame</h2>
+<p>DataFrame is the main thing on which we’ll be mostly working on. Most manipulation or operation on the data will be applied by means of DataFrame.</p>
+<div id="creating-dataframe-using-dictionary-data" class="section level4">
+<h4>Creating DataFrame using dictionary data</h4>
+<p>This is a simple process in which we just need to pass the json data to the DataFrame method.</p>
+<pre class="python"><code>cars = {&#39;Brand&#39;:[&#39;Honda&#39;,&#39;Toyota&#39;,&#39;Ford&#39;,&#39;Audi&#39;],&#39;Price&#39;:[22000,21000,27000,35000]}
+df = pd.DataFrame(cars)
+df</code></pre>
+<pre><code>##     Brand  Price
+## 0   Honda  22000
+## 1  Toyota  21000
+## 2    Ford  27000
+## 3    Audi  35000</code></pre>
+<pre class="python"><code>data = { &#39;Name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ], &#39;Age&#39; : [ 24 , 32 , 35 ], &#39;Height&#39; : [ 176 , 187 , 175 ]}
+df = pd.DataFrame(data)</code></pre>
+<p>To create a Pandas data frame, we use the constructor of the class. In this case, we first create a dictionary with some data about three persons. We feed that data into our data frame. It then looks like this:</p>
+<pre class="python"><code>df</code></pre>
+<pre><code>##       Name  Age  Height
+## 0     Anna   24     176
+## 1      Bob   32     187
+## 2  Charles   35     175</code></pre>
+<p>As you can see, without any manual work, we already have a structured data frame and table.</p>
+<p>To now access the values is a bit more complicated than with series. We have multiple columns and multiple rows, so we need to address two values.</p>
+<pre class="python"><code>print (df[ &#39;Name&#39; ][ 1 ])</code></pre>
+<pre><code>## Bob</code></pre>
+<p>So first we choose the column Name and then we choose the second element (index one) of this column. In this case, this is Bob .</p>
+<p>When we omit the last index, we can also select only the one column. This is useful when we want to save specific columns of our data frame into a new one. What we can also do in this case is to select multiple columns.</p>
+<pre class="python"><code>print (df[[ &#39;Name&#39; , &#39;Height&#39; ]])</code></pre>
+<pre><code>##       Name  Height
+## 0     Anna     176
+## 1      Bob     187
+## 2  Charles     175</code></pre>
+</div>
+<div id="data-frame-functions" class="section level4">
+<h4>DATA FRAME FUNCTIONS</h4>
+<p>For data frames we have a couple of basic functions and attributes that we already know from lists or NumPy arrays.</p>
+<table>
+<thead>
+<tr class="header">
+<th>BASIC FUNCTIONS AND ATTRIBUTES</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>df.T</td>
+<td>Transposes the rows and columns of the data frame</td>
+</tr>
+<tr class="even">
+<td>df.dtypes</td>
+<td>Returns data types of the data frame</td>
+</tr>
+<tr class="odd">
+<td>df.ndim</td>
+<td>Returns the number of dimensions of the data frame</td>
+</tr>
+<tr class="even">
+<td>df.shape</td>
+<td>Returns the shape of the data frame</td>
+</tr>
+<tr class="odd">
+<td>df.size</td>
+<td>Returns the number of elements in the data frame</td>
+</tr>
+<tr class="even">
+<td>df.head(n)</td>
+<td>Returns the first n rows of the data frame (default is five)</td>
+</tr>
+<tr class="odd">
+<td>df.tail(n)</td>
+<td>Returns the last n rows of the data frame (default is five)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="statistical-functions" class="section level4">
+<h4>STATISTICAL FUNCTIONS</h4>
+<p>For the statistical functions, we will now extend our data frame a little bit and add some more persons.</p>
+<pre class="python"><code>data = { &#39;Name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; , &#39;Fiona&#39; ,
+&#39;Gerald&#39; , &#39;Henry&#39; , &#39;India&#39; ],
+&#39;Age&#39; : [ 24 , 32 , 35 , 45 , 22 , 54 , 55 , 43 , 25 ],
+&#39;Height&#39; : [ 176 , 187 , 175 , 182 , 176 ,
+189 , 165 , 187 , 167 ]}
+df = pd.DataFrame(data)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>STATISTICAL FUNCTIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FUNCTION</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>count()</td>
+<td>Count the number of non-null elements</td>
+</tr>
+<tr class="odd">
+<td>sum()</td>
+<td>Returns the sum of values of the selected columns</td>
+</tr>
+<tr class="even">
+<td>mean()</td>
+<td>Returns the arithmetic mean of values of the selected columns</td>
+</tr>
+<tr class="odd">
+<td>median()</td>
+<td>Returns the median of values of the selected columns</td>
+</tr>
+<tr class="even">
+<td>mode()</td>
+<td>Returns the value that occurs most often in the columns selected</td>
+</tr>
+<tr class="odd">
+<td>std()</td>
+<td>Returns standard deviation of the values</td>
+</tr>
+<tr class="even">
+<td>min()</td>
+<td>Returns the minimum value</td>
+</tr>
+<tr class="odd">
+<td>max()</td>
+<td>Returns the maximum value</td>
+</tr>
+<tr class="even">
+<td>abs()</td>
+<td>Returns the absolute values of the elements</td>
+</tr>
+<tr class="odd">
+<td>prod()</td>
+<td>Returns the product of the selected elements</td>
+</tr>
+<tr class="even">
+<td>describe()</td>
+<td>Returns data frame with all statistical values summarized</td>
+</tr>
+</tbody>
+</table>
+<p>Now, we are not going to dig deep into every single function here. But let’s take a look at how to apply some of them.</p>
+<pre class="python"><code>print (df[ &#39;Age&#39; ].mean())</code></pre>
+<pre><code>## 37.22222222222222</code></pre>
+<pre class="python"><code>print (df[ &#39;Height&#39; ].median())</code></pre>
+<pre><code>## 176.0</code></pre>
+<p>Here we choose a column and then apply the statistical functions on it. What we get is just a single scalar with the desired value.</p>
+<p>We can also apply the functions to the whole data frame. In this case, we get returned another data frame with the results for each column.</p>
+<pre class="python"><code>print (df.mean())</code></pre>
+<pre><code>## Age        37.222222
+## Height    178.222222
+## dtype: float64</code></pre>
+</div>
+<div id="applying-numpy-functions" class="section level4">
+<h4>APPLYING NUMPY FUNCTIONS</h4>
+<p>Instead of using the built-in Pandas functions, we can also use the methods we already know. For this, we just use the apply function of the data frame and then pass our desired method.</p>
+<pre class="python"><code>import numpy as np
+print (df[ &#39;Age&#39; ].apply(np.sin))</code></pre>
+<pre><code>## 0   -0.905578
+## 1    0.551427
+## 2   -0.428183
+## 3    0.850904
+## 4   -0.008851
+## 5   -0.558789
+## 6   -0.999755
+## 7   -0.831775
+## 8   -0.132352
+## Name: Age, dtype: float64</code></pre>
+<p>In this example, we apply the sine function onto our ages. It doesn’t make any sense but it demonstrates how this works.</p>
+</div>
+<div id="lambda-expressions" class="section level4">
+<h4>LAMBDA EXPRESSIONS</h4>
+<p>A very powerful in Python are lambda expression . They can be thought of as nameless functions that we pass as a parameter.</p>
+<pre class="python"><code>print (df[ &#39;Age&#39; ].apply( lambda x: x * 100 ))</code></pre>
+<pre><code>## 0    2400
+## 1    3200
+## 2    3500
+## 3    4500
+## 4    2200
+## 5    5400
+## 6    5500
+## 7    4300
+## 8    2500
+## Name: Age, dtype: int64</code></pre>
+<p>By using the keyword lambda we create a temporary variable that represents the individual values that we are applying the operation onto. After the colon, we define what we want to do. In this case, we multiply all values of the column Age by 100.</p>
+<pre class="python"><code>df = df[[ &#39;Age&#39; , &#39;Height&#39; ]]
+print (df.apply( lambda x: x.max() - x.min()))</code></pre>
+<pre><code>## Age       33
+## Height    24
+## dtype: int64</code></pre>
+<p>Here we removed the Name column, so that we only have numerical values. Since we are applying our expression on the whole data frame now, x refers to the whole columns. What we do here is calculating the difference between the maximum value and the minimum value.</p>
+</div>
+<div id="iterating" class="section level4">
+<h4>ITERATING</h4>
+<p>Iterating over data frames is quite easy with Pandas. We can either do it in the classic way or use specific functions for it.</p>
+<pre class="python"><code>for x in df[ &#39;Age&#39; ]:
+  print (x)</code></pre>
+<pre><code>## 24
+## 32
+## 35
+## 45
+## 22
+## 54
+## 55
+## 43
+## 25</code></pre>
+<p>As you can see, iterating over a column’s value is very simple and nothing new. This would print all the ages. When we iterate over the whole data frame, our control variable takes on the column names.</p>
+<table>
+<thead>
+<tr class="header">
+<th>STATISTICAL FUNCTIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>iteritems()</td>
+<td>Iterator for key-value pairs</td>
+</tr>
+<tr class="even">
+<td>iterrows()</td>
+<td>Iterator for the rows (index, series)</td>
+</tr>
+<tr class="odd">
+<td>itertuples()</td>
+<td>Iterator for the rows as named tuples</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s take a look at some practical examples.</p>
+<pre class="python"><code>for key, value in df.iteritems():
+  print ( &#39;{}: {}&#39; .format(key, value))</code></pre>
+<pre><code>## Age: 0    24
+## 1    32
+## 2    35
+## 3    45
+## 4    22
+## 5    54
+## 6    55
+## 7    43
+## 8    25
+## Name: Age, dtype: int64
+## Height: 0    176
+## 1    187
+## 2    175
+## 3    182
+## 4    176
+## 5    189
+## 6    165
+## 7    187
+## 8    167
+## Name: Height, dtype: int64</code></pre>
+<p>Here we use the iteritems function to iterate over key-value pairs. What we get is a huge output of all rows for each column.</p>
+<p>On the other hand, when we use iterrows , we can print out all the column-values for each row or index.</p>
+<pre class="python"><code>for index, value in df.iterrows():
+  print (index,value)</code></pre>
+<pre><code>## 0 Age        24
+## Height    176
+## Name: 0, dtype: int64
+## 1 Age        32
+## Height    187
+## Name: 1, dtype: int64
+## 2 Age        35
+## Height    175
+## Name: 2, dtype: int64
+## 3 Age        45
+## Height    182
+## Name: 3, dtype: int64
+## 4 Age        22
+## Height    176
+## Name: 4, dtype: int64
+## 5 Age        54
+## Height    189
+## Name: 5, dtype: int64
+## 6 Age        55
+## Height    165
+## Name: 6, dtype: int64
+## 7 Age        43
+## Height    187
+## Name: 7, dtype: int64
+## 8 Age        25
+## Height    167
+## Name: 8, dtype: int64</code></pre>
+</div>
+<div id="sorting" class="section level4">
+<h4>SORTING</h4>
+<p>One very powerful thing about Pandas data frames is that we can easily sort them.</p>
+</div>
+<div id="sort-by-index" class="section level4">
+<h4>SORT BY INDEX</h4>
+<pre class="python"><code>df = pd.DataFrame(np.random.rand( 10 , 2 ),
+index =[ 1 , 5 , 3 , 6 , 7 , 2 , 8 , 9 , 0 , 4 ],
+columns =[ &#39;A&#39; , &#39;B&#39; ])</code></pre>
+<p>Here we create a new data frame, which is filled with random numbers. We specify our own indices and as you can see, they are completely unordered.</p>
+<pre class="python"><code>print (df.sort_index())</code></pre>
+<pre><code>##           A         B
+## 0  0.310937  0.279927
+## 1  0.049057  0.337492
+## 2  0.272936  0.486993
+## 3  0.839166  0.783525
+## 4  0.346235  0.070096
+## 5  0.753521  0.330051
+## 6  0.251746  0.307606
+## 7  0.842304  0.235698
+## 8  0.798328  0.438922
+## 9  0.727056  0.026230</code></pre>
+<p>By using the method sort_index , we sort the whole data frame by the index column. The result is now sorted:</p>
+</div>
+<div id="inplace-parameter" class="section level4">
+<h4>INPLACE PARAMETER</h4>
+<p>When we use functions that manipulate our data frame, we don’t actually change it but we return a manipulated copy. If we wanted to apply the changes on the actual data frame, we would need to do it like this:</p>
+<pre class="python"><code>df = df.sort_index()</code></pre>
+<p>But Pandas offers us another alternative as well. This alternative is the parameter inplace . When this parameter is set to True , the changes get applied to our actual data frame</p>
+<pre class="python"><code>df.sort_index( inplace = True )</code></pre>
+</div>
+<div id="sort-by-columns" class="section level4">
+<h4>SORT BY COLUMNS</h4>
+<p>Now, we can also sort our data frame by specific columns.</p>
+<pre class="python"><code>data = { &#39;Name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; , &#39;Fiona&#39; ,
+&#39;Gerald&#39; , &#39;Henry&#39; , &#39;India&#39; ],
+&#39;Age&#39; : [ 24 , 24 , 35 , 45 , 22 , 54 , 54 , 43 , 25 ],
+&#39;Height&#39; : [ 176 , 187 , 175 , 182 , 176 ,
+189 , 165 , 187 , 167 ]}
+
+df = pd.DataFrame(data)
+
+df.sort_values( by =[ &#39;Age&#39; , &#39;Height&#39; ], inplace = True )
+
+print (df)</code></pre>
+<pre><code>##       Name  Age  Height
+## 4     Evan   22     176
+## 0     Anna   24     176
+## 1      Bob   24     187
+## 8    India   25     167
+## 2  Charles   35     175
+## 7    Henry   43     187
+## 3   Daniel   45     182
+## 6   Gerald   54     165
+## 5    Fiona   54     189</code></pre>
+<p>Here we have our old data frame slightly modified. We use the function sort_values to sort our data frames. The parameter by states the columns that we are sorting by. In this case, we are first sorting by age and if two persons have the same age, we sort by height.</p>
+</div>
+<div id="joining-and-merging" class="section level4">
+<h4>JOINING AND MERGING</h4>
+<p>Another powerful concept in Pandas is joining and merging data frames.</p>
+<pre class="python"><code>names = pd.DataFrame({
+&#39;id&#39; : [ 1 , 2 , 3 , 4 , 5 ],
+&#39;name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; ],
+})
+ages = pd.DataFrame({
+&#39;id&#39; : [ 1 , 2 , 3 , 4 , 5 ],
+&#39;age&#39; : [ 20 , 30 , 40 , 50 , 60 ]
+})</code></pre>
+<pre class="python"><code>df = pd.merge(names,ages, on = &#39;id&#39; )
+df.set_index( &#39;id&#39; , inplace = True )</code></pre>
+<p>First we use the method merge and specify the column to merge on. We then have a new data frame with the combined data but we also want our id column to be the index. For this, we use the set_index method.
+Now when we have two separate data frames which are related to one another, we can combine them into one data frame. It is important that we have a common column that we can merge on. In this case, this is id .</p>
+</div>
+<div id="joins" class="section level4">
+<h4>JOINS</h4>
+<p>It is not necessarily always obvious how we want to merge our data frames. This is where joins come into play. We have four types of joins.</p>
+<table>
+<thead>
+<tr class="header">
+<th>JOIN MERGE TYPES</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>left</td>
+<td>Uses all keys from left object and merges with right</td>
+</tr>
+<tr class="even">
+<td>right</td>
+<td>Uses all keys from right object and merges with left</td>
+</tr>
+<tr class="odd">
+<td>outer</td>
+<td>Uses all keys from both objects and merges them</td>
+</tr>
+<tr class="even">
+<td>inner</td>
+<td>Uses only the keys which both objects have and merges them</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>(default)</td>
+</tr>
+</tbody>
+</table>
+<p>Now let’s change our two data frames a little bit.</p>
+<pre class="python"><code>names = pd.DataFrame({
+&#39;id&#39; : [ 1 , 2 , 3 , 4 , 5 , 6 ],
+&#39;name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; , &#39;Fiona&#39; ],
+})
+ages = pd.DataFrame({
+&#39;id&#39; : [ 1 , 2 , 3 , 4 , 5 , 7 ],
+&#39;age&#39; : [ 20 , 30 , 40 , 50 , 60 , 70 ],
+&#39;Height&#39; : [ 176 , 187 , 175 , 182 , 176 ,
+189 ]
+})</code></pre>
+<p>Our names frame now has an additional index 6 and an additional name. And our ages frame has an additional index 7 with an additional name.</p>
+<pre class="python"><code>df = pd.merge(names,ages, on = &#39;id&#39; , how = &#39;inner&#39; )
+df.set_index( &#39;id&#39; , inplace = True )</code></pre>
+<p>If we now perform the default inner join , we will end up with the same data frame as in the beginning. We only take the keys which both objects have. This means one to five.</p>
+<pre class="python"><code>df = pd.merge(names,ages, on = &#39;id&#39; , how = &#39;left&#39; )
+df.set_index( &#39;id&#39; , inplace = True )</code></pre>
+<p>When we use the left join , we get all the keys from the names data frame but not the additional index 7 from ages. This also means that Fiona won’t be assigned any age.</p>
+<p>The same principle goes for the right join just the other way around</p>
+<pre class="python"><code>df = pd.merge(names,ages, on = &#39;id&#39; , how = &#39;right&#39; )
+df.set_index( &#39;id&#39; , inplace = True )</code></pre>
+<p>Now, we only have the keys from the ages frame and the 6 is missing. Finally, if we use the outer join , we combine all keys into one data frame.</p>
+<pre class="python"><code>df = pd.merge(names,ages, on = &#39;id&#39; , how = &#39;outer&#39; )
+df.set_index( &#39;id&#39; , inplace = True )</code></pre>
+</div>
+<div id="querying-data" class="section level4">
+<h4>QUERYING DATA</h4>
+<p>Like in databases with SQL, we can also query data from our data frames in Pandas. For this, we use the function loc , in which we put our expression.</p>
+<pre class="python"><code>print (df.loc[df[ &#39;age&#39; ] == 24 ])</code></pre>
+<pre><code>## Empty DataFrame
+## Columns: [name, age, Height]
+## Index: []</code></pre>
+<pre class="python"><code>print (df.loc[(df[ &#39;age&#39; ] == 24 ) &amp;
+(df[ &#39;Height&#39; ] &gt; 180 )])</code></pre>
+<pre><code>## Empty DataFrame
+## Columns: [name, age, Height]
+## Index: []</code></pre>
+<pre class="python"><code>print (df.loc[df[ &#39;age&#39; ] &gt; 30 ][ &#39;name&#39; ])</code></pre>
+<pre><code>## id
+## 3    Charles
+## 4     Daniel
+## 5       Evan
+## 7        NaN
+## Name: name, dtype: object</code></pre>
+<p>Here we have some good examples to explain how this works. The first expression returns all rows where the value for Age is 24.</p>
+<p>The second query is a bit more complicated. Here we combine two conditions. The first one is that the age needs to be 24 but we then combine this with the condition that the height is greater than 180. This leaves us with one row.</p>
+<p>In the last expression, we can see that we are only choosing one column to be returned. We want the names of all people that are older than 30.</p>
+</div>
+<div id="read-data-from-files" class="section level4">
+<h4>READ DATA FROM FILES</h4>
+<p>Similar to NumPy, we can also easily read data from external files into Pandas. Let’s say we have an CSV-File like this (opened in Excel):</p>
+<p><img src="/img/main/exceltable.png" /></p>
+<p>The only thing that we need to do now is to use the function read_csv to import our data into a data frame.</p>
+<pre class="python"><code>df = pd.read_csv( &#39;data.csv&#39; )
+df.set_index( &#39;id&#39; , inplace = True )
+print (df)</code></pre>
+<p>We also set the index to the id column again. This is what we have imported:</p>
+<p>This of course, also works the other way around. By using the method to_csv , we can also save our data frame into a CSV-file.</p>
+<pre class="python"><code>data = { &#39;Name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; , &#39;Fiona&#39; ,
+&#39;Gerald&#39; , &#39;Henry&#39; , &#39;India&#39; ],
+&#39;Age&#39; : [ 24 , 24 , 35 , 45 , 22 , 54 , 54 , 43 , 25 ],
+&#39;Height&#39; : [ 176 , 187 , 175 , 182 , 176 ,
+189 , 165 , 187 , 167 ]}
+df = pd.DataFrame(data)
+df.to_csv( &#39;mydf.csv&#39; )</code></pre>
+</div>
+<div id="plotting-data" class="section level4">
+<h4>PLOTTING DATA</h4>
+<p>Since Pandas builds on Matplotlib, we can easily visualize the data from our data frame.</p>
+<pre class="python"><code>data = { &#39;Name&#39; : [ &#39;Anna&#39; , &#39;Bob&#39; , &#39;Charles&#39; ,
+&#39;Daniel&#39; , &#39;Evan&#39; , &#39;Fiona&#39; ,
+&#39;Gerald&#39; , &#39;Henry&#39; , &#39;India&#39; ],
+&#39;Age&#39; : [ 24 , 24 , 35 , 45 , 22 , 54 , 54 , 43 , 25 ],
+&#39;Height&#39; : [ 176 , 187 , 175 , 182 , 176 ,
+189 , 165 , 187 , 167 ]}
+df = pd.DataFrame(data)
+df.sort_values( by =[ &#39;Age&#39; , &#39;Height&#39; ])
+df.hist()
+plt.show()</code></pre>
+<p>In this example, we use the method hist to plot a histogram of our numerical columns. Without specifying anything more, this is what we end up with:</p>
+<p><img src="/img/main/dfplot.png" /></p>
+<p>But we can also just use the function plot to plot our data frame or individual columns.</p>
+<pre class="python"><code>df.plot()
+plt.show()</code></pre>
+<p>The result is the following:</p>
+<p><img src="/img/main/dfplot1.png" /></p>
+</div>
+</div>
+</div>

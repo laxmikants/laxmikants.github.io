@@ -12,11 +12,11 @@ subtitle: Numpy
 featured: "img/main/2019-02-28-Python-Numpy-28.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 ---
 

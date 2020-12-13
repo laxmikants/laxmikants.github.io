@@ -92,7 +92,7 @@
   },
   "datePublished": "2020-08-05T00:00:00Z",
   "dateModified": "2020-08-05T00:00:00Z",
-  "articleBody": "\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"react-native\" class=\"section level2\"\u003e\r\n\u003ch2\u003eReact Native\u003c/h2\u003e\r\n\u003cp\u003eReact Native is framework to building mobile apps using JavaScript and React.\r\nReact Native converts React code to Java for Android or Objective-C for iOS apps.\r\nReact Native uses most of the React concepts, like components, props, state and lifecycle methods.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eAdvantages of React Native:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou code one time, and you get two native apps (Android and iOS)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou need not to have experience with Java, Objective-C, or Swift\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eFaster development\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eMIT license (open source)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eRequirements for Windows:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid Studio\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid SDK (\u0026gt;= 7.0 Nougat)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid AVD\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cdiv id=\"creating-first-react-native-application\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCreating first React Native Application\u003c/h4\u003e\r\n\u003cp\u003eIn order to create our new React Native application, we need to install the react-native-cli package:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003enpm install -g react-native-cli\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\nnpm install -g react-native-cli\r\n\u003c/script\u003e\r\n\u003cp\u003eNow, to create our first app:\u003c/p\u003e\r\n\u003col style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eLet’s do it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native init MyFirstReactNativeApp\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native init MyFirstReactNativeApp\r\n\u003c/script\u003e\r\n\u003cp\u003eOnce we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to \u003ca href=\"https://facebook.github.io/watchman/docs/install.html\" class=\"uri\"\u003ehttps://facebook.github.io/watchman/docs/install.html\u003c/a\u003e and download the latest version for your OS (Windows, Mac, or Linux).\u003c/p\u003e\r\n\u003col start=\"3\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eIn this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    /usr/bin/ruby -e \u0026#39;$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)\u0026#39;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    /usr/bin/ruby -e '$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)'\r\n\u003c/script\u003e\r\n\u003col start=\"4\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo install Watchman, you need to run:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    brew update \r\n    brew install watchman\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    brew update \r\n    brew install watchman\r\n\u003c/script\u003e\r\n\u003col start=\"5\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo start the React Native project, we need to use:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native start\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native start\r\n\u003c/script\u003e\r\n\u003cp\u003eIf everything works fine, you should see this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnative.png\" /\u003e\u003c/p\u003e\r\n\u003col start=\"7\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eOpen a new terminal (Cmd + T) and run this command (depending on the device you want to use):\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native run-ios \r\n    or\r\n    react-native run-android\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native run-ios \r\n    or\r\n    react-native run-android\r\n\u003c/script\u003e\r\n\u003cp\u003eIf there are no errors, you should see the simulator running the default application:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eNow that we have our application running, let’s open our code and modify it a bit:\u003c/p\u003e\r\n\u003col style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eChange the App.js file:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e  ...\r\n  export default class App extends Component\u0026lt;Props\u0026gt; {\r\n    render() {\r\n      return (\r\n        \u0026lt;View style={styles.container}\u0026gt;\r\n          \u0026lt;Text style={styles.welcome}\u0026gt;\r\n            This is my first React Native App!\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;\r\n            To get started, edit App.js\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;{instructions}\u0026lt;/Text\u0026gt;\r\n        \u0026lt;/View\u0026gt;\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n  ...\r\n  export default class App extends Component\u003cProps\u003e {\r\n    render() {\r\n      return (\r\n        \u003cView style={styles.container}\u003e\r\n          \u003cText style={styles.welcome}\u003e\r\n            This is my first React Native App!\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e\r\n            To get started, edit App.js\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e{instructions}\u003c/Text\u003e\r\n        \u003c/View\u003e\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\r\n\u003c/script\u003e\r\n\u003col start=\"2\" style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eIf you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"summary\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSummary:\u003c/h4\u003e\r\n\u003cp\u003eReact Native is an framework which helps web developers in creating the robust\r\nmobile applications using their existing JavaScript knowledge. It offers more faster mobile\r\ndevelopment and more efficient code sharing between iOS, Android, and the web\r\nwithout sacrificing the end user’s experience or application quality.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"react-native\" class=\"section level2\"\u003e\r\n\u003ch2\u003eReact Native\u003c/h2\u003e\r\n\u003cp\u003eReact Native is framework to building mobile apps using JavaScript and React.\r\nReact Native converts React code to Java for Android or Objective-C for iOS apps.\r\nReact Native uses most of the React concepts, like components, props, state and lifecycle methods.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eAdvantages of React Native:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou code one time, and you get two native apps (Android and iOS)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou need not to have experience with Java, Objective-C, or Swift\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eFaster development\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eMIT license (open source)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eRequirements for Windows:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid Studio\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid SDK (\u0026gt;= 7.0 Nougat)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid AVD\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cdiv id=\"creating-first-react-native-application\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCreating first React Native Application\u003c/h4\u003e\r\n\u003cp\u003eIn order to create our new React Native application, we need to install the react-native-cli package:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003enpm install -g react-native-cli\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\nnpm install -g react-native-cli\r\n\u003c/script\u003e\r\n\u003cp\u003eNow, to create our first app:\u003c/p\u003e\r\n\u003col style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eLet’s do it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native init MyFirstReactNativeApp\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native init MyFirstReactNativeApp\r\n\u003c/script\u003e\r\n\u003cp\u003eOnce we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to \u003ca href=\"https://facebook.github.io/watchman/docs/install.html\" class=\"uri\"\u003ehttps://facebook.github.io/watchman/docs/install.html\u003c/a\u003e and download the latest version for your OS (Windows, Mac, or Linux).\u003c/p\u003e\r\n\u003col start=\"3\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eIn this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    /usr/bin/ruby -e \u0026#39;$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)\u0026#39;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    /usr/bin/ruby -e '$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)'\r\n\u003c/script\u003e\r\n\u003col start=\"4\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo install Watchman, you need to run:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    brew update \r\n    brew install watchman\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    brew update \r\n    brew install watchman\r\n\u003c/script\u003e\r\n\u003col start=\"5\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo start the React Native project, we need to use:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native start\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native start\r\n\u003c/script\u003e\r\n\u003cp\u003eIf everything works fine, you should see this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnative.png\" /\u003e\u003c/p\u003e\r\n\u003col start=\"7\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eOpen a new terminal (Cmd + T) and run this command (depending on the device you want to use):\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native run-ios \r\n    or\r\n    react-native run-android\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native run-ios \r\n    or\r\n    react-native run-android\r\n\u003c/script\u003e\r\n\u003cp\u003eIf there are no errors, you should see the simulator running the default application:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eNow that we have our application running, let’s open our code and modify it a bit:\u003c/p\u003e\r\n\u003col style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eChange the App.js file:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e  ...\r\n  export default class App extends Component\u0026lt;Props\u0026gt; {\r\n    render() {\r\n      return (\r\n        \u0026lt;View style={styles.container}\u0026gt;\r\n          \u0026lt;Text style={styles.welcome}\u0026gt;\r\n            This is my first React Native App!\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;\r\n            To get started, edit App.js\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;{instructions}\u0026lt;/Text\u0026gt;\r\n        \u0026lt;/View\u0026gt;\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n  ...\r\n  export default class App extends Component\u003cProps\u003e {\r\n    render() {\r\n      return (\r\n        \u003cView style={styles.container}\u003e\r\n          \u003cText style={styles.welcome}\u003e\r\n            This is my first React Native App!\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e\r\n            To get started, edit App.js\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e{instructions}\u003c/Text\u003e\r\n        \u003c/View\u003e\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\r\n\u003c/script\u003e\r\n\u003col start=\"2\" style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eIf you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"summary\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSummary:\u003c/h4\u003e\r\n\u003cp\u003eReact Native is an framework which helps web developers in creating the robust\r\nmobile applications using their existing JavaScript knowledge. It offers more faster mobile\r\ndevelopment and more efficient code sharing between iOS, Android, and the web\r\nwithout sacrificing the end user’s experience or application quality.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -291,6 +291,7 @@ if (!doNotTrack) {
     <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
   </a>
       
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
@@ -479,7 +480,7 @@ without sacrificing the end user’s experience or application quality.</p>
           </h3>
 
           
-          <input type="hidden" name="options[entryId]" value="7e202c4db9c01fd1c701f5342b123bf2">
+          <input type="hidden" name="options[entryId]" value="6fc605991f41b51d3a3bf7869eb04fd7">
           <input type='hidden' name='fields[replyThread]' value=''>
           <input type='hidden' name='fields[replyID]' value=''>
           <input type='hidden' name='fields[replyName]' value=''>
@@ -520,7 +521,7 @@ without sacrificing the end user’s experience or application quality.</p>
       <a href="/blog/images-operations-using-cv/" class="button left"><span>Images Operations using CV</span></a>
     
     
-      <a href="/blog/react-js/" class="button right"><span>React- JS</span></a>
+      <a href="/blog/react-native/" class="button right"><span>React Native</span></a>
     
   </div>
 
@@ -531,6 +532,16 @@ without sacrificing the end user’s experience or application quality.</p>
       <header>
         <h1>Recent Posts</h1>
       </header>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-12-05 00:00:00 &#43;0000 UTC">December 5, 2020</time>
+        </header>
+      </article>
       
       <article class="mini-post">
           <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
@@ -552,16 +563,6 @@ without sacrificing the end user’s experience or application quality.</p>
         </header>
       </article>
       
-      <article class="mini-post">
-          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
-    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/react-js/">React- JS</a></h2>
-          <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
-        </header>
-      </article>
-      
       
         <footer>
           <a href="/blog/" class="button">See More</a>
@@ -580,13 +581,22 @@ without sacrificing the end user’s experience or application quality.</p>
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">15</span></a>
+              <a href="/categories/python/">python<span class="count">14</span></a>
           
           <li>
               <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
           
           <li>
               <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">2</span></a>
           
           <li>
               <a href="/categories/big-data/">big-data<span class="count">1</span></a>
@@ -637,12 +647,6 @@ without sacrificing the end user’s experience or application quality.</p>
               <a href="/categories/pandas/">pandas<span class="count">1</span></a>
           
           <li>
-              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
-          
-          <li>
               <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
           
           <li>
@@ -653,9 +657,6 @@ without sacrificing the end user’s experience or application quality.</p>
           
           <li>
               <a href="/categories/time-series/">time-series<span class="count">1</span></a>
-          
-          <li>
-              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
           
           </li>
         </ul>

@@ -4,12 +4,37 @@
   
   <url>
     <loc>https://laxmikants.github.io/blog/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/</loc>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/neural-networks/</loc>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/neural-networks/</loc>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/blog/neural-networks/</loc>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -23,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://laxmikants.github.io/blog/images-operations-using-cv/</loc>
-    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
     <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,8 +68,18 @@
   </url>
   
   <url>
+    <loc>https://laxmikants.github.io/blog/react-native/</loc>
+    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://laxmikants.github.io/about/</loc>
     <lastmod>2020-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/blog/react-js/</loc>
+    <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -88,18 +113,8 @@
   </url>
   
   <url>
-    <loc>https://laxmikants.github.io/tags/neural-networks/</loc>
-    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/categories/neural-networks/</loc>
-    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/blog/neural-networks/</loc>
-    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
+    <loc>https://laxmikants.github.io/blog/web-scrapping/</loc>
+    <lastmod>2020-06-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -420,11 +435,6 @@
   <url>
     <loc>https://laxmikants.github.io/blog/numpy/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/blog/regular-expressions/</loc>
-    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

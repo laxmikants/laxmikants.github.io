@@ -12,11 +12,11 @@ subtitle: Python XML Processing
 featured: "img/main/2019-02-11-Python-XML-Processing-25.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 ---
 

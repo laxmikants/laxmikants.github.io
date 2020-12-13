@@ -14,8 +14,8 @@ output:
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
+    toc: no
+    toc_float: no
 
 ---
 

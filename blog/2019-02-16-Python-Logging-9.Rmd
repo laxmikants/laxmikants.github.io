@@ -12,11 +12,11 @@ subtitle: Python Logging
 featured: "img/main/2019-02-16-Python-Logging-26.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 ---
 

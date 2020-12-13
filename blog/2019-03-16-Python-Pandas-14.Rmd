@@ -12,11 +12,11 @@ subtitle: Pandas and DataFrames
 featured: "img/main/2019-03-16-Python-Pandas-31.jpg"
 output:
   blogdown::html_page:
-    toc: true
+    toc: false
   html_document:
     highlight: tango
     theme: flatly
-    toc: true
+    toc: false
 
 ---
 
