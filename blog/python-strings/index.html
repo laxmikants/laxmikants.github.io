@@ -92,7 +92,7 @@
   },
   "datePublished": "2019-01-06T00:00:00Z",
   "dateModified": "2019-01-06T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#strings\"\u003e\u003ccode\u003eSTRINGS\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eSTRINGS\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eA string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .\u003c/p\u003e\r\n\u003cdiv id=\"traversing-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTraversing a String\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\n# Traversing\r\n\r\nname = \u0026quot;Welcome\u0026quot;\r\n\r\nfor ch in name:\r\n  print(ch, \u0026#39;-\u0026#39;, end = \u0026#39; \u0026#39;)\r\n  \r\n  \r\n# Reversing a string\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## W - e - l - c - o - m - e -\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ename = \u0026quot;Reverse me\u0026quot;\r\n\r\n# The Slice notation in python has the syntax -\r\n\r\n# list[\u0026lt;start\u0026gt;:\u0026lt;stop\u0026gt;:\u0026lt;step\u0026gt;]\r\n# So, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.\r\n\r\nprint(name[::-1])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## em esreveR\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elgth = len(name)\r\n\r\nfor a in range(-1, (-lgth-1), -1):\r\n  print(name[a])\r\n\r\n\r\n## Split the string into a list of characters, reverse the list, then rejoin into a single string\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## e\r\n## m\r\n##  \r\n## e\r\n## s\r\n## r\r\n## e\r\n## v\r\n## e\r\n## R\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026#39;\u0026#39;.join(reversed(\u0026quot;Hello world\u0026quot;)))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## dlrow olleH\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-identities-of-two-strings\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking identities of two strings\u003c/h4\u003e\r\n\u003cp\u003eYou use == when comparing values and is when comparing identities.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elang           = [\u0026#39;Java\u0026#39;,\u0026#39;Python\u0026#39;]\r\n\r\nmore_lang      = lang\r\n\r\nprint(lang == more_lang) # -\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(lang is more_lang) # -\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eeven_more_lang = [\u0026#39;Java\u0026#39;,\u0026#39;Python\u0026#39;]\r\n\r\nprint(lang == even_more_lang) #-\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(lang is even_more_lang) #-\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(lang))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 593146056\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(more_lang))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 593146056\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(even_more_lang))\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 593153032\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-capital-letters\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking capital letters\u003c/h4\u003e\r\n\u003cp\u003eThe istitle() method checks if each word is capitalized.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint( \u0026#39;The Hilman\u0026#39;.istitle() ) #=\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;The Cat\u0026#39;.istitle() ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;the rice\u0026#39;.istitle() ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-if-string-contains-another\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking if string contains another\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint( \u0026#39;A\u0026#39; in \u0026#39;The string containing A\u0026#39; ) #=\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;Apple in\u0026#39; in \u0026#39;The string containing A\u0026#39; ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"finding-the-index-of-a-substring-in-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003eFinding the index of a substring in a string\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint(\u0026#39;The\u0026#39;.find(\u0026#39;The string containing A\u0026#39;))\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## -1\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#strings\"\u003e\u003ccode\u003eSTRINGS\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv id=\"strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eSTRINGS\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eA string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is str .\u003c/p\u003e\r\n\u003cdiv id=\"traversing-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTraversing a String\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\n# Traversing\r\n\r\nname = \u0026quot;Welcome\u0026quot;\r\n\r\nfor ch in name:\r\n  print(ch, \u0026#39;-\u0026#39;, end = \u0026#39; \u0026#39;)\r\n  \r\n  \r\n# Reversing a string\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## W - e - l - c - o - m - e -\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ename = \u0026quot;Reverse me\u0026quot;\r\n\r\n# The Slice notation in python has the syntax -\r\n\r\n# list[\u0026lt;start\u0026gt;:\u0026lt;stop\u0026gt;:\u0026lt;step\u0026gt;]\r\n# So, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.\r\n\r\nprint(name[::-1])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## em esreveR\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elgth = len(name)\r\n\r\nfor a in range(-1, (-lgth-1), -1):\r\n  print(name[a])\r\n\r\n\r\n## Split the string into a list of characters, reverse the list, then rejoin into a single string\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## e\r\n## m\r\n##  \r\n## e\r\n## s\r\n## r\r\n## e\r\n## v\r\n## e\r\n## R\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026#39;\u0026#39;.join(reversed(\u0026quot;Hello world\u0026quot;)))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## dlrow olleH\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-identities-of-two-strings\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking identities of two strings\u003c/h4\u003e\r\n\u003cp\u003eYou use == when comparing values and is when comparing identities.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elang           = [\u0026#39;Java\u0026#39;,\u0026#39;Python\u0026#39;]\r\n\r\nmore_lang      = lang\r\n\r\nprint(lang == more_lang) # -\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(lang is more_lang) # -\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eeven_more_lang = [\u0026#39;Java\u0026#39;,\u0026#39;Python\u0026#39;]\r\n\r\nprint(lang == even_more_lang) #-\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(lang is even_more_lang) #-\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(lang))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 750793352\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(more_lang))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 750793352\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(id(even_more_lang))\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 750783432\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-capital-letters\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking capital letters\u003c/h4\u003e\r\n\u003cp\u003eThe istitle() method checks if each word is capitalized.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint( \u0026#39;The Hilman\u0026#39;.istitle() ) #=\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;The Cat\u0026#39;.istitle() ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;the rice\u0026#39;.istitle() ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"checking-if-string-contains-another\" class=\"section level4\"\u003e\r\n\u003ch4\u003eChecking if string contains another\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint( \u0026#39;A\u0026#39; in \u0026#39;The string containing A\u0026#39; ) #=\u0026gt; True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint( \u0026#39;Apple in\u0026#39; in \u0026#39;The string containing A\u0026#39; ) #=\u0026gt; False\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## False\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"finding-the-index-of-a-substring-in-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003eFinding the index of a substring in a string\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint(\u0026#39;The\u0026#39;.find(\u0026#39;The string containing A\u0026#39;))\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## -1\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -291,7 +291,8 @@ if (!doNotTrack) {
     <img src="https://laxmikants.github.io/img/main/Python_Basics-19.jpg" alt="">
   </a>
       
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 <div id="TOC">
 <ul>
@@ -362,12 +363,12 @@ print(lang == even_more_lang) #-&gt; True</code></pre>
 <pre class="python"><code>print(lang is even_more_lang) #-&gt; False</code></pre>
 <pre><code>## False</code></pre>
 <pre class="python"><code>print(id(lang))</code></pre>
-<pre><code>## 593146056</code></pre>
+<pre><code>## 750793352</code></pre>
 <pre class="python"><code>print(id(more_lang))</code></pre>
-<pre><code>## 593146056</code></pre>
+<pre><code>## 750793352</code></pre>
 <pre class="python"><code>print(id(even_more_lang))
 </code></pre>
-<pre><code>## 593153032</code></pre>
+<pre><code>## 750783432</code></pre>
 </div>
 <div id="checking-capital-letters" class="section level4">
 <h4>Checking capital letters</h4>
@@ -491,6 +492,16 @@ print(&#39;The&#39;.find(&#39;The string containing A&#39;))
       </header>
       
       <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
           <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
     <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
   </a>
@@ -507,16 +518,6 @@ print(&#39;The&#39;.find(&#39;The string containing A&#39;))
         <header>
           <h2><a href="/blog/react-js/">React- JS</a></h2>
           <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/web_scrapping02.jpg');">
-    <img src="https://laxmikants.github.io/img/main/web_scrapping02.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
-          <time class="published" datetime="2020-06-15 00:00:00 &#43;0000 UTC">June 15, 2020</time>
         </header>
       </article>
       
@@ -538,7 +539,7 @@ print(&#39;The&#39;.find(&#39;The string containing A&#39;))
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">14</span></a>
+              <a href="/categories/python/">python<span class="count">15</span></a>
           
           <li>
               <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
@@ -557,6 +558,9 @@ print(&#39;The&#39;.find(&#39;The string containing A&#39;))
           
           <li>
               <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
           
           <li>
               <a href="/categories/data-science/">data-science<span class="count">1</span></a>

@@ -28,7 +28,7 @@
 <meta itemprop="description" content="The Neural Network is one of the most powerful learning algorithms.">
 <meta itemprop="datePublished" content="2020-05-15T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-05-15T00:00:00+00:00" />
-<meta itemprop="wordCount" content="517">
+<meta itemprop="wordCount" content="497">
 
 
 
@@ -92,7 +92,7 @@
   },
   "datePublished": "2020-05-15T00:00:00Z",
   "dateModified": "2020-05-15T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"neural-networks\" class=\"section level2\"\u003e\r\n\u003ch2\u003eNeural Networks\u003c/h2\u003e\r\n\u003cp\u003eThe Neural Network is one of the most powerful learning algorithms when a linear classifier doesn’t work, this is what we usually turn to.\u003c/p\u003e\r\n\u003cdiv id=\"structure-of-a-neural-network\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSTRUCTURE OF A NEURAL NETWORK\u003c/h4\u003e\r\n\u003cp\u003eWith neural networks we are trying to build our models based on the structure of the human brain, namely with neurons. The human brain is composed of multiple billions of neurons which are interconnected. Neural networks are structures which try to use a similar principle.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/nnstructure.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eIn the figure above, we can see three layers. First the input layer , at the end the output layer and in between the hidden layer .\u003c/p\u003e\r\n\u003cp\u003eObviously the input layer is where our inputs go. There we put all the things which are being entered or sensed by the script or the machine. Basically these are our features.\u003c/p\u003e\r\n\u003cp\u003eWe can use neural networks to classify data or to act on inputs and the output layer is where we get our results. These results might be a class or action steps. Maybe when we input a high temperature into our model, the output will be the action of cooling down the machine.\u003c/p\u003e\r\n\u003cp\u003eAll the layers between input and output are called hidden layers . They make the model more abstract and more complex. They extend the internal logic.\u003c/p\u003e\r\n\u003cp\u003eThe more hidden layers and neurons you add, the more sophisticated the model gets.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/nnstructure1.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eHere for example we have two hidden layers, one with four neurons and one with three neurons. Notice that every neuron of a layer is connected to every neuron of the next layer.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"structure-of-a-neuron\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSTRUCTURE OF A NEURON\u003c/h4\u003e\r\n\u003cp\u003eIn order to understand how a neural network works in general, we need to understand how the individual neurons work.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/neuronstructure.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eAs you can see, every neuron has a certain input, which is either the output of another neuron or the input of the first layer.\u003c/p\u003e\r\n\u003cp\u003eThis number (which is the input) now gets multiplied by each of the weights (w1, w2, w3…) . After that, we subtract the bias b . The results of these calculations are the outputs of the neuron.\r\nWhat I have just explained and what you can see on the picture is an outdated version of a neuron called a perceptron . Nowadays, we are using more complex neurons like the sigmoid neurons which use more sophisticated activation functions to calculate the outputs.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"how-neural-networks-work\" class=\"section level4\"\u003e\r\n\u003ch4\u003eHOW NEURAL NETWORKS WORK\u003c/h4\u003e\r\n\u003cp\u003eBut what has all this to do with artificial intelligence or machine learning? Since neural networks are structures with a huge amount of parameters that can be changed, we can use certain algorithms so that the model can adjust itself. We input our data and the desired outcome. Then the model tries to adjust its weights and biases so that we can get from our inputs to the respective outputs.\u003c/p\u003e\r\n\u003cp\u003eSince we are dealing with multiple thousands of neurons, we can’t do all this manually.\r\nWe use different algorithms like backpropagation and gradient descent , to optimize and train our model. We are not going to deep into the mathematics here. Our focus will be on the coding and the implementation.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"neural-networks\" class=\"section level2\"\u003e\r\n\u003ch2\u003eNeural Networks\u003c/h2\u003e\r\n\u003cp\u003eThe Neural Network is one of the most powerful learning algorithms when a linear classifier doesn’t work, this is what we usually turn to.\u003c/p\u003e\r\n\u003cdiv id=\"structure-of-a-neural-network\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSTRUCTURE OF A NEURAL NETWORK\u003c/h4\u003e\r\n\u003cp\u003eWith neural networks we are trying to build our models based on the structure of the human brain, namely with neurons. The human brain is composed of multiple billions of neurons which are interconnected. Neural networks are structures which try to use a similar principle.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/nnstructure.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eIn the figure above, we can see three layers. First the input layer , at the end the output layer and in between the hidden layer .\u003c/p\u003e\r\n\u003cp\u003eObviously the input layer is where our inputs go. There we put all the things which are being entered or sensed by the script or the machine. Basically these are our features.\u003c/p\u003e\r\n\u003cp\u003eWe can use neural networks to classify data or to act on inputs and the output layer is where we get our results. These results might be a class or action steps. Maybe when we input a high temperature into our model, the output will be the action of cooling down the machine.\u003c/p\u003e\r\n\u003cp\u003eAll the layers between input and output are called hidden layers . They make the model more abstract and more complex. They extend the internal logic.\u003c/p\u003e\r\n\u003cp\u003eThe more hidden layers and neurons you add, the more sophisticated the model gets.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/nnstructure1.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eHere for example we have two hidden layers, one with four neurons and one with three neurons. Notice that every neuron of a layer is connected to every neuron of the next layer.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"structure-of-a-neuron\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSTRUCTURE OF A NEURON\u003c/h4\u003e\r\n\u003cp\u003eIn order to understand how a neural network works in general, we need to understand how the individual neurons work.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/neuronstructure.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eAs you can see, every neuron has a certain input, which is either the output of another neuron or the input of the first layer.\u003c/p\u003e\r\n\u003cp\u003eThis number (which is the input) now gets multiplied by each of the weights (w1, w2, w3…) . After that, we subtract the bias b . The results of these calculations are the outputs of the neuron.\r\nWhat I have just explained and what you can see on the picture is an outdated version of a neuron called a perceptron . Nowadays, we are using more complex neurons like the sigmoid neurons which use more sophisticated activation functions to calculate the outputs.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"how-neural-networks-work\" class=\"section level4\"\u003e\r\n\u003ch4\u003eHOW NEURAL NETWORKS WORK\u003c/h4\u003e\r\n\u003cp\u003eBut what has all this to do with artificial intelligence or machine learning? Since neural networks are structures with a huge amount of parameters that can be changed, we can use certain algorithms so that the model can adjust itself. We input our data and the desired outcome. Then the model tries to adjust its weights and biases so that we can get from our inputs to the respective outputs.\u003c/p\u003e\r\n\u003cp\u003eSince we are dealing with multiple thousands of neurons, we can’t do all this manually.\r\nWe use different algorithms like backpropagation and gradient descent , to optimize and train our model.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -291,7 +291,8 @@ if (!doNotTrack) {
     <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
   </a>
       
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <div id="neural-networks" class="section level2">
@@ -321,7 +322,7 @@ What I have just explained and what you can see on the picture is an outdated ve
 <h4>HOW NEURAL NETWORKS WORK</h4>
 <p>But what has all this to do with artificial intelligence or machine learning? Since neural networks are structures with a huge amount of parameters that can be changed, we can use certain algorithms so that the model can adjust itself. We input our data and the desired outcome. Then the model tries to adjust its weights and biases so that we can get from our inputs to the respective outputs.</p>
 <p>Since we are dealing with multiple thousands of neurons, we can’t do all this manually.
-We use different algorithms like backpropagation and gradient descent , to optimize and train our model. We are not going to deep into the mathematics here. Our focus will be on the coding and the implementation.</p>
+We use different algorithms like backpropagation and gradient descent , to optimize and train our model.</p>
 </div>
 </div>
 
@@ -419,6 +420,16 @@ We use different algorithms like backpropagation and gradient descent , to optim
       </header>
       
       <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
           <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
     <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
   </a>
@@ -435,16 +446,6 @@ We use different algorithms like backpropagation and gradient descent , to optim
         <header>
           <h2><a href="/blog/react-js/">React- JS</a></h2>
           <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/web_scrapping02.jpg');">
-    <img src="https://laxmikants.github.io/img/main/web_scrapping02.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
-          <time class="published" datetime="2020-06-15 00:00:00 &#43;0000 UTC">June 15, 2020</time>
         </header>
       </article>
       
@@ -466,7 +467,7 @@ We use different algorithms like backpropagation and gradient descent , to optim
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">14</span></a>
+              <a href="/categories/python/">python<span class="count">15</span></a>
           
           <li>
               <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
@@ -485,6 +486,9 @@ We use different algorithms like backpropagation and gradient descent , to optim
           
           <li>
               <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
           
           <li>
               <a href="/categories/data-science/">data-science<span class="count">1</span></a>

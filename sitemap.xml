@@ -4,17 +4,37 @@
   
   <url>
     <loc>https://laxmikants.github.io/blog/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/computer-vision/</loc>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/computer-vision/</loc>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/blog/images-operations-using-cv/</loc>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2020-11-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://laxmikants.github.io/blog/react-native/</loc>
-    <lastmod>2020-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
     <lastmod>2020-08-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -405,6 +420,11 @@
   <url>
     <loc>https://laxmikants.github.io/blog/numpy/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/blog/regular-expressions/</loc>
+    <lastmod>2019-02-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

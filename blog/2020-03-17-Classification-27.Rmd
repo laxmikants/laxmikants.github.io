@@ -27,7 +27,7 @@ library(reticulate)
 
 conda_list()[[1]][1] %>% 
   use_condaenv(required = TRUE)
-use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
 
 ```
 
@@ -96,6 +96,7 @@ Now let us get into the code. In this example, we will get our data directly fro
 
 ```{python}
 import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.datasets import load_breast_cancer 

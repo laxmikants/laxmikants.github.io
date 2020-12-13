@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Images Operations using CV - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Images Operations using CV">
+<meta itemprop="description" content="Images Operations using CV">
+<meta itemprop="datePublished" content="2020-11-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-11-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1000">
+
+
+
+<meta itemprop="keywords" content="Computer Vision," />
+<meta property="og:title" content="Images Operations using CV" />
+<meta property="og:description" content="Images Operations using CV" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/images-operations-using-cv/" />
+<meta property="article:published_time" content="2020-11-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Images Operations using CV"/>
+<meta name="twitter:description" content="Images Operations using CV"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Images Operations using CV : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Images Operations using CV">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/images-operations-using-cv/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Images Operations using CV">
+<meta name="description" content="Images Operations using CV">
+<meta property="og:updated_time" content="2020-11-30T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2020-11-30T00:00:00Z">
+<meta property="article:modified_time" content="2020-11-30T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Images Operations using CV",
+  "alternativeHeadline": "Images Operations using CV",
+  "url": "https://laxmikants.github.io/blog/images-operations-using-cv/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/images-operations-using-cv/"
+  },
+  "description": "Images Operations using CV",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2020-11-30T00:00:00Z",
+  "dateModified": "2020-11-30T00:00:00Z",
+  "articleBody": "\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"computer-vision-concepts\" class=\"section level2\"\u003e\r\n\u003ch2\u003eComputer Vision Concepts\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eComputers ‘look’ at images as multidimensional arrays or matricies but they can also be treated like functions (ex. taking the derivative over an image’s x-axis).\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eBelow an image is loaded from the file system and loaded into memory. This matrix is 852 x 480 x 3 which represents the number of rows x number of columns x number of colour channels (RGB/BGR).\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003ecan then plot that data to view the image.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eNote: When images are loaded in OpenCV, they return BGR (blue, green, red) channels, where as matplotlib expects RGB (red, green, blue). Therefore, we need to convert the loaded image matrix from BGR to RGB.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"building-block-of-an-image\" class=\"section level2\"\u003e\r\n\u003ch2\u003eBuilding block of an Image\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eThe image is made of “pixels”\u003c/li\u003e\r\n\u003cli\u003eEach pixel: small, square, one color\u003c/li\u003e\r\n\u003cli\u003eHow many pixels in an image 800 pixel wide, 600 pixels high?\u003cbr /\u003e\r\njust multiply\r\n800 x 600 = 480,000 pixels = 0.48 megapixels\u003c/li\u003e\r\n\u003cli\u003eTypical digital image = 5-20 megapixels\u003c/li\u003e\r\n\u003cli\u003eEach pixel is represent as RGB channel.\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-an-image\" class=\"section level2\"\u003e\r\n\u003ch2\u003eLoading an image\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eIn python for loading an image use \u003ccode\u003eos.path.join(folder, file_name)\u003c/code\u003e\u003c/li\u003e\r\n\u003cli\u003eUsing \u003ccode\u003eimread\u003c/code\u003e in cv2 library you read the image into variable\u003c/li\u003e\r\n\u003cli\u003eUsing \u003ccode\u003eimshow\u003c/code\u003e in \u003ccode\u003ematplotlib.pyplot\u003c/code\u003e you show the image\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e## Loading an image\r\nimport os\r\nimport cv2\r\nimport matplotlib.pyplot as plt # (optional) for plotting and showing images inline\r\nIMAGES_FOLDER = os.path.join(\u0026#39;./images\u0026#39;) # images for visuals\r\nearth_fname = os.path.join(IMAGES_FOLDER,\u0026#39;earth.jpg\u0026#39;)\r\nearth_img1 = cv2.imread(earth_fname)\r\nplt.imshow(earth_img1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a2713e9250\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_4_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"image-shape\" class=\"section level2\"\u003e\r\n\u003ch2\u003eImage Shape\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eThe shape of the image in python is represented as \u003ccode\u003etupple\u003c/code\u003e\u003c/li\u003e\r\n\u003cli\u003eThe \u003ccode\u003etuple\u003c/code\u003e has dimenstion of the image as (Row, Column, colour channel)\u003c/li\u003e\r\n\u003cli\u003eThis means there as two dimensional array of #row, #column and at each cell of array there is an array of three values representing the amout of Red, Blue and Green\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# Shape of the array\r\nearth_img1.shape\r\n\r\n# RGB values at cell [0,0]\r\n\r\nearth_img1[0][0]\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003earray([51, 33, 26], dtype=uint8)\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"changing-colorspaces\" class=\"section level2\"\u003e\r\n\u003ch2\u003eChanging Colorspaces\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eto convert images from one color-space to another, like BGR ↔︎ Gray, BGR ↔︎ HSV etc.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003ecv2.cvtColor(), cv2.inRange()\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eFor color conversion, we use the function cv2.cvtColor( name_input_image, flag ) where flag determines the type of conversion.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# ColorSpace Conversion : see the colour difference\r\nearth_img2 = cv2.cvtColor(earth_img1, cv2.COLOR_BGR2RGB)\r\nplt.imshow(earth_img2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a271ec1400\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_8_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"image-filters-and-functions\" class=\"section level2\"\u003e\r\n\u003ch2\u003eImage Filters and Functions\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eMany times, images contain complex information that isn’t need for a computation or reduces the speed of computation without much value added.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eGaussian Filtering In this approach, instead of a box filter consisting of equal filter coefficients, a Gaussian kernel is used.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eIt is done with the function, \u003ccode\u003ecv2.GaussianBlur()\u003c/code\u003e. We should specify the width and height of the kernel which should be positive and odd.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eAn image kernel is a small matrix used to apply effects like the ones you might find in Photoshop or Gimp, such as blurring, sharpening, outlining or embossing.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eblur_img = earth_img2.copy()\r\nblur_img = cv2.GaussianBlur(blur_img, (41, 41),10)\r\nplt.imshow(blur_img)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a272048dc0\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_10_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"seprate-the-each-plane-of-the-color-image\" class=\"section level2\"\u003e\r\n\u003ch2\u003eSeprate the each plane of the color image\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eWe know that color image is combination of 3-planes Red, Green and Blue. we can seprate the each plane to extract some information.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eTo do that we need to set 0 value to the RGB channel in a loop\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# Show Red/Green/Blue\r\nimport numpy as np\r\nimages = []\r\nprint(earth_img2.shape)\r\nfor i in [0, 1, 2]:\r\n    colour = earth_img2.copy()\r\n    if i != 0: colour[:,:,0] = 0\r\n    if i != 1: colour[:,:,1] = 0\r\n    if i != 2: colour[:,:,2] = 0\r\n    images.append(colour)\r\n\r\nplt.imshow(np.vstack(images))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e(480, 852, 3)\r\n\r\n\r\n\r\n\r\n\r\n\u0026lt;matplotlib.image.AxesImage at 0x2a2720a3c40\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_12_2.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"image-crop\" class=\"section level2\"\u003e\r\n\u003ch2\u003eImage crop\u003c/h2\u003e\r\n\u003cp\u003eIf we need to crop specific portion of the image, for that it requires x and y coordinates of that portion.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimage_cropped = earth_img2[100:380, 280:500]\r\nplt.imshow(image_cropped)\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a2720ff5e0\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_14_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"dilating-morphological-transformations\" class=\"section level2\"\u003e\r\n\u003ch2\u003eDilating (Morphological Transformations)\u003c/h2\u003e\r\n\u003cp\u003eDilation, as it sounds, dilates pixel neighbourhoods by finding maximums over the image by the kernel size given. This is useful for expanding selections\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edilate_img = earth_img2.copy()\r\ndilate_img = cv2.dilate(dilate_img, np.ones((15,15), dtype=np.uint8), iterations=1)\r\nplt.imshow(dilate_img)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a2721565e0\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_16_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"erosion\" class=\"section level2\"\u003e\r\n\u003ch2\u003eErosion\u003c/h2\u003e\r\n\u003cp\u003eErosion is the opposite of dilation, useful for remove noise. The basic idea of erosion is just like soil erosion only, it erodes away the boundaries of foreground object.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eIt computes a local minimum over the area of given kernel.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eAs the kernel is scanned over the image, we compute the minimal pixel value overlapped by kernal and replace the image pixel under the anchor point with that minimal value.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eall the pixels near boundary will be discarded depending upon the size of kernel. So the thickness or size of the foreground object decreases or simply white region decreases in the image.\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport numpy as np\r\nerosion_img = earth_img2.copy()\r\nkernel = np.ones((10,10),np.uint8)\r\nerosion_img = cv2.erode(erosion_img, kernel, iterations=1)\r\nplt.imshow(erosion_img)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a272a4a7c0\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_18_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"image-edge-detection-gradients\" class=\"section level2\"\u003e\r\n\u003ch2\u003eImage Edge Detection Gradients\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eFind Image gradients,edges. There are different edge detectors like Sobel, Prewitt, Laplacian, Canny, etc.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eCanny Edge Detection is a popular edge detection algorithm. It was developed by John F. Canny in 1986.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003ecv2.getTrackbarPos(), cv2.createTrackbar() can be used to create simple application which shows the color you specify. You have a window which shows the color and three trackbars to specify each of B,G,R colors. You slide the trackbar and correspondingly window color changes\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport numpy as np\r\ncanny_img = earth_img2.copy()\r\nkernel = np.ones((8,8), np.uint8)\r\ncanny_img = cv2.erode(canny_img, kernel, iterations=1)\r\nedges = cv2.Canny(canny_img,100,100)\r\nplt.imshow(edges.astype(np.uint8), cmap=\u0026#39;gray\u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e\u0026lt;matplotlib.image.AxesImage at 0x2a272aa1af0\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_20_1.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/trackball.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"thresholding\" class=\"section level2\"\u003e\r\n\u003ch2\u003eThresholding\u003c/h2\u003e\r\n\u003cp\u003eThresholding can be thought of as a function applied to each pixel of an image. This function takes a min and max thresholding values and if the pixel value falls in this range, it will ‘return’ the pixel, if not it will ‘return’ a black pixel.\u003c/p\u003e\r\n\u003cp\u003eGenerally, thresholding is applied to a greyscale image, but may also be applied to colour images, following a similair principle.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ethresh_img = earth_img2.copy()\r\nthresh_img = cv2.cvtColor(thresh_img, cv2.COLOR_BGR2GRAY)\r\nret, thresh = cv2.threshold(thresh_img, 80, 255, cv2.THRESH_BINARY)\r\nplt.imshow(thresh, cmap=\u0026#39;gray\u0026#39;)\r\nprint(thresh.shape)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e(480, 852)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/output_23_1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"other-techniques\" class=\"section level2\"\u003e\r\n\u003ch2\u003eOther Techniques\u003c/h2\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003cp\u003eBackground substraction: Using a background image to find differences (can be used for images and video)\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eContours: contours is done by finding points or corners in an image and connecting those that have the same color or intensity.\u003c/p\u003e\u003c/li\u003e\r\n\u003cli\u003e\u003cp\u003eTracking: OpenCV’s tracking algorithms help to track objects. MIL, BOOSTING, MEDIANFLOW,TLD, KCF are tracking algorithms\u003c/p\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"slide-show\" class=\"section level2\"\u003e\r\n\u003ch2\u003eSlide show\u003c/h2\u003e\r\n\u003cpre class=\"r\"\u003e\u003ccode\u003eknitr::include_url(\u0026#39;/slides/ComputerVisionBasics.html\u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003ciframe src=\"/slides/ComputerVisionBasics.html\" width=\"672\" height=\"400px\"\u003e\r\n\u003c/iframe\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Images%20Operations%20using%20CV&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fimages-operations-using-cv%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fimages-operations-using-cv%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+    
+    
+      <p>Images Operations using CV</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+    <p>Laxmi K Soni</p>
+    <p>5-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Images%20Operations%20using%20CV&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fimages-operations-using-cv%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fimages-operations-using-cv%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+      
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="computer-vision-concepts" class="section level2">
+<h2>Computer Vision Concepts</h2>
+<ul>
+<li><p>Computers ‘look’ at images as multidimensional arrays or matricies but they can also be treated like functions (ex. taking the derivative over an image’s x-axis).</p></li>
+<li><p>Below an image is loaded from the file system and loaded into memory. This matrix is 852 x 480 x 3 which represents the number of rows x number of columns x number of colour channels (RGB/BGR).</p></li>
+<li><p>can then plot that data to view the image.</p></li>
+<li><p>Note: When images are loaded in OpenCV, they return BGR (blue, green, red) channels, where as matplotlib expects RGB (red, green, blue). Therefore, we need to convert the loaded image matrix from BGR to RGB.</p></li>
+</ul>
+</div>
+<div id="building-block-of-an-image" class="section level2">
+<h2>Building block of an Image</h2>
+<ul>
+<li>The image is made of “pixels”</li>
+<li>Each pixel: small, square, one color</li>
+<li>How many pixels in an image 800 pixel wide, 600 pixels high?<br />
+just multiply
+800 x 600 = 480,000 pixels = 0.48 megapixels</li>
+<li>Typical digital image = 5-20 megapixels</li>
+<li>Each pixel is represent as RGB channel.</li>
+</ul>
+</div>
+<div id="loading-an-image" class="section level2">
+<h2>Loading an image</h2>
+<ul>
+<li>In python for loading an image use <code>os.path.join(folder, file_name)</code></li>
+<li>Using <code>imread</code> in cv2 library you read the image into variable</li>
+<li>Using <code>imshow</code> in <code>matplotlib.pyplot</code> you show the image</li>
+</ul>
+<pre class="python"><code>## Loading an image
+import os
+import cv2
+import matplotlib.pyplot as plt # (optional) for plotting and showing images inline
+IMAGES_FOLDER = os.path.join(&#39;./images&#39;) # images for visuals
+earth_fname = os.path.join(IMAGES_FOLDER,&#39;earth.jpg&#39;)
+earth_img1 = cv2.imread(earth_fname)
+plt.imshow(earth_img1)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a2713e9250&gt;</code></pre>
+<p><img src="/img/main/output_4_1.png" /></p>
+</div>
+<div id="image-shape" class="section level2">
+<h2>Image Shape</h2>
+<ul>
+<li>The shape of the image in python is represented as <code>tupple</code></li>
+<li>The <code>tuple</code> has dimenstion of the image as (Row, Column, colour channel)</li>
+<li>This means there as two dimensional array of #row, #column and at each cell of array there is an array of three values representing the amout of Red, Blue and Green</li>
+</ul>
+<pre class="python"><code># Shape of the array
+earth_img1.shape
+
+# RGB values at cell [0,0]
+
+earth_img1[0][0]
+</code></pre>
+<pre><code>array([51, 33, 26], dtype=uint8)</code></pre>
+</div>
+<div id="changing-colorspaces" class="section level2">
+<h2>Changing Colorspaces</h2>
+<ul>
+<li><p>to convert images from one color-space to another, like BGR ↔︎ Gray, BGR ↔︎ HSV etc.</p></li>
+<li><p>cv2.cvtColor(), cv2.inRange()</p></li>
+<li><p>For color conversion, we use the function cv2.cvtColor( name_input_image, flag ) where flag determines the type of conversion.</p></li>
+</ul>
+<pre class="python"><code># ColorSpace Conversion : see the colour difference
+earth_img2 = cv2.cvtColor(earth_img1, cv2.COLOR_BGR2RGB)
+plt.imshow(earth_img2)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a271ec1400&gt;</code></pre>
+<p><img src="/img/main/output_8_1.png" /></p>
+</div>
+<div id="image-filters-and-functions" class="section level2">
+<h2>Image Filters and Functions</h2>
+<ul>
+<li><p>Many times, images contain complex information that isn’t need for a computation or reduces the speed of computation without much value added.</p></li>
+<li><p>Gaussian Filtering In this approach, instead of a box filter consisting of equal filter coefficients, a Gaussian kernel is used.</p></li>
+<li><p>It is done with the function, <code>cv2.GaussianBlur()</code>. We should specify the width and height of the kernel which should be positive and odd.</p></li>
+<li><p>An image kernel is a small matrix used to apply effects like the ones you might find in Photoshop or Gimp, such as blurring, sharpening, outlining or embossing.</p></li>
+</ul>
+<pre class="python"><code>blur_img = earth_img2.copy()
+blur_img = cv2.GaussianBlur(blur_img, (41, 41),10)
+plt.imshow(blur_img)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a272048dc0&gt;</code></pre>
+<p><img src="/img/main/output_10_1.png" /></p>
+</div>
+<div id="seprate-the-each-plane-of-the-color-image" class="section level2">
+<h2>Seprate the each plane of the color image</h2>
+<ul>
+<li><p>We know that color image is combination of 3-planes Red, Green and Blue. we can seprate the each plane to extract some information.</p></li>
+<li><p>To do that we need to set 0 value to the RGB channel in a loop</p></li>
+</ul>
+<pre class="python"><code># Show Red/Green/Blue
+import numpy as np
+images = []
+print(earth_img2.shape)
+for i in [0, 1, 2]:
+    colour = earth_img2.copy()
+    if i != 0: colour[:,:,0] = 0
+    if i != 1: colour[:,:,1] = 0
+    if i != 2: colour[:,:,2] = 0
+    images.append(colour)
+
+plt.imshow(np.vstack(images))</code></pre>
+<pre><code>(480, 852, 3)
+
+
+
+
+
+&lt;matplotlib.image.AxesImage at 0x2a2720a3c40&gt;</code></pre>
+<p><img src="/img/main/output_12_2.png" /></p>
+</div>
+<div id="image-crop" class="section level2">
+<h2>Image crop</h2>
+<p>If we need to crop specific portion of the image, for that it requires x and y coordinates of that portion.</p>
+<pre class="python"><code>image_cropped = earth_img2[100:380, 280:500]
+plt.imshow(image_cropped)
+</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a2720ff5e0&gt;</code></pre>
+<p><img src="/img/main/output_14_1.png" /></p>
+</div>
+<div id="dilating-morphological-transformations" class="section level2">
+<h2>Dilating (Morphological Transformations)</h2>
+<p>Dilation, as it sounds, dilates pixel neighbourhoods by finding maximums over the image by the kernel size given. This is useful for expanding selections</p>
+<pre class="python"><code>dilate_img = earth_img2.copy()
+dilate_img = cv2.dilate(dilate_img, np.ones((15,15), dtype=np.uint8), iterations=1)
+plt.imshow(dilate_img)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a2721565e0&gt;</code></pre>
+<p><img src="/img/main/output_16_1.png" /></p>
+</div>
+<div id="erosion" class="section level2">
+<h2>Erosion</h2>
+<p>Erosion is the opposite of dilation, useful for remove noise. The basic idea of erosion is just like soil erosion only, it erodes away the boundaries of foreground object.</p>
+<ul>
+<li><p>It computes a local minimum over the area of given kernel.</p></li>
+<li><p>As the kernel is scanned over the image, we compute the minimal pixel value overlapped by kernal and replace the image pixel under the anchor point with that minimal value.</p></li>
+<li><p>all the pixels near boundary will be discarded depending upon the size of kernel. So the thickness or size of the foreground object decreases or simply white region decreases in the image.</p></li>
+</ul>
+<pre class="python"><code>import numpy as np
+erosion_img = earth_img2.copy()
+kernel = np.ones((10,10),np.uint8)
+erosion_img = cv2.erode(erosion_img, kernel, iterations=1)
+plt.imshow(erosion_img)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a272a4a7c0&gt;</code></pre>
+<p><img src="/img/main/output_18_1.png" /></p>
+</div>
+<div id="image-edge-detection-gradients" class="section level2">
+<h2>Image Edge Detection Gradients</h2>
+<ul>
+<li><p>Find Image gradients,edges. There are different edge detectors like Sobel, Prewitt, Laplacian, Canny, etc.</p></li>
+<li><p>Canny Edge Detection is a popular edge detection algorithm. It was developed by John F. Canny in 1986.</p></li>
+<li><p>cv2.getTrackbarPos(), cv2.createTrackbar() can be used to create simple application which shows the color you specify. You have a window which shows the color and three trackbars to specify each of B,G,R colors. You slide the trackbar and correspondingly window color changes</p></li>
+</ul>
+<pre class="python"><code>import numpy as np
+canny_img = earth_img2.copy()
+kernel = np.ones((8,8), np.uint8)
+canny_img = cv2.erode(canny_img, kernel, iterations=1)
+edges = cv2.Canny(canny_img,100,100)
+plt.imshow(edges.astype(np.uint8), cmap=&#39;gray&#39;)</code></pre>
+<pre><code>&lt;matplotlib.image.AxesImage at 0x2a272aa1af0&gt;</code></pre>
+<p><img src="/img/main/output_20_1.png" /></p>
+<p><img src="/img/main/trackball.png" /></p>
+</div>
+<div id="thresholding" class="section level2">
+<h2>Thresholding</h2>
+<p>Thresholding can be thought of as a function applied to each pixel of an image. This function takes a min and max thresholding values and if the pixel value falls in this range, it will ‘return’ the pixel, if not it will ‘return’ a black pixel.</p>
+<p>Generally, thresholding is applied to a greyscale image, but may also be applied to colour images, following a similair principle.</p>
+<pre class="python"><code>thresh_img = earth_img2.copy()
+thresh_img = cv2.cvtColor(thresh_img, cv2.COLOR_BGR2GRAY)
+ret, thresh = cv2.threshold(thresh_img, 80, 255, cv2.THRESH_BINARY)
+plt.imshow(thresh, cmap=&#39;gray&#39;)
+print(thresh.shape)</code></pre>
+<pre><code>(480, 852)</code></pre>
+<p><img src="/img/main/output_23_1.png" /></p>
+</div>
+<div id="other-techniques" class="section level2">
+<h2>Other Techniques</h2>
+<ul>
+<li><p>Background substraction: Using a background image to find differences (can be used for images and video)</p></li>
+<li><p>Contours: contours is done by finding points or corners in an image and connecting those that have the same color or intensity.</p></li>
+<li><p>Tracking: OpenCV’s tracking algorithms help to track objects. MIL, BOOSTING, MEDIANFLOW,TLD, KCF are tracking algorithms</p></li>
+</ul>
+</div>
+<div id="slide-show" class="section level2">
+<h2>Slide show</h2>
+<pre class="r"><code>knitr::include_url(&#39;/slides/ComputerVisionBasics.html&#39;)</code></pre>
+<iframe src="/slides/ComputerVisionBasics.html" width="672" height="400px">
+</iframe>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/computer-vision/">Computer Vision</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/computer-vision/">Computer Vision</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="c37cb7b9d7b1921da296aeb8734f8a95">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+    
+      <a href="/blog/react-native/" class="button right"><span>React Native</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-native/">React Native</a></h2>
+          <time class="published" datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">15</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>

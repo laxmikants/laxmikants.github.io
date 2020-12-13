@@ -19,7 +19,7 @@ output:
     highlight: tango
     theme: flatly
     toc: true
-    keep_md: true
+    keep_md: false
 ---
 
 ```{r setup, include=FALSE}
@@ -29,20 +29,15 @@ library(reticulate)
 
 conda_list()[[1]][1] %>% 
   use_condaenv(required = TRUE)
-use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
 
-import_from_path("investpy","c:\\users\\slaxm\\.conda\\envs\\myenv1\\lib\\site-packages")
 ```
-
 
 
 ***1:Loading Stock data***
 
 ***1.1:Importing libraries and data***
 
-
 ```{python}
-
 import investpy
 from datetime import datetime
 from sklearn.linear_model import LogisticRegression
@@ -55,7 +50,6 @@ import seaborn as sn
 import matplotlib.pyplot as plt
 import talib
 import quandl
-
 
 ````
 
@@ -75,19 +69,24 @@ quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"
 
 df = quandl.get("MCX/SIU2020",start_date = "2020-05-04", end_date = "2020-09-03")  
 
+
 df.dropna()  
 
 print(df.tail())
 
 ```
 
+```{Python}
+
+```
+
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='19/10/2020')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='09/12/2020')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='19/10/2020')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='09/12/2020')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='19/10/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='09/12/2020', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
@@ -100,6 +99,12 @@ df.drop(['Currency'], axis = 1)
 df['usdinr'] = usdinr['Close']
 
 df['usdsilver'] = dfusd['Close']
+
+df1 = df.copy()
+
+df1.Close.resample("M").mean()
+
+print(df1)
 
 
 ```
@@ -324,7 +329,6 @@ print(df[['Williams %R']].tail(7))
 
 Readings below -80 represent oversold territory and readings above -20 represent overbought.
 
-
 *** `ADX` ***
 
 ADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.
@@ -494,6 +498,8 @@ y_test = y[y.index >= start_test]
 ***3.6:  Create model ***
 ```{python}
 
+# fit model no training data
+# model = XGBClassifier()
 model = LogisticRegression()
 
 ```

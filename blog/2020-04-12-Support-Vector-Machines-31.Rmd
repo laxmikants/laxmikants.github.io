@@ -27,7 +27,8 @@ library(reticulate)
 
 conda_list()[[1]][1] %>% 
   use_condaenv(required = TRUE)
-use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+use_python("C://Users//slaxm//anaconda_3//envs//rstudio/python.exe")
+
 
 ```
 

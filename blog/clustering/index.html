@@ -28,7 +28,7 @@
 <meta itemprop="description" content="Clustering is Machine Learning method that helps in finding the pattern of similarity and relationships among data samples in dataset and then cluster these samples into various groups.">
 <meta itemprop="datePublished" content="2020-05-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-05-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="597">
+<meta itemprop="wordCount" content="586">
 
 
 
@@ -92,7 +92,7 @@
   },
   "datePublished": "2020-05-05T00:00:00Z",
   "dateModified": "2020-05-05T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"clustering\" class=\"section level2\"\u003e\r\n\u003ch2\u003eClustering\u003c/h2\u003e\r\n\u003cp\u003eClustering is Machine Learning method that helps in finding the pattern of similarity and relationships among data samples in dataset and then cluster these samples into various groups.\u003c/p\u003e\r\n\u003cp\u003eThe clustering algorithm gets raw data and tries to divide it up into clusters . K-Means-Clustering is the method that we are going to use here. Similar to K-Nearest-Neighbors, the K states the amount of clusters we want.\u003c/p\u003e\r\n\u003cdiv id=\"how-clustering-works\" class=\"section level4\"\u003e\r\n\u003ch4\u003eHOW CLUSTERING WORKS\u003c/h4\u003e\r\n\u003cp\u003eThe clustering itself works with so-called centroids . These are the points, which lie in the center of the respective clusters.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/howclustering.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eThe figure above illustrates quite well how clustering works. First, we randomly place the centroids somewhere in our data. This is the initialization . Here, we have defined three clusters, which is why we also have three centroids.\u003c/p\u003e\r\n\u003cp\u003eThen, we look at each individual data point and assign the cluster of the nearest centroid to it. When we have done this, we continue by realigning our centroids. We place them in the middle of all points of their cluster.\u003c/p\u003e\r\n\u003cp\u003eAfter that, we again reassign the points to the new centroids. We continue doing this over and over again until almost nothing changes anymore. Then we will hopefully end up with the optimal clusters. The result then looks like this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/howclustering1.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eTypes of Clustering methods\u003c/code\u003e\u003c/p\u003e\r\n\u003cp\u003e• Centroid based methods such as K-means and K-medoids\u003c/p\u003e\r\n\u003cp\u003e• Hierarchical clustering methods such as agglomerative and divisive (Ward’s, affinity\r\npropagation)\u003c/p\u003e\r\n\u003cp\u003e• Distribution based clustering methods such as Gaussian mixture models\u003c/p\u003e\r\n\u003cp\u003e• Density based methods such as dbscan and optics.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-data\" class=\"section level4\"\u003e\r\n\u003ch4\u003eLOADING DATA\u003c/h4\u003e\r\n\u003cp\u003eFor the clustering algorithm, we will use a dataset of handwritten digits. Since we are using unsupervised learning, we are not going to classify the digits. We are just going to put them into clusters. The following imports are necessary:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom sklearn.cluster import KMeans\r\nfrom sklearn.preprocessing import scale\r\nfrom sklearn.datasets import load_digits\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBesides the KMeans module and the load_digits dataset, we are also importing the function scale from the preprocessing library. We will use this function for preparing our data.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edigits = load_digits()\r\ndata = scale(digits.data)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAfter loading our dataset we use the scale function, to standardize our data. We are dealing with quite large values here and by scaling them down to smaller values we save computation time.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"training-and-predicting\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTRAINING AND PREDICTING\u003c/h4\u003e\r\n\u003cp\u003eWe can now train our model in the same way we trained the supervised learning models up until now.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eclf = KMeans( n_clusters = 10 , init = \u0026#39;random\u0026#39; , n_init = 10 )\r\nclf.fit(data)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## KMeans(algorithm=\u0026#39;auto\u0026#39;, copy_x=True, init=\u0026#39;random\u0026#39;, max_iter=300,\r\n##        n_clusters=10, n_init=10, n_jobs=None, precompute_distances=\u0026#39;auto\u0026#39;,\r\n##        random_state=None, tol=0.0001, verbose=0)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003ecentroids somewhere. Alternatively, we could use k-means++ for intelligent placing.\r\nThe last parameter (n_init ) states how many times the algorithm will be run with different centroid seeds to find the best clusters.\u003c/p\u003e\r\n\u003cp\u003eSince we are dealing with unsupervised learning here, scoring the model is not really possible. You won’t be able to really score if the model is clustering right or not. We could only benchmark certain statistics like completeness or homogeneity .\u003c/p\u003e\r\n\u003cp\u003eWhat we can do however is to predict which cluster a new input belongs to.\u003c/p\u003e\r\n\u003cp\u003eclf.predict([…])\u003c/p\u003e\r\n\u003cp\u003eIn this case, inputting data might be quite hard, since we would need to manually put in all the pixels. You could either try to write a script what converts images into NumPy arrays or you could work with a much simpler data set.\u003c/p\u003e\r\n\u003cp\u003eAlso, since we are working with huge dimensions here, visualization is quite hard. When you work with two- or three-dimensional data, you can use the Matplotlib knowledge from volume three, in order to visualize your model.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"clustering\" class=\"section level2\"\u003e\r\n\u003ch2\u003eClustering\u003c/h2\u003e\r\n\u003cp\u003eClustering is Machine Learning method that helps in finding the pattern of similarity and relationships among data samples in dataset and then cluster these samples into various groups.\u003c/p\u003e\r\n\u003cp\u003eThe clustering algorithm gets raw data and tries to divide it up into clusters . K-Means-Clustering is the method that we are going to use here. Similar to K-Nearest-Neighbors, the K states the amount of clusters we want.\u003c/p\u003e\r\n\u003cdiv id=\"how-clustering-works\" class=\"section level4\"\u003e\r\n\u003ch4\u003eHOW CLUSTERING WORKS\u003c/h4\u003e\r\n\u003cp\u003eThe clustering itself works with so-called centroids . These are the points, which lie in the center of the respective clusters.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/howclustering.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eThe figure above illustrates quite well how clustering works. First, we randomly place the centroids somewhere in our data. This is the initialization . Here, we have defined three clusters, which is why we also have three centroids.\u003c/p\u003e\r\n\u003cp\u003eThen, we look at each individual data point and assign the cluster of the nearest centroid to it. When we have done this, we continue by realigning our centroids. We place them in the middle of all points of their cluster.\u003c/p\u003e\r\n\u003cp\u003eAfter that, we again reassign the points to the new centroids. We continue doing this over and over again until almost nothing changes anymore. Then we will hopefully end up with the optimal clusters. The result then looks like this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/howclustering1.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eTypes of Clustering methods\u003c/code\u003e\u003c/p\u003e\r\n\u003cp\u003e• Centroid based methods such as K-means and K-medoids\u003c/p\u003e\r\n\u003cp\u003e• Hierarchical clustering methods such as agglomerative and divisive (Ward’s, affinity\r\npropagation)\u003c/p\u003e\r\n\u003cp\u003e• Distribution based clustering methods such as Gaussian mixture models\u003c/p\u003e\r\n\u003cp\u003e• Density based methods such as dbscan and optics.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-data\" class=\"section level4\"\u003e\r\n\u003ch4\u003eLOADING DATA\u003c/h4\u003e\r\n\u003cp\u003eFor the clustering algorithm, we will use a dataset of handwritten digits. Since we are using unsupervised learning, we are not going to classify the digits. We are just going to put them into clusters. The following imports are necessary:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom sklearn.cluster import KMeans\r\nfrom sklearn.preprocessing import scale\r\nfrom sklearn.datasets import load_digits\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBesides the KMeans module and the load_digits dataset, we are also importing the function scale from the preprocessing library. We will use this function for preparing our data.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edigits = load_digits()\r\ndata = scale(digits.data)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAfter loading our dataset we use the scale function, to standardize our data. We are dealing with quite large values here and by scaling them down to smaller values we save computation time.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"training-and-predicting\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTRAINING AND PREDICTING\u003c/h4\u003e\r\n\u003cp\u003eWe can now train our model in the same way we trained the supervised learning models up until now.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eclf = KMeans( n_clusters = 10 , init = \u0026#39;random\u0026#39; , n_init = 10 )\r\nclf.fit(data)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## KMeans(init=\u0026#39;random\u0026#39;, n_clusters=10)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003ecentroids somewhere. Alternatively, we could use k-means++ for intelligent placing.\r\nThe last parameter (n_init ) states how many times the algorithm will be run with different centroid seeds to find the best clusters.\u003c/p\u003e\r\n\u003cp\u003eSince we are dealing with unsupervised learning here, scoring the model is not really possible. You won’t be able to really score if the model is clustering right or not. We could only benchmark certain statistics like completeness or homogeneity .\u003c/p\u003e\r\n\u003cp\u003eWhat we can do however is to predict which cluster a new input belongs to.\u003c/p\u003e\r\n\u003cp\u003eclf.predict([…])\u003c/p\u003e\r\n\u003cp\u003eIn this case, inputting data might be quite hard, since we would need to manually put in all the pixels. You could either try to write a script what converts images into NumPy arrays or you could work with a much simpler data set.\u003c/p\u003e\r\n\u003cp\u003eAlso, since we are working with huge dimensions here, visualization is quite hard. When you work with two- or three-dimensional data, you can use the Matplotlib knowledge from volume three, in order to visualize your model.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -291,7 +291,8 @@ if (!doNotTrack) {
     <img src="https://laxmikants.github.io/img/main/Clustering-31.jpg" alt="">
   </a>
       
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
 <div id="clustering" class="section level2">
@@ -329,9 +330,7 @@ data = scale(digits.data)</code></pre>
 <p>We can now train our model in the same way we trained the supervised learning models up until now.</p>
 <pre class="python"><code>clf = KMeans( n_clusters = 10 , init = &#39;random&#39; , n_init = 10 )
 clf.fit(data)</code></pre>
-<pre><code>## KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;random&#39;, max_iter=300,
-##        n_clusters=10, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
-##        random_state=None, tol=0.0001, verbose=0)</code></pre>
+<pre><code>## KMeans(init=&#39;random&#39;, n_clusters=10)</code></pre>
 <p>centroids somewhere. Alternatively, we could use k-means++ for intelligent placing.
 The last parameter (n_init ) states how many times the algorithm will be run with different centroid seeds to find the best clusters.</p>
 <p>Since we are dealing with unsupervised learning here, scoring the model is not really possible. You won’t be able to really score if the model is clustering right or not. We could only benchmark certain statistics like completeness or homogeneity .</p>
@@ -436,6 +435,16 @@ The last parameter (n_init ) states how many times the algorithm will be run wit
       </header>
       
       <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
           <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
     <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
   </a>
@@ -452,16 +461,6 @@ The last parameter (n_init ) states how many times the algorithm will be run wit
         <header>
           <h2><a href="/blog/react-js/">React- JS</a></h2>
           <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/web_scrapping02.jpg');">
-    <img src="https://laxmikants.github.io/img/main/web_scrapping02.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
-          <time class="published" datetime="2020-06-15 00:00:00 &#43;0000 UTC">June 15, 2020</time>
         </header>
       </article>
       
@@ -483,7 +482,7 @@ The last parameter (n_init ) states how many times the algorithm will be run wit
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">14</span></a>
+              <a href="/categories/python/">python<span class="count">15</span></a>
           
           <li>
               <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
@@ -502,6 +501,9 @@ The last parameter (n_init ) states how many times the algorithm will be run wit
           
           <li>
               <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
           
           <li>
               <a href="/categories/data-science/">data-science<span class="count">1</span></a>

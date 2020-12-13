@@ -73,4 +73,5 @@ What I have just explained and what you can see on the picture is an outdated ve
 But what has all this to do with artificial intelligence or machine learning? Since neural networks are structures with a huge amount of parameters that can be changed, we can use certain algorithms so that the model can adjust itself. We input our data and the desired outcome. Then the model tries to adjust its weights and biases so that we can get from our inputs to the respective outputs.
 
 Since we are dealing with multiple thousands of neurons, we can’t do all this manually.
-We use different algorithms like backpropagation and gradient descent , to optimize and train our model. We are not going to deep into the mathematics here. Our focus will be on the coding and the implementation.
+We use different algorithms like backpropagation and gradient descent , to optimize and train our model. 
+

@@ -28,7 +28,7 @@
 <meta itemprop="description" content="A case study on applying logistic regression to stock market">
 <meta itemprop="datePublished" content="2020-03-26T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-03-26T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3487">
+<meta itemprop="wordCount" content="3486">
 
 
 
@@ -92,7 +92,7 @@
   },
   "datePublished": "2020-03-26T00:00:00Z",
   "dateModified": "2020-03-26T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\r\n\u003cdiv id=\"TOC\"\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e\u003ca href=\"#z-scores\"\u003e\u003cspan class=\"toc-section-number\"\u003e0.1\u003c/span\u003e z-scores\u003c/a\u003e\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e1:Loading Stock data\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e1.1:Importing libraries and data\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nimport investpy\r\nfrom datetime import datetime\r\nfrom sklearn.linear_model import LogisticRegression\r\nfrom sklearn.metrics import confusion_matrix\r\nfrom sklearn import metrics\r\nfrom scipy import stats \r\nimport numpy as np\r\nimport pandas as pd\r\nimport seaborn as sn\r\nimport matplotlib.pyplot as plt\r\nimport talib\r\nimport quandl\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e1.2:Fetching the data\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eTo fetch the stock data we use \u003ccode\u003einvestpy\u003c/code\u003e library. This library fetchs data from investing for example:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf = investpy.commodities.get_commodity_historical_data(stock=\u0026#39;ABC\u0026#39;,from_date=\u0026#39;01/01/2015\u0026#39;,to_date=\u0026#39;14/08/2020\u0026#39;, country = \u0026quot;India\u0026quot;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##               Open    High     Low   Close  Volume\r\n## Date                                              \r\n## 2019-12-02  44.290  44.416  44.077  44.344     354\r\n## 2019-12-03  44.250  44.985  44.150  44.620     138\r\n## 2019-12-04  44.949  45.100  44.100  44.392      34\r\n## 2019-12-05  44.200  45.287  43.850  44.064      44\r\n## 2019-12-06  44.599  44.714  43.470  43.545   24469\r\n## ...            ...     ...     ...     ...     ...\r\n## 2020-10-13  62.126  62.965  60.213  60.530   31791\r\n## 2020-10-14  60.722  62.240  60.619  61.552   25329\r\n## 2020-10-15  61.002  61.639  59.840  61.420   28875\r\n## 2020-10-16  61.554  62.168  61.355  61.355     336\r\n## 2020-10-19  61.355  63.235  61.300  62.049   23793\r\n## \r\n## [226 rows x 5 columns]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cdiv id=\"z-scores\" class=\"section level2\" number=\"0.1\"\u003e\r\n\u003ch2\u003e\u003cspan class=\"header-section-number\"\u003e0.1\u003c/span\u003e z-scores\u003c/h2\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ndf[\u0026#39;zscore\u0026#39;] = stats.zscore(df[\u0026#39;Close\u0026#39;])\r\n\r\nprint(df[\u0026#39;zscore\u0026#39;].tail(30))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Date\r\n## 2020-09-07    1.786201\r\n## 2020-09-08    1.809582\r\n## 2020-09-09    1.804235\r\n## 2020-09-10    1.861693\r\n## 2020-09-11    1.750237\r\n## 2020-09-14    1.858967\r\n## 2020-09-15    1.859176\r\n## 2020-09-16    1.839674\r\n## 2020-09-17    1.772675\r\n## 2020-09-18    1.744890\r\n## 2020-09-21    1.056971\r\n## 2020-09-22    1.046171\r\n## 2020-09-23    0.760455\r\n## 2020-09-24    0.880089\r\n## 2020-09-25    0.816970\r\n## 2020-09-28    0.960509\r\n## 2020-09-29    1.177548\r\n## 2020-09-30    0.910496\r\n## 2020-10-01    1.039041\r\n## 2020-10-05    1.122502\r\n## 2020-10-06    0.978858\r\n## 2020-10-07    0.962920\r\n## 2020-10-08    0.973405\r\n## 2020-10-09    1.221375\r\n## 2020-10-12    1.243813\r\n## 2020-10-13    0.974559\r\n## 2020-10-14    1.081715\r\n## 2020-10-15    1.067875\r\n## 2020-10-16    1.061060\r\n## 2020-10-19    1.133826\r\n## Name: zscore, dtype: float64\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003epd.set_option(\u0026#39;display.max_columns\u0026#39;, 10)\r\nPP = pd.Series((df[\u0026#39;High\u0026#39;] + df[\u0026#39;Low\u0026#39;] + df[\u0026#39;Close\u0026#39;]) / 3)  \r\nR1 = pd.Series(2 * PP - df[\u0026#39;Low\u0026#39;])  \r\nS1 = pd.Series(2 * PP - df[\u0026#39;High\u0026#39;])  \r\nR2 = pd.Series(PP + df[\u0026#39;High\u0026#39;] - df[\u0026#39;Low\u0026#39;])  \r\nS2 = pd.Series(PP - df[\u0026#39;High\u0026#39;] + df[\u0026#39;Low\u0026#39;])  \r\nR3 = pd.Series(df[\u0026#39;High\u0026#39;] + 2 * (PP - df[\u0026#39;Low\u0026#39;]))  \r\nS3 = pd.Series(df[\u0026#39;Low\u0026#39;] - 2 * (df[\u0026#39;High\u0026#39;] - PP))  \r\npsr = {\u0026#39;PP\u0026#39;:PP, \u0026#39;R1\u0026#39;:R1, \u0026#39;S1\u0026#39;:S1, \u0026#39;R2\u0026#39;:R2, \u0026#39;S2\u0026#39;:S2, \u0026#39;R3\u0026#39;:R3, \u0026#39;S3\u0026#39;:S3}  \r\nPSR = pd.DataFrame(psr)  \r\nprint(PSR.tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                    PP         R1         S1         R2         S2         R3  \\\r\n## Date                                                                           \r\n## 2020-10-13  61.236000  62.259000  59.507000  63.988000  58.484000  65.011000   \r\n## 2020-10-14  61.470333  62.321667  60.700667  63.091333  59.849333  63.942667   \r\n## 2020-10-15  60.966333  62.092667  60.293667  62.765333  59.167333  63.891667   \r\n## 2020-10-16  61.626000  61.897000  61.084000  62.439000  60.813000  62.710000   \r\n## 2020-10-19  62.194667  63.089333  61.154333  64.129667  60.259667  65.024333   \r\n## \r\n##                    S3  \r\n## Date                   \r\n## 2020-10-13  56.755000  \r\n## 2020-10-14  59.079667  \r\n## 2020-10-15  58.494667  \r\n## 2020-10-16  60.271000  \r\n## 2020-10-19  59.219333\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAs we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eOpen:\u003c/code\u003e That’s the share price the stock had when the markets opened that day.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eClose:\u003c/code\u003e That’s the share price the stock had when the markets closed that day.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eHigh:\u003c/code\u003e That’s the highest share price that the stock had that day.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eLow:\u003c/code\u003e That’s the lowest share price that the stock had that day.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eVolume:\u003c/code\u003e Amount of shares that changed hands that day.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e1.3:Reading individual values\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eSince our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using \u003ccode\u003eprint (df[ 'Close' ])\u003c/code\u003e\u003c/p\u003e\r\n\u003cp\u003eAlso, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (df[ \u0026#39;Close\u0026#39; ][ \u0026#39;2020-07-14\u0026#39; ])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 52.649\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eBut we could also use simple indexing to access certain positions.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (df[ \u0026#39;Close\u0026#39; ][ 5 ])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 43.502\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we printed the closing price of the fifth entry.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e2:Graphical Visualization\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eEven though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.\u003c/p\u003e\r\n\u003cp\u003eActually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport matplotlib.pyplot as plt\r\nfrom matplotlib import style\r\nstyle.use( \u0026#39;ggplot\u0026#39; )\r\nplt.ylabel( \u0026#39;Close\u0026#39; )\r\nplt.title( \u0026#39;Share Price\u0026#39; )\r\ndf[\u0026#39;Close\u0026#39;].plot()\r\nplt.show()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/stockplot.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e2.1:CandleStick Charts\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eThe best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport mplfinance as fplt\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.\r\nAlso, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport matplotlib.dates as mdates\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e2.2: Preparing the data for CandleStick charts\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eNow in order to plot our stock data, we need to select the four columns in the right order.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf1 = df[[ \u0026#39;Open\u0026#39; , \u0026#39;High\u0026#39; , \u0026#39;Low\u0026#39; , \u0026#39;Close\u0026#39; ]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it.\r\nTherefore, we need to reset the index and then convert our datetime to a number.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf1.reset_index( inplace = True )\r\ndf1[ \u0026#39;Date\u0026#39; ] = df1[ \u0026#39;Date\u0026#39; ].map(mdates.date2num)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## C:/ProgramData/Anaconda3/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eFor this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e2.3:Plotting the data\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eNow we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eax = plt.subplot()\r\nfplt(ax, df1.values,\r\n                  width = 5 ,\r\n                  colordown = \u0026#39;r\u0026#39; , colorup = \u0026#39;g\u0026#39; )\r\nax.grid()\r\nax.xaxis_date()\r\nplt.show()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/candlestick.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eOne candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close price.\r\nIf the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e2.4:Analysis and Statistics \u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eNow let’s get a little bit deeper into the numbers here and away from the visual.\r\nFrom our data we can derive some statistical values that will help us to analyze it.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e\u003ccode\u003ePERCENTAGE CHANGE\u003c/code\u003e\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eOne value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf[ \u0026#39;PCT_Change\u0026#39; ] = (df[ \u0026#39;Close\u0026#39; ] - df[ \u0026#39;Open\u0026#39; ]) / df[ \u0026#39;Open\u0026#39; ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.\u003c/p\u003e\r\n\u003cp\u003e*** \u003ccode\u003eHIGH LOW PERCENTAGE\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eAnother interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.\u003c/p\u003e\r\n\u003cp\u003eBy doing that we can get a feeling of how volatile the stock is.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf[ \u0026#39;HL_PCT\u0026#39; ] = (df[ \u0026#39;High\u0026#39; ] - df[ \u0026#39;Low\u0026#39; ]) / df[ \u0026#39;Close\u0026#39; ]\r\nprint(df.tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##               Open    High     Low   Close  Volume  ...  usdinr  usdsilver  \\\r\n## Date                                                ...                      \r\n## 2020-10-13  62.126  62.965  60.213  60.530   31791  ...  73.400     24.129   \r\n## 2020-10-14  60.722  62.240  60.619  61.552   25329  ...  73.240     24.395   \r\n## 2020-10-15  61.002  61.639  59.840  61.420   28875  ...  73.420     24.224   \r\n## 2020-10-16  61.554  62.168  61.355  61.355     336  ...  73.442     24.405   \r\n## 2020-10-19  61.355  63.235  61.300  62.049   23793  ...  73.350     24.698   \r\n## \r\n##               zscore  PCT_Change    HL_PCT  \r\n## Date                                        \r\n## 2020-10-13  0.974559   -0.025690  0.045465  \r\n## 2020-10-14  1.081715    0.013669  0.026335  \r\n## 2020-10-15  1.067875    0.006852  0.029290  \r\n## 2020-10-16  1.061060   -0.003233  0.013251  \r\n## 2020-10-19  1.133826    0.011311  0.031185  \r\n## \r\n## [5 rows x 11 columns]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThese statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making\u003c/p\u003e\r\n\u003cp\u003e*** \u003ccode\u003eMOVING AVERAGE\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003ewe are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.\u003c/p\u003e\r\n\u003cp\u003eWhat we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.\u003c/p\u003e\r\n\u003cp\u003eFor this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ndf[ \u0026#39;5d_ma\u0026#39; ] = round(df[ \u0026#39;Close\u0026#39; ].rolling( window = 5 , min_periods = 0 ).mean(),2)\r\ndf[ \u0026#39;20d_ma\u0026#39; ] = round(df[ \u0026#39;Close\u0026#39; ].rolling( window = 20 , min_periods = 0 ).mean(),2)\r\ndf[\u0026#39;50d_ma\u0026#39;] = round(df[ \u0026#39;Close\u0026#39; ].rolling(window = 50, min_periods = 0).mean(),2)\r\ndf[\u0026#39;100d_ma\u0026#39;] = round(df[ \u0026#39;Close\u0026#39; ].rolling(window = 100, min_periods = 0).mean(),2)\r\ndf[\u0026#39;200d_ma\u0026#39;] = round(df[ \u0026#39;Close\u0026#39; ].rolling(window = 200, min_periods = 0).mean(),2)\r\n\r\n#df[ \u0026#39;20d_ma\u0026#39; ] = round(df.Close.ewm(span=21, adjust=False).mean(),2)\r\n#df[\u0026#39;50d_ma\u0026#39;] = round(df.Close.ewm(span=49, adjust=False).mean(),2)\r\n\r\n#df[\u0026#39;100d_ma\u0026#39;] = round(df.Close.ewm(span=98, adjust=False).mean(),2)\r\n#df[\u0026#39;200d_ma\u0026#39;] = round(df.Close.ewm(span=196, adjust=False).mean(),2)\r\n\r\nprint(df[[\u0026#39;Close\u0026#39;,\u0026#39;5d_ma\u0026#39;,\u0026#39;20d_ma\u0026#39;,\u0026#39;50d_ma\u0026#39;,\u0026#39;100d_ma\u0026#39;,\u0026#39;200d_ma\u0026#39;]].tail(7))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##              Close  5d_ma  20d_ma  50d_ma  100d_ma  200d_ma\r\n## Date                                                       \r\n## 2020-10-09  62.884  61.27   63.03   66.10    58.78    51.57\r\n## 2020-10-12  63.098  61.50   62.79   66.07    58.93    51.65\r\n## 2020-10-13  60.530  61.49   62.37   65.96    59.05    51.72\r\n## 2020-10-14  61.552  61.72   62.00   65.80    59.19    51.79\r\n## 2020-10-15  61.420  61.90   61.63   65.59    59.32    51.86\r\n## 2020-10-16  61.355  61.59   61.29   65.29    59.45    51.93\r\n## 2020-10-19  62.049  61.38   61.00   65.05    59.57    52.00\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.\u003c/p\u003e\r\n\u003cp\u003eBy using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.\u003c/p\u003e\r\n\u003cp\u003e*** \u003ccode\u003eStandard Deviation\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eThe variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf[\u0026#39;Std_dev\u0026#39;]= df[\u0026#39;Close\u0026#39;].rolling(7).std()  \r\nprint(df[\u0026#39;Std_dev\u0026#39;].tail(7))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Date\r\n## 2020-10-09    1.029147\r\n## 2020-10-12    1.138909\r\n## 2020-10-13    1.194226\r\n## 2020-10-14    1.175008\r\n## 2020-10-15    1.121689\r\n## 2020-10-16    1.024474\r\n## 2020-10-19    0.906168\r\n## Name: Std_dev, dtype: float64\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e*** \u003ccode\u003eRelative Strength Index\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eThe relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf[\u0026#39;RSI\u0026#39;] = talib.RSI(df[\u0026#39;Close\u0026#39;].values, timeperiod = 9)    \r\nprint(df[[\u0026#39;RSI\u0026#39;]].tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                   RSI\r\n## Date                 \r\n## 2020-10-13  42.427100\r\n## 2020-10-14  47.448622\r\n## 2020-10-15  46.854813\r\n## 2020-10-16  46.532210\r\n## 2020-10-19  50.616315\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e*** \u003ccode\u003eWiliams %R\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eWilliams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today’s close was the highest high of the past N days.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf[\u0026#39;Williams %R\u0026#39;] = talib.WILLR(df[\u0026#39;High\u0026#39;].values,df[\u0026#39;Low\u0026#39;].values, df[\u0026#39;Close\u0026#39;].values, 7)\r\n \r\nprint(df[[\u0026#39;Williams %R\u0026#39;]].tail(7))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##             Williams %R\r\n## Date                   \r\n## 2020-10-09    -9.170082\r\n## 2020-10-12   -21.404682\r\n## 2020-10-13   -75.083612\r\n## 2020-10-14   -53.720736\r\n## 2020-10-15   -56.479933\r\n## 2020-10-16   -64.619337\r\n## 2020-10-19   -48.411957\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eReadings below -80 represent oversold territory and readings above -20 represent overbought.\u003c/p\u003e\r\n\u003cp\u003e*** \u003ccode\u003eADX\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.\u003c/p\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003e0-25: Absent or Weak Trend\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003e25-50: Strong Trend\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003e50-75: Very Strong Trend\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003e75-100: Extremely Strong Trend\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ndf[\u0026#39;ADX\u0026#39;] = talib.ADX(df[\u0026#39;High\u0026#39;].values,df[\u0026#39;Low\u0026#39;].values, df[\u0026#39;Close\u0026#39;].values, 7)\r\n\r\n\r\nprint(df[[\u0026#39;ADX\u0026#39;]].tail(7))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                   ADX\r\n## Date                 \r\n## 2020-10-09  28.249595\r\n## 2020-10-12  27.494609\r\n## 2020-10-13  25.049426\r\n## 2020-10-14  22.953556\r\n## 2020-10-15  22.627446\r\n## 2020-10-16  20.910263\r\n## 2020-10-19  18.999989\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e*** \u003ccode\u003eMACD\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eMoving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security’s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eShortEMA = df.Close.ewm(span=12, adjust=False).mean() #AKA Fast moving average\r\n#Calculate the Long Term Exponential Moving Average\r\nLongEMA = df.Close.ewm(span=26, adjust=False).mean() #AKA Slow moving average\r\n#Calculate the Moving Average Convergence/Divergence (MACD)\r\nMACD = ShortEMA - LongEMA\r\n#Calcualte the signal line\r\nsignal = MACD.ewm(span=9, adjust=False).mean()\r\n\r\ndf[\u0026#39;MACD\u0026#39;] = MACD\r\n\r\ndf[\u0026#39;Signal Line\u0026#39;] = signal\r\n\r\ndf[\u0026#39;MACD_IND\u0026#39;] = df[\u0026#39;MACD\u0026#39;] - df[\u0026#39;Signal Line\u0026#39;]\r\n\r\nprint(df[[\u0026#39;MACD_IND\u0026#39;]].tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##             MACD_IND\r\n## Date                \r\n## 2020-10-13  0.128242\r\n## 2020-10-14  0.158771\r\n## 2020-10-15  0.172156\r\n## 2020-10-16  0.177979\r\n## 2020-10-19  0.226788\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e*** \u003ccode\u003eBollinger Bands\u003c/code\u003e ***\u003c/p\u003e\r\n\u003cp\u003eBollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nfrom talib import MA_Type\r\n\r\nupper, middle, lower = talib.BBANDS(df[\u0026#39;Close\u0026#39;].values, matype=MA_Type.T3)\r\n\r\nprint(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 62.62 61.63 60.65\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf.dropna( inplace = True )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3: Predicting the movement of stock\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cp\u003eTo predict the movement of the stock we use 5 lag returns as the dependent variables. The first leg is return yesterday, leg2 is return day before yesterday and so on. The dependent variable is whether the prices went up or down on that day. Other variables include the technical indicators which along with 5 lag returns are used to predict the movement of stock using logistic regression.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.1: Creating lag returns\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ntslagret = pd.DataFrame(index=df.index)\r\ntslagret[\u0026quot;Today\u0026quot;] = df[\u0026quot;Close\u0026quot;]\r\nno_lags = 6\r\nfor i in range(0, no_lags):\r\n    tslagret[\u0026quot;Lag%s\u0026quot; % str(i + 1)] = df[\u0026quot;Close\u0026quot;].shift(i + 1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.2: Creating returns dataframe\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ndf_ret = pd.DataFrame(index=tslagret.index)\r\ndf_ret[\u0026quot;Today\u0026quot;] = tslagret[\u0026quot;Today\u0026quot;].pct_change()*100.0\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.2: create the lagged percentage returns columns\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor i in range(0, no_lags):\r\n    df_ret[\u0026quot;Lag%s\u0026quot; % str(i + 1)] = tslagret[\u0026quot;Lag%s\u0026quot; % str(i + 1)].pct_change() * 100.0\r\n\r\ndf_ret.drop(df_ret.index[:7], inplace=True)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.3: “Direction” column (+1 or -1) indicating an up/down day\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edf_ret[\u0026quot;Direction\u0026quot;] = np.sign(df_ret[\u0026quot;Today\u0026quot;])\r\n\r\ndf_ret[\u0026quot;Direction\u0026quot;] = np.where(df_ret[\u0026quot;Direction\u0026quot;] \u0026lt;= 0, -1 , 1)\r\n\r\n#df_ret[\u0026quot;Direction\u0026quot;] = np.where(df[\u0026#39;Close\u0026#39;].shift(-1) \u0026gt; df[\u0026#39;Close\u0026#39;], 1,-1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.4: Create the dependent and independent variables \u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ndata = df_ret.copy()\r\n\r\nX = data[[\u0026quot;Lag1\u0026quot;, \u0026quot;Lag2\u0026quot;, \u0026quot;Lag3\u0026quot;, \u0026quot;Lag4\u0026quot;,\u0026quot;Lag5\u0026quot;,\u0026quot;Lag6\u0026quot;]]\r\n\r\nX[\u0026#39;usdinr\u0026#39;] = df[\u0026#39;usdinr\u0026#39;] - 0.5\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## C:/ProgramData/Anaconda3/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX[\u0026#39;usdsilver\u0026#39;] = df[\u0026#39;usdsilver\u0026#39;]\r\n\r\nX[\u0026quot;20d_ma\u0026quot;] = df[ \u0026#39;20d_ma\u0026#39; ]\r\n\r\nX[\u0026quot;50d_ma\u0026quot;] =  df[\u0026#39;50d_ma\u0026#39;]\r\n\r\nX[\u0026quot;100d_ma\u0026quot;] =  df[\u0026#39;100d_ma\u0026#39;]\r\n\r\nX[\u0026quot;200d_ma\u0026quot;] =  df[\u0026#39;200d_ma\u0026#39;]\r\n\r\nX[\u0026#39;Std_dev\u0026#39;] = df[\u0026#39;Std_dev\u0026#39;]\r\n\r\nX[\u0026#39;RSI\u0026#39;] = df[\u0026#39;RSI\u0026#39;]\r\n\r\nX[\u0026#39;Williams %R\u0026#39;] = df[\u0026#39;Williams %R\u0026#39;]\r\n\r\nX[\u0026#39;MACD_IND\u0026#39;] = df[\u0026#39;MACD_IND\u0026#39;] \r\n\r\n\r\ny = data[\u0026quot;Direction\u0026quot;]\r\n\r\nprint(X.tail())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...  200d_ma  \\\r\n## Date                                                          ...            \r\n## 2020-10-13  0.340309  3.907864  0.165511 -0.250945 -2.211782  ...    51.72   \r\n## 2020-10-14 -4.069860  0.340309  3.907864  0.165511 -0.250945  ...    51.79   \r\n## 2020-10-15  1.688419 -4.069860  0.340309  3.907864  0.165511  ...    51.86   \r\n## 2020-10-16 -0.214453  1.688419 -4.069860  0.340309  3.907864  ...    51.93   \r\n## 2020-10-19 -0.105829 -0.214453  1.688419 -4.069860  0.340309  ...    52.00   \r\n## \r\n##              Std_dev        RSI  Williams %R  MACD_IND  \r\n## Date                                                    \r\n## 2020-10-13  1.194226  42.427100   -75.083612  0.128242  \r\n## 2020-10-14  1.175008  47.448622   -53.720736  0.158771  \r\n## 2020-10-15  1.121689  46.854813   -56.479933  0.172156  \r\n## 2020-10-16  1.024474  46.532210   -64.619337  0.177979  \r\n## 2020-10-19  0.906168  50.616315   -48.411957  0.226788  \r\n## \r\n## [5 rows x 16 columns]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edata.describe()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##             Today        Lag1        Lag2        Lag3        Lag4        Lag5  \\\r\n## count  205.000000  205.000000  205.000000  205.000000  205.000000  205.000000   \r\n## mean     0.173542    0.166871    0.168877    0.173248    0.174040    0.202116   \r\n## std      2.690434    2.689743    2.689692    2.689794    2.690266    2.675753   \r\n## min    -11.221052  -11.221052  -11.221052  -11.221052  -11.221052  -11.221052   \r\n## 25%     -0.850223   -0.850223   -0.850223   -0.850223   -0.850223   -0.844359   \r\n## 50%      0.169328    0.165511    0.169328    0.195046    0.195046    0.212620   \r\n## 75%      1.301824    1.301824    1.301824    1.301824    1.301824    1.323359   \r\n## max      7.031671    7.031671    7.031671    7.031671    7.031671    7.031671   \r\n## \r\n##              Lag6   Direction  \r\n## count  205.000000  205.000000  \r\n## mean     0.201632    0.092683  \r\n## std      2.675737    0.998133  \r\n## min    -11.221052   -1.000000  \r\n## 25%     -0.844359   -1.000000  \r\n## 50%      0.212620    1.000000  \r\n## 75%      1.323359    1.000000  \r\n## max      7.031671    1.000000\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.5: Create training and test sets\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003estart_test = datetime(2020, 8, 1)\r\n\r\nX_train = X[X.index \u0026lt; start_test]\r\nX_test = X[X.index \u0026gt;= start_test]\r\ny_train = y[y.index \u0026lt; start_test]\r\ny_test = y[y.index \u0026gt;= start_test]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.6: Create model \u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nmodel = LogisticRegression()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.7: train the model on the training set\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.fit(X_train, y_train)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,\r\n##                    intercept_scaling=1, l1_ratio=None, max_iter=100,\r\n##                    multi_class=\u0026#39;auto\u0026#39;, n_jobs=None, penalty=\u0026#39;l2\u0026#39;,\r\n##                    random_state=None, solver=\u0026#39;lbfgs\u0026#39;, tol=0.0001, verbose=0,\r\n##                    warm_start=False)\r\n## \r\n## C:\\ProgramData\\Anaconda3\\lib\\site-packages\\sklearn\\linear_model\\_logistic.py:940: ConvergenceWarning: lbfgs failed to converge (status=1):\r\n## STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\r\n## \r\n## Increase the number of iterations (max_iter) or scale the data as shown in:\r\n##     https://scikit-learn.org/stable/modules/preprocessing.html\r\n## Please also refer to the documentation for alternative solver options:\r\n##     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\r\n##   extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.8: make an array of predictions on the test set\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ey_pred = model.predict(X_test)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.9: output the hit-rate and the confusion matrix for the model\u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026#39;Accuracy: \u0026#39;,metrics.accuracy_score(y_test, y_pred))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Accuracy:  0.8181818181818182\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(confusion_matrix(y_pred,y_test))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [[19  1]\r\n##  [ 9 26]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cstrong\u003e\u003cem\u003e3.10: Predict movement of stock for tomorrow. \u003c/em\u003e\u003c/strong\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ecomp = pd.DataFrame()\r\ncomp[\u0026#39;y_test\u0026#39;] = y_test\r\ncomp[\u0026#39;y_pred\u0026#39;] = y_pred\r\n\r\nprint(comp)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##             y_test  y_pred\r\n## Date                      \r\n## 2020-08-03       1       1\r\n## 2020-08-04       1       1\r\n## 2020-08-05       1       1\r\n## 2020-08-06       1       1\r\n## 2020-08-07      -1      -1\r\n## 2020-08-10       1       1\r\n## 2020-08-11      -1      -1\r\n## 2020-08-12      -1       1\r\n## 2020-08-13       1       1\r\n## 2020-08-14      -1      -1\r\n## 2020-08-17       1       1\r\n## 2020-08-18       1       1\r\n## 2020-08-19      -1       1\r\n## 2020-08-20      -1       1\r\n## 2020-08-21      -1      -1\r\n## 2020-08-24      -1      -1\r\n## 2020-08-25      -1      -1\r\n## 2020-08-26       1       1\r\n## 2020-08-27      -1      -1\r\n## 2020-08-28       1       1\r\n## 2020-08-31       1       1\r\n## 2020-09-01       1       1\r\n## 2020-09-02      -1      -1\r\n## 2020-09-03      -1      -1\r\n## 2020-09-04      -1      -1\r\n## 2020-09-07       1       1\r\n## 2020-09-08       1       1\r\n## 2020-09-09      -1       1\r\n## 2020-09-10       1       1\r\n## 2020-09-11      -1      -1\r\n## 2020-09-14       1       1\r\n## 2020-09-15       1       1\r\n## 2020-09-16      -1       1\r\n## 2020-09-17      -1       1\r\n## 2020-09-18      -1       1\r\n## 2020-09-21      -1      -1\r\n## 2020-09-22      -1       1\r\n## 2020-09-23      -1      -1\r\n## 2020-09-24       1       1\r\n## 2020-09-25      -1      -1\r\n## 2020-09-28       1       1\r\n## 2020-09-29       1       1\r\n## 2020-09-30      -1      -1\r\n## 2020-10-01       1       1\r\n## 2020-10-05       1       1\r\n## 2020-10-06      -1      -1\r\n## 2020-10-07      -1      -1\r\n## 2020-10-08       1      -1\r\n## 2020-10-09       1       1\r\n## 2020-10-12       1       1\r\n## 2020-10-13      -1      -1\r\n## 2020-10-14       1       1\r\n## 2020-10-15      -1      -1\r\n## 2020-10-16      -1       1\r\n## 2020-10-19       1       1\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003epredict = model.predict(X_test.tail(1))\r\nprint(int(predict)) # 1: UP, -1: DOWN\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1:Loading Stock data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.1:Importing libraries and data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e investpy\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e datetime \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e datetime\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e sklearn.linear_model \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e LogisticRegression\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e sklearn.metrics \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e confusion_matrix\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e sklearn \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e metrics\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e scipy \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e stats \n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e numpy \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e np\n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e pandas \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e pd\n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e seaborn \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e sn\n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e matplotlib.pyplot \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e plt\n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e talib\n\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e quandl\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2:Fetching the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo fetch the stock data we use \u003ccode\u003einvestpy\u003c/code\u003e library. This library fetchs data from investing for example:\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e investpy\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ecommodities\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eget_commodity_historical_data(stock\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;ABC\u0026#39;\u003c/span\u003e,from_date\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;01/01/2015\u0026#39;\u003c/span\u003e,to_date\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;14/08/2020\u0026#39;\u003c/span\u003e, country \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003e\u0026#34;India\u0026#34;\u003c/span\u003e)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##               Open    High     Low   Close  Volume\r\n## Date                                              \r\n## 2019-12-02  44.290  44.416  44.077  44.344     354\r\n## 2019-12-03  44.250  44.985  44.150  44.620     138\r\n## 2019-12-04  44.949  45.100  44.100  44.392      34\r\n## 2019-12-05  44.200  45.287  43.850  44.064      44\r\n## 2019-12-06  44.599  44.714  43.470  43.545   24469\r\n## ...            ...     ...     ...     ...     ...\r\n## 2020-12-02  61.628  63.040  61.425  62.153     468\r\n## 2020-12-03  62.600  63.000  61.903  62.682     120\r\n## 2020-12-04  62.600  63.170  62.300  62.471     114\r\n## 2020-12-07  63.643  65.650  62.380  65.499   26874\r\n## 2020-12-08  65.388  65.817  64.576  65.192   20209\r\n## \r\n## [263 rows x 5 columns]\r\n\u003c/code\u003e\u003c/pre\u003e\u003cpre\u003e\u003ccode\u003e## Date\r\n## 2019-12-31    44.881810\r\n## 2020-01-31    46.695000\r\n## 2020-02-29    46.520429\r\n## 2020-03-31    41.378909\r\n## 2020-04-30    42.363278\r\n## 2020-05-31    45.519857\r\n## 2020-06-30    48.408409\r\n## 2020-07-31    55.729304\r\n## 2020-08-31    68.659667\r\n## 2020-09-30    65.037545\r\n## 2020-10-31    61.676524\r\n## 2020-11-30    62.029773\r\n## 2020-12-31    63.319167\r\n## Freq: M, Name: Close, dtype: float64\r\n\u003c/code\u003e\u003c/pre\u003e\u003cpre\u003e\u003ccode\u003e##               Open    High     Low   Close  Volume Currency  usdinr  usdsilver\r\n## Date                                                                          \r\n## 2019-12-02  44.290  44.416  44.077  44.344     354      INR  71.634     17.141\r\n## 2019-12-03  44.250  44.985  44.150  44.620     138      INR  71.740     17.422\r\n## 2019-12-04  44.949  45.100  44.100  44.392      34      INR  71.474     17.088\r\n## 2019-12-05  44.200  45.287  43.850  44.064      44      INR  71.252     17.227\r\n## 2019-12-06  44.599  44.714  43.470  43.545   24469      INR  71.283     16.763\r\n## ...            ...     ...     ...     ...     ...      ...     ...        ...\r\n## 2020-12-02  61.628  63.040  61.425  62.153     468      INR  73.760     24.080\r\n## 2020-12-03  62.600  63.000  61.903  62.682     120      INR  73.860     24.137\r\n## 2020-12-04  62.600  63.170  62.300  62.471     114      INR  73.757     24.253\r\n## 2020-12-07  63.643  65.650  62.380  65.499   26874      INR  73.826     24.794\r\n## 2020-12-08  65.388  65.817  64.576  65.192   20209      INR  73.720     24.720\r\n## \r\n## [263 rows x 8 columns]\r\n\u003c/code\u003e\u003c/pre\u003e\u003ch2 id=\"z-scores\"\u003ez-scores\u003c/h2\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;zscore\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e stats\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ezscore(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e])\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;zscore\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e30\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## Date\r\n## 2020-10-29    0.765919\r\n## 2020-10-30    0.837735\r\n## 2020-11-02    0.956081\r\n## 2020-11-03    1.026343\r\n## 2020-11-04    0.892038\r\n## 2020-11-05    1.188836\r\n## 2020-11-06    1.300964\r\n## 2020-11-09    0.836595\r\n## 2020-11-10    1.063546\r\n## 2020-11-11    1.011420\r\n## 2020-11-12    1.031939\r\n## 2020-11-13    1.134948\r\n## 2020-11-14    1.121994\r\n## 2020-11-16    1.130595\r\n## 2020-11-17    1.084687\r\n## 2020-11-18    1.011627\r\n## 2020-11-19    0.904577\r\n## 2020-11-20    0.971730\r\n## 2020-11-23    0.802501\r\n## 2020-11-24    0.708819\r\n## 2020-11-25    0.731825\r\n## 2020-11-26    0.734934\r\n## 2020-11-27    0.782604\r\n## 2020-11-30    0.657107\r\n## 2020-12-01    0.946858\r\n## 2020-12-02    0.971211\r\n## 2020-12-03    1.026032\r\n## 2020-12-04    1.004166\r\n## 2020-12-07    1.317959\r\n## 2020-12-08    1.286145\r\n## Name: zscore, dtype: float64\r\n\u003c/code\u003e\u003c/pre\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003epd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eset_option(\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;display.max_columns\u0026#39;\u003c/span\u003e, \u003cspan style=\"color:#ae81ff\"\u003e10\u003c/span\u003e)\nPP \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries((df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]) \u003cspan style=\"color:#f92672\"\u003e/\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e3\u003c/span\u003e)  \nR1 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e PP \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e])  \nS1 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e PP \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e])  \nR2 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(PP \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e])  \nS2 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(PP \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e])  \nR3 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e (PP \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e]))  \nS3 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eSeries(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e (df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e PP))  \npsr \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e {\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;PP\u0026#39;\u003c/span\u003e:PP, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;R1\u0026#39;\u003c/span\u003e:R1, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;S1\u0026#39;\u003c/span\u003e:S1, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;R2\u0026#39;\u003c/span\u003e:R2, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;S2\u0026#39;\u003c/span\u003e:S2, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;R3\u0026#39;\u003c/span\u003e:R3, \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;S3\u0026#39;\u003c/span\u003e:S3}  \nPSR \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eDataFrame(psr)  \n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(PSR\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail())\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##                    PP         R1         S1         R2         S2         R3  \\\r\n## Date                                                                           \r\n## 2020-12-02  62.206000  62.987000  61.372000  63.821000  60.591000  64.602000   \r\n## 2020-12-03  62.528333  63.153667  62.056667  63.625333  61.431333  64.250667   \r\n## 2020-12-04  62.647000  62.994000  62.124000  63.517000  61.777000  63.864000   \r\n## 2020-12-07  64.509667  66.639333  63.369333  67.779667  61.239667  69.909333   \r\n## 2020-12-08  65.195000  65.814000  64.573000  66.436000  63.954000  67.055000   \r\n## \r\n##                    S3  \r\n## Date                   \r\n## 2020-12-02  59.757000  \r\n## 2020-12-03  60.959667  \r\n## 2020-12-04  61.254000  \r\n## 2020-12-07  60.099333  \r\n## 2020-12-08  63.332000\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eAs we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eOpen:\u003c/code\u003e That’s the share price the stock had when the markets opened that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eClose:\u003c/code\u003e That’s the share price the stock had when the markets closed that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eHigh:\u003c/code\u003e That’s the highest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLow:\u003c/code\u003e That’s the lowest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eVolume:\u003c/code\u003e Amount of shares that changed hands that day.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.3:Reading individual values\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eSince our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using \u003ccode\u003eprint (df[ 'Close' ])\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eAlso, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ][ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;2020-07-14\u0026#39;\u003c/span\u003e ])\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## 52.649\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eBut we could also use simple indexing to access certain positions.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ][ \u003cspan style=\"color:#ae81ff\"\u003e5\u003c/span\u003e ])\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## 43.502\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we  printed the closing price of the fifth entry.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2:Graphical Visualization\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eEven though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.\u003c/p\u003e\n\u003cp\u003eActually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e matplotlib.pyplot \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e plt\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e matplotlib \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e style\nstyle\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003euse( \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;ggplot\u0026#39;\u003c/span\u003e )\nplt\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eylabel( \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e )\nplt\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etitle( \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Share Price\u0026#39;\u003c/span\u003e )\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eplot()\nplt\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eshow()\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cimg src=\"/img/main/stockplot.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.1:CandleStick Charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eThe best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e mplfinance \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e fplt\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eWe are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.\nAlso, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e matplotlib.dates \u003cspan style=\"color:#f92672\"\u003eas\u003c/span\u003e mdates\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.2: Preparing the data for CandleStick charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow in order to plot our stock data, we need to select the four columns in the right order.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf1 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Open\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]]\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eNow, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it. \nTherefore, we need to reset the index and then convert our datetime to a number.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf1\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ereset_index( inplace \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e True )\ndf1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emap(mdates\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edate2num)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eFor this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.3:Plotting the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003eax \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e plt\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003esubplot()\nfplt(ax, df1\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues,\n                  width \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e5\u003c/span\u003e ,\n                  colordown \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;r\u0026#39;\u003c/span\u003e , colorup \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;g\u0026#39;\u003c/span\u003e )\nax\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003egrid()\nax\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003exaxis_date()\nplt\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eshow()\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cimg src=\"/img/main/candlestick.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003eOne candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close  price. \nIf the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.\u003c/p\u003e\n\u003cp\u003e***2.4:Analysis and Statistics ***\u003c/p\u003e\n\u003cp\u003eNow let’s get a little bit deeper into the numbers here and away from the visual. \nFrom our data we can derive some statistical values that will help us to analyze it.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e\u003ccode\u003ePERCENTAGE CHANGE\u003c/code\u003e\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eOne value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;PCT_Change\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Open\u0026#39;\u003c/span\u003e ]) \u003cspan style=\"color:#f92672\"\u003e/\u003c/span\u003e df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Open\u0026#39;\u003c/span\u003e ]\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eThe calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eHIGH LOW PERCENTAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eAnother interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.\u003c/p\u003e\n\u003cp\u003eBy doing that we can get a feeling of how volatile the stock is.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;HL_PCT\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e ]) \u003cspan style=\"color:#f92672\"\u003e/\u003c/span\u003e df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail())\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##               Open    High     Low   Close  Volume  ...  usdinr  usdsilver  \\\r\n## Date                                                ...                      \r\n## 2020-12-02  61.628  63.040  61.425  62.153     468  ...  73.760     24.080   \r\n## 2020-12-03  62.600  63.000  61.903  62.682     120  ...  73.860     24.137   \r\n## 2020-12-04  62.600  63.170  62.300  62.471     114  ...  73.757     24.253   \r\n## 2020-12-07  63.643  65.650  62.380  65.499   26874  ...  73.826     24.794   \r\n## 2020-12-08  65.388  65.817  64.576  65.192   20209  ...  73.720     24.720   \r\n## \r\n##               zscore  PCT_Change    HL_PCT  \r\n## Date                                        \r\n## 2020-12-02  0.971211    0.008519  0.025984  \r\n## 2020-12-03  1.026032    0.001310  0.017501  \r\n## 2020-12-04  1.004166   -0.002061  0.013926  \r\n## 2020-12-07  1.317959    0.029163  0.049924  \r\n## 2020-12-08  1.286145   -0.002997  0.019036  \r\n## \r\n## [5 rows x 11 columns]\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eThese statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eMOVING AVERAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003ewe are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.\u003c/p\u003e\n\u003cp\u003eWhat we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.\u003c/p\u003e\n\u003cp\u003eFor this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ndf[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;5d_ma\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e round(df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling( window \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e5\u003c/span\u003e , min_periods \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e )\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean(),\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e)\ndf[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;20d_ma\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e round(df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling( window \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e20\u003c/span\u003e , min_periods \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e )\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean(),\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e)\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;50d_ma\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e round(df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling(window \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e50\u003c/span\u003e, min_periods \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean(),\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e)\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;100d_ma\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e round(df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling(window \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e100\u003c/span\u003e, min_periods \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean(),\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e)\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;200d_ma\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e round(df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling(window \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e200\u003c/span\u003e, min_periods \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean(),\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e)\n\n\u003cspan style=\"color:#75715e\"\u003e#df[ \u0026#39;20d_ma\u0026#39; ] = round(df.Close.ewm(span=21, adjust=False).mean(),2)\u003c/span\u003e\n\u003cspan style=\"color:#75715e\"\u003e#df[\u0026#39;50d_ma\u0026#39;] = round(df.Close.ewm(span=49, adjust=False).mean(),2)\u003c/span\u003e\n\n\u003cspan style=\"color:#75715e\"\u003e#df[\u0026#39;100d_ma\u0026#39;] = round(df.Close.ewm(span=98, adjust=False).mean(),2)\u003c/span\u003e\n\u003cspan style=\"color:#75715e\"\u003e#df[\u0026#39;200d_ma\u0026#39;] = round(df.Close.ewm(span=196, adjust=False).mean(),2)\u003c/span\u003e\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;5d_ma\u0026#39;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;20d_ma\u0026#39;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;50d_ma\u0026#39;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;100d_ma\u0026#39;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;200d_ma\u0026#39;\u003c/span\u003e]]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##              Close  5d_ma  20d_ma  50d_ma  100d_ma  200d_ma\r\n## Date                                                       \r\n## 2020-11-30  59.122  59.76   62.00   61.62    63.62    54.43\r\n## 2020-12-01  61.918  60.22   62.02   61.63    63.71    54.50\r\n## 2020-12-02  62.153  60.68   61.92   61.71    63.81    54.57\r\n## 2020-12-03  62.682  61.24   61.79   61.77    63.91    54.64\r\n## 2020-12-04  62.471  61.67   61.87   61.84    64.00    54.71\r\n## 2020-12-07  65.499  62.94   61.99   61.94    64.12    54.80\r\n## 2020-12-08  65.192  63.60   62.12   61.99    64.20    54.89\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.\u003c/p\u003e\n\u003cp\u003eBy using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eStandard Deviation\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Std_dev\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003erolling(\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003estd()  \n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Std_dev\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## Date\r\n## 2020-11-30    0.973651\r\n## 2020-12-01    0.894674\r\n## 2020-12-02    1.169712\r\n## 2020-12-03    1.379397\r\n## 2020-12-04    1.417915\r\n## 2020-12-07    2.000723\r\n## 2020-12-08    2.152803\r\n## Name: Std_dev, dtype: float64\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eRelative Strength Index\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;RSI\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e talib\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eRSI(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, timeperiod \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e9\u003c/span\u003e)    \n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;RSI\u0026#39;\u003c/span\u003e]]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail())\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##                   RSI\r\n## Date                 \r\n## 2020-12-02  55.118546\r\n## 2020-12-03  58.058460\r\n## 2020-12-04  56.400663\r\n## 2020-12-07  70.157680\r\n## 2020-12-08  67.720435\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eWiliams %R\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eWilliams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today\u0026rsquo;s close was the highest high of the past N days.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Williams %R\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e talib\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eWILLR(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues,df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, \u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e)\n \n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Williams %R\u0026#39;\u003c/span\u003e]]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##             Williams %R\r\n## Date                   \r\n## 2020-11-30   -73.292929\r\n## 2020-12-01    -8.488889\r\n## 2020-12-02   -16.927481\r\n## 2020-12-03    -6.832061\r\n## 2020-12-04   -13.016760\r\n## 2020-12-07    -1.923567\r\n## 2020-12-08    -7.795934\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eReadings below -80 represent oversold territory and readings above -20 represent overbought.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eADX\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e0-25:\t  Absent or Weak Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e25-50:\tStrong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e50-75:\tVery Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e75-100:\tExtremely Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;ADX\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e talib\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eADX(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues,df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, \u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e)\n\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;ADX\u0026#39;\u003c/span\u003e]]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##                   ADX\r\n## Date                 \r\n## 2020-11-30  43.530145\r\n## 2020-12-01  37.507946\r\n## 2020-12-02  33.681345\r\n## 2020-12-03  30.401402\r\n## 2020-12-04  27.995900\r\n## 2020-12-07  30.272355\r\n## 2020-12-08  32.438747\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eMACD\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eMoving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security\u0026rsquo;s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003eShortEMA \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eClose\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eewm(span\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e12\u003c/span\u003e, adjust\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003eFalse)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean() \u003cspan style=\"color:#75715e\"\u003e#AKA Fast moving average\u003c/span\u003e\n\u003cspan style=\"color:#75715e\"\u003e#Calculate the Long Term Exponential Moving Average\u003c/span\u003e\nLongEMA \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eClose\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eewm(span\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e26\u003c/span\u003e, adjust\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003eFalse)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean() \u003cspan style=\"color:#75715e\"\u003e#AKA Slow moving average\u003c/span\u003e\n\u003cspan style=\"color:#75715e\"\u003e#Calculate the Moving Average Convergence/Divergence (MACD)\u003c/span\u003e\nMACD \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e ShortEMA \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e LongEMA\n\u003cspan style=\"color:#75715e\"\u003e#Calcualte the signal line\u003c/span\u003e\nsignal \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e MACD\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eewm(span\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e9\u003c/span\u003e, adjust\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003eFalse)\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emean()\n\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e MACD\n\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Signal Line\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e signal\n\ndf[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD_IND\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Signal Line\u0026#39;\u003c/span\u003e]\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(df[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD_IND\u0026#39;\u003c/span\u003e]]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail())\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##             MACD_IND\r\n## Date                \r\n## 2020-12-02 -0.027821\r\n## 2020-12-03  0.100287\r\n## 2020-12-04  0.165579\r\n## 2020-12-07  0.394404\r\n## 2020-12-08  0.500001\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eBollinger Bands\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eBollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\n\u003cspan style=\"color:#f92672\"\u003efrom\u003c/span\u003e talib \u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e MA_Type\n\nupper, middle, lower \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e talib\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eBBANDS(df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003evalues, matype\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003eMA_Type\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eT3)\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(round(upper[\u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e],\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e),round(middle[\u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e],\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e),round(lower[\u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e],\u003cspan style=\"color:#ae81ff\"\u003e2\u003c/span\u003e))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## 65.92 63.04 60.16\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eIn case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edropna( inplace \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e True )\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eWe do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3: Predicting the movement of stock\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo predict the movement of the stock we use 5 lag returns as the dependent variables. The first leg is return yesterday, leg2 is return day before yesterday and so on. The dependent variable is whether the prices went up or down on that day. Other variables include the technical indicators which along with 5 lag returns are used to predict the movement of stock using logistic regression.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.1: Creating lag returns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ntslagret \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eDataFrame(index\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003edf\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex)\ntslagret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Today\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Close\u0026#34;\u003c/span\u003e]\nno_lags \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e6\u003c/span\u003e\n\u003cspan style=\"color:#66d9ef\"\u003efor\u003c/span\u003e i \u003cspan style=\"color:#f92672\"\u003ein\u003c/span\u003e range(\u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e, no_lags):\n    tslagret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e%s\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e%\u003c/span\u003e str(i \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Close\u0026#34;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eshift(i \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  Creating returns dataframe\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ndf_ret \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eDataFrame(index\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003etslagret\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex)\ndf_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Today\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e tslagret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Today\u0026#34;\u003c/span\u003e]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003epct_change()\u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e100.0\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  create the lagged percentage returns columns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#66d9ef\"\u003efor\u003c/span\u003e i \u003cspan style=\"color:#f92672\"\u003ein\u003c/span\u003e range(\u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e, no_lags):\n    df_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e%s\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e%\u003c/span\u003e str(i \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e tslagret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e%s\u003c/span\u003e\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;\u003c/span\u003e \u003cspan style=\"color:#f92672\"\u003e%\u003c/span\u003e str(i \u003cspan style=\"color:#f92672\"\u003e+\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003epct_change() \u003cspan style=\"color:#f92672\"\u003e*\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e100.0\u003c/span\u003e\n\ndf_ret\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edrop(df_ret\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex[:\u003cspan style=\"color:#ae81ff\"\u003e7\u003c/span\u003e], inplace\u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003eTrue)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.3: \u0026ldquo;Direction\u0026rdquo; column (+1 or -1) indicating an up/down day\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edf_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Direction\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e np\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003esign(df_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Today\u0026#34;\u003c/span\u003e])\n\ndf_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Direction\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e np\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ewhere(df_ret[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Direction\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e\u0026lt;=\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0\u003c/span\u003e, \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e , \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)\n\n\u003cspan style=\"color:#75715e\"\u003e#df_ret[\u0026#34;Direction\u0026#34;] = np.where(df[\u0026#39;Close\u0026#39;].shift(-1) \u0026gt; df[\u0026#39;Close\u0026#39;], 1,-1)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e***3.4: Create the dependent and independent variables ***\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\ndata \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df_ret\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ecopy()\n\nX \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e data[[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag1\u0026#34;\u003c/span\u003e, \u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag2\u0026#34;\u003c/span\u003e, \u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag3\u0026#34;\u003c/span\u003e, \u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag4\u0026#34;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag5\u0026#34;\u003c/span\u003e,\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Lag6\u0026#34;\u003c/span\u003e]]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;usdinr\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;usdinr\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e-\u003c/span\u003e \u003cspan style=\"color:#ae81ff\"\u003e0.5\u003c/span\u003e\n\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\r\n\u003c/code\u003e\u003c/pre\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003eX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;usdsilver\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;usdsilver\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;20d_ma\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;20d_ma\u0026#39;\u003c/span\u003e ]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;50d_ma\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e  df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;50d_ma\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;100d_ma\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e  df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;100d_ma\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;200d_ma\u0026#34;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e  df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;200d_ma\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Std_dev\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Std_dev\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;RSI\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;RSI\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Williams %R\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Williams %R\u0026#39;\u003c/span\u003e]\n\nX[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD_IND\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;MACD_IND\u0026#39;\u003c/span\u003e] \n\n\ny \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e data[\u003cspan style=\"color:#e6db74\"\u003e\u0026#34;Direction\u0026#34;\u003c/span\u003e]\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(X\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail())\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...  200d_ma  \\\r\n## Date                                                          ...            \r\n## 2020-12-02  4.729204 -2.007193  0.768293  0.050131  0.372352  ...    54.57   \r\n## 2020-12-03  0.379534  4.729204 -2.007193  0.768293  0.050131  ...    54.64   \r\n## 2020-12-04  0.851125  0.379534  4.729204 -2.007193  0.768293  ...    54.71   \r\n## 2020-12-07 -0.336620  0.851125  0.379534  4.729204 -2.007193  ...    54.80   \r\n## 2020-12-08  4.847049 -0.336620  0.851125  0.379534  4.729204  ...    54.89   \r\n## \r\n##              Std_dev        RSI  Williams %R  MACD_IND  \r\n## Date                                                    \r\n## 2020-12-02  1.169712  55.118546   -16.927481 -0.027821  \r\n## 2020-12-03  1.379397  58.058460    -6.832061  0.100287  \r\n## 2020-12-04  1.417915  56.400663   -13.016760  0.165579  \r\n## 2020-12-07  2.000723  70.157680    -1.923567  0.394404  \r\n## 2020-12-08  2.152803  67.720435    -7.795934  0.500001  \r\n## \r\n## [5 rows x 16 columns]\r\n\u003c/code\u003e\u003c/pre\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003edata\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edescribe()\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##             Today        Lag1        Lag2        Lag3        Lag4        Lag5  \\\r\n## count  241.000000  241.000000  241.000000  241.000000  241.000000  241.000000   \r\n## mean     0.171925    0.172889    0.154044    0.158269    0.162416    0.167837   \r\n## std      2.628905    2.628712    2.611285    2.611312    2.613210    2.615016   \r\n## min    -11.221052  -11.221052  -11.221052  -11.221052  -11.221052  -11.221052   \r\n## 25%     -0.869510   -0.869510   -0.869510   -0.869510   -0.869510   -0.869510   \r\n## 50%      0.195046    0.195046    0.195046    0.212620    0.212620    0.212620   \r\n## 75%      1.205706    1.205706    1.196636    1.196636    1.205706    1.301824   \r\n## max      7.031671    7.031671    7.031671    7.031671    7.031671    7.031671   \r\n## \r\n##              Lag6   Direction  \r\n## count  241.000000  241.000000  \r\n## mean     0.149214    0.103734  \r\n## std      2.598325    0.996675  \r\n## min    -11.221052   -1.000000  \r\n## 25%     -0.869510   -1.000000  \r\n## 50%      0.212620    1.000000  \r\n## 75%      1.205706    1.000000  \r\n## max      7.031671    1.000000\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.5:  Create training and test sets\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003estart_test \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e datetime(\u003cspan style=\"color:#ae81ff\"\u003e2020\u003c/span\u003e, \u003cspan style=\"color:#ae81ff\"\u003e8\u003c/span\u003e, \u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e)\n\nX_train \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e X[X\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex \u003cspan style=\"color:#f92672\"\u003e\u0026lt;\u003c/span\u003e start_test]\nX_test \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e X[X\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex \u003cspan style=\"color:#f92672\"\u003e\u0026gt;=\u003c/span\u003e start_test]\ny_train \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e y[y\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex \u003cspan style=\"color:#f92672\"\u003e\u0026lt;\u003c/span\u003e start_test]\ny_test \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e y[y\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eindex \u003cspan style=\"color:#f92672\"\u003e\u0026gt;=\u003c/span\u003e start_test]\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e***3.6:  Create model ***\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\n\u003cspan style=\"color:#75715e\"\u003e# fit model no training data\u003c/span\u003e\n\u003cspan style=\"color:#75715e\"\u003e# model = XGBClassifier()\u003c/span\u003e\nmodel \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e LogisticRegression()\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.7:  train the model on the training set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003emodel\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003efit(X_train, y_train)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## LogisticRegression()\r\n## \r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\sklearn\\linear_model\\_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):\r\n## STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.\r\n## \r\n## Increase the number of iterations (max_iter) or scale the data as shown in:\r\n##     https://scikit-learn.org/stable/modules/preprocessing.html\r\n## Please also refer to the documentation for alternative solver options:\r\n##     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression\r\n##   extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.8:    make an array of predictions on the test set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003ey_pred \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e model\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003epredict(X_test)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.9:    output the hit-rate and the confusion matrix for the model\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Accuracy: \u0026#39;\u003c/span\u003e,metrics\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eaccuracy_score(y_test, y_pred))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## Accuracy:  0.7912087912087912\r\n\u003c/code\u003e\u003c/pre\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(confusion_matrix(y_pred,y_test))\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## [[29  5]\r\n##  [14 43]]\r\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e***3.10:   Predict movement of stock for tomorrow. ***\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003ecomp \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e pd\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003eDataFrame()\ncomp[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;y_test\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e y_test\ncomp[\u003cspan style=\"color:#e6db74\"\u003e\u0026#39;y_pred\u0026#39;\u003c/span\u003e] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e y_pred\n\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(comp)\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e##             y_test  y_pred\r\n## Date                      \r\n## 2020-08-03       1       1\r\n## 2020-08-04       1       1\r\n## 2020-08-05       1       1\r\n## 2020-08-06       1       1\r\n## 2020-08-07      -1      -1\r\n## ...            ...     ...\r\n## 2020-12-02       1       1\r\n## 2020-12-03       1       1\r\n## 2020-12-04      -1       1\r\n## 2020-12-07       1       1\r\n## 2020-12-08      -1      -1\r\n## \r\n## [91 rows x 2 columns]\r\n\u003c/code\u003e\u003c/pre\u003e\u003cdiv class=\"highlight\"\u003e\u003cpre style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003epredict \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e model\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003epredict(X_test\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003etail(\u003cspan style=\"color:#ae81ff\"\u003e1\u003c/span\u003e))\n\u003cspan style=\"color:#66d9ef\"\u003eprint\u003c/span\u003e(int(predict)) \u003cspan style=\"color:#75715e\"\u003e# 1: UP, -1: DOWN\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre\u003e\u003ccode\u003e## -1\r\n\u003c/code\u003e\u003c/pre\u003e"
 }
 </script>
 
@@ -290,35 +290,25 @@ if (!doNotTrack) {
       <a href="/blog/applying-logistic-regression/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/logistic-stock-8.jpg');">
     <img src="https://laxmikants.github.io/img/main/logistic-stock-8.jpg" alt="">
   </a>
-      
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
-
-<div id="TOC">
-<ul>
-<li><a href="#z-scores"><span class="toc-section-number">0.1</span> z-scores</a></li>
-</ul>
-</div>
-
-<p><strong><em>1:Loading Stock data</em></strong></p>
-<p><strong><em>1.1:Importing libraries and data</em></strong></p>
-<pre class="python"><code>
-import investpy
-from datetime import datetime
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix
-from sklearn import metrics
-from scipy import stats 
-import numpy as np
-import pandas as pd
-import seaborn as sn
-import matplotlib.pyplot as plt
-import talib
-import quandl
-</code></pre>
-<p><strong><em>1.2:Fetching the data</em></strong></p>
+      <p><em><strong>1:Loading Stock data</strong></em></p>
+<p><em><strong>1.1:Importing libraries and data</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> investpy
+<span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> metrics
+<span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> stats 
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sn
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> talib
+<span style="color:#f92672">import</span> quandl
+</code></pre></div><p><em><strong>1.2:Fetching the data</strong></em></p>
 <p>To fetch the stock data we use <code>investpy</code> library. This library fetchs data from investing for example:</p>
-<pre class="python"><code>df = investpy.commodities.get_commodity_historical_data(stock=&#39;ABC&#39;,from_date=&#39;01/01/2015&#39;,to_date=&#39;14/08/2020&#39;, country = &quot;India&quot;)</code></pre>
-<pre><code>##               Open    High     Low   Close  Volume
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> investpy<span style="color:#f92672">.</span>commodities<span style="color:#f92672">.</span>get_commodity_historical_data(stock<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ABC&#39;</span>,from_date<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;01/01/2015&#39;</span>,to_date<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;14/08/2020&#39;</span>, country <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;India&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><pre><code>##               Open    High     Low   Close  Volume
 ## Date                                              
 ## 2019-12-02  44.290  44.416  44.077  44.344     354
 ## 2019-12-03  44.250  44.985  44.150  44.620     138
@@ -326,494 +316,478 @@ import quandl
 ## 2019-12-05  44.200  45.287  43.850  44.064      44
 ## 2019-12-06  44.599  44.714  43.470  43.545   24469
 ## ...            ...     ...     ...     ...     ...
-## 2020-10-13  62.126  62.965  60.213  60.530   31791
-## 2020-10-14  60.722  62.240  60.619  61.552   25329
-## 2020-10-15  61.002  61.639  59.840  61.420   28875
-## 2020-10-16  61.554  62.168  61.355  61.355     336
-## 2020-10-19  61.355  63.235  61.300  62.049   23793
+## 2020-12-02  61.628  63.040  61.425  62.153     468
+## 2020-12-03  62.600  63.000  61.903  62.682     120
+## 2020-12-04  62.600  63.170  62.300  62.471     114
+## 2020-12-07  63.643  65.650  62.380  65.499   26874
+## 2020-12-08  65.388  65.817  64.576  65.192   20209
 ## 
-## [226 rows x 5 columns]</code></pre>
-<div id="z-scores" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> z-scores</h2>
-<pre class="python"><code>
-df[&#39;zscore&#39;] = stats.zscore(df[&#39;Close&#39;])
+## [263 rows x 5 columns]
+</code></pre><pre><code>## Date
+## 2019-12-31    44.881810
+## 2020-01-31    46.695000
+## 2020-02-29    46.520429
+## 2020-03-31    41.378909
+## 2020-04-30    42.363278
+## 2020-05-31    45.519857
+## 2020-06-30    48.408409
+## 2020-07-31    55.729304
+## 2020-08-31    68.659667
+## 2020-09-30    65.037545
+## 2020-10-31    61.676524
+## 2020-11-30    62.029773
+## 2020-12-31    63.319167
+## Freq: M, Name: Close, dtype: float64
+</code></pre><pre><code>##               Open    High     Low   Close  Volume Currency  usdinr  usdsilver
+## Date                                                                          
+## 2019-12-02  44.290  44.416  44.077  44.344     354      INR  71.634     17.141
+## 2019-12-03  44.250  44.985  44.150  44.620     138      INR  71.740     17.422
+## 2019-12-04  44.949  45.100  44.100  44.392      34      INR  71.474     17.088
+## 2019-12-05  44.200  45.287  43.850  44.064      44      INR  71.252     17.227
+## 2019-12-06  44.599  44.714  43.470  43.545   24469      INR  71.283     16.763
+## ...            ...     ...     ...     ...     ...      ...     ...        ...
+## 2020-12-02  61.628  63.040  61.425  62.153     468      INR  73.760     24.080
+## 2020-12-03  62.600  63.000  61.903  62.682     120      INR  73.860     24.137
+## 2020-12-04  62.600  63.170  62.300  62.471     114      INR  73.757     24.253
+## 2020-12-07  63.643  65.650  62.380  65.499   26874      INR  73.826     24.794
+## 2020-12-08  65.388  65.817  64.576  65.192   20209      INR  73.720     24.720
+## 
+## [263 rows x 8 columns]
+</code></pre><h2 id="z-scores">z-scores</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+df[<span style="color:#e6db74">&#39;zscore&#39;</span>] <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>zscore(df[<span style="color:#e6db74">&#39;Close&#39;</span>])
 
-print(df[&#39;zscore&#39;].tail(30))</code></pre>
-<pre><code>## Date
-## 2020-09-07    1.786201
-## 2020-09-08    1.809582
-## 2020-09-09    1.804235
-## 2020-09-10    1.861693
-## 2020-09-11    1.750237
-## 2020-09-14    1.858967
-## 2020-09-15    1.859176
-## 2020-09-16    1.839674
-## 2020-09-17    1.772675
-## 2020-09-18    1.744890
-## 2020-09-21    1.056971
-## 2020-09-22    1.046171
-## 2020-09-23    0.760455
-## 2020-09-24    0.880089
-## 2020-09-25    0.816970
-## 2020-09-28    0.960509
-## 2020-09-29    1.177548
-## 2020-09-30    0.910496
-## 2020-10-01    1.039041
-## 2020-10-05    1.122502
-## 2020-10-06    0.978858
-## 2020-10-07    0.962920
-## 2020-10-08    0.973405
-## 2020-10-09    1.221375
-## 2020-10-12    1.243813
-## 2020-10-13    0.974559
-## 2020-10-14    1.081715
-## 2020-10-15    1.067875
-## 2020-10-16    1.061060
-## 2020-10-19    1.133826
-## Name: zscore, dtype: float64</code></pre>
-<pre class="python"><code>pd.set_option(&#39;display.max_columns&#39;, 10)
-PP = pd.Series((df[&#39;High&#39;] + df[&#39;Low&#39;] + df[&#39;Close&#39;]) / 3)  
-R1 = pd.Series(2 * PP - df[&#39;Low&#39;])  
-S1 = pd.Series(2 * PP - df[&#39;High&#39;])  
-R2 = pd.Series(PP + df[&#39;High&#39;] - df[&#39;Low&#39;])  
-S2 = pd.Series(PP - df[&#39;High&#39;] + df[&#39;Low&#39;])  
-R3 = pd.Series(df[&#39;High&#39;] + 2 * (PP - df[&#39;Low&#39;]))  
-S3 = pd.Series(df[&#39;Low&#39;] - 2 * (df[&#39;High&#39;] - PP))  
-psr = {&#39;PP&#39;:PP, &#39;R1&#39;:R1, &#39;S1&#39;:S1, &#39;R2&#39;:R2, &#39;S2&#39;:S2, &#39;R3&#39;:R3, &#39;S3&#39;:S3}  
-PSR = pd.DataFrame(psr)  
-print(PSR.tail())</code></pre>
-<pre><code>##                    PP         R1         S1         R2         S2         R3  \
+<span style="color:#66d9ef">print</span>(df[<span style="color:#e6db74">&#39;zscore&#39;</span>]<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">30</span>))
+</code></pre></div><pre><code>## Date
+## 2020-10-29    0.765919
+## 2020-10-30    0.837735
+## 2020-11-02    0.956081
+## 2020-11-03    1.026343
+## 2020-11-04    0.892038
+## 2020-11-05    1.188836
+## 2020-11-06    1.300964
+## 2020-11-09    0.836595
+## 2020-11-10    1.063546
+## 2020-11-11    1.011420
+## 2020-11-12    1.031939
+## 2020-11-13    1.134948
+## 2020-11-14    1.121994
+## 2020-11-16    1.130595
+## 2020-11-17    1.084687
+## 2020-11-18    1.011627
+## 2020-11-19    0.904577
+## 2020-11-20    0.971730
+## 2020-11-23    0.802501
+## 2020-11-24    0.708819
+## 2020-11-25    0.731825
+## 2020-11-26    0.734934
+## 2020-11-27    0.782604
+## 2020-11-30    0.657107
+## 2020-12-01    0.946858
+## 2020-12-02    0.971211
+## 2020-12-03    1.026032
+## 2020-12-04    1.004166
+## 2020-12-07    1.317959
+## 2020-12-08    1.286145
+## Name: zscore, dtype: float64
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pd<span style="color:#f92672">.</span>set_option(<span style="color:#e6db74">&#39;display.max_columns&#39;</span>, <span style="color:#ae81ff">10</span>)
+PP <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series((df[<span style="color:#e6db74">&#39;High&#39;</span>] <span style="color:#f92672">+</span> df[<span style="color:#e6db74">&#39;Low&#39;</span>] <span style="color:#f92672">+</span> df[<span style="color:#e6db74">&#39;Close&#39;</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">3</span>)  
+R1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> PP <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;Low&#39;</span>])  
+S1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> PP <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;High&#39;</span>])  
+R2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(PP <span style="color:#f92672">+</span> df[<span style="color:#e6db74">&#39;High&#39;</span>] <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;Low&#39;</span>])  
+S2 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(PP <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;High&#39;</span>] <span style="color:#f92672">+</span> df[<span style="color:#e6db74">&#39;Low&#39;</span>])  
+R3 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(df[<span style="color:#e6db74">&#39;High&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (PP <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;Low&#39;</span>]))  
+S3 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(df[<span style="color:#e6db74">&#39;Low&#39;</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> (df[<span style="color:#e6db74">&#39;High&#39;</span>] <span style="color:#f92672">-</span> PP))  
+psr <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;PP&#39;</span>:PP, <span style="color:#e6db74">&#39;R1&#39;</span>:R1, <span style="color:#e6db74">&#39;S1&#39;</span>:S1, <span style="color:#e6db74">&#39;R2&#39;</span>:R2, <span style="color:#e6db74">&#39;S2&#39;</span>:S2, <span style="color:#e6db74">&#39;R3&#39;</span>:R3, <span style="color:#e6db74">&#39;S3&#39;</span>:S3}  
+PSR <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(psr)  
+<span style="color:#66d9ef">print</span>(PSR<span style="color:#f92672">.</span>tail())
+</code></pre></div><pre><code>##                    PP         R1         S1         R2         S2         R3  \
 ## Date                                                                           
-## 2020-10-13  61.236000  62.259000  59.507000  63.988000  58.484000  65.011000   
-## 2020-10-14  61.470333  62.321667  60.700667  63.091333  59.849333  63.942667   
-## 2020-10-15  60.966333  62.092667  60.293667  62.765333  59.167333  63.891667   
-## 2020-10-16  61.626000  61.897000  61.084000  62.439000  60.813000  62.710000   
-## 2020-10-19  62.194667  63.089333  61.154333  64.129667  60.259667  65.024333   
+## 2020-12-02  62.206000  62.987000  61.372000  63.821000  60.591000  64.602000   
+## 2020-12-03  62.528333  63.153667  62.056667  63.625333  61.431333  64.250667   
+## 2020-12-04  62.647000  62.994000  62.124000  63.517000  61.777000  63.864000   
+## 2020-12-07  64.509667  66.639333  63.369333  67.779667  61.239667  69.909333   
+## 2020-12-08  65.195000  65.814000  64.573000  66.436000  63.954000  67.055000   
 ## 
 ##                    S3  
 ## Date                   
-## 2020-10-13  56.755000  
-## 2020-10-14  59.079667  
-## 2020-10-15  58.494667  
-## 2020-10-16  60.271000  
-## 2020-10-19  59.219333</code></pre>
-<p>As we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.</p>
+## 2020-12-02  59.757000  
+## 2020-12-03  60.959667  
+## 2020-12-04  61.254000  
+## 2020-12-07  60.099333  
+## 2020-12-08  63.332000
+</code></pre><p>As we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.</p>
 <p><code>Open:</code> That’s the share price the stock had when the markets opened that day.</p>
 <p><code>Close:</code> That’s the share price the stock had when the markets closed that day.</p>
 <p><code>High:</code> That’s the highest share price that the stock had that day.</p>
 <p><code>Low:</code> That’s the lowest share price that the stock had that day.</p>
 <p><code>Volume:</code> Amount of shares that changed hands that day.</p>
-<p><strong><em>1.3:Reading individual values</em></strong></p>
+<p><em><strong>1.3:Reading individual values</strong></em></p>
 <p>Since our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using <code>print (df[ 'Close' ])</code></p>
 <p>Also, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.</p>
-<pre class="python"><code>print (df[ &#39;Close&#39; ][ &#39;2020-07-14&#39; ])</code></pre>
-<pre><code>## 52.649</code></pre>
-<p>But we could also use simple indexing to access certain positions.</p>
-<pre class="python"><code>print (df[ &#39;Close&#39; ][ 5 ])</code></pre>
-<pre><code>## 43.502</code></pre>
-<p>Here we printed the closing price of the fifth entry.</p>
-<p><strong><em>2:Graphical Visualization</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span> (df[ <span style="color:#e6db74">&#39;Close&#39;</span> ][ <span style="color:#e6db74">&#39;2020-07-14&#39;</span> ])
+</code></pre></div><pre><code>## 52.649
+</code></pre><p>But we could also use simple indexing to access certain positions.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span> (df[ <span style="color:#e6db74">&#39;Close&#39;</span> ][ <span style="color:#ae81ff">5</span> ])
+</code></pre></div><pre><code>## 43.502
+</code></pre><p>Here we  printed the closing price of the fifth entry.</p>
+<p><em><strong>2:Graphical Visualization</strong></em></p>
 <p>Even though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.</p>
 <p>Actually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.</p>
-<pre class="python"><code>import matplotlib.pyplot as plt
-from matplotlib import style
-style.use( &#39;ggplot&#39; )
-plt.ylabel( &#39;Close&#39; )
-plt.title( &#39;Share Price&#39; )
-df[&#39;Close&#39;].plot()
-plt.show()</code></pre>
-<p><img src="/img/main/stockplot.png" /></p>
-<p><strong><em>2.1:CandleStick Charts</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">from</span> matplotlib <span style="color:#f92672">import</span> style
+style<span style="color:#f92672">.</span>use( <span style="color:#e6db74">&#39;ggplot&#39;</span> )
+plt<span style="color:#f92672">.</span>ylabel( <span style="color:#e6db74">&#39;Close&#39;</span> )
+plt<span style="color:#f92672">.</span>title( <span style="color:#e6db74">&#39;Share Price&#39;</span> )
+df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>plot()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/img/main/stockplot.png" alt=""></p>
+<p><em><strong>2.1:CandleStick Charts</strong></em></p>
 <p>The best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library.</p>
-<pre class="python"><code>import mplfinance as fplt</code></pre>
-<p>We are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> mplfinance <span style="color:#f92672">as</span> fplt
+</code></pre></div><p>We are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.
 Also, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .</p>
-<pre class="python"><code>import matplotlib.dates as mdates</code></pre>
-<p><strong><em>2.2: Preparing the data for CandleStick charts</em></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.dates <span style="color:#f92672">as</span> mdates
+</code></pre></div><p><em><strong>2.2: Preparing the data for CandleStick charts</strong></em></p>
 <p>Now in order to plot our stock data, we need to select the four columns in the right order.</p>
-<pre class="python"><code>df1 = df[[ &#39;Open&#39; , &#39;High&#39; , &#39;Low&#39; , &#39;Close&#39; ]]</code></pre>
-<p>Now, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df1 <span style="color:#f92672">=</span> df[[ <span style="color:#e6db74">&#39;Open&#39;</span> , <span style="color:#e6db74">&#39;High&#39;</span> , <span style="color:#e6db74">&#39;Low&#39;</span> , <span style="color:#e6db74">&#39;Close&#39;</span> ]]
+</code></pre></div><p>Now, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it. 
 Therefore, we need to reset the index and then convert our datetime to a number.</p>
-<pre class="python"><code>df1.reset_index( inplace = True )
-df1[ &#39;Date&#39; ] = df1[ &#39;Date&#39; ].map(mdates.date2num)</code></pre>
-<pre><code>## C:/ProgramData/Anaconda3/python.exe:1: SettingWithCopyWarning: 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df1<span style="color:#f92672">.</span>reset_index( inplace <span style="color:#f92672">=</span> True )
+df1[ <span style="color:#e6db74">&#39;Date&#39;</span> ] <span style="color:#f92672">=</span> df1[ <span style="color:#e6db74">&#39;Date&#39;</span> ]<span style="color:#f92672">.</span>map(mdates<span style="color:#f92672">.</span>date2num)
+</code></pre></div><pre><code>## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: 
 ## A value is trying to be set on a copy of a slice from a DataFrame.
 ## Try using .loc[row_indexer,col_indexer] = value instead
 ## 
-## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy</code></pre>
-<p>For this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.</p>
-<p><strong><em>2.3:Plotting the data</em></strong></p>
+## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</code></pre><p>For this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.</p>
+<p><em><strong>2.3:Plotting the data</strong></em></p>
 <p>Now we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.</p>
-<pre class="python"><code>ax = plt.subplot()
-fplt(ax, df1.values,
-                  width = 5 ,
-                  colordown = &#39;r&#39; , colorup = &#39;g&#39; )
-ax.grid()
-ax.xaxis_date()
-plt.show()</code></pre>
-<p><img src="/img/main/candlestick.png" /></p>
-<p>One candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close price.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplot()
+fplt(ax, df1<span style="color:#f92672">.</span>values,
+                  width <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> ,
+                  colordown <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;r&#39;</span> , colorup <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;g&#39;</span> )
+ax<span style="color:#f92672">.</span>grid()
+ax<span style="color:#f92672">.</span>xaxis_date()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="/img/main/candlestick.png" alt=""></p>
+<p>One candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close  price. 
 If the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.</p>
-<p><strong><em>2.4:Analysis and Statistics </em></strong></p>
-<p>Now let’s get a little bit deeper into the numbers here and away from the visual.
+<p>***2.4:Analysis and Statistics ***</p>
+<p>Now let’s get a little bit deeper into the numbers here and away from the visual. 
 From our data we can derive some statistical values that will help us to analyze it.</p>
-<p><strong><em><code>PERCENTAGE CHANGE</code></em></strong></p>
+<p><em><strong><code>PERCENTAGE CHANGE</code></strong></em></p>
 <p>One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.</p>
-<pre class="python"><code>df[ &#39;PCT_Change&#39; ] = (df[ &#39;Close&#39; ] - df[ &#39;Open&#39; ]) / df[ &#39;Open&#39; ]</code></pre>
-<p>The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[ <span style="color:#e6db74">&#39;PCT_Change&#39;</span> ] <span style="color:#f92672">=</span> (df[ <span style="color:#e6db74">&#39;Close&#39;</span> ] <span style="color:#f92672">-</span> df[ <span style="color:#e6db74">&#39;Open&#39;</span> ]) <span style="color:#f92672">/</span> df[ <span style="color:#e6db74">&#39;Open&#39;</span> ]
+</code></pre></div><p>The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.</p>
 <p>*** <code>HIGH LOW PERCENTAGE</code> ***</p>
 <p>Another interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.</p>
 <p>By doing that we can get a feeling of how volatile the stock is.</p>
-<pre class="python"><code>df[ &#39;HL_PCT&#39; ] = (df[ &#39;High&#39; ] - df[ &#39;Low&#39; ]) / df[ &#39;Close&#39; ]
-print(df.tail())</code></pre>
-<pre><code>##               Open    High     Low   Close  Volume  ...  usdinr  usdsilver  \
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[ <span style="color:#e6db74">&#39;HL_PCT&#39;</span> ] <span style="color:#f92672">=</span> (df[ <span style="color:#e6db74">&#39;High&#39;</span> ] <span style="color:#f92672">-</span> df[ <span style="color:#e6db74">&#39;Low&#39;</span> ]) <span style="color:#f92672">/</span> df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]
+<span style="color:#66d9ef">print</span>(df<span style="color:#f92672">.</span>tail())
+</code></pre></div><pre><code>##               Open    High     Low   Close  Volume  ...  usdinr  usdsilver  \
 ## Date                                                ...                      
-## 2020-10-13  62.126  62.965  60.213  60.530   31791  ...  73.400     24.129   
-## 2020-10-14  60.722  62.240  60.619  61.552   25329  ...  73.240     24.395   
-## 2020-10-15  61.002  61.639  59.840  61.420   28875  ...  73.420     24.224   
-## 2020-10-16  61.554  62.168  61.355  61.355     336  ...  73.442     24.405   
-## 2020-10-19  61.355  63.235  61.300  62.049   23793  ...  73.350     24.698   
+## 2020-12-02  61.628  63.040  61.425  62.153     468  ...  73.760     24.080   
+## 2020-12-03  62.600  63.000  61.903  62.682     120  ...  73.860     24.137   
+## 2020-12-04  62.600  63.170  62.300  62.471     114  ...  73.757     24.253   
+## 2020-12-07  63.643  65.650  62.380  65.499   26874  ...  73.826     24.794   
+## 2020-12-08  65.388  65.817  64.576  65.192   20209  ...  73.720     24.720   
 ## 
 ##               zscore  PCT_Change    HL_PCT  
 ## Date                                        
-## 2020-10-13  0.974559   -0.025690  0.045465  
-## 2020-10-14  1.081715    0.013669  0.026335  
-## 2020-10-15  1.067875    0.006852  0.029290  
-## 2020-10-16  1.061060   -0.003233  0.013251  
-## 2020-10-19  1.133826    0.011311  0.031185  
+## 2020-12-02  0.971211    0.008519  0.025984  
+## 2020-12-03  1.026032    0.001310  0.017501  
+## 2020-12-04  1.004166   -0.002061  0.013926  
+## 2020-12-07  1.317959    0.029163  0.049924  
+## 2020-12-08  1.286145   -0.002997  0.019036  
 ## 
-## [5 rows x 11 columns]</code></pre>
-<p>These statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making</p>
+## [5 rows x 11 columns]
+</code></pre><p>These statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making</p>
 <p>*** <code>MOVING AVERAGE</code> ***</p>
 <p>we are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.</p>
 <p>What we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.</p>
 <p>For this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.</p>
-<pre class="python"><code>
-df[ &#39;5d_ma&#39; ] = round(df[ &#39;Close&#39; ].rolling( window = 5 , min_periods = 0 ).mean(),2)
-df[ &#39;20d_ma&#39; ] = round(df[ &#39;Close&#39; ].rolling( window = 20 , min_periods = 0 ).mean(),2)
-df[&#39;50d_ma&#39;] = round(df[ &#39;Close&#39; ].rolling(window = 50, min_periods = 0).mean(),2)
-df[&#39;100d_ma&#39;] = round(df[ &#39;Close&#39; ].rolling(window = 100, min_periods = 0).mean(),2)
-df[&#39;200d_ma&#39;] = round(df[ &#39;Close&#39; ].rolling(window = 200, min_periods = 0).mean(),2)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+df[ <span style="color:#e6db74">&#39;5d_ma&#39;</span> ] <span style="color:#f92672">=</span> round(df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]<span style="color:#f92672">.</span>rolling( window <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span> , min_periods <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> )<span style="color:#f92672">.</span>mean(),<span style="color:#ae81ff">2</span>)
+df[ <span style="color:#e6db74">&#39;20d_ma&#39;</span> ] <span style="color:#f92672">=</span> round(df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]<span style="color:#f92672">.</span>rolling( window <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span> , min_periods <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> )<span style="color:#f92672">.</span>mean(),<span style="color:#ae81ff">2</span>)
+df[<span style="color:#e6db74">&#39;50d_ma&#39;</span>] <span style="color:#f92672">=</span> round(df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]<span style="color:#f92672">.</span>rolling(window <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>, min_periods <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>mean(),<span style="color:#ae81ff">2</span>)
+df[<span style="color:#e6db74">&#39;100d_ma&#39;</span>] <span style="color:#f92672">=</span> round(df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]<span style="color:#f92672">.</span>rolling(window <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>, min_periods <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>mean(),<span style="color:#ae81ff">2</span>)
+df[<span style="color:#e6db74">&#39;200d_ma&#39;</span>] <span style="color:#f92672">=</span> round(df[ <span style="color:#e6db74">&#39;Close&#39;</span> ]<span style="color:#f92672">.</span>rolling(window <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>, min_periods <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>mean(),<span style="color:#ae81ff">2</span>)
 
-#df[ &#39;20d_ma&#39; ] = round(df.Close.ewm(span=21, adjust=False).mean(),2)
-#df[&#39;50d_ma&#39;] = round(df.Close.ewm(span=49, adjust=False).mean(),2)
+<span style="color:#75715e">#df[ &#39;20d_ma&#39; ] = round(df.Close.ewm(span=21, adjust=False).mean(),2)</span>
+<span style="color:#75715e">#df[&#39;50d_ma&#39;] = round(df.Close.ewm(span=49, adjust=False).mean(),2)</span>
 
-#df[&#39;100d_ma&#39;] = round(df.Close.ewm(span=98, adjust=False).mean(),2)
-#df[&#39;200d_ma&#39;] = round(df.Close.ewm(span=196, adjust=False).mean(),2)
+<span style="color:#75715e">#df[&#39;100d_ma&#39;] = round(df.Close.ewm(span=98, adjust=False).mean(),2)</span>
+<span style="color:#75715e">#df[&#39;200d_ma&#39;] = round(df.Close.ewm(span=196, adjust=False).mean(),2)</span>
 
-print(df[[&#39;Close&#39;,&#39;5d_ma&#39;,&#39;20d_ma&#39;,&#39;50d_ma&#39;,&#39;100d_ma&#39;,&#39;200d_ma&#39;]].tail(7))</code></pre>
-<pre><code>##              Close  5d_ma  20d_ma  50d_ma  100d_ma  200d_ma
+<span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#39;Close&#39;</span>,<span style="color:#e6db74">&#39;5d_ma&#39;</span>,<span style="color:#e6db74">&#39;20d_ma&#39;</span>,<span style="color:#e6db74">&#39;50d_ma&#39;</span>,<span style="color:#e6db74">&#39;100d_ma&#39;</span>,<span style="color:#e6db74">&#39;200d_ma&#39;</span>]]<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">7</span>))
+</code></pre></div><pre><code>##              Close  5d_ma  20d_ma  50d_ma  100d_ma  200d_ma
 ## Date                                                       
-## 2020-10-09  62.884  61.27   63.03   66.10    58.78    51.57
-## 2020-10-12  63.098  61.50   62.79   66.07    58.93    51.65
-## 2020-10-13  60.530  61.49   62.37   65.96    59.05    51.72
-## 2020-10-14  61.552  61.72   62.00   65.80    59.19    51.79
-## 2020-10-15  61.420  61.90   61.63   65.59    59.32    51.86
-## 2020-10-16  61.355  61.59   61.29   65.29    59.45    51.93
-## 2020-10-19  62.049  61.38   61.00   65.05    59.57    52.00</code></pre>
-<p>Here we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.</p>
+## 2020-11-30  59.122  59.76   62.00   61.62    63.62    54.43
+## 2020-12-01  61.918  60.22   62.02   61.63    63.71    54.50
+## 2020-12-02  62.153  60.68   61.92   61.71    63.81    54.57
+## 2020-12-03  62.682  61.24   61.79   61.77    63.91    54.64
+## 2020-12-04  62.471  61.67   61.87   61.84    64.00    54.71
+## 2020-12-07  65.499  62.94   61.99   61.94    64.12    54.80
+## 2020-12-08  65.192  63.60   62.12   61.99    64.20    54.89
+</code></pre><p>Here we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.</p>
 <p>By using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.</p>
 <p>*** <code>Standard Deviation</code> ***</p>
 <p>The variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.</p>
-<pre class="python"><code>df[&#39;Std_dev&#39;]= df[&#39;Close&#39;].rolling(7).std()  
-print(df[&#39;Std_dev&#39;].tail(7))</code></pre>
-<pre><code>## Date
-## 2020-10-09    1.029147
-## 2020-10-12    1.138909
-## 2020-10-13    1.194226
-## 2020-10-14    1.175008
-## 2020-10-15    1.121689
-## 2020-10-16    1.024474
-## 2020-10-19    0.906168
-## Name: Std_dev, dtype: float64</code></pre>
-<p>*** <code>Relative Strength Index</code> ***</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="color:#e6db74">&#39;Std_dev&#39;</span>]<span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>rolling(<span style="color:#ae81ff">7</span>)<span style="color:#f92672">.</span>std()  
+<span style="color:#66d9ef">print</span>(df[<span style="color:#e6db74">&#39;Std_dev&#39;</span>]<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">7</span>))
+</code></pre></div><pre><code>## Date
+## 2020-11-30    0.973651
+## 2020-12-01    0.894674
+## 2020-12-02    1.169712
+## 2020-12-03    1.379397
+## 2020-12-04    1.417915
+## 2020-12-07    2.000723
+## 2020-12-08    2.152803
+## Name: Std_dev, dtype: float64
+</code></pre><p>*** <code>Relative Strength Index</code> ***</p>
 <p>The relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.</p>
-<pre class="python"><code>df[&#39;RSI&#39;] = talib.RSI(df[&#39;Close&#39;].values, timeperiod = 9)    
-print(df[[&#39;RSI&#39;]].tail())</code></pre>
-<pre><code>##                   RSI
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="color:#e6db74">&#39;RSI&#39;</span>] <span style="color:#f92672">=</span> talib<span style="color:#f92672">.</span>RSI(df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>values, timeperiod <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>)    
+<span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#39;RSI&#39;</span>]]<span style="color:#f92672">.</span>tail())
+</code></pre></div><pre><code>##                   RSI
 ## Date                 
-## 2020-10-13  42.427100
-## 2020-10-14  47.448622
-## 2020-10-15  46.854813
-## 2020-10-16  46.532210
-## 2020-10-19  50.616315</code></pre>
-<p>*** <code>Wiliams %R</code> ***</p>
-<p>Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today’s close was the highest high of the past N days.</p>
-<pre class="python"><code>df[&#39;Williams %R&#39;] = talib.WILLR(df[&#39;High&#39;].values,df[&#39;Low&#39;].values, df[&#39;Close&#39;].values, 7)
+## 2020-12-02  55.118546
+## 2020-12-03  58.058460
+## 2020-12-04  56.400663
+## 2020-12-07  70.157680
+## 2020-12-08  67.720435
+</code></pre><p>*** <code>Wiliams %R</code> ***</p>
+<p>Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today&rsquo;s close was the highest high of the past N days.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[<span style="color:#e6db74">&#39;Williams %R&#39;</span>] <span style="color:#f92672">=</span> talib<span style="color:#f92672">.</span>WILLR(df[<span style="color:#e6db74">&#39;High&#39;</span>]<span style="color:#f92672">.</span>values,df[<span style="color:#e6db74">&#39;Low&#39;</span>]<span style="color:#f92672">.</span>values, df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>values, <span style="color:#ae81ff">7</span>)
  
-print(df[[&#39;Williams %R&#39;]].tail(7))</code></pre>
-<pre><code>##             Williams %R
+<span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#39;Williams %R&#39;</span>]]<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">7</span>))
+</code></pre></div><pre><code>##             Williams %R
 ## Date                   
-## 2020-10-09    -9.170082
-## 2020-10-12   -21.404682
-## 2020-10-13   -75.083612
-## 2020-10-14   -53.720736
-## 2020-10-15   -56.479933
-## 2020-10-16   -64.619337
-## 2020-10-19   -48.411957</code></pre>
-<p>Readings below -80 represent oversold territory and readings above -20 represent overbought.</p>
+## 2020-11-30   -73.292929
+## 2020-12-01    -8.488889
+## 2020-12-02   -16.927481
+## 2020-12-03    -6.832061
+## 2020-12-04   -13.016760
+## 2020-12-07    -1.923567
+## 2020-12-08    -7.795934
+</code></pre><p>Readings below -80 represent oversold territory and readings above -20 represent overbought.</p>
 <p>*** <code>ADX</code> ***</p>
 <p>ADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.</p>
 <blockquote>
-<p>0-25: Absent or Weak Trend</p>
+<p>0-25:	  Absent or Weak Trend</p>
 </blockquote>
 <blockquote>
-<p>25-50: Strong Trend</p>
+<p>25-50:	Strong Trend</p>
 </blockquote>
 <blockquote>
-<p>50-75: Very Strong Trend</p>
+<p>50-75:	Very Strong Trend</p>
 </blockquote>
 <blockquote>
-<p>75-100: Extremely Strong Trend</p>
+<p>75-100:	Extremely Strong Trend</p>
 </blockquote>
-<pre class="python"><code>
-df[&#39;ADX&#39;] = talib.ADX(df[&#39;High&#39;].values,df[&#39;Low&#39;].values, df[&#39;Close&#39;].values, 7)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+df[<span style="color:#e6db74">&#39;ADX&#39;</span>] <span style="color:#f92672">=</span> talib<span style="color:#f92672">.</span>ADX(df[<span style="color:#e6db74">&#39;High&#39;</span>]<span style="color:#f92672">.</span>values,df[<span style="color:#e6db74">&#39;Low&#39;</span>]<span style="color:#f92672">.</span>values, df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>values, <span style="color:#ae81ff">7</span>)
 
 
-print(df[[&#39;ADX&#39;]].tail(7))</code></pre>
-<pre><code>##                   ADX
+<span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#39;ADX&#39;</span>]]<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">7</span>))
+</code></pre></div><pre><code>##                   ADX
 ## Date                 
-## 2020-10-09  28.249595
-## 2020-10-12  27.494609
-## 2020-10-13  25.049426
-## 2020-10-14  22.953556
-## 2020-10-15  22.627446
-## 2020-10-16  20.910263
-## 2020-10-19  18.999989</code></pre>
-<p>*** <code>MACD</code> ***</p>
-<p>Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security’s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.</p>
-<pre class="python"><code>ShortEMA = df.Close.ewm(span=12, adjust=False).mean() #AKA Fast moving average
-#Calculate the Long Term Exponential Moving Average
-LongEMA = df.Close.ewm(span=26, adjust=False).mean() #AKA Slow moving average
-#Calculate the Moving Average Convergence/Divergence (MACD)
-MACD = ShortEMA - LongEMA
-#Calcualte the signal line
-signal = MACD.ewm(span=9, adjust=False).mean()
+## 2020-11-30  43.530145
+## 2020-12-01  37.507946
+## 2020-12-02  33.681345
+## 2020-12-03  30.401402
+## 2020-12-04  27.995900
+## 2020-12-07  30.272355
+## 2020-12-08  32.438747
+</code></pre><p>*** <code>MACD</code> ***</p>
+<p>Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security&rsquo;s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ShortEMA <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>Close<span style="color:#f92672">.</span>ewm(span<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, adjust<span style="color:#f92672">=</span>False)<span style="color:#f92672">.</span>mean() <span style="color:#75715e">#AKA Fast moving average</span>
+<span style="color:#75715e">#Calculate the Long Term Exponential Moving Average</span>
+LongEMA <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>Close<span style="color:#f92672">.</span>ewm(span<span style="color:#f92672">=</span><span style="color:#ae81ff">26</span>, adjust<span style="color:#f92672">=</span>False)<span style="color:#f92672">.</span>mean() <span style="color:#75715e">#AKA Slow moving average</span>
+<span style="color:#75715e">#Calculate the Moving Average Convergence/Divergence (MACD)</span>
+MACD <span style="color:#f92672">=</span> ShortEMA <span style="color:#f92672">-</span> LongEMA
+<span style="color:#75715e">#Calcualte the signal line</span>
+signal <span style="color:#f92672">=</span> MACD<span style="color:#f92672">.</span>ewm(span<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>, adjust<span style="color:#f92672">=</span>False)<span style="color:#f92672">.</span>mean()
 
-df[&#39;MACD&#39;] = MACD
+df[<span style="color:#e6db74">&#39;MACD&#39;</span>] <span style="color:#f92672">=</span> MACD
 
-df[&#39;Signal Line&#39;] = signal
+df[<span style="color:#e6db74">&#39;Signal Line&#39;</span>] <span style="color:#f92672">=</span> signal
 
-df[&#39;MACD_IND&#39;] = df[&#39;MACD&#39;] - df[&#39;Signal Line&#39;]
+df[<span style="color:#e6db74">&#39;MACD_IND&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;MACD&#39;</span>] <span style="color:#f92672">-</span> df[<span style="color:#e6db74">&#39;Signal Line&#39;</span>]
 
-print(df[[&#39;MACD_IND&#39;]].tail())</code></pre>
-<pre><code>##             MACD_IND
+<span style="color:#66d9ef">print</span>(df[[<span style="color:#e6db74">&#39;MACD_IND&#39;</span>]]<span style="color:#f92672">.</span>tail())
+</code></pre></div><pre><code>##             MACD_IND
 ## Date                
-## 2020-10-13  0.128242
-## 2020-10-14  0.158771
-## 2020-10-15  0.172156
-## 2020-10-16  0.177979
-## 2020-10-19  0.226788</code></pre>
-<p>*** <code>Bollinger Bands</code> ***</p>
+## 2020-12-02 -0.027821
+## 2020-12-03  0.100287
+## 2020-12-04  0.165579
+## 2020-12-07  0.394404
+## 2020-12-08  0.500001
+</code></pre><p>*** <code>Bollinger Bands</code> ***</p>
 <p>Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.</p>
-<pre class="python"><code>
-from talib import MA_Type
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#f92672">from</span> talib <span style="color:#f92672">import</span> MA_Type
 
-upper, middle, lower = talib.BBANDS(df[&#39;Close&#39;].values, matype=MA_Type.T3)
+upper, middle, lower <span style="color:#f92672">=</span> talib<span style="color:#f92672">.</span>BBANDS(df[<span style="color:#e6db74">&#39;Close&#39;</span>]<span style="color:#f92672">.</span>values, matype<span style="color:#f92672">=</span>MA_Type<span style="color:#f92672">.</span>T3)
 
-print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))</code></pre>
-<pre><code>## 62.62 61.63 60.65</code></pre>
-<p>In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.</p>
-<pre class="python"><code>df.dropna( inplace = True )</code></pre>
-<p>We do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted</p>
-<p><strong><em>3: Predicting the movement of stock</em></strong></p>
+<span style="color:#66d9ef">print</span>(round(upper[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">2</span>),round(middle[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">2</span>),round(lower[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>],<span style="color:#ae81ff">2</span>))
+</code></pre></div><pre><code>## 65.92 63.04 60.16
+</code></pre><p>In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>dropna( inplace <span style="color:#f92672">=</span> True )
+</code></pre></div><p>We do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted</p>
+<p><em><strong>3: Predicting the movement of stock</strong></em></p>
 <p>To predict the movement of the stock we use 5 lag returns as the dependent variables. The first leg is return yesterday, leg2 is return day before yesterday and so on. The dependent variable is whether the prices went up or down on that day. Other variables include the technical indicators which along with 5 lag returns are used to predict the movement of stock using logistic regression.</p>
-<p><strong><em>3.1: Creating lag returns</em></strong></p>
-<pre class="python"><code>
-tslagret = pd.DataFrame(index=df.index)
-tslagret[&quot;Today&quot;] = df[&quot;Close&quot;]
-no_lags = 6
-for i in range(0, no_lags):
-    tslagret[&quot;Lag%s&quot; % str(i + 1)] = df[&quot;Close&quot;].shift(i + 1)</code></pre>
-<p><strong><em>3.2: Creating returns dataframe</em></strong></p>
-<pre class="python"><code>
-df_ret = pd.DataFrame(index=tslagret.index)
-df_ret[&quot;Today&quot;] = tslagret[&quot;Today&quot;].pct_change()*100.0</code></pre>
-<p><strong><em>3.2: create the lagged percentage returns columns</em></strong></p>
-<pre class="python"><code>for i in range(0, no_lags):
-    df_ret[&quot;Lag%s&quot; % str(i + 1)] = tslagret[&quot;Lag%s&quot; % str(i + 1)].pct_change() * 100.0
+<p><em><strong>3.1: Creating lag returns</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+tslagret <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>df<span style="color:#f92672">.</span>index)
+tslagret[<span style="color:#e6db74">&#34;Today&#34;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;Close&#34;</span>]
+no_lags <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, no_lags):
+    tslagret[<span style="color:#e6db74">&#34;Lag</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#34;Close&#34;</span>]<span style="color:#f92672">.</span>shift(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><p><em><strong>3.2:  Creating returns dataframe</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+df_ret <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>tslagret<span style="color:#f92672">.</span>index)
+df_ret[<span style="color:#e6db74">&#34;Today&#34;</span>] <span style="color:#f92672">=</span> tslagret[<span style="color:#e6db74">&#34;Today&#34;</span>]<span style="color:#f92672">.</span>pct_change()<span style="color:#f92672">*</span><span style="color:#ae81ff">100.0</span>
+</code></pre></div><p><em><strong>3.2:  create the lagged percentage returns columns</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, no_lags):
+    df_ret[<span style="color:#e6db74">&#34;Lag</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)] <span style="color:#f92672">=</span> tslagret[<span style="color:#e6db74">&#34;Lag</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> str(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)]<span style="color:#f92672">.</span>pct_change() <span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0</span>
 
-df_ret.drop(df_ret.index[:7], inplace=True)</code></pre>
-<p><strong><em>3.3: “Direction” column (+1 or -1) indicating an up/down day</em></strong></p>
-<pre class="python"><code>df_ret[&quot;Direction&quot;] = np.sign(df_ret[&quot;Today&quot;])
+df_ret<span style="color:#f92672">.</span>drop(df_ret<span style="color:#f92672">.</span>index[:<span style="color:#ae81ff">7</span>], inplace<span style="color:#f92672">=</span>True)
+</code></pre></div><p><em><strong>3.3: &ldquo;Direction&rdquo; column (+1 or -1) indicating an up/down day</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_ret[<span style="color:#e6db74">&#34;Direction&#34;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sign(df_ret[<span style="color:#e6db74">&#34;Today&#34;</span>])
 
-df_ret[&quot;Direction&quot;] = np.where(df_ret[&quot;Direction&quot;] &lt;= 0, -1 , 1)
+df_ret[<span style="color:#e6db74">&#34;Direction&#34;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(df_ret[<span style="color:#e6db74">&#34;Direction&#34;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> , <span style="color:#ae81ff">1</span>)
 
-#df_ret[&quot;Direction&quot;] = np.where(df[&#39;Close&#39;].shift(-1) &gt; df[&#39;Close&#39;], 1,-1)</code></pre>
-<p><strong><em>3.4: Create the dependent and independent variables </em></strong></p>
-<pre class="python"><code>
-data = df_ret.copy()
+<span style="color:#75715e">#df_ret[&#34;Direction&#34;] = np.where(df[&#39;Close&#39;].shift(-1) &gt; df[&#39;Close&#39;], 1,-1)</span>
+</code></pre></div><p>***3.4: Create the dependent and independent variables ***</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+data <span style="color:#f92672">=</span> df_ret<span style="color:#f92672">.</span>copy()
 
-X = data[[&quot;Lag1&quot;, &quot;Lag2&quot;, &quot;Lag3&quot;, &quot;Lag4&quot;,&quot;Lag5&quot;,&quot;Lag6&quot;]]
+X <span style="color:#f92672">=</span> data[[<span style="color:#e6db74">&#34;Lag1&#34;</span>, <span style="color:#e6db74">&#34;Lag2&#34;</span>, <span style="color:#e6db74">&#34;Lag3&#34;</span>, <span style="color:#e6db74">&#34;Lag4&#34;</span>,<span style="color:#e6db74">&#34;Lag5&#34;</span>,<span style="color:#e6db74">&#34;Lag6&#34;</span>]]
 
-X[&#39;usdinr&#39;] = df[&#39;usdinr&#39;] - 0.5
-</code></pre>
-<pre><code>## C:/ProgramData/Anaconda3/python.exe:1: SettingWithCopyWarning: 
+X[<span style="color:#e6db74">&#39;usdinr&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;usdinr&#39;</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+
+</code></pre></div><pre><code>## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: 
 ## A value is trying to be set on a copy of a slice from a DataFrame.
 ## Try using .loc[row_indexer,col_indexer] = value instead
 ## 
-## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy</code></pre>
-<pre class="python"><code>X[&#39;usdsilver&#39;] = df[&#39;usdsilver&#39;]
+## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X[<span style="color:#e6db74">&#39;usdsilver&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;usdsilver&#39;</span>]
 
-X[&quot;20d_ma&quot;] = df[ &#39;20d_ma&#39; ]
+X[<span style="color:#e6db74">&#34;20d_ma&#34;</span>] <span style="color:#f92672">=</span> df[ <span style="color:#e6db74">&#39;20d_ma&#39;</span> ]
 
-X[&quot;50d_ma&quot;] =  df[&#39;50d_ma&#39;]
+X[<span style="color:#e6db74">&#34;50d_ma&#34;</span>] <span style="color:#f92672">=</span>  df[<span style="color:#e6db74">&#39;50d_ma&#39;</span>]
 
-X[&quot;100d_ma&quot;] =  df[&#39;100d_ma&#39;]
+X[<span style="color:#e6db74">&#34;100d_ma&#34;</span>] <span style="color:#f92672">=</span>  df[<span style="color:#e6db74">&#39;100d_ma&#39;</span>]
 
-X[&quot;200d_ma&quot;] =  df[&#39;200d_ma&#39;]
+X[<span style="color:#e6db74">&#34;200d_ma&#34;</span>] <span style="color:#f92672">=</span>  df[<span style="color:#e6db74">&#39;200d_ma&#39;</span>]
 
-X[&#39;Std_dev&#39;] = df[&#39;Std_dev&#39;]
+X[<span style="color:#e6db74">&#39;Std_dev&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;Std_dev&#39;</span>]
 
-X[&#39;RSI&#39;] = df[&#39;RSI&#39;]
+X[<span style="color:#e6db74">&#39;RSI&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;RSI&#39;</span>]
 
-X[&#39;Williams %R&#39;] = df[&#39;Williams %R&#39;]
+X[<span style="color:#e6db74">&#39;Williams %R&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;Williams %R&#39;</span>]
 
-X[&#39;MACD_IND&#39;] = df[&#39;MACD_IND&#39;] 
+X[<span style="color:#e6db74">&#39;MACD_IND&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;MACD_IND&#39;</span>] 
 
 
-y = data[&quot;Direction&quot;]
+y <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#34;Direction&#34;</span>]
 
-print(X.tail())</code></pre>
-<pre><code>##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...  200d_ma  \
+<span style="color:#66d9ef">print</span>(X<span style="color:#f92672">.</span>tail())
+</code></pre></div><pre><code>##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...  200d_ma  \
 ## Date                                                          ...            
-## 2020-10-13  0.340309  3.907864  0.165511 -0.250945 -2.211782  ...    51.72   
-## 2020-10-14 -4.069860  0.340309  3.907864  0.165511 -0.250945  ...    51.79   
-## 2020-10-15  1.688419 -4.069860  0.340309  3.907864  0.165511  ...    51.86   
-## 2020-10-16 -0.214453  1.688419 -4.069860  0.340309  3.907864  ...    51.93   
-## 2020-10-19 -0.105829 -0.214453  1.688419 -4.069860  0.340309  ...    52.00   
+## 2020-12-02  4.729204 -2.007193  0.768293  0.050131  0.372352  ...    54.57   
+## 2020-12-03  0.379534  4.729204 -2.007193  0.768293  0.050131  ...    54.64   
+## 2020-12-04  0.851125  0.379534  4.729204 -2.007193  0.768293  ...    54.71   
+## 2020-12-07 -0.336620  0.851125  0.379534  4.729204 -2.007193  ...    54.80   
+## 2020-12-08  4.847049 -0.336620  0.851125  0.379534  4.729204  ...    54.89   
 ## 
 ##              Std_dev        RSI  Williams %R  MACD_IND  
 ## Date                                                    
-## 2020-10-13  1.194226  42.427100   -75.083612  0.128242  
-## 2020-10-14  1.175008  47.448622   -53.720736  0.158771  
-## 2020-10-15  1.121689  46.854813   -56.479933  0.172156  
-## 2020-10-16  1.024474  46.532210   -64.619337  0.177979  
-## 2020-10-19  0.906168  50.616315   -48.411957  0.226788  
+## 2020-12-02  1.169712  55.118546   -16.927481 -0.027821  
+## 2020-12-03  1.379397  58.058460    -6.832061  0.100287  
+## 2020-12-04  1.417915  56.400663   -13.016760  0.165579  
+## 2020-12-07  2.000723  70.157680    -1.923567  0.394404  
+## 2020-12-08  2.152803  67.720435    -7.795934  0.500001  
 ## 
-## [5 rows x 16 columns]</code></pre>
-<pre class="python"><code>data.describe()</code></pre>
-<pre><code>##             Today        Lag1        Lag2        Lag3        Lag4        Lag5  \
-## count  205.000000  205.000000  205.000000  205.000000  205.000000  205.000000   
-## mean     0.173542    0.166871    0.168877    0.173248    0.174040    0.202116   
-## std      2.690434    2.689743    2.689692    2.689794    2.690266    2.675753   
+## [5 rows x 16 columns]
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">data<span style="color:#f92672">.</span>describe()
+</code></pre></div><pre><code>##             Today        Lag1        Lag2        Lag3        Lag4        Lag5  \
+## count  241.000000  241.000000  241.000000  241.000000  241.000000  241.000000   
+## mean     0.171925    0.172889    0.154044    0.158269    0.162416    0.167837   
+## std      2.628905    2.628712    2.611285    2.611312    2.613210    2.615016   
 ## min    -11.221052  -11.221052  -11.221052  -11.221052  -11.221052  -11.221052   
-## 25%     -0.850223   -0.850223   -0.850223   -0.850223   -0.850223   -0.844359   
-## 50%      0.169328    0.165511    0.169328    0.195046    0.195046    0.212620   
-## 75%      1.301824    1.301824    1.301824    1.301824    1.301824    1.323359   
+## 25%     -0.869510   -0.869510   -0.869510   -0.869510   -0.869510   -0.869510   
+## 50%      0.195046    0.195046    0.195046    0.212620    0.212620    0.212620   
+## 75%      1.205706    1.205706    1.196636    1.196636    1.205706    1.301824   
 ## max      7.031671    7.031671    7.031671    7.031671    7.031671    7.031671   
 ## 
 ##              Lag6   Direction  
-## count  205.000000  205.000000  
-## mean     0.201632    0.092683  
-## std      2.675737    0.998133  
+## count  241.000000  241.000000  
+## mean     0.149214    0.103734  
+## std      2.598325    0.996675  
 ## min    -11.221052   -1.000000  
-## 25%     -0.844359   -1.000000  
+## 25%     -0.869510   -1.000000  
 ## 50%      0.212620    1.000000  
-## 75%      1.323359    1.000000  
-## max      7.031671    1.000000</code></pre>
-<p><strong><em>3.5: Create training and test sets</em></strong></p>
-<pre class="python"><code>start_test = datetime(2020, 8, 1)
+## 75%      1.205706    1.000000  
+## max      7.031671    1.000000
+</code></pre><p><em><strong>3.5:  Create training and test sets</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">start_test <span style="color:#f92672">=</span> datetime(<span style="color:#ae81ff">2020</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">1</span>)
 
-X_train = X[X.index &lt; start_test]
-X_test = X[X.index &gt;= start_test]
-y_train = y[y.index &lt; start_test]
-y_test = y[y.index &gt;= start_test]</code></pre>
-<p><strong><em>3.6: Create model </em></strong></p>
-<pre class="python"><code>
-model = LogisticRegression()</code></pre>
-<p><strong><em>3.7: train the model on the training set</em></strong></p>
-<pre class="python"><code>model.fit(X_train, y_train)</code></pre>
-<pre><code>## LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-##                    intercept_scaling=1, l1_ratio=None, max_iter=100,
-##                    multi_class=&#39;auto&#39;, n_jobs=None, penalty=&#39;l2&#39;,
-##                    random_state=None, solver=&#39;lbfgs&#39;, tol=0.0001, verbose=0,
-##                    warm_start=False)
+X_train <span style="color:#f92672">=</span> X[X<span style="color:#f92672">.</span>index <span style="color:#f92672">&lt;</span> start_test]
+X_test <span style="color:#f92672">=</span> X[X<span style="color:#f92672">.</span>index <span style="color:#f92672">&gt;=</span> start_test]
+y_train <span style="color:#f92672">=</span> y[y<span style="color:#f92672">.</span>index <span style="color:#f92672">&lt;</span> start_test]
+y_test <span style="color:#f92672">=</span> y[y<span style="color:#f92672">.</span>index <span style="color:#f92672">&gt;=</span> start_test]
+</code></pre></div><p>***3.6:  Create model ***</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#75715e"># fit model no training data</span>
+<span style="color:#75715e"># model = XGBClassifier()</span>
+model <span style="color:#f92672">=</span> LogisticRegression()
+</code></pre></div><p><em><strong>3.7:  train the model on the training set</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</code></pre></div><pre><code>## LogisticRegression()
 ## 
-## C:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\_logistic.py:940: ConvergenceWarning: lbfgs failed to converge (status=1):
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\sklearn\linear_model\_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):
 ## STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 ## 
 ## Increase the number of iterations (max_iter) or scale the data as shown in:
 ##     https://scikit-learn.org/stable/modules/preprocessing.html
 ## Please also refer to the documentation for alternative solver options:
 ##     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-##   extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)</code></pre>
-<p><strong><em>3.8: make an array of predictions on the test set</em></strong></p>
-<pre class="python"><code>y_pred = model.predict(X_test)</code></pre>
-<p><strong><em>3.9: output the hit-rate and the confusion matrix for the model</em></strong></p>
-<pre class="python"><code>print(&#39;Accuracy: &#39;,metrics.accuracy_score(y_test, y_pred))</code></pre>
-<pre><code>## Accuracy:  0.8181818181818182</code></pre>
-<pre class="python"><code>print(confusion_matrix(y_pred,y_test))</code></pre>
-<pre><code>## [[19  1]
-##  [ 9 26]]</code></pre>
-<p><strong><em>3.10: Predict movement of stock for tomorrow. </em></strong></p>
-<pre class="python"><code>comp = pd.DataFrame()
-comp[&#39;y_test&#39;] = y_test
-comp[&#39;y_pred&#39;] = y_pred
+##   extra_warning_msg=_LOGISTIC_SOLVER_CONVERGENCE_MSG)
+</code></pre><p><em><strong>3.8:    make an array of predictions on the test set</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+</code></pre></div><p><em><strong>3.9:    output the hit-rate and the confusion matrix for the model</strong></em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Accuracy: &#39;</span>,metrics<span style="color:#f92672">.</span>accuracy_score(y_test, y_pred))
+</code></pre></div><pre><code>## Accuracy:  0.7912087912087912
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(confusion_matrix(y_pred,y_test))
+</code></pre></div><pre><code>## [[29  5]
+##  [14 43]]
+</code></pre><p>***3.10:   Predict movement of stock for tomorrow. ***</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">comp <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+comp[<span style="color:#e6db74">&#39;y_test&#39;</span>] <span style="color:#f92672">=</span> y_test
+comp[<span style="color:#e6db74">&#39;y_pred&#39;</span>] <span style="color:#f92672">=</span> y_pred
 
-print(comp)</code></pre>
-<pre><code>##             y_test  y_pred
+<span style="color:#66d9ef">print</span>(comp)
+</code></pre></div><pre><code>##             y_test  y_pred
 ## Date                      
 ## 2020-08-03       1       1
 ## 2020-08-04       1       1
 ## 2020-08-05       1       1
 ## 2020-08-06       1       1
 ## 2020-08-07      -1      -1
-## 2020-08-10       1       1
-## 2020-08-11      -1      -1
-## 2020-08-12      -1       1
-## 2020-08-13       1       1
-## 2020-08-14      -1      -1
-## 2020-08-17       1       1
-## 2020-08-18       1       1
-## 2020-08-19      -1       1
-## 2020-08-20      -1       1
-## 2020-08-21      -1      -1
-## 2020-08-24      -1      -1
-## 2020-08-25      -1      -1
-## 2020-08-26       1       1
-## 2020-08-27      -1      -1
-## 2020-08-28       1       1
-## 2020-08-31       1       1
-## 2020-09-01       1       1
-## 2020-09-02      -1      -1
-## 2020-09-03      -1      -1
-## 2020-09-04      -1      -1
-## 2020-09-07       1       1
-## 2020-09-08       1       1
-## 2020-09-09      -1       1
-## 2020-09-10       1       1
-## 2020-09-11      -1      -1
-## 2020-09-14       1       1
-## 2020-09-15       1       1
-## 2020-09-16      -1       1
-## 2020-09-17      -1       1
-## 2020-09-18      -1       1
-## 2020-09-21      -1      -1
-## 2020-09-22      -1       1
-## 2020-09-23      -1      -1
-## 2020-09-24       1       1
-## 2020-09-25      -1      -1
-## 2020-09-28       1       1
-## 2020-09-29       1       1
-## 2020-09-30      -1      -1
-## 2020-10-01       1       1
-## 2020-10-05       1       1
-## 2020-10-06      -1      -1
-## 2020-10-07      -1      -1
-## 2020-10-08       1      -1
-## 2020-10-09       1       1
-## 2020-10-12       1       1
-## 2020-10-13      -1      -1
-## 2020-10-14       1       1
-## 2020-10-15      -1      -1
-## 2020-10-16      -1       1
-## 2020-10-19       1       1</code></pre>
-<pre class="python"><code>predict = model.predict(X_test.tail(1))
-print(int(predict)) # 1: UP, -1: DOWN</code></pre>
-<pre><code>## 1</code></pre>
-</div>
-
+## ...            ...     ...
+## 2020-12-02       1       1
+## 2020-12-03       1       1
+## 2020-12-04      -1       1
+## 2020-12-07       1       1
+## 2020-12-08      -1      -1
+## 
+## [91 rows x 2 columns]
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">predict <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">1</span>))
+<span style="color:#66d9ef">print</span>(int(predict)) <span style="color:#75715e"># 1: UP, -1: DOWN</span>
+</code></pre></div><pre><code>## -1
+</code></pre>
     </div>
     <footer>
       <div class="stats">
@@ -858,7 +832,7 @@ print(int(predict)) # 1: UP, -1: DOWN</code></pre>
           </h3>
 
           
-          <input type="hidden" name="options[entryId]" value="6fbc35c19350694737c0926aa8b31475">
+          <input type="hidden" name="options[entryId]" value="2eba7b63ed4519c319f150080deb0bf6">
           <input type='hidden' name='fields[replyThread]' value=''>
           <input type='hidden' name='fields[replyID]' value=''>
           <input type='hidden' name='fields[replyName]' value=''>
@@ -912,6 +886,16 @@ print(int(predict)) # 1: UP, -1: DOWN</code></pre>
       </header>
       
       <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
           <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
     <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
   </a>
@@ -928,16 +912,6 @@ print(int(predict)) # 1: UP, -1: DOWN</code></pre>
         <header>
           <h2><a href="/blog/react-js/">React- JS</a></h2>
           <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-          <a href="/blog/web-scrapping/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/web_scrapping02.jpg');">
-    <img src="https://laxmikants.github.io/img/main/web_scrapping02.jpg" alt="">
-  </a>
-        <header>
-          <h2><a href="/blog/web-scrapping/">Web Scrapping Basics</a></h2>
-          <time class="published" datetime="2020-06-15 00:00:00 &#43;0000 UTC">June 15, 2020</time>
         </header>
       </article>
       
@@ -959,7 +933,7 @@ print(int(predict)) # 1: UP, -1: DOWN</code></pre>
           
           
           <li>
-              <a href="/categories/python/">python<span class="count">14</span></a>
+              <a href="/categories/python/">python<span class="count">15</span></a>
           
           <li>
               <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
@@ -978,6 +952,9 @@ print(int(predict)) # 1: UP, -1: DOWN</code></pre>
           
           <li>
               <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
           
           <li>
               <a href="/categories/data-science/">data-science<span class="count">1</span></a>

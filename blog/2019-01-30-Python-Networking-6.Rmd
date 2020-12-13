@@ -17,7 +17,6 @@ output:
     highlight: tango
     theme: flatly
     toc: true
-
 ---
 
 
