@@ -1,0 +1,188 @@
+---
+title: "Python - Classes and Objects"
+author: Laxmi K Soni 
+description: "Introduction to Python Classes and Objects"
+slug: Python Basics - 2
+date: 2019-01-12
+lastmod: 2019-01-12
+categories: ["Python"]
+tags: ["Python"]
+Summary: Introduction to Python.
+subtitle: Python Classes and Objects
+featured: "img/main/Python-Classes-Objects-20.jpg"
+output:
+  blogdown::html_page:
+    toc: true
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: no
+    toc_float: no
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#classes-and-objects"><code>Classes and Objects</code></a>
+<ul>
+<li><a href="#creating-classes"><code>Creating Classes</code></a>
+<ul>
+<li><a href="#constructor"><code>Constructor</code></a></li>
+<li><a href="#adding-functions"><code>Adding Functions</code></a></li>
+<li><a href="#class-variables"><code>Class Variables</code></a></li>
+<li><a href="#destructors"><code>Destructors</code></a></li>
+<li><a href="#creating-objects"><code>Creating Objects</code></a></li>
+<li><a href="#hidden-attributes"><code>Hidden Attributes</code></a></li>
+</ul></li>
+<li><a href="#inheritence"><code>Inheritence</code></a></li>
+</ul></li>
+</ul>
+</div>
+
+<hr>
+<div id="classes-and-objects" class="section level1">
+<h1><code>Classes and Objects</code></h1>
+<p>Python is an object-oriented language which means that the code can be divided into individual units, namely objects . Each of these objects is an instance of a so-called class . You can think of the class as some sort of blueprint. For example, the blueprint of a car could be the class and an object would be the actual physical car. So a class has specific attributes and functions but the values vary from object to object.</p>
+<div id="creating-classes" class="section level2">
+<h2><code>Creating Classes</code></h2>
+<p>In Python, we use the keyword class in order to define a new class. Whatever which is indented after the colon belongs to the class.</p>
+<pre class="python"><code>class Car:
+  def __init__ ( self , manufacturer, model, hp):
+         self .manufacturer = manufacturer
+         self .model = model
+         self .hp = hp</code></pre>
+<p>After the class keyword, we put the class name. In this example, this is Car .</p>
+<div id="constructor" class="section level3">
+<h3><code>Constructor</code></h3>
+<p>What we find first in this case, is a special function called <strong>init</strong> . This is the so-called constructor. Every time we create an instance or an object of our class, we use this constructor. As you can see, it accepts a couple of parameters. The first one is the parameter self and it is mandatory. Every function of the class needs to have at least this parameter.
+The other parameters are just our custom attributes. In this case, we have chosen the manufacturer, the model and the horse power (hp).
+When we write self.attribute , we refer to the actual attribute of the respective object. We then assign the value of the parameters to it.</p>
+</div>
+<div id="adding-functions" class="section level3">
+<h3><code>Adding Functions</code></h3>
+<p>We can simply create and add functions to our class that perform certain actions. These functions can also access the attributes of the class.</p>
+<pre class="python"><code>class Car:
+  def __init__ ( self , manufacturer, model, hp):
+    self .manufacturer = manufacturer
+    self .model = model
+    self .hp = hp
+    
+    def print_info( self ):
+      print ( &#39;Manufacturer: {}, Model: {}, HP; {}&#39;.format( self .manufacturer, self.model,self.hp))</code></pre>
+<p>Here we have the function print_info that prints out information about the attributes of the respective object. Notice that we also need the parameter self here.</p>
+</div>
+<div id="class-variables" class="section level3">
+<h3><code>Class Variables</code></h3>
+<p>In the following code, you can see that we can use one and the same variable across all the objects of the class, when it is defined without referring to self .</p>
+<pre class="python"><code>class Car:
+  amount_cars = 0
+  def __init__ ( self , manufacturer, model, hp):
+    self .manufacturer = manufacturer
+    self .model = model
+    self .hp = hp
+    Car.amount_cars += 1
+    
+  def print_car_amount( self ):
+    print ( &#39;Amount: {}&#39;.format(Car.amount_cars)) 
+  
+  def print_info( self ):
+    print ( &#39;Manufacturer: {}, Model: {}, HP; {}&#39;.format( self .manufacturer, self.model,self.hp))  </code></pre>
+<p>The variable amount_cars doesn’t belong to the individual object since it’s not addressed with self . It is a class variable and its value is the same for all objects or instances.
+Whenever we create a new car object, it increases by one. Then, every object can access and print the amount of existing cars.</p>
+</div>
+<div id="destructors" class="section level3">
+<h3><code>Destructors</code></h3>
+<p>In Python, we can also specify a method that gets called when our object gets destroyed or deleted and is no longer needed. This function is called destructor and it is the opposite of the constructor .</p>
+<pre class="python"><code>class Car:
+  amount_cars = 0
+  
+  def __init__ ( self , manufacturer, model, hp):
+    self.manufacturer = manufacturer
+    self.model = model
+    self.hp = hp
+    Car.amount_cars += 1
+    
+  def __del__ ( self ):
+    print ( &#39;Object gets deleted!&#39; )
+    Car.amount_cars -= 1 
+    
+  def print_car_amount( self ):
+    print ( &#39;Amount: {}&#39;.format(Car.amount_cars)) 
+  
+  def print_info( self ):
+    print ( &#39;Manufacturer: {}, Model: {}, HP; {}&#39;.format( self .manufacturer, self.model,self.hp))     </code></pre>
+<p>The destructor function is called <strong>del</strong> . In this example, we print an informational message and decrease the amount of existing cars by one, when an object gets deleted.</p>
+</div>
+<div id="creating-objects" class="section level3">
+<h3><code>Creating Objects</code></h3>
+<p>Now that we have implemented our class, we can start to create some objects of it.</p>
+<pre class="python"><code>myCar1 = Car( &#39;Tesla1&#39; , &#39;Model X1&#39; , 5251 )</code></pre>
+<p>First, we specify the name of our object, like we do with ordinary variables. In this case, the object is called myCar1 . We then create an object of the Car class by writing the class name as a function. This calls the constructor, so we can pass our parameters. We can then use the functions of our car object.</p>
+<pre class="python"><code>myCar1.print_info()</code></pre>
+<pre><code>## Manufacturer: Tesla1, Model: Model X1, HP; 5251</code></pre>
+<pre class="python"><code>myCar1.print_car_amount()</code></pre>
+<pre><code>## Amount: 1</code></pre>
+<p>The results look like this:
+Manufacturer: Tesla, Model: Model X, HP; 525
+Amount: 1
+What you can also do is directly access the attributes of an object.</p>
+<pre class="python"><code>print (myCar1.manufacturer)</code></pre>
+<pre><code>## Tesla1</code></pre>
+<pre class="python"><code>print (myCar1.model)</code></pre>
+<pre><code>## Model X1</code></pre>
+<pre class="python"><code>print (myCar1.hp)</code></pre>
+<pre><code>## 5251</code></pre>
+<p>Now we can create some more cars and see how the amount changes.</p>
+<pre class="python"><code>myCar1 = Car( &#39;Tesla1&#39; , &#39;Model X1&#39; , 525 )</code></pre>
+<pre><code>## Object gets deleted!</code></pre>
+<pre class="python"><code>myCar2 = Car( &#39;BMW1&#39; , &#39;X31&#39; , 2001 )
+myCar3 = Car( &#39;VW1&#39; , &#39;Golf1&#39; , 1001)
+myCar4 = Car( &#39;Porsche1&#39; , &#39;9111&#39; , 5201 )
+del myCar3</code></pre>
+<pre><code>## Object gets deleted!</code></pre>
+<pre class="python"><code>myCar1.print_car_amount()</code></pre>
+<pre><code>## Amount: 3</code></pre>
+<p>Here we first create four different car objects. We then delete one of them and finally we print out the car amount. The result is the following:
+Object gets deleted!
+Amount: 3
+Notice that all the objects get deleted automatically when our program ends. But we can manually delete them before that happens by using the del keyword.</p>
+</div>
+<div id="hidden-attributes" class="section level3">
+<h3><code>Hidden Attributes</code></h3>
+<p>If we want to create hidden attributes that can only be accessed within the class, we can do this with underlines .</p>
+<pre class="python"><code>class MyClass:
+
+  def __init__ ( self ):
+    self.__hidden = &#39;Hello&#39;
+    print ( self .__hidden) # Works
+    
+m1 = MyClass()
+# print (m1.__hidden) # Doesn&#39;t Work </code></pre>
+<pre><code>## Hello</code></pre>
+<p>By putting two underlines before the attribute name, we make it invisible from outside the class. The first print function works because it is inside of the class. But when we try to access this attribute from the object, we can’t.</p>
+</div>
+</div>
+<div id="inheritence" class="section level2">
+<h2><code>Inheritence</code></h2>
+<p>One very important and powerful concept of object-oriented programming is inheritance . It allows us to use existing classes and to extend them with new attributes and functions.
+For example, we could have the parent class which represents a Person and then we could have many child classes like Dancer, Policeman, Artist etc. All of these would be considered a person and they would have the same basic attributes. But they are special kinds of persons with more attributes and functions.</p>
+<pre class="python"><code>class Person:
+  def __init__ ( self , name, age):
+    self .name = name
+    self .age = age
+    
+  def get_older( self , years):
+    self .age += years
+    
+class Programmer(Person):
+  def __init__ ( self , name, age, language):
+    super (Programmer, self ). __init__ (name, age)
+    self .language = language
+    
+def print_language( self ):
+  print ( &#39;Favorite Programming Language: {}&#39;.format( self .language)) </code></pre>
+</div>
+</div>

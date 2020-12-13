@@ -20,14 +20,5 @@
       <description>Application of Logistic Regression to Stock movement prediction</description>
     </item>
     
-    <item>
-      <title>Logistic Regression in ML</title>
-      <link>https://laxmikants.github.io/blog/logistic-regression/</link>
-      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/blog/logistic-regression/</guid>
-      <description>Logistic regression is a classification algorithm used to assign observations to a discrete set of classes.</description>
-    </item>
-    
   </channel>
 </rss>

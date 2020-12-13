@@ -1,0 +1,348 @@
+---
+title: "Images Operations using CV"
+author: Laxmi K Soni 
+description: "Images Operations using CV"
+slug: Images Operations using CV
+date: 2020-11-30
+lastmod: 2020-11-30
+categories: ["Computer Vision"]
+tags: ["Computer Vision"]
+Summary: "Images Operations using CV"
+subtitle: Images Operations using CV
+featured: "img/main/2020-11-30-Computer-Vision-Basics-34.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: no
+    toc_float: no
+---
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+  
+
+
+## Computer Vision Concepts
+
+* Computers 'look' at images as multidimensional arrays or matricies but they can also be treated like functions (ex. taking the derivative over an image's x-axis).
+
+* Below an image is loaded from the file system and loaded into memory. This matrix is 852 x 480 x 3 which represents the number of rows x number of columns x number of colour channels (RGB/BGR).
+
+*  can then plot that data to view the image.
+
+* Note: When images are loaded in OpenCV, they return BGR (blue, green, red) channels, where as matplotlib expects RGB (red, green, blue). Therefore, we need to convert the loaded image matrix from BGR to RGB.
+
+## Building block of an Image
+
+* The image is made of "pixels"
+* Each pixel: small, square, one color
+* How many pixels in an image 800 pixel wide, 600 pixels high?  
+just multiply
+800 x 600 = 480,000 pixels = 0.48 megapixels
+* Typical digital image = 5-20 megapixels
+* Each pixel is represent as RGB channel.
+
+## Loading an image
+
+* In python for loading an image use `os.path.join(folder, file_name)`
+* Using `imread` in cv2 library you read the image into variable
+* Using `imshow` in `matplotlib.pyplot` you show the image
+
+
+
+```python
+## Loading an image
+import os
+import cv2
+import matplotlib.pyplot as plt # (optional) for plotting and showing images inline
+IMAGES_FOLDER = os.path.join('./images') # images for visuals
+earth_fname = os.path.join(IMAGES_FOLDER,'earth.jpg')
+earth_img1 = cv2.imread(earth_fname)
+plt.imshow(earth_img1)
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a2713e9250>
+
+
+
+
+![](/img/main/output_4_1.png)
+
+
+## Image Shape
+
+* The shape of the image in python is represented as `tupple`
+* The `tuple` has dimenstion of the image as (Row, Column, colour channel)
+* This means there as two dimensional array of #row, #column and at each cell of array there is an array of three values representing the amout of Red, Blue and Green
+
+
+
+```python
+# Shape of the array
+earth_img1.shape
+
+# RGB values at cell [0,0]
+
+earth_img1[0][0]
+
+```
+
+
+
+
+    array([51, 33, 26], dtype=uint8)
+
+
+
+## Changing Colorspaces
+
+* to convert images from one color-space to another, like BGR ↔ Gray, BGR ↔ HSV etc.
+
+* cv2.cvtColor(), cv2.inRange()
+
+* For color conversion, we use the function cv2.cvtColor( name_input_image, flag ) where flag determines the type of conversion.
+
+
+```python
+# ColorSpace Conversion : see the colour difference
+earth_img2 = cv2.cvtColor(earth_img1, cv2.COLOR_BGR2RGB)
+plt.imshow(earth_img2)
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a271ec1400>
+
+
+
+
+![](/img/main/output_8_1.png)
+
+
+## Image Filters and Functions
+
+* Many times, images contain complex information that isn't need for a computation or reduces the speed of computation without much value added.
+
+* Gaussian Filtering In this approach, instead of a box filter consisting of equal filter coefficients, a Gaussian kernel is used. 
+
+* It is done with the function, `cv2.GaussianBlur()`. We should specify the width and height of the kernel which should be positive and odd.
+
+* An image kernel is a small matrix used to apply effects like the ones you might find in Photoshop or Gimp, such as blurring, sharpening, outlining or embossing.
+
+
+
+
+```python
+blur_img = earth_img2.copy()
+blur_img = cv2.GaussianBlur(blur_img, (41, 41),10)
+plt.imshow(blur_img)
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a272048dc0>
+
+
+
+
+![](/img/main/output_10_1.png)
+
+
+## Seprate the each plane of the color image
+
+* We know that color image is combination of 3-planes Red, Green and Blue. we can seprate the each plane to extract some information.
+
+* To do that we need to set 0 value to the RGB channel in a loop
+
+
+
+```python
+# Show Red/Green/Blue
+import numpy as np
+images = []
+print(earth_img2.shape)
+for i in [0, 1, 2]:
+    colour = earth_img2.copy()
+    if i != 0: colour[:,:,0] = 0
+    if i != 1: colour[:,:,1] = 0
+    if i != 2: colour[:,:,2] = 0
+    images.append(colour)
+
+plt.imshow(np.vstack(images))
+```
+
+    (480, 852, 3)
+    
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a2720a3c40>
+
+
+
+
+![](/img/main/output_12_2.png)
+
+
+## Image crop
+
+If we need to crop specific portion of the image, for that it requires x and y coordinates of that portion.
+
+
+```python
+image_cropped = earth_img2[100:380, 280:500]
+plt.imshow(image_cropped)
+
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a2720ff5e0>
+
+
+
+
+![](/img/main/output_14_1.png)
+
+
+## Dilating (Morphological Transformations)
+
+Dilation, as it sounds, dilates pixel neighbourhoods by finding maximums over the image by the kernel size given. This is useful for expanding selections 
+
+
+```python
+dilate_img = earth_img2.copy()
+dilate_img = cv2.dilate(dilate_img, np.ones((15,15), dtype=np.uint8), iterations=1)
+plt.imshow(dilate_img)
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a2721565e0>
+
+
+
+
+![](/img/main/output_16_1.png)
+
+
+## Erosion
+
+Erosion is the opposite of dilation, useful for remove noise. The basic idea of erosion is just like soil erosion only, it erodes away the boundaries of foreground object.
+
+* It computes a local minimum over the area of given kernel.
+
+* As the kernel is scanned over the image, we compute the minimal pixel value overlapped by kernal and replace the image pixel under the anchor point with that minimal value.
+
+* all the pixels near boundary will be discarded depending upon the size of kernel. So the thickness or size of the foreground object decreases or simply white region decreases in the image.
+
+
+
+
+
+```python
+import numpy as np
+erosion_img = earth_img2.copy()
+kernel = np.ones((10,10),np.uint8)
+erosion_img = cv2.erode(erosion_img, kernel, iterations=1)
+plt.imshow(erosion_img)
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a272a4a7c0>
+
+
+
+
+![](/img/main/output_18_1.png)
+
+
+## Image Edge Detection Gradients
+
+* Find Image gradients,edges. There are different edge detectors like Sobel, Prewitt, Laplacian, Canny, etc.
+
+* Canny Edge Detection is a popular edge detection algorithm. It was developed by John F. Canny in 1986.
+
+* cv2.getTrackbarPos(), cv2.createTrackbar() can be used to create simple application which shows the color you specify. You have a window which shows the color and three trackbars to specify each of B,G,R colors. You slide the trackbar and correspondingly window color changes
+
+
+
+
+```python
+import numpy as np
+canny_img = earth_img2.copy()
+kernel = np.ones((8,8), np.uint8)
+canny_img = cv2.erode(canny_img, kernel, iterations=1)
+edges = cv2.Canny(canny_img,100,100)
+plt.imshow(edges.astype(np.uint8), cmap='gray')
+```
+
+
+
+
+    <matplotlib.image.AxesImage at 0x2a272aa1af0>
+
+
+
+
+![](/img/main/output_20_1.png)
+
+
+![](/img/main/trackball.png)
+
+## Thresholding
+
+Thresholding can be thought of as a function applied to each pixel of an image. This function takes a min and max thresholding values and if the pixel value falls in this range, it will 'return' the pixel, if not it will 'return' a black pixel.
+
+Generally, thresholding is applied to a greyscale image, but may also be applied to colour images, following a similair principle.
+
+
+```python
+thresh_img = earth_img2.copy()
+thresh_img = cv2.cvtColor(thresh_img, cv2.COLOR_BGR2GRAY)
+ret, thresh = cv2.threshold(thresh_img, 80, 255, cv2.THRESH_BINARY)
+plt.imshow(thresh, cmap='gray')
+print(thresh.shape)
+```
+
+    (480, 852)
+    
+
+
+![](/img/main/output_23_1.png)
+
+
+## Other Techniques
+
+* Background substraction: Using a background image to find differences (can be used for images and video)
+
+* Contours: contours is done by finding points or corners in an image and connecting those that have the same color or intensity.
+
+* Tracking: OpenCV's tracking algorithms help to track objects. MIL, BOOSTING, MEDIANFLOW,TLD, KCF are tracking algorithms
+
+
+## Slide show
+```{r}
+knitr::include_url('/slides/ComputerVisionBasics.html')
+```

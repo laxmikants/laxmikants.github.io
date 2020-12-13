@@ -1,0 +1,231 @@
+---
+title: "Web Scrapping Basics"
+author: Laxmi K Soni 
+description: "A beginer level introduction to Web Scrapping using Python"
+slug: Web Scrapping
+date: 2020-06-15
+lastmod: 2020-06-15
+categories: ["Web Scrapping"]
+tags: ["Web Scrapping"]
+Summary: A beginer level introduction to Web Scrapping using Python
+subtitle: A beginer level introduction to Web Scrapping using Python
+featured: "img/main/web_scrapping02.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: no
+    toc_float: no
+
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+
+```
+
+
+### What is web scrapping
+
+Webscrapping also known as the the automated gathering of data from the Internet. 
+itself. This is usually accomplished by writing an automated program
+that queries a web server, requests data , and then parses that data to extract needed informa‐
+tion. BeautifulSoup, Python requests, LXML, Mechanical Soup and Scrappy are most common libraries used for web scraping.
+
+
+Features:
+
+- Large amounts of data can be extracted from websites
+
+- Convert unstructred data to structured data
+
+- There is a Crawler in webscrapping to index and search content
+
+- There is a Scrapper in webscrapping which extracts the data from the web page
+
+- Websites, News resources, RSS feeds, Pricing Websites, Social Media, Company information, Schemas/charts/tables/graphs are the main sources of unstructured data which a webscrapper uses to get data.
+
+
+#### Why Web Scraping?
+Browsers displays the contents in the human readable format but it can not answers to specific queries that can be used to integrate with other systems. 
+For example if a program requires information such as cheapest flights to newyork then the browser will provide lots of information containing images,
+advertisements etc. but a web scrapping program will get the specif answer to our query. Practically web scrapping involves a wide variety of programming techniques
+and technologies, such as data analysis and information security.
+
+
+### How it works
+
+- Get Request is sent using http protocol  to the site the scrapper is targetting
+
+- Web server processes the request and then allowed to read and extract the html of the web page
+
+- The data is retrieved in html format after which it is carefully parsed to extricate the raw data we want from th noise surrounding it.
+
+- Finally the data is stored in the format to exact the specifications of the project.
+
+
+
+### Flow
+
+- Request
+
+- Check Response
+
+- Parse
+
+- Filter
+
+- Download
+
+
+### Common python libraries for web-scrapping
+
+#### BeautifulSoup
+
+The most common library is BeautifulSoup. 
+
+- It parses html document
+
+- It extracts text from it
+
+- It searches tags by their attributes
+
+- It has findAll and find functions are commonly used to find all attributes.
+
+Example#1: Getting covid-19 data from the web
+
+```{python}
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.worldometers.info/coronavirus/"
+
+page = requests.get(url)
+
+soup = BeautifulSoup(page.text,'html.parser')
+
+total = soup.find("div",class_ = "maincounter-number").text
+
+total = total[1:len(total)-1]
+
+other = soup.find_all("span",class_="number-table")
+
+recovered = other[2].text
+
+deaths = other[3].text
+
+deaths = deaths[1:]
+
+ans = {"total cases": total, "recovered": recovered, "deaths": deaths}
+
+print(ans)
+
+```
+
+
+Example#2: Scrapping yourdictionary.com
+
+```{python, eval = FALSE}
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://examples.yourdictionary.com/20-words-to-avoid-on-your-resume.html"
+
+page = requests.get(url)
+
+soup = BeautifulSoup(page.text,'html.parser')
+
+paras = soup.findAll('p')
+
+for p in paras:
+  print(p.text + '\n')
+```
+
+
+Example#2: Getting top mathematicians from web
+
+```{python}
+from urllib.request import urlopen as uReq
+from bs4 import BeautifulSoup as BeautifulSoup, Tag
+import pandas as pd
+
+html = uReq("http://www.fabpedigree.com/james/gmat200.htm").read()
+
+soup = BeautifulSoup(html,'html5lib')
+
+names = []
+for item in soup.find_all('li'):
+  if isinstance(item, Tag):
+    names.append(item.text.rstrip())
+
+names_df = pd.DataFrame(names)    
+
+
+print(names_df.head())    
+```
+
+
+
+#### LXML
+
+Python provides lxml library which is easier to use and has lots of features. lxml and Beautiful soup have similarity. It allows to parse XML and HTML documents easily. Ease of use and performance are the key features of lxml library.
+
+Example:
+
+```{python}
+from lxml import html
+import requests
+
+page = requests.get('https://projecteuler.net/problem=1')
+tree = html.fromstring(page.content)
+text=tree.xpath('//div[@role="problem"]/p/text()')
+print (text)
+```
+
+#### Machenical Soup
+
+It is a library for automating interaction with the websites. User can login and logout of the website, submit forms etc.
+
+#### Python Requests
+
+Submitting a form with the Requests library can be done in four lines, including the
+import and the instruction to print the content (yes, it’s that easy):
+
+Example#3 Getting exchange rates
+
+```{python}
+
+import requests
+import pandas as pd
+ # base_url variable store base url  
+base_url = "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE"
+
+from_currency = "USD"
+
+to_currency = "INR"
+
+main_url = base_url + "&from_currency=" + from_currency + "&to_currency=" + to_currency + "&apikey=4RSKNH0KOBS5TMP1"
+
+req_ob = requests.get(main_url) 
+
+result = req_ob.json() 
+
+
+oneusdequals = result["Realtime Currency Exchange Rate"]['5. Exchange Rate']
+
+
+print(float(oneusdequals))
+  
+```
+#### Summary
+
+There are different ways to scrape data from the internet. 
+Regular expressions can be useful for a one-off scrape or to avoid the overhead of parsing the entire web page. 
+BeautifulSoup provides a high-level interface while avoiding any difficult dependencies. 
+Web scraping services provide an essential service at a low cost. 
+It is used to scrape Price and Products for Comparison Sites and many such use cases to provide useful data for further processing.

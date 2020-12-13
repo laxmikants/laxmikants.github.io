@@ -1,0 +1,304 @@
+---
+title: "Python - Multithreading"
+author: Laxmi K Soni 
+description: "Introduction to Python Multithreading"
+slug: Python Multithreading
+date: 2019-01-19
+lastmod: 2019-01-19
+categories: ["Python"]
+tags: ["Python"]
+Summary: Python Multithreading
+subtitle: Python Multithreading
+featured: "img/main/Python-Thread-21.jpg"
+output:
+  blogdown::html_page:
+    toc: true
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: true
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+```
+
+<hr>
+
+# Multithreading
+
+Threads are lightweight processes that perform certain actions in a program and they are part of a process themselves. These threads can work in parallel with each other in the same way as two individual applications can.
+
+Since threads in the same process share the memory space for the variables and the data, they can exchange information and communicate efficiently. Also, threads need fewer resources than processes. That’s why they’re often called lightweight processes.
+
+## How a thread works
+
+A thread has a beginning or a start, a working sequence and an end. But it can also be stopped or put on hold at any time. The latter is also called sleep .
+There are two types of threads: Kernel Threads and User Threads . Kernel threads are part of the operating system, whereas user threads are managed by the programmer. That’s why we will focus on user threads in this book.
+
+In Python, a thread is a class that we can create instances of. Each of these instances then represents an individual thread which we can start, pause or stop. They are all independent from each other and they can perform different operations at the same time.
+
+For example, in a video game, one thread could be rendering all the graphics, while another thread processes the keyboard and mouse inputs. It would be unthinkable to serially perform these tasks one after the other.
+
+### how to start thread 
+
+In order to work with threads in Python, we will need to import the respective library threading .
+
+```{python}
+import threading
+```
+Then, we need to define our target function. This will be the function that contains the code that our thread shall be executing. Let’s just keep it simple for the beginning and write a hello world function.
+
+```{python}
+import threading
+def hello():
+  print ( 'Hello World!' )
+  t1 = threading.Thread( target =hello)
+  t1.start()
+```
+
+After we have defined the function, we create our first thread. For this, we use the class Thread of the imported threading module. As a parameter, we specify the target to be the hello function. Notice that we don’t put parentheses after our function name here, since we are not calling it but just referring to it. By using the start method we put our thread to work and it executes our function.
+
+### Start Vs Run
+
+In this example, we used the function start to put our thread to work. Another alternative would be the function run . The difference between these two functions gets important, when we are dealing with more than just one thread.
+When we use the run function to execute our threads, they run serially one after the other. They wait for each other to finish. The start function puts all of them to work simultaneously.
+The following example demonstrates this difference quite well.
+
+```{python, eval= FALSE}
+import threading
+
+def function1():
+  for x in range ( 1000 ):
+  print ( 'ONE' )
+def function2():
+  for x in range ( 1000 ):
+  print ( 'TWO' )
+  
+t1 = threading.Thread( target =function1)
+
+t2 = threading.Thread( target =function2)
+
+t1.start()
+
+t2.start()
+```
+When you run this script, you will notice that the output alternates between ONEs and TWOs . Now if you use the run  function instead of the start function, you will see 1000 times ONE followed by 1000 times TWO . This shows you that the threads are run serially and not in parallel.
+
+One more thing that you should know is that the application itself is also the main thread, which continues to run in the background. So while your threads are running, the code of the script will be executed unless you wait for the threads to finish.
+
+### Waiting for threads
+
+```{python, eval=FALSE}
+import threading
+def function():
+  for x in range ( 500000 ):
+  print ( 'HELLO WORLD!' )
+  t1 = threading.Thread( target =function)
+t1.start()
+print ( 'THIS IS THE END!' )
+```
+
+If you execute this code, you will start printing the text “HELLO WORLD!” 500,000 times. But what you will notice is that the last print statement gets executed immediately after our thread starts and not after it ends.
+
+```{python, eval=FALSE}
+t1 = threading.Thread( target =function)
+t1.start()
+t1.join()
+print ( 'THIS IS THE END!' )
+```
+
+By using the join function here, we wait for the thread to finish before we move on with the last print statement. If we want to set a maximum time that we want to wait, we just pass the number of seconds as a parameter.
+
+```{python, eval=FALSE}
+t1 = threading.Thread( target =function)
+t1.start()
+t1.join( 5 )
+print ( 'THIS IS THE END!' )
+```
+
+In this case, we will wait for the thread to finish but only a maximum of five seconds. After this time has passed we will proceed with the code.
+Notice that we are only waiting for this particular thread. If we would have other threads running at the same time, we would have to call the join function on each of them in order to wait for all of them.
+
+### Thread classes
+
+Another way to build our threads is to create a class that inherits the Thread class. We can then modify the run function and implement our functionality. The start function is also using the code from the run function so we don’t have to worry about that.
+
+```{python, eval=FALSE}
+import threading
+class MyThread(threading.Thread):
+  def __init__ ( self , message):
+    threading.Thread. __init__ ( self )
+    self .message = message
+    
+  def run( self ):
+    for x in range ( 100 ):
+    print ( self .message)
+    
+mt1 = MyThread( 'This is my thread message!' )
+mt1.start()
+```
+
+It is basically the same but it offers more modularity and structure, if you want to use attributes and additional functions.
+
+### Synchronizing Threads
+
+Sometimes you are going to have multiple threads running that all try to access the same resource. This may lead to inconsistencies and problems. In order to prevent such things there is a concept called locking . Basically, one thread is locking all of the other threads and they can only continue to work when the lock is removed.
+
+I came up with the following quite trivial example. It seems a bit abstract but you can still get the concept here.
+
+```{python, eval=FALSE}
+import threading
+import time
+x = 8192
+def halve():
+  global x
+  while (x > 1 ):
+    x /= 2
+    print (x)
+    time.sleep( 1 )
+  print ( 'END!' )
+  
+def double():
+  global x
+  while (x < 16384 ):
+    x *= 2
+    print (x)
+    time.sleep( 1 )
+  print ( 'END!' )
+t1 = threading.Thread( target =halve)
+t2 = threading.Thread( target =double)
+t1.start()
+t2.start()
+```
+
+Here we have two functions and the variable x that starts at the value 8192 . The first function halves the number as long as it is greater than one, whereas the second function doubles the number as long as it is less than 16384 .
+
+Also, I’ve imported the module time in order to use the function sleep . This function puts the thread to sleep for a couple of seconds (in this case one second). So it pauses. We just do that, so that we can better track what’s happening.
+When we now start two threads with these target functions, we will see that the script won’t come to an end. The halve function will constantly decrease the number and the double function will constantly increase it.
+
+```{python, eval=FALSE}
+
+import threading
+import time
+x = 8192
+lock = threading.Lock()
+def halve():
+  global x, lock
+  lock.acquire()
+  while (x > 1 ):
+    x /= 2
+    print (x)
+    time.sleep( 1 )
+  print ( 'END!' )
+  lock.release()
+  
+def double():
+  global x, lock
+  lock.acquire()
+  while (x < 16384 ):
+    x *= 2
+    print (x)
+    time.sleep( 1 )
+  print ( 'END!' )
+  lock.release()
+t1 = threading.Thread( target =halve)
+t2 = threading.Thread( target =double)
+t1.start()
+t2.start()
+```
+So here we added a couple of elements. First of all we defined a Lock object. It is part of the threading  module and we need this object in order to manage the locking.
+Now, when we want to try to lock the resource, we use the function acquire . If the lock was already locked by someone else, we wait until it is released again before we continue with the code. However, if the lock is free, we lock it ourselves and release it at the end using the release function.
+Here, we start both functions with a locking attempt. The first function that gets executed will lock the other function and finish its loop. After that it will release the lock and the other function can do the same.
+So the number will be halved until it reaches the number one and then it will be doubled until it reaches the number 16384 . 
+
+# Semaphores
+
+Sometimes we don’t want to completely lock a resource but just limit it to a certain amount of threads or accesses. In this case, we can use so-called semaphores .
+To demonstrate this concept, we will look at another very abstract example.
+
+```{python, eval=FALSE}
+import threading
+import time
+semaphore = threading.BoundedSemaphore( value = 5 )
+def access(thread_number):
+  print ( '{}: Trying access...'.format(thread_number))
+  semaphore.acquire()
+  print ( '{}: Access granted!'.format(thread_number))
+  print ( '{}: Waiting 5 seconds...'.format(thread_number))
+  time.sleep( 5 )
+  semaphore.release()
+  print ( '{}: Releasing!'.format(thread_number))
+  
+for thread_number in range ( 10 ):
+  t = threading.Thread( target =access,args =(thread_number,))
+t.start()
+```
+
+We first use the BoundedSemaphore class to create our semaphore object. The parameter value determines how many parallel accesses we allow. In this case, we choose five.
+With our access function, we try to access the semaphore. Here, this is also done with the acquire function. If there are less than five threads utilizing the semaphore, we can acquire it and continue with the code. But when it’s full, we need to wait until some other thread frees up one space.
+When we run this code, you will see that the first five threads will immediately run the code, whereas the remaining five threads will need to wait five seconds until the first threads release the semaphore.
+This process makes a lot of sense when we have limited resources or limited computational power in a system and we want to limit the access to it.
+
+With events we can manage our threads even better. We can pause a thread and wait for a certain event to happen, in order to continue it.
+
+```{python, eval=FALSE}
+
+import threading
+event = threading.Event()
+def function():
+  print ( 'Waiting for event...' )
+  event.wait()
+  print ( 'Continuing!' )
+  
+thread = threading.Thread( target =function)
+thread.start()
+
+x = input ( 'Trigger event?' )
+if (x == 'yes' ):
+  event.set()
+```
+
+To define an event we use the Event class of the threading module. Now we define our function which waits for our event. This is done with the wait function. So we start the thread and it waits.
+Then we ask the user, if he wants to trigger the event. If the answer is yes, we trigger it by using the set function. Once the event is triggered, our function no longer waits and continues with the code.
+
+## Daemon Threads
+
+So-called daemon threads are a special kind of thread that runs in the background. This means that the program can be terminated even if this thread is still running. Daemon threads are typically used for background tasks like synchronizing, loading or cleaning up files that are not needed anymore. We define a thread as a daemon by setting the respective parameter in the constructor for Thread to True .
+
+```{python, eval=FALSE}
+import threading
+import time
+path = 'text.txt'
+text = ''
+def readFile():
+  global path, text
+  while True :
+    with open (path) as file:
+    text = file.read()
+    time.sleep( 3 )
+    
+def printloop():
+  global text
+  for x in range ( 30 ):
+    print (text)
+    time.sleep( 1 )
+
+t1 = threading.Thread( target =readFile, daemon = True )
+t2 = threading.Thread( target =printloop)
+t1.start()
+t2.start()
+```
+So, here we have two functions. The first one constantly reads in the text from a file and saves it into the text variable. This is done in an interval of three seconds. The second one prints out the content of text every second but only 30 times.
+
+As you can see, we start the readFile function in a daemon thread and the printloop function in an ordinary thread. So when we run this script and change the content of the text.txt file while it is running, we will see that it prints the actual content all the time. Of course, we first need to create that file manually.
+
+After it printed the content 30 times however, the whole script will stop, even though the daemon thread is still reading in the files. Since the ordinary threads are all finished, the program ends and the daemon thread just gets terminated With locking we can now let one function finish before the next function starts. Of course, in this example this is not very useful but we can do the same thing in much more complex situations.

@@ -1,0 +1,132 @@
+---
+title: "Python - Regular Expressions"
+author: Laxmi K Soni 
+description: "Introduction to Regular Expressions"
+slug: Regular Expressions
+date: 2019-02-22
+lastmod: 2019-02-22
+categories: ["Python"]
+tags: ["Python"]
+Summary: Regular Expressions
+subtitle: Regular Expressions
+featured: "img/main/2019-02-22-Python-Regex-27.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="regular-expressions" class="section level1">
+<h1>REGULAR EXPRESSIONS</h1>
+<p>In programming, you will oftentimes have to deal with long texts from which we want to extract specific information. Also, when we want to process certain inputs, we need to check for a specific pattern. For example, think about emails. They need to have some text, followed by an @ character, then again some text and finally a dot and again some little text.</p>
+<p>In order to make the validations easier, more efficient and more compact, we use so-called regular expressions .</p>
+<p>The topic of regular expressions is very huge and you could write a whole book only about it. This is why we are not going to focus too much on the various placeholders and patterns of the expressions themselves but on the implementation of RegEx in Python.
+So in order to confuse you right in the beginning, let’s look at a regular expression that checks if the format of an email-address is valid.</p>
+<pre class="python"><code>^[a-zA-Z0-9.!#$%&amp;&#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$</code></pre>
+<p>Now you can see why this is a huge field to learn. We are going to focus on quite simple examples and how to properly implement them in Python.</p>
+<div id="identifier" class="section level2">
+<h2>IDENTIFIER</h2>
+<p>Let’s get started with some basic knowledge first. So-called identifiers define what kind of
+character should be at a certain place. Here you have some examples:</p>
+<pre class="python"><code>| |REGEX IDENTIFIERS |                                      |
+|--------------------|--------------------------------------|
+| IDENTIFIER         | DESCRIPTION                          |
+| \d                 | Some digit                           |
+| \D                 | Everything BUT a digit               |
+| \s                 | White space                          |
+| \S                 | Everything BUT a white space         |
+| \w                 | Some letter                          |
+| \W                 | Everything BUT a letter              |
+| .                  | Every character except for new lines |
+| \b                 | White spaces around a word           |
+| \.                 | A dot                                |</code></pre>
+</div>
+<div id="modifier" class="section level2">
+<h2>MODIFIER</h2>
+<p>The modifiers extend the regular expressions and the identifiers. They might be seen as some kind of operator for regular expressions.</p>
+<pre class="python"><code>| REGEX MODIFIERS |                                            |
+|-----------------|--------------------------------------------|
+| MODIFIER        | DESCRIPTION                                |
+| {x,y}           | A number that has a length between x and y |
+| +               | At least one                               |
+| ?               | None or one                                |
+| *               | Everything                                 |
+| $               | At the end of a string                     |
+| ^               | At the beginning of a string               |
+| |               | Either Or                                  |
+|                 | Example: x | y = either x or y             |
+| []              | Value range                                |
+| {x}             | x times                                    |
+| {x,y}           | x to y times                               |</code></pre>
+</div>
+<div id="escape-characters" class="section level2">
+<h2>ESCAPE CHARACTERS</h2>
+<pre class="python"><code>| REGEX ESCAPE CHARATCERS |             |
+|-------------------------|-------------|
+| CHARACTER               | DESCRIPTION |
+| \n                      | New Line    |
+| \t                      | Tab         |
+| \s                      | White Space |</code></pre>
+</div>
+<div id="applying-regular-expressions" class="section level2">
+<h2>APPLYING REGULAR EXPRESSIONS</h2>
+<p><code>FINDING STRINGS</code></p>
+<p>In order to apply these regular expressions in Python, we need to import the module re .</p>
+<pre class="python"><code>import re</code></pre>
+<p>Now we can start by trying to find some patterns in our strings.</p>
+<pre class="python"><code>text = &#39;&#39;&#39;
+Mike is 20 years old and George is 29!
+My grandma is even 104 years old!
+&#39;&#39;&#39;
+ages = re.findall( r&#39;\d{1,3}&#39; , text)
+print (ages)</code></pre>
+<pre><code>## [&#39;20&#39;, &#39;29&#39;, &#39;104&#39;]</code></pre>
+<p>In this example, we have a text with three ages in it. What we want to do is to filter these out and print them separately.</p>
+<p>As you can see, we use the function findall in order to apply the regular expression onto our string. In this case, we are looking for numbers that are one to three digits long. Notice that we are using an r character before we write our expression. This indicates that the given string is a regular expression.</p>
+<p>At the end, we print our result and get the following output:</p>
+<p>[‘20’, ‘29’, ‘104’]</p>
+</div>
+<div id="matching-strings" class="section level2">
+<h2>MATCHING STRINGS</h2>
+<p>What we can also do is to check if a string matches a certain regular expression. For example, we can apply our regular expression for mails here.</p>
+<pre class="python"><code>import re
+
+text = &#39;test@mail.com&#39;
+
+result = re.fullmatch( r&#39;^[a-zA-Z0-9.!#$%&amp;&#39;*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$&#39; , text)
+
+if result != None :
+  print ( &#39;VALID!&#39; )
+else :
+  print ( &#39;INVALID!&#39; )</code></pre>
+<p>We are not going to talk about the regular expression itself here. It is very long and complicated. But what we see here is a new function called fullmatch . This function returns the checked string if it matches the regular expression. In this case, this happens when the string has a valid mail format.</p>
+<p>If the expression doesn’t match the string, the function returns None . In our example above, we get the message “VALID!” since the expression is met. If we enter something like “Hello World!”, we will get the other message.</p>
+<div id="manipulating-strings" class="section level3">
+<h3>MANIPULATING STRINGS</h3>
+<p>Finally, we are going to take a look at manipulating strings with regular expressions. By using the function sub we can replace all the parts of a string that match the expression by something else.</p>
+<pre class="python"><code>import re
+text = &#39;&#39;&#39;
+Mike is 20 years old and George is 29!
+My grandma is even 104 years old!
+&#39;&#39;&#39;
+text = re.sub( r&#39;\d{1,3}&#39; , &#39;100&#39; , text)
+print (text)</code></pre>
+<pre><code>## 
+## Mike is 100 years old and George is 100!
+## My grandma is even 100 years old!</code></pre>
+<p>In this example, we replace all ages by 100 . This is what gets printed:
+Mike is 100 years old and George is 100!
+My grandma is even 100 years old!</p>
+<p>These are the basic functions that we can operate with in Python when dealing with regular expressions. If you want to learn more about regular expressions just google and you will find a lot of guides. Play around with the identifiers and modifiers a little bit until you feel like you understand how they work.</p>
+</div>
+</div>
+</div>
