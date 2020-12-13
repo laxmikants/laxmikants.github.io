@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Neural Networks!</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="  Laxmikant  " />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+       gtag('config','UA-155379268-1');
+    </script>
+
+     <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "BlogPosting",
+      "headline": "R Markdown",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://laxmikants.github.io/R-markdown/slides/Lession1.html"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://laxmikants.github.io/img/cover.png",
+        "width": 800,
+        "height": 600
+      },
+      "genre": "post",
+      "keywords": "R Markdown",
+      "wordcount": 159,
+      "url": "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "datePublished": "2017-07-23T00:00:00+00:00",
+      "dateModified": "2017-07-23T00:00:00+00:00",
+      "license": "This work is licensed.",
+       "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+          "width": 60,
+          "height": 60
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Laxmikant"
+      },
+      "description" : "R markdown"
+    }
+    </script>
+
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+      <title>Data Science Posts and Resources | Laxmikant</title>
+      <meta property="og:title" content="Posts and Resources on Data Science | R Markdown" />
+      <meta name="description" content="Implementing R markdown">
+      <meta property="og:description" content="Implementing R markdown">
+      <meta name="author" content="Laxmikant"/>
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name" : "Laxmikant"
+      },
+      "headline": "R Markdown",
+      "description" : "Implementing R markdown",
+      "inLanguage" : "en",
+      "wordCount": 159,
+      "datePublished" : "2017-07-23T00:00:00",
+      "dateModified" : "2017-07-23T00:00:00",
+      "image" : "https://laxmikants.github.io/img/avatar-icon.png",
+      "keywords" : [ "R Markdown, plot, regression" ],
+      "mainEntityOfPage" : "https://laxmikants.github.io/R-markdown/slides/Lession1.html",
+      "publisher" : {
+        "@type": "Organization",
+        "name" : "Laxmikant",
+        "logo" : {
+            "@type" : "ImageObject",
+            "url" : "https://laxmikants.github.io/img/avatar-icon.png",
+            "height" :  60 ,
+            "width" :  60
+        }
+      }
+    }
+    </script>
+
+    <link href='https://laxmikants.github.io/img/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta property="og:image" content="https://laxmikants.github.io/img/avatar-icon.png" />
+    <meta property="og:url" content="https://laxmikants.github.io/post/2015-07-23-r-rmarkdown/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="og:description" content="posts, Tutorials and resources for Data Science programming languages, frameworks, tools, etc.">
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="article" />
+
+    <meta content="R markdown" property="og:description">
+    <meta property="og:url" content="https://laxmikants.github.io/R-markdown/slides/Lession1.html" />
+    <meta property="og:site_name" content="Laxmikant" />
+    <meta property="article:section" content="R" />
+    <meta property="article:published_time" content="2017-07-23 00:00:00 &#43;0000 UTC" />
+    <meta name="generator" content="Hugo 0.54.0" />
+    <link rel="stylesheet" href="https://laxmikants.github.io/css/default.css" type="text/css" />
+    <link rel="stylesheet" href="https://laxmikants.github.io/css/metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="https://laxmikants.github.io/css/metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap-grid.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://laxmikants.github.io/css/my_styles.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide
+
+
+
+.row[
+.col-7[
+.title[
+# Neural Networks 
+]
+.subtitle[
+
+]
+.author[
+### Laxmikant Soni &lt;br&gt; [Web-Site](https://laxmikants.github.io) &lt;br&gt; [&lt;i class="fab fa-github"&gt;&lt;/i&gt;](https://github.com/laxmiaknts) [&lt;i class="fab fa-twitter"&gt;&lt;/i&gt;](https://twitter.com/laxmikantsoni09)
+]
+
+.affiliation[
+]
+
+]
+
+.col-5[
+
+.logo[
+![](figures/rmarkdown.png)&lt;!-- --&gt;
+]
+
+
+]
+
+]
+
+
+---
+class: inverse, center, middle
+
+# Understanding Neural Networks
+
+---
+
+class: body
+
+# Neural Networks Intuition
+
+&lt;hr&gt;
+--
+.pull-top[
+
+&lt;font size="6"&gt; 
+* Developer looks for bugs in the code. 
+
+* Ran many test cases by changing the inputs and look for the output. 
+
+* then change in output provides  hint on where to look for the bug which module to check, which lines to read. 
+
+* Once we find it we make the changes and the exercise continues until we have the right code/application.
+
+&lt;/font&gt;
+]
+
+&lt;hr&gt;
+
+&gt; Artificial Neural Networks works in the similar way, in which error is minimized by changing input weights and biases
+
+
+
+---
+
+class: body
+
+# Perceptron and Neuron
+
+&lt;hr&gt;
+--
+.pull-top[
+
+&lt;font size="6"&gt; 
+
+* A perceptron is a unit that takes multiple inputs and produces an output. It performs some transformation to inputs.
+
+* A neuron performs non-linear transformation to the inputs
+
+* Input and outputs can be combined in various ways.
+
+  * By directly combining the input and computing the output based on a threshold value
+  
+  * By adding weights to the inputs
+  
+  * By adding additional bias along with the weights to the inputs
+
+
+&lt;/font&gt;
+]
+
+&lt;hr&gt;
+
+
+
+---
+
+class: body
+
+# Weighted Summation
+
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+![](https://laxmikants.github.io/img/main/ANDORNN.png)&lt;!-- --&gt;
+
+
+
+]
+
+--
+
+.pull-right[
+
+&lt;font size="6"&gt;
+
+  * w1 ,w2 , w3 are the weights of the connections
+  
+  * x1 , x2 , x3 are the input values
+  
+  * A neuron unit computes the summation of the weights multiplied by input values and adds a bias
+  
+&lt;/font&gt;  
+--
+
+]
+&lt;hr&gt;
+
+
+---
+
+class: body
+
+# Activation Function
+
+&lt;hr&gt;
+--
+.pull-left[
+
+![](https://laxmikants.github.io/img/main/ANDORNN.png)&lt;!-- --&gt;
+
+
+
+]
+
+--
+
+.pull-right[
+
+&lt;font size="6"&gt;
+
+  * Activation Function takes the sum of weighted input (w1*x1 + w2*x2 + w3*x3 + 1*b) as an argument and returns the output of the neuron.
+
+  * the activation function is mostly used to make a non-linear transformation that allows us to fit nonlinear hypotheses or to estimate the complex functions
+  
+  * Sigmoid, Tanh, ReLu 
+  
+&lt;/font&gt;  
+--
+
+]
+&lt;hr&gt;
+
+
+---
+
+class: body
+
+# Forward Propagation
+
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+![](https://laxmikants.github.io/img/main/forward.png)&lt;!-- --&gt;
+
+
+
+]
+
+--
+
+.pull-right[
+
+&lt;font size="5"&gt;
+
+  * When information is propagated from input layer to hidden layers, where after summarizing the input variables we apply an activation           function and which finally result into output cost function is known as Forward Propagation.
+  
+  * Once we get the final output and we compute the cost function which results into error or difference between actual and predicted values.
+  
+&lt;/font&gt;  
+--
+
+]
+&lt;hr&gt;
+
+
+---
+
+class: body
+
+# Backward Propagation and Epoch
+
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+![](https://laxmikants.github.io/img/main/backward.png)&lt;!-- --&gt;
+
+
+]
+
+--
+
+.pull-right[
+
+&lt;font size="5"&gt;
+
+  * The process, where error are propagated back to input layer through hidden layer to adjust the weights is called Back Propagation.
+  
+  * Back-propagation (BP) algorithms work by determining the loss (or error) at the output and then propagating it back into the network. The weights are updated to minimize the error.
+  
+  * This one round of forwarding and backpropagation iteration is known as one training iteration aka Epoch.
+
+
+&lt;/font&gt;  
+--
+
+]
+&lt;hr&gt;
+
+
+---
+
+
+class: body
+
+# Full Batch Gradient Descent vs Stochastic Gradient Descent
+
+&lt;hr&gt;
+--
+.pull-top[
+
+&lt;font size="5"&gt;
+
+  * Both variants of Gradient Descent perform the same work of updating the weights of the MLP by using the same updating algorithm but the difference lies in the number of training samples used to update the weights and biases.
+  
+  * Full Batch Gradient Descent Algorithm  uses all the training data points to update each of the weights
+  
+  * Stochastic Gradient uses 1 or more(sample) but never the entire training data to update the weights once.
+  
+  * Full Batch: You use 10 data points (entire training data) and calculate the change in w1 (Δw1) and change in w2(Δw2) and update w1 and w2.
+  
+  * SGD: You use 1st data point and calculate the change in w1 (Δw1) and change in w2(Δw2) and update w1 and w2. Next, when you use 2nd data point, you will work on the updated weights
+
+&lt;/font&gt;
+]
+&lt;hr&gt;
+
+
+---
+
+
+class: body
+
+# Algorithm
+
+&lt;hr&gt;
+--
+.pull-top[
+
+&lt;font size="5"&gt;
+
+  * Step1: Randomly initialize the weights to small values close to zero (but not equal to zero)
+
+  * Step2: Pass first observation of the dataset through ANN algorithm
+
+  * Step3: Forward Propagation: In which information is passed through neural network algorithm starting from input layer till the computation of cost function
+
+  * Step4: Compare the predicted value and actual value to find out the difference or error
+
+  * Step5: Back Propagation: In the step error are propagated back to the input layer to adjust the weights. The learning rate decides how fast we get the minimum cost function
+
+  * Step6: Repeat Step1-Step5 till we get the minimum value of cost function with optimized value of weights for each of the input variable
+  
+&lt;/font&gt;
+]
+
+&lt;hr&gt;
+
+---
+
+class: body
+
+# Simple implementation of Neural Network in R
+
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+```python
+
+library(neuralnet)
+traininginput = (1:3)^2
+trainingoutput = sqrt(traininginput)
+trainingdata = cbind(traininginput,trainingoutput)
+colnames(trainingdata) &lt;- c("Input","Output")
+net.sqrt &lt;- neuralnet(Output~Input,trainingdata, hidden=5, threshold=0.01)
+plot(net.sqrt)
+```
+
+]
+
+--
+
+.pull-right[
+
+
+
+![](https://laxmikants.github.io/img/main/squarerootnn.png)&lt;!-- --&gt;
+
+--
+
+]
+&lt;hr&gt;
+
+---
+
+
+
+---
+
+class: body
+
+# Simple implementation of Neural Network in Python
+
+&lt;hr&gt;
+--
+.pull-left[
+
+
+
+```python
+from keras.models import Sequential
+from keras.layers import Dense
+from keras import optimizers
+
+X = [1,4,9,16,25]
+y = [1,2,3,4,5]
+
+model = Sequential()
+model.add(Dense(6, input_dim=1, activation='relu'))
+model.add(Dense(1, activation='linear'))
+opt = optimizers.Adam(learning_rate=0.01) 
+model.compile(loss='mean_squared_error', optimizer=opt, metrics=['accuracy'])
+model.fit(X, y, epochs=200, batch_size=10, verbose=0)
+predicitions = model.predict(X)
+scores = model.evaluate(X, y)
+for i in range(5):
+    print('%s =&gt; %.2f (expected %.2f)' % (X[i], predicitions[i], y[i]))
+```
+
+]
+
+--
+
+.pull-right[
+
+1/1 [==============================] - 0s 2ms/step - loss: 0.0453 - accuracy: 0.2000
+
+1 =&gt; 1.28 (expected 1.00)
+
+4 =&gt; 1.96 (expected 2.00)
+
+9 =&gt; 2.74 (expected 3.00)
+
+16 =&gt; 3.82 (expected 4.00)
+
+25 =&gt; 5.21 (expected 5.00)
+
+--
+
+]
+&lt;hr&gt;
+
+
+---
+class: inverse, center, middle
+
+# Thanks
+
+---
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://laxmikants.github.io/js/cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

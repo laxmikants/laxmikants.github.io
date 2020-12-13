@@ -220,3 +220,8 @@ Let’s look at a simple example above. Here we have multiple Xs and Os as examp
 * Backpropagation is the algorithm which calculates the gradient for the gradient descent algorithm. This is done by starting from the output layer and reverse engineering the desired changes.
 
 
+#### slides
+
+```{r}
+knitr::include_url('/slides/NeuralNetworks.html')
+```

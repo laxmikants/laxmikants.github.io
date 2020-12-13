@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Python - Database Programming - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Python - Database Programming">
+<meta itemprop="description" content="Introduction to Python Database Programming">
+<meta itemprop="datePublished" content="2019-02-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="995">
+
+
+
+<meta itemprop="keywords" content="Python," />
+<meta property="og:title" content="Python - Database Programming" />
+<meta property="og:description" content="Introduction to Python Database Programming" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-database-programming/" />
+<meta property="article:published_time" content="2019-02-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-02-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python - Database Programming"/>
+<meta name="twitter:description" content="Introduction to Python Database Programming"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Python - Database Programming : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Python - Database Programming">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-database-programming/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to Python Database Programming">
+<meta name="description" content="Introduction to Python Database Programming">
+<meta property="og:updated_time" content="2019-02-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2019-02-05T00:00:00Z">
+<meta property="article:modified_time" content="2019-02-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python - Database Programming",
+  "alternativeHeadline": "Python Database Programming",
+  "url": "https://laxmikants.github.io/blog/python-database-programming/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/python-database-programming/"
+  },
+  "description": "Introduction to Python Database Programming",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2019-02-05T00:00:00Z",
+  "dateModified": "2019-02-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"database-programming\" class=\"section level1\"\u003e\r\n\u003ch1\u003eDatabase Programming\u003c/h1\u003e\r\n\u003cp\u003eDatabases are one of the most popular ways to store and manage data in computer science. Because of that, in this post we are going to take a look at database programming with Python.\r\nNotice that for most databases we use the query language SQL , which stands for Structured Query Language . We use this language in order to manage the database, the tables and the rows and columns.\u003c/p\u003e\r\n\u003cdiv id=\"connecting-to-sqlite\" class=\"section level2\"\u003e\r\n\u003ch2\u003eCONNECTING TO SQLITE\u003c/h2\u003e\r\n\u003cp\u003eThe database that comes pre-installed with Python is called SQLite . It is also the one which we are going to use. Of course, there are also other libraries for MySQL, MongoDB etc.\r\nIn order to use SQLite in Python, we need to import the respective module – sqlite3 .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport sqlite3\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow, to create a new database file on our disk, we need to use the connect method.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003econn = sqlite3.connect( \u0026#39;mydata.db\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThis right here creates the new file mydata.db and connects to this database. It returns a connection object which we save in the variable conn .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"executing-statements\" class=\"section level2\"\u003e\r\n\u003ch2\u003eEXECUTING STATEMENTS\u003c/h2\u003e\r\n\u003cp\u003eSo, we have established a connection to the database. But in order to execute SQL statements, we will need to create a so-called cursor .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec = conn.cursor()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe get this cursor by using the method cursor of our connection object that returns it. Now we can go ahead and execute all kinds of statements.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"creating-tables\" class=\"section level2\"\u003e\r\n\u003ch2\u003eCREATING TABLES\u003c/h2\u003e\r\n\u003cp\u003eFor example, we can create our first table like this:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec.execute( \u0026#39;\u0026#39;\u0026#39;CREATE TABLE persons (\r\nfirst_name TEXT,\r\nlast_name TEXT,\r\nage INTEGER\r\n)\u0026#39;\u0026#39;\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we use the execute function and write our query. What we are passing here is SQL code. As I already said, understanding SQL is not the main objective here. We are focusing on the Python part. Nevertheless, it’s quite obvious what’s happening here. We are creating a new table with the name persons and each person will have the three attributes first_name, last_name and age .\u003c/p\u003e\r\n\u003cp\u003eNow our statement is written but in order to really execute it, we ne need to commit to our connection.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003econn.commit()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWhen we do this, our statement gets executed and our table created. Notice that this works only once, since after that the table already exists and can’t be created again.\r\nAt the end, don’t forget to close the connection, when you are done with everything.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003econn.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"inserting-values\" class=\"section level2\"\u003e\r\n\u003ch2\u003eINSERTING VALUES\u003c/h2\u003e\r\n\u003cp\u003eNow let’s fill up our table with some values. For this, we just use an ordinary INSERT statement.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec.execute( \u0026#39;\u0026#39;\u0026#39;INSERT INTO persons VALUES\r\n(\u0026#39;John\u0026#39;, \u0026#39;Smith\u0026#39;, 25),\r\n(\u0026#39;Anna\u0026#39;, \u0026#39;Smith\u0026#39;, 30),\r\n(\u0026#39;Mike\u0026#39;, \u0026#39;Johnson\u0026#39;, 40)\u0026#39;\u0026#39;\u0026#39; )\r\nconn.commit()\r\nconn.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eSo basically, we are just adding three entries to our table. When you run this code, you will see that everything went fine. But to be on the safe side, we will try to now extract the values from the database into our program.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"selecting-values\" class=\"section level2\"\u003e\r\n\u003ch2\u003eSELECTING VALUES\u003c/h2\u003e\r\n\u003cp\u003eIn order to get values from the database, we need to first execute a SELECT statement. After that, we also need to fetch the results.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec.execute( \u0026#39;\u0026#39;\u0026#39;SELECT * FROM persons\r\nWHERE last_name = \u0026#39;Smith\u0026#39;\u0026#39;\u0026#39;\u0026#39; )\r\nprint (c.fetchall())\r\nconn.commit()\r\nconn.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAs you can see, our SELECT statement that gets all the entries where the last_name has the value Smith . We then need to use the method fetchall of the cursor, in order to get our results. It returns a list of tuples, where every tuple is one entry. Alternatively, we could use the method fetchone to only get the first entry or fetchmany to get a specific amount of entries. In our case however, the result looks like this:\r\n[(‘John’, ‘Smith’, 25), (‘Anna’, ‘Smith’, 30)]\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"classes-and-tables\" class=\"section level2\"\u003e\r\n\u003ch2\u003eCLASSES AND TABLES\u003c/h2\u003e\r\n\u003cp\u003eNow in order to make the communication more efficient and easier, we are going to create a Person class that has the columns as attributes.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eclass Person():\r\n\r\ndef __init__ ( self , first= None ,last= None , age= None ):\r\n  self .first = first\r\n  self .last = last\r\n  self .age = age\r\n  \r\ndef clone_person( self , result):\r\n  self .first = result[ 0 ]\r\n  self .last = result[ 1 ]\r\n  self .age = result[ 2 ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we have a constructor with default parameters. In case we don’t specify any values, they get assigned the value None . Also, we have a function clone_person that gets passed a sequence and assigns the values of it to the object. In our case, this sequence will be the tuple from the fetching results.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"from-table-to-object\" class=\"section level2\"\u003e\r\n\u003ch2\u003eFROM TABLE TO OBJECT\u003c/h2\u003e\r\n\u003cp\u003eSo let’s create a new Person object by getting its data from our database.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec.execute( \u0026#39;\u0026#39;\u0026#39;SELECT * FROM persons\r\nWHERE last_name = \u0026#39;Smith\u0026#39;\u0026#39;\u0026#39;\u0026#39; )\r\nperson1 = Person()\r\nperson1.clone_person(c.fetchone())\r\nprint (person1.first)\r\nprint (person1.last)\r\nprint (person1.age)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we fetch the first entry of our query results, by using the fetchone function. The result is the following:\r\nJohn\r\nSmith\r\n25\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"from-object-to-table\" class=\"section level2\"\u003e\r\n\u003ch2\u003eFROM OBJECT TO TABLE\u003c/h2\u003e\r\n\u003cp\u003eWe can also do that the other way around. Let’s create a person objects, assign values to the attributes and then insert this object into our database.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eperson2 = Person( \u0026#39;Bob\u0026#39; , \u0026#39;Davis\u0026#39; , 23 )\r\nc.execute( \u0026#39;\u0026#39;\u0026#39;INSERT INTO persons VALUES\r\n(\u0026#39;{}\u0026#39;, \u0026#39;{}\u0026#39;, \u0026#39;{}\u0026#39;)\u0026#39;\u0026#39;\u0026#39;\r\n.format(person2.first,\r\nperson2.last,\r\nperson2.age))\r\nconn.commit()\r\nconn.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we used the basic format function in order to put our values into the statement. When we execute it, our object gets inserted into the database. We can check this by printing all objects of the table persons .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ec.execute( \u0026#39;SELECT * FROM persons\u0026#39; )\r\nprint (c.fetchall())\r\nIn the results, we find our new object:\r\n[(\u0026#39;John\u0026#39;, \u0026#39;Smith\u0026#39;, 25), (\u0026#39;Anna\u0026#39;, \u0026#39;Smith\u0026#39;, 30), (\u0026#39;Mike\u0026#39;, \u0026#39;Johnson\u0026#39;, 40), (\u0026#39;Bob\u0026#39;, \u0026#39;Davis\u0026#39;, 23) ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cdiv id=\"prepared-statements\" class=\"section level4\"\u003e\r\n\u003ch4\u003ePREPARED STATEMENTS\u003c/h4\u003e\r\n\u003cp\u003eThere is a much more secure and elegant way to put the values of our attributes into the SQL statements. We can use prepared statements .\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eperson = Person( \u0026#39;Julia\u0026#39; , \u0026#39;Johnson\u0026#39; , 28 )\r\nc.execute( \u0026#39;INSERT INTO persons VALUES (?, ?, ?)\u0026#39; ,\r\n(person.first, person.last, person.age))\r\nconn.commit()\r\nconn.close()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe replace the values with question marks and pass the values as a tuple in the function. This makes our statements cleaner and also less prone to SQL injections.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Database%20Programming&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-database-programming%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-database-programming%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/python-database-programming/">Python - Database Programming</a></h2>
+    
+    
+      <p>Introduction to Python Database Programming</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2019-02-05 00:00:00 &#43;0000 UTC">February 5, 2019</time>
+    <p>Laxmi K Soni</p>
+    <p>5-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Database%20Programming&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-database-programming%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-database-programming%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/python-database-programming/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-05-Python-DatabaseProgramming-24.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2019-02-05-Python-DatabaseProgramming-24.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="database-programming" class="section level1">
+<h1>Database Programming</h1>
+<p>Databases are one of the most popular ways to store and manage data in computer science. Because of that, in this post we are going to take a look at database programming with Python.
+Notice that for most databases we use the query language SQL , which stands for Structured Query Language . We use this language in order to manage the database, the tables and the rows and columns.</p>
+<div id="connecting-to-sqlite" class="section level2">
+<h2>CONNECTING TO SQLITE</h2>
+<p>The database that comes pre-installed with Python is called SQLite . It is also the one which we are going to use. Of course, there are also other libraries for MySQL, MongoDB etc.
+In order to use SQLite in Python, we need to import the respective module – sqlite3 .</p>
+<pre class="python"><code>import sqlite3</code></pre>
+<p>Now, to create a new database file on our disk, we need to use the connect method.</p>
+<pre class="python"><code>conn = sqlite3.connect( &#39;mydata.db&#39; )</code></pre>
+<p>This right here creates the new file mydata.db and connects to this database. It returns a connection object which we save in the variable conn .</p>
+</div>
+<div id="executing-statements" class="section level2">
+<h2>EXECUTING STATEMENTS</h2>
+<p>So, we have established a connection to the database. But in order to execute SQL statements, we will need to create a so-called cursor .</p>
+<pre class="python"><code>c = conn.cursor()</code></pre>
+<p>We get this cursor by using the method cursor of our connection object that returns it. Now we can go ahead and execute all kinds of statements.</p>
+</div>
+<div id="creating-tables" class="section level2">
+<h2>CREATING TABLES</h2>
+<p>For example, we can create our first table like this:</p>
+<pre class="python"><code>c.execute( &#39;&#39;&#39;CREATE TABLE persons (
+first_name TEXT,
+last_name TEXT,
+age INTEGER
+)&#39;&#39;&#39; )</code></pre>
+<p>Here we use the execute function and write our query. What we are passing here is SQL code. As I already said, understanding SQL is not the main objective here. We are focusing on the Python part. Nevertheless, it’s quite obvious what’s happening here. We are creating a new table with the name persons and each person will have the three attributes first_name, last_name and age .</p>
+<p>Now our statement is written but in order to really execute it, we ne need to commit to our connection.</p>
+<pre class="python"><code>conn.commit()</code></pre>
+<p>When we do this, our statement gets executed and our table created. Notice that this works only once, since after that the table already exists and can’t be created again.
+At the end, don’t forget to close the connection, when you are done with everything.</p>
+<pre class="python"><code>conn.close()</code></pre>
+</div>
+<div id="inserting-values" class="section level2">
+<h2>INSERTING VALUES</h2>
+<p>Now let’s fill up our table with some values. For this, we just use an ordinary INSERT statement.</p>
+<pre class="python"><code>c.execute( &#39;&#39;&#39;INSERT INTO persons VALUES
+(&#39;John&#39;, &#39;Smith&#39;, 25),
+(&#39;Anna&#39;, &#39;Smith&#39;, 30),
+(&#39;Mike&#39;, &#39;Johnson&#39;, 40)&#39;&#39;&#39; )
+conn.commit()
+conn.close()</code></pre>
+<p>So basically, we are just adding three entries to our table. When you run this code, you will see that everything went fine. But to be on the safe side, we will try to now extract the values from the database into our program.</p>
+</div>
+<div id="selecting-values" class="section level2">
+<h2>SELECTING VALUES</h2>
+<p>In order to get values from the database, we need to first execute a SELECT statement. After that, we also need to fetch the results.</p>
+<pre class="python"><code>c.execute( &#39;&#39;&#39;SELECT * FROM persons
+WHERE last_name = &#39;Smith&#39;&#39;&#39;&#39; )
+print (c.fetchall())
+conn.commit()
+conn.close()</code></pre>
+<p>As you can see, our SELECT statement that gets all the entries where the last_name has the value Smith . We then need to use the method fetchall of the cursor, in order to get our results. It returns a list of tuples, where every tuple is one entry. Alternatively, we could use the method fetchone to only get the first entry or fetchmany to get a specific amount of entries. In our case however, the result looks like this:
+[(‘John’, ‘Smith’, 25), (‘Anna’, ‘Smith’, 30)]</p>
+</div>
+<div id="classes-and-tables" class="section level2">
+<h2>CLASSES AND TABLES</h2>
+<p>Now in order to make the communication more efficient and easier, we are going to create a Person class that has the columns as attributes.</p>
+<pre class="python"><code>class Person():
+
+def __init__ ( self , first= None ,last= None , age= None ):
+  self .first = first
+  self .last = last
+  self .age = age
+  
+def clone_person( self , result):
+  self .first = result[ 0 ]
+  self .last = result[ 1 ]
+  self .age = result[ 2 ]</code></pre>
+<p>Here we have a constructor with default parameters. In case we don’t specify any values, they get assigned the value None . Also, we have a function clone_person that gets passed a sequence and assigns the values of it to the object. In our case, this sequence will be the tuple from the fetching results.</p>
+</div>
+<div id="from-table-to-object" class="section level2">
+<h2>FROM TABLE TO OBJECT</h2>
+<p>So let’s create a new Person object by getting its data from our database.</p>
+<pre class="python"><code>c.execute( &#39;&#39;&#39;SELECT * FROM persons
+WHERE last_name = &#39;Smith&#39;&#39;&#39;&#39; )
+person1 = Person()
+person1.clone_person(c.fetchone())
+print (person1.first)
+print (person1.last)
+print (person1.age)</code></pre>
+<p>Here we fetch the first entry of our query results, by using the fetchone function. The result is the following:
+John
+Smith
+25</p>
+</div>
+<div id="from-object-to-table" class="section level2">
+<h2>FROM OBJECT TO TABLE</h2>
+<p>We can also do that the other way around. Let’s create a person objects, assign values to the attributes and then insert this object into our database.</p>
+<pre class="python"><code>person2 = Person( &#39;Bob&#39; , &#39;Davis&#39; , 23 )
+c.execute( &#39;&#39;&#39;INSERT INTO persons VALUES
+(&#39;{}&#39;, &#39;{}&#39;, &#39;{}&#39;)&#39;&#39;&#39;
+.format(person2.first,
+person2.last,
+person2.age))
+conn.commit()
+conn.close()</code></pre>
+<p>Here we used the basic format function in order to put our values into the statement. When we execute it, our object gets inserted into the database. We can check this by printing all objects of the table persons .</p>
+<pre class="python"><code>c.execute( &#39;SELECT * FROM persons&#39; )
+print (c.fetchall())
+In the results, we find our new object:
+[(&#39;John&#39;, &#39;Smith&#39;, 25), (&#39;Anna&#39;, &#39;Smith&#39;, 30), (&#39;Mike&#39;, &#39;Johnson&#39;, 40), (&#39;Bob&#39;, &#39;Davis&#39;, 23) ]</code></pre>
+<div id="prepared-statements" class="section level4">
+<h4>PREPARED STATEMENTS</h4>
+<p>There is a much more secure and elegant way to put the values of our attributes into the SQL statements. We can use prepared statements .</p>
+<pre class="python"><code>person = Person( &#39;Julia&#39; , &#39;Johnson&#39; , 28 )
+c.execute( &#39;INSERT INTO persons VALUES (?, ?, ?)&#39; ,
+(person.first, person.last, person.age))
+conn.commit()
+conn.close()</code></pre>
+<p>We replace the values with question marks and pass the values as a tuple in the function. This makes our statements cleaner and also less prone to SQL injections.</p>
+</div>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="fd69338034bdb9e36541ce1829fa7f01">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/python-xml-processing/" class="button left"><span>Python - XML Processing</span></a>
+    
+    
+      <a href="/blog/python-networking/" class="button right"><span>Python - Networking</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-12-05 00:00:00 &#43;0000 UTC">December 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/images-operations-using-cv/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-11-30-Computer-Vision-Basics-34.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/images-operations-using-cv/">Images Operations using CV</a></h2>
+          <time class="published" datetime="2020-11-30 00:00:00 &#43;0000 UTC">November 30, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-native/">React Native</a></h2>
+          <time class="published" datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/computer-vision/">computer-vision<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>

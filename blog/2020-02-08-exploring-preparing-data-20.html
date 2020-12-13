@@ -65,29 +65,25 @@ tit_train = pd.read_csv(&quot;../data/titanic/train.csv&quot;)      # Read the d
 <p>The output displays that we re working with a set of 891 records and 12 columns. Most of the column variables are encoded as numeric data types (ints and floats) but a some of them are encoded as “object”.</p>
 <p>Check the head of the data to get a better sense of what the variables look like:</p>
 <pre class="python"><code>tit_train.head(5)</code></pre>
-<pre><code>##    PassengerId  Survived  Pclass  ...     Fare Cabin  Embarked
-## 0            1         0       3  ...   7.2500   NaN         S
-## 1            2         1       1  ...  71.2833   C85         C
-## 2            3         1       3  ...   7.9250   NaN         S
-## 3            4         1       1  ...  53.1000  C123         S
-## 4            5         0       3  ...   8.0500   NaN         S
-## 
-## [5 rows x 12 columns]</code></pre>
+<pre><code>##    PassengerId  Survived  Pclass                                               Name     Sex   Age  SibSp  Parch            Ticket     Fare Cabin Embarked
+## 0            1         0       3                            Braund, Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN        S
+## 1            2         1       1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0          PC 17599  71.2833   C85        C
+## 2            3         1       3                             Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN        S
+## 3            4         1       1       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0            113803  53.1000  C123        S
+## 4            5         0       3                           Allen, Mr. William Henry    male  35.0      0      0            373450   8.0500   NaN        S</code></pre>
 <p>We have a combination of numeric columns and columns with text data.</p>
 <p>In dataset analysis, variables or features that split records into a fixed number of unique categories, such as Sex, are called as categorical variables.</p>
 <p>Pandas can be used to interpret categorical variables as such when we load dataset, but we can convert a variable to categorical if necessary</p>
 <p>After getting a sense of the datasets structure, it is a good practice to look at a statistical summary of the features with df.describe():</p>
 <pre class="python"><code>tit_train.describe().transpose()</code></pre>
-<pre><code>##              count        mean         std  ...       50%    75%       max
-## PassengerId  891.0  446.000000  257.353842  ...  446.0000  668.5  891.0000
-## Survived     891.0    0.383838    0.486592  ...    0.0000    1.0    1.0000
-## Pclass       891.0    2.308642    0.836071  ...    3.0000    3.0    3.0000
-## Age          714.0   29.699118   14.526497  ...   28.0000   38.0   80.0000
-## SibSp        891.0    0.523008    1.102743  ...    0.0000    1.0    8.0000
-## Parch        891.0    0.381594    0.806057  ...    0.0000    0.0    6.0000
-## Fare         891.0   32.204208   49.693429  ...   14.4542   31.0  512.3292
-## 
-## [7 rows x 8 columns]</code></pre>
+<pre><code>##              count        mean         std   min       25%       50%    75%       max
+## PassengerId  891.0  446.000000  257.353842  1.00  223.5000  446.0000  668.5  891.0000
+## Survived     891.0    0.383838    0.486592  0.00    0.0000    0.0000    1.0    1.0000
+## Pclass       891.0    2.308642    0.836071  1.00    2.0000    3.0000    3.0    3.0000
+## Age          714.0   29.699118   14.526497  0.42   20.1250   28.0000   38.0   80.0000
+## SibSp        891.0    0.523008    1.102743  0.00    0.0000    0.0000    1.0    8.0000
+## Parch        891.0    0.381594    0.806057  0.00    0.0000    0.0000    0.0    6.0000
+## Fare         891.0   32.204208   49.693429  0.00    7.9104   14.4542   31.0  512.3292</code></pre>
 <p>we notice that the non-numeric columns are omitted from the statistical summary provided by <code>df.describe()</code>.</p>
 <p>We can find the summary of the categorical variables by passing only those columns to describe():</p>
 <pre class="python"><code>
@@ -97,12 +93,12 @@ print(cat_vars)
 </code></pre>
 <pre><code>## Index([&#39;Name&#39;, &#39;Sex&#39;, &#39;Ticket&#39;, &#39;Cabin&#39;, &#39;Embarked&#39;], dtype=&#39;object&#39;)</code></pre>
 <pre class="python"><code>tit_train[cat_vars].describe().transpose()</code></pre>
-<pre><code>##          count unique                 top freq
-## Name       891    891  Wright, Mr. George    1
-## Sex        891      2                male  577
-## Ticket     891    681            CA. 2343    7
-## Cabin      204    147         C23 C25 C27    4
-## Embarked   889      3                   S  644</code></pre>
+<pre><code>##          count unique                                       top freq
+## Name       891    891  Humblen, Mr. Adolf Mathias Nicolai Olsen    1
+## Sex        891      2                                      male  577
+## Ticket     891    681                                      1601    7
+## Cabin      204    147                                        G6    4
+## Embarked   889      3                                         S  644</code></pre>
 <p>The summary of the categorical features shows the count of non-NaN records, the number of unique categories, the most frequent occurring value and the number of occurrences of the most frequent value.</p>
 <p>Although describe() gives a concise overview of each variable, it does not necessarily give us enough information to determine what each variable means.</p>
 <p>Certain features like “Age” and “Fare” are easy to understand, while others like “SibSp” and “Parch” are not. The details of these are provided by kaggle on the data download page.</p>
@@ -168,10 +164,10 @@ But it can be helpful to drop variables that will only distract from your goal.<
 ## 9              237736
 ## Name: Ticket, dtype: object</code></pre>
 <pre class="python"><code>tit_train[&#39;Ticket&#39;].describe()</code></pre>
-<pre><code>## count          891
-## unique         681
-## top       CA. 2343
-## freq             7
+<pre><code>## count      891
+## unique     681
+## top       1601
+## freq         7
 ## Name: Ticket, dtype: object</code></pre>
 <p>Ticket has 681 unique values: almost as many as there are passengers. Categorical variables with this many levels are generally not very useful for prediction. Let’s remove it</p>
 <pre class="python"><code>del tit_train[&#39;Ticket&#39;]</code></pre>
@@ -189,10 +185,10 @@ But it can be helpful to drop variables that will only distract from your goal.<
 ## 9     NaN
 ## Name: Cabin, dtype: object</code></pre>
 <pre class="python"><code>tit_train[&#39;Cabin&#39;].describe()</code></pre>
-<pre><code>## count             204
-## unique            147
-## top       C23 C25 C27
-## freq                4
+<pre><code>## count     204
+## unique    147
+## top        G6
+## freq        4
 ## Name: Cabin, dtype: object</code></pre>
 <p>Cabin also has 147 unique values, which shows it may not be useful for prediction. On the other hand, the names of the different levels for the cabin variable seem to have a some structure, each starts with a capital letter followed by a number. We can use that structure to reduce the number of levels to make categories large enough that they might be useful for prediction later on. So Lets Keep Cabin for now.</p>
 </div>
@@ -316,12 +312,10 @@ missvalues</code></pre>
 <pre class="python"><code>ind = np.where(tit_train[&quot;Fare&quot;] == max(tit_train[&quot;Fare&quot;]) )
 
 tit_train.loc[ind]</code></pre>
-<pre><code>##      Survived  Pclass  ... Cabin Embarked
-## 258         1  class1  ...     n        C
-## 679         1  class1  ...     B        C
-## 737         1  class1  ...     B        C
-## 
-## [3 rows x 10 columns]</code></pre>
+<pre><code>##      Survived  Pclass                                Name     Sex   Age  SibSp  Parch      Fare Cabin Embarked
+## 258         1  class1                    Ward, Miss. Anna  female  35.0      0      0  512.3292     n        C
+## 679         1  class1  Cardeza, Mr. Thomas Drake Martinez    male  36.0      0      1  512.3292     B        C
+## 737         1  class1              Lesurer, Mr. Gustave J    male  35.0      0      0  512.3292     B        C</code></pre>
 <p>Before modeling datasets using ML models it is better to address missing values, outliers, mislabeled data, bad data because they can corrupt the analysis and lead to wrong results.</p>
 </div>
 <div id="should-we-create-new-variables" class="section level3">
@@ -332,16 +326,14 @@ tit_train.loc[ind]</code></pre>
 <pre class="python"><code>mostfamily = np.where(tit_train[&quot;Family&quot;] == max(tit_train[&quot;Family&quot;]))
 
 tit_train.loc[mostfamily]</code></pre>
-<pre><code>##      Survived  Pclass                               Name  ... Cabin  Embarked  Family
-## 159         0  class3         Sage, Master. Thomas Henry  ...     n         S      10
-## 180         0  class3       Sage, Miss. Constance Gladys  ...     n         S      10
-## 201         0  class3                Sage, Mr. Frederick  ...     n         S      10
-## 324         0  class3           Sage, Mr. George John Jr  ...     n         S      10
-## 792         0  class3            Sage, Miss. Stella Anna  ...     n         S      10
-## 846         0  class3           Sage, Mr. Douglas Bullen  ...     n         S      10
-## 863         0  class3  Sage, Miss. Dorothy Edith &quot;Dolly&quot;  ...     n         S      10
-## 
-## [7 rows x 11 columns]</code></pre>
+<pre><code>##      Survived  Pclass                               Name     Sex  Age  SibSp  Parch   Fare Cabin Embarked  Family
+## 159         0  class3         Sage, Master. Thomas Henry    male  NaN      8      2  69.55     n        S      10
+## 180         0  class3       Sage, Miss. Constance Gladys  female  NaN      8      2  69.55     n        S      10
+## 201         0  class3                Sage, Mr. Frederick    male  NaN      8      2  69.55     n        S      10
+## 324         0  class3           Sage, Mr. George John Jr    male  NaN      8      2  69.55     n        S      10
+## 792         0  class3            Sage, Miss. Stella Anna  female  NaN      8      2  69.55     n        S      10
+## 846         0  class3           Sage, Mr. Douglas Bullen    male  NaN      8      2  69.55     n        S      10
+## 863         0  class3  Sage, Miss. Dorothy Edith &quot;Dolly&quot;  female  NaN      8      2  69.55     n        S      10</code></pre>
 </div>
 </div>
 <div id="summary" class="section level2">

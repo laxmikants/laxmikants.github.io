@@ -172,7 +172,7 @@ knn.fit(X_train, Y_train)</code></pre>
 <p>The n_neighbors parameter specifies how many neighbor points we want to consider. In this case, we take five. Then we test our model again for its accuracy.</p>
 <pre class="python"><code>accuracy = knn.score(X_test, Y_test)
 print (accuracy)</code></pre>
-<pre><code>## 0.9473684210526315</code></pre>
+<pre><code>## 0.9122807017543859</code></pre>
 <p>We get a pretty decent accuracy for such a complex task.</p>
 <p>0.9649122807017544</p>
 <div id="the-best-algorithm" class="section level3">
@@ -209,13 +209,13 @@ clf1.fit(X_train, Y_train)</code></pre>
 <pre class="python"><code>clf5.fit(X_train, Y_train)</code></pre>
 <pre><code>## RandomForestClassifier()</code></pre>
 <pre class="python"><code>print (clf1.score(X_test, Y_test))</code></pre>
-<pre><code>## 0.9473684210526315</code></pre>
-<pre class="python"><code>print (clf2.score(X_test, Y_test))</code></pre>
 <pre><code>## 0.9122807017543859</code></pre>
+<pre class="python"><code>print (clf2.score(X_test, Y_test))</code></pre>
+<pre><code>## 0.9298245614035088</code></pre>
 <pre class="python"><code>print (clf3.score(X_test, Y_test))</code></pre>
 <pre><code>## 0.9649122807017544</code></pre>
 <pre class="python"><code>print (clf4.score(X_test, Y_test))</code></pre>
-<pre><code>## 0.9122807017543859</code></pre>
+<pre><code>## 0.8421052631578947</code></pre>
 <pre class="python"><code>print (clf5.score(X_test, Y_test))</code></pre>
 <pre><code>## 0.9649122807017544</code></pre>
 <p>When you run this program a couple of times, you will notice that we can’t really say which algorithm is the best. Every time we run this script, we will see different results, at least for this specific data set.</p>
