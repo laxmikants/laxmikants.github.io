@@ -1,0 +1,609 @@
+---
+title: "Python - Basics"
+author: Laxmi K Soni 
+description: "Introduction to Python."
+slug: Python Basics
+date: 2019-01-05
+lastmod: 2019-01-05
+categories: ["Python"]
+tags: ["Python"]
+Summary: Introduction to Python.
+subtitle: Python Basics
+featured: "img/main/Python_Basics-19.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//AppData//Local//r-miniconda//envs//r-reticulate//python.exe")
+
+```
+
+
+
+### `CREATING VARIABLES`
+
+Creating variables in Python is very simple. We just choose a name and assign a value.
+
+```{python}
+myNumber = 10
+myText = 'Hello' 
+```
+Here, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.
+
+### `USING VARIABLES`
+
+Now that we have defined our variables, we can start to use them. For example, we could print the values.
+
+```{python}
+print (myNumber)
+print (myText)
+```
+Since we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .
+
+### `TYPECASTING`
+
+Sometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here  “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.
+
+```{python}
+value = '10'
+number = int (value)
+```
+
+Typecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int  keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often. 
+
+## `Python loops and types`
+
+### 1. For loop
+
+
+```{python, echo = TRUE}
+
+numbers = [10,20,30,40]
+
+for num in numbers:
+  print(num)
+  
+```
+
+```{python, echo=TRUE}
+for num in range(10,41,10):
+  print(num)
+```
+
+
+### 2. While loop
+
+
+
+```{python, echo = TRUE}
+number = 0
+
+while number < 10:
+  number += 1
+  if number == 5:
+    break
+  print(number)
+```
+
+```{python, echo = TRUE}
+num =  0
+while num < 10:
+  num += 1
+  if num == 5:
+    continue
+  print(num)
+
+```
+
+
+## `Data Types`
+
+Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
+In this post we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.
+
+
+### `1) NUMERICAL DATA TYPES`
+
+The types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.
+
+
+| NUMERICAL DATA TYPES |         |                         |
+|----------------------|---------|-------------------------|
+| Integer              | int     | whole number          |
+| Float                | float   | floating point number |
+| Complex              | complex | complex number        |
+
+
+As you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.
+
+### `2) STRINGS`
+
+A string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is `str`. A string is a derived data type. Strings are immutable. This means that once defined, they cannot be changed. Many Python methods, such as replace() , join() , or split() modify strings
+
+#### `2.1) Traversing a String`
+
+You can traverse a string as a substring by using the Python slice operator ([]). It cuts off a substring from the original string and thus allows to iterate over it partially. To use this method, provide the starting and ending indices along with a step value and then traverse the string.
+
+
+```{python}
+
+name = "Welcome"
+
+for ch in name:
+  print(ch, '-', end = ' ')
+  
+```
+
+
+#### `2.2) Reversing a String`
+
+```{python}  
+name = "Reverse me"
+```
+
+The Slice notation in python has the syntax -
+list[<start>:<stop>:<step>]
+So, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.
+
+`Reverse using :: operator`
+
+```{python}  
+print(name[::-1])
+```
+
+`Reverse using for loop`
+
+```{python}  
+
+lgth = len(name)
+
+for a in range(-1, (-lgth-1), -1):
+  print(name[a], end = ' ')
+
+```
+
+`Reverse using functions`
+```{python}  
+## Split the string into a list of characters, reverse the list, then rejoin into a single string
+
+print(''.join(reversed("Hello world")))
+
+```
+
+`Reverse using list comprehension`
+
+```{python}  
+
+name1 = "There are so many stars in the sky"
+
+n1 = str.split(name1," ")
+
+print(' '.join([y[::-1] for y in n1]))
+
+```
+
+
+#### `2.3) Formating a String`
+
+String formating allows to replace contents in a string with dynamic values using `format()` function.
+
+
+```{python}
+
+custom_string = "String formatting"
+
+print(f"{custom_string} is a useful technique")
+
+```
+
+```{python}
+
+print ("Name:  %s College Id No: %d Branch: %s Percentile: %f" % ('Vikas', 38, 'CSE',88.9)) 
+
+```
+
+#### `2.4) Length of a Text string`
+
+```{python}
+# length of the text string
+var3 = 'There are so many stars in the sky'
+
+print(len(var3))
+```
+
+#### `2.5) multiple assignment in python`
+
+
+```{python} 
+
+a, b, c = 1, 2, "Computer Vision"
+
+print(a,b,c)
+
+#try for more than 3 variables
+
+```
+
+#### `2.5) swaping is as easy as this`
+
+```{python}
+value1 =90 ; value2 =34
+
+print(value1,'-----',value2)
+
+value1,value2 = value2,value1
+
+print(value1,'-----',value2)
+
+```
+
+
+### `3) Booleans`
+
+Boolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool.
+
+```{python}
+#Boolean variables
+
+var = not True
+var1 = True
+var2 = False
+print("Values of var, var1 and var2 are " + str(var) + "  " +str(var1) + " and " + str(var2))
+```
+
+### `4) Sequences`
+
+
+| SEQUENCE TYPES |         |                         |
+|----------------|---------|-------------------------|
+| List           | list    | Colection of values    |
+| Tuple          | tuple   | Imutable list          |
+| Dictionary     | dict    | List of key nd value pairs |
+
+### `4.1) Sequences - Lists`
+
+List. Lists are used to store multiple items in a single variable. Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.
+
+```{python, echo = TRUE}
+numbers = [10, 20, 30 ,40]
+
+names = ['Arun','Varun','Karun']
+
+mixed = [10,'Arun', 28.3,True ]
+
+print(numbers[3])
+
+print(names[0])
+
+print(mixed[3])
+
+numbers[3] = 3
+
+names[2] = 'Bob'
+
+print(numbers[3])
+
+print(names[2])
+
+```
+
+```{python}
+# empty list
+# indexing start with 0
+my_list = []
+print(my_list)
+# list of integers
+my_list = [1, 2, 3]
+print(my_list)
+# list with mixed datatypes
+my_list = [1, 'Data Science', 2.5]
+print(my_list)
+```
+
+
+```{python}
+list1 = [ 'ABC', 1234 , 2.34, 'def', 71.2 ]
+tinylist = [123, 'john']
+list2= list1 +tinylist
+
+# Check the output of each print statement
+print (list1)          
+print (list1[-2])     
+print (list1[0:3])     
+print (list1[2:])      
+print (tinylist * 2)  
+print (list1 + tinylist)
+print (list2)
+```
+
+`Delete an element from list`
+```{python}
+
+list1 = ['Data', 'Science STTP', 11, 15]
+
+print (list1)
+
+del list1[2]
+
+print ("After deleting value at index 2 : ", list1)
+
+```
+
+`Merging two lists `
+
+```{python}
+a1 = [1,2,3,4,5,9]
+a2 = [2,4,512,1,3]
+a3 = ['Sawan', 'Gyan', 'Puneet']
+print(a1+a2+a3)
+```
+
+### `4.1.1) Sequences - Lists - Operations`
+
+| LIST OPERATIONS             |                                   |
+|-----------------------------|-----------------------------------|
+| OPERATION                   | RESULT                            |
+| [10, 20, 30] + [40, 50, 60] | [10, 20, 30, 40, 50, 60]          |
+| [10, “Bob”] * 3             | [10, “Bob”, 10, “Bob”, 10, “Bob”] |
+
+---
+
+### `4.1.2) Sequences - Lists - Functions`
+
+
+
+| LIST FUNCTIONS |                                     |
+|----------------|-------------------------------------|
+| FUNCTION       | DESCRIPTION                         |
+| len(list)      | Returns the length of a list        |
+| max(list)      | Returns the item with maximum value |
+| min(list)      | Returns the item with minimum value |
+| list(element)  | Typecasts element into list         |
+---
+
+
+### `4.1.3) Sequences - Lists - methods`
+
+
+| LIST METHODS   |                                                           |
+|----------------|-----------------------------------------------------------|
+| METHOD         | DESCRIPTION                                               |
+| list.append(x) | Appends element to the list                               |
+| list.count(x)  | Counts how many times an element appears in the list      |
+| list.index(x)  | Returns the first index at which the given element occurs |
+| list.pop()     | Removes and returns last element                          |
+| list.reverse() | Reverses the order of the elements                        |
+| list.sort()    | Sorts the elements of a list                              |
+
+---
+
+
+`Removing duplicates from list`
+
+```{python}
+def remove_duplicates():
+  li = [3, 2, 2, 1, 1, 1]
+  li1 = list(set(li)) #=> [1, 2, 3]
+  print(li1)  
+  
+```
+
+```{python}
+remove_duplicates()  
+```
+
+
+
+### `4.2) Sequences - Tupples`
+
+
+```{python, echo = TRUE}
+tpl = (10,20,30)
+len(tpl)
+max(tpl)
+min(tpl)
+
+tuple1 = ('ICICI','Branch', 'Malwa')
+
+print(tuple1)
+
+tuple1[2]
+```
+
+
+### `4.3) Sequences - Dictionaries`
+
+A dictionary is indexed by keys, Unlike a sequence, which is indexed by a range of numbers. A Key can be any immutable type, strings and numbers can always be keys.
+
+A dictionary can be considered as an unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary). Each key is separated from its value by a colon (:), the items are separated by commas, and the entire unordered ke:value pair in enclosed within curly braces.
+
+A dictionary can be initialized to be an empty dictionary by using a pair of braces : `{}`. Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the dictionary; this is also the way dictionaries are written on output.
+
+Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key. You can’t use lists as keys, since lists can be modified in place using index assignments, slice assignments, or methods like append() and extend().
+
+The main operations on a dictionary are storing a value with some key and extracting the value given the key.
+
+To delete a key:value pair you can use 'del'. If you store a value using a key that is already in use, then the old value associated with that key is overwritten.
+
+Use `list(d.keys())` to obtain a list of all the keys used in the dictionary, in arbitrary order.
+
+Use `sorted(d.keys())` if you wanted it to be in a sorted order.
+
+To check whether a single key is in the dictionary, use the `in` keyword.
+
+```{python}
+dic = dict({'Name':'Arun', 'Age': 50})
+print(dic['Name'])
+```
+
+
+### ``4.4) Numpy arrays`
+
+
+NumPy is a general-purpose fundamental package for scientific computing with Python. It contains various features including these important ones:
+
+A powerful N-dimensional array object
+
+Sophisticated (broadcasting) functions
+
+Tools for integrating C/C++ and Fortran code
+
+Useful linear algebra, Fourier transform, and random number capabilities
+
+Besides its obvious scientific uses, NumPy can also be used as an efficient multi-dimensional container of generic data. This allows NumPy to seamlessly and speedily integrate with a wide variety of databases.
+
+```{python}
+
+import numpy as np
+# use [ ] for every row inside np.array([]) for matrix
+
+b1 = np.array([1,2,3,5,5])    #Declaring a NumPy Array 
+b2 = np.array([4,5,6,7,7])
+
+print(b1+b2)
+
+print(b2 * 3)
+print("No. of dimensions: ", b1.ndim)  # Rows in array, considered as a matrix. 
+# Printing shape of array
+print("Shape of array: ", b1.shape)  # Dimension 
+ 
+# Printing size (total number of elements) of array
+print("Size of array: ", b1.size) # elements in a row or column elements. 
+ 
+# Printing the datatype of elements in array
+print("Array stores elements of type: ", b1.dtype)
+
+```
+
+
+Array creation: You can create arrays in NumPy in various ways.
+
+For example, you can create an array from a regular Python list or tuple using the array function.
+
+The type of the resulting array is deduced from the type of the elements in the sequences.
+
+Often, we need to declare arrays whose sizes are known but elements are initially unknown. Hence, NumPy offers many functions to create arrays with initial placeholder content. This minimizes the necessity of growing arrays, which is generally an expensive operation.
+
+Examples: np.zeros, np.ones, np.full, np.empty, etc.
+To create sequences of numbers, NumPy provides a function analogous to range that returns arrays instead of lists.
+
+arange: returns evenly spaced values within a given interval. In this, step size is specified.
+
+linspace: returns evenly spaced values within a given interval. Number of elements are returned.
+
+Reshaping array: The reshape method is used to reshape an array. If you have an array (a1, a2, a3, …, aN) and you want to reshape and convert it into another array of shape (b1, b2, b3, …, bM), you can do it easily using the reshape method. But the only precondition is that a1 x a2 x a3 … x aN = b1 x b2 x b3 … x bM . (i.e. , the total number of elements in the array should be the same, or the original size of array should remain unchanged.)
+
+Flatten array: The flatten method is used to convert an array into one dimension. It accepts order argument. Default value is ‘C’ (for row-major order), and you can use ‘F’ to use the flatten method for column major order.
+
+Let us see some examples.
+
+```{python}
+# array creation 
+import numpy as np
+ 
+# Creating array from a list with type float
+A = np.array([[1, 2, 4], [5, 8, 7]], dtype = 'float')
+
+# Create a 3X4 array with all zeros. Please note, we have used double paranthesis. 
+B = np.zeros((3, 4))
+
+# Create an array of complex numbers 
+C = np.full((3, 3), 6, dtype = 'complex')
+
+# Create an array with random values
+
+np.random.seed(2) # A seed is set to ensure that the results are consistent if you use this array in future computations also.
+
+D = np.random.randn(2, 2)
+
+E = np.random.random((2, 2))  # Exercise : Find out the difference between D and E 
+
+
+print ("Array created using passed list:\n", A)
+
+print ("\nAn array initialized with all zeros:\n", B)
+
+print ("\nAn array initialized with all 6s."
+            "Array type is complex:\n", C)
+
+print ("\nA random array:\n", D)
+
+print ("\nAnother random array:\n", E)
+```
+
+`Array Reshaping`
+
+```{python}
+A = np.array([[1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9, 1, 2, 3]])
+ 
+new_A = A.reshape(3, 2, 2) # (number of matrices, rows, column)
+
+# Flatten array
+B = np.array([[1, 2, 3], [4, 5, 6]])
+flat_B= B.flatten()
+#B.flatten('F')
+ 
+print ("\nOriginal array:\n", A)
+print ("Reshaped array:\n", new_A)
+print ("\nOriginal array:\n", B)
+print ("Fattened array:\n", flat_B)
+#print ("Column Fattened array:\n", column_flat_B)
+
+```
+
+
+#### `4.5) Numpy - Sequences `
+
+```{python}
+import numpy as np
+
+# Create a sequence of integers 
+# from 0 to 40 with steps of 5
+a = np.arange(0, 40, 5)  # use if you know sequence range and increment, it excludes last value
+
+# Create a sequence of 15 values in range 0 to 5
+b = np.linspace(0, 10, 5)  # use if you know sequence range and number of samples, it includes last value
+
+
+print ("\nA sequential array with steps of 5:\n", a)
+print ("\nA sequential array with 15 values between"
+                                        "0 and 5:\n", b)
+```
+
+
+```{python, eval = FALSE}
+# simple plotting
+# Here, we are demonstrating the growth in GDP of China and America over a peroid of time
+
+
+from matplotlib import pyplot as plt
+
+years = [1950, 1960, 1970, 1980, 1990, 2000, 2010]
+America_gdp = [300.2, 543.3, 1075.9, 2862.5, 5979.6, 10289.7, 14958.3]
+China_gdp = [30.2, 240.3, 675.9, 1262.5, 3579.6, 7089.7, 10958.3]
+
+plt.plot(years, America_gdp, color='blue', marker='*', linestyle='solid')
+
+plt.plot(years, China_gdp, color='red', marker='o', linestyle='solid')
+
+plt.show()
+
+```
+
+![](/img/main/matplotlibexample.png)
+```

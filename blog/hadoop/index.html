@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Getting Started with Hadoop - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Getting Started with Hadoop">
+<meta itemprop="description" content="Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.">
+<meta itemprop="datePublished" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1070">
+
+
+
+<meta itemprop="keywords" content="Bigdata,Hadoop," />
+<meta property="og:title" content="Getting Started with Hadoop" />
+<meta property="og:description" content="Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/hadoop/" />
+<meta property="article:published_time" content="2020-01-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-12T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started with Hadoop"/>
+<meta name="twitter:description" content="Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes."/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Getting Started with Hadoop : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Getting Started with Hadoop">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/hadoop/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.">
+<meta name="description" content="Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.">
+<meta property="og:updated_time" content="2020-01-12T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2020-01-12T00:00:00Z">
+<meta property="article:modified_time" content="2020-01-12T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Getting Started with Hadoop",
+  "alternativeHeadline": "Understanding Hadoop",
+  "url": "https://laxmikants.github.io/blog/hadoop/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/hadoop/"
+  },
+  "description": "Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2020-01-12T00:00:00Z",
+  "dateModified": "2020-01-12T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cp\u003e“Hadoop” is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.\u003c/p\u003e\r\n\u003cp\u003eHowever, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time. While from developers viewpoint, the face of Hadoop may be a set of jar files deployed over a set of machines providing services for navigating and working with distributed files thus enabling communication between client and Hadoop cluster for data analysis, the thinking, vision and systems that produce this end product are implemented over several years. The seeds of the Hadoop were first planted in 2002 when Doug cutting and Mike Cafarella took steps in creating a better open-source search engine. This project was as Nutch which can search over 700 million web sites and over a trillion web pages. In essence this is the first piece vision of the Hadoop Ecosystem – Search Engine.\u003c/p\u003e\r\n\u003cp\u003eThe first piece is Core Engine which has its roots in Nutch project, which was later evolved based on the Google’s File System Paper in October 2003 and MapReduce paper in December 2004. These papers later helped in automating steps which were done manually in Nutch project hence in early 2006, when Doug Cutting joined Yahoo and set up a 300-node research cluster there, the storage and processing parts of the Nutch were automated based on the Google’s File System and MapReduce framework to form Hadoop as an open-source Apache Software Foundation project and the Nutch web crawler remained its own separate project.\u003c/p\u003e\r\n\u003cp\u003eMapReduce was developed by Google in 2004. It represents a programming framework for processing, generating and indexing large sets of data on the web. Google developed MapReduce as a general-purpose execution engine that handles the complexities of network communication, parallel programming and fault-tolerance for any kind of analytic application (hand-coded or analytics tool based).\u003c/p\u003e\r\n\u003cp\u003eMapReduce is a framework for processing highly distributable problems across huge datasets. It is an algorithm based framework for computing distributed problems using divide and conquer approach cluster of nodes. MapReduce jobs are divided into two parts. The “Map” function divides a query into multiple parts and processes data at the node level. The “Reduce” function aggregates the results of the “Map” function to determine the “answer” to the query. It consists of Master node which maps input into smaller sub problems/distributes work to clusters, where these worker nodes process smaller problems, return answers back to master node and the master node reduces set of answers back to master node.\u003c/p\u003e\r\n\u003cp\u003eIt divides the basic problem into a set of smaller manageable tasks and assigns them to a large number of computers (nodes). An ideal MapReduce task is too large for any one node to process, but can be accomplished by multiple nodes efficiently.\u003c/p\u003e\r\n\u003cp\u003eMapReduce is named for the two steps at the heart of the framework.\u003c/p\u003e\r\n\u003cp\u003e Map step – The master node takes the input, divides it into smaller sub-problems, and distributes them to worker nodes. Each worker node processes its smaller problem, and passes the result back to its master node. There can be multiple levels of workers.\u003c/p\u003e\r\n\u003cp\u003e Reduce step – The master node collects the results from all of the sub-problems, combines the results into groups based on the key and then assigns them to worker nodes called reducers. Each reducer processes those values and sends the result back to the master node.\u003c/p\u003e\r\n\u003cp\u003eMapReduce can be a huge help in analyzing and processing large chunks of data: buying pattern analysis, customer usage and interest patterns in e-commerce, processing the large amount of data generated in the fields of science and medicine, and processing and analyzing security data, credit scores and other large data-sets in the financial industry.\u003c/p\u003e\r\n\u003cp\u003eAlthough in 2006-era, the Hadoop was not able to handle production search workloads at web scale and only worked on 5 to 20 nodes at that point. Horizontal scalability was an issue because Hadoop was originally required to handle petabytes and exabytes of data distributed over multiple nodes in parallel.\u003c/p\u003e\r\n\u003cp\u003eIt took couple of years for Yahoo to move its web index into Hadoop. This transformation to Hadoop was completed by end of 2008. In 2008 Yahoo has created “Production search index” which was based on 10,000 core Hadoop clusters. Hadoop is used both in Production and research environments and many organisations are using Hadoop. Few examples are Facebook, AOL, Yahoo, IBM.\u003c/p\u003e\r\n\u003cp\u003eIDC predicts that Hadoop software market will be worth 813 million in 2016. Hadoop has created many start-ups and spurred hundreds of millions in venture capital investment since 2008. Hadoop software is driving the big data market today and it will hit more than 23 billion by 2016.\u003c/p\u003e\r\n\u003cp\u003eThe second piece of Hadoop is the creation of Big-Data Hadoop platforms that would enhance efficiency and can help in analysing large datasets and provide meaningful information to help organizations in making business decisions. Two core platforms of the Big Data Analytics involving Hadoop as core component are Cloudera and Hottonworks both providing Hadoop Ecosystem capabilities which enables analysis of more data at lower cost, Horizontal scalability, fault tolerance, improvement in programmability and data access, Co-ordination, workflow, management and deployment. Everyone selling any type of database, business intelligence software or anything else related to data at least connects to Hadoop in some capacity.\u003c/p\u003e\r\n\u003cp\u003eCloudera was the first commercial Hadoop company launched in march 2008, which helped enterprises adopt Hadoop which otherwise would have taken longer time for them to adopt.\u003c/p\u003e\r\n\u003cp\u003eThe third piece of Hadoop is the industry specific vertical applications that can ride on the aforesaid Core engine and platforms. This is where the opportunity lies for example in eCommerce “Analysing customer behaviour in real time”. There is huge scope for Big Data Hadoop applications in healthcare, education, eCommerce industries. The applications in BI, DW and analytics can be developed on a technology stack involving Hadoop HDFS and MapReduce (with HBase \u0026amp; Hive).\u003c/p\u003e\r\n\u003cp\u003eThe fourth piece of Hadoop is the creation and administration of data centres which can help in Big Data processing and over which all the three pieces mentioned above can be deployed. Such data centres should protect the privacy of data and provide adequate security measures.\u003c/p\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Getting%20Started%20with%20Hadoop&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhadoop%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fhadoop%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/hadoop/">Getting Started with Hadoop</a></h2>
+    
+    
+      <p>Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-01-12 00:00:00 &#43;0000 UTC">January 12, 2020</time>
+    <p>Laxmi K Soni</p>
+    <p>6-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Getting%20Started%20with%20Hadoop&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhadoop%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fhadoop%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/hadoop/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Hadoop-15.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Hadoop-15.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<p>“Hadoop” is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.</p>
+<p>However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time. While from developers viewpoint, the face of Hadoop may be a set of jar files deployed over a set of machines providing services for navigating and working with distributed files thus enabling communication between client and Hadoop cluster for data analysis, the thinking, vision and systems that produce this end product are implemented over several years. The seeds of the Hadoop were first planted in 2002 when Doug cutting and Mike Cafarella took steps in creating a better open-source search engine. This project was as Nutch which can search over 700 million web sites and over a trillion web pages. In essence this is the first piece vision of the Hadoop Ecosystem – Search Engine.</p>
+<p>The first piece is Core Engine which has its roots in Nutch project, which was later evolved based on the Google’s File System Paper in October 2003 and MapReduce paper in December 2004. These papers later helped in automating steps which were done manually in Nutch project hence in early 2006, when Doug Cutting joined Yahoo and set up a 300-node research cluster there, the storage and processing parts of the Nutch were automated based on the Google’s File System and MapReduce framework to form Hadoop as an open-source Apache Software Foundation project and the Nutch web crawler remained its own separate project.</p>
+<p>MapReduce was developed by Google in 2004. It represents a programming framework for processing, generating and indexing large sets of data on the web. Google developed MapReduce as a general-purpose execution engine that handles the complexities of network communication, parallel programming and fault-tolerance for any kind of analytic application (hand-coded or analytics tool based).</p>
+<p>MapReduce is a framework for processing highly distributable problems across huge datasets. It is an algorithm based framework for computing distributed problems using divide and conquer approach cluster of nodes. MapReduce jobs are divided into two parts. The “Map” function divides a query into multiple parts and processes data at the node level. The “Reduce” function aggregates the results of the “Map” function to determine the “answer” to the query. It consists of Master node which maps input into smaller sub problems/distributes work to clusters, where these worker nodes process smaller problems, return answers back to master node and the master node reduces set of answers back to master node.</p>
+<p>It divides the basic problem into a set of smaller manageable tasks and assigns them to a large number of computers (nodes). An ideal MapReduce task is too large for any one node to process, but can be accomplished by multiple nodes efficiently.</p>
+<p>MapReduce is named for the two steps at the heart of the framework.</p>
+<p> Map step – The master node takes the input, divides it into smaller sub-problems, and distributes them to worker nodes. Each worker node processes its smaller problem, and passes the result back to its master node. There can be multiple levels of workers.</p>
+<p> Reduce step – The master node collects the results from all of the sub-problems, combines the results into groups based on the key and then assigns them to worker nodes called reducers. Each reducer processes those values and sends the result back to the master node.</p>
+<p>MapReduce can be a huge help in analyzing and processing large chunks of data: buying pattern analysis, customer usage and interest patterns in e-commerce, processing the large amount of data generated in the fields of science and medicine, and processing and analyzing security data, credit scores and other large data-sets in the financial industry.</p>
+<p>Although in 2006-era, the Hadoop was not able to handle production search workloads at web scale and only worked on 5 to 20 nodes at that point. Horizontal scalability was an issue because Hadoop was originally required to handle petabytes and exabytes of data distributed over multiple nodes in parallel.</p>
+<p>It took couple of years for Yahoo to move its web index into Hadoop. This transformation to Hadoop was completed by end of 2008. In 2008 Yahoo has created “Production search index” which was based on 10,000 core Hadoop clusters. Hadoop is used both in Production and research environments and many organisations are using Hadoop. Few examples are Facebook, AOL, Yahoo, IBM.</p>
+<p>IDC predicts that Hadoop software market will be worth 813 million in 2016. Hadoop has created many start-ups and spurred hundreds of millions in venture capital investment since 2008. Hadoop software is driving the big data market today and it will hit more than 23 billion by 2016.</p>
+<p>The second piece of Hadoop is the creation of Big-Data Hadoop platforms that would enhance efficiency and can help in analysing large datasets and provide meaningful information to help organizations in making business decisions. Two core platforms of the Big Data Analytics involving Hadoop as core component are Cloudera and Hottonworks both providing Hadoop Ecosystem capabilities which enables analysis of more data at lower cost, Horizontal scalability, fault tolerance, improvement in programmability and data access, Co-ordination, workflow, management and deployment. Everyone selling any type of database, business intelligence software or anything else related to data at least connects to Hadoop in some capacity.</p>
+<p>Cloudera was the first commercial Hadoop company launched in march 2008, which helped enterprises adopt Hadoop which otherwise would have taken longer time for them to adopt.</p>
+<p>The third piece of Hadoop is the industry specific vertical applications that can ride on the aforesaid Core engine and platforms. This is where the opportunity lies for example in eCommerce “Analysing customer behaviour in real time”. There is huge scope for Big Data Hadoop applications in healthcare, education, eCommerce industries. The applications in BI, DW and analytics can be developed on a technology stack involving Hadoop HDFS and MapReduce (with HBase &amp; Hive).</p>
+<p>The fourth piece of Hadoop is the creation and administration of data centres which can help in Big Data processing and over which all the three pieces mentioned above can be deployed. Such data centres should protect the privacy of data and provide adequate security measures.</p>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/bigdata/">Bigdata</a></li>
+        
+          <li><a class="article-terms-link" href="/categories/hadoop/">Hadoop</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/bigdata/">Bigdata</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/hadoop/">Hadoop</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="3e9bc994045731e327969ebeed0a4856">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/machine-learning-overview/" class="button left"><span>Machine Learning Overview</span></a>
+    
+    
+      <a href="/blog/big-data-analytics/" class="button right"><span>Big Data Analytics</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-12-05 00:00:00 &#43;0000 UTC">December 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-native/">React Native</a></h2>
+          <time class="published" datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>

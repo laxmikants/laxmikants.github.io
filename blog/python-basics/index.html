@@ -1,0 +1,1227 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Python - Basics - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Python - Basics">
+<meta itemprop="description" content="Introduction to Python.">
+<meta itemprop="datePublished" content="2019-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2885">
+
+
+
+<meta itemprop="keywords" content="Python," />
+<meta property="og:title" content="Python - Basics" />
+<meta property="og:description" content="Introduction to Python." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-basics/" />
+<meta property="article:published_time" content="2019-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python - Basics"/>
+<meta name="twitter:description" content="Introduction to Python."/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Python - Basics : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Python - Basics">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/python-basics/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to Python.">
+<meta name="description" content="Introduction to Python.">
+<meta property="og:updated_time" content="2019-01-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2019-01-05T00:00:00Z">
+<meta property="article:modified_time" content="2019-01-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Python - Basics",
+  "alternativeHeadline": "Python Basics",
+  "url": "https://laxmikants.github.io/blog/python-basics/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/python-basics/"
+  },
+  "description": "Introduction to Python.",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2019-01-05T00:00:00Z",
+  "dateModified": "2019-01-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"creating-variables\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eCREATING VARIABLES\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eCreating variables in Python is very simple. We just choose a name and assign a value.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emyNumber = 10\r\nmyText = \u0026#39;Hello\u0026#39; \u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"using-variables\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eUSING VARIABLES\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eNow that we have defined our variables, we can start to use them. For example, we could print the values.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (myNumber)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (myText)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Hello\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eSince we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"typecasting\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eTYPECASTING\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eSometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003evalue = \u0026#39;10\u0026#39;\r\nnumber = int (value)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eTypecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"python-loops-and-types\" class=\"section level2\"\u003e\r\n\u003ch2\u003e\u003ccode\u003ePython loops and types\u003c/code\u003e\u003c/h2\u003e\r\n\u003cdiv id=\"for-loop\" class=\"section level3\"\u003e\r\n\u003ch3\u003e1. For loop\u003c/h3\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nnumbers = [10,20,30,40]\r\n\r\nfor num in numbers:\r\n  print(num)\r\n  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\r\n## 20\r\n## 30\r\n## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor num in range(10,41,10):\r\n  print(num)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\r\n## 20\r\n## 30\r\n## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"while-loop\" class=\"section level3\"\u003e\r\n\u003ch3\u003e2. While loop\u003c/h3\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumber = 0\r\n\r\nwhile number \u0026lt; 10:\r\n  number += 1\r\n  if number == 5:\r\n    break\r\n  print(number)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1\r\n## 2\r\n## 3\r\n## 4\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enum =  0\r\nwhile num \u0026lt; 10:\r\n  num += 1\r\n  if num == 5:\r\n    continue\r\n  print(num)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1\r\n## 2\r\n## 3\r\n## 4\r\n## 6\r\n## 7\r\n## 8\r\n## 9\r\n## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"data-types\" class=\"section level2\"\u003e\r\n\u003ch2\u003e\u003ccode\u003eData Types\u003c/code\u003e\u003c/h2\u003e\r\n\u003cp\u003eVariables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.\r\nIn this post we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.\u003c/p\u003e\r\n\u003cdiv id=\"numerical-data-types\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e1) NUMERICAL DATA TYPES\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eThe types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.\u003c/p\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eNUMERICAL DATA TYPES\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eInteger\u003c/td\u003e\r\n\u003ctd\u003eint\u003c/td\u003e\r\n\u003ctd\u003ewhole number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eFloat\u003c/td\u003e\r\n\u003ctd\u003efloat\u003c/td\u003e\r\n\u003ctd\u003efloating point number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eComplex\u003c/td\u003e\r\n\u003ctd\u003ecomplex\u003c/td\u003e\r\n\u003ctd\u003ecomplex number\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003cp\u003eAs you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"strings\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e2) STRINGS\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eA string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is \u003ccode\u003estr\u003c/code\u003e. A string is a derived data type. Strings are immutable. This means that once defined, they cannot be changed. Many Python methods, such as replace() , join() , or split() modify strings\u003c/p\u003e\r\n\u003cdiv id=\"traversing-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.1) Traversing a String\u003c/code\u003e\u003c/h4\u003e\r\n\u003cp\u003eYou can traverse a string as a substring by using the Python slice operator ([]). It cuts off a substring from the original string and thus allows to iterate over it partially. To use this method, provide the starting and ending indices along with a step value and then traverse the string.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nname = \u0026quot;Welcome\u0026quot;\r\n\r\nfor ch in name:\r\n  print(ch, \u0026#39;-\u0026#39;, end = \u0026#39; \u0026#39;)\r\n  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## W - e - l - c - o - m - e -\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"reversing-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.2) Reversing a String\u003c/code\u003e\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ename = \u0026quot;Reverse me\u0026quot;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe Slice notation in python has the syntax -\r\nlist[\u003cstart\u003e:\u003cstop\u003e:\u003cstep\u003e]\r\nSo, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.\u003c/p\u003e\r\n\u003cp\u003e\u003ccode\u003eReverse using :: operator\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(name[::-1])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## em esreveR\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eReverse using for loop\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nlgth = len(name)\r\n\r\nfor a in range(-1, (-lgth-1), -1):\r\n  print(name[a], end = \u0026#39; \u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## e m   e s r e v e R\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eReverse using functions\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e## Split the string into a list of characters, reverse the list, then rejoin into a single string\r\n\r\nprint(\u0026#39;\u0026#39;.join(reversed(\u0026quot;Hello world\u0026quot;)))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## dlrow olleH\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eReverse using list comprehension\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nname1 = \u0026quot;There are so many stars in the sky\u0026quot;\r\n\r\nn1 = str.split(name1,\u0026quot; \u0026quot;)\r\n\r\nprint(\u0026#39; \u0026#39;.join([y[::-1] for y in n1]))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## erehT era os ynam srats ni eht yks\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"formating-a-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.3) Formating a String\u003c/code\u003e\u003c/h4\u003e\r\n\u003cp\u003eString formating allows to replace contents in a string with dynamic values using \u003ccode\u003eformat()\u003c/code\u003e function.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\ncustom_string = \u0026quot;String formatting\u0026quot;\r\n\r\nprint(f\u0026quot;{custom_string} is a useful technique\u0026quot;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## String formatting is a useful technique\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nprint (\u0026quot;Name:  %s College Id No: %d Branch: %s Percentile: %f\u0026quot; % (\u0026#39;Vikas\u0026#39;, 38, \u0026#39;CSE\u0026#39;,88.9)) \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Name:  Vikas College Id No: 38 Branch: CSE Percentile: 88.900000\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"length-of-a-text-string\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.4) Length of a Text string\u003c/code\u003e\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# length of the text string\r\nvar3 = \u0026#39;There are so many stars in the sky\u0026#39;\r\n\r\nprint(len(var3))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 34\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"multiple-assignment-in-python\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.5) multiple assignment in python\u003c/code\u003e\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\na, b, c = 1, 2, \u0026quot;Computer Vision\u0026quot;\r\n\r\nprint(a,b,c)\r\n\r\n#try for more than 3 variables\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 1 2 Computer Vision\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"swaping-is-as-easy-as-this\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e2.5) swaping is as easy as this\u003c/code\u003e\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003evalue1 =90 ; value2 =34\r\n\r\nprint(value1,\u0026#39;-----\u0026#39;,value2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 90 ----- 34\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003evalue1,value2 = value2,value1\r\n\r\nprint(value1,\u0026#39;-----\u0026#39;,value2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 34 ----- 90\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"booleans\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e3) Booleans\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eBoolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e#Boolean variables\r\n\r\nvar = not True\r\nvar1 = True\r\nvar2 = False\r\nprint(\u0026quot;Values of var, var1 and var2 are \u0026quot; + str(var) + \u0026quot;  \u0026quot; +str(var1) + \u0026quot; and \u0026quot; + str(var2))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Values of var, var1 and var2 are False  True and False\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4) Sequences\u003c/code\u003e\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eSEQUENCE TYPES\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eList\u003c/td\u003e\r\n\u003ctd\u003elist\u003c/td\u003e\r\n\u003ctd\u003eColection of values\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003eTuple\u003c/td\u003e\r\n\u003ctd\u003etuple\u003c/td\u003e\r\n\u003ctd\u003eImutable list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eDictionary\u003c/td\u003e\r\n\u003ctd\u003edict\u003c/td\u003e\r\n\u003ctd\u003eList of key nd value pairs\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.1) Sequences - Lists\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eList. Lists are used to store multiple items in a single variable. Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumbers = [10, 20, 30 ,40]\r\n\r\nnames = [\u0026#39;Arun\u0026#39;,\u0026#39;Varun\u0026#39;,\u0026#39;Karun\u0026#39;]\r\n\r\nmixed = [10,\u0026#39;Arun\u0026#39;, 28.3,True ]\r\n\r\nprint(numbers[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 40\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(names[0])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Arun\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(mixed[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## True\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enumbers[3] = 3\r\n\r\nnames[2] = \u0026#39;Bob\u0026#39;\r\n\r\nprint(numbers[3])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 3\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(names[2])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Bob\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# empty list\r\n# indexing start with 0\r\nmy_list = []\r\nprint(my_list)\r\n# list of integers\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## []\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emy_list = [1, 2, 3]\r\nprint(my_list)\r\n# list with mixed datatypes\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [1, 2, 3]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emy_list = [1, \u0026#39;Data Science\u0026#39;, 2.5]\r\nprint(my_list)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [1, \u0026#39;Data Science\u0026#39;, 2.5]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elist1 = [ \u0026#39;ABC\u0026#39;, 1234 , 2.34, \u0026#39;def\u0026#39;, 71.2 ]\r\ntinylist = [123, \u0026#39;john\u0026#39;]\r\nlist2= list1 +tinylist\r\n\r\n# Check the output of each print statement\r\nprint (list1)          \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;ABC\u0026#39;, 1234, 2.34, \u0026#39;def\u0026#39;, 71.2]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (list1[-2])     \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## def\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (list1[0:3])     \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;ABC\u0026#39;, 1234, 2.34]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (list1[2:])      \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [2.34, \u0026#39;def\u0026#39;, 71.2]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (tinylist * 2)  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [123, \u0026#39;john\u0026#39;, 123, \u0026#39;john\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (list1 + tinylist)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;ABC\u0026#39;, 1234, 2.34, \u0026#39;def\u0026#39;, 71.2, 123, \u0026#39;john\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (list2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;ABC\u0026#39;, 1234, 2.34, \u0026#39;def\u0026#39;, 71.2, 123, \u0026#39;john\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eDelete an element from list\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nlist1 = [\u0026#39;Data\u0026#39;, \u0026#39;Science STTP\u0026#39;, 11, 15]\r\n\r\nprint (list1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [\u0026#39;Data\u0026#39;, \u0026#39;Science STTP\u0026#39;, 11, 15]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edel list1[2]\r\n\r\nprint (\u0026quot;After deleting value at index 2 : \u0026quot;, list1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## After deleting value at index 2 :  [\u0026#39;Data\u0026#39;, \u0026#39;Science STTP\u0026#39;, 15]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eMerging two lists\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ea1 = [1,2,3,4,5,9]\r\na2 = [2,4,512,1,3]\r\na3 = [\u0026#39;Sawan\u0026#39;, \u0026#39;Gyan\u0026#39;, \u0026#39;Puneet\u0026#39;]\r\nprint(a1+a2+a3)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [1, 2, 3, 4, 5, 9, 2, 4, 512, 1, 3, \u0026#39;Sawan\u0026#39;, \u0026#39;Gyan\u0026#39;, \u0026#39;Puneet\u0026#39;]\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---operations\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.1.1) Sequences - Lists - Operations\u003c/code\u003e\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST OPERATIONS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eOPERATION\u003c/td\u003e\r\n\u003ctd\u003eRESULT\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003e[10, 20, 30] + [40, 50, 60]\u003c/td\u003e\r\n\u003ctd\u003e[10, 20, 30, 40, 50, 60]\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003e[10, “Bob”] * 3\u003c/td\u003e\r\n\u003ctd\u003e[10, “Bob”, 10, “Bob”, 10, “Bob”]\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---functions\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.1.2) Sequences - Lists - Functions\u003c/code\u003e\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST FUNCTIONS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eFUNCTION\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elen(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the length of a list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003emax(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the item with maximum value\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003emin(list)\u003c/td\u003e\r\n\u003ctd\u003eReturns the item with minimum value\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist(element)\u003c/td\u003e\r\n\u003ctd\u003eTypecasts element into list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---lists---methods\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.1.3) Sequences - Lists - methods\u003c/code\u003e\u003c/h3\u003e\r\n\u003ctable\u003e\r\n\u003cthead\u003e\r\n\u003ctr class=\"header\"\u003e\r\n\u003cth\u003eLIST METHODS\u003c/th\u003e\r\n\u003cth\u003e\u003c/th\u003e\r\n\u003c/tr\u003e\r\n\u003c/thead\u003e\r\n\u003ctbody\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003eMETHOD\u003c/td\u003e\r\n\u003ctd\u003eDESCRIPTION\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.append(x)\u003c/td\u003e\r\n\u003ctd\u003eAppends element to the list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.count(x)\u003c/td\u003e\r\n\u003ctd\u003eCounts how many times an element appears in the list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.index(x)\u003c/td\u003e\r\n\u003ctd\u003eReturns the first index at which the given element occurs\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.pop()\u003c/td\u003e\r\n\u003ctd\u003eRemoves and returns last element\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"even\"\u003e\r\n\u003ctd\u003elist.reverse()\u003c/td\u003e\r\n\u003ctd\u003eReverses the order of the elements\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003ctr class=\"odd\"\u003e\r\n\u003ctd\u003elist.sort()\u003c/td\u003e\r\n\u003ctd\u003eSorts the elements of a list\u003c/td\u003e\r\n\u003c/tr\u003e\r\n\u003c/tbody\u003e\r\n\u003c/table\u003e\r\n\u003chr /\u003e\r\n\u003cp\u003e\u003ccode\u003eRemoving duplicates from list\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edef remove_duplicates():\r\n  li = [3, 2, 2, 1, 1, 1]\r\n  li1 = list(set(li)) #=\u0026gt; [1, 2, 3]\r\n  print(li1)  \r\n  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eremove_duplicates()  \u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [1, 2, 3]\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---tupples\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.2) Sequences - Tupples\u003c/code\u003e\u003c/h3\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etpl = (10,20,30)\r\nlen(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 3\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emax(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 30\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emin(tpl)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 10\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etuple1 = (\u0026#39;ICICI\u0026#39;,\u0026#39;Branch\u0026#39;, \u0026#39;Malwa\u0026#39;)\r\n\r\nprint(tuple1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## (\u0026#39;ICICI\u0026#39;, \u0026#39;Branch\u0026#39;, \u0026#39;Malwa\u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etuple1[2]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \u0026#39;Malwa\u0026#39;\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"sequences---dictionaries\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003e4.3) Sequences - Dictionaries\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eA dictionary is indexed by keys, Unlike a sequence, which is indexed by a range of numbers. A Key can be any immutable type, strings and numbers can always be keys.\u003c/p\u003e\r\n\u003cp\u003eA dictionary can be considered as an unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary). Each key is separated from its value by a colon (:), the items are separated by commas, and the entire unordered ke:value pair in enclosed within curly braces.\u003c/p\u003e\r\n\u003cp\u003eA dictionary can be initialized to be an empty dictionary by using a pair of braces : \u003ccode\u003e{}\u003c/code\u003e. Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the dictionary; this is also the way dictionaries are written on output.\u003c/p\u003e\r\n\u003cp\u003eTuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key. You can’t use lists as keys, since lists can be modified in place using index assignments, slice assignments, or methods like append() and extend().\u003c/p\u003e\r\n\u003cp\u003eThe main operations on a dictionary are storing a value with some key and extracting the value given the key.\u003c/p\u003e\r\n\u003cp\u003eTo delete a key:value pair you can use ‘del’. If you store a value using a key that is already in use, then the old value associated with that key is overwritten.\u003c/p\u003e\r\n\u003cp\u003eUse \u003ccode\u003elist(d.keys())\u003c/code\u003e to obtain a list of all the keys used in the dictionary, in arbitrary order.\u003c/p\u003e\r\n\u003cp\u003eUse \u003ccode\u003esorted(d.keys())\u003c/code\u003e if you wanted it to be in a sorted order.\u003c/p\u003e\r\n\u003cp\u003eTo check whether a single key is in the dictionary, use the \u003ccode\u003ein\u003c/code\u003e keyword.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003edic = dict({\u0026#39;Name\u0026#39;:\u0026#39;Arun\u0026#39;, \u0026#39;Age\u0026#39;: 50})\r\nprint(dic[\u0026#39;Name\u0026#39;])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Arun\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"numpy-arrays\" class=\"section level3\"\u003e\r\n\u003ch3\u003e`\u003ccode\u003e4.4) Numpy arrays\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eNumPy is a general-purpose fundamental package for scientific computing with Python. It contains various features including these important ones:\u003c/p\u003e\r\n\u003cp\u003eA powerful N-dimensional array object\u003c/p\u003e\r\n\u003cp\u003eSophisticated (broadcasting) functions\u003c/p\u003e\r\n\u003cp\u003eTools for integrating C/C++ and Fortran code\u003c/p\u003e\r\n\u003cp\u003eUseful linear algebra, Fourier transform, and random number capabilities\u003c/p\u003e\r\n\u003cp\u003eBesides its obvious scientific uses, NumPy can also be used as an efficient multi-dimensional container of generic data. This allows NumPy to seamlessly and speedily integrate with a wide variety of databases.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nimport numpy as np\r\n# use [ ] for every row inside np.array([]) for matrix\r\n\r\nb1 = np.array([1,2,3,5,5])    #Declaring a NumPy Array \r\nb2 = np.array([4,5,6,7,7])\r\n\r\nprint(b1+b2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [ 5  7  9 12 12]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(b2 * 3)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [12 15 18 21 21]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026quot;No. of dimensions: \u0026quot;, b1.ndim)  # Rows in array, considered as a matrix. \r\n# Printing shape of array\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## No. of dimensions:  1\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026quot;Shape of array: \u0026quot;, b1.shape)  # Dimension \r\n \r\n# Printing size (total number of elements) of array\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Shape of array:  (5,)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026quot;Size of array: \u0026quot;, b1.size) # elements in a row or column elements. \r\n \r\n# Printing the datatype of elements in array\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Size of array:  5\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026quot;Array stores elements of type: \u0026quot;, b1.dtype)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Array stores elements of type:  int32\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eArray creation: You can create arrays in NumPy in various ways.\u003c/p\u003e\r\n\u003cp\u003eFor example, you can create an array from a regular Python list or tuple using the array function.\u003c/p\u003e\r\n\u003cp\u003eThe type of the resulting array is deduced from the type of the elements in the sequences.\u003c/p\u003e\r\n\u003cp\u003eOften, we need to declare arrays whose sizes are known but elements are initially unknown. Hence, NumPy offers many functions to create arrays with initial placeholder content. This minimizes the necessity of growing arrays, which is generally an expensive operation.\u003c/p\u003e\r\n\u003cp\u003eExamples: np.zeros, np.ones, np.full, np.empty, etc.\r\nTo create sequences of numbers, NumPy provides a function analogous to range that returns arrays instead of lists.\u003c/p\u003e\r\n\u003cp\u003earange: returns evenly spaced values within a given interval. In this, step size is specified.\u003c/p\u003e\r\n\u003cp\u003elinspace: returns evenly spaced values within a given interval. Number of elements are returned.\u003c/p\u003e\r\n\u003cp\u003eReshaping array: The reshape method is used to reshape an array. If you have an array (a1, a2, a3, …, aN) and you want to reshape and convert it into another array of shape (b1, b2, b3, …, bM), you can do it easily using the reshape method. But the only precondition is that a1 x a2 x a3 … x aN = b1 x b2 x b3 … x bM . (i.e. , the total number of elements in the array should be the same, or the original size of array should remain unchanged.)\u003c/p\u003e\r\n\u003cp\u003eFlatten array: The flatten method is used to convert an array into one dimension. It accepts order argument. Default value is ‘C’ (for row-major order), and you can use ‘F’ to use the flatten method for column major order.\u003c/p\u003e\r\n\u003cp\u003eLet us see some examples.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# array creation \r\nimport numpy as np\r\n \r\n# Creating array from a list with type float\r\nA = np.array([[1, 2, 4], [5, 8, 7]], dtype = \u0026#39;float\u0026#39;)\r\n\r\n# Create a 3X4 array with all zeros. Please note, we have used double paranthesis. \r\nB = np.zeros((3, 4))\r\n\r\n# Create an array of complex numbers \r\nC = np.full((3, 3), 6, dtype = \u0026#39;complex\u0026#39;)\r\n\r\n# Create an array with random values\r\n\r\nnp.random.seed(2) # A seed is set to ensure that the results are consistent if you use this array in future computations also.\r\n\r\nD = np.random.randn(2, 2)\r\n\r\nE = np.random.random((2, 2))  # Exercise : Find out the difference between D and E \r\n\r\n\r\nprint (\u0026quot;Array created using passed list:\\n\u0026quot;, A)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Array created using passed list:\r\n##  [[1. 2. 4.]\r\n##  [5. 8. 7.]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nAn array initialized with all zeros:\\n\u0026quot;, B)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## An array initialized with all zeros:\r\n##  [[0. 0. 0. 0.]\r\n##  [0. 0. 0. 0.]\r\n##  [0. 0. 0. 0.]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nAn array initialized with all 6s.\u0026quot;\r\n            \u0026quot;Array type is complex:\\n\u0026quot;, C)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## An array initialized with all 6s.Array type is complex:\r\n##  [[6.+0.j 6.+0.j 6.+0.j]\r\n##  [6.+0.j 6.+0.j 6.+0.j]\r\n##  [6.+0.j 6.+0.j 6.+0.j]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nA random array:\\n\u0026quot;, D)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## A random array:\r\n##  [[-0.41675785 -0.05626683]\r\n##  [-2.1361961   1.64027081]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nAnother random array:\\n\u0026quot;, E)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Another random array:\r\n##  [[0.4203678  0.33033482]\r\n##  [0.20464863 0.61927097]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003ccode\u003eArray Reshaping\u003c/code\u003e\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eA = np.array([[1, 2, 3, 4],\r\n                [5, 6, 7, 8],\r\n                [9, 1, 2, 3]])\r\n \r\nnew_A = A.reshape(3, 2, 2) # (number of matrices, rows, column)\r\n\r\n# Flatten array\r\nB = np.array([[1, 2, 3], [4, 5, 6]])\r\nflat_B= B.flatten()\r\n#B.flatten(\u0026#39;F\u0026#39;)\r\n \r\nprint (\u0026quot;\\nOriginal array:\\n\u0026quot;, A)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Original array:\r\n##  [[1 2 3 4]\r\n##  [5 6 7 8]\r\n##  [9 1 2 3]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;Reshaped array:\\n\u0026quot;, new_A)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Reshaped array:\r\n##  [[[1 2]\r\n##   [3 4]]\r\n## \r\n##  [[5 6]\r\n##   [7 8]]\r\n## \r\n##  [[9 1]\r\n##   [2 3]]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nOriginal array:\\n\u0026quot;, B)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## Original array:\r\n##  [[1 2 3]\r\n##  [4 5 6]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;Fattened array:\\n\u0026quot;, flat_B)\r\n#print (\u0026quot;Column Fattened array:\\n\u0026quot;, column_flat_B)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Fattened array:\r\n##  [1 2 3 4 5 6]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cdiv id=\"numpy---sequences\" class=\"section level4\"\u003e\r\n\u003ch4\u003e\u003ccode\u003e4.5) Numpy - Sequences\u003c/code\u003e\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport numpy as np\r\n\r\n# Create a sequence of integers \r\n# from 0 to 40 with steps of 5\r\na = np.arange(0, 40, 5)  # use if you know sequence range and increment, it excludes last value\r\n\r\n# Create a sequence of 15 values in range 0 to 5\r\nb = np.linspace(0, 10, 5)  # use if you know sequence range and number of samples, it includes last value\r\n\r\n\r\nprint (\u0026quot;\\nA sequential array with steps of 5:\\n\u0026quot;, a)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## A sequential array with steps of 5:\r\n##  [ 0  5 10 15 20 25 30 35]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint (\u0026quot;\\nA sequential array with 15 values between\u0026quot;\r\n                                        \u0026quot;0 and 5:\\n\u0026quot;, b)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## \r\n## A sequential array with 15 values between0 and 5:\r\n##  [ 0.   2.5  5.   7.5 10. ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e# simple plotting\r\n# Here, we are demonstrating the growth in GDP of China and America over a peroid of time\r\n\r\n\r\nfrom matplotlib import pyplot as plt\r\n\r\nyears = [1950, 1960, 1970, 1980, 1990, 2000, 2010]\r\nAmerica_gdp = [300.2, 543.3, 1075.9, 2862.5, 5979.6, 10289.7, 14958.3]\r\nChina_gdp = [30.2, 240.3, 675.9, 1262.5, 3579.6, 7089.7, 10958.3]\r\n\r\nplt.plot(years, America_gdp, color=\u0026#39;blue\u0026#39;, marker=\u0026#39;*\u0026#39;, linestyle=\u0026#39;solid\u0026#39;)\r\n\r\nplt.plot(years, China_gdp, color=\u0026#39;red\u0026#39;, marker=\u0026#39;o\u0026#39;, linestyle=\u0026#39;solid\u0026#39;)\r\n\r\nplt.show()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/matplotlibexample.png\" /\u003e\r\n```\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Basics&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/python-basics/">Python - Basics</a></h2>
+    
+    
+      <p>Introduction to Python.</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2019-01-05 00:00:00 &#43;0000 UTC">January 5, 2019</time>
+    <p>Laxmi K Soni</p>
+    <p>14-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Python%20-%20Basics&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fpython-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/python-basics/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Python_Basics-19.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Python_Basics-19.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="creating-variables" class="section level3">
+<h3><code>CREATING VARIABLES</code></h3>
+<p>Creating variables in Python is very simple. We just choose a name and assign a value.</p>
+<pre class="python"><code>myNumber = 10
+myText = &#39;Hello&#39; </code></pre>
+<p>Here, we defined two variables. The first one is an integer and the second one a string. You can basically choose whatever name you want but there are some limitations. For example you are not allowed to use reserved keywords like int or dict . Also, the name is not allowed to start with a number or a special character other than the underline.</p>
+</div>
+<div id="using-variables" class="section level3">
+<h3><code>USING VARIABLES</code></h3>
+<p>Now that we have defined our variables, we can start to use them. For example, we could print the values.</p>
+<pre class="python"><code>print (myNumber)</code></pre>
+<pre><code>## 10</code></pre>
+<pre class="python"><code>print (myText)</code></pre>
+<pre><code>## Hello</code></pre>
+<p>Since we are not using quotation marks, the text in the parentheses is treated like a variable name. Therefore, the interpreter prints out the values 10 and “Hello” .</p>
+</div>
+<div id="typecasting" class="section level3">
+<h3><code>TYPECASTING</code></h3>
+<p>Sometimes, we will get a value in a data type that we can’t work with properly. For example we might get a string as an input but that string contains a number as its value. Here “10” is not same to 10 . We can’t do calculations with a string, even if the text represents a number. For that reason we need to typecast.</p>
+<pre class="python"><code>value = &#39;10&#39;
+number = int (value)</code></pre>
+<p>Typecasting is done by using the specific data type function. In this case we are converting a string to an integer by using the int keyword. You can also reverse this by using the str keyword. This is a very important thing and we will need it quite often.</p>
+</div>
+<div id="python-loops-and-types" class="section level2">
+<h2><code>Python loops and types</code></h2>
+<div id="for-loop" class="section level3">
+<h3>1. For loop</h3>
+<pre class="python"><code>
+numbers = [10,20,30,40]
+
+for num in numbers:
+  print(num)
+  </code></pre>
+<pre><code>## 10
+## 20
+## 30
+## 40</code></pre>
+<pre class="python"><code>for num in range(10,41,10):
+  print(num)</code></pre>
+<pre><code>## 10
+## 20
+## 30
+## 40</code></pre>
+</div>
+<div id="while-loop" class="section level3">
+<h3>2. While loop</h3>
+<pre class="python"><code>number = 0
+
+while number &lt; 10:
+  number += 1
+  if number == 5:
+    break
+  print(number)</code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4</code></pre>
+<pre class="python"><code>num =  0
+while num &lt; 10:
+  num += 1
+  if num == 5:
+    continue
+  print(num)</code></pre>
+<pre><code>## 1
+## 2
+## 3
+## 4
+## 6
+## 7
+## 8
+## 9
+## 10</code></pre>
+</div>
+</div>
+<div id="data-types" class="section level2">
+<h2><code>Data Types</code></h2>
+<p>Variables and Data types basically are just placeholders for values. In programming, that’s the same. The difference is that we have a lot of different data types, and variables cannot only store values of numbers but even of whole objects.
+In this post we are going to take a look at variables in Python and the differences of the individual data types. Also, we will talk about type conversions.</p>
+<div id="numerical-data-types" class="section level3">
+<h3><code>1) NUMERICAL DATA TYPES</code></h3>
+<p>The types you probably already know from mathematics are numerical data types. There are different kinds of numbers that can be used for mathematical operations.</p>
+<table>
+<thead>
+<tr class="header">
+<th>NUMERICAL DATA TYPES</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer</td>
+<td>int</td>
+<td>whole number</td>
+</tr>
+<tr class="even">
+<td>Float</td>
+<td>float</td>
+<td>floating point number</td>
+</tr>
+<tr class="odd">
+<td>Complex</td>
+<td>complex</td>
+<td>complex number</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, it’s quite simple. An integer is just a regular whole number, which we can do basic calculations with. A float extends the integer and allows decimal places because it is a floating point number. And a complex number is what just a number that has a real and an imaginary component. If you don’t understand complex numbers mathematically, forget about them. You don’t need them for your programming right now.</p>
+</div>
+<div id="strings" class="section level3">
+<h3><code>2) STRINGS</code></h3>
+<p>A string defines characters sequences. Strings always need to be surrounded by quotation marks. Otherwise the interpreter will not realize that they are meant to be treated like text. The keyword for String in Python is <code>str</code>. A string is a derived data type. Strings are immutable. This means that once defined, they cannot be changed. Many Python methods, such as replace() , join() , or split() modify strings</p>
+<div id="traversing-a-string" class="section level4">
+<h4><code>2.1) Traversing a String</code></h4>
+<p>You can traverse a string as a substring by using the Python slice operator ([]). It cuts off a substring from the original string and thus allows to iterate over it partially. To use this method, provide the starting and ending indices along with a step value and then traverse the string.</p>
+<pre class="python"><code>
+name = &quot;Welcome&quot;
+
+for ch in name:
+  print(ch, &#39;-&#39;, end = &#39; &#39;)
+  </code></pre>
+<pre><code>## W - e - l - c - o - m - e -</code></pre>
+</div>
+<div id="reversing-a-string" class="section level4">
+<h4><code>2.2) Reversing a String</code></h4>
+<pre class="python"><code>name = &quot;Reverse me&quot;</code></pre>
+<p>The Slice notation in python has the syntax -
+list[<start>:<stop>:<step>]
+So, when you do a[::-1], it starts from the end towards the first taking each element. So it reverses a. This is applicable for lists/tuples as well.</p>
+<p><code>Reverse using :: operator</code></p>
+<pre class="python"><code>print(name[::-1])</code></pre>
+<pre><code>## em esreveR</code></pre>
+<p><code>Reverse using for loop</code></p>
+<pre class="python"><code>
+lgth = len(name)
+
+for a in range(-1, (-lgth-1), -1):
+  print(name[a], end = &#39; &#39;)</code></pre>
+<pre><code>## e m   e s r e v e R</code></pre>
+<p><code>Reverse using functions</code></p>
+<pre class="python"><code>## Split the string into a list of characters, reverse the list, then rejoin into a single string
+
+print(&#39;&#39;.join(reversed(&quot;Hello world&quot;)))</code></pre>
+<pre><code>## dlrow olleH</code></pre>
+<p><code>Reverse using list comprehension</code></p>
+<pre class="python"><code>
+name1 = &quot;There are so many stars in the sky&quot;
+
+n1 = str.split(name1,&quot; &quot;)
+
+print(&#39; &#39;.join([y[::-1] for y in n1]))</code></pre>
+<pre><code>## erehT era os ynam srats ni eht yks</code></pre>
+</div>
+<div id="formating-a-string" class="section level4">
+<h4><code>2.3) Formating a String</code></h4>
+<p>String formating allows to replace contents in a string with dynamic values using <code>format()</code> function.</p>
+<pre class="python"><code>
+custom_string = &quot;String formatting&quot;
+
+print(f&quot;{custom_string} is a useful technique&quot;)</code></pre>
+<pre><code>## String formatting is a useful technique</code></pre>
+<pre class="python"><code>
+print (&quot;Name:  %s College Id No: %d Branch: %s Percentile: %f&quot; % (&#39;Vikas&#39;, 38, &#39;CSE&#39;,88.9)) </code></pre>
+<pre><code>## Name:  Vikas College Id No: 38 Branch: CSE Percentile: 88.900000</code></pre>
+</div>
+<div id="length-of-a-text-string" class="section level4">
+<h4><code>2.4) Length of a Text string</code></h4>
+<pre class="python"><code># length of the text string
+var3 = &#39;There are so many stars in the sky&#39;
+
+print(len(var3))</code></pre>
+<pre><code>## 34</code></pre>
+</div>
+<div id="multiple-assignment-in-python" class="section level4">
+<h4><code>2.5) multiple assignment in python</code></h4>
+<pre class="python"><code>
+a, b, c = 1, 2, &quot;Computer Vision&quot;
+
+print(a,b,c)
+
+#try for more than 3 variables</code></pre>
+<pre><code>## 1 2 Computer Vision</code></pre>
+</div>
+<div id="swaping-is-as-easy-as-this" class="section level4">
+<h4><code>2.5) swaping is as easy as this</code></h4>
+<pre class="python"><code>value1 =90 ; value2 =34
+
+print(value1,&#39;-----&#39;,value2)</code></pre>
+<pre><code>## 90 ----- 34</code></pre>
+<pre class="python"><code>value1,value2 = value2,value1
+
+print(value1,&#39;-----&#39;,value2)</code></pre>
+<pre><code>## 34 ----- 90</code></pre>
+</div>
+</div>
+<div id="booleans" class="section level3">
+<h3><code>3) Booleans</code></h3>
+<p>Boolean are the most simple data type in Python. They can only have one of two values, namely True or False . It’s a binary data type. We will use it a lot when we get to conditions and loops. The keyword here is bool.</p>
+<pre class="python"><code>#Boolean variables
+
+var = not True
+var1 = True
+var2 = False
+print(&quot;Values of var, var1 and var2 are &quot; + str(var) + &quot;  &quot; +str(var1) + &quot; and &quot; + str(var2))</code></pre>
+<pre><code>## Values of var, var1 and var2 are False  True and False</code></pre>
+</div>
+<div id="sequences" class="section level3">
+<h3><code>4) Sequences</code></h3>
+<table>
+<thead>
+<tr class="header">
+<th>SEQUENCE TYPES</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>List</td>
+<td>list</td>
+<td>Colection of values</td>
+</tr>
+<tr class="even">
+<td>Tuple</td>
+<td>tuple</td>
+<td>Imutable list</td>
+</tr>
+<tr class="odd">
+<td>Dictionary</td>
+<td>dict</td>
+<td>List of key nd value pairs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sequences---lists" class="section level3">
+<h3><code>4.1) Sequences - Lists</code></h3>
+<p>List. Lists are used to store multiple items in a single variable. Lists are one of 4 built-in data types in Python used to store collections of data, the other 3 are Tuple, Set, and Dictionary, all with different qualities and usage.</p>
+<pre class="python"><code>numbers = [10, 20, 30 ,40]
+
+names = [&#39;Arun&#39;,&#39;Varun&#39;,&#39;Karun&#39;]
+
+mixed = [10,&#39;Arun&#39;, 28.3,True ]
+
+print(numbers[3])</code></pre>
+<pre><code>## 40</code></pre>
+<pre class="python"><code>print(names[0])</code></pre>
+<pre><code>## Arun</code></pre>
+<pre class="python"><code>print(mixed[3])</code></pre>
+<pre><code>## True</code></pre>
+<pre class="python"><code>numbers[3] = 3
+
+names[2] = &#39;Bob&#39;
+
+print(numbers[3])</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>print(names[2])</code></pre>
+<pre><code>## Bob</code></pre>
+<pre class="python"><code># empty list
+# indexing start with 0
+my_list = []
+print(my_list)
+# list of integers</code></pre>
+<pre><code>## []</code></pre>
+<pre class="python"><code>my_list = [1, 2, 3]
+print(my_list)
+# list with mixed datatypes</code></pre>
+<pre><code>## [1, 2, 3]</code></pre>
+<pre class="python"><code>my_list = [1, &#39;Data Science&#39;, 2.5]
+print(my_list)</code></pre>
+<pre><code>## [1, &#39;Data Science&#39;, 2.5]</code></pre>
+<pre class="python"><code>list1 = [ &#39;ABC&#39;, 1234 , 2.34, &#39;def&#39;, 71.2 ]
+tinylist = [123, &#39;john&#39;]
+list2= list1 +tinylist
+
+# Check the output of each print statement
+print (list1)          </code></pre>
+<pre><code>## [&#39;ABC&#39;, 1234, 2.34, &#39;def&#39;, 71.2]</code></pre>
+<pre class="python"><code>print (list1[-2])     </code></pre>
+<pre><code>## def</code></pre>
+<pre class="python"><code>print (list1[0:3])     </code></pre>
+<pre><code>## [&#39;ABC&#39;, 1234, 2.34]</code></pre>
+<pre class="python"><code>print (list1[2:])      </code></pre>
+<pre><code>## [2.34, &#39;def&#39;, 71.2]</code></pre>
+<pre class="python"><code>print (tinylist * 2)  </code></pre>
+<pre><code>## [123, &#39;john&#39;, 123, &#39;john&#39;]</code></pre>
+<pre class="python"><code>print (list1 + tinylist)</code></pre>
+<pre><code>## [&#39;ABC&#39;, 1234, 2.34, &#39;def&#39;, 71.2, 123, &#39;john&#39;]</code></pre>
+<pre class="python"><code>print (list2)</code></pre>
+<pre><code>## [&#39;ABC&#39;, 1234, 2.34, &#39;def&#39;, 71.2, 123, &#39;john&#39;]</code></pre>
+<p><code>Delete an element from list</code></p>
+<pre class="python"><code>
+list1 = [&#39;Data&#39;, &#39;Science STTP&#39;, 11, 15]
+
+print (list1)</code></pre>
+<pre><code>## [&#39;Data&#39;, &#39;Science STTP&#39;, 11, 15]</code></pre>
+<pre class="python"><code>del list1[2]
+
+print (&quot;After deleting value at index 2 : &quot;, list1)</code></pre>
+<pre><code>## After deleting value at index 2 :  [&#39;Data&#39;, &#39;Science STTP&#39;, 15]</code></pre>
+<p><code>Merging two lists</code></p>
+<pre class="python"><code>a1 = [1,2,3,4,5,9]
+a2 = [2,4,512,1,3]
+a3 = [&#39;Sawan&#39;, &#39;Gyan&#39;, &#39;Puneet&#39;]
+print(a1+a2+a3)</code></pre>
+<pre><code>## [1, 2, 3, 4, 5, 9, 2, 4, 512, 1, 3, &#39;Sawan&#39;, &#39;Gyan&#39;, &#39;Puneet&#39;]</code></pre>
+</div>
+<div id="sequences---lists---operations" class="section level3">
+<h3><code>4.1.1) Sequences - Lists - Operations</code></h3>
+<table>
+<thead>
+<tr class="header">
+<th>LIST OPERATIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>OPERATION</td>
+<td>RESULT</td>
+</tr>
+<tr class="even">
+<td>[10, 20, 30] + [40, 50, 60]</td>
+<td>[10, 20, 30, 40, 50, 60]</td>
+</tr>
+<tr class="odd">
+<td>[10, “Bob”] * 3</td>
+<td>[10, “Bob”, 10, “Bob”, 10, “Bob”]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sequences---lists---functions" class="section level3">
+<h3><code>4.1.2) Sequences - Lists - Functions</code></h3>
+<table>
+<thead>
+<tr class="header">
+<th>LIST FUNCTIONS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FUNCTION</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>len(list)</td>
+<td>Returns the length of a list</td>
+</tr>
+<tr class="odd">
+<td>max(list)</td>
+<td>Returns the item with maximum value</td>
+</tr>
+<tr class="even">
+<td>min(list)</td>
+<td>Returns the item with minimum value</td>
+</tr>
+<tr class="odd">
+<td>list(element)</td>
+<td>Typecasts element into list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="sequences---lists---methods" class="section level3">
+<h3><code>4.1.3) Sequences - Lists - methods</code></h3>
+<table>
+<thead>
+<tr class="header">
+<th>LIST METHODS</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>METHOD</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr class="even">
+<td>list.append(x)</td>
+<td>Appends element to the list</td>
+</tr>
+<tr class="odd">
+<td>list.count(x)</td>
+<td>Counts how many times an element appears in the list</td>
+</tr>
+<tr class="even">
+<td>list.index(x)</td>
+<td>Returns the first index at which the given element occurs</td>
+</tr>
+<tr class="odd">
+<td>list.pop()</td>
+<td>Removes and returns last element</td>
+</tr>
+<tr class="even">
+<td>list.reverse()</td>
+<td>Reverses the order of the elements</td>
+</tr>
+<tr class="odd">
+<td>list.sort()</td>
+<td>Sorts the elements of a list</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><code>Removing duplicates from list</code></p>
+<pre class="python"><code>def remove_duplicates():
+  li = [3, 2, 2, 1, 1, 1]
+  li1 = list(set(li)) #=&gt; [1, 2, 3]
+  print(li1)  
+  </code></pre>
+<pre class="python"><code>remove_duplicates()  </code></pre>
+<pre><code>## [1, 2, 3]</code></pre>
+</div>
+<div id="sequences---tupples" class="section level3">
+<h3><code>4.2) Sequences - Tupples</code></h3>
+<pre class="python"><code>tpl = (10,20,30)
+len(tpl)</code></pre>
+<pre><code>## 3</code></pre>
+<pre class="python"><code>max(tpl)</code></pre>
+<pre><code>## 30</code></pre>
+<pre class="python"><code>min(tpl)</code></pre>
+<pre><code>## 10</code></pre>
+<pre class="python"><code>tuple1 = (&#39;ICICI&#39;,&#39;Branch&#39;, &#39;Malwa&#39;)
+
+print(tuple1)</code></pre>
+<pre><code>## (&#39;ICICI&#39;, &#39;Branch&#39;, &#39;Malwa&#39;)</code></pre>
+<pre class="python"><code>tuple1[2]</code></pre>
+<pre><code>## &#39;Malwa&#39;</code></pre>
+</div>
+<div id="sequences---dictionaries" class="section level3">
+<h3><code>4.3) Sequences - Dictionaries</code></h3>
+<p>A dictionary is indexed by keys, Unlike a sequence, which is indexed by a range of numbers. A Key can be any immutable type, strings and numbers can always be keys.</p>
+<p>A dictionary can be considered as an unordered set of key: value pairs, with the requirement that the keys are unique (within one dictionary). Each key is separated from its value by a colon (:), the items are separated by commas, and the entire unordered ke:value pair in enclosed within curly braces.</p>
+<p>A dictionary can be initialized to be an empty dictionary by using a pair of braces : <code>{}</code>. Placing a comma-separated list of key:value pairs within the braces adds initial key:value pairs to the dictionary; this is also the way dictionaries are written on output.</p>
+<p>Tuples can be used as keys if they contain only strings, numbers, or tuples; if a tuple contains any mutable object either directly or indirectly, it cannot be used as a key. You can’t use lists as keys, since lists can be modified in place using index assignments, slice assignments, or methods like append() and extend().</p>
+<p>The main operations on a dictionary are storing a value with some key and extracting the value given the key.</p>
+<p>To delete a key:value pair you can use ‘del’. If you store a value using a key that is already in use, then the old value associated with that key is overwritten.</p>
+<p>Use <code>list(d.keys())</code> to obtain a list of all the keys used in the dictionary, in arbitrary order.</p>
+<p>Use <code>sorted(d.keys())</code> if you wanted it to be in a sorted order.</p>
+<p>To check whether a single key is in the dictionary, use the <code>in</code> keyword.</p>
+<pre class="python"><code>dic = dict({&#39;Name&#39;:&#39;Arun&#39;, &#39;Age&#39;: 50})
+print(dic[&#39;Name&#39;])</code></pre>
+<pre><code>## Arun</code></pre>
+</div>
+<div id="numpy-arrays" class="section level3">
+<h3>`<code>4.4) Numpy arrays</code></h3>
+<p>NumPy is a general-purpose fundamental package for scientific computing with Python. It contains various features including these important ones:</p>
+<p>A powerful N-dimensional array object</p>
+<p>Sophisticated (broadcasting) functions</p>
+<p>Tools for integrating C/C++ and Fortran code</p>
+<p>Useful linear algebra, Fourier transform, and random number capabilities</p>
+<p>Besides its obvious scientific uses, NumPy can also be used as an efficient multi-dimensional container of generic data. This allows NumPy to seamlessly and speedily integrate with a wide variety of databases.</p>
+<pre class="python"><code>
+import numpy as np
+# use [ ] for every row inside np.array([]) for matrix
+
+b1 = np.array([1,2,3,5,5])    #Declaring a NumPy Array 
+b2 = np.array([4,5,6,7,7])
+
+print(b1+b2)</code></pre>
+<pre><code>## [ 5  7  9 12 12]</code></pre>
+<pre class="python"><code>print(b2 * 3)</code></pre>
+<pre><code>## [12 15 18 21 21]</code></pre>
+<pre class="python"><code>print(&quot;No. of dimensions: &quot;, b1.ndim)  # Rows in array, considered as a matrix. 
+# Printing shape of array</code></pre>
+<pre><code>## No. of dimensions:  1</code></pre>
+<pre class="python"><code>print(&quot;Shape of array: &quot;, b1.shape)  # Dimension 
+ 
+# Printing size (total number of elements) of array</code></pre>
+<pre><code>## Shape of array:  (5,)</code></pre>
+<pre class="python"><code>print(&quot;Size of array: &quot;, b1.size) # elements in a row or column elements. 
+ 
+# Printing the datatype of elements in array</code></pre>
+<pre><code>## Size of array:  5</code></pre>
+<pre class="python"><code>print(&quot;Array stores elements of type: &quot;, b1.dtype)</code></pre>
+<pre><code>## Array stores elements of type:  int32</code></pre>
+<p>Array creation: You can create arrays in NumPy in various ways.</p>
+<p>For example, you can create an array from a regular Python list or tuple using the array function.</p>
+<p>The type of the resulting array is deduced from the type of the elements in the sequences.</p>
+<p>Often, we need to declare arrays whose sizes are known but elements are initially unknown. Hence, NumPy offers many functions to create arrays with initial placeholder content. This minimizes the necessity of growing arrays, which is generally an expensive operation.</p>
+<p>Examples: np.zeros, np.ones, np.full, np.empty, etc.
+To create sequences of numbers, NumPy provides a function analogous to range that returns arrays instead of lists.</p>
+<p>arange: returns evenly spaced values within a given interval. In this, step size is specified.</p>
+<p>linspace: returns evenly spaced values within a given interval. Number of elements are returned.</p>
+<p>Reshaping array: The reshape method is used to reshape an array. If you have an array (a1, a2, a3, …, aN) and you want to reshape and convert it into another array of shape (b1, b2, b3, …, bM), you can do it easily using the reshape method. But the only precondition is that a1 x a2 x a3 … x aN = b1 x b2 x b3 … x bM . (i.e. , the total number of elements in the array should be the same, or the original size of array should remain unchanged.)</p>
+<p>Flatten array: The flatten method is used to convert an array into one dimension. It accepts order argument. Default value is ‘C’ (for row-major order), and you can use ‘F’ to use the flatten method for column major order.</p>
+<p>Let us see some examples.</p>
+<pre class="python"><code># array creation 
+import numpy as np
+ 
+# Creating array from a list with type float
+A = np.array([[1, 2, 4], [5, 8, 7]], dtype = &#39;float&#39;)
+
+# Create a 3X4 array with all zeros. Please note, we have used double paranthesis. 
+B = np.zeros((3, 4))
+
+# Create an array of complex numbers 
+C = np.full((3, 3), 6, dtype = &#39;complex&#39;)
+
+# Create an array with random values
+
+np.random.seed(2) # A seed is set to ensure that the results are consistent if you use this array in future computations also.
+
+D = np.random.randn(2, 2)
+
+E = np.random.random((2, 2))  # Exercise : Find out the difference between D and E 
+
+
+print (&quot;Array created using passed list:\n&quot;, A)</code></pre>
+<pre><code>## Array created using passed list:
+##  [[1. 2. 4.]
+##  [5. 8. 7.]]</code></pre>
+<pre class="python"><code>print (&quot;\nAn array initialized with all zeros:\n&quot;, B)</code></pre>
+<pre><code>## 
+## An array initialized with all zeros:
+##  [[0. 0. 0. 0.]
+##  [0. 0. 0. 0.]
+##  [0. 0. 0. 0.]]</code></pre>
+<pre class="python"><code>print (&quot;\nAn array initialized with all 6s.&quot;
+            &quot;Array type is complex:\n&quot;, C)</code></pre>
+<pre><code>## 
+## An array initialized with all 6s.Array type is complex:
+##  [[6.+0.j 6.+0.j 6.+0.j]
+##  [6.+0.j 6.+0.j 6.+0.j]
+##  [6.+0.j 6.+0.j 6.+0.j]]</code></pre>
+<pre class="python"><code>print (&quot;\nA random array:\n&quot;, D)</code></pre>
+<pre><code>## 
+## A random array:
+##  [[-0.41675785 -0.05626683]
+##  [-2.1361961   1.64027081]]</code></pre>
+<pre class="python"><code>print (&quot;\nAnother random array:\n&quot;, E)</code></pre>
+<pre><code>## 
+## Another random array:
+##  [[0.4203678  0.33033482]
+##  [0.20464863 0.61927097]]</code></pre>
+<p><code>Array Reshaping</code></p>
+<pre class="python"><code>A = np.array([[1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9, 1, 2, 3]])
+ 
+new_A = A.reshape(3, 2, 2) # (number of matrices, rows, column)
+
+# Flatten array
+B = np.array([[1, 2, 3], [4, 5, 6]])
+flat_B= B.flatten()
+#B.flatten(&#39;F&#39;)
+ 
+print (&quot;\nOriginal array:\n&quot;, A)</code></pre>
+<pre><code>## 
+## Original array:
+##  [[1 2 3 4]
+##  [5 6 7 8]
+##  [9 1 2 3]]</code></pre>
+<pre class="python"><code>print (&quot;Reshaped array:\n&quot;, new_A)</code></pre>
+<pre><code>## Reshaped array:
+##  [[[1 2]
+##   [3 4]]
+## 
+##  [[5 6]
+##   [7 8]]
+## 
+##  [[9 1]
+##   [2 3]]]</code></pre>
+<pre class="python"><code>print (&quot;\nOriginal array:\n&quot;, B)</code></pre>
+<pre><code>## 
+## Original array:
+##  [[1 2 3]
+##  [4 5 6]]</code></pre>
+<pre class="python"><code>print (&quot;Fattened array:\n&quot;, flat_B)
+#print (&quot;Column Fattened array:\n&quot;, column_flat_B)</code></pre>
+<pre><code>## Fattened array:
+##  [1 2 3 4 5 6]</code></pre>
+<div id="numpy---sequences" class="section level4">
+<h4><code>4.5) Numpy - Sequences</code></h4>
+<pre class="python"><code>import numpy as np
+
+# Create a sequence of integers 
+# from 0 to 40 with steps of 5
+a = np.arange(0, 40, 5)  # use if you know sequence range and increment, it excludes last value
+
+# Create a sequence of 15 values in range 0 to 5
+b = np.linspace(0, 10, 5)  # use if you know sequence range and number of samples, it includes last value
+
+
+print (&quot;\nA sequential array with steps of 5:\n&quot;, a)</code></pre>
+<pre><code>## 
+## A sequential array with steps of 5:
+##  [ 0  5 10 15 20 25 30 35]</code></pre>
+<pre class="python"><code>print (&quot;\nA sequential array with 15 values between&quot;
+                                        &quot;0 and 5:\n&quot;, b)</code></pre>
+<pre><code>## 
+## A sequential array with 15 values between0 and 5:
+##  [ 0.   2.5  5.   7.5 10. ]</code></pre>
+<pre class="python"><code># simple plotting
+# Here, we are demonstrating the growth in GDP of China and America over a peroid of time
+
+
+from matplotlib import pyplot as plt
+
+years = [1950, 1960, 1970, 1980, 1990, 2000, 2010]
+America_gdp = [300.2, 543.3, 1075.9, 2862.5, 5979.6, 10289.7, 14958.3]
+China_gdp = [30.2, 240.3, 675.9, 1262.5, 3579.6, 7089.7, 10958.3]
+
+plt.plot(years, America_gdp, color=&#39;blue&#39;, marker=&#39;*&#39;, linestyle=&#39;solid&#39;)
+
+plt.plot(years, China_gdp, color=&#39;red&#39;, marker=&#39;o&#39;, linestyle=&#39;solid&#39;)
+
+plt.show()</code></pre>
+<p><img src="/img/main/matplotlibexample.png" />
+```</p>
+</div>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="68dda6508821242d5f3ded9b9b485c19">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/python-strings/" class="button left"><span>Python Strings - Basics&#34;</span></a>
+    
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-12-05 00:00:00 &#43;0000 UTC">December 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-native/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-08-05-React-Native-36.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-native/">React Native</a></h2>
+          <time class="published" datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/react-js/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2020-06-28-React-JS-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/react-js/">React- JS</a></h2>
+          <time class="published" datetime="2020-07-05 00:00:00 &#43;0000 UTC">July 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>

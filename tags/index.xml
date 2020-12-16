@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Computer Vision</title>
-      <link>https://laxmikants.github.io/tags/computer-vision/</link>
-      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/tags/computer-vision/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>React Native</title>
       <link>https://laxmikants.github.io/tags/react-native/</link>
       <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
@@ -62,6 +53,15 @@
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K nearest Neighbours</title>
+      <link>https://laxmikants.github.io/tags/k-nearest-neighbours/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/k-nearest-neighbours/</guid>
       <description></description>
     </item>
     
@@ -188,6 +188,15 @@
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://laxmikants.github.io/tags/data-science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://laxmikants.github.io/tags/machine-learning/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/tags/machine-learning/</guid>
       <description></description>
     </item>
     

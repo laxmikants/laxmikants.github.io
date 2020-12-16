@@ -1,0 +1,200 @@
+---
+title: "Time-Series Forecasting"
+author: Laxmi K Soni 
+description: "Introduction to time-series forecasting"
+slug: Time Series
+date: 2020-03-05
+lastmod: 2020-03-05
+categories: ["Time Series"]
+tags: ["Time series"]
+Summary: A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time.
+subtitle: Time-Series Forecasting
+featured: "img/main/time-series09.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: no
+    toc_float: no
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+
+## What is time series? 
+
+A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time at which it is collected. The sale of the items in a retail store like Walmart will be a time series. The periodicity of the the sale could be at daily level or weekly level. The number of people flying from Bangalore to Delhi on daily basis is a time series.
+Time-series forecasting uses historical time based data to forecast a variable for example
+
+- At Supermarket the demand for a grocery product each day
+- Count of the downloads of an App in a country for the coming month
+- Product sales in units sold each day in a retail store
+- Yearly unemployment rate
+- The closing price of a stock
+- Expected yearly yield of a crop
+- Population growth in a country
+- Daily demand for a bus/airline/train
+
+
+### Time series and a normal series?
+
+Time component is important in time series. The time series is primarily dependent on the time. But a normal series say 1, 2, 3…100 has no time component to it. When a value that a series will take depends on the time it was recorded, it is called as time series.
+
+### How to define a time series object using R language
+
+The function ts() helps to create time-series objects. As.ts() and is.ts() coerce an object to a time-series and test whether an object is a time series or not
+for example:
+
+
+### Frequency
+
+The count of number of observations per unit of time is called as frequency. Frequency can further be distinguished as Frequency for yearly data is 1, Frequency for weekly data is 7, Frequency for quarterly data is 4 and so on…
+
+
+
+### Some useful softwares
+
+1.  forecast: For forecasting functions
+    
+2.  tseries: For unit root tests and GARC models
+    
+3.  Mcomp: Time series data from forecasting competitions
+    
+4.  fma: For data
+    
+5.  expsmooth: For data
+    
+6.  fpp: For data
+
+7.  ARIMA
+
+8.  prophet
+
+9.  SPSS
+    
+
+### prophet
+
+Prophet represents a time-series as a combination of trend, seasonality and holidays. This decomposed time series model can be represented by the following equation:
+
+![Capture10](/img/main/ts.png)
+
+where:
+
+*   **g(t)** defines the trend function that models the non-periodic changes in the time series
+*   **s(t)** defines the periodic changes (e.g., weekly and yearly seasonality)
+*   **h(t)** means the effect of holidays
+
+*   **εt**: is the error notation representing information that was missed by the model
+
+### Trend
+
+Prophet provides two variants for the trend function, g(t) which are logistic growth modeling non-linear growth and constant rate of growth or Piece wise Linear Model.
+
+### Seasonality
+
+s(t) is called as the seasonal component which allows to flexibly model the periodic changes due to weekly and yearly seasonability. For example, a 5-day work week can produce effects on a time series that repeat each week, while vacation schedules and school breaks can produce effects that repeat each year. 
+
+### Holidays and Events
+
+There are events which can provide predictable outcome to business. These events are holidays or any other important ocasion such as black friday.Prophet provides list of such past and future events for modeling into time-series component.
+
+
+```{r load-all-libraries}
+library(Quandl)
+library(quantmod)
+library(prophet)
+
+Quandl.api_key("YBM9uPgpnsaDYPkAn539")
+
+#daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2020-08-11",type="raw")
+
+
+daily_gold = Quandl("LBMA/SILVER",collapse="daily",start_date="2020-01-01",end_date = "2020-08-12",type="raw")
+
+keeps <- c("Date", "USD")
+
+daily_gold = daily_gold[keeps]
+
+names(daily_gold) <- c('ds','y')
+
+
+
+daily_gold[2] <- daily_gold[2] 
+
+model = prophet(daily_gold)
+
+future <- make_future_dataframe(model, periods = 10)
+
+
+forecast <- predict(model, future)
+
+print(forecast)
+
+
+plot(model,forecast)
+
+prophet_plot_components(model,forecast)
+```
+
+
+#### Implementing forcasting using TimeSeries object in R
+
+```{r}
+library(tseries)
+library(zoo)
+library(forecast)
+library(normwhn.test)
+
+dat = structure(
+c(1100, 1150, 1200, 1150, 1150, 1200, 1300, 1100, 1200,1250, 1200, 1250, 
+1300,1400,1550,1400,1450,1450,1450,1450,1500,1550,1600,1650,
+1650,1650,1650,1650,1750,1850,1750,1800,1850,1950,1950,2000,
+1950,2000,2050,2100,2150,2200,2250,2450,2650,2700,2850,2850,
+2750,2750,2750,2750,2800,2800,2850,2850,3000,2950,3000,2950,
+2900,2850,2750,2750,2450,2400,2450,2500,2750,2550,2600,2300,
+2470,2570,2570,2550,2500,2470,2550,2550,2470,2470,2370,2400,
+2870,2648,2656,2600,2656,2608,2460,2644,2564,2508,2524,2508,
+3006,3027,3129,3142,3119,2920,2902,2875,2880,2726,2543,2836,
+2887,2978,2901,2946,2890,2947,2811,2899,3017,2989,2967,2902,
+2994,3046,3074,3100,3141,3002,2934,2901,2908,3003,3097,3083,
+3205,3253,3221,3192,3170,3240,3345,3480,3750,3725,3800,4000,
+3800,4000,4200,4500,4800,5000,5100,5500,5500,5800,6000,6200), .Tsp = c(2008, 2020.91666666667, 12), class = "ts")
+
+arimaModel <- arima(dat, order=c(0, 1, 1), list(order=c(0, 1, 0), period = 12))
+
+summary(arimaModel)
+
+preds <- predict(arimaModel, n.ahead = 12)
+
+print(preds)
+
+plot(dat, col = 'green', main = 'Acutal vs ARIMA Model',
+     ylab = 'Gold Rates', lwd = 3)
+
+lines(arimaModel$fitted, col = 'black', lwd = 3, lty = 2)
+
+legend('topleft', legend = c('Actual', 'ARIMA Fit'),
+       col = c('green','black'), lwd = c(3,3), lty = c(1,2))
+
+ts.plot(dat, preds$pred, main = 'Actual vs ARIMA Predictions',
+        col = c('green','black'), lty = c(1,2), lwd = c(3,3))
+
+legend('topleft', legend = c('Actual Data', 'ARIMA Predictions'),
+       col = c('green','black'), lwd = c(3,3), lty = c(1,2))
+
+```
+
+#### Summary
+
+The main aim of time-series modeling is to carefully collect and regorously study the past observations of the time-series to develop an appropriate model which describes the inherent structure of the series.  The model is then used to generate the future values for the series. 
+Time series forecasting is thus can be termed as act of predicting the future by understanding the past. 
+
+
