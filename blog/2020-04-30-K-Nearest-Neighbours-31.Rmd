@@ -46,8 +46,9 @@ The input to a KNN classifier can be both quantitative and qualitative. The outp
 A distance metric is used to define proximity between ant two data points. The examples are Euclidean distance, Manhattan distance or Hamming distance.
 
 The Euclidean distance is used to be applied to categorical data.
-Manhattan distance is usually preferred over the more common Euclidean distance when there is high dimensionality in the data. 
-Manhattan distance (or block distance) appropriate when we have a discrete data set and the Euclidean distance is appropriate when we have continuous numerical variables.
+
+Manhattan distance is used over the Euclidean distance when there is high dimensionality in the data. 
+Manhattan distance (or block distance) is appropriate when we have a discrete data set and the Euclidean distance is appropriate when we have continuous numerical variables.
 
 Both Euclidean and Manhattan distances are used in case of discrete/continuous variables, whereas hamming distance is used in case of categorical variable.
 
@@ -127,11 +128,18 @@ encoded using LabelEncoder.
 ```{python,echo=TRUE,eval=FALSE}
 from sklearn.preprocessing import LabelEncoder as le
 features = list(zip (sweetness, crunchiness))
+food_type = ['fruit','protein','fruit','vegetable','vegetable','protein','fruit','vegetable','protein','fruit']
 target = le.fit_transform(food_type)
 target_lables = food_type
 target_df = pd.DataFrame(food_type,target)
 target_df
 ```
+
+0:fruit,
+1:protein,
+2:vegetable
+
+
 `KNeighborsClassifier` created with neighbors = 2. Inside the model we fit the data with the features and encoded target 
 
 ```{python,echo=TRUE,eval=FALSE}
