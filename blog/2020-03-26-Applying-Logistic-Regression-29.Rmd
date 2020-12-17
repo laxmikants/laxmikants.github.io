@@ -29,8 +29,9 @@ library(reticulate)
 
 conda_list()[[1]][1] %>% 
   use_condaenv(required = TRUE)
-
 ```
+
+
 
 
 ***1:Loading Stock data***
@@ -82,11 +83,11 @@ print(df.tail())
 
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='16/12/2020')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='17/12/2020')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='16/12/2020')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='17/12/2020')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='16/12/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='17/12/2020', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000

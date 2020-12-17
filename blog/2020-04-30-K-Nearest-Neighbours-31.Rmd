@@ -195,3 +195,24 @@ sets. Outliers and other factor will greatly influence the results of how the cl
 reported accuracy. 
 
 Another approach is called as k-fold cross validation. In this approach, the data is divided up in to k equally sized pieces. One of these pieces is saved for test data and the remaining k − 1 pieces are used for training. We then buiid the model k times, rotating the piece we use for testing. We can judge the performance of the classifier on its average accuracy and standard dev.
+
+#### k fold example
+
+Split the dataset into K equal partitions (or "folds") therefore if k = 4 and dataset has 120 observations then each of the 4 folds will have 30 observations. After that make use of the fold 1 as the testing set and the union of the other folds as the training set. Therefore in this case we will have testing set = 30 observations (fold 1), Training set = 90 observations (folds 2-4). After that calculate the testing accuracy. There after by repeating above steps K times, using a different fold as the testing set each time. We will need to repeat the process 4 times. In 2nd iteration fold 2 will be testing set and union of 1,3,4 will be training set and so on..Finally use the mean testing accuracy as the estimate of out-of-sample accuracy.
+
+
+![](/img/main/cross_validation_diagram.png)
+
+```{python}
+# simulate splitting a dataset of 25 observations into 5 folds
+from sklearn.model_selection import KFold
+import numpy as np
+kf = KFold(n_splits=5, random_state=None, shuffle=False)
+Vec = np.arange(0,25)
+# print the contents of each training and testing set
+print('{} {:^61} {}'.format('Iteration', 
+                            'Training set observations', 
+                            'Testing set observations'))
+for iteration, data in enumerate(kf.split(Vec), start=1):
+   print('{:^9} {} {!s:^25}'.format(iteration, data[0], data[1]))
+```
