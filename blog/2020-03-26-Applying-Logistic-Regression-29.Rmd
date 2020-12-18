@@ -38,7 +38,10 @@ conda_list()[[1]][1] %>%
 
 ***1.1:Importing libraries and data***
 
-```{python}
+<p class="nocopy">
+
+
+```{python class.source = "nocopy"}
 import investpy
 from datetime import datetime
 from sklearn.linear_model import LogisticRegression
@@ -52,8 +55,9 @@ import matplotlib.pyplot as plt
 import talib
 import quandl
 
-````
+```
 
+</p>
 
 ***1.2:Fetching the data***
 
@@ -83,17 +87,16 @@ print(df.tail())
 
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='17/12/2020')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='18/12/2020')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='17/12/2020')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='18/12/2020')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='17/12/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='18/12/2020', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
 df['Open'] = df['Open'] / 1000
 df['Close'] = df['Close'] / 1000
-
 
 df.drop(['Currency'], axis = 1)
 
