@@ -4,17 +4,37 @@
   
   <url>
     <loc>https://laxmikants.github.io/blog/</loc>
-    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/single-layer-perceptron/</loc>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/categories/single-layer-perceptron/</loc>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/blog/single-layer-perceptron/</loc>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2020-12-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://laxmikants.github.io/blog/neural-networks/</loc>
-    <lastmod>2020-12-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://laxmikants.github.io/tags/</loc>
     <lastmod>2020-12-05T00:00:00+00:00</lastmod>
   </url>
   
