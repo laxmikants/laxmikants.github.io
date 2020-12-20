@@ -38,12 +38,12 @@ first, we need to create our React application using create-react-app. Once that
 
 Install create-react-app globally by typing this command in your Terminal:
 
-```{js}
+```{html, eval=FALSE}
   npm install -g create-react-app
 ```
 Or you can use a shortcut:
 
-```{js}
+```{html, eval=FALSE}
   npm i -g create-react-app
 ```
 
@@ -53,7 +53,7 @@ Let's build our first React application by following these steps:
 
 Create our React application with the following command:
 
-```{js}
+```{html, eval=FALSE}
 create-react-app my-first-react-app
 ```
 
@@ -62,7 +62,8 @@ The application should now be running at http://localhost:3000.
 
 Create a new file called Home.js inside your src folder:
 
-```{js}
+```{html,eval=FALSE}
+
 import React, { Component } from 'react';
 
 class Home extends Component {
@@ -75,7 +76,7 @@ export default Home;
 ```
 
 You may have noticed that we are exporting our class component at the end of the file, but it's fine to export it directly on the class declaration, like this:
-```{js}
+```{html, eval=FALSE}
     import React, { Component } from 'react';
     export default class Home extends Component {
       render() {
@@ -86,7 +87,7 @@ You may have noticed that we are exporting our class component at the end of the
 
 Now that we have created the first component, we need to render it. So we need to open the App.js file, import the Home component, and then add it to the render method of the App component. If we are opening this file for the first time, we will probably see a code like this in File: src/App.js
 
-```{js}
+```{html, eval=FALSE}
     import React, { Component } from 'react';
     import logo from './logo.svg';
     import './App.css';
@@ -112,7 +113,7 @@ Now that we have created the first component, we need to render it. So we need t
 
 Let's change this code a little bit. As I said before, we need to import our Home component and then add it to the JSX. We also need to replace the <p> element with our component, like this in File: src/App.js
 
-```{js}
+```{html, eval=FALSE}
     import React, { Component } from 'react';
     import logo from './logo.svg';
 

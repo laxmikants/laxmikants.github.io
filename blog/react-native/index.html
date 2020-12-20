@@ -39,7 +39,7 @@
 <meta itemprop="description" content="React Native">
 <meta itemprop="datePublished" content="2020-08-05T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-08-05T00:00:00+00:00" />
-<meta itemprop="wordCount" content="456">
+<meta itemprop="wordCount" content="401">
 
 
 
@@ -103,7 +103,7 @@
   },
   "datePublished": "2020-08-05T00:00:00Z",
   "dateModified": "2020-08-05T00:00:00Z",
-  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"react-native\" class=\"section level2\"\u003e\r\n\u003ch2\u003eReact Native\u003c/h2\u003e\r\n\u003cp\u003eReact Native is framework to building mobile apps using JavaScript and React.\r\nReact Native converts React code to Java for Android or Objective-C for iOS apps.\r\nReact Native uses most of the React concepts, like components, props, state and lifecycle methods.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eAdvantages of React Native:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou code one time, and you get two native apps (Android and iOS)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou need not to have experience with Java, Objective-C, or Swift\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eFaster development\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eMIT license (open source)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eRequirements for Windows:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid Studio\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid SDK (\u0026gt;= 7.0 Nougat)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid AVD\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cdiv id=\"creating-first-react-native-application\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCreating first React Native Application\u003c/h4\u003e\r\n\u003cp\u003eIn order to create our new React Native application, we need to install the react-native-cli package:\u003c/p\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003enpm install -g react-native-cli\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\nnpm install -g react-native-cli\r\n\u003c/script\u003e\r\n\u003cp\u003eNow, to create our first app:\u003c/p\u003e\r\n\u003col style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eLet’s do it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native init MyFirstReactNativeApp\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native init MyFirstReactNativeApp\r\n\u003c/script\u003e\r\n\u003cp\u003eOnce we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to \u003ca href=\"https://facebook.github.io/watchman/docs/install.html\" class=\"uri\"\u003ehttps://facebook.github.io/watchman/docs/install.html\u003c/a\u003e and download the latest version for your OS (Windows, Mac, or Linux).\u003c/p\u003e\r\n\u003col start=\"3\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eIn this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    /usr/bin/ruby -e \u0026#39;$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)\u0026#39;\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    /usr/bin/ruby -e '$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)'\r\n\u003c/script\u003e\r\n\u003col start=\"4\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo install Watchman, you need to run:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    brew update \r\n    brew install watchman\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    brew update \r\n    brew install watchman\r\n\u003c/script\u003e\r\n\u003col start=\"5\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo start the React Native project, we need to use:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native start\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native start\r\n\u003c/script\u003e\r\n\u003cp\u003eIf everything works fine, you should see this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnative.png\" /\u003e\u003c/p\u003e\r\n\u003col start=\"7\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eOpen a new terminal (Cmd + T) and run this command (depending on the device you want to use):\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e    react-native run-ios \r\n    or\r\n    react-native run-android\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n    react-native run-ios \r\n    or\r\n    react-native run-android\r\n\u003c/script\u003e\r\n\u003cp\u003eIf there are no errors, you should see the simulator running the default application:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eNow that we have our application running, let’s open our code and modify it a bit:\u003c/p\u003e\r\n\u003col style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eChange the App.js file:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"js\"\u003e\u003ccode\u003e  ...\r\n  export default class App extends Component\u0026lt;Props\u0026gt; {\r\n    render() {\r\n      return (\r\n        \u0026lt;View style={styles.container}\u0026gt;\r\n          \u0026lt;Text style={styles.welcome}\u0026gt;\r\n            This is my first React Native App!\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;\r\n            To get started, edit App.js\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;{instructions}\u0026lt;/Text\u0026gt;\r\n        \u0026lt;/View\u0026gt;\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\u003c/code\u003e\u003c/pre\u003e\r\n\u003cscript type=\"text/javascript\"\u003e\r\n  ...\r\n  export default class App extends Component\u003cProps\u003e {\r\n    render() {\r\n      return (\r\n        \u003cView style={styles.container}\u003e\r\n          \u003cText style={styles.welcome}\u003e\r\n            This is my first React Native App!\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e\r\n            To get started, edit App.js\r\n          \u003c/Text\u003e\r\n          \u003cText style={styles.instructions}\u003e{instructions}\u003c/Text\u003e\r\n        \u003c/View\u003e\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\r\n\u003c/script\u003e\r\n\u003col start=\"2\" style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eIf you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"summary\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSummary:\u003c/h4\u003e\r\n\u003cp\u003eReact Native is an framework which helps web developers in creating the robust\r\nmobile applications using their existing JavaScript knowledge. It offers more faster mobile\r\ndevelopment and more efficient code sharing between iOS, Android, and the web\r\nwithout sacrificing the end user’s experience or application quality.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"react-native\" class=\"section level2\"\u003e\r\n\u003ch2\u003eReact Native\u003c/h2\u003e\r\n\u003cp\u003eReact Native is framework to building mobile apps using JavaScript and React.\r\nReact Native converts React code to Java for Android or Objective-C for iOS apps.\r\nReact Native uses most of the React concepts, like components, props, state and lifecycle methods.\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eAdvantages of React Native:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou code one time, and you get two native apps (Android and iOS)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eYou need not to have experience with Java, Objective-C, or Swift\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eFaster development\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eMIT license (open source)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eRequirements for Windows:\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid Studio\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid SDK (\u0026gt;= 7.0 Nougat)\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cblockquote\u003e\r\n\u003cp\u003eAndroid AVD\u003c/p\u003e\r\n\u003c/blockquote\u003e\r\n\u003cdiv id=\"creating-first-react-native-application\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCreating first React Native Application\u003c/h4\u003e\r\n\u003cp\u003eIn order to create our new React Native application, we need to install the react-native-cli package:\u003c/p\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003enpm install -g react-native-cli\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow, to create our first app:\u003c/p\u003e\r\n\u003col style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eLet’s do it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e    react-native init MyFirstReactNativeApp\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eOnce we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to \u003ca href=\"https://facebook.github.io/watchman/docs/install.html\" class=\"uri\"\u003ehttps://facebook.github.io/watchman/docs/install.html\u003c/a\u003e and download the latest version for your OS (Windows, Mac, or Linux).\u003c/p\u003e\r\n\u003col start=\"3\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eIn this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e    /usr/bin/ruby -e \u0026#39;$(curl -fsSL \r\n  https://raw.githubusercontent.com/Homebrew/install/master/install)\u0026#39;\u003c/code\u003e\u003c/pre\u003e\r\n\u003col start=\"4\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo install Watchman, you need to run:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e    brew update \r\n    brew install watchman\u003c/code\u003e\u003c/pre\u003e\r\n\u003col start=\"5\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eTo start the React Native project, we need to use:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e    react-native start\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIf everything works fine, you should see this:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnative.png\" /\u003e\u003c/p\u003e\r\n\u003col start=\"7\" style=\"list-style-type: decimal\"\u003e\r\n\u003cli\u003eOpen a new terminal (Cmd + T) and run this command (depending on the device you want to use):\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e    react-native run-ios \r\n    or\r\n    react-native run-android\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIf there are no errors, you should see the simulator running the default application:\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp.png\" /\u003e\u003c/p\u003e\r\n\u003cp\u003eNow that we have our application running, let’s open our code and modify it a bit:\u003c/p\u003e\r\n\u003col style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eChange the App.js file:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cpre class=\"html\"\u003e\u003ccode\u003e  ...\r\n  export default class App extends Component\u0026lt;Props\u0026gt; {\r\n    render() {\r\n      return (\r\n        \u0026lt;View style={styles.container}\u0026gt;\r\n          \u0026lt;Text style={styles.welcome}\u0026gt;\r\n            This is my first React Native App!\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;\r\n            To get started, edit App.js\r\n          \u0026lt;/Text\u0026gt;\r\n          \u0026lt;Text style={styles.instructions}\u0026gt;{instructions}\u0026lt;/Text\u0026gt;\r\n        \u0026lt;/View\u0026gt;\r\n      );\r\n    }\r\n  }\r\n  ...\r\nFile: App.js\u003c/code\u003e\u003c/pre\u003e\r\n\u003col start=\"2\" style=\"list-style-type: lower-alpha\"\u003e\r\n\u003cli\u003eIf you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:\u003c/li\u003e\r\n\u003c/ol\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/reactnativeapp1.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"summary\" class=\"section level4\"\u003e\r\n\u003ch4\u003eSummary:\u003c/h4\u003e\r\n\u003cp\u003eReact Native is an framework which helps web developers in creating the robust\r\nmobile applications using their existing JavaScript knowledge. It offers more faster mobile\r\ndevelopment and more efficient code sharing between iOS, Android, and the web\r\nwithout sacrificing the end user’s experience or application quality.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
 }
 </script>
 
@@ -272,7 +272,7 @@ if (!doNotTrack) {
   <div class="meta">
     <time datetime="2020-08-05 00:00:00 &#43;0000 UTC">August 5, 2020</time>
     <p>Laxmi K Soni</p>
-    <p>3-Minute Read</p>
+    <p>2-Minute Read</p>
   </div>
 </header>
 
@@ -342,64 +342,42 @@ React Native uses most of the React concepts, like components, props, state and 
 <div id="creating-first-react-native-application" class="section level4">
 <h4>Creating first React Native Application</h4>
 <p>In order to create our new React Native application, we need to install the react-native-cli package:</p>
-<pre class="js"><code>npm install -g react-native-cli</code></pre>
-<script type="text/javascript">
-npm install -g react-native-cli
-</script>
+<pre class="html"><code>npm install -g react-native-cli</code></pre>
 <p>Now, to create our first app:</p>
 <ol style="list-style-type: decimal">
 <li>Let’s do it with this command:</li>
 </ol>
-<pre class="js"><code>    react-native init MyFirstReactNativeApp</code></pre>
-<script type="text/javascript">
-    react-native init MyFirstReactNativeApp
-</script>
+<pre class="html"><code>    react-native init MyFirstReactNativeApp</code></pre>
 <p>Once we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to <a href="https://facebook.github.io/watchman/docs/install.html" class="uri">https://facebook.github.io/watchman/docs/install.html</a> and download the latest version for your OS (Windows, Mac, or Linux).</p>
 <ol start="3" style="list-style-type: decimal">
 <li>In this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:</li>
 </ol>
-<pre class="js"><code>    /usr/bin/ruby -e &#39;$(curl -fsSL 
+<pre class="html"><code>    /usr/bin/ruby -e &#39;$(curl -fsSL 
   https://raw.githubusercontent.com/Homebrew/install/master/install)&#39;</code></pre>
-<script type="text/javascript">
-    /usr/bin/ruby -e '$(curl -fsSL 
-  https://raw.githubusercontent.com/Homebrew/install/master/install)'
-</script>
 <ol start="4" style="list-style-type: decimal">
 <li>To install Watchman, you need to run:</li>
 </ol>
-<pre class="js"><code>    brew update 
+<pre class="html"><code>    brew update 
     brew install watchman</code></pre>
-<script type="text/javascript">
-    brew update 
-    brew install watchman
-</script>
 <ol start="5" style="list-style-type: decimal">
 <li>To start the React Native project, we need to use:</li>
 </ol>
-<pre class="js"><code>    react-native start</code></pre>
-<script type="text/javascript">
-    react-native start
-</script>
+<pre class="html"><code>    react-native start</code></pre>
 <p>If everything works fine, you should see this:</p>
 <p><img src="/img/main/reactnative.png" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Open a new terminal (Cmd + T) and run this command (depending on the device you want to use):</li>
 </ol>
-<pre class="js"><code>    react-native run-ios 
+<pre class="html"><code>    react-native run-ios 
     or
     react-native run-android</code></pre>
-<script type="text/javascript">
-    react-native run-ios 
-    or
-    react-native run-android
-</script>
 <p>If there are no errors, you should see the simulator running the default application:</p>
 <p><img src="/img/main/reactnativeapp.png" /></p>
 <p>Now that we have our application running, let’s open our code and modify it a bit:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Change the App.js file:</li>
 </ol>
-<pre class="js"><code>  ...
+<pre class="html"><code>  ...
   export default class App extends Component&lt;Props&gt; {
     render() {
       return (
@@ -417,26 +395,6 @@ npm install -g react-native-cli
   }
   ...
 File: App.js</code></pre>
-<script type="text/javascript">
-  ...
-  export default class App extends Component<Props> {
-    render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            This is my first React Native App!
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
-          <Text style={styles.instructions}>{instructions}</Text>
-        </View>
-      );
-    }
-  }
-  ...
-File: App.js
-</script>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>If you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:</li>
 </ol>

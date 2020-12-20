@@ -1,5 +1,5 @@
 ---
-title: Python Strings - Basics"
+title: "Python Strings Basics"
 author: Laxmi K Soni 
 description: "Introduction to Python Strings"
 slug: Python Strings

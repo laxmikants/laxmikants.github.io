@@ -61,7 +61,7 @@ React Native uses most of the React concepts, like components, props, state and 
 
 In order to create our new React Native application, we need to install the react-native-cli package:
 
-```{js}
+```{html, eval=FALSE}
 npm install -g react-native-cli
 ```
 
@@ -69,7 +69,7 @@ Now, to create our first app:
 
 1) Let's do it with this command:
 
-```{js}
+```{html, eval=FALSE}
     react-native init MyFirstReactNativeApp
 ```
 
@@ -77,21 +77,21 @@ Once we built our React Native app, we need install Watchman, which is a file-wa
 
 3) In this case, we are going to use Homebrew to install it for Mac. If you don't have Homebrew, you can install it with this command:
 
-```{js}
+```{html, eval=FALSE}
     /usr/bin/ruby -e '$(curl -fsSL 
   https://raw.githubusercontent.com/Homebrew/install/master/install)'
 ```
 
 4) To install Watchman, you need to run:
 
-```{js}
+```{html, eval=FALSE}
     brew update 
     brew install watchman
 ```
 
 5) To start the React Native project, we need to use:
 
-```{js}
+```{html, eval=FALSE}
     react-native start
 ```
 
@@ -101,7 +101,7 @@ If everything works fine, you should see this:
 
 7) Open a new terminal (Cmd + T) and run this command (depending on the device you want to use):
 
-```{js}
+```{html, eval=FALSE}
     react-native run-ios 
     or
     react-native run-android
@@ -116,7 +116,7 @@ Now that we have our application running, let's open our code and modify it a bi
 
 a) Change the App.js file:
 
-```{js}
+```{html, eval=FALSE}
   ...
   export default class App extends Component<Props> {
     render() {
