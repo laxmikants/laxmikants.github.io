@@ -111,7 +111,6 @@ We setup target_data as another two-dimensional array. All the inner arrays in t
 ```{python, warning=FALSE, message = FALSE, eval=FALSE, echo=TRUE}
 
 model = Sequential()
-model = Sequential()
 model.add(Dense(1, input_dim=2, activation='sigmoid'))
 
 
@@ -155,7 +154,7 @@ print(model.predict(training_data).round())
 Using model.predict we can do predictions.
 
 
-Summary:
+#### Summary:
 
 McCulloch-Pitts neurons networks are computational devices, which are capable of performing any logical function. Single-Layer Perceptrons 
 with step activation functions are constrained in what they can do. Adding additional hidden layers to the network will make it more powerful such that even non-linear relations can be predicted using such a neural network.
