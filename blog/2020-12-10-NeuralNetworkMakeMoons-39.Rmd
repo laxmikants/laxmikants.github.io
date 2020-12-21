@@ -1,0 +1,97 @@
+---
+title: "Neural Network using Make Moons dataset"
+author: Laxmi K Soni 
+description: "Neural Network using Make Moons dataset"
+slug: Neural Network using Make Moons dataset
+date: 2020-12-10
+lastmod: 2020-12-10
+categories: ["Neural Network"]
+tags: ["Neural Network"]
+Summary: "Neural Network"
+subtitle: Neural Network
+featured: "img/main/nn_makemoons_dataset.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: no
+    toc_float: no
+---
+
+
+#### Make moons dataset
+
+The make_moons dataset is a swirl pattern, or two moons. It is a set of points in 2D making two interleaving half circles.
+It displays 2 disjunctive clusters of data in a 2-dimensional representation space ( with coordinates x1 and x2 for two features). The areas are formed like 2 moon crescents as shown in the figure below.
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://laxmikants.github.io/img/main/makemoonsds.png")
+```
+
+# Importing libraries
+
+```{python, echo=TRUE,eval=TRUE}
+from sklearn import datasets  
+import numpy as np  
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+
+```
+
+numpy is used for scientific computing with Python. It is one of the fundamental packages you will use. Matplotlib library is used in Python for plotting graphs. The datasets package is the place from where you will import the make moons dataset. Sklearn library is used fo scientific computing. It has many features related to classification, regression and clustering algorithms including support vector machines.
+
+#### Initializing the dataset
+
+```{python, echo = TRUE, eval = TRUE}
+np.random.seed(0)
+feature_set_x, labels_y = datasets.make_moons(100, noise=0.10)
+X_train, X_test, y_train, y_test = train_test_split(feature_set_x, labels_y, test_size=0.33, random_state=42)
+```
+
+In the script above we import the datasets class from the sklearn library. To create non-linear dataset of 100 data-points, we use the make_moons method and pass it 100 as the first parameter. The method returns a dataset, which when plotted contains two interleaving half circles, as shown in the figure below.You can clearly see that this data cannot be separated by a single straight line, hence the perceptron cannot be used to correctly classify this data.
+
+#### Build the neural network model using keras
+
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE}
+from keras.models import Sequential
+from keras.layers import Dense, Activation
+model = Sequential()
+model.add(Dense(50, input_dim=2, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics= ['accuracy'])
+print(model.summary())
+```
+
+The model summary gives the number of parameters input to the model. Theare are total 201 parameters including the parameters from the bias unit. The two input units and one bias unit are fed via connection links to 50 neurons totaling 150 parameters, there after the hidden layer is connected to the 1 output and 1 bias unit also is connect to output neuron. Thus the computation of the paraters will be 
+150(Input, bias unit to hidden layer with 50 neurons) + 50(hidden layer to output) + 1 (bias unit in the output) = 201.
+
+
+
+#### Train the model
+
+
+```{python, eval = TRUE, echo = TRUE, warning = FALSE}
+
+results = model.fit(X_train, y_train , nb_epoch=100)
+score = model.evaluate(X_test, y_test, verbose=0)
+print('Test score:', score[0])
+print('Test accuracy:', score[1])
+```
+Once the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.
+
+The lower the loss, the better a model (unless the model has over-fitted to the training data). The loss is calculated on training and validation and its interpretation is how well the model is doing for these two sets. Unlike accuracy, loss is not a percentage. It is a summation of the errors made for each example in training or validation sets.
+
+The accuracy of a model is usually determined after the model parameters are learned and fixed and no learning is taking place. Then the test samples are fed to the model and the number of mistakes (zero-one loss) the model makes are recorded, after comparison to the true targets. Then the percentage of miss classification is calculated.
+
+For example, if the number of test samples is 1000 and model classifies 875 of those correctly, then the model's accuracy is 87.5%.
+
+
+#### Evaluate prediction accuracy
+
+```{python, echo = TRUE, eval = TRUE, warning = FALSE, message = FALSE}
+from sklearn import metrics
+prediction_values = model.predict_classes(X_test)
+print(metrics.confusion_matrix(y_test, prediction_values))
+print(metrics.classification_report(y_test, prediction_values))
+```
+

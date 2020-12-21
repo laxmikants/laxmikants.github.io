@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <style>
+
+    .nocopy {
+      -webkit-user-select: none;   
+      -moz-user-select: none;      
+      -ms-user-select: none;       
+      user-select: none;           
+    }  
+
+</style>
+
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Neural Network using Make Moons dataset - Data Science Posts and Resources | Laxmikant Soni</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name= "keywords" content="Predictive, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization">
+
+<meta name="robots" content="index">
+
+<meta name="description" content="Articles and Posts on Data Science, Machine Learning and Analytics">
+
+
+
+<meta name="generator" content="Hugo 0.74.3" /><meta itemprop="name" content="Neural Network using Make Moons dataset">
+<meta itemprop="description" content="Neural Network using Make Moons dataset">
+<meta itemprop="datePublished" content="2020-12-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-12-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3979">
+
+
+
+<meta itemprop="keywords" content="Neural Network," />
+<meta property="og:title" content="Neural Network using Make Moons dataset" />
+<meta property="og:description" content="Neural Network using Make Moons dataset" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/" />
+<meta property="article:published_time" content="2020-12-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Neural Network using Make Moons dataset"/>
+<meta name="twitter:description" content="Neural Network using Make Moons dataset"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.1f17d6560afe48677306aa7452f1c061799e35dbd1cc697cb7d6d22eed0b6b9b.css" integrity="sha256-HxfWVgr&#43;SGdzBqp0UvHAYXmeNdvRzGl8t9bSLu0La5s="><link rel="stylesheet" href="/css/add-on.css">
+
+<title>Neural Network using Make Moons dataset : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Neural Network using Make Moons dataset">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Neural Network using Make Moons dataset">
+<meta name="description" content="Neural Network using Make Moons dataset">
+<meta property="og:updated_time" content="2020-12-10T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2020-12-10T00:00:00Z">
+<meta property="article:modified_time" content="2020-12-10T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Neural Network using Make Moons dataset",
+  "alternativeHeadline": "Neural Network",
+  "url": "https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/",
+  "image": "https://laxmikants.github.io/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/"
+  },
+  "description": "Neural Network using Make Moons dataset",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2020-12-10T00:00:00Z",
+  "dateModified": "2020-12-10T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"make-moons-dataset\" class=\"section level4\"\u003e\r\n\u003ch4\u003eMake moons dataset\u003c/h4\u003e\r\n\u003cp\u003eThe make_moons dataset is a swirl pattern, or two moons. It is a set of points in 2D making two interleaving half circles.\r\nIt displays 2 disjunctive clusters of data in a 2-dimensional representation space ( with coordinates x1 and x2 for two features). The areas are formed like 2 moon crescents as shown in the figure below.\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"https://laxmikants.github.io/img/main/makemoonsds.png\" /\u003e\u003c!-- --\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"importing-libraries\" class=\"section level1\"\u003e\r\n\u003ch1\u003eImporting libraries\u003c/h1\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom sklearn import datasets  \r\nimport numpy as np  \r\nimport matplotlib.pyplot as plt\r\nfrom sklearn.model_selection import train_test_split\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003enumpy is used for scientific computing with Python. It is one of the fundamental packages you will use. Matplotlib library is used in Python for plotting graphs. The datasets package is the place from where you will import the make moons dataset. Sklearn library is used fo scientific computing. It has many features related to classification, regression and clustering algorithms including support vector machines.\u003c/p\u003e\r\n\u003cdiv id=\"initializing-the-dataset\" class=\"section level4\"\u003e\r\n\u003ch4\u003eInitializing the dataset\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003enp.random.seed(0)\r\nfeature_set_x, labels_y = datasets.make_moons(100, noise=0.10)\r\nX_train, X_test, y_train, y_test = train_test_split(feature_set_x, labels_y, test_size=0.33, random_state=42)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn the script above we import the datasets class from the sklearn library. To create non-linear dataset of 100 data-points, we use the make_moons method and pass it 100 as the first parameter. The method returns a dataset, which when plotted contains two interleaving half circles, as shown in the figure below.You can clearly see that this data cannot be separated by a single straight line, hence the perceptron cannot be used to correctly classify this data.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"build-the-neural-network-model-using-keras\" class=\"section level4\"\u003e\r\n\u003ch4\u003eBuild the neural network model using keras\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom keras.models import Sequential\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Using TensorFlow backend.\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:516: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint8 = np.dtype([(\u0026quot;qint8\u0026quot;, np.int8, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:517: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_quint8 = np.dtype([(\u0026quot;quint8\u0026quot;, np.uint8, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:518: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint16 = np.dtype([(\u0026quot;qint16\u0026quot;, np.int16, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:519: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_quint16 = np.dtype([(\u0026quot;quint16\u0026quot;, np.uint16, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:520: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint32 = np.dtype([(\u0026quot;qint32\u0026quot;, np.int32, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\framework\\dtypes.py:525: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   np_resource = np.dtype([(\u0026quot;resource\u0026quot;, np.ubyte, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:541: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint8 = np.dtype([(\u0026quot;qint8\u0026quot;, np.int8, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:542: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_quint8 = np.dtype([(\u0026quot;quint8\u0026quot;, np.uint8, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:543: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint16 = np.dtype([(\u0026quot;qint16\u0026quot;, np.int16, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:544: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_quint16 = np.dtype([(\u0026quot;quint16\u0026quot;, np.uint16, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:545: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   _np_qint32 = np.dtype([(\u0026quot;qint32\u0026quot;, np.int32, 1)])\r\n## C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorboard\\compat\\tensorflow_stub\\dtypes.py:550: FutureWarning: Passing (type, 1) or \u0026#39;1type\u0026#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / \u0026#39;(1,)type\u0026#39;.\r\n##   np_resource = np.dtype([(\u0026quot;resource\u0026quot;, np.ubyte, 1)])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom keras.layers import Dense, Activation\r\nmodel = Sequential()\r\nmodel.add(Dense(50, input_dim=2, activation=\u0026#39;relu\u0026#39;))\r\nmodel.add(Dense(1, activation=\u0026#39;sigmoid\u0026#39;))\r\nmodel.compile(loss=\u0026#39;binary_crossentropy\u0026#39;, optimizer=\u0026#39;adam\u0026#39;, metrics= [\u0026#39;accuracy\u0026#39;])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## WARNING:tensorflow:From C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\tensorflow\\python\\ops\\nn_impl.py:180: add_dispatch_support.\u0026lt;locals\u0026gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.\r\n## Instructions for updating:\r\n## Use tf.where in 2.0, which has the same broadcast rule as np.where\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(model.summary())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Model: \u0026quot;sequential_1\u0026quot;\r\n## _________________________________________________________________\r\n## Layer (type)                 Output Shape              Param #   \r\n## =================================================================\r\n## dense_1 (Dense)              (None, 50)                150       \r\n## _________________________________________________________________\r\n## dense_2 (Dense)              (None, 1)                 51        \r\n## =================================================================\r\n## Total params: 201\r\n## Trainable params: 201\r\n## Non-trainable params: 0\r\n## _________________________________________________________________\r\n## None\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eThe model summary gives the number of parameters input to the model. Theare are total 201 parameters including the parameters from the bias unit. The two input units and one bias unit are fed via connection links to 50 neurons totaling 150 parameters, there after the hidden layer is connected to the 1 output and 1 bias unit also is connect to output neuron. Thus the computation of the paraters will be\r\n150(Input, bias unit to hidden layer with 50 neurons) + 50(hidden layer to output) + 1 (bias unit in the output) = 201.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"train-the-model\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTrain the model\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\r\nresults = model.fit(X_train, y_train , nb_epoch=100)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Epoch 1/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6547 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 3ms/step - loss: 0.6510 - accuracy: 0.8358\r\n## Epoch 2/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6365 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.6405 - accuracy: 0.8806\r\n## Epoch 3/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6276 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.6310 - accuracy: 0.8806\r\n## Epoch 4/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6409 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.6227 - accuracy: 0.8806\r\n## Epoch 5/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6237 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.6143 - accuracy: 0.8806\r\n## Epoch 6/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.6034 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.6062 - accuracy: 0.8806\r\n## Epoch 7/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5947 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 74us/step - loss: 0.5980 - accuracy: 0.8806\r\n## Epoch 8/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5877 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.5901 - accuracy: 0.8806\r\n## Epoch 9/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5783 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 253us/step - loss: 0.5823 - accuracy: 0.8806\r\n## Epoch 10/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5789 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.5746 - accuracy: 0.8806\r\n## Epoch 11/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5453 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.5677 - accuracy: 0.8806\r\n## Epoch 12/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5626 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.5604 - accuracy: 0.8806\r\n## Epoch 13/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5420 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.5540 - accuracy: 0.8806\r\n## Epoch 14/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5666 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.5470 - accuracy: 0.8806\r\n## Epoch 15/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5195 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 59us/step - loss: 0.5409 - accuracy: 0.8657\r\n## Epoch 16/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5106 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.5344 - accuracy: 0.8657\r\n## Epoch 17/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5315 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.5278 - accuracy: 0.8657\r\n## Epoch 18/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5225 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.5218 - accuracy: 0.8657\r\n## Epoch 19/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5231 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.5158 - accuracy: 0.8657\r\n## Epoch 20/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4853 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 59us/step - loss: 0.5102 - accuracy: 0.8657\r\n## Epoch 21/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5016 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.5045 - accuracy: 0.8657\r\n## Epoch 22/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5216 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.4991 - accuracy: 0.8657\r\n## Epoch 23/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5093 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4937 - accuracy: 0.8657\r\n## Epoch 24/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4926 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 60us/step - loss: 0.4882 - accuracy: 0.8657\r\n## Epoch 25/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4942 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4826 - accuracy: 0.8657\r\n## Epoch 26/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.5003 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4770 - accuracy: 0.8657\r\n## Epoch 27/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4797 - accuracy: 0.7812\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4717 - accuracy: 0.8657\r\n## Epoch 28/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4519 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4666 - accuracy: 0.8657\r\n## Epoch 29/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4587 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4614 - accuracy: 0.8657\r\n## Epoch 30/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4300 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4567 - accuracy: 0.8657\r\n## Epoch 31/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4616 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4518 - accuracy: 0.8657\r\n## Epoch 32/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4899 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4472 - accuracy: 0.8657\r\n## Epoch 33/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4681 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4427 - accuracy: 0.8657\r\n## Epoch 34/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4221 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4384 - accuracy: 0.8657\r\n## Epoch 35/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3837 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4342 - accuracy: 0.8657\r\n## Epoch 36/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4485 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4298 - accuracy: 0.8657\r\n## Epoch 37/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4180 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4259 - accuracy: 0.8806\r\n## Epoch 38/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4231 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4218 - accuracy: 0.8806\r\n## Epoch 39/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4272 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4177 - accuracy: 0.8806\r\n## Epoch 40/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4285 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4135 - accuracy: 0.8806\r\n## Epoch 41/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3733 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4097 - accuracy: 0.8806\r\n## Epoch 42/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4384 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.4056 - accuracy: 0.8806\r\n## Epoch 43/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3984 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.4021 - accuracy: 0.8806\r\n## Epoch 44/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4332 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3985 - accuracy: 0.8806\r\n## Epoch 45/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3946 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3955 - accuracy: 0.8806\r\n## Epoch 46/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4587 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3924 - accuracy: 0.8806\r\n## Epoch 47/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3433 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3895 - accuracy: 0.8806\r\n## Epoch 48/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3868 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3863 - accuracy: 0.8806\r\n## Epoch 49/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3527 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3833 - accuracy: 0.8806\r\n## Epoch 50/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3567 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3803 - accuracy: 0.8806\r\n## Epoch 51/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3530 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3773 - accuracy: 0.8806\r\n## Epoch 52/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3355 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3743 - accuracy: 0.8806\r\n## Epoch 53/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3728 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3714 - accuracy: 0.8806\r\n## Epoch 54/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3447 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3685 - accuracy: 0.8806\r\n## Epoch 55/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3760 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3656 - accuracy: 0.8806\r\n## Epoch 56/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3738 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3628 - accuracy: 0.8806\r\n## Epoch 57/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3077 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3602 - accuracy: 0.8806\r\n## Epoch 58/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3082 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3576 - accuracy: 0.8806\r\n## Epoch 59/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3263 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3551 - accuracy: 0.8806\r\n## Epoch 60/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3878 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3530 - accuracy: 0.8806\r\n## Epoch 61/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3142 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3508 - accuracy: 0.8806\r\n## Epoch 62/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2962 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3485 - accuracy: 0.8806\r\n## Epoch 63/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3617 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3461 - accuracy: 0.8806\r\n## Epoch 64/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2824 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3439 - accuracy: 0.8806\r\n## Epoch 65/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3446 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3415 - accuracy: 0.8806\r\n## Epoch 66/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3176 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3392 - accuracy: 0.8806\r\n## Epoch 67/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3523 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3370 - accuracy: 0.8806\r\n## Epoch 68/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3097 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3348 - accuracy: 0.8806\r\n## Epoch 69/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3013 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3330 - accuracy: 0.8806\r\n## Epoch 70/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3253 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3311 - accuracy: 0.8806\r\n## Epoch 71/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3212 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3294 - accuracy: 0.8806\r\n## Epoch 72/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3512 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3277 - accuracy: 0.8806\r\n## Epoch 73/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3301 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3260 - accuracy: 0.8806\r\n## Epoch 74/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2984 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3243 - accuracy: 0.8806\r\n## Epoch 75/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3265 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3226 - accuracy: 0.8806\r\n## Epoch 76/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2804 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3207 - accuracy: 0.8806\r\n## Epoch 77/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3199 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3188 - accuracy: 0.8806\r\n## Epoch 78/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3483 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 29us/step - loss: 0.3170 - accuracy: 0.8806\r\n## Epoch 79/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3265 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3154 - accuracy: 0.8806\r\n## Epoch 80/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2981 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3137 - accuracy: 0.8806\r\n## Epoch 81/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3370 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3124 - accuracy: 0.8806\r\n## Epoch 82/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2443 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3111 - accuracy: 0.8806\r\n## Epoch 83/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3471 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3095 - accuracy: 0.8806\r\n## Epoch 84/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3599 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.3082 - accuracy: 0.8806\r\n## Epoch 85/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2845 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3071 - accuracy: 0.8806\r\n## Epoch 86/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2758 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3057 - accuracy: 0.8806\r\n## Epoch 87/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2857 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3041 - accuracy: 0.8806\r\n## Epoch 88/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2922 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.3026 - accuracy: 0.8806\r\n## Epoch 89/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2864 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.3012 - accuracy: 0.8806\r\n## Epoch 90/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2563 - accuracy: 0.9375\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.2997 - accuracy: 0.8806\r\n## Epoch 91/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2732 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.2985 - accuracy: 0.8806\r\n## Epoch 92/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3107 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.2969 - accuracy: 0.8806\r\n## Epoch 93/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3034 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.2957 - accuracy: 0.8806\r\n## Epoch 94/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3114 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.2943 - accuracy: 0.8806\r\n## Epoch 95/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3417 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.2932 - accuracy: 0.8806\r\n## Epoch 96/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3390 - accuracy: 0.8438\r\n## 67/67 [==============================] - 0s 30us/step - loss: 0.2920 - accuracy: 0.8806\r\n## Epoch 97/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.4182 - accuracy: 0.8125\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.2909 - accuracy: 0.8806\r\n## Epoch 98/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2785 - accuracy: 0.9062\r\n## 67/67 [==============================] - 0s 44us/step - loss: 0.2899 - accuracy: 0.8806\r\n## Epoch 99/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.2645 - accuracy: 0.8750\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.2890 - accuracy: 0.8806\r\n## Epoch 100/100\r\n## \r\n## 32/67 [=============\u0026gt;................] - ETA: 0s - loss: 0.3878 - accuracy: 0.7812\r\n## 67/67 [==============================] - 0s 45us/step - loss: 0.2880 - accuracy: 0.8806\r\n## \r\n## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.\r\n## WARNING:tensorflow:From C:\\Users\\slaxm\\AppData\\Local\\R-MINI~1\\envs\\R-RETI~1\\lib\\site-packages\\keras\\backend\\tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003escore = model.evaluate(X_test, y_test, verbose=0)\r\nprint(\u0026#39;Test score:\u0026#39;, score[0])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Test score: 0.3024330726175597\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(\u0026#39;Test accuracy:\u0026#39;, score[1])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Test accuracy: 0.8787878751754761\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eOnce the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.\u003c/p\u003e\r\n\u003cp\u003eThe lower the loss, the better a model (unless the model has over-fitted to the training data). The loss is calculated on training and validation and its interpretation is how well the model is doing for these two sets. Unlike accuracy, loss is not a percentage. It is a summation of the errors made for each example in training or validation sets.\u003c/p\u003e\r\n\u003cp\u003eThe accuracy of a model is usually determined after the model parameters are learned and fixed and no learning is taking place. Then the test samples are fed to the model and the number of mistakes (zero-one loss) the model makes are recorded, after comparison to the true targets. Then the percentage of miss classification is calculated.\u003c/p\u003e\r\n\u003cp\u003eFor example, if the number of test samples is 1000 and model classifies 875 of those correctly, then the model’s accuracy is 87.5%.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"evaluate-prediction-accuracy\" class=\"section level4\"\u003e\r\n\u003ch4\u003eEvaluate prediction accuracy\u003c/h4\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efrom sklearn import metrics\r\nprediction_values = model.predict_classes(X_test)\r\nprint(metrics.confusion_matrix(y_test, prediction_values))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [[14  2]\r\n##  [ 2 15]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(metrics.classification_report(y_test, prediction_values))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##               precision    recall  f1-score   support\r\n## \r\n##            0       0.88      0.88      0.88        16\r\n##            1       0.88      0.88      0.88        17\r\n## \r\n##     accuracy                           0.88        33\r\n##    macro avg       0.88      0.88      0.88        33\r\n## weighted avg       0.88      0.88      0.88        33\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+
+  <body>
+    
+      
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Neural%20Network%20using%20Make%20Moons%20dataset&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fneural-network-using-make-moons-dataset%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fneural-network-using-make-moons-dataset%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/neural-network-using-make-moons-dataset/">Neural Network using Make Moons dataset</a></h2>
+    
+    
+      <p>Neural Network using Make Moons dataset</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+    <p>Laxmi K Soni</p>
+    <p>19-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Neural%20Network%20using%20Make%20Moons%20dataset&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fneural-network-using-make-moons-dataset%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fneural-network-using-make-moons-dataset%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+
+    </div>
+    <div class="content">
+      <a href="/blog/neural-network-using-make-moons-dataset/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg');">
+    <img src="https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="make-moons-dataset" class="section level4">
+<h4>Make moons dataset</h4>
+<p>The make_moons dataset is a swirl pattern, or two moons. It is a set of points in 2D making two interleaving half circles.
+It displays 2 disjunctive clusters of data in a 2-dimensional representation space ( with coordinates x1 and x2 for two features). The areas are formed like 2 moon crescents as shown in the figure below.</p>
+<p><img src="https://laxmikants.github.io/img/main/makemoonsds.png" /><!-- --></p>
+</div>
+<div id="importing-libraries" class="section level1">
+<h1>Importing libraries</h1>
+<pre class="python"><code>from sklearn import datasets  
+import numpy as np  
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split</code></pre>
+<p>numpy is used for scientific computing with Python. It is one of the fundamental packages you will use. Matplotlib library is used in Python for plotting graphs. The datasets package is the place from where you will import the make moons dataset. Sklearn library is used fo scientific computing. It has many features related to classification, regression and clustering algorithms including support vector machines.</p>
+<div id="initializing-the-dataset" class="section level4">
+<h4>Initializing the dataset</h4>
+<pre class="python"><code>np.random.seed(0)
+feature_set_x, labels_y = datasets.make_moons(100, noise=0.10)
+X_train, X_test, y_train, y_test = train_test_split(feature_set_x, labels_y, test_size=0.33, random_state=42)</code></pre>
+<p>In the script above we import the datasets class from the sklearn library. To create non-linear dataset of 100 data-points, we use the make_moons method and pass it 100 as the first parameter. The method returns a dataset, which when plotted contains two interleaving half circles, as shown in the figure below.You can clearly see that this data cannot be separated by a single straight line, hence the perceptron cannot be used to correctly classify this data.</p>
+</div>
+<div id="build-the-neural-network-model-using-keras" class="section level4">
+<h4>Build the neural network model using keras</h4>
+<pre class="python"><code>from keras.models import Sequential</code></pre>
+<pre><code>## Using TensorFlow backend.
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:516: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint8 = np.dtype([(&quot;qint8&quot;, np.int8, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:517: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_quint8 = np.dtype([(&quot;quint8&quot;, np.uint8, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:518: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint16 = np.dtype([(&quot;qint16&quot;, np.int16, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:519: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_quint16 = np.dtype([(&quot;quint16&quot;, np.uint16, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:520: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint32 = np.dtype([(&quot;qint32&quot;, np.int32, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:525: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   np_resource = np.dtype([(&quot;resource&quot;, np.ubyte, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:541: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint8 = np.dtype([(&quot;qint8&quot;, np.int8, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:542: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_quint8 = np.dtype([(&quot;quint8&quot;, np.uint8, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:543: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint16 = np.dtype([(&quot;qint16&quot;, np.int16, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:544: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_quint16 = np.dtype([(&quot;quint16&quot;, np.uint16, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:545: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   _np_qint32 = np.dtype([(&quot;qint32&quot;, np.int32, 1)])
+## C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:550: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+##   np_resource = np.dtype([(&quot;resource&quot;, np.ubyte, 1)])</code></pre>
+<pre class="python"><code>from keras.layers import Dense, Activation
+model = Sequential()
+model.add(Dense(50, input_dim=2, activation=&#39;relu&#39;))
+model.add(Dense(1, activation=&#39;sigmoid&#39;))
+model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics= [&#39;accuracy&#39;])</code></pre>
+<pre><code>## WARNING:tensorflow:From C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\ops\nn_impl.py:180: add_dispatch_support.&lt;locals&gt;.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+## Instructions for updating:
+## Use tf.where in 2.0, which has the same broadcast rule as np.where</code></pre>
+<pre class="python"><code>print(model.summary())</code></pre>
+<pre><code>## Model: &quot;sequential_1&quot;
+## _________________________________________________________________
+## Layer (type)                 Output Shape              Param #   
+## =================================================================
+## dense_1 (Dense)              (None, 50)                150       
+## _________________________________________________________________
+## dense_2 (Dense)              (None, 1)                 51        
+## =================================================================
+## Total params: 201
+## Trainable params: 201
+## Non-trainable params: 0
+## _________________________________________________________________
+## None</code></pre>
+<p>The model summary gives the number of parameters input to the model. Theare are total 201 parameters including the parameters from the bias unit. The two input units and one bias unit are fed via connection links to 50 neurons totaling 150 parameters, there after the hidden layer is connected to the 1 output and 1 bias unit also is connect to output neuron. Thus the computation of the paraters will be
+150(Input, bias unit to hidden layer with 50 neurons) + 50(hidden layer to output) + 1 (bias unit in the output) = 201.</p>
+</div>
+<div id="train-the-model" class="section level4">
+<h4>Train the model</h4>
+<pre class="python"><code>
+results = model.fit(X_train, y_train , nb_epoch=100)</code></pre>
+<pre><code>## Epoch 1/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6547 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 3ms/step - loss: 0.6510 - accuracy: 0.8358
+## Epoch 2/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6365 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.6405 - accuracy: 0.8806
+## Epoch 3/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6276 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 60us/step - loss: 0.6310 - accuracy: 0.8806
+## Epoch 4/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6409 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.6227 - accuracy: 0.8806
+## Epoch 5/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6237 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.6143 - accuracy: 0.8806
+## Epoch 6/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.6034 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 45us/step - loss: 0.6062 - accuracy: 0.8806
+## Epoch 7/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5947 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 74us/step - loss: 0.5980 - accuracy: 0.8806
+## Epoch 8/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5877 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 60us/step - loss: 0.5901 - accuracy: 0.8806
+## Epoch 9/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5783 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 253us/step - loss: 0.5823 - accuracy: 0.8806
+## Epoch 10/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5789 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 60us/step - loss: 0.5746 - accuracy: 0.8806
+## Epoch 11/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5453 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.5677 - accuracy: 0.8806
+## Epoch 12/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5626 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.5604 - accuracy: 0.8806
+## Epoch 13/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5420 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.5540 - accuracy: 0.8806
+## Epoch 14/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5666 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 60us/step - loss: 0.5470 - accuracy: 0.8806
+## Epoch 15/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5195 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 59us/step - loss: 0.5409 - accuracy: 0.8657
+## Epoch 16/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5106 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 60us/step - loss: 0.5344 - accuracy: 0.8657
+## Epoch 17/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5315 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.5278 - accuracy: 0.8657
+## Epoch 18/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5225 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.5218 - accuracy: 0.8657
+## Epoch 19/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5231 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 44us/step - loss: 0.5158 - accuracy: 0.8657
+## Epoch 20/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4853 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 59us/step - loss: 0.5102 - accuracy: 0.8657
+## Epoch 21/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5016 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 60us/step - loss: 0.5045 - accuracy: 0.8657
+## Epoch 22/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5216 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 60us/step - loss: 0.4991 - accuracy: 0.8657
+## Epoch 23/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5093 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4937 - accuracy: 0.8657
+## Epoch 24/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4926 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 60us/step - loss: 0.4882 - accuracy: 0.8657
+## Epoch 25/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4942 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4826 - accuracy: 0.8657
+## Epoch 26/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.5003 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4770 - accuracy: 0.8657
+## Epoch 27/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4797 - accuracy: 0.7812
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4717 - accuracy: 0.8657
+## Epoch 28/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4519 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4666 - accuracy: 0.8657
+## Epoch 29/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4587 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4614 - accuracy: 0.8657
+## Epoch 30/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4300 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4567 - accuracy: 0.8657
+## Epoch 31/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4616 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4518 - accuracy: 0.8657
+## Epoch 32/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4899 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4472 - accuracy: 0.8657
+## Epoch 33/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4681 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4427 - accuracy: 0.8657
+## Epoch 34/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4221 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4384 - accuracy: 0.8657
+## Epoch 35/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3837 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4342 - accuracy: 0.8657
+## Epoch 36/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4485 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4298 - accuracy: 0.8657
+## Epoch 37/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4180 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4259 - accuracy: 0.8806
+## Epoch 38/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4231 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4218 - accuracy: 0.8806
+## Epoch 39/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4272 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4177 - accuracy: 0.8806
+## Epoch 40/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4285 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4135 - accuracy: 0.8806
+## Epoch 41/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3733 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4097 - accuracy: 0.8806
+## Epoch 42/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4384 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 30us/step - loss: 0.4056 - accuracy: 0.8806
+## Epoch 43/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3984 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.4021 - accuracy: 0.8806
+## Epoch 44/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4332 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3985 - accuracy: 0.8806
+## Epoch 45/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3946 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3955 - accuracy: 0.8806
+## Epoch 46/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4587 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3924 - accuracy: 0.8806
+## Epoch 47/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3433 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3895 - accuracy: 0.8806
+## Epoch 48/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3868 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3863 - accuracy: 0.8806
+## Epoch 49/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3527 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3833 - accuracy: 0.8806
+## Epoch 50/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3567 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3803 - accuracy: 0.8806
+## Epoch 51/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3530 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3773 - accuracy: 0.8806
+## Epoch 52/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3355 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3743 - accuracy: 0.8806
+## Epoch 53/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3728 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3714 - accuracy: 0.8806
+## Epoch 54/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3447 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3685 - accuracy: 0.8806
+## Epoch 55/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3760 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3656 - accuracy: 0.8806
+## Epoch 56/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3738 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3628 - accuracy: 0.8806
+## Epoch 57/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3077 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3602 - accuracy: 0.8806
+## Epoch 58/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3082 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3576 - accuracy: 0.8806
+## Epoch 59/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3263 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3551 - accuracy: 0.8806
+## Epoch 60/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3878 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3530 - accuracy: 0.8806
+## Epoch 61/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3142 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3508 - accuracy: 0.8806
+## Epoch 62/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2962 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3485 - accuracy: 0.8806
+## Epoch 63/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3617 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3461 - accuracy: 0.8806
+## Epoch 64/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2824 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3439 - accuracy: 0.8806
+## Epoch 65/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3446 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3415 - accuracy: 0.8806
+## Epoch 66/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3176 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3392 - accuracy: 0.8806
+## Epoch 67/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3523 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3370 - accuracy: 0.8806
+## Epoch 68/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3097 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3348 - accuracy: 0.8806
+## Epoch 69/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3013 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3330 - accuracy: 0.8806
+## Epoch 70/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3253 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3311 - accuracy: 0.8806
+## Epoch 71/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3212 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3294 - accuracy: 0.8806
+## Epoch 72/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3512 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3277 - accuracy: 0.8806
+## Epoch 73/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3301 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3260 - accuracy: 0.8806
+## Epoch 74/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2984 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3243 - accuracy: 0.8806
+## Epoch 75/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3265 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3226 - accuracy: 0.8806
+## Epoch 76/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2804 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3207 - accuracy: 0.8806
+## Epoch 77/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3199 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3188 - accuracy: 0.8806
+## Epoch 78/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3483 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 29us/step - loss: 0.3170 - accuracy: 0.8806
+## Epoch 79/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3265 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3154 - accuracy: 0.8806
+## Epoch 80/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2981 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3137 - accuracy: 0.8806
+## Epoch 81/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3370 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3124 - accuracy: 0.8806
+## Epoch 82/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2443 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3111 - accuracy: 0.8806
+## Epoch 83/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3471 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3095 - accuracy: 0.8806
+## Epoch 84/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3599 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 45us/step - loss: 0.3082 - accuracy: 0.8806
+## Epoch 85/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2845 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3071 - accuracy: 0.8806
+## Epoch 86/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2758 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3057 - accuracy: 0.8806
+## Epoch 87/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2857 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3041 - accuracy: 0.8806
+## Epoch 88/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2922 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.3026 - accuracy: 0.8806
+## Epoch 89/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2864 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 44us/step - loss: 0.3012 - accuracy: 0.8806
+## Epoch 90/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2563 - accuracy: 0.9375
+## 67/67 [==============================] - 0s 30us/step - loss: 0.2997 - accuracy: 0.8806
+## Epoch 91/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2732 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 44us/step - loss: 0.2985 - accuracy: 0.8806
+## Epoch 92/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3107 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 30us/step - loss: 0.2969 - accuracy: 0.8806
+## Epoch 93/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3034 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 44us/step - loss: 0.2957 - accuracy: 0.8806
+## Epoch 94/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3114 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 30us/step - loss: 0.2943 - accuracy: 0.8806
+## Epoch 95/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3417 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 44us/step - loss: 0.2932 - accuracy: 0.8806
+## Epoch 96/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3390 - accuracy: 0.8438
+## 67/67 [==============================] - 0s 30us/step - loss: 0.2920 - accuracy: 0.8806
+## Epoch 97/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.4182 - accuracy: 0.8125
+## 67/67 [==============================] - 0s 44us/step - loss: 0.2909 - accuracy: 0.8806
+## Epoch 98/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2785 - accuracy: 0.9062
+## 67/67 [==============================] - 0s 44us/step - loss: 0.2899 - accuracy: 0.8806
+## Epoch 99/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.2645 - accuracy: 0.8750
+## 67/67 [==============================] - 0s 45us/step - loss: 0.2890 - accuracy: 0.8806
+## Epoch 100/100
+## 
+## 32/67 [=============&gt;................] - ETA: 0s - loss: 0.3878 - accuracy: 0.7812
+## 67/67 [==============================] - 0s 45us/step - loss: 0.2880 - accuracy: 0.8806
+## 
+## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+## WARNING:tensorflow:From C:\Users\slaxm\AppData\Local\R-MINI~1\envs\R-RETI~1\lib\site-packages\keras\backend\tensorflow_backend.py:422: The name tf.global_variables is deprecated. Please use tf.compat.v1.global_variables instead.</code></pre>
+<pre class="python"><code>score = model.evaluate(X_test, y_test, verbose=0)
+print(&#39;Test score:&#39;, score[0])</code></pre>
+<pre><code>## Test score: 0.3024330726175597</code></pre>
+<pre class="python"><code>print(&#39;Test accuracy:&#39;, score[1])</code></pre>
+<pre><code>## Test accuracy: 0.8787878751754761</code></pre>
+<p>Once the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.</p>
+<p>The lower the loss, the better a model (unless the model has over-fitted to the training data). The loss is calculated on training and validation and its interpretation is how well the model is doing for these two sets. Unlike accuracy, loss is not a percentage. It is a summation of the errors made for each example in training or validation sets.</p>
+<p>The accuracy of a model is usually determined after the model parameters are learned and fixed and no learning is taking place. Then the test samples are fed to the model and the number of mistakes (zero-one loss) the model makes are recorded, after comparison to the true targets. Then the percentage of miss classification is calculated.</p>
+<p>For example, if the number of test samples is 1000 and model classifies 875 of those correctly, then the model’s accuracy is 87.5%.</p>
+</div>
+<div id="evaluate-prediction-accuracy" class="section level4">
+<h4>Evaluate prediction accuracy</h4>
+<pre class="python"><code>from sklearn import metrics
+prediction_values = model.predict_classes(X_test)
+print(metrics.confusion_matrix(y_test, prediction_values))</code></pre>
+<pre><code>## [[14  2]
+##  [ 2 15]]</code></pre>
+<pre class="python"><code>print(metrics.classification_report(y_test, prediction_values))</code></pre>
+<pre><code>##               precision    recall  f1-score   support
+## 
+##            0       0.88      0.88      0.88        16
+##            1       0.88      0.88      0.88        17
+## 
+##     accuracy                           0.88        33
+##    macro avg       0.88      0.88      0.88        33
+## weighted avg       0.88      0.88      0.88        33</code></pre>
+</div>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/neural-network/">Neural Network</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/neural-network/">Neural Network</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="67b79dfb7c9f38d25e48b0a72c2cd4ff">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+    
+      <a href="/blog/single-layer-perceptron/" class="button right"><span>Single Layer Perceptron</span></a>
+    
+  </div>
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-network-using-make-moons-dataset/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg');">
+    <img src="https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-network-using-make-moons-dataset/">Neural Network using Make Moons dataset</a></h2>
+          <time class="published" datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/single-layer-perceptron/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Single_Layer_Perceptron.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Single_Layer_Perceptron.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/single-layer-perceptron/">Single Layer Perceptron</a></h2>
+          <time class="published" datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Neural-Networks-32.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Neural-Networks-32.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-networks/">Neural Networks</a></h2>
+          <time class="published" datetime="2020-12-05 00:00:00 &#43;0000 UTC">December 5, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-network/">neural-network<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/single-layer-perceptron/">single-layer-perceptron<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2020 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.f2add8c14b1f0b4ba32b812ada31b9a7ae32730960754ccf519f6d49f5da77a1.js" integrity="sha256-8q3YwUsfC0ujK4Eq2jG5p64ycwlgdUzPUZ9tSfXad6E="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+</html>
