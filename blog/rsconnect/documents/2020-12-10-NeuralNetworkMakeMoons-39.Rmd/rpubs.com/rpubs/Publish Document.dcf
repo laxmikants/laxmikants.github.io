@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/706629/64876e3683c3499f8a8f10d9fedd03a9
+bundleId: https://api.rpubs.com/api/v1/document/706629/64876e3683c3499f8a8f10d9fedd03a9
+url: http://rpubs.com/laxmikant/706629
+when: 1608571259.18463

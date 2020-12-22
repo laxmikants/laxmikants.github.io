@@ -14,10 +14,12 @@ output:
   html_document:
     highlight: tango
     theme: flatly
-    toc: no
-    toc_float: no
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
 ---
 
+# Neural Network using Make Moons dataset
 
 #### Make moons dataset
 
@@ -28,7 +30,7 @@ It displays 2 disjunctive clusters of data in a 2-dimensional representation spa
 knitr::include_graphics("https://laxmikants.github.io/img/main/makemoonsds.png")
 ```
 
-# Importing libraries
+#### Importing libraries
 
 ```{python, echo=TRUE,eval=TRUE}
 from sklearn import datasets  
@@ -52,13 +54,26 @@ In the script above we import the datasets class from the sklearn library. To cr
 
 #### Build the neural network model using keras
 
-```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE}
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
 from keras.models import Sequential
-from keras.layers import Dense, Activation
 model = Sequential()
+```
+
+Basically there are two types of models in Keras. Sequential and Functional.
+
+The sequential API is generally used and helps in creating the models layer-by-layer for most problems. It is constrained in that it does not allow us to create models that share layers or have multiple inputs or outputs.
+
+The functional API  helps in creating models that have a lot more flexibility as we can easily define models where layers connect to more than just the previous and next layers. In fact, we can connect layers to any other layer. As a result, creating complex networks become possible.
+
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
+from keras.layers import Dense, Activation
 model.add(Dense(50, input_dim=2, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics= ['accuracy'])
+```
+
+
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE}
 print(model.summary())
 ```
 
@@ -67,17 +82,22 @@ The model summary gives the number of parameters input to the model. Theare are 
 
 
 
-#### Train the model
+#### Train and evaluate the model
 
 
-```{python, eval = TRUE, echo = TRUE, warning = FALSE}
+```{python, eval = TRUE, echo = TRUE, warning = FALSE,results='hide'}
 
 results = model.fit(X_train, y_train , nb_epoch=100)
+
+```
+
+Once the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.
+
+```{python,eval = TRUE, echo = TRUE, warning = FALSE}
 score = model.evaluate(X_test, y_test, verbose=0)
 print('Test score:', score[0])
 print('Test accuracy:', score[1])
 ```
-Once the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.
 
 The lower the loss, the better a model (unless the model has over-fitted to the training data). The loss is calculated on training and validation and its interpretation is how well the model is doing for these two sets. Unlike accuracy, loss is not a percentage. It is a summation of the errors made for each example in training or validation sets.
 

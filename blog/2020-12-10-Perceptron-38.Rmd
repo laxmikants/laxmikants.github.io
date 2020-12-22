@@ -14,12 +14,14 @@ output:
   html_document:
     highlight: tango
     theme: flatly
-    toc: no
-    toc_float: no
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
 ---
 
+# Single Layer Perceptron
 
-#### Single Layer Perceptron:
+#### What is Single Layer Perceptron:
 
 A Single layer perceptron is a type of neuron having multiple inputs and one output. Input has many dimensions i.e input
 can be a vector for example  input x = ( I1, I2, .., In). Input nodes are connected to a node in the next layer. The
