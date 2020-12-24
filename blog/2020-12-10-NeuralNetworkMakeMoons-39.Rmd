@@ -76,7 +76,11 @@ model.add(Dense(50, input_dim=2, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
 ```
 
-Foe example if you say Dense(50, input_dim = 2..) this means that input neurons having dimension of 2 i.e 2 input neurons are connected to dense layer having 50 neurons and at each of the neuron in dense layer is applying activation function as relu for computing the output of that neuron. These 50 neurons in the hidden layer are then connected to one neuron in the output layer with activation function of sigmoid.
+`Sample neural network using two hidden layers`
+
+![](/img/main/moondatasetneuralnet.png)
+
+For example if you say Dense(50, input_dim = 2..) this means that input neurons having dimension of 2 i.e 2 input neurons are connected to dense layer having 50 neurons and at each of the neuron in dense layer is applying activation function as relu for computing the output of that neuron. These 50 neurons in the hidden layer are then connected to one neuron in the output layer with activation function of sigmoid.
 
 ```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics= ['accuracy'])
