@@ -50,7 +50,7 @@ feature_set_x, labels_y = datasets.make_moons(100, noise=0.10)
 X_train, X_test, y_train, y_test = train_test_split(feature_set_x, labels_y, test_size=0.33, random_state=42)
 ```
 
-In the script above we import the datasets class from the sklearn library. To create non-linear dataset of 100 data-points, we use the make_moons method and pass it 100 as the first parameter. The method returns a dataset, which when plotted contains two interleaving half circles, as shown in the figure below.You can clearly see that this data cannot be separated by a single straight line, hence the perceptron cannot be used to correctly classify this data.
+In the script above we import the datasets class from the sklearn library. To create non-linear dataset of 100 data-points, we use the make_moons method and pass it 100 as the first parameter. The method returns a dataset, which when plotted contains two interleaving half circles. Data cannot be separated by a single straight line, hence the perceptron cannot be used to correctly classify make moons dataset.
 
 #### Build the neural network model using keras
 
@@ -67,17 +67,30 @@ The functional API  helps in creating models that have a lot more flexibility as
 
 ```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
 from keras.layers import Dense, Activation
+```
+A dense layer is a Layer in which Each Input Neuron is connected to the output Neuron, like a Simple neural net, the parameters units just tells you the dimensionnality of your Output. 
+
+
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
 model.add(Dense(50, input_dim=2, activation='relu'))
 model.add(Dense(1, activation='sigmoid'))
+```
+
+Foe example if you say Dense(50, input_dim = 2..) this means that input neurons having dimension of 2 i.e 2 input neurons are connected to dense layer having 50 neurons and at each of the neuron in dense layer is applying activation function as relu for computing the output of that neuron. These 50 neurons in the hidden layer are then connected to one neuron in the output layer with activation function of sigmoid.
+
+```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE,  results='hide'}
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics= ['accuracy'])
 ```
 
+The output that we are trying to predict is having 2 classes therefore we are using  'Binary Crossentropy' loss function.
+Adam is a replacement optimization algorithm for stochastic gradient descent for training deep learning models.
+Adam combines the best properties of the AdaGrad and RMSProp algorithms to provide an optimization algorithm that can handle sparse gradients on noisy problems.
 
 ```{python, echo = TRUE, eval = TRUE, warning=FALSE, message=FALSE}
 print(model.summary())
 ```
 
-The model summary gives the number of parameters input to the model. Theare are total 201 parameters including the parameters from the bias unit. The two input units and one bias unit are fed via connection links to 50 neurons totaling 150 parameters, there after the hidden layer is connected to the 1 output and 1 bias unit also is connect to output neuron. Thus the computation of the paraters will be 
+The model summary gives the number of parameters input to the model. Theare are total 201 parameters including the parameters from the bias unit. The two input units and one bias unit are fed via connection links to 50 neurons totaling 150 parameters, there after the hidden layer is connected to the 1 output and 1 bias unit also is connected to output neuron. Thus the computation of the paraters will be 
 150(Input, bias unit to hidden layer with 50 neurons) + 50(hidden layer to output) + 1 (bias unit in the output) = 201.
 
 
@@ -91,7 +104,7 @@ results = model.fit(X_train, y_train , nb_epoch=100)
 
 ```
 
-Once the model is compiled then we use the training data to train the model via the fit function having paraters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.
+Once the model is compiled then we use the training data to train the model via the fit function having parameters such as features set and the target label and number of iterations. Once the training is complete we evaluate the model to determine the loss and the accuracy.
 
 ```{python,eval = TRUE, echo = TRUE, warning = FALSE}
 score = model.evaluate(X_test, y_test, verbose=0)
@@ -115,3 +128,9 @@ print(metrics.confusion_matrix(y_test, prediction_values))
 print(metrics.classification_report(y_test, prediction_values))
 ```
 
+
+Classification report is used to evaluate a model’s predictive power. It provides Precision, Recall,F1-score,Support that will help in evaluating the model.
+
+We can see here that on average the model has predicted 88% of the classification correctly.For Class 0 it has predicted 88% of the test data correctly.
+
+Classification_report is also useful when comparing two models with different specifications against each other and determining which model is better to use.

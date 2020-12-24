@@ -87,11 +87,11 @@ print(df.tail())
 
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='21/12/2020')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/1/2019', to_date='24/12/2020')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='21/12/2020')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='24/12/2020')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='21/12/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='24/12/2020', country = "India")
 
 
 df['High'] = df['High'] / 1000
@@ -137,6 +137,7 @@ PSR = pd.DataFrame(psr)
 print(PSR.tail())
 
 ```
+
 
 As we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.
 
@@ -255,6 +256,14 @@ df[ 'PCT_Change' ] = (df[ 'Close' ] - df[ 'Open' ]) / df[ 'Open' ]
 ```
 
 The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.
+
+```{python}
+
+print(df['PCT_Change'].max())
+print(df['PCT_Change'].mean())
+print(df['PCT_Change'].min())
+
+```
 
 *** `HIGH LOW PERCENTAGE` ***
 
@@ -509,6 +518,7 @@ model = LogisticRegression()
 
 ```
 
+
 ***3.7:  train the model on the training set***
 
 ```{python, warnings = FALSE, message = FALSE}
@@ -544,9 +554,6 @@ predict = model.predict(X_test.tail(1))
 print(int(predict)) # 1: UP, -1: DOWN
 ```
 
-
-
-
 ```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=FALSE}
 library(Quandl)
 library(quantmod)
@@ -580,5 +587,4 @@ plot(model,forecast)
 
 prophet_plot_components(model,forecast)
 ```
-
 
