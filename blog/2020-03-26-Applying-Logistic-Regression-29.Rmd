@@ -68,6 +68,8 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```
 
+
+
 ```{python, echo = FALSE ,eval = FALSE}
 
 quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
@@ -87,12 +89,11 @@ print(df.tail())
 
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='25/12/2020')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='29/12/2020')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='25/12/2020')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='29/12/2020')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='25/12/2020', country = "India")
-
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='29/12/2020', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
@@ -565,7 +566,7 @@ Quandl.api_key("YBM9uPgpnsaDYPkAn539")
 #daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2020-08-19",type="raw")
 
 
-daily_silver = Quandl("MCX/SIU2020",collapse="daily",start_date="2020-01-01",end_date = "2020-09-24",type="raw")
+daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2020-12-28",type="raw")
 
 keeps <- c("Date", "Close")
 
@@ -574,6 +575,8 @@ daily_silver = daily_silver[keeps]
 names(daily_silver) <- c('ds','y')
 
 daily_silver[2] <- daily_silver[2] 
+
+print(head(daily_silver))
 
 model = prophet(daily_silver)
 
