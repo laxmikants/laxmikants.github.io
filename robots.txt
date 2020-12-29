@@ -1,0 +1,10 @@
+User-agent: *
+
+Allow: /*.js***************
+Allow: /*.css**************
+Allow: /*.jpg**************
+Allow: /*.gif**************
+Allow: /*.png**************
+
+SITEMAP: http://laxmikants.github.io/sitemap.xml
+SITEMAP: http://laxmikants.github.io/sitemap-image.xml
