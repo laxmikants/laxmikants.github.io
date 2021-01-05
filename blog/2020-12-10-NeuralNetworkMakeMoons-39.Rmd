@@ -138,3 +138,4 @@ Classification report is used to evaluate a model’s predictive power. It provi
 We can see here that on average the model has predicted 88% of the classification correctly.For Class 0 it has predicted 88% of the test data correctly.
 
 Classification_report is also useful when comparing two models with different specifications against each other and determining which model is better to use.
+
