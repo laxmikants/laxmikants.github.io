@@ -40,11 +40,7 @@ These neural networks are successful in many different real-life case studies an
 
 <mark>Convolution is the key principle applied:</mark> in convolutional neural network architecture. 
 Convolution is a way to identify patterns in data that is directly tied to space or time. Assume we have a one dimentional array of numbers
-say Input = [a,b,c,d,e,f,g] and another set of numbers say K = [p,q]. Then convolution involves sliding the lower size list over the higher size list and then
-multiplying corresponding values and adding them therefore after convoluting K over Input we get [a*p+b*q, b*p+c*q, c*p+d*q, d*p+e*q, f*p+g*q]. The result identifies 
-one of the feature of the Input. The result is known as the convolution of the Input and in practice only non-zero values are choosen for feature selection.
-If the input is a grid structure or in matrix form (in case of images) then the kernal is also choosen as the matrix of lower dimension and in this 
-case matrix multiplication is perfomed to get the resultant convolution of the input image.
+say Input = [a,b,c,d,e,f,g] and another set of numbers say K = [p,q]. Then convolution involves sliding the lower size list over the higher size list and then multiplying corresponding values and adding them therefore after convoluting K over Input we get [a*p+b*q, b*p+c*q, c*p+d*q, d*p+e*q, f*p+g*q]. The result identifies  one of the feature of the Input. The result is known as the convolution of the Input and in practice only non-zero values are choosen for feature selection.If the input is a grid structure or in matrix form (in case of images) then the kernal is also choosen as the matrix of lower dimension and in this case matrix multiplication is perfomed to get the resultant convolution of the input image.
 
 <mark>Computer see images as matrices</mark>:Grayscale images have single channel (gray). 
 So, we can represent grayscale images in the form of 2D matrix, where each element represents the intensity of brightness in that particular pixel, 
@@ -65,7 +61,7 @@ earth_img1 = cv2.imread(earth_fname)
 print(earth_img1.shape)
 ```
 
-<mark>In CIFAR 10 dataset the Input layer</mark> consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. 
+<mark>The CIFAR 10 dataset has the Input layer</mark> of 60000 32x32 colour images in 10 categories, with 6000 images per class. 
 
 ![](/img/main/cifar10dataset.png)
 
@@ -74,19 +70,38 @@ print(earth_img1.shape)
 
 <mark>Input layer:</mark> Takes an image as input and preserves its spatial structure
 <mark>Convolution layer:</mark>	extracts feature maps from the input, each responding to a specific pattern
-<mark>ReLU layer:</mark> Introduces non-linearities in the network by setting negative pixels to 0
+<mark>ReLU layer:</mark> Introduces non-linearities in the network by putting the negative pixels to 0.
 
-```{python, eval = FALSE}
+<mark>Kernel, stride and padding</mark>
+
+![](/img/main/convolution_schematic.gif)
+
+Filters also known as kernals, convolve square blocks of pixels into scalars in subsequent convolutional layers. In the animation above, we have a 3 x 3 filter with ones running on the diagonal and off-diagonal, scanning an image from left to right, top to bottom.
+
+Throughout the process, the filter performs element-wise multiplication and sums up all products, into a single value passed to the subsequent convolutional layer. Note that the filter is moving a pixel at a time. This is the stride, the stepsize of the sliding window the filter uses to convolve. Larger size of strides indicates more granular and smaller convolved features.
+
+<mark>Example Convolution layer in Python</mark>
+
+The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
+parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
+
+```{python, warning=FALSE}
 from keras.models import Sequential
 from keras.layers import Conv2D
 model = Sequential()
 model.add(Conv2D(filters=16, kernel_size = 3, padding = 'same',activation = 'relu',input_shape=(32,32,3)))
+model.summary()
 ```
 
-The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
-parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
-For example if we have 16 filters then computing a dot product between their weights and a small region they are connected to in the input image. 
-This may result in volume such as [32x32x16] if we use 16 filters. Convolutional Neural network learns about the image from the filters. Commonly CNN learns from 32 to 512 filters in parallel for a given input.
+<mark>Example Convolution layer in R</mark>
+```{r, warning=FALSE}
+library(tensorflow)
+library(keras)
+model <- keras_model_sequential()
+model%>% 
+  layer_conv_2d(filters = 16, kernel_size = c(3,3),activation = 'relu',input_shape = c(32,32,3))
+summary(model)
+```
 
 
 
@@ -94,10 +109,6 @@ This may result in volume such as [32x32x16] if we use 16 filters. Convolutional
 <mark>Max-pooling layer:</mark>	Down-samples the rectified feature maps, thus reducing the spatial dimensionality and retaining important features. This prevents overfitting
 
 <mark>Fully-Connected layer:</mark>	Learns non-linear combinations of the features and performs the classification task
- 
-
-model.add(Conv2D(32, (3, 3), activation="relu"))
-
 
 
 
