@@ -85,11 +85,11 @@ print(df.tail())
 
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='06/01/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='09/01/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='06/01/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='09/01/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='06/01/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='09/01/2021', country = "India")
 
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
@@ -256,11 +256,12 @@ df[ 'PCT_Change' ] = (df[ 'Close' ] - df[ 'Open' ]) / df[ 'Open' ]
 The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.
 
 ```{python}
+df[["PCT_Change"]].describe()
+```
 
-print(df['PCT_Change'].max())
-print(df['PCT_Change'].mean())
-print(df['PCT_Change'].min())
 
+```{python}
+print(df[["Close"]].tail(1))
 ```
 
 *** `HIGH LOW PERCENTAGE` ***
@@ -562,7 +563,7 @@ Quandl.api_key("YBM9uPgpnsaDYPkAn539")
 #daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2020-08-19",type="raw")
 
 
-daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2020-12-28",type="raw")
+daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2021-01-07",type="raw")
 
 keeps <- c("Date", "Close")
 

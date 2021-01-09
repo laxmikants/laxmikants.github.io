@@ -85,7 +85,9 @@ Throughout the process, the filter performs element-wise multiplication and sums
 The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
 parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
 
-```{python, warning=FALSE}
+<script src="https://gist.github.com/laxmikants/d7b849d1a9d926bc2cbc06f9f2090521.js?slice=0:1"></script>
+
+```{python, warning=FALSE, echo=FALSE}
 from keras.models import Sequential
 from keras.layers import Conv2D
 model = Sequential()
@@ -94,7 +96,7 @@ model.summary()
 ```
 
 <mark>Example Convolution layer in R</mark>
-```{r, warning=FALSE}
+```{r, warning=FALSE,message=FALSE}
 library(tensorflow)
 library(keras)
 model <- keras_model_sequential()
@@ -103,12 +105,32 @@ model%>%
 summary(model)
 ```
 
+<mark>pooling layer:</mark>	Down-samples the rectified feature maps, thus reducing the spatial dimensionality and retaining important features. 
+This prevents overfitting.
 
+<mark>Example max pooling layer in R</mark>
+```{r, warning=FALSE, message=FALSE}
+model %>% 
+  layer_max_pooling_2d(pool_size = c(2,2)) %>%
+  layer_dropout(0.25)
+summary(model)
+```
 
+<mark>Example max pooling layer in Python</mark>
+```{python}
+from keras.layers import MaxPooling2D
+from keras.layers import Dropout
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.summary()
+```
 
-<mark>Max-pooling layer:</mark>	Down-samples the rectified feature maps, thus reducing the spatial dimensionality and retaining important features. This prevents overfitting
 
 <mark>Fully-Connected layer:</mark>	Learns non-linear combinations of the features and performs the classification task
+
+<mark>Flattening</mark>Flattening converts last convolutional layer into a one-dimensional NN layer.
+
+
 
 
 
