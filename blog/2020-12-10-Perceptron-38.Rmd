@@ -19,6 +19,7 @@ output:
     toc_depth: 4
 ---
 
+
 # Single Layer Perceptron
 
 #### What is Single Layer Perceptron:

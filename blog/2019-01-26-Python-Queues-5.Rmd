@@ -19,7 +19,6 @@ output:
     toc: true
 ---
 
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(magick)

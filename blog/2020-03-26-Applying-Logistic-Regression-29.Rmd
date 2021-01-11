@@ -22,6 +22,7 @@ output:
     keep_md: no
 ---
 
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(magick)
@@ -63,44 +64,70 @@ import quandl
 
 To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
 
-```{python, eval = FALSE}
+```{python, eval = FALSE,echo = FALSE}
 df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/01/2015',to_date='14/08/2020', country = "India")
 
 ```
 
 
+```{python, echo = FALSE}
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/08/2019', to_date='11/01/2021')
+
+dfusd = investpy.get_commodity_historical_data(commodity='MCX Silver Micro', from_date='01/08/2019', to_date='11/01/2021')
+
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/08/2019',to_date='11/01/2021', country = "India")
+
+print(df)
+```
+
+
+***1.2.1: Determining position based on volume and close***
+
+```{python, echo = FALSE}
+
+pd.set_option('display.max_columns', None)
+
+df2 = df[['Open','High','Low','Close','Volume']]
+
+
+diffdf = df2.diff()
+
+print(diffdf.tail(10))
+
+df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] >= df2['Close'].shift(1))),"UP","DOWN")
+
+df2['Str'] = np.where((df2['Open'] > df2['Close'].shift(1)),"Buy","Sell")
+
+df2['SL'] = np.where((df2['Str'] == 'Buy'),df2['Low'], df2['High'])
+
+print(df2.tail(20))
+
+```
 
 ```{python, echo = FALSE ,eval = FALSE}
 
 quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
-
 df = quandl.get("MCX/SIU2020",start_date = "2020-05-04", end_date = "2020-09-03")  
-
-
 df.dropna()  
-
 print(df.tail())
 
 ```
 
+***1.2.2: Determining Average monthly closing prices***
 
 ```{python, echo = FALSE}
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/12/2019', to_date='09/01/2021')
-
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/12/2019', to_date='09/01/2021')
-
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver',from_date='01/12/2019',to_date='09/01/2021', country = "India")
-
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
 df['Open'] = df['Open'] / 1000
 df['Close'] = df['Close'] / 1000
+
 
 df.drop(['Currency'], axis = 1)
 
 df['usdinr'] = usdinr['Close']
 
 df['usdsilver'] = dfusd['Close']
+
 
 df1 = df[['Close']]
 
@@ -112,16 +139,30 @@ print('meanprice is ', meanprice)
 
 ```
 
-## z-scores
 
-```{python}
+***1.2.3: Technical moving averages***
+
+```{python,echo = FALSE}
+
+data = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
+print(data.head())
+
+```
+
+***1.2.4: Determining the z-scores***
+
+```{python,echo = FALSE}
 
 df['zscore'] = stats.zscore(df['Close'])
 
 print(df['zscore'].tail(30))
 
 ```
-```{python}
+
+
+***1.2.5: Determining the daily support and resistance levels***
+
+```{python,echo = FALSE}
 pd.set_option('display.max_columns', 10)
 PP = pd.Series((df['High'] + df['Low'] + df['Close']) / 3)  
 R1 = pd.Series(2 * PP - df['Low'])  
@@ -176,7 +217,7 @@ Even though tables are nice and useful, we want to visualize our financial data,
 Actually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.
 
 
-```{python,eval = FALSE}
+```{python,eval = FALSE,echo = FALSE}
 import matplotlib.pyplot as plt
 from matplotlib import style
 style.use( 'ggplot' )
@@ -223,7 +264,7 @@ For this, we use the reset_index function so that we can manipulate our Date col
 
 Now we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.
 
-```{python, eval=FALSE}
+```{python, eval=FALSE,echo = FALSE}
 ax = plt.subplot()
 fplt(ax, df1.values,
                   width = 5 ,
@@ -249,18 +290,18 @@ From our data we can derive some statistical values that will help us to analyze
 
 One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.
 
-```{python}
+```{python,echo = FALSE}
 df[ 'PCT_Change' ] = (df[ 'Close' ] - df[ 'Open' ]) / df[ 'Open' ]
 ```
 
 The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.
 
-```{python}
+```{python,echo = FALSE}
 df[["PCT_Change"]].describe()
 ```
 
 
-```{python}
+```{python,echo = FALSE}
 print(df[["Close"]].tail(1))
 ```
 
@@ -270,7 +311,7 @@ Another interesting statistic is the high low percentage. Here we just calculate
 
 By doing that we can get a feeling of how volatile the stock is.
 
-```{python}
+```{python,echo = FALSE}
 df[ 'HL_PCT' ] = (df[ 'High' ] - df[ 'Low' ]) / df[ 'Close' ]
 print(df.tail())
 ```
@@ -285,7 +326,7 @@ What we are going to do with this value is to include it into our data frame and
 
 For this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column. 
 
-```{python}
+```{python,echo = FALSE}
 
 df[ '5d_ma' ] = round(df[ 'Close' ].rolling( window = 5 , min_periods = 0 ).mean(),2)
 df[ '20d_ma' ] = round(df[ 'Close' ].rolling( window = 20 , min_periods = 0 ).mean(),2)
@@ -313,7 +354,7 @@ By using the mean function, we are obviously calculating the arithmetic mean. Ho
 
 The variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.
 
-```{python}
+```{python,echo = FALSE}
 df['Std_dev']= df['Close'].rolling(7).std()  
 print(df['Std_dev'].tail(7))
 ```
@@ -323,7 +364,7 @@ print(df['Std_dev'].tail(7))
 
 The relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.
 
-```{python}
+```{python,echo = FALSE}
 df['RSI'] = talib.RSI(df['Close'].values, timeperiod = 9)    
 print(df[['RSI']].tail())
 
@@ -333,7 +374,7 @@ print(df[['RSI']].tail())
 
 Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today's close was the highest high of the past N days.
 
-```{python}
+```{python,echo = FALSE}
 df['Williams %R'] = talib.WILLR(df['High'].values,df['Low'].values, df['Close'].values, 7)
  
 print(df[['Williams %R']].tail(7))
@@ -354,7 +395,7 @@ ADX is used to quantify trend strength. ADX calculations are based on a moving a
 
 >75-100:	Extremely Strong Trend
 
-```{python}
+```{python,echo = FALSE}
 
 df['ADX'] = talib.ADX(df['High'].values,df['Low'].values, df['Close'].values, 7)
 
@@ -367,7 +408,7 @@ print(df[['ADX']].tail(7))
 
 Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security's price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.
 
-```{python}
+```{python,echo = FALSE}
 ShortEMA = df.Close.ewm(span=12, adjust=False).mean() #AKA Fast moving average
 #Calculate the Long Term Exponential Moving Average
 LongEMA = df.Close.ewm(span=26, adjust=False).mean() #AKA Slow moving average
@@ -389,7 +430,7 @@ print(df[['MACD_IND']].tail())
 
 Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.
 
-```{python}
+```{python,echo = FALSE}
 
 from talib import MA_Type
 
@@ -402,7 +443,7 @@ print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))
 
 In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.
 
-```{python}
+```{python,echo = FALSE}
 df.dropna( inplace = True )
 ```
 
@@ -418,7 +459,7 @@ To predict the movement of the stock we use 5 lag returns as the dependent varia
 ***3.1: Creating lag returns***
 
 
-```{python}
+```{python,echo = FALSE}
 
 tslagret = pd.DataFrame(index=df.index)
 tslagret["Today"] = df["Close"]
@@ -429,17 +470,15 @@ for i in range(0, no_lags):
 
 ***3.2:  Creating returns dataframe***
 
-```{python}
-
+```{python,echo = FALSE}
 df_ret = pd.DataFrame(index=tslagret.index)
 df_ret["Today"] = tslagret["Today"].pct_change()*100.0
-
 ```
 
 
 ***3.2:  create the lagged percentage returns columns***
 
-```{python}
+```{python,echo = FALSE}
 for i in range(0, no_lags):
     df_ret["Lag%s" % str(i + 1)] = tslagret["Lag%s" % str(i + 1)].pct_change() * 100.0
 
@@ -450,7 +489,7 @@ df_ret.drop(df_ret.index[:7], inplace=True)
 
 ***3.3: "Direction" column (+1 or -1) indicating an up/down day***
 
-```{python}
+```{python,echo = FALSE}
 df_ret["Direction"] = np.sign(df_ret["Today"])
 
 df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
@@ -460,7 +499,7 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 ***3.4: Create the dependent and independent variables ***
 
-```{python, warnings = FALSE, message = FALSE}
+```{python, warnings = FALSE, message = FALSE,echo = FALSE}
 
 data = df_ret.copy()
 
@@ -499,7 +538,7 @@ data.describe()
 
 ***3.5:  Create training and test sets***
 
-```{python}
+```{python,echo = FALSE}
 start_test = datetime(2020, 8, 1)
 
 X_train = X[X.index < start_test]
@@ -509,7 +548,7 @@ y_test = y[y.index >= start_test]
 ```
 
 ***3.6:  Create model ***
-```{python}
+```{python,echo = FALSE}
 
 # fit model no training data
 # model = XGBClassifier()
@@ -520,34 +559,34 @@ model = LogisticRegression()
 
 ***3.7:  train the model on the training set***
 
-```{python, warnings = FALSE, message = FALSE}
+```{python, warnings = FALSE, message = FALSE,echo = FALSE}
 model.fit(X_train, y_train)
 ```
 
 ***3.8:    make an array of predictions on the test set***
 
-```{python}
+```{python,echo = FALSE}
 y_pred = model.predict(X_test)
 ```
 
 ***3.9:    output the hit-rate and the confusion matrix for the model***
 
-```{python}
+```{python,echo = FALSE}
 print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
 ```
 
-```{python}
+```{python,echo = FALSE}
 print(confusion_matrix(y_pred,y_test))
 ```
 
 ***3.10:   Predict movement of stock for tomorrow. ***
 
-```{python}
+```{python,echo = FALSE}
 comp = pd.DataFrame()
 comp['y_test'] = y_test
 comp['y_pred'] = y_pred
 
-print(comp)
+print(comp.tail(20))
 
 predict = model.predict(X_test.tail(1))
 print(int(predict)) # 1: UP, -1: DOWN

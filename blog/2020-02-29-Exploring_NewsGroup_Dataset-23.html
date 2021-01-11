@@ -99,19 +99,17 @@ newsgroups_full_df = pd.DataFrame({&#39;text&#39;: message, &#39;source&#39;: ta
 print(newsgroups_full_df.shape)</code></pre>
 <pre><code>## (18846, 3)</code></pre>
 <pre class="python"><code>newsgroups_full_df.head(10)</code></pre>
-<pre><code>##                                                 text  ...               source_name
-## 0  \n\nI am sure some bashers of Pens fans are pr...  ...          rec.sport.hockey
-## 1  My brother is in the market for a high-perform...  ...  comp.sys.ibm.pc.hardware
-## 2  \n\n\n\n\tFinally you said what you dream abou...  ...     talk.politics.mideast
-## 3  \nThink!\n\nIt&#39;s the SCSI card doing the DMA t...  ...  comp.sys.ibm.pc.hardware
-## 4  1)    I have an old Jasmine drive which I cann...  ...     comp.sys.mac.hardware
-## 5  \n\nBack in high school I worked as a lab assi...  ...           sci.electronics
-## 6  \n\nAE is in Dallas...try 214/241-6060 or 214/...  ...     comp.sys.mac.hardware
-## 7  \n[stuff deleted]\n\nOk, here&#39;s the solution t...  ...          rec.sport.hockey
-## 8  \n\n\nYeah, it&#39;s the second one.  And I believ...  ...          rec.sport.hockey
-## 9  \nIf a Christian means someone who believes in...  ...        talk.religion.misc
-## 
-## [10 rows x 3 columns]</code></pre>
+<pre><code>##                                                 text  source               source_name
+## 0  \n\nI am sure some bashers of Pens fans are pr...      10          rec.sport.hockey
+## 1  My brother is in the market for a high-perform...       3  comp.sys.ibm.pc.hardware
+## 2  \n\n\n\n\tFinally you said what you dream abou...      17     talk.politics.mideast
+## 3  \nThink!\n\nIt&#39;s the SCSI card doing the DMA t...       3  comp.sys.ibm.pc.hardware
+## 4  1)    I have an old Jasmine drive which I cann...       4     comp.sys.mac.hardware
+## 5  \n\nBack in high school I worked as a lab assi...      12           sci.electronics
+## 6  \n\nAE is in Dallas...try 214/241-6060 or 214/...       4     comp.sys.mac.hardware
+## 7  \n[stuff deleted]\n\nOk, here&#39;s the solution t...      10          rec.sport.hockey
+## 8  \n\n\nYeah, it&#39;s the second one.  And I believ...      10          rec.sport.hockey
+## 9  \nIf a Christian means someone who believes in...      19        talk.religion.misc</code></pre>
 <p><strong><em>2: Next step is cleaning the text…</em></strong></p>
 <p>To clean the large amounts of text we use <code>nltk</code> tools such as <code>WordNetLemmatizer</code>, <code>PorterStemmer</code>, <code>stopwords</code>, <code>names</code>.
 Lets import them first</p>
@@ -137,14 +135,12 @@ def text_tokenizer(str_input):
 <pre class="python"><code>newsgroups_full_df[&#39;clean_text&#39;] = newsgroups_full_df.text.apply(lambda x: text_tokenizer(x))
 newsgroups_full_df.sort_values(by=[&#39;source&#39;],inplace=True)
 newsgroups_full_df.head(5)</code></pre>
-<pre><code>##                                                     text  ...                                         clean_text
-## 8501   \nI could give much the same testimonial about...  ...  could give much scout back gay thank well put ...
-## 14285  \nFine... THE ILLIAD IS THE WORD OF GOD(tm)  (...  ...              fine word god matter prove wrong west
-## 17533  Hello Gang,\n\nThere have been some notes rece...  ...  hello gang note recent ask obtain fish questio...
-## 1527   \n  Sorry, gotta disagree with you on this one...  ...  one bill prefer half bake bob vice said queen ...
-## 14271  The latest news seems to be that Koresh will g...  ...          latest news seem give finish write sequel
-## 
-## [5 rows x 4 columns]</code></pre>
+<pre><code>##                                                     text  source  source_name                                         clean_text
+## 8501   \nI could give much the same testimonial about...       0  alt.atheism  could give much scout back gay thank well put ...
+## 14285  \nFine... THE ILLIAD IS THE WORD OF GOD(tm)  (...       0  alt.atheism              fine word god matter prove wrong west
+## 17533  Hello Gang,\n\nThere have been some notes rece...       0  alt.atheism  hello gang note recent ask obtain fish questio...
+## 1527   \n  Sorry, gotta disagree with you on this one...       0  alt.atheism  one bill prefer half bake bob vice said queen ...
+## 14271  The latest news seems to be that Koresh will g...       0  alt.atheism          latest news seem give finish write sequel</code></pre>
 <p><strong><em>2.3:Creating a dictionary of newsgroup cleaned text</em></strong></p>
 <pre class="python"><code>wordlst = list()
 newsgroup_dic = dict()

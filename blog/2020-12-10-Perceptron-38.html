@@ -1,0 +1,102 @@
+---
+title: "Single Layer Perceptron"
+author: Laxmi K Soni 
+description: "Single Layer Perceptron"
+slug: Single Layer Perceptron
+date: 2020-12-10
+lastmod: 2020-12-10
+categories: ["Single Layer Perceptron"]
+tags: ["Single Layer Perceptron"]
+Summary: "Single Layer Perceptron"
+subtitle: Single Layer Perceptron
+featured: "img/main/Single_Layer_Perceptron.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="single-layer-perceptron" class="section level1">
+<h1>Single Layer Perceptron</h1>
+<div id="what-is-single-layer-perceptron" class="section level4">
+<h4>What is Single Layer Perceptron:</h4>
+<p>A Single layer perceptron is a type of neuron having multiple inputs and one output. Input has many dimensions i.e input
+can be a vector for example input x = ( I1, I2, .., In). Input nodes are connected to a node in the next layer. The
+node in the next layer takes the weighted sum of all its inputs.</p>
+<p>for example input x = ( I1, I2, I3) = ( 5, 3.2, 0.1 )</p>
+<p><span class="math display">\[Summedinput = 5 w_1 + 3.2 w_2 + 0.1w_3 \]</span></p>
+<p><img src="/img/main/perceptronex.jpg" /></p>
+<p>The output node having a threshold t. If summed input ≥ threshold, then it outputs y = 1 else it output y = 0.</p>
+<p>The single layer perceptron does not have a previous knowledge, therefore the initial weights are assign randomly.
+SLP adds all of the weighted inputs and if the addition is above the threshold (any predetermined value), SLP is known to be in the activated state i.e output=1.</p>
+<p><img src="/img/main/Perceptron_3.png" /></p>
+<p>The perceptron receives the input values and does calculations to find the predicted output. If the predicted output is the same as that of the expected output, then the performance is considered satisfactory and no changes to the weights are made. But, if the predicted output does not match the expected output, then the weights need to be adjusted to reduce the error.</p>
+<p><img src="/img/main/weight_adjestment_perceptron.png" /></p>
+</div>
+<div id="the-algorithm-is" class="section level4">
+<h4>The algorithm is</h4>
+<p>• Initially, assigning all the weights to some random values</p>
+<p>• Repeating (for many epochs):</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Feed the network with an input from one of the examples in the training set</p></li>
+<li><p>Compute the error between the output of the network and the desired output</p></li>
+<li><p>Correct the error by adjusting the weights of the nodes</p></li>
+</ol>
+<p>• Until the error is very small</p>
+<p>]</p>
+<p>A single layer percepron is simplest form of network to solve a problem with step or linear activation functions.</p>
+</div>
+<div id="single-layer-perceptron-for-xnor-problem-in-r" class="section level4">
+<h4>Single Layer Perceptron for XNOR problem in R</h4>
+<pre class="r"><code>library(neuralnet)
+XOR &lt;- c(0,1,1,0)
+xor.data &lt;- data.frame(expand.grid(c(0,1), c(0,1)), XOR)
+print(xor.data)
+print(net.xor &lt;- neuralnet(XOR~Var1+Var2, xor.data, hidden=0, rep=5))
+plot(net.xor, rep=&quot;best&quot;)
+round(predict(net.xor, data.frame(xor.data)))</code></pre>
+<p><img src="/img/main/Perceptron_R_XOR.png" /></p>
+</div>
+<div id="implementing-single-layer-perceptron-for-xnor-problem-in-python" class="section level4">
+<h4>Implementing Single Layer Perceptron for XNOR problem in Python</h4>
+<pre class="python"><code>import numpy as np
+from keras.models import Sequential
+from keras.layers.core import Dense</code></pre>
+<p>We import numpy and alias it as np</p>
+<p>Keras offers two different APIs to construct a model: a functional and a sequential one. We’re using the sequential API hence the second import of Sequential from keras.models.</p>
+<p>Neural networks consist of different layers where input data flows through and gets transformed on its way. There are a bunch of different layer types available in Keras. These different types of layer help us to model individual kinds of neural nets for various machine learning tasks. In our specific case the Dense layer is what we want.</p>
+<pre class="python"><code># the four different states of the XOR gate
+training_data = np.array([[0,0],[0,1],[1,0],[1,1]], &quot;float32&quot;)
+
+# the four expected results in the same order
+target_data = np.array([[0],[1],[1],[0]], &quot;float32&quot;)</code></pre>
+<p>We initialize training_data as a two-dimensional array (an array of arrays) where each of the inner arrays has exactly two items.</p>
+<p>We setup target_data as another two-dimensional array. All the inner arrays in target_data contain just a single item though. Each inner array of training_data relates to its counterpart in target_data.</p>
+<pre class="python"><code>model = Sequential()
+model.add(Dense(1, input_dim=2, activation=&#39;sigmoid&#39;))</code></pre>
+<p>Sets up an empty model using the Sequential API. Add a Dense layer to our model in which We set input_dim=2 because each of our input samples is an array of length 2 ([0, 1], [1, 0] etc.). 1 stand the dimension of the output for this layer. Our model means that we have two input neurons (input_dim=2) spreading into 1 neuron in output layer without any hidden layer as we are trying to mimic a single layer perceptron.</p>
+<pre class="python"><code>model.compile(loss=&#39;mean_squared_error&#39;,
+              optimizer=&#39;adam&#39;,
+              metrics=[&#39;binary_accuracy&#39;])</code></pre>
+<p>]</p>
+<p>With neural nets we always want to calculate a number (loss) that tells us how bad our model performs and then try to get that number lower.
+Mean_squared_error works as our loss function simply because it’s a well proven loss function. Then adam optimizer is usded to find the right adjustments for the weights. Last parameter metrics is the binary_accuracy which gives us access to a number that tells us exactly how accurate our predictions are.</p>
+<pre class="python"><code>model.fit(training_data, target_data, nb_epoch=500, verbose=2)</code></pre>
+<p>We kick off the training by calling model.fit(…) which require first two params, which are training and target data, the third one is the number of epochs (learning iterations), the last one tells keras how much info to print out during the training.</p>
+<pre class="python"><code>print(model.predict(training_data).round())</code></pre>
+<p>Using model.predict we can do predictions.</p>
+</div>
+<div id="summary" class="section level4">
+<h4>Summary:</h4>
+<p>McCulloch-Pitts neurons networks are computational devices, which are capable of performing any logical function. Single-Layer Perceptrons
+with step activation functions are constrained in what they can do. Adding additional hidden layers to the network will make it more powerful such that even non-linear relations can be predicted using such a neural network.</p>
+</div>
+</div>

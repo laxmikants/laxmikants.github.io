@@ -20,7 +20,6 @@ output:
 ---
 
 
-
 "Hadoop" is a Big Data Management software of the 21st century which is powered by the distributed processing and data storage and the opportunity that such distributed processing offers in terms of cost effectiveness and efficiency.
 
 However, it is imperative to understand what it means to create a Hadoop Ecosystem. Such an effort requires an entire ecosystem of support and a platform for implementation of that has to be developed and matured over a period of time. While from developers viewpoint, the face of Hadoop may be a set of jar files deployed over a set of machines providing services for navigating and working with distributed files thus enabling communication between client and Hadoop cluster for data analysis, the thinking, vision and systems that produce this end product are implemented over several years. The seeds of the Hadoop were first planted in 2002 when Doug cutting and Mike Cafarella took steps in creating a better open-source search engine. This project was as Nutch which can search over 700 million web sites and over a trillion web pages. In essence this is the first piece vision of the Hadoop Ecosystem -- Search Engine.

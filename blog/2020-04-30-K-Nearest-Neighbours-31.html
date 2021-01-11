@@ -9,7 +9,7 @@ categories: ["K nearest Neighbours"]
 tags: ["K nearest Neighbours"]
 Summary: "K nearest Neighbours"
 subtitle: K nearest Neighbours
-featured: "img/main/Neural-Networks-32.jpg"
+featured: "img/main/knnclassifier.jpg"
 output:
   html_document:
     highlight: tango
@@ -25,11 +25,9 @@ output:
 
 <div id="k-nearest-neighbours" class="section level2">
 <h2>K nearest Neighbours</h2>
-<p>Let’s assume we have several groups of labeled samples. The items present in the groups are homogeneous in nature.
-Now, suppose we have an unlabeled example which needs to be classified into one of the several labeled groups.
-How do you do that? Unhesitatingly, using kNN Algorithm. k nearest neighbors is a simple algorithm that stores
-all available cases and classifies new cases by a majority vote of its k neighbors. This algorithms segregates unlabeled
-data points into well defined groups. KNN explains a categorical value using the majority votes of nearest neighbors</p>
+<p>If there are several groups of labeled samples and the items present in the groups are homogeneous in nature.
+Now, assume that we have an unlabeled example which needs to be classified into one of those several labeled groups.
+How do we do that? Using kNN Algorithm. k nearest neighbors is an algorithm that knows all the available cases and classify the new cases by a majority vote of its k neighbors. This algorithms segregates unlabeled data points into well defined groups. KNN classifies a categorical value using the majority votes of nearest neighbors.</p>
 <div id="inputoutputparameter" class="section level4">
 <h4>Input/Output/parameter</h4>
 <p>The input to a KNN classifier can be both quantitative and qualitative. The output from a KNN classifer are categorical values which typically are the class of the data.</p>
@@ -37,9 +35,9 @@ data points into well defined groups. KNN explains a categorical value using the
 <div id="distance-metric" class="section level4">
 <h4>Distance metric</h4>
 <p>A distance metric is used to define proximity between ant two data points. The examples are Euclidean distance, Manhattan distance or Hamming distance.</p>
-<p>The Euclidean distance is used to be applied to categorical data.
-Manhattan distance is usually preferred over the more common Euclidean distance when there is high dimensionality in the data.
-Manhattan distance (or block distance) appropriate when we have a discrete data set and the Euclidean distance is appropriate when we have continuous numerical variables.</p>
+<p>The Euclidean distance is used to be applied to categorical data.</p>
+<p>Manhattan distance is used over the Euclidean distance when there is high dimensionality in the data.
+Manhattan distance (or block distance) is appropriate when we have a discrete data set and the Euclidean distance is appropriate when we have continuous numerical variables.</p>
 <p>Both Euclidean and Manhattan distances are used in case of discrete/continuous variables, whereas hamming distance is used in case of categorical variable.</p>
 </div>
 <div id="example" class="section level4">
@@ -139,10 +137,14 @@ the 1NN algorithm would classify tomato as a fruit. If we use the kNN algorithm 
 encoded using LabelEncoder.</p>
 <pre class="python"><code>from sklearn.preprocessing import LabelEncoder as le
 features = list(zip (sweetness, crunchiness))
+food_type = [&#39;fruit&#39;,&#39;protein&#39;,&#39;fruit&#39;,&#39;vegetable&#39;,&#39;vegetable&#39;,&#39;protein&#39;,&#39;fruit&#39;,&#39;vegetable&#39;,&#39;protein&#39;,&#39;fruit&#39;]
 target = le.fit_transform(food_type)
 target_lables = food_type
 target_df = pd.DataFrame(food_type,target)
 target_df</code></pre>
+<p>0:fruit,
+1:protein,
+2:vegetable</p>
 <p><code>KNeighborsClassifier</code> created with neighbors = 2. Inside the model we fit the data with the features and encoded target</p>
 <pre class="python"><code>model = KNeighborsClassifier(n_neighbors=2)
 model.fit(features,target)</code></pre>
@@ -154,14 +156,14 @@ print(predicted)</code></pre>
 </div>
 <div id="choosing-an-appropriate-k" class="section level4">
 <h4>Choosing an appropriate k</h4>
-<p>Deciding how many neighbors to use for kNN determines how well the model will generalize to future data. The balance between
-overfitting and underfitting the training data is a problem known as the bias-variance tradeoff. Choosing large k reduces the variance caused by noisy data, but it can bias the learner and can run the risk of ignoring small but important patterns.</p>
-<p>Smaller k values allow more complex decision boundaries that more carefully fit the training data and can overfit the learner.
-In practice, choosing k depends on the difficulty of the concept to be learned and the number of records in the training data.
-Typically, k is set between 3 and 10. One common practice is to set k equal to the square root of the number of training example.
-In the food classifier, we might set it to 4 assuming there were 15 examples in the training data set.An alternative value is to test several values of k on a variety of
-test datasets and choose the one that delivers the best classification performance
-Because the majority class among these neighbors is fruit (2 out of 3 votes), the tomato again is classified as a fruit.</p>
+<p>Deciding how many neighbrs to be used for kNN determines how well the model will generalize to future data. The balance between
+overfitting or underfitting the training data is a problem called as the bias/variance tradeoff. Choosing greater k reduce the variance caused by noisy data, but it can bias the learner and can run the risk of ignoring small but important patterns.</p>
+<p>Smaller k values cause complex decision boundaries that more carefully fit the training data and can overfit.</p>
+<p>In practice, choosing k-value depends on the complexity of the concept to be learned and the number of records in the training data.</p>
+<p>Generally, k is set between 3 and 10. One common practice is setting the k equal to the square root of the number of training example.</p>
+<p>In the food classifier, we can set it to 4 assuming that there are 15 examples in the training data set.
+An alternative value is to test multiple values of k on different test datasets and select the one that delivers the best classification performance.</p>
+<p>In the example above because the majority class among these neighbors is fruit (2 out of 3 votes), the tomato again is classified as a fruit.</p>
 </div>
 <div id="algorithm" class="section level4">
 <h4>Algorithm</h4>
@@ -176,12 +178,32 @@ Because the majority class among these neighbors is fruit (2 out of 3 votes), th
 </div>
 <div id="k-fold-cross-validation" class="section level4">
 <h4>K fold cross validation</h4>
-<p>For evaluating the performance of a classifier, one approach is to separate the data you have into a
-training and test set. However, it can be difficult to decide what the ratio should be between the
-sets. Outliers and other factors could greatly influence the results of how the classifier is built and the
-reported accuracy.
-Another approach is known as k-fold cross validation. In this approach, the data is divided up in to
-k equally sized pieces. One of these pieces is saved for test data and the remaining k − 1 pieces are
-used for training. You then buid your model k times, rotating the piece you use for testing. You can judge the performance of the classifier on its average accuracy and standard dev.</p>
+<p>In order to evaluate the performance of KNN classifier there are different approaches.
+One approach is separating the data have into a training and test set. but it can be difficult to decide what the ratio should be between the
+sets. Outliers and other factor will greatly influence the results of how the classifier is built and the
+reported accuracy.</p>
+<p>Another approach is called as k-fold cross validation. In this approach, the data is divided up in to k equally sized pieces. One of these pieces is saved for test data and the remaining k − 1 pieces are used for training. We then buiid the model k times, rotating the piece we use for testing. We can judge the performance of the classifier on its average accuracy and standard dev.</p>
+</div>
+<div id="k-fold-example" class="section level4">
+<h4>k fold example</h4>
+<p>Split the dataset into K equal partitions (or “folds”) therefore if k = 4 and dataset has 120 observations then each of the 4 folds will have 30 observations. After that make use of the fold 1 as the testing set and the union of the other folds as the training set. Therefore in this case we will have testing set = 30 observations (fold 1), Training set = 90 observations (folds 2-4). After that calculate the testing accuracy. There after by repeating above steps K times, using a different fold as the testing set each time. We will need to repeat the process 4 times. In 2nd iteration fold 2 will be testing set and union of 1,3,4 will be training set and so on..Finally use the mean testing accuracy as the estimate of out-of-sample accuracy.</p>
+<p><img src="/img/main/cross_validation_diagram.png" /></p>
+<pre class="python"><code># simulate splitting a dataset of 25 observations into 5 folds
+from sklearn.model_selection import KFold
+import numpy as np
+kf = KFold(n_splits=5, random_state=None, shuffle=False)
+Vec = np.arange(0,25)
+# print the contents of each training and testing set
+print(&#39;{} {:^61} {}&#39;.format(&#39;Iteration&#39;, 
+                            &#39;Training set observations&#39;, 
+                            &#39;Testing set observations&#39;))</code></pre>
+<pre><code>## Iteration                   Training set observations                   Testing set observations</code></pre>
+<pre class="python"><code>for iteration, data in enumerate(kf.split(Vec), start=1):
+   print(&#39;{:^9} {} {!s:^25}&#39;.format(iteration, data[0], data[1]))</code></pre>
+<pre><code>##     1     [ 5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24]        [0 1 2 3 4]       
+##     2     [ 0  1  2  3  4 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24]        [5 6 7 8 9]       
+##     3     [ 0  1  2  3  4  5  6  7  8  9 15 16 17 18 19 20 21 22 23 24]     [10 11 12 13 14]     
+##     4     [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 20 21 22 23 24]     [15 16 17 18 19]     
+##     5     [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]     [20 21 22 23 24]</code></pre>
 </div>
 </div>

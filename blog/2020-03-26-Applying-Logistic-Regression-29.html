@@ -26,15 +26,11 @@ output:
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
-<div id="TOC">
-<ul>
-<li><a href="#z-scores"><span class="toc-section-number">0.1</span> z-scores</a></li>
-</ul>
-</div>
 
 <p><strong><em>1:Loading Stock data</em></strong></p>
 <p><strong><em>1.1:Importing libraries and data</em></strong></p>
-<pre class="python"><code>import investpy
+<p class="nocopy">
+<pre class="python nocopy"><code>import investpy
 from datetime import datetime
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
@@ -46,93 +42,161 @@ import seaborn as sn
 import matplotlib.pyplot as plt
 import talib
 import quandl</code></pre>
+</p>
 <p><strong><em>1.2:Fetching the data</em></strong></p>
 <p>To fetch the stock data we use <code>investpy</code> library. This library fetchs data from investing for example:</p>
 <pre class="python"><code>df = investpy.commodities.get_commodity_historical_data(stock=&#39;ABC&#39;,from_date=&#39;01/01/2015&#39;,to_date=&#39;14/08/2020&#39;, country = &quot;India&quot;)</code></pre>
-<pre class="python"><code></code></pre>
+<pre><code>##                Open     High      Low    Close  Volume Currency
+## Date                                                           
+## 2020-01-01  46728.0  46799.0  46315.0  46674.0   21899      INR
+## 2020-01-02  46708.0  47202.0  46594.0  47048.0   84481      INR
+## 2020-01-03  47100.0  47927.0  47100.0  47540.0  103394      INR
+## 2020-01-06  47680.0  48687.0  47361.0  47559.0  111379      INR
+## 2020-01-07  47507.0  48190.0  47200.0  48134.0  118498      INR
+## ...             ...      ...      ...      ...     ...      ...
+## 2021-01-04  68410.0  70600.0  68410.0  69905.0  282309      INR
+## 2021-01-05  70110.0  70900.0  70000.0  70777.0  213294      INR
+## 2021-01-06  70615.0  71412.0  68600.0  69342.0  360834      INR
+## 2021-01-07  69252.0  70198.0  69252.0  69898.0  238639      INR
+## 2021-01-08  69838.0  69838.0  63621.0  64348.0  437809      INR
+## 
+## [264 rows x 6 columns]</code></pre>
+<p><strong><em>1.2.1: Determining position based on volume and close</em></strong></p>
+<pre class="python"><code>
+pd.set_option(&#39;display.max_columns&#39;, None)
+
+df2 = df[[&#39;Open&#39;,&#39;High&#39;,&#39;Low&#39;,&#39;Close&#39;,&#39;Volume&#39;]]
+
+
+
+
+
+diffdf = df2.diff()[1:]
+
+print(diffdf.tail(10))</code></pre>
+<pre><code>##               Open    High     Low   Close    Volume
+## Date                                                
+## 2020-12-28  -273.0  1908.0   745.0  1288.0   54526.0
+## 2020-12-29  1250.0  -781.0   251.0  -712.0   -9269.0
+## 2020-12-30  -550.0   -43.0   339.0   485.0  -74672.0
+## 2020-12-31   451.0  -261.0  -190.0  -452.0  -17233.0
+## 2021-01-01  -581.0  -383.0   -85.0   -26.0 -115116.0
+## 2021-01-04   390.0  2310.0   645.0  1845.0  254625.0
+## 2021-01-05  1700.0   300.0  1590.0   872.0  -69015.0
+## 2021-01-06   505.0   512.0 -1400.0 -1435.0  147540.0
+## 2021-01-07 -1363.0 -1214.0   652.0   556.0 -122195.0
+## 2021-01-08   586.0  -360.0 -5631.0 -5550.0  199170.0</code></pre>
+<pre class="python"><code>df2[&#39;Pos&#39;] = np.where((df2[&#39;Volume&#39;] &gt; df2[&#39;Volume&#39;].shift(1)) &amp; ((df2[&#39;Close&#39;] &gt;= df2[&#39;Close&#39;].shift(1))),&quot;UP&quot;,&quot;DOWN&quot;)
+
+df2[&#39;Str&#39;] = np.where((df2[&#39;Open&#39;] &gt; df2[&#39;Close&#39;].shift(1)),&quot;Buy&quot;,&quot;Sell&quot;)
+
+df2[&#39;SL&#39;] = np.where((df2[&#39;Str&#39;] == &#39;Buy&#39;),df2[&#39;Close&#39;].shift(1), df2[&#39;High&#39;].shift(1))
+
+
+print(df2.tail(20))
+</code></pre>
+<pre><code>##                Open     High      Low    Close  Volume   Pos   Str       SL
+## Date                                                                       
+## 2020-12-11  63611.0  63890.0  62762.0  63751.0  216360  DOWN   Buy  63531.0
+## 2020-12-14  63540.0  64040.0  62775.0  63459.0  224280  DOWN  Sell  63890.0
+## 2020-12-15  63550.0  64925.0  63475.0  64826.0  202625  DOWN   Buy  63459.0
+## 2020-12-16  64950.0  66720.0  64950.0  65887.0  276515    UP   Buy  64826.0
+## 2020-12-17  66187.0  68334.0  66187.0  68183.0  270267  DOWN   Buy  65887.0
+## 2020-12-18  68195.0  68280.0  67316.0  67860.0  200090  DOWN   Buy  68183.0
+## 2020-12-21  68200.0  71490.0  65299.0  68972.0  437811    UP   Buy  67860.0
+## 2020-12-22  69158.0  69654.0  66535.0  66832.0  324111  DOWN   Buy  68972.0
+## 2020-12-23  66811.0  67723.0  66300.0  67539.0  252366  DOWN  Sell  69654.0
+## 2020-12-24  67723.0  67850.0  66705.0  67477.0  189448  DOWN   Buy  67539.0
+## 2020-12-28  67450.0  69758.0  67450.0  68765.0  243974    UP  Sell  67850.0
+## 2020-12-29  68700.0  68977.0  67701.0  68053.0  234705  DOWN  Sell  69758.0
+## 2020-12-30  68150.0  68934.0  68040.0  68538.0  160033  DOWN   Buy  68053.0
+## 2020-12-31  68601.0  68673.0  67850.0  68086.0  142800  DOWN   Buy  68538.0
+## 2021-01-01  68020.0  68290.0  67765.0  68060.0   27684  DOWN  Sell  68673.0
+## 2021-01-04  68410.0  70600.0  68410.0  69905.0  282309    UP   Buy  68060.0
+## 2021-01-05  70110.0  70900.0  70000.0  70777.0  213294  DOWN   Buy  69905.0
+## 2021-01-06  70615.0  71412.0  68600.0  69342.0  360834  DOWN  Sell  70900.0
+## 2021-01-07  69252.0  70198.0  69252.0  69898.0  238639  DOWN  Sell  71412.0
+## 2021-01-08  69838.0  69838.0  63621.0  64348.0  437809  DOWN  Sell  70198.0</code></pre>
+<p><strong><em>1.2.2: Determining Average monthly closing prices</em></strong></p>
 <pre><code>##               Open    High     Low   Close  Volume
 ## Date                                              
-## 2019-12-02  44.290  44.416  44.077  44.344     354
-## 2019-12-03  44.250  44.985  44.150  44.620     138
-## 2019-12-04  44.949  45.100  44.100  44.392      34
-## 2019-12-05  44.200  45.287  43.850  44.064      44
-## 2019-12-06  44.599  44.714  43.470  43.545   24469
+## 2020-01-01  46.728  46.799  46.315  46.674   21899
+## 2020-01-02  46.708  47.202  46.594  47.048   84481
+## 2020-01-03  47.100  47.927  47.100  47.540  103394
+## 2020-01-06  47.680  48.687  47.361  47.559  111379
+## 2020-01-07  47.507  48.190  47.200  48.134  118498
 ## ...            ...     ...     ...     ...     ...
-## 2020-12-07  63.643  65.650  62.380  65.499   26874
-## 2020-12-08  65.388  65.817  64.576  65.192   20209
-## 2020-12-09  64.521  64.804  63.171  63.499   26603
-## 2020-12-10  63.747  64.399  62.931  63.530   19637
-## 2020-12-11  63.459  63.935  62.700  63.735   19691
+## 2021-01-04  68.410  70.600  68.410  69.905  282309
+## 2021-01-05  70.110  70.900  70.000  70.777  213294
+## 2021-01-06  70.615  71.412  68.600  69.342  360834
+## 2021-01-07  69.252  70.198  69.252  69.898  238639
+## 2021-01-08  69.838  69.838  63.621  64.348  437809
 ## 
-## [266 rows x 5 columns]</code></pre>
+## [264 rows x 5 columns]</code></pre>
 <pre><code>## Date
-## 2019-12-31    44.881810
-## 2020-01-31    46.695000
-## 2020-02-29    46.520429
-## 2020-03-31    41.378909
-## 2020-04-30    42.363278
-## 2020-05-31    45.519857
-## 2020-06-30    48.408409
-## 2020-07-31    55.729304
-## 2020-08-31    68.659667
-## 2020-09-30    65.037545
-## 2020-10-31    61.676524
-## 2020-11-30    62.029773
-## 2020-12-31    63.408778
+## 2020-01-31    46.715435
+## 2020-02-29    46.769810
+## 2020-03-31    42.008682
+## 2020-04-30    43.175278
+## 2020-05-31    46.064714
+## 2020-06-30    48.667409
+## 2020-07-31    55.923957
+## 2020-08-31    68.698238
+## 2020-09-30    65.459455
+## 2020-10-31    61.675571
+## 2020-11-30    62.081364
+## 2020-12-31    65.897045
+## 2021-01-31    68.721667
 ## Freq: M, Name: Close, dtype: float64</code></pre>
-<pre><code>##               Open    High     Low   Close  Volume Currency  usdinr  usdsilver
-## Date                                                                          
-## 2019-12-02  44.290  44.416  44.077  44.344     354      INR  71.634     17.141
-## 2019-12-03  44.250  44.985  44.150  44.620     138      INR  71.740     17.422
-## 2019-12-04  44.949  45.100  44.100  44.392      34      INR  71.474     17.088
-## 2019-12-05  44.200  45.287  43.850  44.064      44      INR  71.252     17.227
-## 2019-12-06  44.599  44.714  43.470  43.545   24469      INR  71.283     16.763
-## ...            ...     ...     ...     ...     ...      ...     ...        ...
-## 2020-12-07  63.643  65.650  62.380  65.499   26874      INR  73.826     24.794
-## 2020-12-08  65.388  65.817  64.576  65.192   20209      INR  73.720     24.736
-## 2020-12-09  64.521  64.804  63.171  63.499   26603      INR  73.720     23.990
-## 2020-12-10  63.747  64.399  62.931  63.530   19637      INR  73.740     24.094
-## 2020-12-11  63.459  63.935  62.700  63.735   19691      INR  73.736     24.092
-## 
-## [266 rows x 8 columns]</code></pre>
-<div id="z-scores" class="section level2" number="0.1">
-<h2><span class="header-section-number">0.1</span> z-scores</h2>
+<pre><code>## meanprice is  54.87906439393939</code></pre>
+<p><strong><em>1.2.3: Technical moving averages</em></strong></p>
+<pre class="python"><code>
+data = investpy.moving_averages(name=&#39;MCX Silver Micro&#39;, country=&#39;India&#39;, product_type=&#39;commodity&#39;, interval=&#39;daily&#39;)
+print(data.head())</code></pre>
+<pre><code>##   period  sma_value sma_signal   ema_value ema_signal
+## 0      5   68770.00       sell  67641.9077       sell
+## 1     10   68535.20       sell  68004.1237       sell
+## 2     20   67506.90       sell  67225.6626       sell
+## 3     50   64548.70       sell  65637.9593       sell
+## 4    100   64262.53       sell  62938.1307        buy</code></pre>
+<p><strong><em>1.2.4: Determining the z-scores</em></strong></p>
 <pre class="python"><code>
 df[&#39;zscore&#39;] = stats.zscore(df[&#39;Close&#39;])
 
 print(df[&#39;zscore&#39;].tail(30))</code></pre>
 <pre><code>## Date
-## 2020-11-03    1.012342
-## 2020-11-04    0.878218
-## 2020-11-05    1.174615
-## 2020-11-06    1.286592
-## 2020-11-09    0.822851
-## 2020-11-10    1.049495
-## 2020-11-11    0.997439
-## 2020-11-12    1.017930
-## 2020-11-13    1.120800
-## 2020-11-14    1.107864
-## 2020-11-16    1.116453
-## 2020-11-17    1.070607
-## 2020-11-18    0.997646
-## 2020-11-19    0.890741
-## 2020-11-20    0.957802
-## 2020-11-23    0.788802
-## 2020-11-24    0.695247
-## 2020-11-25    0.718222
-## 2020-11-26    0.721327
-## 2020-11-27    0.768932
-## 2020-11-30    0.643605
-## 2020-12-01    0.932965
-## 2020-12-02    0.957285
-## 2020-12-03    1.012031
-## 2020-12-04    0.990195
-## 2020-12-07    1.303564
-## 2020-12-08    1.271793
-## 2020-12-09    1.096583
-## 2020-12-10    1.099791
-## 2020-12-11    1.121007
+## 2020-11-27    0.556071
+## 2020-11-30    0.536449
+## 2020-12-01    0.831393
+## 2020-12-02    0.846789
+## 2020-12-03    0.877783
+## 2020-12-04    0.895393
+## 2020-12-07    1.066363
+## 2020-12-08    1.032149
+## 2020-12-09    0.872551
+## 2020-12-10    0.870639
+## 2020-12-11    0.892777
+## 2020-12-14    0.863393
+## 2020-12-15    1.000954
+## 2020-12-16    1.107721
+## 2020-12-17    1.338766
+## 2020-12-18    1.306263
+## 2020-12-21    1.418163
+## 2020-12-22    1.202816
+## 2020-12-23    1.273961
+## 2020-12-24    1.267722
+## 2020-12-28    1.397333
+## 2020-12-29    1.325684
+## 2020-12-30    1.374490
+## 2020-12-31    1.329005
+## 2021-01-01    1.326389
+## 2021-01-04    1.512050
+## 2021-01-05    1.599799
+## 2021-01-06    1.455396
+## 2021-01-07    1.511346
+## 2021-01-08    0.952853
 ## Name: zscore, dtype: float64</code></pre>
+<p><strong><em>1.2.5: Determining the daily support and resistance levels</em></strong></p>
 <pre class="python"><code>pd.set_option(&#39;display.max_columns&#39;, 10)
 PP = pd.Series((df[&#39;High&#39;] + df[&#39;Low&#39;] + df[&#39;Close&#39;]) / 3)  
 R1 = pd.Series(2 * PP - df[&#39;Low&#39;])  
@@ -146,19 +210,19 @@ PSR = pd.DataFrame(psr)
 print(PSR.tail())</code></pre>
 <pre><code>##                    PP         R1         S1         R2         S2         R3  \
 ## Date                                                                           
-## 2020-12-07  64.509667  66.639333  63.369333  67.779667  61.239667  69.909333   
-## 2020-12-08  65.195000  65.814000  64.573000  66.436000  63.954000  67.055000   
-## 2020-12-09  63.824667  64.478333  62.845333  65.457667  62.191667  66.111333   
-## 2020-12-10  63.620000  64.309000  62.841000  65.088000  62.152000  65.777000   
-## 2020-12-11  63.456667  64.213333  62.978333  64.691667  62.221667  65.448333   
+## 2021-01-04  69.638333  70.866667  68.676667  71.828333  67.448333  73.056667   
+## 2021-01-05  70.559000  71.118000  70.218000  71.459000  69.659000  72.018000   
+## 2021-01-06  69.784667  70.969333  68.157333  72.596667  66.972667  73.781333   
+## 2021-01-07  69.782667  70.313333  69.367333  70.728667  68.836667  71.259333   
+## 2021-01-08  65.935667  68.250333  62.033333  72.152667  59.718667  74.467333   
 ## 
 ##                    S3  
 ## Date                   
-## 2020-12-07  60.099333  
-## 2020-12-08  63.332000  
-## 2020-12-09  61.212333  
-## 2020-12-10  61.373000  
-## 2020-12-11  61.743333</code></pre>
+## 2021-01-04  66.486667  
+## 2021-01-05  69.318000  
+## 2021-01-06  65.345333  
+## 2021-01-07  68.421333  
+## 2021-01-08  55.816333</code></pre>
 <p>As we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.</p>
 <p><code>Open:</code> That’s the share price the stock had when the markets opened that day.</p>
 <p><code>Close:</code> That’s the share price the stock had when the markets closed that day.</p>
@@ -169,10 +233,10 @@ print(PSR.tail())</code></pre>
 <p>Since our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using <code>print (df[ 'Close' ])</code></p>
 <p>Also, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.</p>
 <pre class="python"><code>print (df[ &#39;Close&#39; ][ &#39;2020-07-14&#39; ])</code></pre>
-<pre><code>## 52.649</code></pre>
+<pre><code>## 52.701</code></pre>
 <p>But we could also use simple indexing to access certain positions.</p>
 <pre class="python"><code>print (df[ &#39;Close&#39; ][ 5 ])</code></pre>
-<pre><code>## 43.502</code></pre>
+<pre><code>## 47.426</code></pre>
 <p>Here we printed the closing price of the fifth entry.</p>
 <p><strong><em>2:Graphical Visualization</em></strong></p>
 <p>Even though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.</p>
@@ -223,6 +287,20 @@ From our data we can derive some statistical values that will help us to analyze
 <p>One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.</p>
 <pre class="python"><code>df[ &#39;PCT_Change&#39; ] = (df[ &#39;Close&#39; ] - df[ &#39;Open&#39; ]) / df[ &#39;Open&#39; ]</code></pre>
 <p>The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.</p>
+<pre class="python"><code>df[[&quot;PCT_Change&quot;]].describe()</code></pre>
+<pre><code>##        PCT_Change
+## count  264.000000
+## mean     0.001234
+## std      0.024244
+## min     -0.107200
+## 25%     -0.007793
+## 50%      0.002471
+## 75%      0.011362
+## max      0.062274</code></pre>
+<pre class="python"><code>print(df[[&quot;Close&quot;]].tail(1))</code></pre>
+<pre><code>##              Close
+## Date              
+## 2021-01-08  64.348</code></pre>
 <p>*** <code>HIGH LOW PERCENTAGE</code> ***</p>
 <p>Another interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.</p>
 <p>By doing that we can get a feeling of how volatile the stock is.</p>
@@ -230,19 +308,19 @@ From our data we can derive some statistical values that will help us to analyze
 print(df.tail())</code></pre>
 <pre><code>##               Open    High     Low   Close  Volume  ...  usdinr  usdsilver  \
 ## Date                                                ...                      
-## 2020-12-07  63.643  65.650  62.380  65.499   26874  ...  73.826     24.794   
-## 2020-12-08  65.388  65.817  64.576  65.192   20209  ...  73.720     24.736   
-## 2020-12-09  64.521  64.804  63.171  63.499   26603  ...  73.720     23.990   
-## 2020-12-10  63.747  64.399  62.931  63.530   19637  ...  73.740     24.094   
-## 2020-12-11  63.459  63.935  62.700  63.735   19691  ...  73.736     24.092   
+## 2021-01-04  68.410  70.600  68.410  69.905  282309  ...  73.070    69905.0   
+## 2021-01-05  70.110  70.900  70.000  70.777  213294  ...  73.120    70777.0   
+## 2021-01-06  70.615  71.412  68.600  69.342  360834  ...  73.118    69342.0   
+## 2021-01-07  69.252  70.198  69.252  69.898  238639  ...  73.420    69898.0   
+## 2021-01-08  69.838  69.838  63.621  64.348  437809  ...  73.330    64348.0   
 ## 
 ##               zscore  PCT_Change    HL_PCT  
 ## Date                                        
-## 2020-12-07  1.303564    0.029163  0.049924  
-## 2020-12-08  1.271793   -0.002997  0.019036  
-## 2020-12-09  1.096583   -0.015840  0.025717  
-## 2020-12-10  1.099791   -0.003404  0.023107  
-## 2020-12-11  1.121007    0.004349  0.019377  
+## 2021-01-04  1.512050    0.021854  0.031328  
+## 2021-01-05  1.599799    0.009514  0.012716  
+## 2021-01-06  1.455396   -0.018027  0.040553  
+## 2021-01-07  1.511346    0.009328  0.013534  
+## 2021-01-08  0.952853   -0.078610  0.096615  
 ## 
 ## [5 rows x 11 columns]</code></pre>
 <p>These statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making</p>
@@ -266,13 +344,13 @@ df[&#39;200d_ma&#39;] = round(df[ &#39;Close&#39; ].rolling(window = 200, min_pe
 print(df[[&#39;Close&#39;,&#39;5d_ma&#39;,&#39;20d_ma&#39;,&#39;50d_ma&#39;,&#39;100d_ma&#39;,&#39;200d_ma&#39;]].tail(7))</code></pre>
 <pre><code>##              Close  5d_ma  20d_ma  50d_ma  100d_ma  200d_ma
 ## Date                                                       
-## 2020-12-03  62.682  61.24   61.79   61.77    63.91    54.64
-## 2020-12-04  62.471  61.67   61.87   61.84    64.00    54.71
-## 2020-12-07  65.499  62.94   61.99   61.94    64.12    54.80
-## 2020-12-08  65.192  63.60   62.12   61.99    64.20    54.89
-## 2020-12-09  63.499  63.87   62.16   62.07    64.22    54.98
-## 2020-12-10  63.530  64.04   62.15   62.11    64.24    55.08
-## 2020-12-11  63.735  64.29   62.16   62.15    64.27    55.17</code></pre>
+## 2020-12-31  68.086  68.18   66.17   63.67    64.27    57.08
+## 2021-01-01  68.060  68.30   66.39   63.78    64.24    57.24
+## 2021-01-04  69.905  68.53   66.69   63.94    64.27    57.40
+## 2021-01-05  70.777  69.07   66.96   64.11    64.28    57.55
+## 2021-01-06  69.342  69.23   67.17   64.29    64.28    57.68
+## 2021-01-07  69.898  69.60   67.49   64.49    64.30    57.83
+## 2021-01-08  64.348  68.85   67.53   64.56    64.27    57.94</code></pre>
 <p>Here we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.</p>
 <p>By using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.</p>
 <p>*** <code>Standard Deviation</code> ***</p>
@@ -280,13 +358,13 @@ print(df[[&#39;Close&#39;,&#39;5d_ma&#39;,&#39;20d_ma&#39;,&#39;50d_ma&#39;,&#39
 <pre class="python"><code>df[&#39;Std_dev&#39;]= df[&#39;Close&#39;].rolling(7).std()  
 print(df[&#39;Std_dev&#39;].tail(7))</code></pre>
 <pre><code>## Date
-## 2020-12-03    1.379397
-## 2020-12-04    1.417915
-## 2020-12-07    2.000723
-## 2020-12-08    2.152803
-## 2020-12-09    1.456908
-## 2020-12-10    1.314193
-## 2020-12-11    1.155288
+## 2020-12-31    0.666225
+## 2021-01-01    0.471910
+## 2021-01-04    0.774900
+## 2021-01-05    1.061925
+## 2021-01-06    1.073531
+## 2021-01-07    1.037955
+## 2021-01-08    2.133321
 ## Name: Std_dev, dtype: float64</code></pre>
 <p>*** <code>Relative Strength Index</code> ***</p>
 <p>The relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.</p>
@@ -294,11 +372,11 @@ print(df[&#39;Std_dev&#39;].tail(7))</code></pre>
 print(df[[&#39;RSI&#39;]].tail())</code></pre>
 <pre><code>##                   RSI
 ## Date                 
-## 2020-12-07  70.157680
-## 2020-12-08  67.720435
-## 2020-12-09  55.712970
-## 2020-12-10  55.874139
-## 2020-12-11  57.037305</code></pre>
+## 2021-01-04  69.909560
+## 2021-01-05  73.308013
+## 2021-01-06  60.630555
+## 2021-01-07  63.390202
+## 2021-01-08  35.469729</code></pre>
 <p>*** <code>Wiliams %R</code> ***</p>
 <p>Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today’s close was the highest high of the past N days.</p>
 <pre class="python"><code>df[&#39;Williams %R&#39;] = talib.WILLR(df[&#39;High&#39;].values,df[&#39;Low&#39;].values, df[&#39;Close&#39;].values, 7)
@@ -306,13 +384,13 @@ print(df[[&#39;RSI&#39;]].tail())</code></pre>
 print(df[[&#39;Williams %R&#39;]].tail(7))</code></pre>
 <pre><code>##             Williams %R
 ## Date                   
-## 2020-12-03    -6.832061
-## 2020-12-04   -13.016760
-## 2020-12-07    -1.923567
-## 2020-12-08    -7.795934
-## 2020-12-09   -36.764473
-## 2020-12-10   -52.071949
-## 2020-12-11   -53.193664</code></pre>
+## 2020-12-31   -48.351648
+## 2021-01-01   -49.103528
+## 2021-01-04   -17.843389
+## 2021-01-05    -3.565217
+## 2021-01-06   -55.780113
+## 2021-01-07   -41.513573
+## 2021-01-08   -90.668720</code></pre>
 <p>Readings below -80 represent oversold territory and readings above -20 represent overbought.</p>
 <p>*** <code>ADX</code> ***</p>
 <p>ADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.</p>
@@ -335,13 +413,13 @@ df[&#39;ADX&#39;] = talib.ADX(df[&#39;High&#39;].values,df[&#39;Low&#39;].values
 print(df[[&#39;ADX&#39;]].tail(7))</code></pre>
 <pre><code>##                   ADX
 ## Date                 
-## 2020-12-03  30.401402
-## 2020-12-04  27.995900
-## 2020-12-07  30.272355
-## 2020-12-08  32.438747
-## 2020-12-09  29.960885
-## 2020-12-10  27.180659
-## 2020-12-11  24.120367</code></pre>
+## 2020-12-31  62.817443
+## 2021-01-01  63.420397
+## 2021-01-04  65.914626
+## 2021-01-05  68.215931
+## 2021-01-06  63.800084
+## 2021-01-07  60.015072
+## 2021-01-08  57.362494</code></pre>
 <p>*** <code>MACD</code> ***</p>
 <p>Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security’s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.</p>
 <pre class="python"><code>ShortEMA = df.Close.ewm(span=12, adjust=False).mean() #AKA Fast moving average
@@ -361,11 +439,11 @@ df[&#39;MACD_IND&#39;] = df[&#39;MACD&#39;] - df[&#39;Signal Line&#39;]
 print(df[[&#39;MACD_IND&#39;]].tail())</code></pre>
 <pre><code>##             MACD_IND
 ## Date                
-## 2020-12-07  0.394404
-## 2020-12-08  0.500001
-## 2020-12-09  0.433237
-## 2020-12-10  0.370972
-## 2020-12-11  0.325052</code></pre>
+## 2021-01-04  0.135087
+## 2021-01-05  0.207348
+## 2021-01-06  0.137005
+## 2021-01-07  0.107717
+## 2021-01-08 -0.284219</code></pre>
 <p>*** <code>Bollinger Bands</code> ***</p>
 <p>Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.</p>
 <pre class="python"><code>
@@ -374,7 +452,7 @@ from talib import MA_Type
 upper, middle, lower = talib.BBANDS(df[&#39;Close&#39;].values, matype=MA_Type.T3)
 
 print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))</code></pre>
-<pre><code>## 65.92 64.18 62.44</code></pre>
+<pre><code>## 73.79 69.19 64.59</code></pre>
 <p>In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.</p>
 <pre class="python"><code>df.dropna( inplace = True )</code></pre>
 <p>We do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted</p>
@@ -388,8 +466,7 @@ no_lags = 6
 for i in range(0, no_lags):
     tslagret[&quot;Lag%s&quot; % str(i + 1)] = df[&quot;Close&quot;].shift(i + 1)</code></pre>
 <p><strong><em>3.2: Creating returns dataframe</em></strong></p>
-<pre class="python"><code>
-df_ret = pd.DataFrame(index=tslagret.index)
+<pre class="python"><code>df_ret = pd.DataFrame(index=tslagret.index)
 df_ret[&quot;Today&quot;] = tslagret[&quot;Today&quot;].pct_change()*100.0</code></pre>
 <p><strong><em>3.2: create the lagged percentage returns columns</em></strong></p>
 <pre class="python"><code>for i in range(0, no_lags):
@@ -439,41 +516,41 @@ y = data[&quot;Direction&quot;]
 print(X.tail())</code></pre>
 <pre><code>##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...  200d_ma  \
 ## Date                                                          ...            
-## 2020-12-07 -0.336620  0.851125  0.379534  4.729204 -2.007193  ...    54.80   
-## 2020-12-08  4.847049 -0.336620  0.851125  0.379534  4.729204  ...    54.89   
-## 2020-12-09 -0.468709  4.847049 -0.336620  0.851125  0.379534  ...    54.98   
-## 2020-12-10 -2.596944 -0.468709  4.847049 -0.336620  0.851125  ...    55.08   
-## 2020-12-11  0.048820 -2.596944 -0.468709  4.847049 -0.336620  ...    55.17   
+## 2021-01-04 -0.038187 -0.659488  0.712680 -1.035410  1.908799  ...    57.40   
+## 2021-01-05  2.710843 -0.038187 -0.659488  0.712680 -1.035410  ...    57.55   
+## 2021-01-06  1.247407  2.710843 -0.038187 -0.659488  0.712680  ...    57.68   
+## 2021-01-07 -2.027495  1.247407  2.710843 -0.038187 -0.659488  ...    57.83   
+## 2021-01-08  0.801823 -2.027495  1.247407  2.710843 -0.038187  ...    57.94   
 ## 
 ##              Std_dev        RSI  Williams %R  MACD_IND  
 ## Date                                                    
-## 2020-12-07  2.000723  70.157680    -1.923567  0.394404  
-## 2020-12-08  2.152803  67.720435    -7.795934  0.500001  
-## 2020-12-09  1.456908  55.712970   -36.764473  0.433237  
-## 2020-12-10  1.314193  55.874139   -52.071949  0.370972  
-## 2020-12-11  1.155288  57.037305   -53.193664  0.325052  
+## 2021-01-04  0.774900  69.909560   -17.843389  0.135087  
+## 2021-01-05  1.061925  73.308013    -3.565217  0.207348  
+## 2021-01-06  1.073531  60.630555   -55.780113  0.137005  
+## 2021-01-07  1.037955  63.390202   -41.513573  0.107717  
+## 2021-01-08  2.133321  35.469729   -90.668720 -0.284219  
 ## 
 ## [5 rows x 16 columns]</code></pre>
 <pre class="python"><code>data.describe()</code></pre>
 <pre><code>##             Today        Lag1        Lag2        Lag3        Lag4        Lag5  \
-## count  244.000000  244.000000  244.000000  244.000000  244.000000  244.000000   
-## mean     0.160690    0.158399    0.159451    0.172888    0.182393    0.169437   
-## std      2.618664    2.618766    2.618773    2.612977    2.614851    2.599430   
-## min    -11.221052  -11.221052  -11.221052  -11.221052  -11.221052  -11.221052   
-## 25%     -0.878006   -0.878006   -0.878006   -0.855045   -0.855045   -0.855045   
-## 50%      0.182187    0.167419    0.182187    0.203833    0.215973    0.215973   
-## 75%      1.198904    1.198904    1.198904    1.198904    1.229736    1.229736   
-## max      7.031671    7.031671    7.031671    7.031671    7.031671    7.031671   
+## count  242.000000  242.000000  242.000000  242.000000  242.000000  242.000000   
+## mean     0.177501    0.196858    0.194161    0.207454    0.203622    0.193190   
+## std      2.600534    2.556929    2.556632    2.553394    2.552523    2.547387   
+## min    -11.142960  -11.142960  -11.142960  -11.142960  -11.142960  -11.142960   
+## 25%     -0.741985   -0.741985   -0.741985   -0.730271   -0.730271   -0.730271   
+## 50%      0.251184    0.251184    0.230260    0.251184    0.251184    0.230260   
+## 75%      1.422146    1.422146    1.422146    1.422146    1.422146    1.360934   
+## max      7.004323    7.004323    7.004323    7.004323    7.004323    7.004323   
 ## 
 ##              Lag6   Direction  
-## count  244.000000  244.000000  
-## mean     0.171805    0.106557  
-## std      2.599230    0.996350  
-## min    -11.221052   -1.000000  
-## 25%     -0.855045   -1.000000  
-## 50%      0.224232    1.000000  
-## 75%      1.229736    1.000000  
-## max      7.031671    1.000000</code></pre>
+## count  242.000000  242.000000  
+## mean     0.188457    0.090909  
+## std      2.548882    0.997923  
+## min    -11.142960   -1.000000  
+## 25%     -0.741985   -1.000000  
+## 50%      0.230260    1.000000  
+## 75%      1.360934    1.000000  
+## max      7.004323    1.000000</code></pre>
 <p><strong><em>3.5: Create training and test sets</em></strong></p>
 <pre class="python"><code>start_test = datetime(2020, 8, 1)
 
@@ -502,32 +579,38 @@ model = LogisticRegression()</code></pre>
 <pre class="python"><code>y_pred = model.predict(X_test)</code></pre>
 <p><strong><em>3.9: output the hit-rate and the confusion matrix for the model</em></strong></p>
 <pre class="python"><code>print(&#39;Accuracy: &#39;,metrics.accuracy_score(y_test, y_pred))</code></pre>
-<pre><code>## Accuracy:  0.776595744680851</code></pre>
+<pre><code>## Accuracy:  0.6637168141592921</code></pre>
 <pre class="python"><code>print(confusion_matrix(y_pred,y_test))</code></pre>
-<pre><code>## [[30  7]
-##  [14 43]]</code></pre>
+<pre><code>## [[16  1]
+##  [37 59]]</code></pre>
 <p><strong><em>3.10: Predict movement of stock for tomorrow. </em></strong></p>
 <pre class="python"><code>comp = pd.DataFrame()
 comp[&#39;y_test&#39;] = y_test
 comp[&#39;y_pred&#39;] = y_pred
 
-print(comp)</code></pre>
+print(comp.tail(20))</code></pre>
 <pre><code>##             y_test  y_pred
 ## Date                      
-## 2020-08-03       1       1
-## 2020-08-04       1       1
-## 2020-08-05       1       1
-## 2020-08-06       1       1
-## 2020-08-07      -1      -1
-## ...            ...     ...
-## 2020-12-07       1       1
-## 2020-12-08      -1      -1
-## 2020-12-09      -1      -1
-## 2020-12-10       1      -1
-## 2020-12-11       1      -1
-## 
-## [94 rows x 2 columns]</code></pre>
+## 2020-12-11       1       1
+## 2020-12-14      -1       1
+## 2020-12-15       1       1
+## 2020-12-16       1       1
+## 2020-12-17       1       1
+## 2020-12-18      -1       1
+## 2020-12-21       1       1
+## 2020-12-22      -1       1
+## 2020-12-23       1       1
+## 2020-12-24      -1       1
+## 2020-12-28       1       1
+## 2020-12-29      -1       1
+## 2020-12-30       1       1
+## 2020-12-31      -1       1
+## 2021-01-01      -1       1
+## 2021-01-04       1       1
+## 2021-01-05       1       1
+## 2021-01-06      -1       1
+## 2021-01-07       1       1
+## 2021-01-08      -1      -1</code></pre>
 <pre class="python"><code>predict = model.predict(X_test.tail(1))
 print(int(predict)) # 1: UP, -1: DOWN</code></pre>
 <pre><code>## -1</code></pre>
-</div>

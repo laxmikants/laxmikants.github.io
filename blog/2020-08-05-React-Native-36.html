@@ -58,64 +58,42 @@ React Native uses most of the React concepts, like components, props, state and 
 <div id="creating-first-react-native-application" class="section level4">
 <h4>Creating first React Native Application</h4>
 <p>In order to create our new React Native application, we need to install the react-native-cli package:</p>
-<pre class="js"><code>npm install -g react-native-cli</code></pre>
-<script type="text/javascript">
-npm install -g react-native-cli
-</script>
+<pre class="html"><code>npm install -g react-native-cli</code></pre>
 <p>Now, to create our first app:</p>
 <ol style="list-style-type: decimal">
 <li>Let’s do it with this command:</li>
 </ol>
-<pre class="js"><code>    react-native init MyFirstReactNativeApp</code></pre>
-<script type="text/javascript">
-    react-native init MyFirstReactNativeApp
-</script>
+<pre class="html"><code>    react-native init MyFirstReactNativeApp</code></pre>
 <p>Once we built our React Native app, we need install Watchman, which is a file-watching service required by React Native. To install it, go to <a href="https://facebook.github.io/watchman/docs/install.html" class="uri">https://facebook.github.io/watchman/docs/install.html</a> and download the latest version for your OS (Windows, Mac, or Linux).</p>
 <ol start="3" style="list-style-type: decimal">
 <li>In this case, we are going to use Homebrew to install it for Mac. If you don’t have Homebrew, you can install it with this command:</li>
 </ol>
-<pre class="js"><code>    /usr/bin/ruby -e &#39;$(curl -fsSL 
+<pre class="html"><code>    /usr/bin/ruby -e &#39;$(curl -fsSL 
   https://raw.githubusercontent.com/Homebrew/install/master/install)&#39;</code></pre>
-<script type="text/javascript">
-    /usr/bin/ruby -e '$(curl -fsSL 
-  https://raw.githubusercontent.com/Homebrew/install/master/install)'
-</script>
 <ol start="4" style="list-style-type: decimal">
 <li>To install Watchman, you need to run:</li>
 </ol>
-<pre class="js"><code>    brew update 
+<pre class="html"><code>    brew update 
     brew install watchman</code></pre>
-<script type="text/javascript">
-    brew update 
-    brew install watchman
-</script>
 <ol start="5" style="list-style-type: decimal">
 <li>To start the React Native project, we need to use:</li>
 </ol>
-<pre class="js"><code>    react-native start</code></pre>
-<script type="text/javascript">
-    react-native start
-</script>
+<pre class="html"><code>    react-native start</code></pre>
 <p>If everything works fine, you should see this:</p>
 <p><img src="/img/main/reactnative.png" /></p>
 <ol start="7" style="list-style-type: decimal">
 <li>Open a new terminal (Cmd + T) and run this command (depending on the device you want to use):</li>
 </ol>
-<pre class="js"><code>    react-native run-ios 
+<pre class="html"><code>    react-native run-ios 
     or
     react-native run-android</code></pre>
-<script type="text/javascript">
-    react-native run-ios 
-    or
-    react-native run-android
-</script>
 <p>If there are no errors, you should see the simulator running the default application:</p>
 <p><img src="/img/main/reactnativeapp.png" /></p>
 <p>Now that we have our application running, let’s open our code and modify it a bit:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Change the App.js file:</li>
 </ol>
-<pre class="js"><code>  ...
+<pre class="html"><code>  ...
   export default class App extends Component&lt;Props&gt; {
     render() {
       return (
@@ -133,26 +111,6 @@ npm install -g react-native-cli
   }
   ...
 File: App.js</code></pre>
-<script type="text/javascript">
-  ...
-  export default class App extends Component<Props> {
-    render() {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            This is my first React Native App!
-          </Text>
-          <Text style={styles.instructions}>
-            To get started, edit App.js
-          </Text>
-          <Text style={styles.instructions}>{instructions}</Text>
-        </View>
-      );
-    }
-  }
-  ...
-File: App.js
-</script>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>If you go to the simulator again, you will need to press Cmd + R to reload the app to see the new changes reflected:</li>
 </ol>

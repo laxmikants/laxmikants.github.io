@@ -19,6 +19,8 @@ output:
     toc_depth: 4
 ---
 
+
+
 # Convolutional Neural Networks
 
 #### What are Convolutional Neural Networks:
@@ -85,9 +87,7 @@ Throughout the process, the filter performs element-wise multiplication and sums
 The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
 parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
 
-<script src="https://gist.github.com/laxmikants/d7b849d1a9d926bc2cbc06f9f2090521.js?slice=0:1"></script>
-
-```{python, warning=FALSE, echo=FALSE}
+```{python, warning=FALSE, message = FALSE}
 from keras.models import Sequential
 from keras.layers import Conv2D
 model = Sequential()
@@ -115,6 +115,8 @@ model %>%
   layer_dropout(0.25)
 summary(model)
 ```
+
+
 
 <mark>Example max pooling layer in Python</mark>
 ```{python}

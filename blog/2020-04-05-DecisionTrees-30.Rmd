@@ -22,7 +22,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 # Decision trees 
 
 Decision trees area tree-like tool which can be used to represent a cause and its effect. In Machine Learning Decision trees are a type of Supervised machine learning where data is split according to given parameter while constructing a tree to solve a given problem. In decision tree there is a predictor variable and target variable or the desired output. The predictor variable could be anything such as technical indicators etc and the target variable could be desired output for example whether to invest in a given financial security or not.
