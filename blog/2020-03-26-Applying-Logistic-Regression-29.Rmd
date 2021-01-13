@@ -39,7 +39,6 @@ conda_list()[[1]][1] %>%
 
 <p class="nocopy">
 
-
 ```{python class.source = "nocopy"}
 import investpy
 from datetime import datetime
@@ -53,6 +52,8 @@ import seaborn as sn
 import matplotlib.pyplot as plt
 import talib
 import quandl
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score
 
 ```
 
@@ -70,11 +71,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2010', to_date='12/01/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='13/01/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2010', to_date='12/01/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='13/01/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2010',to_date='12/01/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='13/01/2021', country = "India")
 
 df['VolChange'] = df.Volume.pct_change()
 
@@ -94,6 +95,7 @@ print(df)
 
 
 pd.set_option('display.max_columns', None)
+
 
 df2 = df[['Open','High','Low','Close','Volume']]
 
@@ -517,7 +519,6 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 ***3.4: Create the dependent and independent variables ***
 
-
 ```{python, warnings = FALSE, message = FALSE,echo = FALSE}
 
 
@@ -534,17 +535,17 @@ X["20d_ma"] = df[ '20d_ma' ]
 X["20d_ema"] = df[ '20d_ema' ]
 
 X["50d_ma"] =  df['50d_ma']
-#X["50d_ema"] = df[ '50d_ema' ]
+X["50d_ema"] = df[ '50d_ema' ]
 
-#X["100d_ma"] =  df['100d_ma']
-#X["100d_ema"] =  df['100d_ema']
+X["100d_ma"] =  df['100d_ma']
+X["100d_ema"] =  df['100d_ema']
 
-#X["200d_ma"] =  df['200d_ma']
-#X["200d_ema"] =  df['200d_ema']
+X["200d_ma"] =  df['200d_ma']
+X["200d_ema"] =  df['200d_ema']
 
 
-#X['250d_ma'] = df['250d_ma']
-#X['250d_ema'] = df['250d_ema']
+X['250d_ma'] = df['250d_ma']
+X['250d_ema'] = df['250d_ema']
 
 X['Std_dev'] = df['Std_dev']
 
@@ -560,32 +561,42 @@ X['CloseChange'] = df['CloseChange']
 
 X['zscore'] = df['zscore'] 
 
-# X['ADX'] = df['ADX']
+X['ADX'] = df['ADX']
 
-# X['CCI'] = df['CCI']
+X['CCI'] = df['CCI']
 
-# X['ROC'] = df['ROC']
+X['ROC'] = df['ROC']
 
-
-# X['DX'] = df['DX']
+X['DX'] = df['DX']
 
 y = data["Direction"]
 
-X.describe()
 
+print(X.tail(10))                           
+                           
+                           
 ```
-
 
 ***3.5:  Create training and test sets***
 
 ```{python,echo = FALSE}
 start_test = datetime(2020, 8, 1)
 
-X_train = X[X.index < start_test]
-X_test = X[X.index >= start_test]
+X_train_bn = X[X.index < start_test]
+X_test_bn = X[X.index >= start_test]
 y_train = y[y.index < start_test]
 y_test = y[y.index >= start_test]
+
+
+scaler = StandardScaler()
+
+X_train = pd.DataFrame(scaler.fit_transform(X_train_bn), columns = X_train_bn.columns)
+
+X_test = pd.DataFrame(scaler.transform(X_test_bn), columns = X_test_bn.columns)
+
 ```
+
+
 
 ***3.6:  Create model ***
 ```{python,echo = FALSE}
@@ -612,7 +623,10 @@ y_pred = model.predict(X_test)
 ***3.9:    output the hit-rate and the confusion matrix for the model***
 
 ```{python,echo = FALSE}
-print('Accuracy: ',metrics.accuracy_score(y_test, y_pred))
+accuracy_train = accuracy_score(y_train, model.predict(X_train))
+accuracy_test = accuracy_score(y_test, model.predict(X_test))
+print('\nTrain Accuracy:{: .2f}%'.format(accuracy_train*100))
+print('Test Accuracy:{: .2f}%'.format(accuracy_test*100))
 ```
 
 ```{python,echo = FALSE}
@@ -625,14 +639,13 @@ print(confusion_matrix(y_pred,y_test))
 comp = pd.DataFrame()
 comp['y_test'] = y_test
 comp['y_pred'] = y_pred
-
 print(comp.tail(20))
-
 predict = model.predict(X_test.tail(1))
-print(int(predict)) # 1: UP, -1: DOWN
+print(predict)
 ```
 
-```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=FALSE}
+
+```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=TRUE}
 library(Quandl)
 library(quantmod)
 library(prophet)
@@ -642,7 +655,7 @@ Quandl.api_key("YBM9uPgpnsaDYPkAn539")
 #daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2020-08-19",type="raw")
 
 
-daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2021-01-11",type="raw")
+daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2021-01-13",type="raw")
 
 keeps <- c("Date", "Close")
 
