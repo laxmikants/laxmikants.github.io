@@ -87,7 +87,7 @@ Throughout the process, the filter performs element-wise multiplication and sums
 The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
 parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
 
-```{python, warning=FALSE, message = FALSE}
+```{python, warning = FALSE, message = FALSE}
 from keras.models import Sequential
 from keras.layers import Conv2D
 model = Sequential()
@@ -129,9 +129,43 @@ model.summary()
 
 
 <mark>Fully-Connected layer:</mark>	Learns non-linear combinations of the features and performs the classification task
-
 <mark>Flattening</mark>Flattening converts last convolutional layer into a one-dimensional NN layer.
 
+<mark>Example</mark>
+```{python}
+from keras.layers import Dense, Flatten
+from keras.layers.normalization import BatchNormalization
+from keras.layers import Dense, Activation
+
+model.add(Flatten())
+model.add(Dense(512, kernel_initializer="uniform"))
+model.add(Activation("relu"))
+model.add(BatchNormalization())
+model.add(Dropout(0.5))
+# softmax classifier
+model.add(Activation("softmax"))
+```
+
+
+<mark>Uses of Convolutional Neural Network</mark>
+
+1: Image retrieval
+
+2; Detection
+
+3: Self driving cars
+
+4: Semantic segmentation
+
+5: Face recognition
+
+6: Detect diseases
+
+7: Speech recognition
+
+8: Text processing
+
+9: Analyzing satellite data
 
 
 

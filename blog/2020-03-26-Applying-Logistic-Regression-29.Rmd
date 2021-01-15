@@ -55,6 +55,7 @@ import quandl
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 
+
 ```
 
 </p>
@@ -68,49 +69,25 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```
 
-
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='13/01/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='15/01/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='13/01/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='15/01/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='13/01/2021', country = "India")
-
-df['VolChange'] = df.Volume.pct_change()
-
-df['CloseChange'] = df.Close.pct_change()
-
-df.replace([np.inf, -np.inf], np.nan, inplace=True) 
-
-df.fillna(df.mean())
-
-print(df)
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='15/01/2021', country = "India")
 ```
-
 
 ***1.2.1: Determining position based on volume and close***
 
-```{python, echo = FALSE}
+```{python, echo = FALSE, warning = FALSE, message = FALSE}
 
 
 pd.set_option('display.max_columns', None)
-
-
 df2 = df[['Open','High','Low','Close','Volume']]
-
-
 diffdf = df2.diff()
-
-print(diffdf.tail(10))
-
-df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] >= df2['Close'].shift(1))),"UP","DOWN")
-
-df2['Str'] = np.where((df2['Open'] > df2['Close'].shift(1)),"Buy","Sell")
-
-df2['SL'] = np.where((df2['Str'] == 'Buy'),df2['Low'], df2['High'])
-
-print(df2.tail(20))
+df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] >= df2['Close'].shift(1))),"Buy","Sell")
+print(df2.tail(5))
 
 ```
 
@@ -126,18 +103,23 @@ print(df.tail())
 ***1.2.2: Determining Average monthly closing prices***
 
 ```{python, echo = FALSE}
+df.drop(['Currency'], axis = 1)
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
 df['Open'] = df['Open'] / 1000
 df['Close'] = df['Close'] / 1000
-
-
-df.drop(['Currency'], axis = 1)
+df['VolChange'] = df.Volume.pct_change()
+df['CloseChange'] = df.Close.pct_change()
+df.replace([np.inf, -np.inf], np.nan, inplace=True) 
+df.fillna(df.mean())
 
 df['usdinr'] = usdinr['Close']
 
 df['usdsilver'] = dfusd['Close']
 
+df['Open-Close'] = df['Open'] - df['Close'].shift(1)
+
+df['Open-Open'] = df['Open'] - df['Open'].shift(1)
 
 df1 = df[['Close']]
 
@@ -164,8 +146,10 @@ print(data1.head())
 ```{python,echo = FALSE}
 
 df['zscore'] = stats.zscore(df['Close'])
+print(df['zscore'].tail(5))
 
-print(df['zscore'].tail(30))
+df['zscorevolume'] = stats.zscore(df['Volume'])
+print(df['zscorevolume'].tail(5))
 
 ```
 
@@ -183,7 +167,7 @@ R3 = pd.Series(df['High'] + 2 * (PP - df['Low']))
 S3 = pd.Series(df['Low'] - 2 * (df['High'] - PP))  
 psr = {'PP':PP, 'R1':R1, 'S1':S1, 'R2':R2, 'S2':S2, 'R3':R3, 'S3':S3}  
 PSR = pd.DataFrame(psr)  
-print(PSR.tail())
+print(PSR.tail(5))
 
 ```
 
@@ -442,7 +426,7 @@ df['Signal Line'] = signal
 
 df['MACD_IND'] = df['MACD'] - df['Signal Line']
 
-print(df[['MACD_IND']].tail())
+print(df[['MACD_IND']].tail(5))
 ```
 
 *** `Bollinger Bands` ***
@@ -524,7 +508,6 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 data = df_ret.copy()
 
-
 X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6"]]
 
 X['usdinr'] = df['usdinr'] - 0.5
@@ -569,10 +552,14 @@ X['ROC'] = df['ROC']
 
 X['DX'] = df['DX']
 
+X['Open-Close']  = df['Open-Close'] 
+
+X['Open-Open'] = df['Open-Open'] 
+
 y = data["Direction"]
 
 
-print(X.tail(10))                           
+print(X.tail(5))                           
                            
                            
 ```
@@ -582,11 +569,12 @@ print(X.tail(10))
 ```{python,echo = FALSE}
 start_test = datetime(2020, 8, 1)
 
+
+
 X_train_bn = X[X.index < start_test]
 X_test_bn = X[X.index >= start_test]
 y_train = y[y.index < start_test]
 y_test = y[y.index >= start_test]
-
 
 scaler = StandardScaler()
 
@@ -639,13 +627,13 @@ print(confusion_matrix(y_pred,y_test))
 comp = pd.DataFrame()
 comp['y_test'] = y_test
 comp['y_pred'] = y_pred
-print(comp.tail(20))
+print(comp.tail(5))
 predict = model.predict(X_test.tail(1))
 print(predict)
 ```
 
 
-```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=TRUE}
+```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=FALSE}
 library(Quandl)
 library(quantmod)
 library(prophet)
@@ -679,9 +667,4 @@ print(tail(forecast))
 plot(model,forecast)
 
 prophet_plot_components(model,forecast)
-```
-
-
-```{python,echo=FALSE}
-
 ```
