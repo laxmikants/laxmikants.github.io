@@ -77,15 +77,14 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='18/01/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='20/01/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='18/01/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='20/01/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='18/01/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='20/01/2021', country = "India")
 
 
 ```
-
 
 
 ***1.2.1: Determining position based on volume and close***
@@ -94,6 +93,8 @@ df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Mi
 
 
 pd.set_option('display.max_columns', None)
+df.Volume = df.Volume / 1000
+
 df2 = df[['Open','High','Low','Close','Volume']]
 diffdf = df2.diff()
 df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] >= df2['Close'].shift(1))),"Long","Short")
