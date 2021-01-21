@@ -6,7 +6,7 @@ Allow: /*.jpg**************
 Allow: /*.gif**************
 Allow: /*.png**************
 Allow: /*.webp**************
-Allow: /*.*
+Allow: /*.*********
 
 SITEMAP: http://laxmikants.github.io/sitemap.xml
 SITEMAP: http://laxmikants.github.io/sitemap-image.xml
