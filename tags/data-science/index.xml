@@ -6,11 +6,7 @@
     <description>Recent content in Data Science on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://laxmikants.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Science</title>
       <link>https://laxmikants.github.io/blog/data-science-overview/</link>

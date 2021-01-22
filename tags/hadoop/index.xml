@@ -6,11 +6,7 @@
     <description>Recent content in Hadoop on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://laxmikants.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 12 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting Started with Hadoop</title>
       <link>https://laxmikants.github.io/blog/hadoop/</link>
