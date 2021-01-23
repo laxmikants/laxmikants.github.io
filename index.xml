@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science Posts and Resources</title>
+    <link>https://laxmikants.github.io/</link>
+    <description>Recent content on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convolutional Neural Networks</title>
+      <link>https://laxmikants.github.io/blog/convolutional-neural-networks/</link>
+      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/convolutional-neural-networks/</guid>
+      <description>Convolutional Neural Networks</description>
+    </item>
+    
+    <item>
+      <title>Neural Network using Make Moons dataset</title>
+      <link>https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/</guid>
+      <description>Neural Network</description>
+    </item>
+    
+    <item>
+      <title>Single Layer Perceptron</title>
+      <link>https://laxmikants.github.io/blog/single-layer-perceptron/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/single-layer-perceptron/</guid>
+      <description>Single Layer Perceptron</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks</title>
+      <link>https://laxmikants.github.io/blog/neural-networks/</link>
+      <pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/neural-networks/</guid>
+      <description>The Neural Network is one of the most powerful learning algorithms.</description>
+    </item>
+    
+    <item>
+      <title>React Native</title>
+      <link>https://laxmikants.github.io/blog/react-native/</link>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-native/</guid>
+      <description>React Native Introduction</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://laxmikants.github.io/about/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/about/</guid>
+      <description>I have always loved programming with computers since early days of the internet and a few year ago discovered Python, R and ReactJS. Soon it became clear to me that these programming languages can be used to arrive at a simple solution to many complex problems. But learning new languages can be challenging task for us and even more important is to retain that learning. In my personal experience, I had to read several books and blogs and do countless searches on Google to solve specific problems.</description>
+    </item>
+    
+    <item>
+      <title>React- JS</title>
+      <link>https://laxmikants.github.io/blog/react-js/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/react-js/</guid>
+      <description>React-JS Introduction</description>
+    </item>
+    
+    <item>
+      <title>Web Scrapping Basics</title>
+      <link>https://laxmikants.github.io/blog/web-scrapping/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/web-scrapping/</guid>
+      <description>A beginer level introduction to Web Scrapping using Python</description>
+    </item>
+    
+    <item>
+      <title>Clustering</title>
+      <link>https://laxmikants.github.io/blog/clustering/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/clustering/</guid>
+      <description>Clustering is Machine Learning method that helps in finding the pattern of similarity and relationships among data samples in dataset and then cluster these samples into various groups.</description>
+    </item>
+    
+    <item>
+      <title>K nearest Neighbours</title>
+      <link>https://laxmikants.github.io/blog/k-nearest-neighbours/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/k-nearest-neighbours/</guid>
+      <description>K nearest Neighbours</description>
+    </item>
+    
+    <item>
+      <title>Support Vector Machines</title>
+      <link>https://laxmikants.github.io/blog/support-vector-machines/</link>
+      <pubDate>Sun, 12 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/support-vector-machines/</guid>
+      <description>In machine learning, support-vector machines are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis.</description>
+    </item>
+    
+    <item>
+      <title>Decision Trees</title>
+      <link>https://laxmikants.github.io/blog/linear-regression/</link>
+      <pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/linear-regression/</guid>
+      <description>Decision trees area tree-like tool which can be used to represent a cause and its effect</description>
+    </item>
+    
+    <item>
+      <title>Applying Logistic Regression</title>
+      <link>https://laxmikants.github.io/blog/applying-logistic-regression/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/applying-logistic-regression/</guid>
+      <description>Application of Logistic Regression to Stock movement prediction</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression in ML</title>
+      <link>https://laxmikants.github.io/blog/logistic-regression/</link>
+      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/logistic-regression/</guid>
+      <description>Logistic regression is a classification algorithm used to assign observations to a discrete set of classes.</description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://laxmikants.github.io/blog/classification/</link>
+      <pubDate>Tue, 17 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/classification/</guid>
+      <description>Classifcation models a function to predict a specific outcome out of mulitple possible outcomes.</description>
+    </item>
+    
+    <item>
+      <title>Student Grade Prediction</title>
+      <link>https://laxmikants.github.io/blog/student-grade-prediction/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/student-grade-prediction/</guid>
+      <description>Predicting student grade using Linear Regression</description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://laxmikants.github.io/blog/linear-regression/</link>
+      <pubDate>Thu, 12 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/linear-regression/</guid>
+      <description>A linear equation that models a function such that if we give any &lt;code&gt;x&lt;/code&gt; to it, it will predict a value &lt;code&gt;y&lt;/code&gt; , where both &lt;code&gt;x and y&lt;/code&gt; are input and output variables respectively</description>
+    </item>
+    
+    <item>
+      <title>Time-Series Forecasting</title>
+      <link>https://laxmikants.github.io/blog/time-series/</link>
+      <pubDate>Thu, 05 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/time-series/</guid>
+      <description>A series of observations collected during some time intervals in know as time series. The observations which are collected are primarily dependent on the time.</description>
+    </item>
+    
+    <item>
+      <title>Text analytics</title>
+      <link>https://laxmikants.github.io/blog/text-analytics/</link>
+      <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/text-analytics/</guid>
+      <description>The analysis of text data gives useful insigths. This post uses news group data set to explor text data</description>
+    </item>
+    
+    <item>
+      <title>EDA with Iris dataset</title>
+      <link>https://laxmikants.github.io/blog/eda-with-iris-dataset/</link>
+      <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/eda-with-iris-dataset/</guid>
+      <description>Exploring datasets is an important topic in data science. To achieve this task EDA i.e Exploratory data analysis helps</description>
+    </item>
+    
+    <item>
+      <title>Understanding frequency tables</title>
+      <link>https://laxmikants.github.io/blog/exploring-frequency-tables/</link>
+      <pubDate>Sat, 15 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/exploring-frequency-tables/</guid>
+      <description>Frequency tables are a great tool to help explore datasets and get an idea about relationships between variables</description>
+    </item>
+    
+    <item>
+      <title>Exploring and preparing data</title>
+      <link>https://laxmikants.github.io/blog/exploring-and-preparing-data/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/exploring-and-preparing-data/</guid>
+      <description>In data analysis and predictive modeling preparation of data paves the way for further insights.</description>
+    </item>
+    
+    <item>
+      <title>Handling numeric data</title>
+      <link>https://laxmikants.github.io/blog/handling-numeric-data/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/handling-numeric-data/</guid>
+      <description>Handling numeric data using mtcars dataset. Numeric data is easiar to deal with in Data analysis projects</description>
+    </item>
+    
+    <item>
+      <title>Data Science</title>
+      <link>https://laxmikants.github.io/blog/data-science-overview/</link>
+      <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/data-science-overview/</guid>
+      <description>A Data science process is a life cycle process for delivering a data science project that helps a data consumer to gain insights from the data.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning Overview</title>
+      <link>https://laxmikants.github.io/blog/machine-learning-overview/</link>
+      <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/machine-learning-overview/</guid>
+      <description>Machine learning is the science, in which we focus on teaching machines or computers to perform certain tasks without being given specific instructions</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hadoop</title>
+      <link>https://laxmikants.github.io/blog/hadoop/</link>
+      <pubDate>Sun, 12 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/hadoop/</guid>
+      <description>Hadoop is a Big Data Management software of the 21st century.</description>
+    </item>
+    
+    <item>
+      <title>Big Data Analytics</title>
+      <link>https://laxmikants.github.io/blog/big-data-analytics/</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/big-data-analytics/</guid>
+      <description>Big-data helps to come to conclusion based on the data points arrived from the Big-data analysis, for instance Big-data can be in the form of Petabytes or hexabytes.</description>
+    </item>
+    
+    <item>
+      <title>Pandas (Python)</title>
+      <link>https://laxmikants.github.io/blog/pandas/</link>
+      <pubDate>Sat, 16 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/pandas/</guid>
+      <description>Pandas is a software module for the Python programming language for the purpose of data manipulation and analysis. It provides data structures and operations to  manipulate numerical tables and time series data. It is build on top of numpy. It is applied for fast analysis and data cleaning and preparation</description>
+    </item>
+    
+    <item>
+      <title>Python - Matplotlib- Plot Types</title>
+      <link>https://laxmikants.github.io/blog/numpy/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/numpy/</guid>
+      <description>Matplotlib - Plot Types</description>
+    </item>
+    
+    <item>
+      <title>Python - Matplotlib</title>
+      <link>https://laxmikants.github.io/blog/matplotlib/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/matplotlib/</guid>
+      <description>Matplotlib</description>
+    </item>
+    
+    <item>
+      <title>Python - Numpy</title>
+      <link>https://laxmikants.github.io/blog/numpy/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/numpy/</guid>
+      <description>Numpy</description>
+    </item>
+    
+    <item>
+      <title>Python - Regular Expressions</title>
+      <link>https://laxmikants.github.io/blog/regular-expressions/</link>
+      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/regular-expressions/</guid>
+      <description>Regular Expressions</description>
+    </item>
+    
+    <item>
+      <title>Python - Logging</title>
+      <link>https://laxmikants.github.io/blog/python-logging/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-logging/</guid>
+      <description>Python Logging</description>
+    </item>
+    
+    <item>
+      <title>Python - XML Processing</title>
+      <link>https://laxmikants.github.io/blog/python-xml-processing/</link>
+      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-xml-processing/</guid>
+      <description>Python XML Processing</description>
+    </item>
+    
+    <item>
+      <title>Python - Database Programming</title>
+      <link>https://laxmikants.github.io/blog/python-database-programming/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-database-programming/</guid>
+      <description>Python Database Programming</description>
+    </item>
+    
+    <item>
+      <title>Python - Networking</title>
+      <link>https://laxmikants.github.io/blog/python-networking/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-networking/</guid>
+      <description>Python Networking</description>
+    </item>
+    
+    <item>
+      <title>Python - Queues</title>
+      <link>https://laxmikants.github.io/blog/python-queues/</link>
+      <pubDate>Sat, 26 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-queues/</guid>
+      <description>Python Queues</description>
+    </item>
+    
+    <item>
+      <title>Python - Multithreading</title>
+      <link>https://laxmikants.github.io/blog/python-multithreading/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-multithreading/</guid>
+      <description>Python Multithreading</description>
+    </item>
+    
+    <item>
+      <title>Python - Classes and Objects</title>
+      <link>https://laxmikants.github.io/blog/python-basics-2/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-basics-2/</guid>
+      <description>Introduction to Python.</description>
+    </item>
+    
+    <item>
+      <title>Python Strings Basics</title>
+      <link>https://laxmikants.github.io/blog/python-strings/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-strings/</guid>
+      <description>Introduction to Python Strings</description>
+    </item>
+    
+    <item>
+      <title>Python - Basics</title>
+      <link>https://laxmikants.github.io/blog/python-basics/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/python-basics/</guid>
+      <description>Introduction to Python.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://laxmikants.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

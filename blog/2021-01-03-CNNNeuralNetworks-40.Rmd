@@ -9,7 +9,9 @@ categories: ["Convolutional Neural Networks"]
 tags: ["Convolutional Neural Networks"]
 Summary: "Convolutional Neural Networks"
 subtitle: Convolutional Neural Networks
-featured: "img/main/cnn-neural-network.jpg"
+images:
+- alt: CNN Neural Networks
+  src: img/main/cnn-neural-network.jpg
 output:
   html_document:
     highlight: tango
