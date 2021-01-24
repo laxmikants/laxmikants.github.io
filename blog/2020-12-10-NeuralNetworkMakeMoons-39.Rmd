@@ -9,7 +9,10 @@ categories: ["Neural Network"]
 tags: ["Neural Network"]
 Summary: "Neural Network"
 subtitle: Neural Network
-featured: "img/main/nn_makemoons_dataset.jpg"
+images:
+- alt: Neural Network using Make Moons dataset
+  src: img/main/nn_makemoons_dataset.jpg
+
 output:
   html_document:
     highlight: tango

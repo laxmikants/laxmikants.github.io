@@ -9,7 +9,9 @@ categories: ["Single Layer Perceptron"]
 tags: ["Single Layer Perceptron"]
 Summary: "Single Layer Perceptron"
 subtitle: Single Layer Perceptron
-featured: "img/main/Single_Layer_Perceptron.jpg"
+images:
+- alt: Single Layer Perceptron
+  src: img/main/Single_Layer_Perceptron.jpg
 output:
   html_document:
     highlight: tango
