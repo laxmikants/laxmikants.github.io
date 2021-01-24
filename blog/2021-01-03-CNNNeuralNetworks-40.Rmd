@@ -1,7 +1,7 @@
 ---
 title: "Convolutional Neural Networks"
 author: Laxmi K Soni 
-description: "Convolutional Neural Networks"
+description: "One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present."
 slug: Convolutional Neural Networks
 date: 2021-01-03
 lastmod: 2021-01-03
@@ -9,9 +9,7 @@ categories: ["Convolutional Neural Networks"]
 tags: ["Convolutional Neural Networks"]
 Summary: "Convolutional Neural Networks"
 subtitle: Convolutional Neural Networks
-images:
-- alt: CNN Neural Networks
-  src: img/main/cnn-neural-network.jpg
+featured: "img/main/cnn-neural-network.jpg"
 output:
   html_document:
     highlight: tango
@@ -22,15 +20,11 @@ output:
 ---
 
 
-
 # Convolutional Neural Networks
 
 #### What are Convolutional Neural Networks:
 
-One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks 
-works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present. 
-CNN algorithms requires to be trained with tons of images and their possible predictor class. CNN are powerful tools for processing data having grid like topology.
-CNN involves convolution which means cross-corelation operations (instead of a fully connected layer) as one of its layers. 
+One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present. CNN algorithms requires to be trained with tons of images and their possible predictor class. CNN are powerful tools for processing data having grid like topology. CNN involves convolution which means cross-corelation operations (instead of a fully connected layer) as one of its layers. 
 
 
 These neural networks are successful in many different real-life case studies and applications like:

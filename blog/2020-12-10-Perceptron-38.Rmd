@@ -1,7 +1,7 @@
 ---
 title: "Single Layer Perceptron"
 author: Laxmi K Soni 
-description: "Single Layer Perceptron"
+description: "A Single layer perceptron is a type of neuron having multiple inputs and one output. Input has many dimensions i.e input  can be a vector for example  input x = ( I1, I2, .., In). Input nodes are connected to a node in the next layer. The node in the next layer takes the weighted sum of all its inputs."
 slug: Single Layer Perceptron
 date: 2020-12-10
 lastmod: 2020-12-10
@@ -9,9 +9,7 @@ categories: ["Single Layer Perceptron"]
 tags: ["Single Layer Perceptron"]
 Summary: "Single Layer Perceptron"
 subtitle: Single Layer Perceptron
-images:
-- alt: Single Layer Perceptron
-  src: img/main/Single_Layer_Perceptron.jpg
+featured: "img/main/Single_Layer_Perceptron.jpg"
 output:
   html_document:
     highlight: tango

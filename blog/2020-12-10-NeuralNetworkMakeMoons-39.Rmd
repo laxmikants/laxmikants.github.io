@@ -1,7 +1,7 @@
 ---
 title: "Neural Network using Make Moons dataset"
 author: Laxmi K Soni 
-description: "Neural Network using Make Moons dataset"
+description: "The make_moons dataset is a swirl pattern, or two moons. It is a set of points in 2D making two interleaving half circles. It displays 2 disjunctive clusters of data in a 2-dimensional representation space ( with coordinates x1 and x2 for two features). The areas are formed like 2 moon crescents as shown in the figure below."
 slug: Neural Network using Make Moons dataset
 date: 2020-12-10
 lastmod: 2020-12-10
@@ -9,10 +9,7 @@ categories: ["Neural Network"]
 tags: ["Neural Network"]
 Summary: "Neural Network"
 subtitle: Neural Network
-images:
-- alt: Neural Network using Make Moons dataset
-  src: img/main/nn_makemoons_dataset.jpg
-
+featured: "img/main/nn_makemoons_dataset.jpg"
 output:
   html_document:
     highlight: tango

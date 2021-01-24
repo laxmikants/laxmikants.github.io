@@ -1,7 +1,7 @@
 ---
 title: "Neural Networks"
 author: Laxmi K Soni 
-description: "The Neural Network is one of the most powerful learning algorithms."
+description: "Artificial neural networks are mathematical structures that are inspired by the human brain They consist of so-called neurons , which are interconnected with each other. The human brain consists of multiple billions of such neurons. Artificial neural networks use a similar principle."
 slug: Neural Networks
 date: 2020-12-05
 lastmod: 2020-12-05
@@ -9,9 +9,7 @@ categories: ["Neural Networks"]
 tags: ["Neural Networks"]
 Summary: "The Neural Network is one of the most powerful learning algorithms."
 subtitle: Neural Networks
-images:
-- alt: Neural Networks
-  src: img/main/Neural-Networks-32.jpg
+featured: "img/main/Neural-Networks-32.jpg"
 output:
   html_document:
     highlight: tango
