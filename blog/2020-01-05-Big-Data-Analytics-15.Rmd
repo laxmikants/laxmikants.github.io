@@ -19,6 +19,7 @@ output:
     toc: false
 ---
 
+
 ## Big-data and Analytics:
 
 Do we know how we can reach at a decision based on mobile data or computer data or Aadhar number? How to find that the new accounts that are opened in the Pradhan Mantri's Jan Dhan Yojana does not have enough money ?

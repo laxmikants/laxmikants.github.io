@@ -22,6 +22,7 @@ output:
 ---
 
 
+
 # Single Layer Perceptron
 
 #### What is Single Layer Perceptron:

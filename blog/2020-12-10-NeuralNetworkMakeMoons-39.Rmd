@@ -22,6 +22,7 @@ output:
     toc_depth: 4
 ---
 
+
 # Neural Network using Make Moons dataset
 
 #### Make moons dataset

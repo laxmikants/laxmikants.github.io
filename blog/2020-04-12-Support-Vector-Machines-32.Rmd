@@ -21,6 +21,7 @@ output:
 
 
 
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(magick)
