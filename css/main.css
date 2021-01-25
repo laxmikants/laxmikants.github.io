@@ -236,7 +236,7 @@
 					padding: 3em 1.5em 0.5em 1.5em ;
 					left: -1.5em;
 					margin: -1.5em 0 1.5em 0;
-					width: calc(100%);
+					width: calc(100% ));
 				}
 
 					.post > header .title h1 {
