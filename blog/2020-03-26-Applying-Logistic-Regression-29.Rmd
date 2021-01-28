@@ -88,6 +88,7 @@ df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Mi
 ```
 
 
+
 ***1.2.1: Determining position based on volume and close***
 
 ```{python, echo = FALSE, warning = FALSE, message = FALSE}
