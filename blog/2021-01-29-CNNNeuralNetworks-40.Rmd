@@ -1,0 +1,301 @@
+---
+title: "Convolutional Neural Networks"
+author: Laxmi K Soni 
+description: "One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present."
+slug: Convolutional Neural Networks
+date: 2021-01-29
+lastmod: 2021-01-29
+categories: ["Convolutional Neural Networks"]
+tags: ["Convolutional Neural Networks"]
+Summary: "Convolutional Neural Networks"
+subtitle: Convolutional Neural Networks
+featured: "img/main/cnn-neural-network.jpg"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
+---
+
+
+# Convolutional Neural Networks
+
+#### What are Convolutional Neural Networks:
+
+One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present. CNN algorithms requires to be trained with tons of images and their possible predictor class. CNN are powerful tools for processing data having grid like topology. CNN involves convolution which means cross-corelation operations (instead of a fully connected layer) as one of its layers. 
+
+
+These neural networks are successful in many different real-life case studies and applications like:
+
+- Image classification, Object detection, segmentation, face recognition
+- Self driving cars that leverage CNN based vision systems
+- Classificationof crystal structure using a convolutional neural network
+
+
+![](/img/main/cnn.png)
+
+<mark>Convolution is the key principle applied:</mark> in convolutional neural network architecture. 
+Convolution is a way to identify patterns in data that is directly tied to space or time. Assume we have a one dimentional array of numbers
+say Input = [a,b,c,d,e,f,g] and another set of numbers say K = [p,q]. Then convolution involves sliding the lower size list over the higher size list and then multiplying corresponding values and adding them therefore after convoluting K over Input we get [a*p+b*q, b*p+c*q, c*p+d*q, d*p+e*q, f*p+g*q]. The result identifies  one of the feature of the Input. The result is known as the convolution of the Input and in practice only non-zero values are choosen for feature selection.If the input is a grid structure or in matrix form (in case of images) then the kernal is also choosen as the matrix of lower dimension and in this case matrix multiplication is perfomed to get the resultant convolution of the input image.
+
+<mark>Computer see images as matrices</mark>:Grayscale images have single channel (gray). 
+So, we can represent grayscale images in the form of 2D matrix, where each element represents the intensity of brightness in that particular pixel, 
+where 0 means black and 255 means white. Color images have 3 channels RGB (red, green, blue).  
+Color images can be  represented as a 3D matrix with the depth of 3.
+
+<mark>For example:</mark> Shape of a matrix representing a 480px by 852px color image will be (480, 852, 3)
+Each pixel of the color image has three numbers (ranging from 0 to 255) associated with it. 
+These numbers shows the intensity of red, green and blue color in that particular pixel.
+
+```{python}
+import os
+import cv2
+import matplotlib.pyplot as plt # (optional) for plotting and showing images inline
+IMAGES_FOLDER = os.path.join('../../static/img/main') # images for visuals
+earth_fname = os.path.join(IMAGES_FOLDER,'earth.jpg')
+earth_img1 = cv2.imread(earth_fname)
+print(earth_img1.shape)
+```
+
+<mark>The CIFAR 10 dataset has the Input layer</mark> of 60000 32x32 colour images in 10 categories, with 6000 images per class. 
+
+![](/img/main/cifar10dataset.png)
+
+
+#### In a covnolutional neural network:
+
+<mark>Input layer:</mark> Takes an image as input and preserves its spatial structure
+<mark>Convolution layer:</mark>	extracts feature maps from the input, each responding to a specific pattern
+<mark>ReLU layer:</mark> Introduces non-linearities in the network by putting the negative pixels to 0.
+
+<mark>Kernel, stride and padding</mark>
+
+![](/img/main/convolution_schematic.gif)
+
+Filters also known as kernals, convolve square blocks of pixels into scalars in subsequent convolutional layers. In the animation above, we have a 3 x 3 filter with ones running on the diagonal and off-diagonal, scanning an image from left to right, top to bottom.
+
+Throughout the process, the filter performs element-wise multiplication and sums up all products, into a single value passed to the subsequent convolutional layer. Note that the filter is moving a pixel at a time. This is the stride, the stepsize of the sliding window the filter uses to convolve. Larger size of strides indicates more granular and smaller convolved features.
+
+<mark>Example Convolution layer in Python</mark>
+
+The first layer takes input as set of images specified with input_shape. <mark>filters, kernal size, strides and padding </mark> are the most important
+parameters to keras Cov2D. The parameter filters denote the number of filters. The task of a filter is to detect a feature in the image.
+
+```{python, warning = FALSE, message = FALSE}
+from keras.models import Sequential
+from keras.layers import Conv2D
+model = Sequential()
+model.add(Conv2D(filters=16, kernel_size = 3, padding = 'same',activation = 'relu',input_shape=(32,32,3)))
+model.summary()
+```
+
+<mark>Example Convolution layer in R</mark>
+```{r, warning=FALSE,message=FALSE}
+library(tensorflow)
+library(keras)
+model <- keras_model_sequential()
+model%>% 
+  layer_conv_2d(filters = 16, kernel_size = c(3,3),activation = 'relu',input_shape = c(32,32,3))
+summary(model)
+```
+
+<mark>pooling layer:</mark>	Down-samples the rectified feature maps, thus reducing the spatial dimensionality and retaining important features. 
+This prevents overfitting.
+
+<mark>Example max pooling layer in R</mark>
+```{r, warning=FALSE, message=FALSE}
+model %>% 
+  layer_max_pooling_2d(pool_size = c(2,2)) %>%
+  layer_dropout(0.25)
+summary(model)
+```
+
+
+
+<mark>Example max pooling layer in Python</mark>
+```{python}
+from keras.layers import MaxPooling2D
+from keras.layers import Dropout
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+model.summary()
+```
+
+
+<mark>Fully-Connected layer:</mark>	Learns non-linear combinations of the features and performs the classification task
+<mark>Flattening</mark>Flattening converts last convolutional layer into a one-dimensional NN layer.
+
+<mark>Example</mark>
+```{python}
+from keras.layers import Dense, Flatten
+from keras.layers.normalization import BatchNormalization
+from keras.layers import Dense, Activation
+
+model.add(Flatten())
+model.add(Dense(512, kernel_initializer="uniform"))
+model.add(Activation("relu"))
+model.add(BatchNormalization())
+model.add(Dropout(0.5))
+# softmax classifier
+model.add(Activation("softmax"))
+```
+
+
+<mark>Object Detection using Convolutional Neural Network</mark>
+
+We are going to use another Keras dataset, which contains numerous images of ten different categories. These are the following:
+
+['Plane' , 'Car' , 'Bird' , 'Cat' , 'Deer' , 'Dog' , 'Frog' , 'Horse' , 'Ship' , 'Truck' ]
+
+This dataset contains tens of thousands of images of different objects with their respective class. Our goal here is to train a convolutional neural network on that data, in order to then classify other images that the model has never seen before.
+
+Importing libraries
+
+```{python, message=FALSE, warning=FALSE}
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+from tensorflow.keras import datasets, layers, models
+```
+
+```{python, message=FALSE, warning=FALSE}
+(train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
+train_images, test_images = train_images / 255.0 , test_images / 255.0
+```
+
+
+This time we load the cifat10 dataset with the load_data method. We also normalize this data immediately after that, by dividing all values by 255. Since we are dealing with RGB values, and all values lie in between 0 and 255, we end up with values in between 0 and 1.
+
+Next, we define the possible class names in a list, so that we can label the final numerical results later on. The neural network will again produce a softmax result, which means that we will use the argmax function, to figure out the class name.
+
+```{python, message=FALSE, warning=FALSE}
+class_names = [ 'Plane' , 'Car' , 'Bird' , 'Cat' , 'Deer' ,
+                'Dog' , 'Frog' , 'Horse' , 'Ship' , 'Truck' ]
+```
+
+Now we can visualize a section of the data, to see what this dataset looks like.
+
+```{python, message=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
+for i in range ( 16 ):
+    plt.subplot( 4 , 4 ,i+ 1 )
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(train_images[i], cmap =plt.cm.binary)
+    plt.xlabel(class_names[train_labels[i][ 0 ]])
+plt.show()
+```
+
+
+For this we run a for loop with 16 iterations and create a 4x4 grid of subplots. The x-ticks and the y-ticks will be set to empty lists, so that we don’t have annoying coordinates. After that, we use the imshow method, to visualize the individual images. The label of the image will then be the respective class name.
+
+![](/img/main/cifar10objectsdetection.png)
+
+This dataset contains a lot of images.
+
+```{python, message=FALSE, warning=FALSE, echo=FALSE}
+train_images = train_images[: 20000 ]
+train_labels = train_labels[: 20000 ]
+test_images = test_images[: 4000 ]
+test_labels = test_labels[: 4000 ]
+```
+
+Here for example we only use the first 20,000 of the training images and the first 4,000 of the test images. Of course your model will be way more accurate if you use all the images. However, for weak computers this might take forever.
+
+
+`BUILDING NEURAL NETWORK`
+
+Now that we have prepared our data, we can start building the neural network.
+
+```{python, message=FALSE, warning=FALSE}
+model = models.Sequential()
+model.add(layers.Conv2D( 32 , ( 3 , 3 ), activation = 'relu' ,
+                         input_shape =( 32 , 32 , 3 )))
+model.add(layers.MaxPooling2D(( 2 , 2 )))
+model.add(layers.Conv2D( 64 , ( 3 , 3 ), activation = 'relu' ))
+model.add(layers.MaxPooling2D(( 2 , 2 )))
+model.add(layers.Conv2D( 64 , ( 3 , 3 ), activation = 'relu' ))
+model.add(layers.Flatten())
+model.add(layers.Dense( 64 , activation = 'relu' ))
+model.add(layers.Dense( 10 , activation = 'softmax' ))
+```
+
+Here we again define a Sequential model. Our inputs go directly into a convolutional layer (Conv2D ). This layer has 32 filters or channels in the shape of 3x3 matrices. The activation function is the ReLU function, which we already know and the input shape is 32x32x3. This is because we our images have a resolution of 32x32 pixels and three layers because of the RGB colors. The result is then forwarded into a MaxPooling2D layer that simplifies the output. Then the simplified output is again forwarded into the next convolutional layer. After that into another max-pooling layer and into another convolutional layer. This result is then being flattened by the Flatten layer, which means that it is transformed into a one-dimensional vector format. Then we forward the results into one dense hidden layer before it finally comes to the softmax output layer. There we find the final classification probabilities.
+
+`TRAINING AND TESTING`
+
+Now we are almost done. We just need to train and test the model before we can use it.
+
+```{python, message=FALSE, warning=FALSE}
+model.compile( optimizer = 'adam' ,
+               loss = 'sparse_categorical_crossentropy' ,
+               metrics =[ 'accuracy' ])
+```               
+Here we again use the adam optimizer and the sparse categorical crossentropy loss function.
+
+```{python, message=FALSE, warning=FALSE,eval=FALSE}
+model.fit(train_images,
+          train_labels,
+           epochs = 10 ,
+           validation_data =(test_images, test_labels))
+```
+
+We now train our model on our training data in ten epochs. Remember: This means that our model is going to see the same data ten times over and over again.
+
+```{python, message=FALSE, warning=FALSE,eval=FALSE}
+test_loss, test_acc = model.evaluate(test_images,
+                                     test_labels,
+                                      verbose = 2 )
+                                      
+```                                 
+
+
+We use the evaluate function to test our model and get the loss and accuracy values. We set the parameter verbose to 2, so that we get as much information as possible.
+
+- 1s - loss: 0.8139 - acc: 0.7090
+
+`CLASSIFYING OWN IMAGES`
+
+However, the interesting part starts now. Since our model is trained, we can now go ahead and use our own images of cars, planes, horses etc. for classification. 
+
+The important thing is that we get these images down to 32x32 pixels because this is the required input format of our model. For this you can use any software like Gimp or Paint. You can either crop the images or scale them.
+
+![](/img/main/cnntestimages.png)
+
+Now we just have to load these images into our script, using OpenCV.
+
+```{python, message=FALSE, warning=FALSE,eval=FALSE}
+img1 = cv.imread( 'car.jpg' )
+img1 = cv.cvtColor(img1, cv.COLOR_BGR2RGB)
+img2 = cv.imread( 'horse.jpg' )
+img2 = cv.cvtColor(img2, cv.COLOR_BGR2RGB)
+plt.imshow(img1, cmap =plt.cm.binary)
+plt.show()
+```
+
+The function imread loads the image into our script. Then we use the cvtColor method, in order to change the default color scheme of BGR (blue, green, red) to RGB (red, green, blue).
+
+```{python, message=FALSE, warning=FALSE,eval=FALSE}
+plt.imshow(img1, cmap =plt.cm.binary)
+plt.show()
+```
+
+With the imshow function, we can show the image in our script, using Matplotlib.
+
+![](/img/main/horse.png)
+
+We can now use the loaded images as the input for our model, in order to get a prediction.
+
+```{python, message=FALSE, warning=FALSE,eval=FALSE}
+prediction = model.predict(np.array([img1]) / 255 )
+index = np.argmax(prediction)
+print (class_names[index])
+```
+
+First we use the predict function to get the softmax result. Notice that we are converting our image into a NumPy array and dividing it by 255. This is because we need to normalize it, since our model was trained on normalized values. Then we use the argmax function to get the index of the highest softmax activation value. Finally, we print the class name of that index as a result.
+
+Car Horse
+
+The results speak for themselves. These pictures were classified absolutely correct.
+
