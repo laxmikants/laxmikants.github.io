@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <style>
+
+    .nocopy {
+      -webkit-user-select: none;   
+      -moz-user-select: none;      
+      -ms-user-select: none;       
+      user-select: none;           
+    }  
+
+</style>
+
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Android Layout - Basics - Data Science Posts and Resources :: Laxmikant Soni</title>
+
+<meta name="viewport" content="width=device-width" />
+
+<meta name="google-site-verification" content="MeRcFEBEyWiTb3NfY4THWxbV_fx3rKOJnvr_Jk398wY" />
+
+<meta name=keywords content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics | Laxmikant Soni, Predictive Analytics, Business, Data, Analytics, Machine Learning, Mining, Python, Intelligence, Big, Modeling, Data Science, Integration, Visualization,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow,Javascript,ReactJS,NodeJS,Posts and Resources on Data Science,Data Science,Hadoop,Java,Spring,Hibernate,Struts,MySQL,Oracle,DB2,Websphere,Weblogic">
+
+<meta name=description content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics :: Laxmikant Soni">
+
+<meta name="robots" content="index">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+<meta name="generator" content="Hugo 0.80.0" /><meta itemprop="name" content="Android Layout - Basics">
+<meta itemprop="description" content="Introduction to Android Layout">
+<meta itemprop="datePublished" content="2018-01-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-01-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="878">
+
+
+
+<meta itemprop="keywords" content="Android," />
+<meta property="og:title" content="Android Layout - Basics" />
+<meta property="og:description" content="Introduction to Android Layout" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/android-layout-basics/" />
+<meta property="article:published_time" content="2018-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-01-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Android Layout - Basics"/>
+<meta name="twitter:description" content="Introduction to Android Layout"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.aa4e8165f5b2a16460fcb21582ad412bed8e48e9c5dc49f3b412d1703be4d75d.css" integrity="sha256-qk6BZfWyoWRg/LIVgq1BK&#43;2OSOnF3EnztBLRcDvk110="><link rel="stylesheet" href="/css/add-on.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+<title>Android Layout - Basics : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Android Layout - Basics">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/android-layout-basics/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Introduction to Android Layout">
+<meta name="description" content="Introduction to Android Layout">
+<meta property="og:updated_time" content="2018-01-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2018-01-05T00:00:00Z">
+<meta property="article:modified_time" content="2018-01-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Android Layout - Basics",
+  "alternativeHeadline": "Android Layout",
+  "name" : "Data Science Posts and Resources",
+  "url": "https://laxmikants.github.io/blog/android-layout-basics/",
+  "image": "https://laxmikants.github.io/",
+  "sameAs":
+      [ "https://www.facebook.com/laxmikantsoni09",
+        "https://instagram.com/laxmikantsoni09",
+        "https://www.linkedin.com/in/laxmikantsoni09",
+        "https://twitter.com/laxmikantsoni09",
+        "https://github.com/laxmikants",
+        "https://www.kaggle.com/laxmikantsoni"
+    ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/android-layout-basics/"
+  },
+  "description": "Introduction to Android Layout",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2018-01-05T00:00:00Z",
+  "dateModified": "2018-01-05T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eLayout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eA Layout represents a invisible component in an Android user interface. Layout in android are similar to Layout of rooms on a plot of given\r\nsize. Layout is a container for different visible UI controls for example a Layout can hold “TextView”, “EditText” , “Button” which represents\r\nthe different visible components on the UI screen of an Android application\u003c/p\u003e\r\n\u003cp\u003eThere are different arrangements possible with given UI controls within a Layout therefore we have many different kinds of layout in an Android application.\u003c/p\u003e\r\n\u003cp\u003eIn \u003cstrong\u003eAndroid\u003c/strong\u003e the term \u003cstrong\u003elayout\u003c/strong\u003e means describing how the View components are displayed on the screen relative to each other.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"android-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eAndroid Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eAndroid Layout means the UI interface which has the UI controls or widgets that will appear on the screen of an android\r\napplication or activity. Every app is comprised of View and ViewGroup. As we know, an android app contains a many number of activities and we can say each activity is one page of the application. So, each activity has multiple UI interface components and those\r\nUI components are the instances of the View and ViewGroup.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"view-and-viewgroup\" class=\"section level3\"\u003e\r\n\u003ch3\u003eView And ViewGroup\u003c/h3\u003e\r\n\u003cp\u003eA View is the user interface which is useful to create an interactive UI components such as TextView, EditText, Radio Button, etc. and it responsible for event handling and drawing. A ViewGroup acts as a base cls for layouts and layouts params which hold many other Views or ViewGroups and to define the layout properties.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"types-of-layouts\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eTypes of Layouts\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003e\u003cstrong\u003eLinear Layout\u003c/strong\u003e: LinearLayout is a subclass of ViewGroup and is means to provide child View elements one by one either in a particular direction either horizontally or vertically depending on the orientation property.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eRelative Layout\u003c/strong\u003e: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eFrame Layout\u003c/strong\u003e: FrameLayout is a subclass of ViewGroup and means to specify the position of View elements it contains on the top of each other to display only single View inside the FrameLayout. For example placing text over an image.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eTable Layout\u003c/strong\u003e: TableLayout is subcls of ViewGroup and is used to show the child View elements in rows and columns.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eWeb View\u003c/strong\u003e: WebView means browser which is used to display the web pages in our activity layout.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eList View\u003c/strong\u003e: ListView is subclass of ViewGroup and means to display scrollable list of items in single column.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eGrid View\u003c/strong\u003e: GridView is a subclass of ViewGroup and is means to display scrollable list of items in grid View of rows and columns.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"properties\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eProperties\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:id\u003c/strong\u003e : Used to specify the id of the view.\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_width\u003c/strong\u003e : The width of View and ViewGroup\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_height\u003c/strong\u003e: Used to declare the height of View and ViewGroup\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_marginLeft\u003c/strong\u003e: Declare the extra space used in the left side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_marginRight\u003c/strong\u003e: Used to declare the extra space used in the Right side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_marginTop\u003c/strong\u003e : Used to declare the extra space used in the Top side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_marginBottom\u003c/strong\u003e : Used to declare the extra space used in the Bottom side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).\u003c/p\u003e\r\n\u003cp\u003e\u003cstrong\u003eandroid:layout_gravity\u003c/strong\u003e : Define how child Views are positioned in the layout.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"linear-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eLinear Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eLinear layout is a \u003cstrong\u003eViewgroup\u003c/strong\u003e containing different \u003cstrong\u003eView\u003c/strong\u003e. Linear arranges views in sequence. \u003cstrong\u003eOrientation\u003c/strong\u003e can be horizontal or vertical\u003c/p\u003e\r\n\u003cp\u003eExample\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e\u0026lt;LinearLayout\r\n\r\nandroid:layout\\_height=\u0026quot;match\\_parent\u0026quot;\r\nandroid:layout\\_width=\u0026quot;match\\_parent\u0026quot;\r\nandroid:orientation=\u0026quot;horizontal\u0026quot;\r\nxmlns:android=\u0026quot;http://schemas.android.com/apk/res/android\u0026quot; \r\n/\u0026gt;\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"relative-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eRelative Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eRelative layout is a \u003cstrong\u003eViewgroup\u003c/strong\u003e containing different \u003cstrong\u003eViews\u003c/strong\u003e. \u003cstrong\u003eRelative layout\u003c/strong\u003e displays child views in \u003cstrong\u003erelative\u003c/strong\u003e positions. The position of each view component can be specified as \u003cstrong\u003erelative\u003c/strong\u003e to siblng elements (such as to the left-of or below another view). It can eliminate the neid for nested ViewGroup. Instead of nesting many LinearLayout we can just use \u003cstrong\u003eRelativeLayout\u003c/strong\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"table-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eTable Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eViewGroup that shows child elements in rows and col. It has structure similar to HTML table.In each cell you can use any kind of view element arran\r\nlike columns in horizontal linear layout\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"listview\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eListView\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003eListView is a ViewGroup that makes a list of scrollable items. ListView is implemented by importing android.widget.ListView class. ListView makes use of the Adapter which in tern add the content from data source (such as string array, array, database etc) to ListView.\r\nAdapter bridges data between an AdapterViews and other Views (ListView, ScrollView etc).\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"grid-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eGrid Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003ePlaces its children as rectangular grid. The grid is composed of a collection of infinitely thin lines that separate the viewing area into cells.\r\nAll components in the \u003cstrong\u003elayout\u003c/strong\u003e are given equal size.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"tab-layout\" class=\"section level3\"\u003e\r\n\u003ch3\u003e\u003ccode\u003eTab Layout\u003c/code\u003e\u003c/h3\u003e\r\n\u003cp\u003e\u003cstrong\u003eTabLayout\u003c/strong\u003e is used to implement horizontal tabs. TabLayout was released by Android after deprecetion of ActionBar.TabListener (API level 21).\r\nIt provides horizontal layout to show \u003cstrong\u003etabs\u003c/strong\u003e on the screen. We can display more screens in a single screen using \u003cstrong\u003etabs\u003c/strong\u003e. We can quickly swipe between the \u003cstrong\u003etabs\u003c/strong\u003e\u003c/p\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+  <body>
+    
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5KFS4C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+      
+    
+
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/about/" class="nav link"><i class='far fa-id-card'></i> About</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+        
+          
+          <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> Contact</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+ 
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu">
+
+  </div></menu>
+  
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Android%20Layout%20-%20Basics&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f&amp;title=Android%20Layout%20-%20Basics" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    <p>Articles on Data Science</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/android-layout-basics/">Android Layout - Basics</a></h2>
+    
+    
+      <p>Introduction to Android Layout</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2018-01-05 00:00:00 &#43;0000 UTC">January 5, 2018</time>
+    <p>Laxmi K Soni</p>
+    <p>5-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Android%20Layout%20-%20Basics&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2fandroid-layout-basics%2f&amp;title=Android%20Layout%20-%20Basics" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </div>
+    <div align = "center">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3804322353139756"
+         data-ad-slot="3387213493"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+        <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+        </script>
+    </div>
+    <div class="content">
+      <a href="/blog/android-layout-basics/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2018-01-05-Android-Layout-1.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2018-01-05-Android-Layout-1.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="layout" class="section level3">
+<h3><code>Layout</code></h3>
+<p>A Layout represents a invisible component in an Android user interface. Layout in android are similar to Layout of rooms on a plot of given
+size. Layout is a container for different visible UI controls for example a Layout can hold “TextView”, “EditText” , “Button” which represents
+the different visible components on the UI screen of an Android application</p>
+<p>There are different arrangements possible with given UI controls within a Layout therefore we have many different kinds of layout in an Android application.</p>
+<p>In <strong>Android</strong> the term <strong>layout</strong> means describing how the View components are displayed on the screen relative to each other.</p>
+</div>
+<div id="android-layout" class="section level3">
+<h3><code>Android Layout</code></h3>
+<p>Android Layout means the UI interface which has the UI controls or widgets that will appear on the screen of an android
+application or activity. Every app is comprised of View and ViewGroup. As we know, an android app contains a many number of activities and we can say each activity is one page of the application. So, each activity has multiple UI interface components and those
+UI components are the instances of the View and ViewGroup.</p>
+</div>
+<div id="view-and-viewgroup" class="section level3">
+<h3>View And ViewGroup</h3>
+<p>A View is the user interface which is useful to create an interactive UI components such as TextView, EditText, Radio Button, etc. and it responsible for event handling and drawing. A ViewGroup acts as a base cls for layouts and layouts params which hold many other Views or ViewGroups and to define the layout properties.</p>
+</div>
+<div id="types-of-layouts" class="section level3">
+<h3><code>Types of Layouts</code></h3>
+<p><strong>Linear Layout</strong>: LinearLayout is a subclass of ViewGroup and is means to provide child View elements one by one either in a particular direction either horizontally or vertically depending on the orientation property.</p>
+<p><strong>Relative Layout</strong>: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).</p>
+<p><strong>Frame Layout</strong>: FrameLayout is a subclass of ViewGroup and means to specify the position of View elements it contains on the top of each other to display only single View inside the FrameLayout. For example placing text over an image.</p>
+<p><strong>Table Layout</strong>: TableLayout is subcls of ViewGroup and is used to show the child View elements in rows and columns.</p>
+<p><strong>Web View</strong>: WebView means browser which is used to display the web pages in our activity layout.</p>
+<p><strong>List View</strong>: ListView is subclass of ViewGroup and means to display scrollable list of items in single column.</p>
+<p><strong>Grid View</strong>: GridView is a subclass of ViewGroup and is means to display scrollable list of items in grid View of rows and columns.</p>
+</div>
+<div id="properties" class="section level3">
+<h3><code>Properties</code></h3>
+<p><strong>android:id</strong> : Used to specify the id of the view.</p>
+<p><strong>android:layout_width</strong> : The width of View and ViewGroup</p>
+<p><strong>android:layout_height</strong>: Used to declare the height of View and ViewGroup</p>
+<p><strong>android:layout_marginLeft</strong>: Declare the extra space used in the left side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).</p>
+<p><strong>android:layout_marginRight</strong>: Used to declare the extra space used in the Right side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).</p>
+<p><strong>android:layout_marginTop</strong> : Used to declare the extra space used in the Top side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).</p>
+<p><strong>android:layout_marginBottom</strong> : Used to declare the extra space used in the Bottom side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).</p>
+<p><strong>android:layout_gravity</strong> : Define how child Views are positioned in the layout.</p>
+</div>
+<div id="linear-layout" class="section level3">
+<h3><code>Linear Layout</code></h3>
+<p>Linear layout is a <strong>Viewgroup</strong> containing different <strong>View</strong>. Linear arranges views in sequence. <strong>Orientation</strong> can be horizontal or vertical</p>
+<p>Example</p>
+<pre class="python"><code>&lt;LinearLayout
+
+android:layout\_height=&quot;match\_parent&quot;
+android:layout\_width=&quot;match\_parent&quot;
+android:orientation=&quot;horizontal&quot;
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; 
+/&gt;</code></pre>
+</div>
+<div id="relative-layout" class="section level3">
+<h3><code>Relative Layout</code></h3>
+<p>Relative layout is a <strong>Viewgroup</strong> containing different <strong>Views</strong>. <strong>Relative layout</strong> displays child views in <strong>relative</strong> positions. The position of each view component can be specified as <strong>relative</strong> to siblng elements (such as to the left-of or below another view). It can eliminate the neid for nested ViewGroup. Instead of nesting many LinearLayout we can just use <strong>RelativeLayout</strong></p>
+</div>
+<div id="table-layout" class="section level3">
+<h3><code>Table Layout</code></h3>
+<p>ViewGroup that shows child elements in rows and col. It has structure similar to HTML table.In each cell you can use any kind of view element arran
+like columns in horizontal linear layout</p>
+</div>
+<div id="listview" class="section level3">
+<h3><code>ListView</code></h3>
+<p>ListView is a ViewGroup that makes a list of scrollable items. ListView is implemented by importing android.widget.ListView class. ListView makes use of the Adapter which in tern add the content from data source (such as string array, array, database etc) to ListView.
+Adapter bridges data between an AdapterViews and other Views (ListView, ScrollView etc).</p>
+</div>
+<div id="grid-layout" class="section level3">
+<h3><code>Grid Layout</code></h3>
+<p>Places its children as rectangular grid. The grid is composed of a collection of infinitely thin lines that separate the viewing area into cells.
+All components in the <strong>layout</strong> are given equal size.</p>
+</div>
+<div id="tab-layout" class="section level3">
+<h3><code>Tab Layout</code></h3>
+<p><strong>TabLayout</strong> is used to implement horizontal tabs. TabLayout was released by Android after deprecetion of ActionBar.TabListener (API level 21).
+It provides horizontal layout to show <strong>tabs</strong> on the screen. We can display more screens in a single screen using <strong>tabs</strong>. We can quickly swipe between the <strong>tabs</strong></p>
+</div>
+
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/android/">Android</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/android/">Android</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="b80b5bdba6b158879a60770c2f3461be">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/python-basics/" class="button left"><span>Python - Basics</span></a>
+    
+    
+  </div>
+  
+
+      </main>
+      
+<section id="site-sidebar">
+ 
+  <div align="center">
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3804322353139756"
+           data-ad-slot="9101315425"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+      </script>
+  
+  </div>
+
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/convolutional-neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/cnn-neural-network.jpg');">
+    <img src="https://laxmikants.github.io/img/main/cnn-neural-network.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/convolutional-neural-networks/">Convolutional Neural Networks</a></h2>
+          <time class="published" datetime="2021-01-29 00:00:00 &#43;0000 UTC">January 29, 2021</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-network-using-make-moons-dataset/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg');">
+    <img src="https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-network-using-make-moons-dataset/">Neural Network using Make Moons dataset</a></h2>
+          <time class="published" datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/single-layer-perceptron/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/Single_Layer_Perceptron.jpg');">
+    <img src="https://laxmikants.github.io/img/main/Single_Layer_Perceptron.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/single-layer-perceptron/">Single Layer Perceptron</a></h2>
+          <time class="published" datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+
+      
+    </section>
+  
+
+  <div align="center">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3804322353139756"
+     data-ad-slot="3115024406"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+    <script>
+        $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+    </script>
+  </div>
+  
+  
+    
+      <section id="categories">
+        
+   
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/android/">android<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/convolutional-neural-networks/">convolutional-neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-network/">neural-network<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/single-layer-perceptron/">single-layer-perceptron<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+        <div align="center">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          
+            <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3804322353139756"
+             data-ad-slot="5736252654"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+          <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+          </script>             
+        </div>             
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2021 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.daca826145adfcf5004b4b16d74010eff217a0382fad56b874f5630927a20c4e.js" integrity="sha256-2sqCYUWt/PUAS0sW10AQ7/IXoDgvrVa4dPVjCSeiDE4="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+  
+</html>

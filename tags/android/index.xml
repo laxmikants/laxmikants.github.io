@@ -6,32 +6,14 @@
     <description>Recent content in Android on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Android - Layout</title>
-      <link>https://laxmikants.github.io/blog/introduction-to-android-layout/</link>
-      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+      <title>Android Layout - Basics</title>
+      <link>https://laxmikants.github.io/blog/android-layout-basics/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://laxmikants.github.io/blog/introduction-to-android-layout/</guid>
-      <description>Introduction to Android Layout.</description>
-    </item>
-    
-    <item>
-      <title>Android - Layout</title>
-      <link>https://laxmikants.github.io/blog/introduction-to-android-layout/</link>
-      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/blog/introduction-to-android-layout/</guid>
-      <description>Introduction to Android Layout.</description>
-    </item>
-    
-    <item>
-      <title>Android - Layout</title>
-      <link>https://laxmikants.github.io/blog/introduction-to-android-layout/</link>
-      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://laxmikants.github.io/blog/introduction-to-android-layout/</guid>
-      <description>Introduction to Android Layout.</description>
+      <guid>https://laxmikants.github.io/blog/android-layout-basics/</guid>
+      <description>Introduction to Android Layout</description>
     </item>
     
   </channel>

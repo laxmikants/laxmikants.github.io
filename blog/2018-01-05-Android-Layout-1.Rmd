@@ -1,0 +1,148 @@
+---
+title: "Android Layout - Basics"
+author: Laxmi K Soni 
+description: "Introduction to Android Layout"
+slug: Android Layout - Basics
+date: 2018-01-05
+lastmod: 2018-01-05
+categories: ["Android"]
+tags: ["Android"]
+Summary: Introduction to Android Layout
+subtitle: Android Layout
+featured: "img/main/2018-01-05-Android-Layout-1.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//AppData//Local//r-miniconda//envs//r-reticulate//python.exe")
+
+```
+
+
+
+
+### `Layout`
+
+A Layout represents a invisible component in an Android user interface. Layout in android are similar to Layout of rooms on a plot of given
+size.  Layout is a container for different visible UI controls for example a Layout can hold “TextView”, “EditText” , “Button” which represents
+the different visible components on the UI screen of an Android application
+
+
+There are different arrangements possible with given UI controls within a Layout therefore we have many different kinds of layout in an Android application.
+
+
+In **Android** the term **layout** means describing how the View  components are displayed on the screen relative to each other. 
+
+### `Android Layout`
+
+Android Layout means the UI interface which has the UI controls or widgets that will appear on the screen of an android
+application or activity. Every app is comprised of View and ViewGroup. As we know, an android app contains a many number of activities and we can say each activity is one page of the application. So, each activity has multiple UI interface components and those
+UI components are the instances of the View and ViewGroup.
+
+
+### View And ViewGroup
+
+A View is the user interface which is useful to create an interactive UI components such as TextView, EditText, Radio Button, etc. and it responsible for event handling and drawing. A ViewGroup acts as a base cls for layouts and layouts params which hold many other Views or ViewGroups and to define the layout properties.
+
+
+### `Types of Layouts`
+
+**Linear Layout**: LinearLayout is a subclass of ViewGroup and is means to provide child View elements one by one either in a particular direction either horizontally or vertically depending on the orientation property.
+
+**Relative Layout**: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).
+
+
+**Frame Layout**: FrameLayout is a subclass of ViewGroup and means to specify the position of View elements it contains on the top of each other to display only single View inside the FrameLayout. For example placing text over an image.
+
+**Table Layout**: TableLayout is subcls of ViewGroup and is used to show the child View elements in rows and columns.
+
+**Web View**: WebView means browser which is used to display the web pages in our activity layout.
+
+**List View**: ListView is subclass of ViewGroup and means to display scrollable list of items in single column.
+
+**Grid View**: GridView is a subclass of ViewGroup and is means to display scrollable list of items in grid View of rows and columns.
+
+
+### `Properties`
+
+**android:id** : Used to specify the id of the view.
+
+**android:layout\_width** : The width of View and ViewGroup
+
+**android:layout\_height**:  Used to declare the height of View and ViewGroup
+
+
+**android:layout\_marginLeft**: Declare the extra space used in the left side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).
+
+**android:layout\_marginRight**: Used to declare the extra space used in the Right side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).
+
+**android:layout\_marginTop** : Used to declare the extra space used in the Top side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).
+
+**android:layout\_marginBottom** : Used to declare the extra space used in the Bottom side of View and ViewGroup in px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size), in (inches), and mm (millimeters).
+
+**android:layout\_gravity** : Define how child Views are positioned in the layout.
+
+
+
+### `Linear Layout`
+
+Linear layout is a **Viewgroup** containing different **View**. Linear arranges views in sequence. **Orientation** can be horizontal or vertical
+
+Example
+
+```{python, eval = FALSE}
+<LinearLayout
+
+android:layout\_height="match\_parent"
+android:layout\_width="match\_parent"
+android:orientation="horizontal"
+xmlns:android="http://schemas.android.com/apk/res/android" 
+/>
+
+```
+
+
+
+### `Relative Layout`
+
+Relative layout is a **Viewgroup** containing different **Views**.  **Relative layout** displays child views in **relative** positions. The position of each view component can be specified as **relative** to siblng elements (such as to the left-of or below another view). It can eliminate the neid for nested ViewGroup. Instead of nesting many LinearLayout we can just use **RelativeLayout**
+
+
+
+
+### `Table Layout`
+
+ViewGroup that shows child elements in rows and col. It has structure similar to HTML table.In each cell you can use any kind of view element arran
+like columns in horizontal linear layout
+
+### `ListView`
+
+ListView is a ViewGroup that makes a list of scrollable items. ListView is implemented by importing android.widget.ListView class. ListView makes use of the  Adapter which in tern add the content from data source (such as string array, array, database etc) to ListView. 
+Adapter bridges data between an AdapterViews and other Views (ListView, ScrollView etc).
+
+
+
+### `Grid Layout`
+
+Places its children as rectangular grid. The grid is composed of a collection of infinitely thin lines that separate the viewing area into cells.
+All components in the **layout** are given equal size. 
+
+
+
+### `Tab Layout`
+
+**TabLayout** is used to implement horizontal tabs. TabLayout was released by Android after deprecetion of ActionBar.TabListener (API level 21).
+It provides horizontal layout to show **tabs** on the screen. We can display more screens in a single screen using **tabs**. We can quickly swipe between the **tabs**
+
