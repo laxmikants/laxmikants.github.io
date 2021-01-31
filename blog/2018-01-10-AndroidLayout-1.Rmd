@@ -1,0 +1,52 @@
+---
+title: "Android - Layout"
+author: Laxmi K Soni 
+description: "Introduction to Android Layout"
+slug: Introduction to Android Layout
+date: 2018-01-10
+lastmod: 2018-01-10
+categories: ["Android"]
+tags: ["Android"]
+Summary: Introduction to Android Layout.
+subtitle: Android Layout Basics
+featured: "img/main/Python_Basics-19.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//AppData//Local//r-miniconda//envs//r-reticulate//python.exe")
+
+```
+
+
+### `Layout`
+
+An Layout represents a invisible component in an Android user interface. Layout in android are similar to Layout of rooms on a plot of given size. Layout is a container for different visible UI controls for example a Layout can hold “TextView”, “EditText” , “Button” which represents the different visible components on the UI screen of an Android application. There are different arrangements possible with given UI controls within a Layout therefore we have many different kinds of layout in an Android application. In Android the term layout refers to defining how the View components are displayed on the screen relative to each other A layout is typically defined partly by the View and partly by the ViewGroup which contains the View. The view group is the base class for layouts and views containers.
+
+### `Android Layout`
+
+Android Layout is used to define the user interface which holds the UI controls or widgets that will appear on the screen of an android application or activity. Generally, every application is combination of View and ViewGroup. As we know, an android application contains a large number of activities and we can say each activity is one page of the application. So, each activities contains multiple user interface components and those components are the instances of the View and ViewGroup.
+
+### `Example`
+
+```{python, eval=FALSE}
+<LinearLayout 
+android:layout_height="match_parent" 
+android:layout_width="match_parent" 
+android:orientation="horizontal" 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+/>
+```
+
