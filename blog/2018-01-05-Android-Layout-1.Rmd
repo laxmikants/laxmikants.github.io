@@ -59,7 +59,9 @@ A View is the user interface which is useful to create an interactive UI compone
 
 ### `Types of Layouts`
 
-**Linear Layout**: LinearLayout is a subclass of ViewGroup and is means to provide child View elements one by one either in a particular direction either horizontally or vertically depending on the orientation property.
+**Linear Layout**: LinearLayout is a subclass of ViewGroup and is means to provide child View elements one by one either in a particular direction either horizontally or vertically depending on the orientation property. The important properties of Linear Layout are Orientation, Fill model, weight,
+Gravity. Orientation takes values either horizontal or vertical and means the child views will be aligned either from left to right or from top to bottom. Fill model means to fill the available space with the given view for instance if there are three child views(200dp) to be rendered in 400dp width then the first child will take the width 200dp then the second view will be rendered to fill the width of 200dp since already the total width 
+of 400dp is filled the third child will endup taking the width of 0dp. The third important property is weight. The weigh property specify how to split the available space between multiple child views. Suppose we want to layout ok and cancel button. Then we can use the weight property for splitting the space between two buttons equally. We can use weightSum property of the parent along with weight property of the child for dividing the screen among the children views.The gravity property means to slide the contents of the view in a particular direction. That means how a particular child view should be positioned within the parent. Gravity allow you move the content inside a container. (How sub-views will be placed).layout gravity allow you to override the parent gravity behavior ONLY along x-axis.
 
 **Relative Layout**: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).
 
