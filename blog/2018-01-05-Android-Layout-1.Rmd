@@ -102,7 +102,7 @@ To design Login form using Linear Layout.
 
 
 ```{r}
-knitr::include_url('https://rpubs.com/laxmikant/relativelayout')
+knitr::include_url('/slides/relativelayout.html')
 ```
 
 
