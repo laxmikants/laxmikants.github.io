@@ -96,7 +96,14 @@ To design Login form using Linear Layout.
 
 - Build and Run the app in emulator        
 
+
+
 **Relative Layout**: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).
+
+
+```{r}
+knitr::include_url('https://rpubs.com/laxmikant/relativelayout')
+```
 
 
 **Frame Layout**: FrameLayout is a subclass of ViewGroup and means to specify the position of View elements it contains on the top of each other to display only single View inside the FrameLayout. For example placing text over an image.
