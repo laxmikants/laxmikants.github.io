@@ -101,8 +101,9 @@ To design Login form using Linear Layout.
 **Relative Layout**: RelativeLayout is a subclass of ViewGroup and is means to specify the position of child View elements relative to each other like (A to the right of B) or relative to the parent (fix to the top of parent).
 
 
+
 ```{r}
-knitr::include_url('/slides/relativelayout.html')
+knitr::include_url('/slides/Relativelayout.html')
 ```
 
 
