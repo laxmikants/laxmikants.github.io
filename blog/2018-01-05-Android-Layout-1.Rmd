@@ -176,7 +176,6 @@ ListView is a ViewGroup that makes a list of scrollable items. ListView is imple
 Adapter bridges data between an AdapterViews and other Views (ListView, ScrollView etc).
 
 
-
 ### `Grid Layout`
 
 Places its children as rectangular grid. The grid is composed of a collection of infinitely thin lines that separate the viewing area into cells.
