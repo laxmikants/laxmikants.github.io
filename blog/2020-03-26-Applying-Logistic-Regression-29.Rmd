@@ -29,10 +29,9 @@ library(tidyverse)
 library(magick)
 library(reticulate)
 
-conda_list()[[1]][1] %>% 
-  use_condaenv(required = TRUE)
-```
+use_condaenv("r-reticulate")
 
+```
 
 ***1:Loading Stock data***
 
@@ -59,7 +58,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import MinMaxScaler 
 import math
 from sklearn.metrics import mean_squared_error
-
+import investpy
 
 ```
 
@@ -76,13 +75,14 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 ```
 
 
+
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='14/02/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='20/02/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='14/02/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='20/02/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='14/02/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='20/02/2021', country = "India")
 
 
 ```
