@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <style>
+
+    .nocopy {
+      -webkit-user-select: none;   
+      -moz-user-select: none;      
+      -ms-user-select: none;       
+      user-select: none;           
+    }  
+
+</style>
+
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Handwritten Digit Recognition - Data Science Posts and Resources :: Laxmikant Soni</title>
+
+<meta name="viewport" content="width=device-width" />
+
+<meta name="google-site-verification" content="MeRcFEBEyWiTb3NfY4THWxbV_fx3rKOJnvr_Jk398wY" />
+
+<meta name=keywords content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics | Laxmikant Soni, Predictive Analytics, Business, Data, Analytics, Machine Learning, Data Mining, Neural Network with Python, Neural Network, Predict Stock price movement using Neural Networks, Intelligence, Big, Modeling, Data Science, Integration, Visualization,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow">
+
+<meta name=description content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics :: Laxmikant Soni">
+
+<meta name="robots" content="index">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+<meta name="generator" content="Hugo 0.80.0" /><meta itemprop="name" content="Handwritten Digit Recognition">
+<meta itemprop="description" content="Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks.">
+<meta itemprop="datePublished" content="2021-04-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-04-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1368">
+
+
+
+<meta itemprop="keywords" content="Handwritten Digit Recognition," />
+<meta property="og:title" content="Handwritten Digit Recognition" />
+<meta property="og:description" content="Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/handwritten-digit-recognition/" />
+<meta property="article:published_time" content="2021-04-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-04-02T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Handwritten Digit Recognition"/>
+<meta name="twitter:description" content="Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks."/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.aa4e8165f5b2a16460fcb21582ad412bed8e48e9c5dc49f3b412d1703be4d75d.css" integrity="sha256-qk6BZfWyoWRg/LIVgq1BK&#43;2OSOnF3EnztBLRcDvk110="><link rel="stylesheet" href="/css/add-on.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+<title>Handwritten Digit Recognition : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Handwritten Digit Recognition">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/handwritten-digit-recognition/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks.">
+<meta name="description" content="Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks.">
+<meta property="og:updated_time" content="2021-04-02T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2021-04-02T00:00:00Z">
+<meta property="article:modified_time" content="2021-04-02T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Handwritten Digit Recognition",
+  "alternativeHeadline": "Handwritten Digit Recognition",
+  "name" : "Data Science Posts and Resources",
+  "url": "https://laxmikants.github.io/blog/handwritten-digit-recognition/",
+  "image": "https://laxmikants.github.io/",
+  "sameAs":
+      [ "https://www.facebook.com/laxmikantsoni09",
+        "https://instagram.com/laxmikantsoni09",
+        "https://www.linkedin.com/in/laxmikantsoni09",
+        "https://twitter.com/laxmikantsoni09",
+        "https://github.com/laxmikants",
+        "https://www.kaggle.com/laxmikantsoni"
+    ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/handwritten-digit-recognition/"
+  },
+  "description": "Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks.",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2021-04-02T00:00:00Z",
+  "dateModified": "2021-04-02T00:00:00Z",
+  "articleBody": "\r\n\u003cscript src=\"/rmarkdown-libs/header-attrs/header-attrs.js\"\u003e\u003c/script\u003e\r\n\u003clink href=\"/rmarkdown-libs/anchor-sections/anchor-sections.css\" rel=\"stylesheet\" /\u003e\r\n\u003cscript src=\"/rmarkdown-libs/anchor-sections/anchor-sections.js\"\u003e\u003c/script\u003e\r\n\r\n\r\n\u003cdiv id=\"introduction\" class=\"section level4\"\u003e\r\n\u003ch4\u003eIntroduction\u003c/h4\u003e\r\n\u003cp\u003eIn this blog our goal is to build and train a neural network, which recognizes handwritten digits with good accuracy. It will be able to recognize the digits from 0 to 9.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"import-libraries\" class=\"section level4\"\u003e\r\n\u003ch4\u003eImport libraries\u003c/h4\u003e\r\n\u003cp\u003eFor this chapter we will need the following imports:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport cv2\r\nimport numpy as np\r\nimport tensorflow as tf\r\nimport matplotlib.pyplot as plt\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eTensorflow is the main library here. We will use it to load data sets, build neural networks, train them etc. The other three libraries are not necessary for the functionality of the neural network. We are only using them in order to load our own images of digits at the end.\u003c/p\u003e\r\n\u003cp\u003eNumpy will be used for reformatting our own images and Matplotlib will be used for their visualization.\u003c/p\u003e\r\n\u003cp\u003eCV2 is the OpenCV library and it will allow us to load our images into the script. You will need to install this module separately:\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"loading-and-preparing-data\" class=\"section level4\"\u003e\r\n\u003ch4\u003eLOADING AND PREPARING DATA\u003c/h4\u003e\r\n\u003cp\u003eBefore we start building and using our neural network, we need to first get some training data and prepare it.\u003c/p\u003e\r\n\u003cp\u003eFor this we are going to use the MNIST dataset which contains 60,000 training examples and 10,000 testing examples of handwritten digits that are already classified correctly. These images have a resolution of 28x28 pixels. We will use the keras module, in order to load the dataset.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emnist = tf.keras.datasets.mnist\r\n\r\n(X_train,y_train),(X_test,y_Test)= mnist.load_data()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn order to get the dataset, we access the mnist object from the keras.datasets . Then we call the load_data function. This function automatically splits the data appropriately and returns a tuple with the training data and a tuple with the testing data.\r\nIn order to make the whole data easier to process, we are going to normalize it. This means that we scale down all the values so that they end up between 0 and 1.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eX_train = tf.keras.utils.normalize(X_train, axis=1)\r\nX_test  = tf.keras.utils.normalize(X_test,axis=1)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eFor this we use the normalize function of keras.utils . We have now structured and normalized our data so that we can start building our neural network.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"building-the-neural-network\" class=\"section level4\"\u003e\r\n\u003ch4\u003eBUILDING THE NEURAL NETWORK\u003c/h4\u003e\r\n\u003cp\u003eLets think about what kind of structure would make sense for our task. Since we are dealing with images, it would be reasonable to build a convolutional neural network.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel = tf.keras.models.Sequential()\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe use the models module from keras to create a new neural network. The Sequential constructor does this for us. Now we have a model, which doesn’t have any layers in it. Those have to be added manually.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.add(tf.keras.layers.Flatten(input_shape = (28,28)))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eWe start out by adding a so-called Flatten layer as our first layer. In order to add a layer to our model, we use the add function. Then we can choose the kind of layer that we want from the layers module. As you can see, we specified an input shape of 28x28 which represents the resolution of the images. What a flattened layer basically does is it flattens the input and makes it one dimensional. So instead of a 28x28 grid, we end up with 784 neurons lined up. Our goal is now to get to the right result based on these pixels.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))\r\nmodel.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn the next step we now add two Dense layers. These are our hidden layers and increase the complexity of our model. Both layers have 128 neurons each. The activation function is the ReLU function (see chapter 1). Dense layers connect every neuron of this layer with all the neurons of the next and previous layer. It is basically just a default layer.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.add(tf.keras.layers.Dense( units = 10 , activation =tf.nn.softmax))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eLast but not least we add an output layer. This one is also a dense layer but it only has ten neurons and a different activation function. The values of the ten neurons indicate how much our model believes that the respective number is the right classification. The first neuron is for the zero, the second for the one and so on.\u003c/p\u003e\r\n\u003cp\u003eThe activation function that we use here is the softmax function. This function scales the output values so that they all add up to one. Thus it transforms the absolute values into relative values.\u003c/p\u003e\r\n\u003cp\u003eEvery neuron then indicates how likely it is that this respective number is the result. We are dealing with percentages.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel = tf.keras.models.Sequential()\r\nmodel.add(tf.keras.layers.Flatten( input_shape =( 28 , 28 )))\r\nmodel.add(tf.keras.layers.Dense( units = 128 , activation =tf.nn.relu))\r\nmodel.add(tf.keras.layers.Dense( units = 128 , activation =tf.nn.relu))\r\nmodel.add(tf.keras.layers.Dense( units = 10 , activation =tf.nn.softmax))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn a nutshell, we have a flattened input layer with 784 neurons for the input pixels, followed by two hidden layers and one output layer with the probabilities for each digit.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"compiling-the-model\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCOMPILING THE MODEL\u003c/h4\u003e\r\n\u003cp\u003eBefore we start training and testing our model, we need to compile it first. This optimizes it and we can also choose a loss function.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.compile( optimizer = \u0026#39;adam\u0026#39; , loss = \u0026#39;sparse_categorical_crossentropy\u0026#39; , metrics =[ \u0026#39;accuracy\u0026#39; ])\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"training-and-testing\" class=\"section level4\"\u003e\r\n\u003ch4\u003eTRAINING AND TESTING\u003c/h4\u003e\r\n\u003cp\u003eNow we get to the essential part of the whole project – the training and testing. For this, we just have to use the fit function of our model.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.fit(X_train, y_train, epochs = 3 )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eHere we pass our x- and y-values as the training data. Then we also define the number of epochs that we want to go through. This number defines how many times our model is going to see the same data over and over again.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eloss, accuracy = model.evaluate(X_test, y_test)\r\nprint (loss)\r\nprint (accuracy)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eAfter that we use the evaluate method and pass our testing data, to determine the accuracy and the loss. Most of the time we get an accuracy of around 95% (try it yourself). This is pretty good if you take into account that mere guessing would give us a 10% chance of being right. Our model performs quite well.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel.save( \u0026#39;digits.model\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eInstead of training the model over and over again every single time we run the script, we can save it and load it later on. We do this by using the save method and specifying a name.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emodel = tf.keras.models.load_model( \u0026#39;digits.model\u0026#39; )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIf we now want to load the model, we can just use the load_model function of keras.models and refer to the same name.\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"classifying-your-own-digits\" class=\"section level4\"\u003e\r\n\u003ch4\u003eCLASSIFYING YOUR OWN DIGITS\u003c/h4\u003e\r\n\u003cp\u003eNow that we know that our model works and performs quite well, let us try to predict our own handwritten digits. For this you can either use a program like Paint, and set the resolution to 28x28 pixels, or you can actually use a scanner, scan a real digit and scale the picture down to that format.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimg = cv2.imread( \u0026#39;digit.png\u0026#39; )[:,:, 0 ]\r\nimg = np.invert(np.array([img]))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eIn order to load our image into the script, we use the imread function of OpenCV. We specify the file name and use the index slicing at the end in order to choose just one dimension, in order to fit the format. Also we need to invert the image and convert it into a NumPy array. This is necessary because otherwise it will see the image as white on black rather than black on white. That would confuse our model.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprediction = model.predict(img)\r\nprint ( \u0026#39;Prediction: {}\u0026#39; .format(np.argmax(prediction)))\r\nplt.imshow(img[ 0 ])\r\nplt.show() \u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eNow we use the predict method to make a prediction for our image. This prediction consists of the ten activations from the output neurons. Since we need to generate a result out of that, we are going to use the argmax function. This function returns the index of the highest value. In this case this is equivalent to the digit with the highest probability or activation. We can then visualize that image with the imshow method of Matplotlib and print the prediction.\u003c/p\u003e\r\n\u003cp\u003ePrediction: 7\u003c/p\u003e\r\n\u003cp\u003e\u003cimg src=\"/img/main/classifiedDigit7.png\" /\u003e\u003c/p\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"conclusion\" class=\"section level4\"\u003e\r\n\u003ch4\u003eConclusion\u003c/h4\u003e\r\n\u003cp\u003eHandwritten Digit Recognition using python is the program to interpret the manually written digits from various sources like messages, bank cheques, papers, pictures, in various situations. There are many challenges such as the distortion of handwritten characters, as many different types people may use different style of handwriting, direction etc. If we want to improve the accuracy of the program then we need use techniques such as adding more layers to the network with same hyperparameters and make the network more deeper.\u003c/p\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+  <body>
+    
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5KFS4C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+      
+    
+
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/about/" class="nav link"><i class='far fa-id-card'></i> About</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+        
+          
+          <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> Contact</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+ 
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu">
+  </div></menu>
+  
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Handwritten%20Digit%20Recognition&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f&amp;title=Handwritten%20Digit%20Recognition" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </menu>
+  
+</header>
+
+      
+    <div id="wrapper">
+    
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    <p>Articles on Data Science</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/handwritten-digit-recognition/">Handwritten Digit Recognition</a></h2>
+    
+    
+      <p>Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks.</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2021-04-02 00:00:00 &#43;0000 UTC">April 2, 2021</time>
+    <p>Laxmi K Soni</p>
+    <p>7-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Handwritten%20Digit%20Recognition&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2fhandwritten-digit-recognition%2f&amp;title=Handwritten%20Digit%20Recognition" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </div>
+  
+    <div class="content">
+      <a href="/blog/handwritten-digit-recognition/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg" alt="">
+  </a>
+      
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>In this blog our goal is to build and train a neural network, which recognizes handwritten digits with good accuracy. It will be able to recognize the digits from 0 to 9.</p>
+</div>
+<div id="import-libraries" class="section level4">
+<h4>Import libraries</h4>
+<p>For this chapter we will need the following imports:</p>
+<pre class="python"><code>import cv2
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt</code></pre>
+<p>Tensorflow is the main library here. We will use it to load data sets, build neural networks, train them etc. The other three libraries are not necessary for the functionality of the neural network. We are only using them in order to load our own images of digits at the end.</p>
+<p>Numpy will be used for reformatting our own images and Matplotlib will be used for their visualization.</p>
+<p>CV2 is the OpenCV library and it will allow us to load our images into the script. You will need to install this module separately:</p>
+</div>
+<div id="loading-and-preparing-data" class="section level4">
+<h4>LOADING AND PREPARING DATA</h4>
+<p>Before we start building and using our neural network, we need to first get some training data and prepare it.</p>
+<p>For this we are going to use the MNIST dataset which contains 60,000 training examples and 10,000 testing examples of handwritten digits that are already classified correctly. These images have a resolution of 28x28 pixels. We will use the keras module, in order to load the dataset.</p>
+<pre class="python"><code>mnist = tf.keras.datasets.mnist
+
+(X_train,y_train),(X_test,y_Test)= mnist.load_data()</code></pre>
+<p>In order to get the dataset, we access the mnist object from the keras.datasets . Then we call the load_data function. This function automatically splits the data appropriately and returns a tuple with the training data and a tuple with the testing data.
+In order to make the whole data easier to process, we are going to normalize it. This means that we scale down all the values so that they end up between 0 and 1.</p>
+<pre class="python"><code>X_train = tf.keras.utils.normalize(X_train, axis=1)
+X_test  = tf.keras.utils.normalize(X_test,axis=1)</code></pre>
+<p>For this we use the normalize function of keras.utils . We have now structured and normalized our data so that we can start building our neural network.</p>
+</div>
+<div id="building-the-neural-network" class="section level4">
+<h4>BUILDING THE NEURAL NETWORK</h4>
+<p>Lets think about what kind of structure would make sense for our task. Since we are dealing with images, it would be reasonable to build a convolutional neural network.</p>
+<pre class="python"><code>model = tf.keras.models.Sequential()</code></pre>
+<p>We use the models module from keras to create a new neural network. The Sequential constructor does this for us. Now we have a model, which doesn’t have any layers in it. Those have to be added manually.</p>
+<pre class="python"><code>model.add(tf.keras.layers.Flatten(input_shape = (28,28)))</code></pre>
+<p>We start out by adding a so-called Flatten layer as our first layer. In order to add a layer to our model, we use the add function. Then we can choose the kind of layer that we want from the layers module. As you can see, we specified an input shape of 28x28 which represents the resolution of the images. What a flattened layer basically does is it flattens the input and makes it one dimensional. So instead of a 28x28 grid, we end up with 784 neurons lined up. Our goal is now to get to the right result based on these pixels.</p>
+<pre class="python"><code>model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
+model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))</code></pre>
+<p>In the next step we now add two Dense layers. These are our hidden layers and increase the complexity of our model. Both layers have 128 neurons each. The activation function is the ReLU function (see chapter 1). Dense layers connect every neuron of this layer with all the neurons of the next and previous layer. It is basically just a default layer.</p>
+<pre class="python"><code>model.add(tf.keras.layers.Dense( units = 10 , activation =tf.nn.softmax))</code></pre>
+<p>Last but not least we add an output layer. This one is also a dense layer but it only has ten neurons and a different activation function. The values of the ten neurons indicate how much our model believes that the respective number is the right classification. The first neuron is for the zero, the second for the one and so on.</p>
+<p>The activation function that we use here is the softmax function. This function scales the output values so that they all add up to one. Thus it transforms the absolute values into relative values.</p>
+<p>Every neuron then indicates how likely it is that this respective number is the result. We are dealing with percentages.</p>
+<pre class="python"><code>model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Flatten( input_shape =( 28 , 28 )))
+model.add(tf.keras.layers.Dense( units = 128 , activation =tf.nn.relu))
+model.add(tf.keras.layers.Dense( units = 128 , activation =tf.nn.relu))
+model.add(tf.keras.layers.Dense( units = 10 , activation =tf.nn.softmax))</code></pre>
+<p>In a nutshell, we have a flattened input layer with 784 neurons for the input pixels, followed by two hidden layers and one output layer with the probabilities for each digit.</p>
+</div>
+<div id="compiling-the-model" class="section level4">
+<h4>COMPILING THE MODEL</h4>
+<p>Before we start training and testing our model, we need to compile it first. This optimizes it and we can also choose a loss function.</p>
+<pre class="python"><code>model.compile( optimizer = &#39;adam&#39; , loss = &#39;sparse_categorical_crossentropy&#39; , metrics =[ &#39;accuracy&#39; ])</code></pre>
+</div>
+<div id="training-and-testing" class="section level4">
+<h4>TRAINING AND TESTING</h4>
+<p>Now we get to the essential part of the whole project – the training and testing. For this, we just have to use the fit function of our model.</p>
+<pre class="python"><code>model.fit(X_train, y_train, epochs = 3 )</code></pre>
+<p>Here we pass our x- and y-values as the training data. Then we also define the number of epochs that we want to go through. This number defines how many times our model is going to see the same data over and over again.</p>
+<pre class="python"><code>loss, accuracy = model.evaluate(X_test, y_test)
+print (loss)
+print (accuracy)</code></pre>
+<p>After that we use the evaluate method and pass our testing data, to determine the accuracy and the loss. Most of the time we get an accuracy of around 95% (try it yourself). This is pretty good if you take into account that mere guessing would give us a 10% chance of being right. Our model performs quite well.</p>
+<pre class="python"><code>model.save( &#39;digits.model&#39; )</code></pre>
+<p>Instead of training the model over and over again every single time we run the script, we can save it and load it later on. We do this by using the save method and specifying a name.</p>
+<pre class="python"><code>model = tf.keras.models.load_model( &#39;digits.model&#39; )</code></pre>
+<p>If we now want to load the model, we can just use the load_model function of keras.models and refer to the same name.</p>
+</div>
+<div id="classifying-your-own-digits" class="section level4">
+<h4>CLASSIFYING YOUR OWN DIGITS</h4>
+<p>Now that we know that our model works and performs quite well, let us try to predict our own handwritten digits. For this you can either use a program like Paint, and set the resolution to 28x28 pixels, or you can actually use a scanner, scan a real digit and scale the picture down to that format.</p>
+<pre class="python"><code>img = cv2.imread( &#39;digit.png&#39; )[:,:, 0 ]
+img = np.invert(np.array([img]))</code></pre>
+<p>In order to load our image into the script, we use the imread function of OpenCV. We specify the file name and use the index slicing at the end in order to choose just one dimension, in order to fit the format. Also we need to invert the image and convert it into a NumPy array. This is necessary because otherwise it will see the image as white on black rather than black on white. That would confuse our model.</p>
+<pre class="python"><code>prediction = model.predict(img)
+print ( &#39;Prediction: {}&#39; .format(np.argmax(prediction)))
+plt.imshow(img[ 0 ])
+plt.show() </code></pre>
+<p>Now we use the predict method to make a prediction for our image. This prediction consists of the ten activations from the output neurons. Since we need to generate a result out of that, we are going to use the argmax function. This function returns the index of the highest value. In this case this is equivalent to the digit with the highest probability or activation. We can then visualize that image with the imshow method of Matplotlib and print the prediction.</p>
+<p>Prediction: 7</p>
+<p><img src="/img/main/classifiedDigit7.png" /></p>
+</div>
+<div id="conclusion" class="section level4">
+<h4>Conclusion</h4>
+<p>Handwritten Digit Recognition using python is the program to interpret the manually written digits from various sources like messages, bank cheques, papers, pictures, in various situations. There are many challenges such as the distortion of handwritten characters, as many different types people may use different style of handwriting, direction etc. If we want to improve the accuracy of the program then we need use techniques such as adding more layers to the network with same hyperparameters and make the network more deeper.</p>
+</div>
+
+      <div align = "center">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3804322353139756"
+         data-ad-slot="3387213493"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+        <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+        </script>
+    </div>            
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/handwritten-digit-recognition/">Handwritten Digit Recognition</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/handwritten-digit-recognition/">Handwritten Digit Recognition</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="69ac7ce1c6d28b079caba5d3f2272bf3">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+    
+      <a href="/blog/convolutional-neural-networks/" class="button right"><span>Convolutional Neural Networks</span></a>
+    
+  </div>
+  
+
+      </main>
+      
+<section id="site-sidebar">
+
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          <a href="/blog/handwritten-digit-recognition/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/handwritten-digit-recognition/">Handwritten Digit Recognition</a></h2>
+          <time class="published" datetime="2021-04-02 00:00:00 &#43;0000 UTC">April 2, 2021</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/convolutional-neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/cnn-neural-network.jpg');">
+    <img src="https://laxmikants.github.io/img/main/cnn-neural-network.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/convolutional-neural-networks/">Convolutional Neural Networks</a></h2>
+          <time class="published" datetime="2021-01-29 00:00:00 &#43;0000 UTC">January 29, 2021</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/neural-network-using-make-moons-dataset/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg');">
+    <img src="https://laxmikants.github.io/img/main/nn_makemoons_dataset.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/neural-network-using-make-moons-dataset/">Neural Network using Make Moons dataset</a></h2>
+          <time class="published" datetime="2020-12-10 00:00:00 &#43;0000 UTC">December 10, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+
+      
+    </section>
+  
+
+  <div align="center">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3804322353139756"
+     data-ad-slot="3115024406"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+    <script>
+        $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+    </script>
+  </div>
+  
+  
+    
+      <section id="categories">
+        
+   
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/convolutional-neural-networks/">convolutional-neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/handwritten-digit-recognition/">handwritten-digit-recognition<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-network/">neural-network<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/single-layer-perceptron/">single-layer-perceptron<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+        <div align="center">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          
+            <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3804322353139756"
+             data-ad-slot="5736252654"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+          <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+          </script>             
+        </div>             
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2021 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.daca826145adfcf5004b4b16d74010eff217a0382fad56b874f5630927a20c4e.js" integrity="sha256-2sqCYUWt/PUAS0sW10AQ7/IXoDgvrVa4dPVjCSeiDE4="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+  
+</html>

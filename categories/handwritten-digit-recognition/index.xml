@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Handwritten Digit Recognition on Data Science Posts and Resources</title>
+    <link>https://laxmikants.github.io/categories/handwritten-digit-recognition/</link>
+    <description>Recent content in Handwritten Digit Recognition on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/categories/handwritten-digit-recognition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Handwritten Digit Recognition</title>
+      <link>https://laxmikants.github.io/blog/handwritten-digit-recognition/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/handwritten-digit-recognition/</guid>
+      <description>Handwritten Digit Recognition</description>
+    </item>
+    
+  </channel>
+</rss>
