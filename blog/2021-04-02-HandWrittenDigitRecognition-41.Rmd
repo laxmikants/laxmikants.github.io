@@ -27,7 +27,7 @@ In this blog our goal is to build and train a neural network, which recognizes h
 
 #### Import libraries
 
-For this chapter we will need the following imports:
+For this  we will need the following imports:
 ```{python, eval= FALSE}
 import cv2
 import numpy as np
@@ -86,12 +86,13 @@ model.add(tf.keras.layers.Flatten(input_shape = (28,28)))
 ```
 We start out by adding a so-called Flatten layer as our first layer. In order to add a layer to our model, we use the add function. Then we can choose the kind of layer that we want from the layers module. As you can see, we specified an input shape of 28x28 which represents the resolution of the images. What a flattened layer basically does is it flattens the input and makes it one dimensional. So instead of a 28x28 grid, we end up with 784 neurons lined up. Our goal is now to get to the right result based on these pixels.
 
+
 ```{python, eval= FALSE}
 
 model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
 model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
 ```
-In the next step we now add two Dense layers. These are our hidden layers and increase the complexity of our model. Both layers have 128 neurons each. The activation function is the ReLU function (see chapter 1). Dense layers connect every neuron of this layer with all the neurons of the next and previous layer. It is basically just a default layer.
+In the next step we now add two Dense layers. These are our hidden layers and increase the complexity of our model. Both layers have 128 neurons each. The activation function is the ReLU function. Dense layers connect every neuron of this layer with all the neurons of the next and previous layer. It is basically just a default layer.
 ```{python, eval= FALSE}
 
 model.add(tf.keras.layers.Dense( units = 10 , activation =tf.nn.softmax))
