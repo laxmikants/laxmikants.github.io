@@ -546,6 +546,7 @@ print ("\nA random array:\n", D)
 print ("\nAnother random array:\n", E)
 ```
 
+
 `Array Reshaping`
 
 ```{python}
