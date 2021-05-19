@@ -1,22 +1,26 @@
 ---
 title: "Handwritten Digit Recognition"
-author: Laxmi K Soni 
-description: "Handwritten digit recognition is used to recognize digits which are written by hand using artificial neural networks."
-slug: Handwritten Digit Recognition
-date: 2021-04-02
-lastmod: 2021-04-02
-categories: ["Handwritten Digit Recognition"]
-tags: ["Handwritten Digit Recognition"]
-Summary: "Handwritten Digit Recognition"
-subtitle: Handwritten Digit Recognition
-featured: "img/main/2021-04-02-HandwrittenDigits.jpg"
+author: "Laxmi K Soni"
+date: '2021-04-02'
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
   html_document:
     highlight: tango
     theme: flatly
     toc: yes
     toc_float: yes
     toc_depth: 4
+description: Handwritten digit recognition is used to recognize digits which are written
+  by hand using artificial neural networks.
+lastmod: '2021-04-02'
+categories: Handwritten Digit Recognition
+tags: Handwritten Digit Recognition
+Summary: Handwritten Digit Recognition
+subtitle: Handwritten Digit Recognition
+featured: img/main/2021-04-02-HandwrittenDigits.jpg
+slug: Handwritten Digit Recognition
 ---
 
 
