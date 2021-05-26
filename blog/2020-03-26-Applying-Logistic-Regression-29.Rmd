@@ -76,11 +76,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='25/05/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='26/05/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='25/05/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='26/05/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='25/05/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='26/05/2021', country = "India")
 
 
 ```
@@ -114,7 +114,7 @@ print(lng)
 ```{python, echo = FALSE ,eval = FALSE}
 
 quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
-df = quandl.get("MCX/SIU2020",start_date = "2020-05-04", end_date = "2020-09-03")  
+df = quandl.get("MCX/SIU2020",start_date = "2020-05-04", end_date = "2020-05-25")  
 df.dropna()  
 print(df.tail())
 
@@ -580,12 +580,11 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 ```{python, warnings = FALSE, message = FALSE,echo = FALSE}
 
-
 data = df_ret.copy()
 
 X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6"]]
 
-X['usdinr'] = df['usdinr'] - 0.5
+X['usdinr'] = df['usdinr']
 
 X['usdsilver'] = df['usdsilver'] 
 
@@ -718,7 +717,7 @@ Quandl.api_key("YBM9uPgpnsaDYPkAn539")
 #daily_gold = Quandl("WGC/GOLD_DAILY_INR",collapse="daily",start_date="2000-01-01",end_date = "2020-08-19",type="raw")
 
 
-daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2021-01-13",type="raw")
+daily_silver = Quandl("CHRIS/MCX_SI1",collapse="daily",start_date="2020-01-01",end_date = "2021-05-25",type="raw")
 
 keeps <- c("Date", "Close")
 
