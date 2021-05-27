@@ -76,11 +76,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='26/05/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='27/05/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='26/05/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='27/05/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='26/05/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='27/05/2021', country = "India")
 
 
 ```
@@ -95,7 +95,7 @@ df.Volume = df.Volume / 1000
 
 df2 = df[['Open','High','Low','Close','Volume']]
 diffdf = df2.diff()
-df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] >= df2['Close'].shift(1))),"Long","Short")
+df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] > df2['Close'].shift(1))),"Long","Short")
 
 short = df2[df2['Open'] == df2['High']].tail(10)
 lng = df2[df2['Open'] == df2['Low']].tail(10)
@@ -642,7 +642,7 @@ print(X.tail(5))
 ***3.5:  Create training and test sets***
 
 ```{python,echo = FALSE}
-start_test = datetime(2020, 8, 1)
+start_test = datetime(2021, 1, 1)
 
 
 
