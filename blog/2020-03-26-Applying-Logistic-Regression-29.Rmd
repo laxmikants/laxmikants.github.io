@@ -447,10 +447,10 @@ real = NATR(high, low, close, timeperiod=14)
 
 ```{python,echo = FALSE}
 df['RSI'] = talib.RSI(df['Close'].values, timeperiod = 9)    
-df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14))
-df['20dayEWM'] = df['ATR'].ewm(span=20, adjust=False).mean()
-
-print(df[['ATR','20dayEWM']].tail())
+df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14)
+df['20dayEMA'] = df['ATR'].ewm(span=20, adjust=False).mean()
+df['ATRdiff'] = df['ATR'] - df['20dayEMA']
+print(df[['ATR','20dayEMA','ATRdiff']].tail())
 
 ```
 
