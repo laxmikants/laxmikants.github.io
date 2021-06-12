@@ -438,8 +438,22 @@ The relative strength index is a indicator of mementum used in technical analysi
 ```{python,echo = FALSE}
 df['RSI'] = talib.RSI(df['Close'].values, timeperiod = 9)    
 print(df[['RSI']].tail())
+real = NATR(high, low, close, timeperiod=14)
 
 ```
+
+*** `Average True range` ***
+
+
+```{python,echo = FALSE}
+df['RSI'] = talib.RSI(df['Close'].values, timeperiod = 9)    
+df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14))
+df['20dayEWM'] = df['ATR'].ewm(span=20, adjust=False).mean()
+
+print(df[['ATR','20dayEWM']].tail())
+
+```
+
 
 *** `Wiliams %R` ***
 

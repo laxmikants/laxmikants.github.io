@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>Stock Price Technical Analysis</title>
+      <link>https://laxmikants.github.io/blog/stock-price-technical-analysis/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/stock-price-technical-analysis/</guid>
+      <description>Application of Python to track  movement of stock</description>
+    </item>
+    
+    <item>
       <title>Neural Network using Make Moons dataset</title>
       <link>https://laxmikants.github.io/blog/neural-network-using-make-moons-dataset/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>

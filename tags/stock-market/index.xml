@@ -6,7 +6,16 @@
     <description>Recent content in Stock Market on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/stock-market/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/tags/stock-market/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stock Price Technical Analysis</title>
+      <link>https://laxmikants.github.io/blog/stock-price-technical-analysis/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/stock-price-technical-analysis/</guid>
+      <description>Application of Python to track  movement of stock</description>
+    </item>
+    
     <item>
       <title>Applying Logistic Regression</title>
       <link>https://laxmikants.github.io/blog/applying-logistic-regression/</link>

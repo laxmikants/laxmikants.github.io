@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stock Technical Analysis on Data Science Posts and Resources</title>
+    <link>https://laxmikants.github.io/categories/stock-technical-analysis/</link>
+    <description>Recent content in Stock Technical Analysis on Data Science Posts and Resources</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 25 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/categories/stock-technical-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stock Price Technical Analysis</title>
+      <link>https://laxmikants.github.io/blog/stock-price-technical-analysis/</link>
+      <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/blog/stock-price-technical-analysis/</guid>
+      <description>Application of Python to track  movement of stock</description>
+    </item>
+    
+  </channel>
+</rss>
