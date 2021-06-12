@@ -514,6 +514,8 @@ df['MACD_IND'] = df['MACD'] - df['Signal Line']
 print(df[['MACD_IND']].tail(5))
 ```
 
+
+
 *** `Bollinger Bands` ***
 
 Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.
@@ -522,7 +524,7 @@ Bollinger Bands are a type of statistical chart characterizing the prices and vo
 
 from talib import MA_Type
 
-upper, middle, lower = talib.BBANDS(df['Close'].values, matype=MA_Type.T3)
+upper, middle, lower = talib.BBANDS((df['Close'].values)*10, matype=MA_Type.T3)
 
 print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))
 
