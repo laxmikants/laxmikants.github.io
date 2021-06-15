@@ -77,11 +77,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 ```{python, echo = FALSE}
 
 
-df = investpy.get_stock_historical_data(stock='VODA', country='India',from_date='01/01/2015', to_date='12/06/2021')
-df['Open'] = df['Open'] * 10
-df['Close'] = df['Close'] * 10
-df['High'] = df['High'] * 10
-df['Low'] = df['Low'] * 10
+df = investpy.get_stock_historical_data(stock='GMR', country='India',from_date='01/01/2021', to_date='12/06/2021')
+df['Open'] = df['Open'] 
+df['Close'] = df['Close'] 
+df['High'] = df['High'] 
+df['Low'] = df['Low'] 
 
 ```
 
