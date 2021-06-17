@@ -77,7 +77,7 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 ```{python, echo = FALSE}
 
 
-df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2021', to_date='17/06/2021')
+df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2015', to_date='17/06/2021')
 df['Open'] = df['Open'] 
 df['Close'] = df['Close'] 
 df['High'] = df['High'] 
@@ -263,7 +263,7 @@ Since our data is stored in a Pandas data frame, we can use the indexing we alre
 Also, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.
 
 ```{python}
-print (df[ 'Close' ][ '2020-07-14' ])
+#print (df[ 'Close' ][ '2020-07-14' ])
 ```
 
 
