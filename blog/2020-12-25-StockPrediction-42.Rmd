@@ -77,7 +77,7 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 ```{python, echo = FALSE}
 
 
-df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2015', to_date='17/06/2021')
+df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2015blog', to_date='17/06/2021')
 df['Open'] = df['Open'] 
 df['Close'] = df['Close'] 
 df['High'] = df['High'] 
