@@ -526,7 +526,7 @@ from talib import MA_Type
 
 upper, middle, lower = talib.BBANDS(df['Close'].values, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
 
-print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))
+print(round(upper[-1],2)*1000,round(middle[-1],2)*1000,round(lower[-1],2)*1000)
 
 ```
 
