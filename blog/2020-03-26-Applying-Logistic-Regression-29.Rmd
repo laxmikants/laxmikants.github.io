@@ -69,18 +69,18 @@ import investpy
 To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
 
 ```{python, eval = FALSE,echo = FALSE}
-df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/01/2014',to_date='14/08/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/01/2020',to_date='14/08/2020', country = "India")
 
 ```
 
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='26/06/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='26/06/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='26/06/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='26/06/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2015',to_date='26/06/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='26/06/2021', country = "India")
 
 ```
 
@@ -446,10 +446,10 @@ print(df[['RSI']].tail())
 
 ```{python,echo = FALSE}
 df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14)
+df['ATR'] = df['ATR'] * 1000
 df['20dayEMA'] = df['ATR'].ewm(span=20, adjust=False).mean()
-df['ATRdiff'] = df['ATR'] - df['20dayEMA']
+df['ATRdiff'] = df['ATR'] - df['20dayEMA'] 
 print(df[['ATR','20dayEMA','ATRdiff']].tail())
-
 ```
 
 
@@ -491,6 +491,8 @@ print(df[['CCI']].tail(7))
 df['ROC'] = talib.ROC(df['Close'].values, timeperiod=10)
 
 df['DX'] = talib.DX(df['High'].values,df['Low'].values, df['Close'].values, timeperiod=14)
+
+print(df[['ROC']].tail(7))
 
 ```
 
@@ -657,16 +659,12 @@ start_test = datetime(2021, 1, 1)
 
 
 
-X_train_bn = X[X.index < start_test]
-X_test_bn = X[X.index >= start_test]
+X_train = X[X.index < start_test]
+X_test = X[X.index >= start_test]
 y_train = y[y.index < start_test]
 y_test = y[y.index >= start_test]
 
-scaler = StandardScaler()
-
-X_train = pd.DataFrame(scaler.fit_transform(X_train_bn), columns = X_train_bn.columns)
-
-X_test = pd.DataFrame(scaler.transform(X_test_bn), columns = X_test_bn.columns)
+print(X_test.tail(5))
 
 ```
 
@@ -677,7 +675,7 @@ X_test = pd.DataFrame(scaler.transform(X_test_bn), columns = X_test_bn.columns)
 
 # fit model no training data
 # model = XGBClassifier()
-model = LogisticRegression()
+model = LogisticRegression(max_iter=10000)
 
 ```
 
@@ -716,6 +714,7 @@ comp['y_pred'] = y_pred
 print(comp.tail(5))
 predict = model.predict(X_test.tail(1))
 print(predict)
+
 ```
 
 
