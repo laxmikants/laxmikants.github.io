@@ -27,7 +27,6 @@ output:
 library(tidyverse)
 library(magick)
 library(reticulate)
-
 use_condaenv("r-reticulate")
 
 ```
@@ -69,17 +68,24 @@ To fetch the stock data we use `investpy` library. This library fetchs data from
 
 ```{python, eval = FALSE,echo = FALSE}
 df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/01/2020',to_date='14/08/2020', country = "India")
-
 ```
 
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='19/07/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='20/07/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='19/07/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='20/07/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='19/07/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='20/07/2021', country = "India")
+
+```
+
+
+
+
+```{python}
+
 
 ```
 
@@ -88,7 +94,6 @@ df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Mi
 
 ```{python, echo = FALSE, warning = FALSE, message = FALSE}
 
-
 pd.set_option('display.max_columns', None)
 df.Volume = df.Volume / 1000
 
@@ -96,22 +101,40 @@ df2 = df[['Open','High','Low','Close','Volume']]
 diffdf = df2.diff()
 df2['Pos'] = np.where((df2['Volume'] > df2['Volume'].shift(1)) & ((df2['Close'] > df2['Close'].shift(1))),"Long","Short")
 
-short = df2[df2['Open'] == df2['High']].tail(10)
-lng = df2[df2['Open'] == df2['Low']].tail(10)
+short = df2[df2['Open'] == df2['High']]
+lng = df2[df2['Open'] == df2['Low']]
 
 
 short['gain'] = short['High'] - short['Close']
 lng['gain'] = lng['Close'] - lng['Low']
 
+
+df2 = df2.reset_index()
+
+df2['weekday'] = df2['Date'].dt.day_name()
+
+
 print(df2.tail(5))
-print(short)
-print(lng)
+
+short = short.reset_index()
+lng = lng.reset_index()
+
+short['weekday'] = short['Date'].dt.day_name()
+lng['weekday'] = lng['Date'].dt.day_name()
+
+print(short[['Date','weekday','Open','Close','Volume','Pos','gain']].tail(30))
+print(lng[['Date','weekday','Open','Close','Volume','Pos','gain']].tail(30))
+
 
 ```
 
 
-```{python, echo = FALSE ,eval = FALSE}
+```{python}
+print(short['weekday'].value_counts())
+print(lng['weekday'].value_counts())
+```
 
+```{python, echo = FALSE ,eval = FALSE}
 quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
 df = quandl.get("MCX/SIU2020",start_date = "2020-05-04", end_date = "2020-05-25")  
 df.dropna()  
