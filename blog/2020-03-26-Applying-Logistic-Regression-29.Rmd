@@ -73,11 +73,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='20/07/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='21/07/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='20/07/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='21/07/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='20/07/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='21/07/2021', country = "India")
 
 ```
 
@@ -426,6 +426,7 @@ df['50d_ma'] = round(df[ 'Close' ].rolling(window = 50, min_periods = 0).mean(),
 df['100d_ma'] = round(df[ 'Close' ].rolling(window = 100, min_periods = 0).mean(),2)
 df['200d_ma'] = round(df[ 'Close' ].rolling(window = 200, min_periods = 0).mean(),2)
 df['250d_ma'] = round(df[ 'Close' ].rolling(window = 250, min_periods = 0).mean(),2)
+df['300d_ma'] = round(df[ 'Close' ].rolling(window = 300, min_periods = 0).mean(),2)
 
 df[ '5d_ema' ] = round(df.Close.ewm(span=5, adjust=False).mean(),2)
 df[ '20d_ema' ] = round(df.Close.ewm(span=20, adjust=False).mean(),2)
@@ -433,6 +434,7 @@ df['50d_ema'] = round(df.Close.ewm(span=50, adjust=False).mean(),2)
 df['100d_ema'] = round(df.Close.ewm(span=100, adjust=False).mean(),2)
 df['200d_ema'] = round(df.Close.ewm(span=200, adjust=False).mean(),2)
 df['250d_ema'] = round(df[ 'Close' ].rolling(window = 250, min_periods = 0).mean(),2)
+df['300d_ema'] = round(df[ 'Close' ].rolling(window = 300, min_periods = 0).mean(),2)
 
 print(df[['Close','5d_ma','20d_ma','50d_ma','100d_ma','200d_ma','5d_ema','20d_ema','50d_ema','100d_ema','200d_ema']].tail(7))
 
@@ -578,7 +580,7 @@ To predict the movement of the stock we use 5 lag returns as the dependent varia
 
 tslagret = pd.DataFrame(index=df.index)
 tslagret["Today"] = df["Close"]
-no_lags = 6
+no_lags = 15
 for i in range(0, no_lags):
     tslagret["Lag%s" % str(i + 1)] = df["Close"].shift(i + 1)
     
@@ -595,10 +597,11 @@ df_ret["Today"] = tslagret["Today"].pct_change()*100.0
 ***3.2:  create the lagged percentage returns columns***
 
 ```{python,echo = FALSE}
+
 for i in range(0, no_lags):
     df_ret["Lag%s" % str(i + 1)] = tslagret["Lag%s" % str(i + 1)].pct_change() * 100.0
 
-df_ret.drop(df_ret.index[:7], inplace=True)
+df_ret.drop(df_ret.index[:16], inplace=True)
 print(df_ret.tail(10))
 ```
 
@@ -619,7 +622,7 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 data = df_ret.copy()
 
-X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6"]]
+X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6","Lag7","Lag8","Lag9","Lag10"]]
 
 X['usdinr'] = df['usdinr']
 
@@ -640,6 +643,8 @@ X["200d_ema"] =  df['200d_ema']
 
 X['250d_ma'] = df['250d_ma']
 X['250d_ema'] = df['250d_ema']
+
+
 
 X['Std_dev'] = df['Std_dev']
 
