@@ -73,11 +73,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='25/07/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='27/07/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='25/07/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='27/07/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='25/07/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='27/07/2021', country = "India")
 
 ```
 
@@ -85,7 +85,17 @@ df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Mi
 
 
 ```{python}
-
+def normalize_data(df):
+    # df on input should contain only one column with the price data (plus dataframe index)
+    min = df.min()
+    max = df.max()
+    x = df 
+    
+    # time series normalization part
+    # y will be a column in a dataframe
+    y = (x - min) / (max - min)
+    
+    return y
 
 ```
 
@@ -95,7 +105,7 @@ df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Mi
 ```{python, echo = FALSE, warning = FALSE, message = FALSE}
 
 pd.set_option('display.max_columns', None)
-df.Volume = df.Volume / 1000
+df.Volume = df.Volume
 
 df2 = df[['Open','High','Low','Close','Volume']]
 diffdf = df2.diff()
@@ -674,6 +684,9 @@ X['Open-Open'] = df['Open-Open']
 
 y = data["Direction"]
 
+from sklearn import preprocessing
+
+standardized_X = preprocessing.scale(X)
 
 print(X.tail(5))                           
                            
