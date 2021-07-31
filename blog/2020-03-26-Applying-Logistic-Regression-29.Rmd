@@ -73,31 +73,16 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='30/07/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='31/07/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='30/07/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='31/07/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='30/07/2021', country = "India")
-
-```
-
-
-
-
-```{python}
-def normalize_data(df):
-    # df on input should contain only one column with the price data (plus dataframe index)
-    min = df.min()
-    max = df.max()
-    x = df 
-    
-    # time series normalization part
-    # y will be a column in a dataframe
-    y = (x - min) / (max - min)
-    
-    return y
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='31/07/2021', country = "India")
 
 ```
+
+
+
 
 
 ***1.2.1: Determining position based on volume and close***
@@ -122,7 +107,6 @@ lng['gain'] = lng['Close'] - lng['Low']
 df2 = df2.reset_index()
 
 df2['weekday'] = df2['Date'].dt.day_name()
-
 
 print(df2.tail(5))
 
