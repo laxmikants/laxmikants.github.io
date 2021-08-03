@@ -73,19 +73,58 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='31/07/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='03/08/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='31/07/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='03/08/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='31/07/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='03/08/2021', country = "India")
 
+info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
+
+print(info['Todays Range'])
 ```
 
 
 
+```{python}
+
+pd.set_option('display.max_columns', None)
+
+dfusd2 = dfusd[['Open','High','Low','Close','Volume']]
+diffdf = dfusd2.diff()
+dfusd2['Pos'] = np.where((dfusd2['Volume'] > dfusd2['Volume'].shift(1)) & ((dfusd2['Close'] > dfusd2['Close'].shift(1))),"Long","Short")
+
+
+
+short = dfusd2[dfusd2['Open'] == dfusd2['High']]
+lng = dfusd2[dfusd2['Open'] == dfusd2['Low']]
+
+
+short['gain'] = short['High'] - short['Close']
+lng['gain'] = lng['Close'] - lng['Low']
+
+
+dfusd2 = dfusd2.reset_index()
+
+dfusd2['weekday'] = dfusd2['Date'].dt.day_name()
+
+print(usdinr.tail(5))
+
+print(dfusd2.tail(5))
+
+short = short.reset_index()
+lng = lng.reset_index()
+
+short['weekday'] = short['Date'].dt.day_name()
+lng['weekday'] = lng['Date'].dt.day_name()
+
+
+
+```
 
 
 ***1.2.1: Determining position based on volume and close***
+
 
 ```{python, echo = FALSE, warning = FALSE, message = FALSE}
 
@@ -113,17 +152,15 @@ print(df2.tail(5))
 short = short.reset_index()
 lng = lng.reset_index()
 
-short['weekday'] = short['Date'].dt.day_name()
-lng['weekday'] = lng['Date'].dt.day_name()
 
-print(short[['Date','weekday','Open','Close','Volume','Pos','gain']].tail(30))
-print(lng[['Date','weekday','Open','Close','Volume','Pos','gain']].tail(30))
+print(short.tail(10))
+print(lng.tail(10))
 
 
 ```
 
 
-```{python}
+```{python,eval=FALSE}
 print(short['weekday'].value_counts())
 print(lng['weekday'].value_counts())
 ```
@@ -548,6 +585,7 @@ from talib import MA_Type
 upper, middle, lower = talib.BBANDS(df['Close'].values, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
 
 print(round(upper[-1],2)*1000,round(middle[-1],2)*1000,round(lower[-1],2)*1000)
+
 
 ```
 
