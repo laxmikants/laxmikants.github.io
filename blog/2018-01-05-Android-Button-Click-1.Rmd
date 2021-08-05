@@ -1,0 +1,201 @@
+---
+title: "Android - Button Click"
+author: Laxmi K Soni 
+description: "Handling Button click in Android"
+slug: Handling Button click in Android
+date: 2018-01-05
+lastmod: 2018-01-05
+categories: ["Mobile Application Development"]
+tags: ["Mobile Application Development"]
+Summary: Handling Button click in Android
+subtitle: Handling Button click in Android
+featured: "img/main/2018-01-05-Android-Button-Click-1.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+library(Rcpp)
+
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+
+```
+
+#### Using anonymous Inner class
+
+
+```{r,echo=TRUE , eval=FALSE}
+((Button)findViewById(R.id.random_numbers_btn)).setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Random r = new Random();
+        int i = r.nextInt(100 - 1) + 1;
+        ((TextView)findViewById(R.id.random_numbers_tv)).setText(String.valueOf(i));
+    }
+});
+```
+ 
+#### Using an instance of the Button.onClickListener
+
+```{r,echo=TRUE , eval=FALSE}
+Button.OnClickListener but_listener = new Button.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          Random r = new Random();
+          int i = r.nextInt(100 - 1) + 1;
+          ((TextView)findViewById(R.id.random_numbers_tv)).setText(String.valueOf(i));
+      }
+  };
+  
+((Button)findViewById(R.id.random_numbers_btn)).setOnClickListener(but_listener);
+```
+
+
+#### Using onClick attribute of the button in the layout xml file
+
+```{r,echo=TRUE , eval=FALSE}
+    <Button
+        android:id="@+id/random_numbers_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate Random Numbers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="185dp"
+        tools:ignore="MissingConstraints"
+        android:onClick="generateRandomNumbers"
+        />
+
+   public void generateRandomNumbers(View view) {
+        Random r = new Random();
+        int i = r.nextInt(100 - 1) + 1;
+        ((TextView)findViewById(R.id.random_numbers_tv)).setText(String.valueOf(i));
+    }
+        
+```
+
+
+#### Using class implementing the listner
+
+```{r,echo=TRUE , eval=FALSE}
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ((Button)findViewById(R.id.random_numbers_btn)).setOnClickListener(this);
+
+    }
+
+    public void generateRandomNumbers(View view) {
+        Random r = new Random();
+        int i = r.nextInt(100 - 1) + 1;
+        ((TextView)findViewById(R.id.random_numbers_tv)).setText(String.valueOf(i));
+    }
+
+    @Override
+    public void onClick(View v) {
+        generateRandomNumbers(v);
+    }
+}
+```
+
+#### Using annotations and ButterKinfe
+
+- replace findViewById calls by using @BindView on fields.
+
+- Group many views in a list or array. Operate on all of them at once with actions, setters, or properties.
+
+- replace anonymous inner-classes for listeners by annotating methods with @OnClick and others.
+
+- replace resource lookups by using resource annotations on fields.
+
+
+
+```{r,echo=TRUE , eval=FALSE}
+
+android {
+  ...
+  // Butterknife requires Java 8.
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+dependencies {
+  implementation 'com.jakewharton:butterknife:10.2.3'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+}
+```
+
+```{r,echo=TRUE , eval=FALSE}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+```
+
+
+```{r,echo=TRUE , eval=FALSE}
+
+public class Main_Activity extends Activity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKinfe.inject(this); 
+    }
+
+    @OnClick(R.id.button_id)
+    void onButtonClicked() {
+    }
+    
+
+    @OnClick(R.id.other_button_id)
+    void onOtherButtonClicked(View otherButton) {
+    }
+
+}
+```
+
+
+#### Summary:
+
+In android, Button is a user interface control that is used to perform an action whenever the user clicks on it.
+Generally, Buttons in android will contain a text or an icon or both and perform an action when the user touches it.
