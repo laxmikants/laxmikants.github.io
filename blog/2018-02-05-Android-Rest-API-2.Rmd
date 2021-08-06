@@ -1,0 +1,62 @@
+---
+title: "Consuming Rest API in Android"
+author: Laxmi K Soni
+description: "Consuming Rest API in Android"
+slug: Consuming Rest API in Android
+date: 2018-02-05
+lastmod: 2018-02-05
+categories: ["Mobile Application Development"]
+tags: ["Mobile Application Development"]
+Summary: Consuming Rest API in Android
+subtitle: Consuming Rest API in Android
+featured: "img/main/2018-01-05-Android-Button-Click-1.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(reticulate)
+use_condaenv("r-reticulate")
+```
+
+
+
+***1:Introduction***
+
+A REST API means application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+
+***2:Volly Rest API for Android APP***
+
+Volley is one of the popular HTTP library that makes networking for Android apps easier.  
+Volley is available on [GitHub](https://github.com/google/volley).
+
+
+***2.1:Steps to implement Volley Rest API in Android App***
+
+Let's assume that we want to consume Volly Rest API in Android then we need to
+
+- 1) Configure Volly impelentation path in build.gradle file in build.graddle
+
+```{r,eval=FALSE}
+dependencies {
+
+    implementation 'com.android.volley:volley:1.2.0'
+ 
+}
+```
+
+- 2) Change android manifest.xml file
+
+```{r,echo=TRUE,eval=FALSE}
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+- 3)
+
+![](img/main/volleyapiexample.gif)
