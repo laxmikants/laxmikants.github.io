@@ -1,0 +1,244 @@
+---
+title: "Consuming Rest API in Android"
+author: Laxmi K Soni
+description: "Consuming Rest API in Android"
+slug: Consuming Rest API in Android
+date: 2018-03-05
+lastmod: 2018-03-05
+categories: ["Mobile Application Development"]
+tags: ["Mobile Application Development"]
+Summary: Consuming Rest API in Android
+subtitle: Consuming Rest API in Android
+featured: "img/main/2018-02-05-Android-Volley-API-2.jpg"
+output:
+  blogdown::html_page:
+    toc: false
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: false
+---
+
+
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+library(Rcpp)
+
+
+conda_list()[[1]][1] %>% 
+  use_condaenv(required = TRUE)
+use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+
+
+```
+
+
+***1:Introduction***
+
+A REST API means application programming interface (API or web API) that conforms to the constraints of REST architectural style and allows for interaction with RESTful web services. REST stands for representational state transfer and was created by computer scientist Roy Fielding.
+
+
+
+***2:Sync ASync***
+
+```{r,echo=FALSE,eval=TRUE}
+knitr::include_graphics("https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/17e4e66b-67f2-4798-970a-726dfa86e865/ansychronous-synchronous-requests-android-large-preview-opt.png");
+```
+
+
+***3:Installation***
+
+```{r, eval=FALSE,echo=TRUE}
+//in your project's app level build.gradle
+dependencies {
+  compile 'com.android.volley:volley:x.y.z'
+}
+```
+
+
+***4:MANIFESTS/ANDROIDMANIFEST.XML***
+
+```{r, eval=FALSE,echo=TRUE}
+<uses-feature android:name="android.hardware.wifi" android:required="true" />
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+
+***5:Basic classes of Volley***
+
+- RequestQueue
+
+- JsonArrayRequest
+
+- JsonObjectRequest
+
+
+***5.1 -> To use volley first you need to create object of RequestQueue***
+
+```{r, eval=FALSE,echo=TRUE}
+RequestQueue vmQueue = Volley.newRequestQueue(getApplicationContext());
+```
+
+***5.2 -> make a Request using either JsonArrayRequest or JsonObjectRequest***
+
+```{r, eval=FALSE,echo=TRUE}
+JsonArrayRequest mJsonRequest = new JsonArrayRequest(url, 
+            new Listener<JSONArray>() {
+
+                @Override
+                public void onResponse(JSONArray response) {
+                    // here you can parse response and use accordingly
+                }
+            }, new ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // here you will receive errors and show proper message according to error type
+
+                }
+            });
+```
+
+***5.3 -> put the request in queue. i.e.***
+```{r, eval=FALSE,echo=TRUE}
+vmQueue.add(mJsonRequest);
+```
+
+
+Instead of doing the above steps, you can create a singleton class VolleyRequestQuery
+
+***6:Create VolleyRequestQuery class ***
+
+```{r, eval=FALSE,echo=TRUE}
+import android.content.Context;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.Volley;
+
+public class VolleyRequestQuery    {
+    private static VolleyRequestQuery mInstance;
+    private RequestQueue mRequestQueue;
+    private static Context mCtx;
+
+    private VolleyRequestQuery(Context context) {
+        mCtx = context;
+        mRequestQueue = getRequestQueue();
+    }
+
+    public static synchronized VolleyRequestQuery getInstance(Context context) {
+        // If instance is not available, create it. If available, reuse and return the object.
+        if (mInstance == null) {
+            mInstance = new VolleyRequestQuery(context);
+        }
+        return mInstance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        if (mRequestQueue == null) {
+            // getApplicationContext() is key. It should not be activity context,
+            // or else RequestQueue won’t last for the lifetime of your app
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+        }
+        return mRequestQueue;
+    }
+
+    public  void addToRequestQueue(Request req) {
+        getRequestQueue().add(req);
+    }
+
+}    
+```
+
+You can now use the VolleyRequestQuery in your MainActivity like this
+
+```{r, echo=TRUE,eval=FALSE}
+VolleyRequestQuery.getInstance(getApplicationContext()).addToRequestQueue(stringRequest);.
+```
+
+Or you can create a queue in this way: 
+
+```{r, echo=TRUE,eval=FALSE}
+RequestQueue queue = VolleyRequestQuery.getInstance(this.getApplicationContext()).getRequestQueue();. 
+```
+
+***7:For example If you want to retrive posts through web api then ***
+
+```{r, echo=TRUE,eval=FALSE}
+
+String URL = "https://jsonplaceholder.typicode.com/posts";
+
+public void getPost(int id) {
+    JsonObjectRequest postsList = new JsonObjectRequest(Request.Method.GET,
+            URL +  "/" + id,
+            null,
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    //your code goes here
+                }
+            },
+            new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //error code goes here
+                }
+            });
+    }
+```
+
+***8:Posting to the server ***
+
+```{r, echo=TRUE,eval=FALSE}
+
+final HashMap<String, String> postParams = new HashMap<String, String>();
+postParams.put("username", username);
+postParams.put("password", password);
+
+Response.Listener<JSONObject> listener;
+Response.ErrorListener errorListener;
+final JSONObject jsonObject = new JSONObject(postParams);
+
+JsonObjectRequest jsonObjReq = new JsonObjectRequest(
+    "YOUR URL WITH JSON DATA", 
+    jsonObject,
+    new com.android.volley.Response.Listener<JSONObject>() {
+        @Override
+        public void onResponse(JSONObject response) {
+            Log.d("TAG", response.toString());
+            try {
+                if (response.getString("status").equals("fail")) {
+
+                } else if (response.getString("status").equals("success")) {
+
+                } catch (JSONException e) {
+                     Log.e("TAG", e.toString())
+                }
+            }
+        }, 
+        new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+             //VolleyLog.d("TAG", "Error: " + error.getMessage());
+            //pDialog.dismiss();
+
+        }
+    }) {
+        @Override
+        public String getBodyContentType() {
+            return "application/json; charset=utf-8";
+        }
+    };
+
+    VolleyRequestQuery.getInstance(getApplicationContext()).addToRequestQueue(jsonObjRequest);
+ }
+```
+
+***9: Putting it all together ***
+
+![](/img/main/volleyapiexample.gif)
+
+
