@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://laxmikants.github.io/blog/</loc>
-    <lastmod>2021-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://laxmikants.github.io/categories/</loc>
-    <lastmod>2021-01-29T00:00:00+00:00</lastmod>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://laxmikants.github.io/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://laxmikants.github.io/tags/handwritten-digit-recognition/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://laxmikants.github.io/categories/handwritten-digit-recognition/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://laxmikants.github.io/blog/handwritten-digit-recognition/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://laxmikants.github.io/tags/</loc>
+    <lastmod>2021-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://laxmikants.github.io/tags/convolutional-neural-networks/</loc>
     <lastmod>2021-01-29T00:00:00+00:00</lastmod>
@@ -15,12 +30,6 @@
     <lastmod>2021-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://laxmikants.github.io/blog/convolutional-neural-networks/</loc>
-    <lastmod>2021-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://laxmikants.github.io/</loc>
-    <lastmod>2021-01-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://laxmikants.github.io/tags/</loc>
     <lastmod>2021-01-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://laxmikants.github.io/tags/stock-market/</loc>
@@ -330,7 +339,5 @@
     <lastmod>2018-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://laxmikants.github.io/contact/</loc>
-  </url><url>
-    <loc>https://laxmikants.github.io/blog/2021-04-02-handwrittendigitrecognition-41/</loc>
   </url>
 </urlset>

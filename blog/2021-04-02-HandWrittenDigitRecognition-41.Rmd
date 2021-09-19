@@ -1,27 +1,33 @@
 ---
 title: "Handwritten Digit Recognition"
 author: "Laxmi K Soni"
-date: '2021-04-02'
+description: "Handwritten digit recognition is used to recognize digits which are written  by hand using artificial neural networks."
+lastmod: 2021-04-02
+subtitle: Handwritten Digit Recognition
+featured: "img/main/2021-04-02-HandwrittenDigits.jpg"
+date: 2021-04-02
+slug: Handwritten Digit Recognition
+categories: ["Handwritten Digit Recognition"]
+tags: ["Handwritten Digit Recognition"]
+Summary: "Handwritten Digit Recognition"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '4'
   html_document:
     highlight: tango
     theme: flatly
     toc: yes
     toc_float: yes
     toc_depth: 4
-description: Handwritten digit recognition is used to recognize digits which are written
-  by hand using artificial neural networks.
-lastmod: '2021-04-02'
-categories: Handwritten Digit Recognition
-tags: Handwritten Digit Recognition
-Summary: Handwritten Digit Recognition
-subtitle: Handwritten Digit Recognition
-featured: img/main/2021-04-02-HandwrittenDigits.jpg
-slug: Handwritten Digit Recognition
+
 ---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+use_condaenv("r-reticulate")
+
+```
 
 
 
@@ -163,6 +169,7 @@ img = cv2.imread( 'digit.png' )[:,:, 0 ]
 img = np.invert(np.array([img]))
 ```
 In order to load our image into the script, we use the imread function of OpenCV. We specify the file name and use the index slicing at the end in order to choose just one dimension, in order to fit the format. Also we need to invert the image and convert it into a NumPy array. This is necessary because otherwise it will see the image as white on black rather than black on white. That would confuse our model.
+
 ```{python, eval= FALSE}
 prediction = model.predict(img)
 print ( 'Prediction: {}' .format(np.argmax(prediction)))

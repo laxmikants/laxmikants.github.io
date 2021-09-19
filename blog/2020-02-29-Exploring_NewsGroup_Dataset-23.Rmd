@@ -23,8 +23,8 @@ output:
 library(tidyverse)
 library(magick)
 library(reticulate)
-conda_list()[[1]][1] %>% 
-  use_condaenv(required = TRUE)
+library(Rcpp)
+use_condaenv("r-reticulate")
 
 ```
 

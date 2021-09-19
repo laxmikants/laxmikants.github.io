@@ -19,8 +19,14 @@ output:
 ---
 
 
-
 ```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+library(Rcpp)
+use_condaenv("r-reticulate")
+
+
 knitr::opts_chunk$set(
 	echo = TRUE,
 	message = FALSE,

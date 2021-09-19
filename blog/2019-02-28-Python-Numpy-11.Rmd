@@ -25,10 +25,8 @@ output:
 library(tidyverse)
 library(magick)
 library(reticulate)
-
-conda_list()[[1]][1] %>% 
-  use_condaenv(required = TRUE)
-use_python("C://Users//slaxm//CONDA~1//envs//myenv1//python.exe")
+library(Rcpp)
+use_condaenv("r-reticulate")
 
 
 ```

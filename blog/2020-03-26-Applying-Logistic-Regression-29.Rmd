@@ -14,7 +14,7 @@ output:
   blogdown::html_page:
     toc: true
     number_sections: true
-    keep_md: true
+    keep_md: false
   html_document:
     highlight: tango
     theme: flatly
@@ -31,7 +31,9 @@ use_condaenv("r-reticulate")
 
 ```
 
+
 ***1:Loading Stock data***
+
 
 ***1.1:Importing libraries and data***
 
@@ -67,16 +69,17 @@ import investpy
 To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
 
 ```{python, eval = FALSE,echo = FALSE}
-df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/01/2020',to_date='14/08/2020', country = "India")
+df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/02/2020',to_date='14/08/2020', country = "India")
 ```
+
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='19/09/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/02/2020', to_date='19/09/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='19/09/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/02/2020', to_date='19/09/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/01/2020',to_date='19/09/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/02/2020',to_date='19/09/2021', country = "India")
 
 info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
 
