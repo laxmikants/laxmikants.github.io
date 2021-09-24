@@ -75,15 +75,15 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/02/2020', to_date='22/09/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/02/2020', to_date='24/09/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/02/2020', to_date='22/09/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/02/2020', to_date='24/09/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/02/2020',to_date='22/09/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/02/2020',to_date='24/09/2021', country = "India")
 
-info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
+#info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
 
-print(info['Todays Range'])
+#print(info['Todays Range'])
 ```
 
 ***1.2.1: Determining position based on volume and close***
@@ -778,13 +778,13 @@ prophet_plot_components(model,forecast)
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='22/09/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2020', to_date='24/09/2021')
 
-df = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='22/09/2021')
+df = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2020', to_date='24/09/2021')
 
-info = investpy.commodities.get_commodity_information(commodity='Silver',as_json=True)
+#info = investpy.commodities.get_commodity_information(commodity='Silver',as_json=True)
 
-print(info['Todays Range'])
+#print(info['Todays Range'])
 ```
 
 
@@ -806,7 +806,6 @@ lng = dfusd2[dfusd2['Open'] == dfusd2['Low']]
 
 short['gain'] = short['High'] - short['Close']
 lng['gain'] = lng['Close'] - lng['Low']
-
 
 dfusd2 = dfusd2.reset_index()
 
