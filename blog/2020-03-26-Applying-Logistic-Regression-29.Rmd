@@ -81,6 +81,8 @@ dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01
 
 df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/02/2020',to_date='25/09/2021', country = "India")
 
+dfs = df
+
 #info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
 
 #print(info['Todays Range'])
@@ -112,12 +114,24 @@ df2['weekday'] = df2['Date'].dt.day_name()
 
 print(df2.tail(5))
 
+```
+***1.2.2: Long positions gains***
+
+
+
+```{python, echo = FALSE, warning = FALSE, message = FALSE}
+
 short = short.reset_index()
 lng = lng.reset_index()
-print(short.tail(10))
-print(lng.tail(10))
-
+print(lng.tail(5))
 ```
+
+***1.2.3: Short positions gains***
+
+```{python, echo = FALSE, warning = FALSE, message = FALSE}
+print(short.tail(5))
+```
+
 
 
 
@@ -125,6 +139,7 @@ print(lng.tail(10))
 print(short['weekday'].value_counts())
 print(lng['weekday'].value_counts())
 ```
+
 
 ```{python, echo = FALSE ,eval = FALSE}
 quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"  
@@ -197,6 +212,8 @@ print(data2.tail(5))
 
 data3 = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
 print(data3.head())
+
+data2.iloc[-1]
 ```
 
 
@@ -731,6 +748,34 @@ print(comp.tail(5))
 predict = model.predict(X_test.tail(1))
 print(predict)
 
+
+s1 = data2.iloc[0,1].astype(int)
+s2 = data2.iloc[0,2].astype(int)
+s3 = data2.iloc[0,3].astype(int)
+pp = data2.iloc[0,4].astype(int)
+r1 = data2.iloc[0,5].astype(int)
+r2 = data2.iloc[0,6].astype(int)
+r3 = data2.iloc[0,7].astype(int)
+
+lclose = dfs.iloc[-1]['Close'].astype(int)
+
+if(predict == -1):
+  if(lclose > s1 and lclose < s2):
+    print('sell at ', s2, 'with target at ', s1)
+  if(lclose > s2 and lclose < s3):
+    print('sell at ', s3, 'with target at ', s2)
+  if(lclose > s3 and lclose < pp):
+    print('sell at ', pp, 'with target at ', s3)
+    
+
+if(predict == 1):
+  if(lclose > pp and lclose < r1):
+    print('buy at ', pp, 'with target at ', r1)
+  if(lclose > r1 and lclose < r2):
+    print('buy at ', r1, 'with target at ', r2)
+  if(lclose > r2 and lclose < r3):
+    print('buy at ', r2, 'with target at ', r3)
+    
 ```
 
 
