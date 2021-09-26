@@ -81,7 +81,7 @@ dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='01
 
 df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='01/02/2020',to_date='25/09/2021', country = "India")
 
-dfs = df
+dfs = df.copy()
 
 #info = investpy.commodities.get_commodity_information(commodity='MCX Silver Micro', country = "India",as_json=True)
 
