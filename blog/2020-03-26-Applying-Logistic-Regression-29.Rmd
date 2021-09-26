@@ -759,6 +759,12 @@ r3 = data2.iloc[0,7].astype(int)
 
 lclose = dfs.iloc[-1]['Close'].astype(int)
 
+if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']):
+  print('High Low Strategy ', 'Buy above', dfs[-2]['High'] )
+
+if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']):
+  print('High Low Strategy ', 'Sell below', dfs[-2]['Low'] )
+
 if(predict == -1):
   if(lclose > s1 and lclose < s2):
     print('sell at ', s2, 'with target at ', s1)
