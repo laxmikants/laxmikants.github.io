@@ -771,14 +771,20 @@ if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']):
   print('Open High Strategy ', 'Sell below', dfs.iloc[-2]['Low'] )
 
 if(predict == -1):
-  if(lclose > s1 and lclose < s2):
-    print('sell at ', s2, 'with target at ', s1)
-  if(lclose > s2 and lclose < s3):
-    print('sell at ', s3, 'with target at ', s2)
-  if(lclose > s3 and lclose < pp):
-    print('sell at ', pp, 'with target at ', s3)
+  if(lclose > s1 and lclose < pp):
+    print('sell at ', pp, 'with target at ', s1)
+  if(lclose > s2 and lclose < s1):
+    print('sell at ', s1, 'with target at ', s2)
+  if(lclose > s3 and lclose < s2):
+    print('sell at ', s2, 'with target at ', s3)
+  if(lclose > pp and lclose < r1):
+    print('sell at ', r1, 'with target at ', pp)
+  if(lclose > r1 and lclose < r2):
+    print('sell at ', r2, 'with target at ', r1)
+  if(lclose > r2 and lclose < r3):
+    print('sell at ', r3, 'with target at ', r2)
     
-
+    
 if(predict == 1):
   if(lclose > pp and lclose < r1):
     print('buy at ', pp, 'with target at ', r1)
@@ -786,6 +792,12 @@ if(predict == 1):
     print('buy at ', r1, 'with target at ', r2)
   if(lclose > r2 and lclose < r3):
     print('buy at ', r2, 'with target at ', r3)
+  if(lclose > s1 and lclose < pp):
+    print('buy at ', s1, 'with target at ', pp)
+  if(lclose > s2 and lclose < s1):
+    print('buy at ', s2, 'with target at ', s1)
+  if(lclose > s3 and lclose < s2):
+    print('buy at ', s3, 'with target at ', s2)
 
 
 print(X.iloc[-1])    
