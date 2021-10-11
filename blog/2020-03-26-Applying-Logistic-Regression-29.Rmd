@@ -520,6 +520,8 @@ df['DX'] = talib.DX(df['High'].values,df['Low'].values, df['Close'].values, time
 
 print(df[['ROC']].tail(7))
 
+
+
 ```
 
 *** `MACD` ***
@@ -542,6 +544,18 @@ df['Signal Line'] = signal
 df['MACD_IND'] = df['MACD'] - df['Signal Line']
 
 print(df[['MACD_IND']].tail(5))
+
+df['SAR'] = talib.SAR(df['High'].values,df['Low'].values, acceleration=0.02, maximum=0.2)
+
+STOK = ((MACD - MACD.rolling(window=10).min()) / (
+            MACD.rolling(window=10).max() - MACD.rolling(window=10).min())) * 100
+            
+STOD = STOK.rolling(window=10).mean()
+
+df['STC'] = 100 * (MACD - (STOK * MACD)) / ((STOD * MACD) - (STOK * MACD))
+
+print(df['STC'])
+
 ```
 
 *** `Bollinger Bands` ***
@@ -630,7 +644,6 @@ X['usdinr'] = df['usdinr']
 
 X['usdsilver'] = df['usdsilver'] 
 
-
 X["20d_ma"] = df[ '20d_ma' ]
 X["20d_ema"] = df[ '20d_ema' ]
 
@@ -663,13 +676,15 @@ X['CloseChange'] = df['CloseChange']
 
 X['zscore'] = df['zscore'] 
 
-X['ADX'] = df['ADX']
 
 X['CCI'] = df['CCI']
 
 X['ROC'] = df['ROC']
 
 X['DX'] = df['DX']
+
+
+X['SAR'] = df['SAR']
 
 X['Open-Close']  = df['Open-Close'] 
 
@@ -682,7 +697,8 @@ from sklearn import preprocessing
 standardized_X = preprocessing.scale(X)
 
 print(X.tail(5))                           
-                           
+
+                   
                            
 ```
 
