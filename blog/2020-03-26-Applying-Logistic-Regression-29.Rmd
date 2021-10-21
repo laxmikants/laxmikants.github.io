@@ -74,11 +74,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='20/10/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='21/10/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='20/10/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='21/10/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='20/10/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='21/10/2021', country = "India")
 
 dfs = df.copy()
 
@@ -88,7 +88,6 @@ dfs = df.copy()
 ```
 
 ***1.2.1: Determining position based on volume and close***
-
 
 ```{python, echo = FALSE, warning = FALSE, message = FALSE}
 
