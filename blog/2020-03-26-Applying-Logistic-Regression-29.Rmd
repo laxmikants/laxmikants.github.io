@@ -64,7 +64,8 @@ import investpy
 
 </p>
 
-***1.2:Fetching the data***
+
+  ***1.2:Fetching the data***
 
 To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
 
@@ -75,11 +76,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='02/11/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='04/11/2021')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='02/11/2021')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='04/11/2021')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='02/11/2021', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='04/11/2021', country = "India")
 
 dfs = df.copy()
 
