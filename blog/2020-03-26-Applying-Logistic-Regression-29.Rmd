@@ -76,11 +76,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='09/01/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='22/01/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='09/01/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='22/01/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='09/01/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='22/01/2022', country = "India")
 
 dfs = df.copy()
 
@@ -777,10 +777,12 @@ lclose = dfs.iloc[-1]['Close'].astype(int)
 
 ```
 
-
 ```{python,echo = FALSE,eval = TRUE}
 
-print('last Close: ', lclose)
+if(predict == 1):
+  print('Buy at : ', lclose)
+else:
+  print('Sell at: ', lclose)
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']): 
   print('Open Low Strategy ', 'Buy above', dfs.iloc[-2]['High'] )
@@ -790,11 +792,6 @@ if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']):
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']): 
   print('Open High Strategy ', 'Sell below', dfs.iloc[-2]['Low'] )
   print('last Close: ', lclose)
-
-
-
-
-
 
 print('Hourly Technical Indicators:')
 
