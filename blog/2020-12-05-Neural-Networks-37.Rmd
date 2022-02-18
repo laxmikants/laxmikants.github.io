@@ -11,6 +11,10 @@ Summary: "The Neural Network is one of the most powerful learning algorithms."
 subtitle: Neural Networks
 featured: "img/main/Neural-Networks-32.jpg"
 output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    keep_md: true
   html_document:
     highlight: tango
     theme: flatly

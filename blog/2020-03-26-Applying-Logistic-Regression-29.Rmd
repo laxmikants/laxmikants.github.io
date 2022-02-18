@@ -14,14 +14,13 @@ output:
   blogdown::html_page:
     toc: true
     number_sections: true
-    keep_md: false
+    keep_md: true
   html_document:
     highlight: tango
     theme: flatly
     toc: no
     keep_md: no
 ---
-
 
 
 ```{r setup, include=FALSE}
@@ -65,6 +64,7 @@ import investpy
 
 </p>
 
+
   ***1.2:Fetching the data***
 
 To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
@@ -73,13 +73,15 @@ To fetch the stock data we use `investpy` library. This library fetchs data from
 df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/11/2019',to_date='14/08/2020', country = "India")
 ```
 
+
+
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='02/02/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='18/02/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='02/02/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='18/02/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='02/02/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='18/02/2022', country = "India")
 
 dfs = df.copy()
 
@@ -1306,6 +1308,8 @@ df['Signal Line'] = signal
 df['MACD_IND'] = df['MACD'] - df['Signal Line']
 
 print(df[['MACD_IND']].tail(5))
+
+print(df[['MACD_IND']].tail(5).mean())
 ```
 
 *** `Bollinger Bands` ***
