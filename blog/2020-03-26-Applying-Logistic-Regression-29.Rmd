@@ -73,13 +73,14 @@ To fetch the stock data we use `investpy` library. This library fetchs data from
 df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/11/2019',to_date='14/08/2020', country = "India")
 ```
 
+
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='19/03/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='22/03/2013', to_date='21/03/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='19/03/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='22/03/2013', to_date='21/03/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='19/03/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='22/03/2013',to_date='21/03/2022', country = "India")
 
 dfs = df.copy()
 
@@ -152,10 +153,10 @@ print(df.tail())
 
 ```{python, echo = FALSE}
 df.drop(['Currency'], axis = 1)
-df['High'] = df['High'] / 1000
-df['Low'] = df['Low'] / 1000
-df['Open'] = df['Open'] / 1000
-df['Close'] = df['Close'] / 1000
+df['High'] = df['High'] 
+df['Low'] = df['Low'] 
+df['Open'] = df['Open'] 
+df['Close'] = df['Close'] 
 df['VolChange'] = df.Volume.pct_change()
 df['CloseChange'] = df.Close.pct_change()
 df.replace([np.inf, -np.inf], np.nan, inplace=True) 
@@ -471,11 +472,10 @@ print(df[['RSI']].tail())
 
 ```{python,echo = FALSE}
 df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14)
-df['ATR'] = df['ATR'] * 1000
+df['ATR'] = df['ATR'] 
 df['20dayEMA'] = df['ATR'].ewm(span=20, adjust=False).mean()
 df['ATRdiff'] = df['ATR'] - df['20dayEMA'] 
-print(df[['ATR','20dayEMA','ATRdiff']].tail())
-print(df[['ATR','20dayEMA','ATRdiff']].tail().mean())
+print(df[['ATR','20dayEMA','ATRdiff']].tail(7))
 ```
 
 
@@ -568,7 +568,7 @@ from talib import MA_Type
 
 upper, middle, lower = talib.BBANDS(df['Close'].values, timeperiod=20, nbdevup=2, nbdevdn=2, matype=0)
 
-print(round(upper[-1],2)*1000,round(middle[-1],2)*1000,round(lower[-1],2)*1000)
+print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))
 
 
 ```
@@ -780,10 +780,34 @@ lclose = dfs.iloc[-1]['Close'].astype(int)
 
 ```{python,echo = FALSE,eval = TRUE}
 
+
+print('Hourly Technical Indicators:')
+
+data2_hr = investpy.pivot_points(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
+print(data2_hr.head())
+
+data3_hr = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
+print(data3_hr.head())
+
+data1_hr = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
+print(data1_hr.head())
+
+print('Daily Technical Indicators:')
+
+data2_dl = investpy.pivot_points(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
+print(data2_dl.head())
+
+data3_dl = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
+print(data3_dl.head())
+
+data1_dl = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
+print(data1_dl.head())
+
+
 if(predict == 1):
-  print('Buy at : ', lclose)
+  print('Buy at : ', (data2_hr.iloc[1,4] + data2_dl.iloc[1,4] + data2_hr.iloc[1,3] + data2_dl.iloc[1,3])/4)
 else:
-  print('Sell at: ', lclose)
+  print('Sell at: ', (data2_hr.iloc[1,4] + data2_dl.iloc[1,4] + data2_hr.iloc[1,3] + data2_dl.iloc[1,3])/4)
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']): 
   print('Open Low Strategy ', 'Buy above', dfs.iloc[-2]['High'] )
@@ -793,33 +817,7 @@ if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']):
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']): 
   print('Open High Strategy ', 'Sell below', dfs.iloc[-2]['Low'] )
   print('last Close: ', lclose)
-
-print('Hourly Technical Indicators:')
-
-data2 = investpy.pivot_points(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
-print(data2.iloc[1])
-
-data3 = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
-print(data3.head())
-
-data1 = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
-print(data1.head())
-
-print('Daily Technical Indicators:')
-
-data2 = investpy.pivot_points(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
-print(data2.iloc[1])
-
-data3 = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
-print(data3.head())
-
-data1 = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
-print(data1.head())
-
-
-
-print(X.iloc[-1])    
-      
+  
 ```
 
 
@@ -1142,7 +1140,6 @@ Now let’s get a little bit deeper into the numbers here and away from the visu
 From our data we can derive some statistical values that will help us to analyze it.
 
 
-
 ***`PERCENTAGE CHANGE`***
 
 One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.
@@ -1236,7 +1233,7 @@ print(df[['RSI']].tail())
 
 ```{python,echo = FALSE}
 df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14)
-df['ATR'] = df['ATR'] * 1000
+df['ATR'] = df['ATR'] 
 df['20dayEMA'] = df['ATR'].ewm(span=20, adjust=False).mean()
 df['ATRdiff'] = df['ATR'] - df['20dayEMA'] 
 print(df[['ATR','20dayEMA','ATRdiff']].tail())
