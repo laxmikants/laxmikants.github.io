@@ -73,15 +73,13 @@ To fetch the stock data we use `investpy` library. This library fetchs data from
 df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/11/2019',to_date='14/08/2020', country = "India")
 ```
 
-
-
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='23/03/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='24/03/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='23/03/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='24/03/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='23/03/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='24/03/2022', country = "India")
 
 dfs = df.copy()
 
