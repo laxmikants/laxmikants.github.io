@@ -76,11 +76,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='12/04/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='16/04/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='12/04/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='16/04/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='12/04/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='16/04/2022', country = "India")
 
 dfs = df.copy()
 
@@ -763,7 +763,6 @@ comp['y_test'] = y_test
 comp['y_pred'] = y_pred
 print(comp.tail(5))
 predict = model.predict(X_test.tail(1))
-print(predict)
 
 
 s1 = data2.iloc[1,1].astype(int)
@@ -806,22 +805,28 @@ print(data1_dl.head())
 
 print(X.iloc[-1])    
 
-if(predict == 1):
-    print('Buy at daily: ', (data2_dl.iloc[1,4] + data2_dl.iloc[1,3] + data2_dl.iloc[1,2]  + data2_dl.iloc[1,1]) / 4)
-    print('Buy at hourly: ', (data2_hr.iloc[1,4] + data2_hr.iloc[1,3] + data2_hr.iloc[1,2]  + data2_hr.iloc[1,1]) / 4)
+if(lclose < data2_dl.iloc[1,4]):
+  print("Bearish daily: Sell at ",data2_dl.iloc[1,4])
 else:
-    print('Sell at daily: ', (data2_dl.iloc[1,4] + data2_dl.iloc[1,5] + data2_dl.iloc[1,6]  + data2_dl.iloc[1,7]) / 4)
-    print('Sell at hourly: ', (data2_hr.iloc[1,4] + data2_hr.iloc[1,5] + data2_hr.iloc[1,6]  + data2_hr.iloc[1,7]) / 4)
+  print("Bullish at daily: Buy at ", data2_dl.iloc[1,4])
+  
+if(lclose > data2_hr.iloc[1,4]):
+  print("Bullish hourly: Buy at ", data2_hr.iloc[1,4])
+else:
+  print("Bearish hourly: Sell at ", data2_hr.iloc[1,4])
+  
+
+if(predict == 1):
+    print('Pridiction: Buy at ', data2_dl.iloc[1,4])
+else:
+    print('Prediction: Sell at : ', data2_dl.iloc[1,4])
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']): 
-  print('Open Low Strategy ', 'Buy above', dfs.iloc[-2]['High'] )
-  print('last Close: ', lclose)
-
+  print('Open Low Strategy ', 'Buy Now')
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']): 
-  print('Open High Strategy ', 'Sell below', dfs.iloc[-2]['Low'] )
-  print('last Close: ', lclose)
-      
+  print('Open High Strategy ', 'Sell now' )
+  
 ```
 
 
