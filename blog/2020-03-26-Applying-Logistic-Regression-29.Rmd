@@ -75,11 +75,11 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='20/04/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='24/04/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='20/04/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='24/04/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='20/04/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='24/04/2022', country = "India")
 
 dfs = df.copy()
 
@@ -805,20 +805,20 @@ print(data1_dl.head())
 print(X.iloc[-1])    
 
 if(lclose < data2_dl.iloc[1,4]):
-  print("Bearish daily: Sell at ",data2_dl.iloc[1,4])
+  print("Bearish daily: Sell at ",data2_dl.iloc[1,3])
 else:
-  print("Bullish at daily: Buy at ", data2_dl.iloc[1,4])
+  print("Bullish at daily: Buy at ", data2_dl.iloc[1,5])
   
 if(lclose > data2_hr.iloc[1,4]):
-  print("Bullish hourly: Buy at ", data2_hr.iloc[1,4])
+  print("Bullish hourly: Buy at ", data2_hr.iloc[1,5])
 else:
-  print("Bearish hourly: Sell at ", data2_hr.iloc[1,4])
+  print("Bearish hourly: Sell at ", data2_hr.iloc[1,3])
   
 
 if(predict == 1):
-    print('Pridiction: Buy at ', data2_dl.iloc[1,4])
+    print('Pridiction: Buy at ', data2_dl.iloc[1,5])
 else:
-    print('Prediction: Sell at : ', data2_dl.iloc[1,4])
+    print('Prediction: Sell at : ', data2_dl.iloc[1,3])
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']): 
   print('Open Low Strategy ', 'Buy Now')
