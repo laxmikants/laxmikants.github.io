@@ -4,12 +4,14 @@ author: "Laxmi K Soni"
 description: "Finding document Similarity using LSA"
 lastmod: 2022-07-05
 subtitle: Finding document Similarity using LSA
+featured: ""
 date: 2022-07-05
 slug: Topic Modelling
 categories: ["NLP"]
 tags: ["LSA","NLP"]
 Summary: "Case study on finding document Similarity using LSA"
 featured: "img/main/similarity_LSA.jpg"
+
 output:
   html_document:
     highlight: tango

@@ -5,7 +5,7 @@ description: "Finding document Similarity using LSA"
 lastmod: 2022-07-05
 subtitle: Finding document Similarity using LSA
 date: 2022-07-05
-slug: Topic Modelling
+slug: Document similarity
 categories: ["NLP"]
 tags: ["LSA","NLP"]
 Summary: "Case study on finding document Similarity using LSA"
@@ -17,8 +17,8 @@ output:
     toc: yes
     toc_float: yes
     toc_depth: 4
-
 ---
+
 
 ```{r setup, include=FALSE}
 library(tidyverse)
