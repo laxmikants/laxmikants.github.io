@@ -1,0 +1,173 @@
+---
+title: "Finding document Similarity using LSA "
+author: "Laxmi K Soni"
+description: "Finding document Similarity using LSA"
+lastmod: 2022-07-05
+subtitle: Finding document Similarity using LSA
+featured: ""
+date: 2022-07-05
+slug: Topic Modelling
+categories: ["NLP"]
+tags: ["LSA","NLP"]
+Summary: "Case study on finding document Similarity using LSA"
+output:
+  html_document:
+    highlight: tango
+    theme: flatly
+    toc: yes
+    toc_float: yes
+    toc_depth: 4
+
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(magick)
+library(reticulate)
+
+use_condaenv("r-reticulate")
+
+```
+
+#### Introduction
+
+Finding document similarity can be useful sometimes for many purposes like spam filtering. 
+In academics we try to access manually how much a course outcome relates to the program outcome of the course. 
+This blog makes use of the Latent Symentic index method to findout to access the level at which a given course
+outcome relates or significant to a set of program outcomes for a given program. 
+
+STEPS:
+
++ Initialize the set of program outcomes
++ Normalize the sentenses and words
++ Assess the frequency of the words in the program outcomes
++ Encapsulate the mapping between normalized words and their frequency
++ Initiate the course outcome which checked against program outcomes for similarity
++ Create the bag of words model from words in program outcomes
++ Create lsi model from bag of words model and frequency of normalized words
++ Create similarity matrix between course outcomes and program outcomes
++ Output the similarity as pandas dataframe
+
+#### Import libraries
+
+For this  we will need the following imports:
+
+```{python}
+import logging
+from pprint import pprint
+import pandas as pd
+from gensim import corpora, models, similarities
+import nltk
+from nltk.corpus import stopwords
+from collections import defaultdict
+import numpy as np
+```
+
+
+```{python}
+programoutcomes = ["Apply knowledge of Computer Science, Mathematics and Physics to identify, analyse problems and to provide effective solutions.","Ability to design, develop algorithms and provide software solutions to cater the industrial needs","Inculcate skills to excel in the fields of Information Technology and its Enabled services, Government and Private sectors, Teaching and Research","Instil ethical responsibilities, human and professional values and make their contribution to the society","Engaged in lifelong learning to equip them to the changing environment and be prepared to take-up mastering programmes","Provides a systematic understanding of the concepts and theories of mathematics and computing their application in the software world.","Graduates will have necessary critical and analytical skills to resolve problem","They will attain eligibility to successfully pursue their career objectives in advanced education, scientific career in government or industry.","Understand the impact of scientific solutions in societal and environmental conpotexts, and demonstrate the knowledge of, and need for sustainable development."]
+pprint( len( programoutcomes ))
+```
+
+
+```{python}
+stopwords = set( 'for of a the and to in'.split() )
+powordlist = [[word for word in po.lower().split() if word not in stopwords] for po in programoutcomes]
+powordlist
+``` 
+
+
+```{python}
+powordfrequency = defaultdict( int )
+for powordline in powordlist:
+    for poword in powordline:
+        powordfrequency[ poword ] += 1
+pprint( powordfrequency )
+
+
+``` 
+
+```{python}
+powordlist1 =  [ [poword for poword in powordline if powordfrequency[poword] > 1] for powordline in powordlist]
+powordlist1
+```
+
+```{python}
+corpdictionary = corpora.Dictionary( powordlist1 )
+corpdictionary.token2id
+```
+Dictionary encapsulates the mapping between normalized words and their integer ids.
+
+```{python}
+courseoutcome = 'Students will have have understanding on how build python development environment.'
+covec = corpdictionary.doc2bow(courseoutcome.split())
+```
+         
+```{python}         
+mycorpus = [ corpdictionary.doc2bow( powordline ) for powordline in powordlist ]
+
+```
+
+```{python}
+##corpora.MmCorpus.serialize( './deerwster1.mm', mycorpus )
+##corpora.SvmLightCorpus.serialize('./corpus1.svmlight', mycorpus)
+```
+
+```{python}
+tfidf = models.TfidfModel( mycorpus )
+corp_tfidf = tfidf[ mycorpus ]
+```
+
+```{python}
+for d in corp_tfidf:
+    print( d )
+```    
+
+
+# latent semantic analysis
+
+By creating a collection of ideas associated to the documents and terms, latent semantic analysis (LSA), a method in natural language processing, specifically distributional semantics, analyses relationships between a set of documents and the terms they contain. LSA believes that words with similar meanings will appear in texts with a similar structure.
+
+```{python}
+lsi = models.LsiModel( mycorpus, id2word=corpdictionary, num_topics=2)
+```
+
+```{python}
+index = similarities.MatrixSimilarity( lsi[ mycorpus ] )
+lsivec = lsi[ covec ]
+```
+
+```{python}
+sims = index[ lsivec ]
+```
+
+```{python}
+copomap = []
+for i, sim in enumerate( sims):
+    copomap.append({
+        'co' : courseoutcome,
+        'po' : "po{0:01}".format(i) + ":" + programoutcomes[i],
+        'similarity' : sim
+    }
+)
+```
+
+
++ 0: Inticates low similarity or low significance of the course outcome to program outcome
++ 2: Inticates medium similarity or medium significance of the course outcome to program outcome
++ 3: Inticates high similarity or high significance of the course outcome to program outcome
+
+```{python}
+pd.set_option('display.max_columns', None)
+cdf = pd.DataFrame(copomap)
+cdf['similarity'] = cdf['similarity']*100
+cdf['similarity'].astype(int)
+cdf['similarity'] = np.where(cdf['similarity'] < 0 , 0, cdf['similarity'].astype(int) )
+cdf['similarity'] = np.where( ((cdf['similarity'] > 0) & (cdf['similarity'] < 50)) , 2 , cdf['similarity'].astype(int) )
+cdf['similarity'] = np.where( ((cdf['similarity'] > 50) & (cdf['similarity'] < 100)) , 3 , cdf['similarity'].astype(int) )
+print('Similarity of' , courseoutcome, 'with given  outcomes is')
+print(cdf[['po','similarity']])
+```
+
+
+

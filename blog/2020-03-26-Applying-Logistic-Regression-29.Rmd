@@ -75,11 +75,12 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='17/06/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/12/2019', to_date='06/07/2022')
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='17/06/2022')
+dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/12/2019', to_date='06/07/2022')
+dfusd1 = investpy.get_commodity_historical_data(commodity='Silver', from_date='05/07/2022', to_date='06/07/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='17/06/2022', country = "India")
+df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/12/2019',to_date='06/07/2022', country = "India")
 
 dfs = df.copy()
 
@@ -754,6 +755,8 @@ print('Test Accuracy:{: .2f}%'.format(accuracy_test*100))
 print(confusion_matrix(y_pred,y_test))
 ```
 
+
+
 ***3.10:   Predict movement of stock for tomorrow. ***
 
 ```{python,echo = FALSE}
@@ -775,6 +778,7 @@ r3 = data2.iloc[1,7].astype(int)
 lclose = dfs.iloc[-1]['Close'].astype(int)
 
 ```
+
 
 
 ```{python,echo = FALSE,eval = TRUE}
@@ -825,8 +829,10 @@ if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']):
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']): 
   print('Open High Strategy ', 'Sell now' )
-  
+
 ```
+
+
 
 
 ```{r load-all-libraries, echo=FALSE, warning=FALSE, message=FALSE,eval=FALSE}
@@ -868,9 +874,9 @@ prophet_plot_components(model,forecast)
 
 ```{python, echo = FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='06/11/2021')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/12/2019', to_date='06/07/2022')
 
-df = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='06/11/2021')
+df = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/12/2019', to_date='06/07/2022')
 
 #info = investpy.commodities.get_commodity_information(commodity='Silver',as_json=True)
 
@@ -1508,7 +1514,13 @@ comp = pd.DataFrame()
 comp['y_test'] = y_test
 comp['y_pred'] = y_pred
 print(comp.tail(5))
-predict = model.predict(X_test.tail(1))
-print(predict)
+predictxagusd = model.predict(X_test.tail(1))
+print(predictxagusd)
+
+if(predictxagusd  == -1):
+  print("AMO Sell ", lclose - 100)
+else:
+  print("AMO Buy ", lclose + 100)
 
 ```
+

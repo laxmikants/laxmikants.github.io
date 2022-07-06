@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+  <style>
+
+    .nocopy {
+      -webkit-user-select: none;   
+      -moz-user-select: none;      
+      -ms-user-select: none;       
+      user-select: none;           
+    }  
+
+</style>
+
+<script data-ad-client="ca-pub-3804322353139756" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script async src = "https://www.googletagmanager.com/gtag/js?id=UA-155379268-1"></script>
+<script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js',new Date());
+ 
+ gtag('config','UA-155379268-1');
+
+</script>  
+  <meta charset="utf-8">
+<title>Finding document Similarity using LSA  - Data Science Posts and Resources :: Laxmikant Soni</title>
+
+<meta name="viewport" content="width=device-width" />
+
+<meta name="google-site-verification" content="MeRcFEBEyWiTb3NfY4THWxbV_fx3rKOJnvr_Jk398wY" />
+
+<meta name=keywords content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics | Laxmikant Soni, Predictive Analytics, Business, Data, Analytics, Machine Learning, Data Mining, Neural Network with Python, Neural Network, Predict Stock price movement using Neural Networks, Intelligence, Big, Modeling, Data Science, Integration, Visualization,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow">
+
+<meta name=description content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics :: Laxmikant Soni">
+
+<meta name="robots" content="index">
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+
+<meta name="generator" content="Hugo 0.91.2" /><meta itemprop="name" content="Finding document Similarity using LSA ">
+<meta itemprop="description" content="Finding document Similarity using LSA"><meta itemprop="datePublished" content="2022-07-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1314">
+<meta itemprop="keywords" content="LSA,NLP," /><meta property="og:title" content="Finding document Similarity using LSA " />
+<meta property="og:description" content="Finding document Similarity using LSA" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/topic-modelling/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-07-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-05T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Finding document Similarity using LSA "/>
+<meta name="twitter:description" content="Finding document Similarity using LSA"/>
+<meta name="twitter:site" content="@laxmikantsoni09"/>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <script src="https://kit.fontawesome.com/be54eb011a.js" crossorigin="anonymous"></script>
+      <script async   src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.aa4e8165f5b2a16460fcb21582ad412bed8e48e9c5dc49f3b412d1703be4d75d.css" integrity=""><link rel="stylesheet" href="/css/add-on.css">
+        <link rel="stylesheet" href="/css/main.css">
+
+<title>Finding document Similarity using LSA  : Data Science Posts and Resources</title>
+
+<meta property="og:title" content="Finding document Similarity using LSA ">
+<meta property="og:site_name" content="Data Science Posts and Resources">
+<meta property="og:url" content="https://laxmikants.github.io/blog/topic-modelling/">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Finding document Similarity using LSA">
+<meta name="description" content="Finding document Similarity using LSA">
+<meta property="og:updated_time" content="2022-07-05T00:00:00Z">
+<meta property="fb:app_id" content="428818034507005">
+<meta name="author" content="Laxmikant Soni">
+
+<meta property="article:author" content="https://laxmikants.github.io">
+<meta property="article:published_time" content="2022-07-05T00:00:00Z">
+<meta property="article:modified_time" content="2022-07-05T00:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Finding document Similarity using LSA ",
+  "alternativeHeadline": "Finding document Similarity using LSA",
+  "name" : "Data Science Posts and Resources",
+  "url": "https://laxmikants.github.io/blog/topic-modelling/",
+  "image": "https://laxmikants.github.io/",
+  "sameAs":
+      [ "https://www.facebook.com/laxmikantsoni09",
+        "https://instagram.com/laxmikantsoni09",
+        "https://www.linkedin.com/in/laxmikantsoni09",
+        "https://twitter.com/laxmikantsoni09",
+        "https://github.com/laxmikants",
+        "https://www.kaggle.com/laxmikantsoni"
+    ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://laxmikants.github.io/blog/topic-modelling/"
+  },
+  "description": "Finding document Similarity using LSA",
+  "author": {
+    "@type": "Person",
+    "name": "Laxmikant Soni"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data Science Posts and Resources",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laxmikants.github.io/"
+    }
+  },
+  "datePublished": "2022-07-05T00:00:00Z",
+  "dateModified": "2022-07-05T00:00:00Z",
+  "articleBody": "\r\n\r\n\r\n\u003cdiv id=\"introduction\" class=\"section level4\"\u003e\r\n\u003ch4\u003eIntroduction\u003c/h4\u003e\r\n\u003cp\u003eFinding document similarity can be useful sometimes for many purposes like spam filtering.\r\nIn academics we try to access manually how much a course outcome relates to the program outcome of the course.\r\nThis blog makes use of the Latent Symentic index method to findout to access the level at which a given course\r\noutcome relates or significant to a set of program outcomes for a given program.\u003c/p\u003e\r\n\u003cp\u003eSTEPS:\u003c/p\u003e\r\n\u003cul\u003e\r\n\u003cli\u003eInitialize the set of program outcomes\u003c/li\u003e\r\n\u003cli\u003eNormalize the sentenses and words\u003c/li\u003e\r\n\u003cli\u003eAssess the frequency of the words in the program outcomes\u003c/li\u003e\r\n\u003cli\u003eEncapsulate the mapping between normalized words and their frequency\u003c/li\u003e\r\n\u003cli\u003eInitiate the course outcome which checked against program outcomes for similarity\u003c/li\u003e\r\n\u003cli\u003eCreate the bag of words model from words in program outcomes\u003c/li\u003e\r\n\u003cli\u003eCreate lsi model from bag of words model and frequency of normalized words\u003c/li\u003e\r\n\u003cli\u003eCreate similarity matrix between course outcomes and program outcomes\u003c/li\u003e\r\n\u003cli\u003eOutput the similarity as pandas dataframe\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"import-libraries\" class=\"section level4\"\u003e\r\n\u003ch4\u003eImport libraries\u003c/h4\u003e\r\n\u003cp\u003eFor this we will need the following imports:\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eimport logging\r\nfrom pprint import pprint\r\nimport pandas as pd\r\nfrom gensim import corpora, models, similarities\r\nimport nltk\r\nfrom nltk.corpus import stopwords\r\nfrom collections import defaultdict\r\nimport numpy as np\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprogramoutcomes = [\u0026quot;Apply knowledge of Computer Science, Mathematics and Physics to identify, analyse problems and to provide effective solutions.\u0026quot;,\u0026quot;Ability to design, develop algorithms and provide software solutions to cater the industrial needs\u0026quot;,\u0026quot;Inculcate skills to excel in the fields of Information Technology and its Enabled services, Government and Private sectors, Teaching and Research\u0026quot;,\u0026quot;Instil ethical responsibilities, human and professional values and make their contribution to the society\u0026quot;,\u0026quot;Engaged in lifelong learning to equip them to the changing environment and be prepared to take-up mastering programmes\u0026quot;,\u0026quot;Provides a systematic understanding of the concepts and theories of mathematics and computing their application in the software world.\u0026quot;,\u0026quot;Graduates will have necessary critical and analytical skills to resolve problem\u0026quot;,\u0026quot;They will attain eligibility to successfully pursue their career objectives in advanced education, scientific career in government or industry.\u0026quot;,\u0026quot;Understand the impact of scientific solutions in societal and environmental conpotexts, and demonstrate the knowledge of, and need for sustainable development.\u0026quot;]\r\npprint( len( programoutcomes ))\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 9\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003estopwords = set( \u0026#39;for of a the and to in\u0026#39;.split() )\r\npowordlist = [[word for word in po.lower().split() if word not in stopwords] for po in programoutcomes]\r\npowordlist\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [[\u0026#39;apply\u0026#39;, \u0026#39;knowledge\u0026#39;, \u0026#39;computer\u0026#39;, \u0026#39;science,\u0026#39;, \u0026#39;mathematics\u0026#39;, \u0026#39;physics\u0026#39;, \u0026#39;identify,\u0026#39;, \u0026#39;analyse\u0026#39;, \u0026#39;problems\u0026#39;, \u0026#39;provide\u0026#39;, \u0026#39;effective\u0026#39;, \u0026#39;solutions.\u0026#39;], [\u0026#39;ability\u0026#39;, \u0026#39;design,\u0026#39;, \u0026#39;develop\u0026#39;, \u0026#39;algorithms\u0026#39;, \u0026#39;provide\u0026#39;, \u0026#39;software\u0026#39;, \u0026#39;solutions\u0026#39;, \u0026#39;cater\u0026#39;, \u0026#39;industrial\u0026#39;, \u0026#39;needs\u0026#39;], [\u0026#39;inculcate\u0026#39;, \u0026#39;skills\u0026#39;, \u0026#39;excel\u0026#39;, \u0026#39;fields\u0026#39;, \u0026#39;information\u0026#39;, \u0026#39;technology\u0026#39;, \u0026#39;its\u0026#39;, \u0026#39;enabled\u0026#39;, \u0026#39;services,\u0026#39;, \u0026#39;government\u0026#39;, \u0026#39;private\u0026#39;, \u0026#39;sectors,\u0026#39;, \u0026#39;teaching\u0026#39;, \u0026#39;research\u0026#39;], [\u0026#39;instil\u0026#39;, \u0026#39;ethical\u0026#39;, \u0026#39;responsibilities,\u0026#39;, \u0026#39;human\u0026#39;, \u0026#39;professional\u0026#39;, \u0026#39;values\u0026#39;, \u0026#39;make\u0026#39;, \u0026#39;their\u0026#39;, \u0026#39;contribution\u0026#39;, \u0026#39;society\u0026#39;], [\u0026#39;engaged\u0026#39;, \u0026#39;lifelong\u0026#39;, \u0026#39;learning\u0026#39;, \u0026#39;equip\u0026#39;, \u0026#39;them\u0026#39;, \u0026#39;changing\u0026#39;, \u0026#39;environment\u0026#39;, \u0026#39;be\u0026#39;, \u0026#39;prepared\u0026#39;, \u0026#39;take-up\u0026#39;, \u0026#39;mastering\u0026#39;, \u0026#39;programmes\u0026#39;], [\u0026#39;provides\u0026#39;, \u0026#39;systematic\u0026#39;, \u0026#39;understanding\u0026#39;, \u0026#39;concepts\u0026#39;, \u0026#39;theories\u0026#39;, \u0026#39;mathematics\u0026#39;, \u0026#39;computing\u0026#39;, \u0026#39;their\u0026#39;, \u0026#39;application\u0026#39;, \u0026#39;software\u0026#39;, \u0026#39;world.\u0026#39;], [\u0026#39;graduates\u0026#39;, \u0026#39;will\u0026#39;, \u0026#39;have\u0026#39;, \u0026#39;necessary\u0026#39;, \u0026#39;critical\u0026#39;, \u0026#39;analytical\u0026#39;, \u0026#39;skills\u0026#39;, \u0026#39;resolve\u0026#39;, \u0026#39;problem\u0026#39;], [\u0026#39;they\u0026#39;, \u0026#39;will\u0026#39;, \u0026#39;attain\u0026#39;, \u0026#39;eligibility\u0026#39;, \u0026#39;successfully\u0026#39;, \u0026#39;pursue\u0026#39;, \u0026#39;their\u0026#39;, \u0026#39;career\u0026#39;, \u0026#39;objectives\u0026#39;, \u0026#39;advanced\u0026#39;, \u0026#39;education,\u0026#39;, \u0026#39;scientific\u0026#39;, \u0026#39;career\u0026#39;, \u0026#39;government\u0026#39;, \u0026#39;or\u0026#39;, \u0026#39;industry.\u0026#39;], [\u0026#39;understand\u0026#39;, \u0026#39;impact\u0026#39;, \u0026#39;scientific\u0026#39;, \u0026#39;solutions\u0026#39;, \u0026#39;societal\u0026#39;, \u0026#39;environmental\u0026#39;, \u0026#39;conpotexts,\u0026#39;, \u0026#39;demonstrate\u0026#39;, \u0026#39;knowledge\u0026#39;, \u0026#39;of,\u0026#39;, \u0026#39;need\u0026#39;, \u0026#39;sustainable\u0026#39;, \u0026#39;development.\u0026#39;]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003epowordfrequency = defaultdict( int )\r\nfor powordline in powordlist:\r\n    for poword in powordline:\r\n        powordfrequency[ poword ] += 1\r\npprint( powordfrequency )\r\n\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## defaultdict(\u0026lt;class \u0026#39;int\u0026#39;\u0026gt;,\r\n##             {\u0026#39;ability\u0026#39;: 1,\r\n##              \u0026#39;advanced\u0026#39;: 1,\r\n##              \u0026#39;algorithms\u0026#39;: 1,\r\n##              \u0026#39;analyse\u0026#39;: 1,\r\n##              \u0026#39;analytical\u0026#39;: 1,\r\n##              \u0026#39;application\u0026#39;: 1,\r\n##              \u0026#39;apply\u0026#39;: 1,\r\n##              \u0026#39;attain\u0026#39;: 1,\r\n##              \u0026#39;be\u0026#39;: 1,\r\n##              \u0026#39;career\u0026#39;: 2,\r\n##              \u0026#39;cater\u0026#39;: 1,\r\n##              \u0026#39;changing\u0026#39;: 1,\r\n##              \u0026#39;computer\u0026#39;: 1,\r\n##              \u0026#39;computing\u0026#39;: 1,\r\n##              \u0026#39;concepts\u0026#39;: 1,\r\n##              \u0026#39;conpotexts,\u0026#39;: 1,\r\n##              \u0026#39;contribution\u0026#39;: 1,\r\n##              \u0026#39;critical\u0026#39;: 1,\r\n##              \u0026#39;demonstrate\u0026#39;: 1,\r\n##              \u0026#39;design,\u0026#39;: 1,\r\n##              \u0026#39;develop\u0026#39;: 1,\r\n##              \u0026#39;development.\u0026#39;: 1,\r\n##              \u0026#39;education,\u0026#39;: 1,\r\n##              \u0026#39;effective\u0026#39;: 1,\r\n##              \u0026#39;eligibility\u0026#39;: 1,\r\n##              \u0026#39;enabled\u0026#39;: 1,\r\n##              \u0026#39;engaged\u0026#39;: 1,\r\n##              \u0026#39;environment\u0026#39;: 1,\r\n##              \u0026#39;environmental\u0026#39;: 1,\r\n##              \u0026#39;equip\u0026#39;: 1,\r\n##              \u0026#39;ethical\u0026#39;: 1,\r\n##              \u0026#39;excel\u0026#39;: 1,\r\n##              \u0026#39;fields\u0026#39;: 1,\r\n##              \u0026#39;government\u0026#39;: 2,\r\n##              \u0026#39;graduates\u0026#39;: 1,\r\n##              \u0026#39;have\u0026#39;: 1,\r\n##              \u0026#39;human\u0026#39;: 1,\r\n##              \u0026#39;identify,\u0026#39;: 1,\r\n##              \u0026#39;impact\u0026#39;: 1,\r\n##              \u0026#39;inculcate\u0026#39;: 1,\r\n##              \u0026#39;industrial\u0026#39;: 1,\r\n##              \u0026#39;industry.\u0026#39;: 1,\r\n##              \u0026#39;information\u0026#39;: 1,\r\n##              \u0026#39;instil\u0026#39;: 1,\r\n##              \u0026#39;its\u0026#39;: 1,\r\n##              \u0026#39;knowledge\u0026#39;: 2,\r\n##              \u0026#39;learning\u0026#39;: 1,\r\n##              \u0026#39;lifelong\u0026#39;: 1,\r\n##              \u0026#39;make\u0026#39;: 1,\r\n##              \u0026#39;mastering\u0026#39;: 1,\r\n##              \u0026#39;mathematics\u0026#39;: 2,\r\n##              \u0026#39;necessary\u0026#39;: 1,\r\n##              \u0026#39;need\u0026#39;: 1,\r\n##              \u0026#39;needs\u0026#39;: 1,\r\n##              \u0026#39;objectives\u0026#39;: 1,\r\n##              \u0026#39;of,\u0026#39;: 1,\r\n##              \u0026#39;or\u0026#39;: 1,\r\n##              \u0026#39;physics\u0026#39;: 1,\r\n##              \u0026#39;prepared\u0026#39;: 1,\r\n##              \u0026#39;private\u0026#39;: 1,\r\n##              \u0026#39;problem\u0026#39;: 1,\r\n##              \u0026#39;problems\u0026#39;: 1,\r\n##              \u0026#39;professional\u0026#39;: 1,\r\n##              \u0026#39;programmes\u0026#39;: 1,\r\n##              \u0026#39;provide\u0026#39;: 2,\r\n##              \u0026#39;provides\u0026#39;: 1,\r\n##              \u0026#39;pursue\u0026#39;: 1,\r\n##              \u0026#39;research\u0026#39;: 1,\r\n##              \u0026#39;resolve\u0026#39;: 1,\r\n##              \u0026#39;responsibilities,\u0026#39;: 1,\r\n##              \u0026#39;science,\u0026#39;: 1,\r\n##              \u0026#39;scientific\u0026#39;: 2,\r\n##              \u0026#39;sectors,\u0026#39;: 1,\r\n##              \u0026#39;services,\u0026#39;: 1,\r\n##              \u0026#39;skills\u0026#39;: 2,\r\n##              \u0026#39;societal\u0026#39;: 1,\r\n##              \u0026#39;society\u0026#39;: 1,\r\n##              \u0026#39;software\u0026#39;: 2,\r\n##              \u0026#39;solutions\u0026#39;: 2,\r\n##              \u0026#39;solutions.\u0026#39;: 1,\r\n##              \u0026#39;successfully\u0026#39;: 1,\r\n##              \u0026#39;sustainable\u0026#39;: 1,\r\n##              \u0026#39;systematic\u0026#39;: 1,\r\n##              \u0026#39;take-up\u0026#39;: 1,\r\n##              \u0026#39;teaching\u0026#39;: 1,\r\n##              \u0026#39;technology\u0026#39;: 1,\r\n##              \u0026#39;their\u0026#39;: 3,\r\n##              \u0026#39;them\u0026#39;: 1,\r\n##              \u0026#39;theories\u0026#39;: 1,\r\n##              \u0026#39;they\u0026#39;: 1,\r\n##              \u0026#39;understand\u0026#39;: 1,\r\n##              \u0026#39;understanding\u0026#39;: 1,\r\n##              \u0026#39;values\u0026#39;: 1,\r\n##              \u0026#39;will\u0026#39;: 2,\r\n##              \u0026#39;world.\u0026#39;: 1})\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003epowordlist1 =  [ [poword for poword in powordline if powordfrequency[poword] \u0026gt; 1] for powordline in powordlist]\r\npowordlist1\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [[\u0026#39;knowledge\u0026#39;, \u0026#39;mathematics\u0026#39;, \u0026#39;provide\u0026#39;], [\u0026#39;provide\u0026#39;, \u0026#39;software\u0026#39;, \u0026#39;solutions\u0026#39;], [\u0026#39;skills\u0026#39;, \u0026#39;government\u0026#39;], [\u0026#39;their\u0026#39;], [], [\u0026#39;mathematics\u0026#39;, \u0026#39;their\u0026#39;, \u0026#39;software\u0026#39;], [\u0026#39;will\u0026#39;, \u0026#39;skills\u0026#39;], [\u0026#39;will\u0026#39;, \u0026#39;their\u0026#39;, \u0026#39;career\u0026#39;, \u0026#39;scientific\u0026#39;, \u0026#39;career\u0026#39;, \u0026#39;government\u0026#39;], [\u0026#39;scientific\u0026#39;, \u0026#39;solutions\u0026#39;, \u0026#39;knowledge\u0026#39;]]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ecorpdictionary = corpora.Dictionary( powordlist1 )\r\ncorpdictionary.token2id\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## {\u0026#39;knowledge\u0026#39;: 0, \u0026#39;mathematics\u0026#39;: 1, \u0026#39;provide\u0026#39;: 2, \u0026#39;software\u0026#39;: 3, \u0026#39;solutions\u0026#39;: 4, \u0026#39;government\u0026#39;: 5, \u0026#39;skills\u0026#39;: 6, \u0026#39;their\u0026#39;: 7, \u0026#39;will\u0026#39;: 8, \u0026#39;career\u0026#39;: 9, \u0026#39;scientific\u0026#39;: 10}\u003c/code\u003e\u003c/pre\u003e\r\n\u003cp\u003eDictionary encapsulates the mapping between normalized words and their integer ids.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ecourseoutcome = \u0026#39;Students will have have understanding on how build python development environment.\u0026#39;\r\ncovec = corpdictionary.doc2bow(courseoutcome.split())\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003emycorpus = [ corpdictionary.doc2bow( powordline ) for powordline in powordlist ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003e##corpora.MmCorpus.serialize( \u0026#39;./deerwster1.mm\u0026#39;, mycorpus )\r\n##corpora.SvmLightCorpus.serialize(\u0026#39;./corpus1.svmlight\u0026#39;, mycorpus)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003etfidf = models.TfidfModel( mycorpus )\r\ncorp_tfidf = tfidf[ mycorpus ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003efor d in corp_tfidf:\r\n    print( d )\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## [(0, 0.5773502691896257), (1, 0.5773502691896257), (2, 0.5773502691896257)]\r\n## [(2, 0.5773502691896257), (3, 0.5773502691896257), (4, 0.5773502691896257)]\r\n## [(5, 0.7071067811865476), (6, 0.7071067811865476)]\r\n## [(7, 1.0)]\r\n## []\r\n## [(1, 0.6282580468670046), (3, 0.6282580468670046), (7, 0.45889394536615247)]\r\n## [(6, 0.7071067811865476), (8, 0.7071067811865476)]\r\n## [(5, 0.2878392791181426), (7, 0.21024434638691575), (8, 0.2878392791181426), (9, 0.840977385547663), (10, 0.2878392791181426)]\r\n## [(0, 0.5773502691896257), (4, 0.5773502691896257), (10, 0.5773502691896257)]\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e\r\n\u003cdiv id=\"latent-semantic-analysis\" class=\"section level1\"\u003e\r\n\u003ch1\u003elatent semantic analysis\u003c/h1\u003e\r\n\u003cp\u003eBy creating a collection of ideas associated to the documents and terms, latent semantic analysis (LSA), a method in natural language processing, specifically distributional semantics, analyses relationships between a set of documents and the terms they contain. LSA believes that words with similar meanings will appear in texts with a similar structure.\u003c/p\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003elsi = models.LsiModel( mycorpus, id2word=corpdictionary, num_topics=2)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eindex = similarities.MatrixSimilarity( lsi[ mycorpus ] )\r\nlsivec = lsi[ covec ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003esims = index[ lsivec ]\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ecopomap = []\r\nfor i, sim in enumerate( sims):\r\n    copomap.append({\r\n        \u0026#39;co\u0026#39; : courseoutcome,\r\n        \u0026#39;po\u0026#39; : \u0026quot;po{0:01}\u0026quot;.format(i) + \u0026quot;:\u0026quot; + programoutcomes[i],\r\n        \u0026#39;similarity\u0026#39; : sim\r\n    }\r\n)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cul\u003e\r\n\u003cli\u003e0: Inticates low similarity or low significance of the course outcome to program outcome\u003c/li\u003e\r\n\u003cli\u003e2: Inticates medium similarity or medium significance of the course outcome to program outcome\u003c/li\u003e\r\n\u003cli\u003e3: Inticates high similarity or high significance of the course outcome to program outcome\u003c/li\u003e\r\n\u003c/ul\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003epd.set_option(\u0026#39;display.max_columns\u0026#39;, None)\r\ncdf = pd.DataFrame(copomap)\r\ncdf[\u0026#39;similarity\u0026#39;] = cdf[\u0026#39;similarity\u0026#39;]*100\r\ncdf[\u0026#39;similarity\u0026#39;].astype(int)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## 0   -19\r\n## 1   -19\r\n## 2    99\r\n## 3    83\r\n## 4     0\r\n## 5    21\r\n## 6    99\r\n## 7    98\r\n## 8    17\r\n## Name: similarity, dtype: int32\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003ecdf[\u0026#39;similarity\u0026#39;] = np.where(cdf[\u0026#39;similarity\u0026#39;] \u0026lt; 0 , 0, cdf[\u0026#39;similarity\u0026#39;].astype(int) )\r\ncdf[\u0026#39;similarity\u0026#39;] = np.where( ((cdf[\u0026#39;similarity\u0026#39;] \u0026gt; 0) \u0026amp; (cdf[\u0026#39;similarity\u0026#39;] \u0026lt; 50)) , 2 , cdf[\u0026#39;similarity\u0026#39;].astype(int) )\r\ncdf[\u0026#39;similarity\u0026#39;] = np.where( ((cdf[\u0026#39;similarity\u0026#39;] \u0026gt; 50) \u0026amp; (cdf[\u0026#39;similarity\u0026#39;] \u0026lt; 100)) , 3 , cdf[\u0026#39;similarity\u0026#39;].astype(int) )\r\nprint(\u0026#39;Similarity of\u0026#39; , courseoutcome, \u0026#39;with given  outcomes is\u0026#39;)\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e## Similarity of Students will have have understanding on how build python development environment. with given  outcomes is\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre class=\"python\"\u003e\u003ccode\u003eprint(cdf[[\u0026#39;po\u0026#39;,\u0026#39;similarity\u0026#39;]])\u003c/code\u003e\u003c/pre\u003e\r\n\u003cpre\u003e\u003ccode\u003e##                                                   po  similarity\r\n## 0  po0:Apply knowledge of Computer Science, Mathe...           0\r\n## 1  po1:Ability to design, develop algorithms and ...           0\r\n## 2  po2:Inculcate skills to excel in the fields of...           3\r\n## 3  po3:Instil ethical responsibilities, human and...           3\r\n## 4  po4:Engaged in lifelong learning to equip them...           0\r\n## 5  po5:Provides a systematic understanding of the...           2\r\n## 6  po6:Graduates will have necessary critical and...           3\r\n## 7  po7:They will attain eligibility to successful...           3\r\n## 8  po8:Understand the impact of scientific soluti...           2\u003c/code\u003e\u003c/pre\u003e\r\n\u003c/div\u003e"
+}
+</script>
+
+  
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+</head>
+  <body>
+    
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5KFS4C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+      
+    
+
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          Blog
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          <a href="/" class="nav link"><i class='fa fa-home'></i> Home</a>
+        
+      
+        
+          
+          <a href="/about/" class="nav link"><i class='far fa-id-card'></i> About</a>
+        
+      
+        
+          
+          <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> Blog</a>
+        
+      
+        
+          
+          <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> Categories</a>
+        
+      
+        
+          
+          <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> Contact</a>
+        
+      
+      <a href="#share-menu" class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+ 
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  
+  
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu">
+  </div></menu>
+  
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="en" class="nav link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Finding%20document%20Similarity%20using%20LSA%20&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f&amp;title=Finding%20document%20Similarity%20using%20LSA%20" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </menu>
+  
+</header>
+
+      
+    <div id="wrapper">
+    
+      <section id="site-intro" >
+  
+  <header>
+    <h1>Data Science Posts and Resources</h1>
+  </header>
+  <main>
+    <p>Articles on Data Science</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+    </footer>
+  
+</section>
+
+
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/topic-modelling/">Finding document Similarity using LSA </a></h2>
+    
+    
+      <p>Finding document Similarity using LSA</p>
+    
+  </div>
+  <div class="meta">
+    <time datetime="2022-07-05 00:00:00 &#43;0000 UTC">July 5, 2022</time>
+    <p>Laxmi K Soni</p>
+    <p>7-Minute Read</p>
+  </div>
+</header>
+
+    <div id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Finding%20document%20Similarity%20using%20LSA%20&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <p>Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <p>Facebook</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2ftopic-modelling%2f&amp;title=Finding%20document%20Similarity%20using%20LSA%20" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <p>LinkedIn</p>
+          </a>
+  
+
+
+    </div>
+      <div class="content">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-3804322353139756"
+           data-ad-slot="1652057437"
+           data-ad-format="auto"
+           data-full-width-responsive="false"></ins>
+      <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+      </script>
+      </div>
+    <div class="content">
+      
+      
+
+
+<div id="introduction" class="section level4">
+<h4>Introduction</h4>
+<p>Finding document similarity can be useful sometimes for many purposes like spam filtering.
+In academics we try to access manually how much a course outcome relates to the program outcome of the course.
+This blog makes use of the Latent Symentic index method to findout to access the level at which a given course
+outcome relates or significant to a set of program outcomes for a given program.</p>
+<p>STEPS:</p>
+<ul>
+<li>Initialize the set of program outcomes</li>
+<li>Normalize the sentenses and words</li>
+<li>Assess the frequency of the words in the program outcomes</li>
+<li>Encapsulate the mapping between normalized words and their frequency</li>
+<li>Initiate the course outcome which checked against program outcomes for similarity</li>
+<li>Create the bag of words model from words in program outcomes</li>
+<li>Create lsi model from bag of words model and frequency of normalized words</li>
+<li>Create similarity matrix between course outcomes and program outcomes</li>
+<li>Output the similarity as pandas dataframe</li>
+</ul>
+</div>
+<div id="import-libraries" class="section level4">
+<h4>Import libraries</h4>
+<p>For this we will need the following imports:</p>
+<pre class="python"><code>import logging
+from pprint import pprint
+import pandas as pd
+from gensim import corpora, models, similarities
+import nltk
+from nltk.corpus import stopwords
+from collections import defaultdict
+import numpy as np</code></pre>
+<pre class="python"><code>programoutcomes = [&quot;Apply knowledge of Computer Science, Mathematics and Physics to identify, analyse problems and to provide effective solutions.&quot;,&quot;Ability to design, develop algorithms and provide software solutions to cater the industrial needs&quot;,&quot;Inculcate skills to excel in the fields of Information Technology and its Enabled services, Government and Private sectors, Teaching and Research&quot;,&quot;Instil ethical responsibilities, human and professional values and make their contribution to the society&quot;,&quot;Engaged in lifelong learning to equip them to the changing environment and be prepared to take-up mastering programmes&quot;,&quot;Provides a systematic understanding of the concepts and theories of mathematics and computing their application in the software world.&quot;,&quot;Graduates will have necessary critical and analytical skills to resolve problem&quot;,&quot;They will attain eligibility to successfully pursue their career objectives in advanced education, scientific career in government or industry.&quot;,&quot;Understand the impact of scientific solutions in societal and environmental conpotexts, and demonstrate the knowledge of, and need for sustainable development.&quot;]
+pprint( len( programoutcomes ))</code></pre>
+<pre><code>## 9</code></pre>
+<pre class="python"><code>stopwords = set( &#39;for of a the and to in&#39;.split() )
+powordlist = [[word for word in po.lower().split() if word not in stopwords] for po in programoutcomes]
+powordlist</code></pre>
+<pre><code>## [[&#39;apply&#39;, &#39;knowledge&#39;, &#39;computer&#39;, &#39;science,&#39;, &#39;mathematics&#39;, &#39;physics&#39;, &#39;identify,&#39;, &#39;analyse&#39;, &#39;problems&#39;, &#39;provide&#39;, &#39;effective&#39;, &#39;solutions.&#39;], [&#39;ability&#39;, &#39;design,&#39;, &#39;develop&#39;, &#39;algorithms&#39;, &#39;provide&#39;, &#39;software&#39;, &#39;solutions&#39;, &#39;cater&#39;, &#39;industrial&#39;, &#39;needs&#39;], [&#39;inculcate&#39;, &#39;skills&#39;, &#39;excel&#39;, &#39;fields&#39;, &#39;information&#39;, &#39;technology&#39;, &#39;its&#39;, &#39;enabled&#39;, &#39;services,&#39;, &#39;government&#39;, &#39;private&#39;, &#39;sectors,&#39;, &#39;teaching&#39;, &#39;research&#39;], [&#39;instil&#39;, &#39;ethical&#39;, &#39;responsibilities,&#39;, &#39;human&#39;, &#39;professional&#39;, &#39;values&#39;, &#39;make&#39;, &#39;their&#39;, &#39;contribution&#39;, &#39;society&#39;], [&#39;engaged&#39;, &#39;lifelong&#39;, &#39;learning&#39;, &#39;equip&#39;, &#39;them&#39;, &#39;changing&#39;, &#39;environment&#39;, &#39;be&#39;, &#39;prepared&#39;, &#39;take-up&#39;, &#39;mastering&#39;, &#39;programmes&#39;], [&#39;provides&#39;, &#39;systematic&#39;, &#39;understanding&#39;, &#39;concepts&#39;, &#39;theories&#39;, &#39;mathematics&#39;, &#39;computing&#39;, &#39;their&#39;, &#39;application&#39;, &#39;software&#39;, &#39;world.&#39;], [&#39;graduates&#39;, &#39;will&#39;, &#39;have&#39;, &#39;necessary&#39;, &#39;critical&#39;, &#39;analytical&#39;, &#39;skills&#39;, &#39;resolve&#39;, &#39;problem&#39;], [&#39;they&#39;, &#39;will&#39;, &#39;attain&#39;, &#39;eligibility&#39;, &#39;successfully&#39;, &#39;pursue&#39;, &#39;their&#39;, &#39;career&#39;, &#39;objectives&#39;, &#39;advanced&#39;, &#39;education,&#39;, &#39;scientific&#39;, &#39;career&#39;, &#39;government&#39;, &#39;or&#39;, &#39;industry.&#39;], [&#39;understand&#39;, &#39;impact&#39;, &#39;scientific&#39;, &#39;solutions&#39;, &#39;societal&#39;, &#39;environmental&#39;, &#39;conpotexts,&#39;, &#39;demonstrate&#39;, &#39;knowledge&#39;, &#39;of,&#39;, &#39;need&#39;, &#39;sustainable&#39;, &#39;development.&#39;]]</code></pre>
+<pre class="python"><code>powordfrequency = defaultdict( int )
+for powordline in powordlist:
+    for poword in powordline:
+        powordfrequency[ poword ] += 1
+pprint( powordfrequency )
+</code></pre>
+<pre><code>## defaultdict(&lt;class &#39;int&#39;&gt;,
+##             {&#39;ability&#39;: 1,
+##              &#39;advanced&#39;: 1,
+##              &#39;algorithms&#39;: 1,
+##              &#39;analyse&#39;: 1,
+##              &#39;analytical&#39;: 1,
+##              &#39;application&#39;: 1,
+##              &#39;apply&#39;: 1,
+##              &#39;attain&#39;: 1,
+##              &#39;be&#39;: 1,
+##              &#39;career&#39;: 2,
+##              &#39;cater&#39;: 1,
+##              &#39;changing&#39;: 1,
+##              &#39;computer&#39;: 1,
+##              &#39;computing&#39;: 1,
+##              &#39;concepts&#39;: 1,
+##              &#39;conpotexts,&#39;: 1,
+##              &#39;contribution&#39;: 1,
+##              &#39;critical&#39;: 1,
+##              &#39;demonstrate&#39;: 1,
+##              &#39;design,&#39;: 1,
+##              &#39;develop&#39;: 1,
+##              &#39;development.&#39;: 1,
+##              &#39;education,&#39;: 1,
+##              &#39;effective&#39;: 1,
+##              &#39;eligibility&#39;: 1,
+##              &#39;enabled&#39;: 1,
+##              &#39;engaged&#39;: 1,
+##              &#39;environment&#39;: 1,
+##              &#39;environmental&#39;: 1,
+##              &#39;equip&#39;: 1,
+##              &#39;ethical&#39;: 1,
+##              &#39;excel&#39;: 1,
+##              &#39;fields&#39;: 1,
+##              &#39;government&#39;: 2,
+##              &#39;graduates&#39;: 1,
+##              &#39;have&#39;: 1,
+##              &#39;human&#39;: 1,
+##              &#39;identify,&#39;: 1,
+##              &#39;impact&#39;: 1,
+##              &#39;inculcate&#39;: 1,
+##              &#39;industrial&#39;: 1,
+##              &#39;industry.&#39;: 1,
+##              &#39;information&#39;: 1,
+##              &#39;instil&#39;: 1,
+##              &#39;its&#39;: 1,
+##              &#39;knowledge&#39;: 2,
+##              &#39;learning&#39;: 1,
+##              &#39;lifelong&#39;: 1,
+##              &#39;make&#39;: 1,
+##              &#39;mastering&#39;: 1,
+##              &#39;mathematics&#39;: 2,
+##              &#39;necessary&#39;: 1,
+##              &#39;need&#39;: 1,
+##              &#39;needs&#39;: 1,
+##              &#39;objectives&#39;: 1,
+##              &#39;of,&#39;: 1,
+##              &#39;or&#39;: 1,
+##              &#39;physics&#39;: 1,
+##              &#39;prepared&#39;: 1,
+##              &#39;private&#39;: 1,
+##              &#39;problem&#39;: 1,
+##              &#39;problems&#39;: 1,
+##              &#39;professional&#39;: 1,
+##              &#39;programmes&#39;: 1,
+##              &#39;provide&#39;: 2,
+##              &#39;provides&#39;: 1,
+##              &#39;pursue&#39;: 1,
+##              &#39;research&#39;: 1,
+##              &#39;resolve&#39;: 1,
+##              &#39;responsibilities,&#39;: 1,
+##              &#39;science,&#39;: 1,
+##              &#39;scientific&#39;: 2,
+##              &#39;sectors,&#39;: 1,
+##              &#39;services,&#39;: 1,
+##              &#39;skills&#39;: 2,
+##              &#39;societal&#39;: 1,
+##              &#39;society&#39;: 1,
+##              &#39;software&#39;: 2,
+##              &#39;solutions&#39;: 2,
+##              &#39;solutions.&#39;: 1,
+##              &#39;successfully&#39;: 1,
+##              &#39;sustainable&#39;: 1,
+##              &#39;systematic&#39;: 1,
+##              &#39;take-up&#39;: 1,
+##              &#39;teaching&#39;: 1,
+##              &#39;technology&#39;: 1,
+##              &#39;their&#39;: 3,
+##              &#39;them&#39;: 1,
+##              &#39;theories&#39;: 1,
+##              &#39;they&#39;: 1,
+##              &#39;understand&#39;: 1,
+##              &#39;understanding&#39;: 1,
+##              &#39;values&#39;: 1,
+##              &#39;will&#39;: 2,
+##              &#39;world.&#39;: 1})</code></pre>
+<pre class="python"><code>powordlist1 =  [ [poword for poword in powordline if powordfrequency[poword] &gt; 1] for powordline in powordlist]
+powordlist1</code></pre>
+<pre><code>## [[&#39;knowledge&#39;, &#39;mathematics&#39;, &#39;provide&#39;], [&#39;provide&#39;, &#39;software&#39;, &#39;solutions&#39;], [&#39;skills&#39;, &#39;government&#39;], [&#39;their&#39;], [], [&#39;mathematics&#39;, &#39;their&#39;, &#39;software&#39;], [&#39;will&#39;, &#39;skills&#39;], [&#39;will&#39;, &#39;their&#39;, &#39;career&#39;, &#39;scientific&#39;, &#39;career&#39;, &#39;government&#39;], [&#39;scientific&#39;, &#39;solutions&#39;, &#39;knowledge&#39;]]</code></pre>
+<pre class="python"><code>corpdictionary = corpora.Dictionary( powordlist1 )
+corpdictionary.token2id</code></pre>
+<pre><code>## {&#39;knowledge&#39;: 0, &#39;mathematics&#39;: 1, &#39;provide&#39;: 2, &#39;software&#39;: 3, &#39;solutions&#39;: 4, &#39;government&#39;: 5, &#39;skills&#39;: 6, &#39;their&#39;: 7, &#39;will&#39;: 8, &#39;career&#39;: 9, &#39;scientific&#39;: 10}</code></pre>
+<p>Dictionary encapsulates the mapping between normalized words and their integer ids.</p>
+<pre class="python"><code>courseoutcome = &#39;Students will have have understanding on how build python development environment.&#39;
+covec = corpdictionary.doc2bow(courseoutcome.split())</code></pre>
+<pre class="python"><code>mycorpus = [ corpdictionary.doc2bow( powordline ) for powordline in powordlist ]</code></pre>
+<pre class="python"><code>##corpora.MmCorpus.serialize( &#39;./deerwster1.mm&#39;, mycorpus )
+##corpora.SvmLightCorpus.serialize(&#39;./corpus1.svmlight&#39;, mycorpus)</code></pre>
+<pre class="python"><code>tfidf = models.TfidfModel( mycorpus )
+corp_tfidf = tfidf[ mycorpus ]</code></pre>
+<pre class="python"><code>for d in corp_tfidf:
+    print( d )</code></pre>
+<pre><code>## [(0, 0.5773502691896257), (1, 0.5773502691896257), (2, 0.5773502691896257)]
+## [(2, 0.5773502691896257), (3, 0.5773502691896257), (4, 0.5773502691896257)]
+## [(5, 0.7071067811865476), (6, 0.7071067811865476)]
+## [(7, 1.0)]
+## []
+## [(1, 0.6282580468670046), (3, 0.6282580468670046), (7, 0.45889394536615247)]
+## [(6, 0.7071067811865476), (8, 0.7071067811865476)]
+## [(5, 0.2878392791181426), (7, 0.21024434638691575), (8, 0.2878392791181426), (9, 0.840977385547663), (10, 0.2878392791181426)]
+## [(0, 0.5773502691896257), (4, 0.5773502691896257), (10, 0.5773502691896257)]</code></pre>
+</div>
+<div id="latent-semantic-analysis" class="section level1">
+<h1>latent semantic analysis</h1>
+<p>By creating a collection of ideas associated to the documents and terms, latent semantic analysis (LSA), a method in natural language processing, specifically distributional semantics, analyses relationships between a set of documents and the terms they contain. LSA believes that words with similar meanings will appear in texts with a similar structure.</p>
+<pre class="python"><code>lsi = models.LsiModel( mycorpus, id2word=corpdictionary, num_topics=2)</code></pre>
+<pre class="python"><code>index = similarities.MatrixSimilarity( lsi[ mycorpus ] )
+lsivec = lsi[ covec ]</code></pre>
+<pre class="python"><code>sims = index[ lsivec ]</code></pre>
+<pre class="python"><code>copomap = []
+for i, sim in enumerate( sims):
+    copomap.append({
+        &#39;co&#39; : courseoutcome,
+        &#39;po&#39; : &quot;po{0:01}&quot;.format(i) + &quot;:&quot; + programoutcomes[i],
+        &#39;similarity&#39; : sim
+    }
+)</code></pre>
+<ul>
+<li>0: Inticates low similarity or low significance of the course outcome to program outcome</li>
+<li>2: Inticates medium similarity or medium significance of the course outcome to program outcome</li>
+<li>3: Inticates high similarity or high significance of the course outcome to program outcome</li>
+</ul>
+<pre class="python"><code>pd.set_option(&#39;display.max_columns&#39;, None)
+cdf = pd.DataFrame(copomap)
+cdf[&#39;similarity&#39;] = cdf[&#39;similarity&#39;]*100
+cdf[&#39;similarity&#39;].astype(int)</code></pre>
+<pre><code>## 0   -19
+## 1   -19
+## 2    99
+## 3    83
+## 4     0
+## 5    21
+## 6    99
+## 7    98
+## 8    17
+## Name: similarity, dtype: int32</code></pre>
+<pre class="python"><code>cdf[&#39;similarity&#39;] = np.where(cdf[&#39;similarity&#39;] &lt; 0 , 0, cdf[&#39;similarity&#39;].astype(int) )
+cdf[&#39;similarity&#39;] = np.where( ((cdf[&#39;similarity&#39;] &gt; 0) &amp; (cdf[&#39;similarity&#39;] &lt; 50)) , 2 , cdf[&#39;similarity&#39;].astype(int) )
+cdf[&#39;similarity&#39;] = np.where( ((cdf[&#39;similarity&#39;] &gt; 50) &amp; (cdf[&#39;similarity&#39;] &lt; 100)) , 3 , cdf[&#39;similarity&#39;].astype(int) )
+print(&#39;Similarity of&#39; , courseoutcome, &#39;with given  outcomes is&#39;)</code></pre>
+<pre><code>## Similarity of Students will have have understanding on how build python development environment. with given  outcomes is</code></pre>
+<pre class="python"><code>print(cdf[[&#39;po&#39;,&#39;similarity&#39;]])</code></pre>
+<pre><code>##                                                   po  similarity
+## 0  po0:Apply knowledge of Computer Science, Mathe...           0
+## 1  po1:Ability to design, develop algorithms and ...           0
+## 2  po2:Inculcate skills to excel in the fields of...           3
+## 3  po3:Instil ethical responsibilities, human and...           3
+## 4  po4:Engaged in lifelong learning to equip them...           0
+## 5  po5:Provides a systematic understanding of the...           2
+## 6  po6:Graduates will have necessary critical and...           3
+## 7  po7:They will attain eligibility to successful...           3
+## 8  po8:Understand the impact of scientific soluti...           2</code></pre>
+</div>
+
+      <div align = "center">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-3804322353139756"
+         data-ad-slot="3387213493"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+        <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+        </script>
+    </div>            
+    </div>
+    <footer>
+      <div class="stats">
+  <ul class="categories">
+    
+      
+        
+          <li><a class="article-terms-link" href="/categories/nlp/">NLP</a></li>
+        
+      
+    
+  </ul>
+  <ul class="tags">
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/lsa/">LSA</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/nlp/">NLP</a></li>
+        
+      
+    
+  </ul>
+</div>
+
+    </footer>
+  </article>
+  
+    
+
+  <article class="post">
+    
+    <div>
+      <h2 id="say-something">Say Something</h2>
+        <form id="comment-form" class="new-comment" method="POST">
+          
+          <h3 class='reply-notice hidden'>
+            <span class='reply-name'></span>
+          </h3>
+
+          
+          <input type="hidden" name="options[entryId]" value="fb40802eb94512293278cf72f5356b2f">
+          <input type='hidden' name='fields[replyThread]' value=''>
+          <input type='hidden' name='fields[replyID]' value=''>
+          <input type='hidden' name='fields[replyName]' value=''>
+
+          
+          <input required name='fields[name]' type='text' placeholder='Your Name'>
+          <input name='fields[website]' type='text' placeholder='Your Website'>
+          <input required name='fields[email]' type='email' placeholder='Your Email'>
+          <textarea required name='fields[body]' placeholder='Your Message' rows='10'></textarea>
+
+          
+          
+
+          
+          <div class='submit-notice'>
+            <strong class='submit-notice-text submit-success hidden'>Thanks for your comment! It will be shown on the site once it has been approved.</strong>
+            <strong class='submit-notice-text submit-failed hidden'>Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again.</strong>
+          </div>
+
+          
+          <input type='submit' value='Submit' class='button'>
+          <input type='submit' value='Submitted' class='hidden button' disabled>
+          <input type='reset' value='Reset' class='button'>
+        </form>
+    </div>
+
+    
+    <div>
+      <h2>Comments</h2><p>Nothing yet.</p>
+      
+    </div>
+  </article>
+
+
+  
+  <div class="pagination">
+    
+    
+      <a href="/blog/handwritten-digit-recognition/" class="button right"><span>Handwritten Digit Recognition</span></a>
+    
+  </div>
+  
+
+      </main>
+      
+<section id="site-sidebar">
+
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent Posts</h1>
+      </header>
+      
+      <article class="mini-post">
+          
+        <header>
+          <h2><a href="/blog/topic-modelling/">Finding document Similarity using LSA </a></h2>
+          <time class="published" datetime="2022-07-05 00:00:00 &#43;0000 UTC">July 5, 2022</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/handwritten-digit-recognition/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/handwritten-digit-recognition/">Handwritten Digit Recognition</a></h2>
+          <time class="published" datetime="2021-04-02 00:00:00 &#43;0000 UTC">April 2, 2021</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+          <a href="/blog/convolutional-neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/cnn-neural-network.jpg');">
+    <img src="https://laxmikants.github.io/img/main/cnn-neural-network.jpg" alt="">
+  </a>
+        <header>
+          <h2><a href="/blog/convolutional-neural-networks/">Convolutional Neural Networks</a></h2>
+          <time class="published" datetime="2021-01-29 00:00:00 &#43;0000 UTC">January 29, 2021</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">See More</a>
+        </footer>
+      
+
+      
+    </section>
+  
+
+  <div align="center">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+    <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3804322353139756"
+     data-ad-slot="3115024406"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+    <script>
+        $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+    </script>
+  </div>
+  
+  
+    
+      <section id="categories">
+        
+   
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+          
+          <li>
+              <a href="/categories/python/">python<span class="count">14</span></a>
+          
+          <li>
+              <a href="/categories/linear-regression/">linear-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/logistic-regression/">logistic-regression<span class="count">2</span></a>
+          
+          <li>
+              <a href="/categories/big-data/">big-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/bigdata/">bigdata<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/classification/">classification<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/clustering/">clustering<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/convolutional-neural-networks/">convolutional-neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/data-science/">data-science<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/decision-trees/">decision-trees<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/eda/">eda<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/exploring-dataset/">exploring-dataset<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/frequency-tables/">frequency-tables<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/hadoop/">hadoop<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/handwritten-digit-recognition/">handwritten-digit-recognition<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/k-nearest-neighbours/">k-nearest-neighbours<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/machine-learning/">machine-learning<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/mobile-application-development/">mobile-application-development<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/natural-language-processing/">natural-language-processing<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-network/">neural-network<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/neural-networks/">neural-networks<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/nlp/">nlp<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/numeric-data/">numeric-data<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/pandas/">pandas<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/react-native/">react-native<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/reactjs/">reactjs<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/single-layer-perceptron/">single-layer-perceptron<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-market/">stock-market<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/stock-technical-analysis/">stock-technical-analysis<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/support-vector-machines/">support-vector-machines<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/text-analytics/">text-analytics<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/time-series/">time-series<span class="count">1</span></a>
+          
+          <li>
+              <a href="/categories/web-scrapping/">web-scrapping<span class="count">1</span></a>
+          
+          </li>
+        </ul>
+        <div align="center">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          
+            <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3804322353139756"
+             data-ad-slot="5736252654"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+          <script>
+            $(document).ready(function(){(adsbygoogle = window.adsbygoogle || []).push({})})
+          </script>             
+        </div>             
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>About</h1>
+      </header>
+      <p>about</p>
+      <footer>
+        <a href="/about" class="button">Learn More</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/laxmikantsoni09" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+<li><a href="//facebook.com/laxmikantsoni09" target="_blank" rel="noopener" title="Facebook" class="fab fa-facebook"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/laxmikantsoni09" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </ul>
+  
+  <p class="copyright">
+    © 2022 Data Science Posts and Resources
+      <br>
+  </p>
+</footer>
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/python.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/r.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/languages/yaml.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+    <script src="//unpkg.com/lunr/lunr.js"></script><script src="/js/bundlecdn.min.a1ad7ccb559a1034b77cf4c6e6b63e769c07e3433b17bf31cd5d2893c74db6f1.js" integrity="sha256-oa18y1WaEDS3fPTG5rY&#43;dpwH40M7F78xzV0ok8dNtvE="></script>
+    <script src="/js/add-on.js"></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155379268-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    </div>
+  </body>
+  
+</html>

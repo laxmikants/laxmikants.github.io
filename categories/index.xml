@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Data Science Posts and Resources</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://laxmikants.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NLP</title>
+      <link>https://laxmikants.github.io/categories/nlp/</link>
+      <pubDate>Tue, 05 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://laxmikants.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Handwritten Digit Recognition</title>
       <link>https://laxmikants.github.io/categories/handwritten-digit-recognition/</link>
