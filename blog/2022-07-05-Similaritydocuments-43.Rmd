@@ -11,12 +11,15 @@ tags: ["LSA","NLP"]
 Summary: "Case study on finding document Similarity using LSA"
 featured: "img/main/similarity_LSA.jpg"
 output:
+  blogdown::html_page:
+    toc: true
+    number_sections: true
+    keep_md: true
   html_document:
     highlight: tango
     theme: flatly
-    toc: yes
-    toc_float: yes
-    toc_depth: 4
+    toc: no
+    keep_md: true
 ---
 
 
@@ -36,6 +39,13 @@ In academics we try to access manually how much a course outcome relates to the 
 This blog makes use of the Latent Symentic index method to findout to access the level at which a given course
 outcome relates or significant to a set of program outcomes for a given program. 
 
+* TF-IDF Model:
+
+  > Tf-idf is used to extract vectors from documents based on tf, or term frequency, which determines how frequently a term appears in a document, and inverse document frequency, which how frequently a phrase appears across the whole collection.
+  TF-IDF is a way to measure the importance of tokens in text.
+  TfidfModel realize the transformation between word-document co-occurrence matrix into a locally/globally weighted TF-IDF matrix 
+
+
 STEPS:
 
 + Initialize the set of program outcomes
@@ -47,6 +57,7 @@ STEPS:
 + Create lsi model from bag of words model and frequency of normalized words
 + Create similarity matrix between course outcomes and program outcomes
 + Output the similarity as pandas dataframe
+
 
 #### Import libraries
 
@@ -82,7 +93,6 @@ powordfrequency = defaultdict( int )
 for powordline in powordlist:
     for poword in powordline:
         powordfrequency[ poword ] += 1
-pprint( powordfrequency )
 
 
 ``` 
@@ -113,9 +123,11 @@ mycorpus = [ corpdictionary.doc2bow( powordline ) for powordline in powordlist ]
 ##corpora.SvmLightCorpus.serialize('./corpus1.svmlight', mycorpus)
 ```
 
+
 ```{python}
 tfidf = models.TfidfModel( mycorpus )
 corp_tfidf = tfidf[ mycorpus ]
+print(tfidf[mycorpus[0]])
 ```
 
 ```{python}
@@ -127,6 +139,14 @@ for d in corp_tfidf:
 # latent semantic analysis
 
 By creating a collection of ideas associated to the documents and terms, latent semantic analysis (LSA), a method in natural language processing, specifically distributional semantics, analyses relationships between a set of documents and the terms they contain. LSA believes that words with similar meanings will appear in texts with a similar structure.
+
+Some applications of LSA
+
+* Information Retrieval :Find documents based on a free text or whole document as query— based on meaning independent of literal words
+* Text Assessment:– Compare document to documents of known quality/content
+* Automatic summarization of text: Determine best subset of text to portray same meaning Key words or best sentences
+* Categorization / Classification: Place text into appropriate categories or taxonomies
+* Knowledge Mapping: Discover relationships between texts
 
 ```{python}
 lsi = models.LsiModel( mycorpus, id2word=corpdictionary, num_topics=2)
