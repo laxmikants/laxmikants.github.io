@@ -24,13 +24,13 @@
 
 </script>  
   <meta charset="utf-8">
-<title>Python - Data Science Posts and Resources :: Laxmikant Soni</title>
+<title>Blog - Data Science Posts and Resources :: Laxmikant Soni</title>
 
 <meta name="viewport" content="width=device-width" />
 
 <meta name="google-site-verification" content="MeRcFEBEyWiTb3NfY4THWxbV_fx3rKOJnvr_Jk398wY" />
 
-<meta name=keywords content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics | Laxmikant Soni, Predictive Analytics, Business, Data, Analytics, Machine Learning, Data Mining, Neural Network with Python, Neural Network, Predict Stock price movement using Neural Networks, Intelligence, Big, Modeling, Data Science, Integration, Visualization,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow">
+<meta name=keywords content="Medicaps, Articles and Posts on Python, R, Data Science, Machine Learning and Analytics | Laxmikant Soni, Predictive Analytics, Business, Data, Analytics, Machine Learning, Data Mining, Neural Network with Python, Neural Network, Predict Stock price movement using Neural Networks, Intelligence, Big, Modeling, Data Science, Integration, Visualization,Statistical population,Probability,False positives,Statistical inference,Regression,Fitting,Categorical data,Classification,Clustering,Statistical comparison,CodingDistributions,Data mining,Decision trees,Machine learning,Munging and wrangling,Visualization,D3,Regularization,Assessment,Cross-validation,Neural networks,Boosting,Lift,Mode,Outlier,Predictive modeling,Big data,Confidence interval,Python,R,Jupyter Notebook,Tensorflow">
 
 <meta name=description content="Articles and Posts on Python, R, Data Science, Machine Learning and Analytics :: Laxmikant Soni">
 
@@ -42,14 +42,14 @@
 
 
 
-<meta name="generator" content="Hugo 0.104.3" /><meta itemprop="name" content="Python">
-<meta itemprop="description" content=""><meta property="og:title" content="Python" />
+<meta name="generator" content="Hugo 0.101.0" /><meta itemprop="name" content="Blog">
+<meta itemprop="description" content=""><meta property="og:title" content="Blog" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://laxmikants.github.io/tags/python/" />
+<meta property="og:url" content="https://laxmikants.github.io/blog/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Python"/>
+<meta name="twitter:title" content="Blog"/>
 <meta name="twitter:description" content=""/>
 <meta name="twitter:site" content="@laxmikantsoni09"/>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/monokai.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -60,30 +60,30 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"><link rel="stylesheet" href="/css/main.min.aa4e8165f5b2a16460fcb21582ad412bed8e48e9c5dc49f3b412d1703be4d75d.css" integrity=""><link rel="stylesheet" href="/css/add-on.css">
         <link rel="stylesheet" href="/css/main.css">
 
-<title>Python : Data Science Posts and Resources</title>
+<title>Blog : Data Science Posts and Resources</title>
 
-<meta property="og:title" content="Python">
+<meta property="og:title" content="Blog">
 <meta property="og:site_name" content="Data Science Posts and Resources">
-<meta property="og:url" content="https://laxmikants.github.io/tags/python/">
+<meta property="og:url" content="https://laxmikants.github.io/blog/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en">
 <meta property="og:description" content="">
 <meta name="description" content="">
-<meta property="og:updated_time" content="2019-03-16T00:00:00Z">
+<meta property="og:updated_time" content="2022-07-05T00:00:00Z">
 <meta property="fb:app_id" content="428818034507005">
 <meta name="author" content="Laxmikant Soni">
 
 <meta property="article:author" content="https://laxmikants.github.io">
-<meta property="article:published_time" content="2019-03-16T00:00:00Z">
-<meta property="article:modified_time" content="2019-03-16T00:00:00Z">
+<meta property="article:published_time" content="2022-07-05T00:00:00Z">
+<meta property="article:modified_time" content="2022-07-05T00:00:00Z">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Python",
+  "headline": "Blog",
   "alternativeHeadline": "",
   "name" : "Data Science Posts and Resources",
-  "url": "https://laxmikants.github.io/tags/python/",
+  "url": "https://laxmikants.github.io/blog/",
   "image": "https://laxmikants.github.io/",
   "sameAs":
       [ "https://www.facebook.com/laxmikantsoni09",
@@ -95,7 +95,7 @@
     ],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://laxmikants.github.io/tags/python/"
+    "@id": "https://laxmikants.github.io/blog/"
   },
   "description": "",
   "author": {
@@ -110,8 +110,8 @@
       "url": "https://laxmikants.github.io/"
     }
   },
-  "datePublished": "2019-03-16T00:00:00Z",
-  "dateModified": "2019-03-16T00:00:00Z",
+  "datePublished": "2022-07-05T00:00:00Z",
+  "dateModified": "2022-07-05T00:00:00Z",
   "articleBody": ""
 }
 </script>
@@ -144,7 +144,7 @@ if (!doNotTrack) {
     <h1 class="nav-title">
       <a href="/" class="nav">
         
-          Tags
+          Blog
         
       </a>
     </h1>
@@ -208,19 +208,19 @@ if (!doNotTrack) {
 
   
     
-    <a href="//twitter.com/share?text=Python&amp;url=https%3a%2f%2flaxmikants.github.io%2ftags%2fpython%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=Blog&amp;url=https%3a%2f%2flaxmikants.github.io%2fblog%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <p>Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2ftags%2fpython%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2flaxmikants.github.io%2fblog%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <p>Facebook</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2ftags%2fpython%2f&amp;title=Python" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2flaxmikants.github.io%2fblog%2f&amp;title=Blog" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <p>LinkedIn</p>
           </a>
   
@@ -245,7 +245,7 @@ if (!doNotTrack) {
     <footer>
       <ul class="socnet-icons">
         
-    <li><a href="/tags/python/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
+    <li><a href="/blog/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
 
 
         <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
@@ -305,22 +305,22 @@ if (!doNotTrack) {
   <header>
   <div class="title">
     
-      <h2><a href="/blog/numpy/">Python - Numpy</a></h2>
+      <h2><a href="/blog/document-similarity/">Finding document Similarity using LSA </a></h2>
     
     
-      <p>Introduction to Numpy</p>
+      <p>Finding document Similarity using LSA</p>
     
   </div>
   <div class="meta">
-    <time datetime="2019-02-28 00:00:00 &#43;0000 UTC">February 28, 2019</time>
+    <time datetime="2022-07-05 00:00:00 &#43;0000 UTC">July 5, 2022</time>
     <p>Laxmi K Soni</p>
-    <p>14-Minute Read</p>
+    <p>6-Minute Read</p>
   </div>
 </header>
 
   <div class="content">
-    <a href="/blog/numpy/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg');">
-    <img src="https://laxmikants.github.io/img/main/2019-02-28-Python-Numpy-28.jpg" alt="">
+    <a href="/blog/document-similarity/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/similarity_LSA.jpg');">
+    <img src="https://laxmikants.github.io/img/main/similarity_LSA.jpg" alt="">
   </a>
     
   </div>
@@ -328,13 +328,13 @@ if (!doNotTrack) {
 
 </div>
   <footer>
-    <a href="/blog/numpy/" class="button big">Read More</a>
+    <a href="/blog/document-similarity/" class="button big">Read More</a>
     <div class="stats">
   <ul class="categories">
     
       
         
-          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/categories/nlp/">NLP</a></li>
         
       
     
@@ -343,7 +343,9 @@ if (!doNotTrack) {
     
       
         
-          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/tags/lsa/">LSA</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/nlp/">NLP</a></li>
         
       
     
@@ -358,22 +360,22 @@ if (!doNotTrack) {
   <header>
   <div class="title">
     
-      <h2><a href="/blog/regular-expressions/">Python - Regular Expressions</a></h2>
+      <h2><a href="/blog/handwritten-digit-recognition/">Handwritten Digit Recognition</a></h2>
     
     
-      <p>Introduction to Regular Expressions</p>
+      <p>Handwritten digit recognition is used to recognize digits which are written  by hand using artificial neural networks.</p>
     
   </div>
   <div class="meta">
-    <time datetime="2019-02-22 00:00:00 &#43;0000 UTC">February 22, 2019</time>
+    <time datetime="2021-04-02 00:00:00 &#43;0000 UTC">April 2, 2021</time>
     <p>Laxmi K Soni</p>
-    <p>5-Minute Read</p>
+    <p>7-Minute Read</p>
   </div>
 </header>
 
   <div class="content">
-    <a href="/blog/regular-expressions/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg');">
-    <img src="https://laxmikants.github.io/img/main/2019-02-22-Python-Regex-27.jpg" alt="">
+    <a href="/blog/handwritten-digit-recognition/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg');">
+    <img src="https://laxmikants.github.io/img/main/2021-04-02-HandwrittenDigits.jpg" alt="">
   </a>
     
   </div>
@@ -381,13 +383,13 @@ if (!doNotTrack) {
 
 </div>
   <footer>
-    <a href="/blog/regular-expressions/" class="button big">Read More</a>
+    <a href="/blog/handwritten-digit-recognition/" class="button big">Read More</a>
     <div class="stats">
   <ul class="categories">
     
       
         
-          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/categories/handwritten-digit-recognition/">Handwritten Digit Recognition</a></li>
         
       
     
@@ -396,7 +398,7 @@ if (!doNotTrack) {
     
       
         
-          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/tags/handwritten-digit-recognition/">Handwritten Digit Recognition</a></li>
         
       
     
@@ -411,22 +413,22 @@ if (!doNotTrack) {
   <header>
   <div class="title">
     
-      <h2><a href="/blog/python-logging/">Python - Logging</a></h2>
+      <h2><a href="/blog/convolutional-neural-networks/">Convolutional Neural Networks</a></h2>
     
     
-      <p>Introduction to Python Logging</p>
+      <p>One of the important areas of Deep learning is Convolutional Neural Network. CNN deals in analysing visual images. These types of neural networks works by processing, classifying and segmenting images. CNN algorithm learns about images and then are able to predict about a given image when present.</p>
     
   </div>
   <div class="meta">
-    <time datetime="2019-02-16 00:00:00 &#43;0000 UTC">February 16, 2019</time>
+    <time datetime="2021-01-29 00:00:00 &#43;0000 UTC">January 29, 2021</time>
     <p>Laxmi K Soni</p>
-    <p>5-Minute Read</p>
+    <p>30-Minute Read</p>
   </div>
 </header>
 
   <div class="content">
-    <a href="/blog/python-logging/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg');">
-    <img src="https://laxmikants.github.io/img/main/2019-02-16-Python-Logging-26.jpg" alt="">
+    <a href="/blog/convolutional-neural-networks/" class="image" style="--bg-image: url('https://laxmikants.github.io/img/main/cnn-neural-network.jpg');">
+    <img src="https://laxmikants.github.io/img/main/cnn-neural-network.jpg" alt="">
   </a>
     
   </div>
@@ -434,13 +436,13 @@ if (!doNotTrack) {
 
 </div>
   <footer>
-    <a href="/blog/python-logging/" class="button big">Read More</a>
+    <a href="/blog/convolutional-neural-networks/" class="button big">Read More</a>
     <div class="stats">
   <ul class="categories">
     
       
         
-          <li><a class="article-terms-link" href="/categories/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/categories/convolutional-neural-networks/">Convolutional Neural Networks</a></li>
         
       
     
@@ -449,7 +451,7 @@ if (!doNotTrack) {
     
       
         
-          <li><a class="article-terms-link" href="/tags/python/">Python</a></li>
+          <li><a class="article-terms-link" href="/tags/convolutional-neural-networks/">Convolutional Neural Networks</a></li>
         
       
     
@@ -463,10 +465,8 @@ if (!doNotTrack) {
   
   <div class="pagination">
     
-      <a href="/tags/python/" class="button left"><span>Previous Page</span></a>
     
-    
-      <a href="/tags/python/page/3/" class="button right"><span>Next Page</span></a>
+      <a href="/blog/page/2/" class="button right"><span>Next Page</span></a>
     
   </div>
     <div align = "center">
@@ -694,7 +694,7 @@ if (!doNotTrack) {
   
       <ul class="socnet-icons">
         
-    <li><a href="/tags/python/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
+    <li><a href="/blog/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
 
 
         <li><a href="//github.com/laxmikants" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>

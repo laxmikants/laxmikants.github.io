@@ -42,10 +42,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.101.0" /><meta itemprop="name" content="Stock Price Technical Analysis">
+<meta name="generator" content="Hugo 0.104.3" /><meta itemprop="name" content="Stock Price Technical Analysis">
 <meta itemprop="description" content="A case study on Stock Price Technical Analysis"><meta itemprop="datePublished" content="2020-12-25T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-12-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="3460">
+<meta itemprop="wordCount" content="3689">
 <meta itemprop="keywords" content="Stock Market,Technical Analysis," /><meta property="og:title" content="Stock Price Technical Analysis" />
 <meta property="og:description" content="A case study on Stock Price Technical Analysis" />
 <meta property="og:type" content="article" />
@@ -117,7 +117,7 @@
   },
   "datePublished": "2020-12-25T00:00:00Z",
   "dateModified": "2020-12-25T00:00:00Z",
-  "articleBody": "\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1:Loading Stock data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.1:Importing libraries and data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp class=\"nocopy\"\u003e\r\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-{.python\" data-lang=\"{.python\"\u003eimport investpy\r\nfrom datetime import datetime\r\nfrom sklearn.linear_model import LogisticRegression\r\nfrom sklearn.metrics import confusion_matrix\r\nfrom sklearn import metrics\r\nfrom scipy import stats \r\nimport numpy as np\r\nimport pandas as pd\r\nimport seaborn as sn\r\nimport matplotlib.pyplot as plt\r\nimport talib\r\nimport quandl\r\nfrom sklearn.preprocessing import StandardScaler \r\nfrom sklearn.metrics import accuracy_score\r\nfrom sklearn.preprocessing import MinMaxScaler \r\nimport math\r\nfrom sklearn.metrics import mean_squared_error\r\nimport investpy\n\u003c/code\u003e\u003c/pre\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2:Fetching the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo fetch the stock data we use \u003ccode\u003einvestpy\u003c/code\u003e library. This library fetchs data from investing for example:\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.1: Determining position based on volume and close\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##               Open     High      Low   Close    Volume    Pos\r\n## Date                                                         \r\n## 2021-06-11  1430.1  1451.60  1429.45  1446.9  6140.828   Long\r\n## 2021-06-14  1471.0  1477.00  1453.45  1461.8  7132.294   Long\r\n## 2021-06-15  1464.0  1476.00  1463.00  1473.9  5403.104  Short\r\n## 2021-06-16  1472.7  1489.45  1467.50  1480.6  7661.710   Long\r\n## 2021-06-17  1475.1  1502.65  1475.10  1495.3  7677.951   Long\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Open     High      Low    Close     Volume    Pos   gain\r\n## Date                                                                   \r\n## 2020-11-26  1119.95  1119.95  1098.30  1113.20  10962.256  Short   6.75\r\n## 2020-12-03  1147.00  1147.00  1122.70  1126.45  16212.632  Short  20.55\r\n## 2020-12-24  1249.90  1249.90  1226.00  1236.05   7313.885  Short  13.85\r\n## 2021-01-12  1378.00  1378.00  1360.00  1371.75   8309.868  Short   6.25\r\n## 2021-03-18  1393.75  1393.75  1313.50  1337.10  10961.755  Short  56.65\r\n## 2021-04-09  1455.00  1455.00  1430.05  1441.05   6052.712   Long  13.95\r\n## 2021-04-20  1379.00  1379.00  1342.40  1351.35   8560.766  Short  27.65\r\n## 2021-05-12  1330.00  1330.00  1314.50  1327.00   5241.898  Short   3.00\r\n## 2021-05-14  1326.85  1326.85  1311.30  1316.40   4824.609  Short  10.45\r\n## 2021-05-31  1401.50  1401.50  1383.00  1393.75   4429.904  Short   7.75\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Open     High      Low    Close     Volume    Pos   gain\r\n## Date                                                                   \r\n## 2020-09-17   995.00  1021.00   995.00  1011.00  15628.308   Long  16.00\r\n## 2020-10-05  1018.05  1054.90  1018.05  1048.70  14212.560   Long  30.65\r\n## 2020-10-13  1135.55  1166.05  1135.55  1157.80  17524.136   Long  22.25\r\n## 2020-12-01  1105.05  1140.25  1105.05  1137.85   8933.802  Short  32.80\r\n## 2020-12-08  1145.00  1167.00  1145.00  1153.35  12308.330   Long   8.35\r\n## 2020-12-29  1235.00  1254.45  1235.00  1250.30   6878.105   Long  15.30\r\n## 2021-01-08  1278.25  1316.80  1278.25  1312.10  13186.251   Long  33.85\r\n## 2021-01-20  1320.55  1348.40  1320.55  1339.45   8225.838   Long  18.90\r\n## 2021-05-17  1320.30  1334.95  1320.30  1329.40   5017.129   Long   9.10\r\n## 2021-06-17  1475.10  1502.65  1475.10  1495.30   7677.951   Long  20.20\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.2: Determining Average monthly closing prices\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Open     High      Low    Close    Volume\r\n## Date                                                    \r\n## 2015-01-01   488.38   491.61   485.39   489.73  2002.764\r\n## 2015-01-02   489.13   500.80   489.13   499.35  6778.320\r\n## 2015-01-05   498.53   503.52   490.50   495.06  9937.024\r\n## 2015-01-06   491.12   492.36   479.73   484.72  9667.316\r\n## 2015-01-07   487.40   489.82   483.68   487.04  7249.916\r\n## ...             ...      ...      ...      ...       ...\r\n## 2021-06-11  1430.10  1451.60  1429.45  1446.90  6140.828\r\n## 2021-06-14  1471.00  1477.00  1453.45  1461.80  7132.294\r\n## 2021-06-15  1464.00  1476.00  1463.00  1473.90  5403.104\r\n## 2021-06-16  1472.70  1489.45  1467.50  1480.60  7661.710\r\n## 2021-06-17  1475.10  1502.65  1475.10  1495.30  7677.951\r\n## \r\n## [1598 rows x 5 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Open     High      Low    Close    Volume Currency  VolChange  \\\r\n## Date                                                                           \r\n## 2015-01-01  0.48838  0.49161  0.48539  0.48973  2002.764      INR   0.158042   \r\n## 2015-01-02  0.48913  0.50080  0.48913  0.49935  6778.320      INR   2.384483   \r\n## 2015-01-05  0.49853  0.50352  0.49050  0.49506  9937.024      INR   0.466001   \r\n## 2015-01-06  0.49112  0.49236  0.47973  0.48472  9667.316      INR  -0.027142   \r\n## 2015-01-07  0.48740  0.48982  0.48368  0.48704  7249.916      INR  -0.250059   \r\n## ...             ...      ...      ...      ...       ...      ...        ...   \r\n## 2021-06-11  1.43010  1.45160  1.42945  1.44690  6140.828      INR   0.756241   \r\n## 2021-06-14  1.47100  1.47700  1.45345  1.46180  7132.294      INR   0.161455   \r\n## 2021-06-15  1.46400  1.47600  1.46300  1.47390  5403.104      INR  -0.242445   \r\n## 2021-06-16  1.47270  1.48945  1.46750  1.48060  7661.710      INR   0.418020   \r\n## 2021-06-17  1.47510  1.50265  1.47510  1.49530  7677.951      INR   0.002120   \r\n## \r\n##             CloseChange  \r\n## Date                     \r\n## 2015-01-01     0.000853  \r\n## 2015-01-02     0.019643  \r\n## 2015-01-05    -0.008591  \r\n## 2015-01-06    -0.020886  \r\n## 2015-01-07     0.004786  \r\n## ...                 ...  \r\n## 2021-06-11     0.015867  \r\n## 2021-06-14     0.010298  \r\n## 2021-06-15     0.008277  \r\n## 2021-06-16     0.004546  \r\n## 2021-06-17     0.009928  \r\n## \r\n## [1598 rows x 8 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2015-01-31    0.518659\r\n## 2015-02-28    0.559373\r\n## 2015-03-31    0.552822\r\n## 2015-04-30    0.526967\r\n## 2015-05-31    0.493150\r\n##                 ...   \r\n## 2021-02-28    1.283755\r\n## 2021-03-31    1.349143\r\n## 2021-04-30    1.379589\r\n## 2021-05-31    1.352943\r\n## 2021-06-30    1.426296\r\n## Freq: M, Name: Close, Length: 78, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## meanprice is  0.6835084355444305\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.3: Technical moving averages\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##   period  sma_value sma_signal  ema_value ema_signal\r\n## 0      5       9.60        buy       9.98        buy\r\n## 1     10       8.72        buy       8.97        buy\r\n## 2     20       7.44        buy       8.16        buy\r\n## 3     50       7.67        buy       7.86        buy\r\n## 4    100       8.38        buy       8.41        buy\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.4: Determining the z-scores\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2021-06-11    3.181882\r\n## 2021-06-14    3.243986\r\n## 2021-06-15    3.294420\r\n## 2021-06-16    3.322346\r\n## 2021-06-17    3.383617\r\n## Name: zscore, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2021-06-11   -0.346013\r\n## 2021-06-14   -0.217202\r\n## 2021-06-15   -0.441857\r\n## 2021-06-16   -0.148421\r\n## 2021-06-17   -0.146311\r\n## Name: zscorevolume, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.5: Determining the daily support and resistance levels\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   PP        R1        S1        R2        S2        R3  \\\r\n## Date                                                                     \r\n## 2021-06-11  1.442650  1.455850  1.433700  1.464800  1.420500  1.478000   \r\n## 2021-06-14  1.464083  1.474717  1.451167  1.487633  1.440533  1.498267   \r\n## 2021-06-15  1.470967  1.478933  1.465933  1.483967  1.457967  1.491933   \r\n## 2021-06-16  1.479183  1.490867  1.468917  1.501133  1.457233  1.512817   \r\n## 2021-06-17  1.491017  1.506933  1.479383  1.518567  1.463467  1.534483   \r\n## \r\n##                   S3  \r\n## Date                  \r\n## 2021-06-11  1.411550  \r\n## 2021-06-14  1.427617  \r\n## 2021-06-15  1.452933  \r\n## 2021-06-16  1.446967  \r\n## 2021-06-17  1.451833\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.6: Fibonnacci retracement levels\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Retracement levels for rising price\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                                0\r\n## 0  {\u0026#39;min\u0026#39;: [1.4750999999999999]}\r\n## 1  {\u0026#39;level5(61.8)\u0026#39;: [1.4856241]}\r\n## 2     {\u0026#39;level4(50)\u0026#39;: [1.488875]}\r\n## 3  {\u0026#39;level3(38.2)\u0026#39;: [1.4921259]}\r\n## 4  {\u0026#39;level2(23.6)\u0026#39;: [1.4961482]}\r\n## 5            {\u0026#39;zero\u0026#39;: [1.50265]}\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Retracement levels for falling price\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                                0\r\n## 0            {\u0026#39;zero\u0026#39;: [1.50265]}\r\n## 1  {\u0026#39;level2(23.6)\u0026#39;: [1.4816018]}\r\n## 2  {\u0026#39;level3(38.2)\u0026#39;: [1.4856241]}\r\n## 3     {\u0026#39;level4(50)\u0026#39;: [1.488875]}\r\n## 4  {\u0026#39;level5(61.8)\u0026#39;: [1.4921259]}\r\n## 5  {\u0026#39;min\u0026#39;: [1.4750999999999999]}\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eAs we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eOpen:\u003c/code\u003e That’s the share price the stock had when the markets opened that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eClose:\u003c/code\u003e That’s the share price the stock had when the markets closed that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eHigh:\u003c/code\u003e That’s the highest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLow:\u003c/code\u003e That’s the lowest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eVolume:\u003c/code\u003e Amount of shares that changed hands that day.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.3:Reading individual values\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eSince our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using \u003ccode\u003eprint (df[ 'Close' ])\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eAlso, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#75715e\"\u003e#print (df[ \u0026#39;Close\u0026#39; ][ \u0026#39;2020-07-14\u0026#39; ])\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eBut we could also use simple indexing to access certain positions.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003eprint (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ][ \u003cspan style=\"color:#ae81ff\"\u003e5\u003c/span\u003e ])\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## 0.48949000000000004\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we  printed the closing price of the fifth entry.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2:Graphical Visualization\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eEven though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.\u003c/p\u003e\n\u003cp\u003eActually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/img/main/stockplot.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.1:CandleStick Charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eThe best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e mplfinance \u003cspan style=\"color:#66d9ef\"\u003eas\u003c/span\u003e fplt\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eWe are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.\nAlso, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e matplotlib.dates \u003cspan style=\"color:#66d9ef\"\u003eas\u003c/span\u003e mdates\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.2: Preparing the data for CandleStick charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow in order to plot our stock data, we need to select the four columns in the right order.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Open\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]]\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eNow, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it. \nTherefore, we need to reset the index and then convert our datetime to a number.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ereset_index( inplace \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#66d9ef\"\u003eTrue\u003c/span\u003e )\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emap(mdates\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edate2num)\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eFor this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.3:Plotting the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/img/main/candlestick.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003eOne candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close  price. \nIf the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.\u003c/p\u003e\n\u003cp\u003e***2.4:Analysis and Statistics ***\u003c/p\u003e\n\u003cp\u003eNow let’s get a little bit deeper into the numbers here and away from the visual. \nFrom our data we can derive some statistical values that will help us to analyze it.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e\u003ccode\u003ePERCENTAGE CHANGE\u003c/code\u003e\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eOne value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.\u003c/p\u003e\n\u003cp\u003eThe calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##         PCT_Change\r\n## count  1598.000000\r\n## mean     -0.000268\r\n## std       0.015032\r\n## min      -0.098309\r\n## 25%      -0.008014\r\n## 50%      -0.000741\r\n## 75%       0.007867\r\n## max       0.129885\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##              Close\r\n## Date              \r\n## 2021-06-17  1.4953\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eHIGH LOW PERCENTAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eAnother interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.\u003c/p\u003e\n\u003cp\u003eBy doing that we can get a feeling of how volatile the stock is.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##               Open     High      Low   Close    Volume  ... Open-Open  \\\r\n## Date                                                    ...             \r\n## 2021-06-11  1.4301  1.45160  1.42945  1.4469  6140.828  ...    0.0061   \r\n## 2021-06-14  1.4710  1.47700  1.45345  1.4618  7132.294  ...    0.0409   \r\n## 2021-06-15  1.4640  1.47600  1.46300  1.4739  5403.104  ...   -0.0070   \r\n## 2021-06-16  1.4727  1.48945  1.46750  1.4806  7661.710  ...    0.0087   \r\n## 2021-06-17  1.4751  1.50265  1.47510  1.4953  7677.951  ...    0.0024   \r\n## \r\n##               zscore  zscorevolume  PCT_Change    HL_PCT  \r\n## Date                                                      \r\n## 2021-06-11  3.181882     -0.346013    0.011747  0.015309  \r\n## 2021-06-14  3.243986     -0.217202   -0.006254  0.016110  \r\n## 2021-06-15  3.294420     -0.441857    0.006762  0.008820  \r\n## 2021-06-16  3.322346     -0.148421    0.005364  0.014825  \r\n## 2021-06-17  3.383617     -0.146311    0.013694  0.018424  \r\n## \r\n## [5 rows x 14 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eThese statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eMOVING AVERAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003ewe are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.\u003c/p\u003e\n\u003cp\u003eWhat we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.\u003c/p\u003e\n\u003cp\u003eFor this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##              Close  5d_ma  20d_ma  50d_ma  100d_ma  ...  5d_ema  20d_ema  \\\r\n## Date                                                ...                    \r\n## 2021-06-09  1.4153   1.40    1.37    1.37     1.34  ...    1.40     1.38   \r\n## 2021-06-10  1.4243   1.41    1.38    1.37     1.34  ...    1.41     1.38   \r\n## 2021-06-11  1.4469   1.42    1.38    1.37     1.34  ...    1.42     1.39   \r\n## 2021-06-14  1.4618   1.43    1.39    1.37     1.35  ...    1.44     1.40   \r\n## 2021-06-15  1.4739   1.44    1.40    1.38     1.35  ...    1.45     1.40   \r\n## 2021-06-16  1.4806   1.46    1.40    1.38     1.35  ...    1.46     1.41   \r\n## 2021-06-17  1.4953   1.47    1.41    1.38     1.35  ...    1.47     1.42   \r\n## \r\n##             50d_ema  100d_ema  200d_ema  \r\n## Date                                     \r\n## 2021-06-09     1.36      1.32      1.22  \r\n## 2021-06-10     1.37      1.32      1.22  \r\n## 2021-06-11     1.37      1.33      1.22  \r\n## 2021-06-14     1.37      1.33      1.22  \r\n## 2021-06-15     1.38      1.33      1.23  \r\n## 2021-06-16     1.38      1.33      1.23  \r\n## 2021-06-17     1.38      1.34      1.23  \r\n## \r\n## [7 rows x 11 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.\u003c/p\u003e\n\u003cp\u003eBy using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eStandard Deviation\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2021-06-09    0.014154\r\n## 2021-06-10    0.017636\r\n## 2021-06-11    0.022434\r\n## 2021-06-14    0.027870\r\n## 2021-06-15    0.029889\r\n## 2021-06-16    0.028066\r\n## 2021-06-17    0.029559\r\n## Name: Std_dev, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eRelative Strength Index\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   RSI\r\n## Date                 \r\n## 2021-06-11  79.730449\r\n## 2021-06-14  82.659552\r\n## 2021-06-15  84.681863\r\n## 2021-06-16  85.719339\r\n## 2021-06-17  87.764747\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eAverage True range\u003c/code\u003e ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                  ATR  20dayEMA   ATRdiff\r\n## Date                                    \r\n## 2021-06-11  0.022708  0.024154 -0.001446\r\n## 2021-06-14  0.023236  0.024067 -0.000831\r\n## 2021-06-15  0.022590  0.023926 -0.001336\r\n## 2021-06-16  0.022545  0.023794 -0.001250\r\n## 2021-06-17  0.022902  0.023709 -0.000807\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eWiliams %R\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eWilliams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today\u0026rsquo;s close was the highest high of the past N days.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             Williams %R\r\n## Date                   \r\n## 2021-06-09   -16.166667\r\n## 2021-06-10    -7.343750\r\n## 2021-06-11    -6.304494\r\n## 2021-06-14   -15.245737\r\n## 2021-06-15    -3.109328\r\n## 2021-06-16    -9.424920\r\n## 2021-06-17    -7.496175\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eReadings below -80 represent oversold territory and readings above -20 represent overbought.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eADX\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e0-25:\t  Absent or Weak Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e25-50:\tStrong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e50-75:\tVery Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e75-100:\tExtremely Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   ADX\r\n## Date                 \r\n## 2021-06-09  35.040060\r\n## 2021-06-10  38.007955\r\n## 2021-06-11  42.466301\r\n## 2021-06-14  47.539012\r\n## 2021-06-15  51.887051\r\n## 2021-06-16  56.149380\r\n## 2021-06-17  60.228583\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                    CCI\r\n## Date                  \r\n## 2021-06-09  133.300138\r\n## 2021-06-10  149.585627\r\n## 2021-06-11  184.762726\r\n## 2021-06-14  211.506362\r\n## 2021-06-15  173.550518\r\n## 2021-06-16  147.567401\r\n## 2021-06-17  135.319074\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eMACD\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eMoving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security\u0026rsquo;s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             MACD_IND\r\n## Date                \r\n## 2021-06-11  0.006207\r\n## 2021-06-14  0.007615\r\n## 2021-06-15  0.008741\r\n## 2021-06-16  0.009266\r\n## 2021-06-17  0.009876\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eBollinger Bands\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eBollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## 15.0 14.67 14.34\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eIn case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.\u003c/p\u003e\n\u003cp\u003eWe do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3: Predicting the movement of stock\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo predict the movement of the stock we use 5 lag returns as the dependent variables. The first leg is return yesterday, leg2 is return day before yesterday and so on. The dependent variable is whether the prices went up or down on that day. Other variables include the technical indicators which along with 5 lag returns are used to predict the movement of stock using logistic regression.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.1: Creating lag returns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  Creating returns dataframe\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  create the lagged percentage returns columns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Today      Lag1      Lag2      Lag3      Lag4      Lag5  \\\r\n## Date                                                                     \r\n## 2021-06-04 -0.287842  0.797882 -0.616349 -0.469955 -0.804242  0.199679   \r\n## 2021-06-07  0.288673 -0.287842  0.797882 -0.616349 -0.469955 -0.804242   \r\n## 2021-06-08  1.676681  0.288673 -0.287842  0.797882 -0.616349 -0.469955   \r\n## 2021-06-09  0.166319  1.676681  0.288673 -0.287842  0.797882 -0.616349   \r\n## 2021-06-10  0.635908  0.166319  1.676681  0.288673 -0.287842  0.797882   \r\n## 2021-06-11  1.586744  0.635908  0.166319  1.676681  0.288673 -0.287842   \r\n## 2021-06-14  1.029788  1.586744  0.635908  0.166319  1.676681  0.288673   \r\n## 2021-06-15  0.827747  1.029788  1.586744  0.635908  0.166319  1.676681   \r\n## 2021-06-16  0.454576  0.827747  1.029788  1.586744  0.635908  0.166319   \r\n## 2021-06-17  0.992841  0.454576  0.827747  1.029788  1.586744  0.635908   \r\n## \r\n##                 Lag6  \r\n## Date                  \r\n## 2021-06-04  0.357846  \r\n## 2021-06-07  0.199679  \r\n## 2021-06-08 -0.804242  \r\n## 2021-06-09 -0.469955  \r\n## 2021-06-10 -0.616349  \r\n## 2021-06-11  0.797882  \r\n## 2021-06-14 -0.287842  \r\n## 2021-06-15  0.288673  \r\n## 2021-06-16  1.676681  \r\n## 2021-06-17  0.166319\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.3: \u0026ldquo;Direction\u0026rdquo; column (+1 or -1) indicating an up/down day\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e***3.4: Create the dependent and independent variables ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...         CCI  \\\r\n## Date                                                          ...               \r\n## 2021-06-11  0.635908  0.166319  1.676681  0.288673 -0.287842  ...  184.762726   \r\n## 2021-06-14  1.586744  0.635908  0.166319  1.676681  0.288673  ...  211.506362   \r\n## 2021-06-15  1.029788  1.586744  0.635908  0.166319  1.676681  ...  173.550518   \r\n## 2021-06-16  0.827747  1.029788  1.586744  0.635908  0.166319  ...  147.567401   \r\n## 2021-06-17  0.454576  0.827747  1.029788  1.586744  0.635908  ...  135.319074   \r\n## \r\n##                  ROC         DX  Open-Close  Open-Open  \r\n## Date                                                    \r\n## 2021-06-11  2.978542  46.292069      0.0058     0.0061  \r\n## 2021-06-14  4.882511  54.768897      0.0241     0.0409  \r\n## 2021-06-15  6.250000  54.768897      0.0022    -0.0070  \r\n## 2021-06-16  7.394915  58.765690     -0.0012     0.0087  \r\n## 2021-06-17  7.602634  62.287724     -0.0055     0.0024  \r\n## \r\n## [5 rows x 29 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.5:  Create training and test sets\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e***3.6:  Create model ***\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.7:  train the model on the training set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## LogisticRegression()\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.8:    make an array of predictions on the test set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.9:    output the hit-rate and the confusion matrix for the model\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## \r\n## Train Accuracy: 98.43%\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Test Accuracy: 96.46%\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## [[47  3]\r\n##  [ 1 62]]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e***3.10:   Predict movement of stock for tomorrow. ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             y_test  y_pred\r\n## Date                      \r\n## 2021-06-11       1       1\r\n## 2021-06-14       1       1\r\n## 2021-06-15       1       1\r\n## 2021-06-16       1       1\r\n## 2021-06-17       1       1\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## [1]\n\u003c/code\u003e\u003c/pre\u003e"
+  "articleBody": "\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1:Loading Stock data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.1:Importing libraries and data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp class=\"nocopy\"\u003e\r\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003eimport investpy\r\nfrom datetime import datetime\r\nfrom sklearn.linear_model import LogisticRegression\r\nfrom sklearn.metrics import confusion_matrix\r\nfrom sklearn import metrics\r\nfrom scipy import stats \r\nimport numpy as np\r\nimport pandas as pd\r\nimport seaborn as sn\r\nimport matplotlib.pyplot as plt\r\nimport talib\r\nimport quandl\r\nfrom sklearn.preprocessing import StandardScaler \r\nfrom sklearn.metrics import accuracy_score\r\nfrom sklearn.preprocessing import MinMaxScaler \r\nimport math\r\nfrom sklearn.metrics import mean_squared_error\r\nimport investpy\r\nfrom pandas_datareader import data as pdr\r\nimport yfinance as yfin\r\nfrom pandas_datareader import data\r\npd.core.common.is_list_like = pd.api.types.is_list_like\r\nyfin.pdr_override()\n\u003c/code\u003e\u003c/pre\u003e\u003c/p\u003e\r\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2:Fetching the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo fetch the stock data we use \u003ccode\u003einvestpy\u003c/code\u003e library. This library fetchs data from investing for example:\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## \r\n[*********************100%***********************]  1 of 1 completed\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.1: Determining position based on volume and close\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                  Open       High        Low      Close  Volume    Pos\r\n## Date                                                                 \r\n## 2022-08-10  20.450001  20.600000  20.309999  20.379999  5828.1   Long\r\n## 2022-08-11  20.290001  20.420000  20.100000  20.150000  7446.9  Short\r\n## 2022-08-12  20.049999  20.139999  19.950001  20.110001  4842.8  Short\r\n## 2022-08-15  20.020000  20.150000  20.020000  20.110001  2987.5  Short\r\n## 2022-08-16  20.049999  20.160000  19.990000  20.150000  7513.2   Long\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                  Open       High        Low      Close   Volume    Pos  \\\r\n## Date                                                                     \r\n## 2021-03-23  18.950001  18.950001  18.700001  18.709999   8851.0  Short   \r\n## 2021-04-07  19.330000  19.330000  19.160000  19.209999   4643.6  Short   \r\n## 2021-06-15  20.639999  20.639999  20.209999  20.230000   7477.4  Short   \r\n## 2021-09-16  23.350000  23.350000  22.969999  23.090000   6554.0  Short   \r\n## 2021-09-27  23.230000  23.230000  22.870001  22.900000   7458.8  Short   \r\n## 2021-10-26  22.900000  22.900000  22.590000  22.690001   5844.6  Short   \r\n## 2021-11-05  22.920000  22.920000  22.709999  22.790001   4723.1   Long   \r\n## 2021-12-13  23.040001  23.040001  22.580000  22.610001   4551.6  Short   \r\n## 2022-06-10  18.620001  18.620001  18.200001  18.330000   8787.0  Short   \r\n## 2022-07-26  18.090000  18.090000  17.840000  17.910000  13040.2  Short   \r\n## \r\n##                 gain  \r\n## Date                  \r\n## 2021-03-23  0.240002  \r\n## 2021-04-07  0.120001  \r\n## 2021-06-15  0.410000  \r\n## 2021-09-16  0.260000  \r\n## 2021-09-27  0.330000  \r\n## 2021-10-26  0.209999  \r\n## 2021-11-05  0.129999  \r\n## 2021-12-13  0.430000  \r\n## 2022-06-10  0.290001  \r\n## 2022-07-26  0.180000\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                  Open       High        Low      Close   Volume    Pos  \\\r\n## Date                                                                     \r\n## 2021-11-11  23.030001  23.280001  23.030001  23.200001   3639.4  Short   \r\n## 2021-12-27  24.860001  25.340000  24.860001  25.330000   3527.2   Long   \r\n## 2022-02-25  22.240000  22.870001  22.240000  22.840000   8269.3  Short   \r\n## 2022-03-10  23.540001  23.930000  23.540001  23.840000   7789.0  Short   \r\n## 2022-03-30  24.820000  25.170000  24.820000  24.969999   6945.5  Short   \r\n## 2022-04-27  19.990000  20.320000  19.990000  20.120001   9754.1  Short   \r\n## 2022-06-02  19.250000  19.520000  19.250000  19.510000   9397.7  Short   \r\n## 2022-06-17  17.520000  17.950001  17.520000  17.760000  13242.0   Long   \r\n## 2022-07-06  18.700001  19.020000  18.700001  18.930000   8860.2  Short   \r\n## 2022-08-15  20.020000  20.150000  20.020000  20.110001   2987.5  Short   \r\n## \r\n##                 gain  \r\n## Date                  \r\n## 2021-11-11  0.170000  \r\n## 2021-12-27  0.469999  \r\n## 2022-02-25  0.600000  \r\n## 2022-03-10  0.299999  \r\n## 2022-03-30  0.150000  \r\n## 2022-04-27  0.130001  \r\n## 2022-06-02  0.260000  \r\n## 2022-06-17  0.240000  \r\n## 2022-07-06  0.230000  \r\n## 2022-08-15  0.090000\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.2: Determining Average monthly closing prices\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                 Open      High       Low     Close  Adj Close  Volume  \\\r\n## Date                                                                    \r\n## 2014-01-02  0.007031  0.007031  0.006926  0.006941   5.529784  3642.4   \r\n## 2014-01-03  0.007144  0.007198  0.007111  0.007144   5.691106  8421.6   \r\n## 2014-01-06  0.007111  0.007114  0.007021  0.007039   5.607457  4820.0   \r\n## 2014-01-07  0.006976  0.007049  0.006956  0.007011   5.585548  6201.6   \r\n## 2014-01-08  0.006938  0.006970  0.006905  0.006970   5.552687  9640.0   \r\n## ...              ...       ...       ...       ...        ...     ...   \r\n## 2022-08-10  0.020450  0.020600  0.020310  0.020380  20.160707  5828.1   \r\n## 2022-08-11  0.020290  0.020420  0.020100  0.020150  19.933182  7446.9   \r\n## 2022-08-12  0.020050  0.020140  0.019950  0.020110  19.893614  4842.8   \r\n## 2022-08-15  0.020020  0.020150  0.020020  0.020110  19.893614  2987.5   \r\n## 2022-08-16  0.020050  0.020160  0.019990  0.020150  19.933182  7513.2   \r\n## \r\n##             VolChange  CloseChange  \r\n## Date                                \r\n## 2014-01-02   0.109168     0.000648  \r\n## 2014-01-03   1.312102     0.029173  \r\n## 2014-01-06  -0.427662    -0.014698  \r\n## 2014-01-07   0.286639    -0.003907  \r\n## 2014-01-08   0.554438    -0.005883  \r\n## ...               ...          ...  \r\n## 2022-08-10   0.133850     0.009911  \r\n## 2022-08-11   0.277758    -0.011286  \r\n## 2022-08-12  -0.349689    -0.001985  \r\n## 2022-08-15  -0.383105     0.000000  \r\n## 2022-08-16   1.514879     0.001989  \r\n## \r\n## [2171 rows x 8 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2014-01-31    0.007337\r\n## 2014-02-28    0.007403\r\n## 2014-03-31    0.007064\r\n## 2014-04-30    0.006706\r\n## 2014-05-31    0.006595\r\n##                 ...   \r\n## 2022-04-30    0.021800\r\n## 2022-05-31    0.019310\r\n## 2022-06-30    0.018640\r\n## 2022-07-31    0.018665\r\n## 2022-08-31    0.020085\r\n## Freq: M, Name: Close, Length: 104, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## meanprice is  0.011315510710501442\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.3: Technical moving averages\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.4: Determining the z-scores\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2022-08-10    1.793515\r\n## 2022-08-11    1.748007\r\n## 2022-08-12    1.740093\r\n## 2022-08-15    1.740093\r\n## 2022-08-16    1.748007\r\n## Name: zscore, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2022-08-10   -0.735693\r\n## 2022-08-11   -0.483587\r\n## 2022-08-12   -0.889140\r\n## 2022-08-15   -1.178078\r\n## 2022-08-16   -0.473261\r\n## Name: zscorevolume, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.5: Determining the daily support and resistance levels\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   PP        R1        S1        R2        S2        R3  \\\r\n## Date                                                                     \r\n## 2022-08-10  0.020430  0.020550  0.020260  0.020720  0.020140  0.020840   \r\n## 2022-08-11  0.020223  0.020347  0.020027  0.020543  0.019903  0.020667   \r\n## 2022-08-12  0.020067  0.020183  0.019993  0.020257  0.019877  0.020373   \r\n## 2022-08-15  0.020093  0.020167  0.020037  0.020223  0.019963  0.020297   \r\n## 2022-08-16  0.020100  0.020210  0.020040  0.020270  0.019930  0.020380   \r\n## \r\n##                   S3  \r\n## Date                  \r\n## 2022-08-10  0.019970  \r\n## 2022-08-11  0.019707  \r\n## 2022-08-12  0.019803  \r\n## 2022-08-15  0.019907  \r\n## 2022-08-16  0.019870\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.2.6: Fibonnacci retracement levels\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Retracement levels for rising price\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                                           0\r\n## 0           {\u0026#39;min\u0026#39;: [0.019989999771118164]}\r\n## 1   {\u0026#39;level5(61.8)\u0026#39;: [0.02005493980026245]}\r\n## 2    {\u0026#39;level4(50)\u0026#39;: [0.020074999809265137]}\r\n## 3  {\u0026#39;level3(38.2)\u0026#39;: [0.020095059818267823]}\r\n## 4  {\u0026#39;level2(23.6)\u0026#39;: [0.020119879829406738]}\r\n## 5           {\u0026#39;zero\u0026#39;: [0.02015999984741211]}\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Retracement levels for falling price\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                                           0\r\n## 0           {\u0026#39;zero\u0026#39;: [0.02015999984741211]}\r\n## 1  {\u0026#39;level2(23.6)\u0026#39;: [0.020030119789123536]}\r\n## 2   {\u0026#39;level3(38.2)\u0026#39;: [0.02005493980026245]}\r\n## 3    {\u0026#39;level4(50)\u0026#39;: [0.020074999809265137]}\r\n## 4  {\u0026#39;level5(61.8)\u0026#39;: [0.020095059818267823]}\r\n## 5           {\u0026#39;min\u0026#39;: [0.019989999771118164]}\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eAs we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eOpen:\u003c/code\u003e That’s the share price the stock had when the markets opened that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eClose:\u003c/code\u003e That’s the share price the stock had when the markets closed that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eHigh:\u003c/code\u003e That’s the highest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eLow:\u003c/code\u003e That’s the lowest share price that the stock had that day.\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003eVolume:\u003c/code\u003e Amount of shares that changed hands that day.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e1.3:Reading individual values\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eSince our data is stored in a Pandas data frame, we can use the indexing we already know, to get individual values. For example, we could only print the closing values using \u003ccode\u003eprint (df[ 'Close' ])\u003c/code\u003e\u003c/p\u003e\n\u003cp\u003eAlso, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#75715e\"\u003e#print (df[ \u0026#39;Close\u0026#39; ][ \u0026#39;2020-07-14\u0026#39; ])\u003c/span\u003e\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eBut we could also use simple indexing to access certain positions.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003eprint (df[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ][ \u003cspan style=\"color:#ae81ff\"\u003e5\u003c/span\u003e ])\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## 0.0070187501907348635\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we  printed the closing price of the fifth entry.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2:Graphical Visualization\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eEven though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.\u003c/p\u003e\n\u003cp\u003eActually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/img/main/stockplot.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.1:CandleStick Charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eThe best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e mplfinance \u003cspan style=\"color:#66d9ef\"\u003eas\u003c/span\u003e fplt\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eWe are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.\nAlso, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003e\u003cspan style=\"color:#f92672\"\u003eimport\u003c/span\u003e matplotlib.dates \u003cspan style=\"color:#66d9ef\"\u003eas\u003c/span\u003e mdates\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.2: Preparing the data for CandleStick charts\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow in order to plot our stock data, we need to select the four columns in the right order.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1 \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df[[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Open\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;High\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Low\u0026#39;\u003c/span\u003e , \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Close\u0026#39;\u003c/span\u003e ]]\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cp\u003eNow, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it. \nTherefore, we need to reset the index and then convert our datetime to a number.\u003c/p\u003e\n\u003cdiv class=\"highlight\"\u003e\u003cpre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;\"\u003e\u003ccode class=\"language-python\" data-lang=\"python\"\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003ereset_index( inplace \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e \u003cspan style=\"color:#66d9ef\"\u003eTrue\u003c/span\u003e )\n\u003c/span\u003e\u003c/span\u003e\u003cspan style=\"display:flex;\"\u003e\u003cspan\u003edf1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ] \u003cspan style=\"color:#f92672\"\u003e=\u003c/span\u003e df1[ \u003cspan style=\"color:#e6db74\"\u003e\u0026#39;Date\u0026#39;\u003c/span\u003e ]\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003emap(mdates\u003cspan style=\"color:#f92672\"\u003e.\u003c/span\u003edate2num)\n\u003c/span\u003e\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\u003c/div\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## \u0026lt;string\u0026gt;:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eFor this, we use the reset_index function so that we can manipulate our Date column. Notice that we are using the inplace parameter to replace the data frame by the new one. After that, we map the date2num function of the matplotlib.dates module on all of our values. That converts our dates into numbers that we can work with.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e2.3:Plotting the data\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eNow we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"/img/main/candlestick.png\" alt=\"\"\u003e\u003c/p\u003e\n\u003cp\u003eOne candlestick gives us the information about all four values of one specific day. The highest point of the stick is the high and the lowest point is the low of that day. The colored area is the difference between the open and the close  price. \nIf the stick is green, the close value is at the top and the open value at the bottom, since the close must be higher than the open. If it is red, it is the other way around.\u003c/p\u003e\n\u003cp\u003e***2.4:Analysis and Statistics ***\u003c/p\u003e\n\u003cp\u003eNow let’s get a little bit deeper into the numbers here and away from the visual. \nFrom our data we can derive some statistical values that will help us to analyze it.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e\u003ccode\u003ePERCENTAGE CHANGE\u003c/code\u003e\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eOne value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.\u003c/p\u003e\n\u003cp\u003eThe calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##         PCT_Change\r\n## count  2171.000000\r\n## mean      0.000242\r\n## std       0.011127\r\n## min      -0.074667\r\n## 25%      -0.005621\r\n## 50%       0.000000\r\n## 75%       0.006442\r\n## max       0.070588\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##               Close\r\n## Date               \r\n## 2022-08-16  0.02015\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eHIGH LOW PERCENTAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eAnother interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.\u003c/p\u003e\n\u003cp\u003eBy doing that we can get a feeling of how volatile the stock is.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Open     High      Low    Close  Adj Close  ...  Open-Open  \\\r\n## Date                                                       ...              \r\n## 2022-08-10  0.02045  0.02060  0.02031  0.02038  20.160707  ...    0.00027   \r\n## 2022-08-11  0.02029  0.02042  0.02010  0.02015  19.933182  ...   -0.00016   \r\n## 2022-08-12  0.02005  0.02014  0.01995  0.02011  19.893614  ...   -0.00024   \r\n## 2022-08-15  0.02002  0.02015  0.02002  0.02011  19.893614  ...   -0.00003   \r\n## 2022-08-16  0.02005  0.02016  0.01999  0.02015  19.933182  ...    0.00003   \r\n## \r\n##               zscore  zscorevolume  PCT_Change    HL_PCT  \r\n## Date                                                      \r\n## 2022-08-10  1.793515     -0.735693   -0.003423  0.014230  \r\n## 2022-08-11  1.748007     -0.483587   -0.006900  0.015881  \r\n## 2022-08-12  1.740093     -0.889140    0.002993  0.009448  \r\n## 2022-08-15  1.740093     -1.178078    0.004496  0.006464  \r\n## 2022-08-16  1.748007     -0.473261    0.004988  0.008437  \r\n## \r\n## [5 rows x 14 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eThese statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eMOVING AVERAGE\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003ewe are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.\u003c/p\u003e\n\u003cp\u003eWhat we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.\u003c/p\u003e\n\u003cp\u003eFor this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##               Close  5d_ma  20d_ma  50d_ma  100d_ma  ...  5d_ema  20d_ema  \\\r\n## Date                                                 ...                    \r\n## 2022-08-08  0.02027   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-09  0.02018   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-10  0.02038   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-11  0.02015   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-12  0.02011   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-15  0.02011   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## 2022-08-16  0.02015   0.02    0.02    0.02     0.02  ...    0.02     0.02   \r\n## \r\n##             50d_ema  100d_ema  200d_ema  \r\n## Date                                     \r\n## 2022-08-08     0.02      0.02      0.02  \r\n## 2022-08-09     0.02      0.02      0.02  \r\n## 2022-08-10     0.02      0.02      0.02  \r\n## 2022-08-11     0.02      0.02      0.02  \r\n## 2022-08-12     0.02      0.02      0.02  \r\n## 2022-08-15     0.02      0.02      0.02  \r\n## 2022-08-16     0.02      0.02      0.02  \r\n## \r\n## [7 rows x 11 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eHere we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.\u003c/p\u003e\n\u003cp\u003eBy using the mean function, we are obviously calculating the arithmetic mean. However, we can use a bunch of other functions like max, min or median if we like to.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eStandard Deviation\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Date\r\n## 2022-08-08    0.000370\r\n## 2022-08-09    0.000326\r\n## 2022-08-10    0.000297\r\n## 2022-08-11    0.000102\r\n## 2022-08-12    0.000100\r\n## 2022-08-15    0.000105\r\n## 2022-08-16    0.000099\r\n## Name: Std_dev, dtype: float64\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eRelative Strength Index\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eThe relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   RSI\r\n## Date                 \r\n## 2022-08-10  70.215399\r\n## 2022-08-11  62.897491\r\n## 2022-08-12  61.640604\r\n## 2022-08-15  61.640604\r\n## 2022-08-16  62.586825\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eAverage True range\u003c/code\u003e ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                  ATR  20dayEMA   ATRdiff\r\n## Date                                    \r\n## 2022-08-10  0.000398  0.000444 -0.000046\r\n## 2022-08-11  0.000392  0.000439 -0.000047\r\n## 2022-08-12  0.000378  0.000433 -0.000055\r\n## 2022-08-15  0.000361  0.000426 -0.000066\r\n## 2022-08-16  0.000347  0.000419 -0.000072\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eWiliams %R\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eWilliams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today\u0026rsquo;s close was the highest high of the past N days.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             Williams %R\r\n## Date                   \r\n## 2022-08-08   -10.377241\r\n## 2022-08-09   -19.417388\r\n## 2022-08-10   -18.965625\r\n## 2022-08-11   -51.136388\r\n## 2022-08-12   -75.384624\r\n## 2022-08-15   -75.384624\r\n## 2022-08-16   -69.230927\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eReadings below -80 represent oversold territory and readings above -20 represent overbought.\u003c/p\u003e\n\u003cp\u003e*** \u003ccode\u003eADX\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e0-25:\t  Absent or Weak Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e25-50:\tStrong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e50-75:\tVery Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e75-100:\tExtremely Strong Trend\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                   ADX\r\n## Date                 \r\n## 2022-08-08  37.641580\r\n## 2022-08-09  38.551145\r\n## 2022-08-10  41.068843\r\n## 2022-08-11  40.206448\r\n## 2022-08-12  37.511612\r\n## 2022-08-15  35.289665\r\n## 2022-08-16  32.920780\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                    CCI\r\n## Date                  \r\n## 2022-08-08  112.110256\r\n## 2022-08-09   88.411328\r\n## 2022-08-10   99.468246\r\n## 2022-08-11   67.914648\r\n## 2022-08-12   43.763722\r\n## 2022-08-15   38.402583\r\n## 2022-08-16   31.315216\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eMACD\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eMoving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security\u0026rsquo;s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             MACD_IND\r\n## Date                \r\n## 2022-08-10  0.000150\r\n## 2022-08-11  0.000117\r\n## 2022-08-12  0.000085\r\n## 2022-08-15  0.000057\r\n## 2022-08-16  0.000036\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e*** \u003ccode\u003eBollinger Bands\u003c/code\u003e ***\u003c/p\u003e\n\u003cp\u003eBollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## 0.2 0.2 0.2\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003eIn case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.\u003c/p\u003e\n\u003cp\u003eWe do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3: Predicting the movement of stock\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eTo predict the movement of the stock we use 5 lag returns as the dependent variables. The first leg is return yesterday, leg2 is return day before yesterday and so on. The dependent variable is whether the prices went up or down on that day. Other variables include the technical indicators which along with 5 lag returns are used to predict the movement of stock using logistic regression.\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.1: Creating lag returns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  Creating returns dataframe\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.2:  create the lagged percentage returns columns\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                Today      Lag1      Lag2      Lag3      Lag4      Lag5  \\\r\n## Date                                                                     \r\n## 2022-08-03  3.129813 -0.662595  0.667014  1.775458  2.351687  4.466774   \r\n## 2022-08-04  0.248752  3.129813 -0.662595  0.667014  1.775458  2.351687   \r\n## 2022-08-05  0.794044  0.248752  3.129813 -0.662595  0.667014  1.775458   \r\n## 2022-08-08 -0.196942  0.794044  0.248752  3.129813 -0.662595  0.667014   \r\n## 2022-08-09 -0.444007 -0.196942  0.794044  0.248752  3.129813 -0.662595   \r\n## 2022-08-10  0.991075 -0.444007 -0.196942  0.794044  0.248752  3.129813   \r\n## 2022-08-11 -1.128555  0.991075 -0.444007 -0.196942  0.794044  0.248752   \r\n## 2022-08-12 -0.198506 -1.128555  0.991075 -0.444007 -0.196942  0.794044   \r\n## 2022-08-15  0.000000 -0.198506 -1.128555  0.991075 -0.444007 -0.196942   \r\n## 2022-08-16  0.198901  0.000000 -0.198506 -1.128555  0.991075 -0.444007   \r\n## \r\n##                 Lag6  \r\n## Date                  \r\n## 2022-08-03 -3.502153  \r\n## 2022-08-04  4.466774  \r\n## 2022-08-05  2.351687  \r\n## 2022-08-08  1.775458  \r\n## 2022-08-09  0.667014  \r\n## 2022-08-10 -0.662595  \r\n## 2022-08-11  3.129813  \r\n## 2022-08-12  0.248752  \r\n## 2022-08-15  0.794044  \r\n## 2022-08-16 -0.196942\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.3: \u0026ldquo;Direction\u0026rdquo; column (+1 or -1) indicating an up/down day\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e***3.4: Create the dependent and independent variables ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## \u0026lt;string\u0026gt;:1: SettingWithCopyWarning: \r\n## A value is trying to be set on a copy of a slice from a DataFrame.\r\n## Try using .loc[row_indexer,col_indexer] = value instead\r\n## \r\n## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...        CCI  \\\r\n## Date                                                          ...              \r\n## 2022-08-10 -0.444007 -0.196942  0.794044  0.248752  3.129813  ...  99.468246   \r\n## 2022-08-11  0.991075 -0.444007 -0.196942  0.794044  0.248752  ...  67.914648   \r\n## 2022-08-12 -1.128555  0.991075 -0.444007 -0.196942  0.794044  ...  43.763722   \r\n## 2022-08-15 -0.198506 -1.128555  0.991075 -0.444007 -0.196942  ...  38.402583   \r\n## 2022-08-16  0.000000 -0.198506 -1.128555  0.991075 -0.444007  ...  31.315216   \r\n## \r\n##                  ROC         DX  Open-Close  Open-Open  \r\n## Date                                                    \r\n## 2022-08-10  8.925709  36.520132     0.00027    0.00027  \r\n## 2022-08-11  5.221932  28.113701    -0.00009   -0.00016  \r\n## 2022-08-12  3.181123  22.319824    -0.00010   -0.00024  \r\n## 2022-08-15  2.497450  22.571233    -0.00009   -0.00003  \r\n## 2022-08-16  3.386351  21.302859    -0.00006    0.00003  \r\n## \r\n## [5 rows x 29 columns]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.5:  Create training and test sets\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e***3.6:  Create model ***\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.7:  train the model on the training set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e\u0026lt;style\u0026gt;#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: \u0026#34;▸\u0026#34;;float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: \u0026#34;▾\u0026#34;;}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: \u0026#34;\u0026#34;;width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: \u0026#34;\u0026#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: \u0026#34;\u0026#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter\u0026#39;s `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}\u0026lt;/style\u0026gt;\u0026lt;div id=\u0026#34;sk-container-id-1\u0026#34; class=\u0026#34;sk-top-container\u0026#34;\u0026gt;\u0026lt;div class=\u0026#34;sk-text-repr-fallback\u0026#34;\u0026gt;\u0026lt;pre\u0026gt;LogisticRegression()\u0026lt;/pre\u0026gt;\u0026lt;b\u0026gt;In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. \u0026lt;br /\u0026gt;On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.\u0026lt;/b\u0026gt;\u0026lt;/div\u0026gt;\u0026lt;div class=\u0026#34;sk-container\u0026#34; hidden\u0026gt;\u0026lt;div class=\u0026#34;sk-item\u0026#34;\u0026gt;\u0026lt;div class=\u0026#34;sk-estimator sk-toggleable\u0026#34;\u0026gt;\u0026lt;input class=\u0026#34;sk-toggleable__control sk-hidden--visually\u0026#34; id=\u0026#34;sk-estimator-id-1\u0026#34; type=\u0026#34;checkbox\u0026#34; checked\u0026gt;\u0026lt;label for=\u0026#34;sk-estimator-id-1\u0026#34; class=\u0026#34;sk-toggleable__label sk-toggleable__label-arrow\u0026#34;\u0026gt;LogisticRegression\u0026lt;/label\u0026gt;\u0026lt;div class=\u0026#34;sk-toggleable__content\u0026#34;\u0026gt;\u0026lt;pre\u0026gt;LogisticRegression()\u0026lt;/pre\u0026gt;\u0026lt;/div\u0026gt;\u0026lt;/div\u0026gt;\u0026lt;/div\u0026gt;\u0026lt;/div\u0026gt;\u0026lt;/div\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.8:    make an array of predictions on the test set\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003e\u003cem\u003e\u003cstrong\u003e3.9:    output the hit-rate and the confusion matrix for the model\u003c/strong\u003e\u003c/em\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## \r\n## Train Accuracy: 98.68%\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## Test Accuracy: 97.06%\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## [[189   1]\r\n##  [ 11 207]]\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e***3.10:   Predict movement of stock for tomorrow. ***\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e##             y_test  y_pred\r\n## Date                      \r\n## 2022-08-10       1       1\r\n## 2022-08-11      -1      -1\r\n## 2022-08-12      -1      -1\r\n## 2022-08-15      -1      -1\r\n## 2022-08-16       1       1\n\u003c/code\u003e\u003c/pre\u003e\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e## [1]\n\u003c/code\u003e\u003c/pre\u003e"
 }
 </script>
 
@@ -315,7 +315,7 @@ if (!doNotTrack) {
   <div class="meta">
     <time datetime="2020-12-25 00:00:00 &#43;0000 UTC">December 25, 2020</time>
     <p>Laxmi K Soni</p>
-    <p>17-Minute Read</p>
+    <p>18-Minute Read</p>
   </div>
 </header>
 
@@ -366,7 +366,7 @@ if (!doNotTrack) {
       <p><em><strong>1:Loading Stock data</strong></em></p>
 <p><em><strong>1.1:Importing libraries and data</strong></em></p>
 <p class="nocopy">
-<pre tabindex="0"><code class="language-{.python" data-lang="{.python">import investpy
+<pre tabindex="0"><code>import investpy
 from datetime import datetime
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix
@@ -384,155 +384,167 @@ from sklearn.preprocessing import MinMaxScaler
 import math
 from sklearn.metrics import mean_squared_error
 import investpy
+from pandas_datareader import data as pdr
+import yfinance as yfin
+from pandas_datareader import data
+pd.core.common.is_list_like = pd.api.types.is_list_like
+yfin.pdr_override()
 </code></pre></p>
 <p><em><strong>1.2:Fetching the data</strong></em></p>
 <p>To fetch the stock data we use <code>investpy</code> library. This library fetchs data from investing for example:</p>
-<p><em><strong>1.2.1: Determining position based on volume and close</strong></em></p>
-<pre tabindex="0"><code>##               Open     High      Low   Close    Volume    Pos
-## Date                                                         
-## 2021-06-11  1430.1  1451.60  1429.45  1446.9  6140.828   Long
-## 2021-06-14  1471.0  1477.00  1453.45  1461.8  7132.294   Long
-## 2021-06-15  1464.0  1476.00  1463.00  1473.9  5403.104  Short
-## 2021-06-16  1472.7  1489.45  1467.50  1480.6  7661.710   Long
-## 2021-06-17  1475.1  1502.65  1475.10  1495.3  7677.951   Long
-</code></pre><pre tabindex="0"><code>##                Open     High      Low    Close     Volume    Pos   gain
-## Date                                                                   
-## 2020-11-26  1119.95  1119.95  1098.30  1113.20  10962.256  Short   6.75
-## 2020-12-03  1147.00  1147.00  1122.70  1126.45  16212.632  Short  20.55
-## 2020-12-24  1249.90  1249.90  1226.00  1236.05   7313.885  Short  13.85
-## 2021-01-12  1378.00  1378.00  1360.00  1371.75   8309.868  Short   6.25
-## 2021-03-18  1393.75  1393.75  1313.50  1337.10  10961.755  Short  56.65
-## 2021-04-09  1455.00  1455.00  1430.05  1441.05   6052.712   Long  13.95
-## 2021-04-20  1379.00  1379.00  1342.40  1351.35   8560.766  Short  27.65
-## 2021-05-12  1330.00  1330.00  1314.50  1327.00   5241.898  Short   3.00
-## 2021-05-14  1326.85  1326.85  1311.30  1316.40   4824.609  Short  10.45
-## 2021-05-31  1401.50  1401.50  1383.00  1393.75   4429.904  Short   7.75
-</code></pre><pre tabindex="0"><code>##                Open     High      Low    Close     Volume    Pos   gain
-## Date                                                                   
-## 2020-09-17   995.00  1021.00   995.00  1011.00  15628.308   Long  16.00
-## 2020-10-05  1018.05  1054.90  1018.05  1048.70  14212.560   Long  30.65
-## 2020-10-13  1135.55  1166.05  1135.55  1157.80  17524.136   Long  22.25
-## 2020-12-01  1105.05  1140.25  1105.05  1137.85   8933.802  Short  32.80
-## 2020-12-08  1145.00  1167.00  1145.00  1153.35  12308.330   Long   8.35
-## 2020-12-29  1235.00  1254.45  1235.00  1250.30   6878.105   Long  15.30
-## 2021-01-08  1278.25  1316.80  1278.25  1312.10  13186.251   Long  33.85
-## 2021-01-20  1320.55  1348.40  1320.55  1339.45   8225.838   Long  18.90
-## 2021-05-17  1320.30  1334.95  1320.30  1329.40   5017.129   Long   9.10
-## 2021-06-17  1475.10  1502.65  1475.10  1495.30   7677.951   Long  20.20
+<pre tabindex="0"><code>## 
+[*********************100%***********************]  1 of 1 completed
+</code></pre><p><em><strong>1.2.1: Determining position based on volume and close</strong></em></p>
+<pre tabindex="0"><code>##                  Open       High        Low      Close  Volume    Pos
+## Date                                                                 
+## 2022-08-10  20.450001  20.600000  20.309999  20.379999  5828.1   Long
+## 2022-08-11  20.290001  20.420000  20.100000  20.150000  7446.9  Short
+## 2022-08-12  20.049999  20.139999  19.950001  20.110001  4842.8  Short
+## 2022-08-15  20.020000  20.150000  20.020000  20.110001  2987.5  Short
+## 2022-08-16  20.049999  20.160000  19.990000  20.150000  7513.2   Long
+</code></pre><pre tabindex="0"><code>##                  Open       High        Low      Close   Volume    Pos  \
+## Date                                                                     
+## 2021-03-23  18.950001  18.950001  18.700001  18.709999   8851.0  Short   
+## 2021-04-07  19.330000  19.330000  19.160000  19.209999   4643.6  Short   
+## 2021-06-15  20.639999  20.639999  20.209999  20.230000   7477.4  Short   
+## 2021-09-16  23.350000  23.350000  22.969999  23.090000   6554.0  Short   
+## 2021-09-27  23.230000  23.230000  22.870001  22.900000   7458.8  Short   
+## 2021-10-26  22.900000  22.900000  22.590000  22.690001   5844.6  Short   
+## 2021-11-05  22.920000  22.920000  22.709999  22.790001   4723.1   Long   
+## 2021-12-13  23.040001  23.040001  22.580000  22.610001   4551.6  Short   
+## 2022-06-10  18.620001  18.620001  18.200001  18.330000   8787.0  Short   
+## 2022-07-26  18.090000  18.090000  17.840000  17.910000  13040.2  Short   
+## 
+##                 gain  
+## Date                  
+## 2021-03-23  0.240002  
+## 2021-04-07  0.120001  
+## 2021-06-15  0.410000  
+## 2021-09-16  0.260000  
+## 2021-09-27  0.330000  
+## 2021-10-26  0.209999  
+## 2021-11-05  0.129999  
+## 2021-12-13  0.430000  
+## 2022-06-10  0.290001  
+## 2022-07-26  0.180000
+</code></pre><pre tabindex="0"><code>##                  Open       High        Low      Close   Volume    Pos  \
+## Date                                                                     
+## 2021-11-11  23.030001  23.280001  23.030001  23.200001   3639.4  Short   
+## 2021-12-27  24.860001  25.340000  24.860001  25.330000   3527.2   Long   
+## 2022-02-25  22.240000  22.870001  22.240000  22.840000   8269.3  Short   
+## 2022-03-10  23.540001  23.930000  23.540001  23.840000   7789.0  Short   
+## 2022-03-30  24.820000  25.170000  24.820000  24.969999   6945.5  Short   
+## 2022-04-27  19.990000  20.320000  19.990000  20.120001   9754.1  Short   
+## 2022-06-02  19.250000  19.520000  19.250000  19.510000   9397.7  Short   
+## 2022-06-17  17.520000  17.950001  17.520000  17.760000  13242.0   Long   
+## 2022-07-06  18.700001  19.020000  18.700001  18.930000   8860.2  Short   
+## 2022-08-15  20.020000  20.150000  20.020000  20.110001   2987.5  Short   
+## 
+##                 gain  
+## Date                  
+## 2021-11-11  0.170000  
+## 2021-12-27  0.469999  
+## 2022-02-25  0.600000  
+## 2022-03-10  0.299999  
+## 2022-03-30  0.150000  
+## 2022-04-27  0.130001  
+## 2022-06-02  0.260000  
+## 2022-06-17  0.240000  
+## 2022-07-06  0.230000  
+## 2022-08-15  0.090000
 </code></pre><p><em><strong>1.2.2: Determining Average monthly closing prices</strong></em></p>
-<pre tabindex="0"><code>##                Open     High      Low    Close    Volume
-## Date                                                    
-## 2015-01-01   488.38   491.61   485.39   489.73  2002.764
-## 2015-01-02   489.13   500.80   489.13   499.35  6778.320
-## 2015-01-05   498.53   503.52   490.50   495.06  9937.024
-## 2015-01-06   491.12   492.36   479.73   484.72  9667.316
-## 2015-01-07   487.40   489.82   483.68   487.04  7249.916
-## ...             ...      ...      ...      ...       ...
-## 2021-06-11  1430.10  1451.60  1429.45  1446.90  6140.828
-## 2021-06-14  1471.00  1477.00  1453.45  1461.80  7132.294
-## 2021-06-15  1464.00  1476.00  1463.00  1473.90  5403.104
-## 2021-06-16  1472.70  1489.45  1467.50  1480.60  7661.710
-## 2021-06-17  1475.10  1502.65  1475.10  1495.30  7677.951
+<pre tabindex="0"><code>##                 Open      High       Low     Close  Adj Close  Volume  \
+## Date                                                                    
+## 2014-01-02  0.007031  0.007031  0.006926  0.006941   5.529784  3642.4   
+## 2014-01-03  0.007144  0.007198  0.007111  0.007144   5.691106  8421.6   
+## 2014-01-06  0.007111  0.007114  0.007021  0.007039   5.607457  4820.0   
+## 2014-01-07  0.006976  0.007049  0.006956  0.007011   5.585548  6201.6   
+## 2014-01-08  0.006938  0.006970  0.006905  0.006970   5.552687  9640.0   
+## ...              ...       ...       ...       ...        ...     ...   
+## 2022-08-10  0.020450  0.020600  0.020310  0.020380  20.160707  5828.1   
+## 2022-08-11  0.020290  0.020420  0.020100  0.020150  19.933182  7446.9   
+## 2022-08-12  0.020050  0.020140  0.019950  0.020110  19.893614  4842.8   
+## 2022-08-15  0.020020  0.020150  0.020020  0.020110  19.893614  2987.5   
+## 2022-08-16  0.020050  0.020160  0.019990  0.020150  19.933182  7513.2   
 ## 
-## [1598 rows x 5 columns]
-</code></pre><pre tabindex="0"><code>##                Open     High      Low    Close    Volume Currency  VolChange  \
-## Date                                                                           
-## 2015-01-01  0.48838  0.49161  0.48539  0.48973  2002.764      INR   0.158042   
-## 2015-01-02  0.48913  0.50080  0.48913  0.49935  6778.320      INR   2.384483   
-## 2015-01-05  0.49853  0.50352  0.49050  0.49506  9937.024      INR   0.466001   
-## 2015-01-06  0.49112  0.49236  0.47973  0.48472  9667.316      INR  -0.027142   
-## 2015-01-07  0.48740  0.48982  0.48368  0.48704  7249.916      INR  -0.250059   
-## ...             ...      ...      ...      ...       ...      ...        ...   
-## 2021-06-11  1.43010  1.45160  1.42945  1.44690  6140.828      INR   0.756241   
-## 2021-06-14  1.47100  1.47700  1.45345  1.46180  7132.294      INR   0.161455   
-## 2021-06-15  1.46400  1.47600  1.46300  1.47390  5403.104      INR  -0.242445   
-## 2021-06-16  1.47270  1.48945  1.46750  1.48060  7661.710      INR   0.418020   
-## 2021-06-17  1.47510  1.50265  1.47510  1.49530  7677.951      INR   0.002120   
+##             VolChange  CloseChange  
+## Date                                
+## 2014-01-02   0.109168     0.000648  
+## 2014-01-03   1.312102     0.029173  
+## 2014-01-06  -0.427662    -0.014698  
+## 2014-01-07   0.286639    -0.003907  
+## 2014-01-08   0.554438    -0.005883  
+## ...               ...          ...  
+## 2022-08-10   0.133850     0.009911  
+## 2022-08-11   0.277758    -0.011286  
+## 2022-08-12  -0.349689    -0.001985  
+## 2022-08-15  -0.383105     0.000000  
+## 2022-08-16   1.514879     0.001989  
 ## 
-##             CloseChange  
-## Date                     
-## 2015-01-01     0.000853  
-## 2015-01-02     0.019643  
-## 2015-01-05    -0.008591  
-## 2015-01-06    -0.020886  
-## 2015-01-07     0.004786  
-## ...                 ...  
-## 2021-06-11     0.015867  
-## 2021-06-14     0.010298  
-## 2021-06-15     0.008277  
-## 2021-06-16     0.004546  
-## 2021-06-17     0.009928  
-## 
-## [1598 rows x 8 columns]
+## [2171 rows x 8 columns]
 </code></pre><pre tabindex="0"><code>## Date
-## 2015-01-31    0.518659
-## 2015-02-28    0.559373
-## 2015-03-31    0.552822
-## 2015-04-30    0.526967
-## 2015-05-31    0.493150
+## 2014-01-31    0.007337
+## 2014-02-28    0.007403
+## 2014-03-31    0.007064
+## 2014-04-30    0.006706
+## 2014-05-31    0.006595
 ##                 ...   
-## 2021-02-28    1.283755
-## 2021-03-31    1.349143
-## 2021-04-30    1.379589
-## 2021-05-31    1.352943
-## 2021-06-30    1.426296
-## Freq: M, Name: Close, Length: 78, dtype: float64
-</code></pre><pre tabindex="0"><code>## meanprice is  0.6835084355444305
+## 2022-04-30    0.021800
+## 2022-05-31    0.019310
+## 2022-06-30    0.018640
+## 2022-07-31    0.018665
+## 2022-08-31    0.020085
+## Freq: M, Name: Close, Length: 104, dtype: float64
+</code></pre><pre tabindex="0"><code>## meanprice is  0.011315510710501442
 </code></pre><p><em><strong>1.2.3: Technical moving averages</strong></em></p>
-<pre tabindex="0"><code>##   period  sma_value sma_signal  ema_value ema_signal
-## 0      5       9.60        buy       9.98        buy
-## 1     10       8.72        buy       8.97        buy
-## 2     20       7.44        buy       8.16        buy
-## 3     50       7.67        buy       7.86        buy
-## 4    100       8.38        buy       8.41        buy
-</code></pre><p><em><strong>1.2.4: Determining the z-scores</strong></em></p>
+<p><em><strong>1.2.4: Determining the z-scores</strong></em></p>
 <pre tabindex="0"><code>## Date
-## 2021-06-11    3.181882
-## 2021-06-14    3.243986
-## 2021-06-15    3.294420
-## 2021-06-16    3.322346
-## 2021-06-17    3.383617
+## 2022-08-10    1.793515
+## 2022-08-11    1.748007
+## 2022-08-12    1.740093
+## 2022-08-15    1.740093
+## 2022-08-16    1.748007
 ## Name: zscore, dtype: float64
 </code></pre><pre tabindex="0"><code>## Date
-## 2021-06-11   -0.346013
-## 2021-06-14   -0.217202
-## 2021-06-15   -0.441857
-## 2021-06-16   -0.148421
-## 2021-06-17   -0.146311
+## 2022-08-10   -0.735693
+## 2022-08-11   -0.483587
+## 2022-08-12   -0.889140
+## 2022-08-15   -1.178078
+## 2022-08-16   -0.473261
 ## Name: zscorevolume, dtype: float64
 </code></pre><p><em><strong>1.2.5: Determining the daily support and resistance levels</strong></em></p>
 <pre tabindex="0"><code>##                   PP        R1        S1        R2        S2        R3  \
 ## Date                                                                     
-## 2021-06-11  1.442650  1.455850  1.433700  1.464800  1.420500  1.478000   
-## 2021-06-14  1.464083  1.474717  1.451167  1.487633  1.440533  1.498267   
-## 2021-06-15  1.470967  1.478933  1.465933  1.483967  1.457967  1.491933   
-## 2021-06-16  1.479183  1.490867  1.468917  1.501133  1.457233  1.512817   
-## 2021-06-17  1.491017  1.506933  1.479383  1.518567  1.463467  1.534483   
+## 2022-08-10  0.020430  0.020550  0.020260  0.020720  0.020140  0.020840   
+## 2022-08-11  0.020223  0.020347  0.020027  0.020543  0.019903  0.020667   
+## 2022-08-12  0.020067  0.020183  0.019993  0.020257  0.019877  0.020373   
+## 2022-08-15  0.020093  0.020167  0.020037  0.020223  0.019963  0.020297   
+## 2022-08-16  0.020100  0.020210  0.020040  0.020270  0.019930  0.020380   
 ## 
 ##                   S3  
 ## Date                  
-## 2021-06-11  1.411550  
-## 2021-06-14  1.427617  
-## 2021-06-15  1.452933  
-## 2021-06-16  1.446967  
-## 2021-06-17  1.451833
+## 2022-08-10  0.019970  
+## 2022-08-11  0.019707  
+## 2022-08-12  0.019803  
+## 2022-08-15  0.019907  
+## 2022-08-16  0.019870
 </code></pre><p><em><strong>1.2.6: Fibonnacci retracement levels</strong></em></p>
 <pre tabindex="0"><code>## Retracement levels for rising price
-</code></pre><pre tabindex="0"><code>##                                0
-## 0  {&#39;min&#39;: [1.4750999999999999]}
-## 1  {&#39;level5(61.8)&#39;: [1.4856241]}
-## 2     {&#39;level4(50)&#39;: [1.488875]}
-## 3  {&#39;level3(38.2)&#39;: [1.4921259]}
-## 4  {&#39;level2(23.6)&#39;: [1.4961482]}
-## 5            {&#39;zero&#39;: [1.50265]}
+</code></pre><pre tabindex="0"><code>##                                           0
+## 0           {&#39;min&#39;: [0.019989999771118164]}
+## 1   {&#39;level5(61.8)&#39;: [0.02005493980026245]}
+## 2    {&#39;level4(50)&#39;: [0.020074999809265137]}
+## 3  {&#39;level3(38.2)&#39;: [0.020095059818267823]}
+## 4  {&#39;level2(23.6)&#39;: [0.020119879829406738]}
+## 5           {&#39;zero&#39;: [0.02015999984741211]}
 </code></pre><pre tabindex="0"><code>## Retracement levels for falling price
-</code></pre><pre tabindex="0"><code>##                                0
-## 0            {&#39;zero&#39;: [1.50265]}
-## 1  {&#39;level2(23.6)&#39;: [1.4816018]}
-## 2  {&#39;level3(38.2)&#39;: [1.4856241]}
-## 3     {&#39;level4(50)&#39;: [1.488875]}
-## 4  {&#39;level5(61.8)&#39;: [1.4921259]}
-## 5  {&#39;min&#39;: [1.4750999999999999]}
+</code></pre><pre tabindex="0"><code>##                                           0
+## 0           {&#39;zero&#39;: [0.02015999984741211]}
+## 1  {&#39;level2(23.6)&#39;: [0.020030119789123536]}
+## 2   {&#39;level3(38.2)&#39;: [0.02005493980026245]}
+## 3    {&#39;level4(50)&#39;: [0.020074999809265137]}
+## 4  {&#39;level5(61.8)&#39;: [0.020095059818267823]}
+## 5           {&#39;min&#39;: [0.019989999771118164]}
 </code></pre><p>As we can see, we now have a data frame with all the entries from start date to end date. We have multiple columns here and not only the closing stock price of the respective day. Let’s take a quick look at the individual columns and their meaning.</p>
 <p><code>Open:</code> That’s the share price the stock had when the markets opened that day.</p>
 <p><code>Close:</code> That’s the share price the stock had when the markets closed that day.</p>
@@ -545,7 +557,7 @@ import investpy
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#print (df[ &#39;Close&#39; ][ &#39;2020-07-14&#39; ])</span>
 </span></span></code></pre></div><p>But we could also use simple indexing to access certain positions.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print (df[ <span style="color:#e6db74">&#39;Close&#39;</span> ][ <span style="color:#ae81ff">5</span> ])
-</span></span></code></pre></div><pre tabindex="0"><code>## 0.48949000000000004
+</span></span></code></pre></div><pre tabindex="0"><code>## 0.0070187501907348635
 </code></pre><p>Here we  printed the closing price of the fifth entry.</p>
 <p><em><strong>2:Graphical Visualization</strong></em></p>
 <p>Even though tables are nice and useful, we want to visualize our financial data, in order to get a better overview. We want to look at the development of the share price.</p>
@@ -564,7 +576,7 @@ Also, for our candlestick chart, we will need a different date format provided b
 Therefore, we need to reset the index and then convert our datetime to a number.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df1<span style="color:#f92672">.</span>reset_index( inplace <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span> )
 </span></span><span style="display:flex;"><span>df1[ <span style="color:#e6db74">&#39;Date&#39;</span> ] <span style="color:#f92672">=</span> df1[ <span style="color:#e6db74">&#39;Date&#39;</span> ]<span style="color:#f92672">.</span>map(mdates<span style="color:#f92672">.</span>date2num)
-</span></span></code></pre></div><pre tabindex="0"><code>## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: 
+</span></span></code></pre></div><pre tabindex="0"><code>## &lt;string&gt;:1: SettingWithCopyWarning: 
 ## A value is trying to be set on a copy of a slice from a DataFrame.
 ## Try using .loc[row_indexer,col_indexer] = value instead
 ## 
@@ -582,35 +594,35 @@ From our data we can derive some statistical values that will help us to analyze
 <p>One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.</p>
 <p>The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.</p>
 <pre tabindex="0"><code>##         PCT_Change
-## count  1598.000000
-## mean     -0.000268
-## std       0.015032
-## min      -0.098309
-## 25%      -0.008014
-## 50%      -0.000741
-## 75%       0.007867
-## max       0.129885
-</code></pre><pre tabindex="0"><code>##              Close
-## Date              
-## 2021-06-17  1.4953
+## count  2171.000000
+## mean      0.000242
+## std       0.011127
+## min      -0.074667
+## 25%      -0.005621
+## 50%       0.000000
+## 75%       0.006442
+## max       0.070588
+</code></pre><pre tabindex="0"><code>##               Close
+## Date               
+## 2022-08-16  0.02015
 </code></pre><p>*** <code>HIGH LOW PERCENTAGE</code> ***</p>
 <p>Another interesting statistic is the high low percentage. Here we just calculate the difference between the highest and the lowest value and divide it by the closing value.</p>
 <p>By doing that we can get a feeling of how volatile the stock is.</p>
-<pre tabindex="0"><code>##               Open     High      Low   Close    Volume  ... Open-Open  \
-## Date                                                    ...             
-## 2021-06-11  1.4301  1.45160  1.42945  1.4469  6140.828  ...    0.0061   
-## 2021-06-14  1.4710  1.47700  1.45345  1.4618  7132.294  ...    0.0409   
-## 2021-06-15  1.4640  1.47600  1.46300  1.4739  5403.104  ...   -0.0070   
-## 2021-06-16  1.4727  1.48945  1.46750  1.4806  7661.710  ...    0.0087   
-## 2021-06-17  1.4751  1.50265  1.47510  1.4953  7677.951  ...    0.0024   
+<pre tabindex="0"><code>##                Open     High      Low    Close  Adj Close  ...  Open-Open  \
+## Date                                                       ...              
+## 2022-08-10  0.02045  0.02060  0.02031  0.02038  20.160707  ...    0.00027   
+## 2022-08-11  0.02029  0.02042  0.02010  0.02015  19.933182  ...   -0.00016   
+## 2022-08-12  0.02005  0.02014  0.01995  0.02011  19.893614  ...   -0.00024   
+## 2022-08-15  0.02002  0.02015  0.02002  0.02011  19.893614  ...   -0.00003   
+## 2022-08-16  0.02005  0.02016  0.01999  0.02015  19.933182  ...    0.00003   
 ## 
 ##               zscore  zscorevolume  PCT_Change    HL_PCT  
 ## Date                                                      
-## 2021-06-11  3.181882     -0.346013    0.011747  0.015309  
-## 2021-06-14  3.243986     -0.217202   -0.006254  0.016110  
-## 2021-06-15  3.294420     -0.441857    0.006762  0.008820  
-## 2021-06-16  3.322346     -0.148421    0.005364  0.014825  
-## 2021-06-17  3.383617     -0.146311    0.013694  0.018424  
+## 2022-08-10  1.793515     -0.735693   -0.003423  0.014230  
+## 2022-08-11  1.748007     -0.483587   -0.006900  0.015881  
+## 2022-08-12  1.740093     -0.889140    0.002993  0.009448  
+## 2022-08-15  1.740093     -1.178078    0.004496  0.006464  
+## 2022-08-16  1.748007     -0.473261    0.004988  0.008437  
 ## 
 ## [5 rows x 14 columns]
 </code></pre><p>These statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making</p>
@@ -618,25 +630,25 @@ From our data we can derive some statistical values that will help us to analyze
 <p>we are going to derive the different moving averages . It is the arithmetic mean of all the values of the past n days. Of course this is not the only key statistic that we can derive, but it is the one we are going to use now. We can play around with other functions as well.</p>
 <p>What we are going to do with this value is to include it into our data frame and to compare it with the share price of that day.</p>
 <p>For this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column.</p>
-<pre tabindex="0"><code>##              Close  5d_ma  20d_ma  50d_ma  100d_ma  ...  5d_ema  20d_ema  \
-## Date                                                ...                    
-## 2021-06-09  1.4153   1.40    1.37    1.37     1.34  ...    1.40     1.38   
-## 2021-06-10  1.4243   1.41    1.38    1.37     1.34  ...    1.41     1.38   
-## 2021-06-11  1.4469   1.42    1.38    1.37     1.34  ...    1.42     1.39   
-## 2021-06-14  1.4618   1.43    1.39    1.37     1.35  ...    1.44     1.40   
-## 2021-06-15  1.4739   1.44    1.40    1.38     1.35  ...    1.45     1.40   
-## 2021-06-16  1.4806   1.46    1.40    1.38     1.35  ...    1.46     1.41   
-## 2021-06-17  1.4953   1.47    1.41    1.38     1.35  ...    1.47     1.42   
+<pre tabindex="0"><code>##               Close  5d_ma  20d_ma  50d_ma  100d_ma  ...  5d_ema  20d_ema  \
+## Date                                                 ...                    
+## 2022-08-08  0.02027   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-09  0.02018   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-10  0.02038   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-11  0.02015   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-12  0.02011   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-15  0.02011   0.02    0.02    0.02     0.02  ...    0.02     0.02   
+## 2022-08-16  0.02015   0.02    0.02    0.02     0.02  ...    0.02     0.02   
 ## 
 ##             50d_ema  100d_ema  200d_ema  
 ## Date                                     
-## 2021-06-09     1.36      1.32      1.22  
-## 2021-06-10     1.37      1.32      1.22  
-## 2021-06-11     1.37      1.33      1.22  
-## 2021-06-14     1.37      1.33      1.22  
-## 2021-06-15     1.38      1.33      1.23  
-## 2021-06-16     1.38      1.33      1.23  
-## 2021-06-17     1.38      1.34      1.23  
+## 2022-08-08     0.02      0.02      0.02  
+## 2022-08-09     0.02      0.02      0.02  
+## 2022-08-10     0.02      0.02      0.02  
+## 2022-08-11     0.02      0.02      0.02  
+## 2022-08-12     0.02      0.02      0.02  
+## 2022-08-15     0.02      0.02      0.02  
+## 2022-08-16     0.02      0.02      0.02  
 ## 
 ## [7 rows x 11 columns]
 </code></pre><p>Here we define a three new columns with the name 20d_ma, 50d_ma, 100d_ma,200d_ma . We now fill this column with the mean values of every n entries. The rolling function stacks a specific amount of entries, in order to make a statistical calculation possible. The window parameter is the one which defines how many entries we are going to stack. But there is also the min_periods parameter. This one defines how many entries we need to have as a minimum in order to perform the calculation. This is relevant because the first entries of our data frame won’t have a n entries previous to them. By setting this value to zero we start the calculations already with the first number, even if there is not a single previous value. This has the effect that the first value will be just the first number, the second one will be the mean of the first two numbers and so on, until we get to a b values.</p>
@@ -644,42 +656,42 @@ From our data we can derive some statistical values that will help us to analyze
 <p>*** <code>Standard Deviation</code> ***</p>
 <p>The variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.</p>
 <pre tabindex="0"><code>## Date
-## 2021-06-09    0.014154
-## 2021-06-10    0.017636
-## 2021-06-11    0.022434
-## 2021-06-14    0.027870
-## 2021-06-15    0.029889
-## 2021-06-16    0.028066
-## 2021-06-17    0.029559
+## 2022-08-08    0.000370
+## 2022-08-09    0.000326
+## 2022-08-10    0.000297
+## 2022-08-11    0.000102
+## 2022-08-12    0.000100
+## 2022-08-15    0.000105
+## 2022-08-16    0.000099
 ## Name: Std_dev, dtype: float64
 </code></pre><p>*** <code>Relative Strength Index</code> ***</p>
 <p>The relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.</p>
 <pre tabindex="0"><code>##                   RSI
 ## Date                 
-## 2021-06-11  79.730449
-## 2021-06-14  82.659552
-## 2021-06-15  84.681863
-## 2021-06-16  85.719339
-## 2021-06-17  87.764747
+## 2022-08-10  70.215399
+## 2022-08-11  62.897491
+## 2022-08-12  61.640604
+## 2022-08-15  61.640604
+## 2022-08-16  62.586825
 </code></pre><p>*** <code>Average True range</code> ***</p>
 <pre tabindex="0"><code>##                  ATR  20dayEMA   ATRdiff
 ## Date                                    
-## 2021-06-11  0.022708  0.024154 -0.001446
-## 2021-06-14  0.023236  0.024067 -0.000831
-## 2021-06-15  0.022590  0.023926 -0.001336
-## 2021-06-16  0.022545  0.023794 -0.001250
-## 2021-06-17  0.022902  0.023709 -0.000807
+## 2022-08-10  0.000398  0.000444 -0.000046
+## 2022-08-11  0.000392  0.000439 -0.000047
+## 2022-08-12  0.000378  0.000433 -0.000055
+## 2022-08-15  0.000361  0.000426 -0.000066
+## 2022-08-16  0.000347  0.000419 -0.000072
 </code></pre><p>*** <code>Wiliams %R</code> ***</p>
 <p>Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today&rsquo;s close was the highest high of the past N days.</p>
 <pre tabindex="0"><code>##             Williams %R
 ## Date                   
-## 2021-06-09   -16.166667
-## 2021-06-10    -7.343750
-## 2021-06-11    -6.304494
-## 2021-06-14   -15.245737
-## 2021-06-15    -3.109328
-## 2021-06-16    -9.424920
-## 2021-06-17    -7.496175
+## 2022-08-08   -10.377241
+## 2022-08-09   -19.417388
+## 2022-08-10   -18.965625
+## 2022-08-11   -51.136388
+## 2022-08-12   -75.384624
+## 2022-08-15   -75.384624
+## 2022-08-16   -69.230927
 </code></pre><p>Readings below -80 represent oversold territory and readings above -20 represent overbought.</p>
 <p>*** <code>ADX</code> ***</p>
 <p>ADX is used to quantify trend strength. ADX calculations are based on a moving average of price range expansion over a given period of time. The average directional index (ADX) is used to determine when the price is trending strongly.</p>
@@ -697,34 +709,34 @@ From our data we can derive some statistical values that will help us to analyze
 </blockquote>
 <pre tabindex="0"><code>##                   ADX
 ## Date                 
-## 2021-06-09  35.040060
-## 2021-06-10  38.007955
-## 2021-06-11  42.466301
-## 2021-06-14  47.539012
-## 2021-06-15  51.887051
-## 2021-06-16  56.149380
-## 2021-06-17  60.228583
+## 2022-08-08  37.641580
+## 2022-08-09  38.551145
+## 2022-08-10  41.068843
+## 2022-08-11  40.206448
+## 2022-08-12  37.511612
+## 2022-08-15  35.289665
+## 2022-08-16  32.920780
 </code></pre><pre tabindex="0"><code>##                    CCI
 ## Date                  
-## 2021-06-09  133.300138
-## 2021-06-10  149.585627
-## 2021-06-11  184.762726
-## 2021-06-14  211.506362
-## 2021-06-15  173.550518
-## 2021-06-16  147.567401
-## 2021-06-17  135.319074
+## 2022-08-08  112.110256
+## 2022-08-09   88.411328
+## 2022-08-10   99.468246
+## 2022-08-11   67.914648
+## 2022-08-12   43.763722
+## 2022-08-15   38.402583
+## 2022-08-16   31.315216
 </code></pre><p>*** <code>MACD</code> ***</p>
 <p>Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security&rsquo;s price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.</p>
 <pre tabindex="0"><code>##             MACD_IND
 ## Date                
-## 2021-06-11  0.006207
-## 2021-06-14  0.007615
-## 2021-06-15  0.008741
-## 2021-06-16  0.009266
-## 2021-06-17  0.009876
+## 2022-08-10  0.000150
+## 2022-08-11  0.000117
+## 2022-08-12  0.000085
+## 2022-08-15  0.000057
+## 2022-08-16  0.000036
 </code></pre><p>*** <code>Bollinger Bands</code> ***</p>
 <p>Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.</p>
-<pre tabindex="0"><code>## 15.0 14.67 14.34
+<pre tabindex="0"><code>## 0.2 0.2 0.2
 </code></pre><p>In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.</p>
 <p>We do this by using the dropna function. If we would have had any entries with NaN values in any column, they would now have been deleted</p>
 <p><em><strong>3: Predicting the movement of stock</strong></em></p>
@@ -734,72 +746,72 @@ From our data we can derive some statistical values that will help us to analyze
 <p><em><strong>3.2:  create the lagged percentage returns columns</strong></em></p>
 <pre tabindex="0"><code>##                Today      Lag1      Lag2      Lag3      Lag4      Lag5  \
 ## Date                                                                     
-## 2021-06-04 -0.287842  0.797882 -0.616349 -0.469955 -0.804242  0.199679   
-## 2021-06-07  0.288673 -0.287842  0.797882 -0.616349 -0.469955 -0.804242   
-## 2021-06-08  1.676681  0.288673 -0.287842  0.797882 -0.616349 -0.469955   
-## 2021-06-09  0.166319  1.676681  0.288673 -0.287842  0.797882 -0.616349   
-## 2021-06-10  0.635908  0.166319  1.676681  0.288673 -0.287842  0.797882   
-## 2021-06-11  1.586744  0.635908  0.166319  1.676681  0.288673 -0.287842   
-## 2021-06-14  1.029788  1.586744  0.635908  0.166319  1.676681  0.288673   
-## 2021-06-15  0.827747  1.029788  1.586744  0.635908  0.166319  1.676681   
-## 2021-06-16  0.454576  0.827747  1.029788  1.586744  0.635908  0.166319   
-## 2021-06-17  0.992841  0.454576  0.827747  1.029788  1.586744  0.635908   
+## 2022-08-03  3.129813 -0.662595  0.667014  1.775458  2.351687  4.466774   
+## 2022-08-04  0.248752  3.129813 -0.662595  0.667014  1.775458  2.351687   
+## 2022-08-05  0.794044  0.248752  3.129813 -0.662595  0.667014  1.775458   
+## 2022-08-08 -0.196942  0.794044  0.248752  3.129813 -0.662595  0.667014   
+## 2022-08-09 -0.444007 -0.196942  0.794044  0.248752  3.129813 -0.662595   
+## 2022-08-10  0.991075 -0.444007 -0.196942  0.794044  0.248752  3.129813   
+## 2022-08-11 -1.128555  0.991075 -0.444007 -0.196942  0.794044  0.248752   
+## 2022-08-12 -0.198506 -1.128555  0.991075 -0.444007 -0.196942  0.794044   
+## 2022-08-15  0.000000 -0.198506 -1.128555  0.991075 -0.444007 -0.196942   
+## 2022-08-16  0.198901  0.000000 -0.198506 -1.128555  0.991075 -0.444007   
 ## 
 ##                 Lag6  
 ## Date                  
-## 2021-06-04  0.357846  
-## 2021-06-07  0.199679  
-## 2021-06-08 -0.804242  
-## 2021-06-09 -0.469955  
-## 2021-06-10 -0.616349  
-## 2021-06-11  0.797882  
-## 2021-06-14 -0.287842  
-## 2021-06-15  0.288673  
-## 2021-06-16  1.676681  
-## 2021-06-17  0.166319
+## 2022-08-03 -3.502153  
+## 2022-08-04  4.466774  
+## 2022-08-05  2.351687  
+## 2022-08-08  1.775458  
+## 2022-08-09  0.667014  
+## 2022-08-10 -0.662595  
+## 2022-08-11  3.129813  
+## 2022-08-12  0.248752  
+## 2022-08-15  0.794044  
+## 2022-08-16 -0.196942
 </code></pre><p><em><strong>3.3: &ldquo;Direction&rdquo; column (+1 or -1) indicating an up/down day</strong></em></p>
 <p>***3.4: Create the dependent and independent variables ***</p>
-<pre tabindex="0"><code>## C:/Users/slaxm/AppData/Local/r-miniconda/envs/r-reticulate/python.exe:1: SettingWithCopyWarning: 
+<pre tabindex="0"><code>## &lt;string&gt;:1: SettingWithCopyWarning: 
 ## A value is trying to be set on a copy of a slice from a DataFrame.
 ## Try using .loc[row_indexer,col_indexer] = value instead
 ## 
 ## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-</code></pre><pre tabindex="0"><code>##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...         CCI  \
-## Date                                                          ...               
-## 2021-06-11  0.635908  0.166319  1.676681  0.288673 -0.287842  ...  184.762726   
-## 2021-06-14  1.586744  0.635908  0.166319  1.676681  0.288673  ...  211.506362   
-## 2021-06-15  1.029788  1.586744  0.635908  0.166319  1.676681  ...  173.550518   
-## 2021-06-16  0.827747  1.029788  1.586744  0.635908  0.166319  ...  147.567401   
-## 2021-06-17  0.454576  0.827747  1.029788  1.586744  0.635908  ...  135.319074   
+</code></pre><pre tabindex="0"><code>##                 Lag1      Lag2      Lag3      Lag4      Lag5  ...        CCI  \
+## Date                                                          ...              
+## 2022-08-10 -0.444007 -0.196942  0.794044  0.248752  3.129813  ...  99.468246   
+## 2022-08-11  0.991075 -0.444007 -0.196942  0.794044  0.248752  ...  67.914648   
+## 2022-08-12 -1.128555  0.991075 -0.444007 -0.196942  0.794044  ...  43.763722   
+## 2022-08-15 -0.198506 -1.128555  0.991075 -0.444007 -0.196942  ...  38.402583   
+## 2022-08-16  0.000000 -0.198506 -1.128555  0.991075 -0.444007  ...  31.315216   
 ## 
 ##                  ROC         DX  Open-Close  Open-Open  
 ## Date                                                    
-## 2021-06-11  2.978542  46.292069      0.0058     0.0061  
-## 2021-06-14  4.882511  54.768897      0.0241     0.0409  
-## 2021-06-15  6.250000  54.768897      0.0022    -0.0070  
-## 2021-06-16  7.394915  58.765690     -0.0012     0.0087  
-## 2021-06-17  7.602634  62.287724     -0.0055     0.0024  
+## 2022-08-10  8.925709  36.520132     0.00027    0.00027  
+## 2022-08-11  5.221932  28.113701    -0.00009   -0.00016  
+## 2022-08-12  3.181123  22.319824    -0.00010   -0.00024  
+## 2022-08-15  2.497450  22.571233    -0.00009   -0.00003  
+## 2022-08-16  3.386351  21.302859    -0.00006    0.00003  
 ## 
 ## [5 rows x 29 columns]
 </code></pre><p><em><strong>3.5:  Create training and test sets</strong></em></p>
 <p>***3.6:  Create model ***</p>
 <p><em><strong>3.7:  train the model on the training set</strong></em></p>
-<pre tabindex="0"><code>## LogisticRegression()
+<pre tabindex="0"><code>&lt;style&gt;#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: &#34;▸&#34;;float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: &#34;▾&#34;;}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: &#34;&#34;;width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: &#34;&#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: &#34;&#34;;position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter&#39;s `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}&lt;/style&gt;&lt;div id=&#34;sk-container-id-1&#34; class=&#34;sk-top-container&#34;&gt;&lt;div class=&#34;sk-text-repr-fallback&#34;&gt;&lt;pre&gt;LogisticRegression()&lt;/pre&gt;&lt;b&gt;In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. &lt;br /&gt;On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.&lt;/b&gt;&lt;/div&gt;&lt;div class=&#34;sk-container&#34; hidden&gt;&lt;div class=&#34;sk-item&#34;&gt;&lt;div class=&#34;sk-estimator sk-toggleable&#34;&gt;&lt;input class=&#34;sk-toggleable__control sk-hidden--visually&#34; id=&#34;sk-estimator-id-1&#34; type=&#34;checkbox&#34; checked&gt;&lt;label for=&#34;sk-estimator-id-1&#34; class=&#34;sk-toggleable__label sk-toggleable__label-arrow&#34;&gt;LogisticRegression&lt;/label&gt;&lt;div class=&#34;sk-toggleable__content&#34;&gt;&lt;pre&gt;LogisticRegression()&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 </code></pre><p><em><strong>3.8:    make an array of predictions on the test set</strong></em></p>
 <p><em><strong>3.9:    output the hit-rate and the confusion matrix for the model</strong></em></p>
 <pre tabindex="0"><code>## 
-## Train Accuracy: 98.43%
-</code></pre><pre tabindex="0"><code>## Test Accuracy: 96.46%
-</code></pre><pre tabindex="0"><code>## [[47  3]
-##  [ 1 62]]
+## Train Accuracy: 98.68%
+</code></pre><pre tabindex="0"><code>## Test Accuracy: 97.06%
+</code></pre><pre tabindex="0"><code>## [[189   1]
+##  [ 11 207]]
 </code></pre><p>***3.10:   Predict movement of stock for tomorrow. ***</p>
 <pre tabindex="0"><code>##             y_test  y_pred
 ## Date                      
-## 2021-06-11       1       1
-## 2021-06-14       1       1
-## 2021-06-15       1       1
-## 2021-06-16       1       1
-## 2021-06-17       1       1
+## 2022-08-10       1       1
+## 2022-08-11      -1      -1
+## 2022-08-12      -1      -1
+## 2022-08-15      -1      -1
+## 2022-08-16       1       1
 </code></pre><pre tabindex="0"><code>## [1]
 </code></pre>
       <div align = "center">

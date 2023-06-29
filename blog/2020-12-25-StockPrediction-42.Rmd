@@ -32,6 +32,7 @@ use_condaenv("r-reticulate")
 
 ```
 
+
 ***1:Loading Stock data***
 
 ***1.1:Importing libraries and data***
@@ -58,8 +59,14 @@ from sklearn.preprocessing import MinMaxScaler
 import math
 from sklearn.metrics import mean_squared_error
 import investpy
+from pandas_datareader import data as pdr
+import yfinance as yfin
+from pandas_datareader import data
+pd.core.common.is_list_like = pd.api.types.is_list_like
+yfin.pdr_override()
 
 ```
+
 
 
 </p>
@@ -77,7 +84,10 @@ df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='0
 ```{python, echo = FALSE}
 
 
-df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2015', to_date='17/06/2021')
+##df = investpy.get_stock_historical_data(stock='INFY', country='India',from_date='01/01/2015', to_date='17/06/2021')
+
+df = pdr.get_data_yahoo("INFY","2014-01-01","2022-08-17")
+
 df['Open'] = df['Open'] 
 df['Close'] = df['Close'] 
 df['High'] = df['High'] 
@@ -122,7 +132,7 @@ print(df.tail())
 ***1.2.2: Determining Average monthly closing prices***
 
 ```{python, echo = FALSE}
-df.drop(['Currency'], axis = 1)
+#df.drop(['Currency'], axis = 1)
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
 df['Open'] = df['Open'] / 1000
@@ -151,10 +161,11 @@ print('meanprice is ', meanprice)
 ***1.2.3: Technical moving averages***
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE,eval=FALSE}
 
-data1 = investpy.moving_averages(name='VODA', country='India', product_type='stock', interval='daily')
-print(data1.head())
+df['MA'] = talib.SMA(df['Close'],20)
+df[['Close','MA']].plot(figsize=(12,12))
+plt.show()
 
 ```
 
@@ -299,13 +310,13 @@ plt.show()
 
 The best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library. 
 
-```{python}
+```{python,echo=TRUE}
 import mplfinance as fplt
 ```
 We are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.
 Also, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .
 
-```{python}
+```{python, echo=TRUE}
 import matplotlib.dates as mdates
 ```
 

@@ -23,12 +23,13 @@ output:
 ---
 
 
+
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(magick)
 library(reticulate)
 use_condaenv("r-reticulate")
-
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 
@@ -38,7 +39,6 @@ use_condaenv("r-reticulate")
 ***1.1:Importing libraries and data***
 
 <p class="nocopy">
-
 
 ```{python class.source = "nocopy", message = FALSE, warnings = FALSE}
 import investpy
@@ -60,26 +60,122 @@ import math
 from sklearn.metrics import mean_squared_error
 import investpy
 
+
+# Set the desired date range
+from_date = "2019-11-18"
+to_date = "2023-06-28"
+
 ```
 
 </p>
 
-  ***1.2:Fetching the data***
-To fetch the stock data we use `investpy` library. This library fetchs data from investing for example:
+  ***1.2:Load the data***
 
-```{python, eval = FALSE,echo = FALSE}
-df = investpy.commodities.get_commodity_historical_data(stock='ABC',from_date='01/11/2019',to_date='14/08/2020', country = "India")
+Assuming that the data is already been downloaded in the excel sheet. We use the pandas data frame to read the data
+
+```{python,echo = FALSE}
+df = pd.read_excel('silverprices.xlsx')
+df['Volume'] = df['Volume']*1000
+df['Date'] = pd.to_datetime(df['Date'])
+df.set_index('Date', inplace=True)
+df.tail()
 ```
 
+```{python, eval=FALSE, echo=FALSE}
+import cloudscraper
+import pandas as pd
+
+# Create a Cloudscraper instance
+scraper = cloudscraper.create_scraper()
+
+# Define the URL for MCX Silver Micro data
+url = "https://www.mcxindia.com/market-data/bhavcopy"
+
+# Send a GET request to the URL
+response = scraper.get(url)
+
+# Extract the table data from the response using pandas
+tables = pd.read_html(response.content)
+
+# Get the required table with MCX Silver Micro data
+mcx_data = tables[0]  # Adjust the index as per the actual table position
+
+# Print the retrieved data
+print(mcx_data)
+```
+
+***1.2:As the commodity price also depend on exchange rate. We download that data from yahoo finance***
+
+```{python}
+import yfinance as yf
+
+# Define the ticker symbol for USD/INR
+symbol = "USDINR=X"
+
+# Fetch the historical data for USD/INR
+usdinr = yf.download(symbol, start=from_date, end=to_date)
+
+# Print the retrieved data
+print(usdinr.tail())
+```
+
+```{python,eval=FALSE, echo=FALSE}
+import quandl
+
+# Set your Quandl API key
+quandl.ApiConfig.api_key = "YBM9uPgpnsaDYPkAn539"
+
+# Define the commodity code for MCX Silver Micro
+commodity_code = "MCX/SILVERMICRO"
+
+# Set the desired date range
+from_date = "2023-01-01"
+to_date = "2023-06-27"
+
+# Fetch the historical data for MCX Silver Micro
+silver_micro_data = quandl.get(commodity_code, start_date=from_date, end_date=to_date)
+
+# Print the retrieved data
+print(silver_micro_data)
+```
+
+```{python,eval=FALSE,echo=FALSE}
+import yfinance as yf
+
+# Define the ticker symbol for MCX Silver
+symbol = "SILVER.NS"
+
+# Fetch the historical data for MCX Silver
+silver_data = yf.download(symbol, start=from_date, end=to_date)
+
+
+# Print the retrieved data with price per kilogram
+print(silver_data)
+```
+
+***1.2:As the commodity price also depend on XAGUSD, we download that data using yahoo finance***
 
 ```{python, echo = FALSE}
+import yfinance as yf
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/12/2020', to_date='10/09/2022')
+# Define the ticker symbol for silver in USD
+symbol = "SI=F"
 
-dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/12/2020', to_date='10/09/2022')
-dfusd1 = investpy.get_commodity_historical_data(commodity='Silver', from_date='08/09/2022', to_date='10/09/2022')
 
-df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/12/2021',to_date='10/09/2022', country = "India")
+# Fetch the historical data for silver in USD
+dfusd = yf.download(symbol, start=from_date, end=to_date)
+
+# Print the retrieved data
+print(dfusd.tail())
+```
+
+```{python, echo = FALSE, eval=FALSE}
+
+#usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/10/2019', to_date='19/05/2022')
+
+#dfusd = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/10/2019', to_date='19/05/2022')
+
+#df = investpy.commodities.get_commodity_historical_data(commodity='MCX Silver Micro',from_date='09/10/2019',to_date='19/05/2022', country = "India")
 
 dfs = df.copy()
 
@@ -87,9 +183,11 @@ dfs = df.copy()
 
 #print(info['Todays Range'])
 ```
+
+
 ***1.2.1: Determining position based on volume and close***
 
-```{python, echo = FALSE, warning = FALSE, message = FALSE}
+```{python, echo = FALSE, warning = FALSE, message = FALSE, eval=FALSE}
 
 pd.set_option('display.max_columns', None)
 df.Volume = df.Volume
@@ -102,11 +200,12 @@ short = df2[df2['Open'] == df2['High']]
 lng = df2[df2['Open'] == df2['Low']]
 
 
-short['gain'] = short['High'] - short['Close']
-lng['gain'] = lng['Close'] - lng['Low']
+short['gain'] = short.iloc['High'] - short.iloc['Close']
+lng['gain'] = lng.iloc['Close'] - lng.iloc['Low']
 
 
 df2 = df2.reset_index()
+
 
 df2['weekday'] = df2['Date'].dt.day_name()
 
@@ -115,25 +214,21 @@ print(df2.tail(5))
 ```
 ***1.2.2: Long positions gains***
 
-
-
-```{python, echo = FALSE, warning = FALSE, message = FALSE}
+```{python, echo = FALSE, warning = FALSE, message = FALSE,eval=FALSE}
 
 short = short.reset_index()
 lng = lng.reset_index()
 print(lng.tail(5))
+print(short.tail(5))
 ```
 
 ***1.2.3: Short positions gains***
 
-```{python, echo = FALSE, warning = FALSE, message = FALSE}
+```{python, echo = FALSE, warning = FALSE, message = FALSE,eval=FALSE}
 print(short.tail(5))
 ```
 
-
-
-
-```{python,eval=FALSE}
+```{python,eval=FALSE,eval=FALSE}
 print(short['weekday'].value_counts())
 print(lng['weekday'].value_counts())
 ```
@@ -150,7 +245,6 @@ print(df.tail())
 ***1.2.2: Determining Average monthly closing prices***
 
 ```{python, echo = FALSE}
-df.drop(['Currency'], axis = 1)
 df['High'] = df['High'] / 1000
 df['Low'] = df['Low'] / 1000
 df['Open'] = df['Open'] / 1000
@@ -182,7 +276,7 @@ print('meanprice is ', meanprice)
 ***1.2.3: Technical moving averages***
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 data1 = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
 print(data1.head())
@@ -204,14 +298,23 @@ print(df['zscorevolume'].tail(5))
 
 ***1.2.5: Determining the daily support and resistance levels***
 
-```{python,echo = FALSE}
-data2 = investpy.pivot_points(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
-print(data2.tail(5))
-
-data3 = investpy.technical_indicators(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
-print(data3.head())
-
-data2.iloc[-1]
+```{python}
+#Pivot Points, Supports and Resistances  
+def PPSR(df):  
+    PP = pd.Series((df['High'] + df['Low'] + df['Close']) / 3)  
+    R1 = pd.Series(2 * PP - df['Low'])  
+    S1 = pd.Series(2 * PP - df['High'])  
+    R2 = pd.Series(PP + df['High'] - df['Low'])  
+    S2 = pd.Series(PP - df['High'] + df['Low'])  
+    R3 = pd.Series(df['High'] + 2 * (PP - df['Low']))  
+    S3 = pd.Series(df['Low'] - 2 * (df['High'] - PP))  
+    psr = {'PP':PP, 'R1':R1, 'S1':S1, 'R2':R2, 'S2':S2, 'R3':R3, 'S3':S3}  
+    psrdf = pd.DataFrame(psr) 
+    psrdf = psrdf*1000
+    #df = df.join(PSR)  
+    return psrdf.round().tail()
+  
+PPSR(df) 
 ```
 
 
@@ -543,16 +646,16 @@ df['MACD_IND'] = df['MACD'] - df['Signal Line']
 
 print(df[['MACD_IND']].tail(5))
 
-df['SAR'] = talib.SAR(df['High'].values,df['Low'].values, acceleration=0.02, maximum=0.2)
+#df['SAR'] = talib.SAR(df['High'].values,df['Low'].values, acceleration=0.02, maximum=0.2)
 
 STOK = ((MACD - MACD.rolling(window=10).min()) / (
             MACD.rolling(window=10).max() - MACD.rolling(window=10).min())) * 100
             
 STOD = STOK.rolling(window=10).mean()
 
-df['STC'] = 100 * (MACD - (STOK * MACD)) / ((STOD * MACD) - (STOK * MACD))
+#df['STC'] = 100 * (MACD - (STOK * MACD)) / ((STOD * MACD) - (STOK * MACD))
 
-print(df['STC'])
+print(df.tail())
 
 ```
 
@@ -627,6 +730,7 @@ df_ret["Direction"] = np.sign(df_ret["Today"])
 
 df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
+
 #df_ret["Direction"] = np.where(df['Close'].shift(-1) > df['Close'], 1,-1)
 ```
 
@@ -638,54 +742,56 @@ data = df_ret.copy()
 
 X = data[["Lag1", "Lag2", "Lag3", "Lag4","Lag5","Lag6","Lag7","Lag8","Lag9","Lag10"]]
 
-X['usdinr'] = df['usdinr']
-
-X['usdsilver'] = df['usdsilver'] 
-
-X["20d_ma"] = df[ '20d_ma' ]
-X["20d_ema"] = df[ '20d_ema' ]
-
-X["50d_ma"] =  df['50d_ma']
-X["50d_ema"] = df[ '50d_ema' ]
-
-X["100d_ma"] =  df['100d_ma']
-X["100d_ema"] =  df['100d_ema']
-
-X["200d_ma"] =  df['200d_ma']
-X["200d_ema"] =  df['200d_ema']
 
 
-X['250d_ma'] = df['250d_ma']
-X['250d_ema'] = df['250d_ema']
+X['usdinr'] = df['usdinr'].copy()
+
+X['usdsilver'] = df['usdsilver'].copy() 
+
+X["20d_ma"] = df['20d_ma' ].copy()
+X["20d_ema"] = df['20d_ema' ].copy()
+
+X["50d_ma"] =  df['50d_ma'].copy()
+X["50d_ema"] = df['50d_ema' ].copy()
+
+X["100d_ma"] =  df['100d_ma'].copy()
+X["100d_ema"] =  df['100d_ema'].copy()
+
+X["200d_ma"] =  df['200d_ma'].copy()
+X["200d_ema"] =  df['200d_ema'].copy()
 
 
-X['Std_dev'] = df['Std_dev']
-
-X['RSI'] = df['RSI']
-
-X['Williams %R'] = df['Williams %R']
-
-X['MACD_IND'] = df['MACD_IND'] 
-
-X['VolChange'] = df['VolChange']
-
-X['CloseChange'] = df['CloseChange'] 
-
-X['zscore'] = df['zscore'] 
+X['250d_ma'] = df['250d_ma'].copy()
+X['250d_ema'] = df['250d_ema'].copy()
 
 
-X['CCI'] = df['CCI']
+X['Std_dev'] = df['Std_dev'].copy()
 
-X['ROC'] = df['ROC']
+X['RSI'] = df['RSI'].copy()
 
-X['DX'] = df['DX']
+X['Williams %R'] = df['Williams %R'].copy()
+
+X['MACD_IND'] = df['MACD_IND'].copy()
+
+X['VolChange'] = df['VolChange'].copy()
+
+X['CloseChange'] = df['CloseChange'].copy() 
+
+X['zscore'] = df['zscore'].copy() 
 
 
-X['SAR'] = df['SAR']
+X['CCI'] = df['CCI'].copy()
 
-X['Open-Close']  = df['Open-Close'] 
+X['ROC'] = df['ROC'].copy()
 
-X['Open-Open'] = df['Open-Open'] 
+X['DX'] = df['DX'].copy()
+
+
+#X['SAR'] = df['SAR']
+
+X['Open-Close']  = df['Open-Close'].copy() 
+
+X['Open-Open'] = df['Open-Open'].copy() 
 
 y = data["Direction"]
 
@@ -695,8 +801,6 @@ standardized_X = preprocessing.scale(X)
 
 print(X.tail(5))                           
 
-                   
-                           
 ```
 
 ***3.5:  Create training and test sets***
@@ -721,7 +825,6 @@ print(X_test.tail(5))
 ```{python,echo = FALSE}
 
 # fit model no training data
-# model = XGBClassifier()
 model = LogisticRegression(max_iter=1000000)
 
 ```
@@ -748,11 +851,10 @@ print('\nTrain Accuracy:{: .2f}%'.format(accuracy_train*100))
 print('Test Accuracy:{: .2f}%'.format(accuracy_test*100))
 ```
 
+
 ```{python,echo = FALSE}
 print(confusion_matrix(y_pred,y_test))
 ```
-
-
 
 ***3.10:   Predict movement of stock for tomorrow. ***
 
@@ -762,23 +864,22 @@ comp['y_test'] = y_test
 comp['y_pred'] = y_pred
 print(comp.tail(5))
 predict = model.predict(X_test.tail(1))
+print(predict)
 
+#s1 = data2.iloc[1,1].astype(int)
+#s2 = data2.iloc[1,2].astype(int)
+#s3 = data2.iloc[1,3].astype(int)
+#pp = data2.iloc[1,4].astype(int)
+#r1 = data2.iloc[1,5].astype(int)
+#r2 = data2.iloc[1,6].astype(int)
+#r3 = data2.iloc[1,7].astype(int)
 
-s1 = data2.iloc[1,1].astype(int)
-s2 = data2.iloc[1,2].astype(int)
-s3 = data2.iloc[1,3].astype(int)
-pp = data2.iloc[1,4].astype(int)
-r1 = data2.iloc[1,5].astype(int)
-r2 = data2.iloc[1,6].astype(int)
-r3 = data2.iloc[1,7].astype(int)
-
-lclose = dfs.iloc[-1]['Close'].astype(int)
+#lclose = dfs.iloc[-1]['Close'].astype(int)
 
 ```
 
 
-
-```{python,echo = FALSE,eval = TRUE}
+```{python,echo = FALSE, eval=FALSE}
 
 print('Hourly Technical Indicators:')
 
@@ -826,7 +927,7 @@ if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['Low']):
 
 if(dfs.iloc[-1]['Open'] == dfs.iloc[-1]['High']): 
   print('Open High Strategy ', 'Sell now' )
-
+  
 ```
 
 
@@ -867,11 +968,11 @@ prophet_plot_components(model,forecast)
 ```
 
 
-```{python, echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
-usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='09/12/2019', to_date='07/07/2022')
+usdinr = investpy.get_currency_cross_historical_data(currency_cross='USD/INR', from_date='01/01/2015', to_date='06/11/2021')
 
-df = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/12/2019', to_date='07/07/2022')
+df = investpy.get_commodity_historical_data(commodity='Silver', from_date='01/01/2015', to_date='06/11/2021')
 
 #info = investpy.commodities.get_commodity_information(commodity='Silver',as_json=True)
 
@@ -879,7 +980,7 @@ df = investpy.get_commodity_historical_data(commodity='Silver', from_date='09/12
 ```
 
 
-```{python}
+```{python,echo = FALSE, eval=FALSE}
 
 pd.set_option('display.max_columns', None)
 
@@ -917,7 +1018,7 @@ lng['weekday'] = lng['Date'].dt.day_name()
 
 ***1.2.2: Determining Average monthly closing prices***
 
-```{python, echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df.drop(['Currency'], axis = 1)
 df['High'] = df['High'] 
 df['Low'] = df['Low'] 
@@ -949,7 +1050,7 @@ print('meanprice is ', meanprice)
 ***1.2.3: Technical moving averages***
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 data1 = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='daily')
 print(data1.head())
@@ -958,7 +1059,7 @@ print(data1.head())
 
 ***1.2.4: Determining the z-scores***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 df['zscore'] = stats.zscore(df['Close'])
 print(df['zscore'].tail(5))
@@ -971,7 +1072,7 @@ print(df['zscorevolume'].tail(5))
 
 ***1.2.5: Determining the daily support and resistance levels***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 pd.set_option('display.max_columns', 10)
 PP = pd.Series((df['High'] + df['Low'] + df['Close']) / 3)  
 R1 = pd.Series(2 * PP - df['Low'])  
@@ -990,7 +1091,7 @@ print(PSR.tail(5))
 
 ***1.2.6: Fibonnacci retracement levels***
 
-```{python, echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 retracements = [23.6,38.2,50.00,61.8,76.4,78.6,85.40]
 extensions = [127.2,138.2,150.00,161.8,176.4,261.8,423.6]
 
@@ -1060,14 +1161,14 @@ Since our data is stored in a Pandas data frame, we can use the indexing we alre
 
 Also, we can go ahead and print the closing value of a specific date that we are interested in. This is possible because the date is our index column.
 
-```{python}
+```{python,echo = FALSE, eval=FALSE}
 print (df[ 'Close' ][ '2020-07-14' ])
 ```
 
 
 But we could also use simple indexing to access certain positions.
 
-```{python}
+```{python,echo = FALSE, eval=FALSE}
 print (df[ 'Close' ][ 5 ])
 ```
 
@@ -1081,7 +1182,7 @@ Even though tables are nice and useful, we want to visualize our financial data,
 Actually plotting our share price curve with Pandas and Matplotlib is very simple. Since Pandas builds on top of Matplotlib, we can just select the column we are interested in and apply the plot method. The results are amazing. Since the date is the index of our data frame, Matplotlib uses it for the x-axis. The y-values are then our adjusted close values.
 
 
-```{python,eval = FALSE,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 import matplotlib.pyplot as plt
 from matplotlib import style
 style.use( 'ggplot' )
@@ -1097,13 +1198,13 @@ plt.show()
 
 The best way to visualize stock data is to use so-called candlestick charts . This type of chart gives us information about four different values at the same time, namely the high, the low, the open and the close value. In order to plot candlestick charts, we will need to import a function of the MPL-Finance library. 
 
-```{python}
+```{python,echo = FALSE, eval=FALSE}
 import mplfinance as fplt
 ```
 We are importing the candlestick_ohlc function. Notice that there also exists a candlestick_ochl function that takes in the data in a different order.
 Also, for our candlestick chart, we will need a different date format provided by Matplotlib. Therefore, we need to import the respective module as well. We give it the alias mdates .
 
-```{python}
+```{python,echo = FALSE, eval=FALSE}
 import matplotlib.dates as mdates
 ```
 
@@ -1118,7 +1219,7 @@ df1 = df[[ 'Open' , 'High' , 'Low' , 'Close' ]]
 Now, we have our columns in the right order but there is still a problem. Our date doesn’t have the right format and since it is the index, we cannot manipulate it. 
 Therefore, we need to reset the index and then convert our datetime to a number.
 
-```{python,warning=FALSE, message=FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df1.reset_index( inplace = True )
 df1[ 'Date' ] = df1[ 'Date' ].map(mdates.date2num)
 ```
@@ -1128,7 +1229,7 @@ For this, we use the reset_index function so that we can manipulate our Date col
 
 Now we can start plotting our graph. For this, we just define a subplot (because we need to pass one to our function) and call our candlestick_ohlc function.
 
-```{python, eval=FALSE,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 ax = plt.subplot()
 fplt(ax, df1.values,
                   width = 5 ,
@@ -1154,18 +1255,18 @@ From our data we can derive some statistical values that will help us to analyze
 
 One value that we can calculate is the percentage change of that day. This means by how many percent the share price increased or decreased that day.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df[ 'PCT_Change' ] = (df[ 'Close' ] - df[ 'Open' ]) / df[ 'Open' ]
 ```
 
 The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df[["PCT_Change"]].describe()
 ```
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 print(df[["Close"]].tail(1))
 ```
 
@@ -1175,7 +1276,7 @@ Another interesting statistic is the high low percentage. Here we just calculate
 
 By doing that we can get a feeling of how volatile the stock is.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df[ 'HL_PCT' ] = (df[ 'High' ] - df[ 'Low' ]) / df[ 'Close' ]
 print(df.tail())
 ```
@@ -1190,7 +1291,7 @@ What we are going to do with this value is to include it into our data frame and
 
 For this, we will first need to create a new column. Pandas does this automatically when we assign values to a column name. This means that we don’t have to explicitly define that we are creating a new column. 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 df[ '5d_ma' ] = round(df[ 'Close' ].rolling( window = 5 , min_periods = 0 ).mean(),2)
 df[ '20d_ma' ] = round(df[ 'Close' ].rolling( window = 20 , min_periods = 0 ).mean(),2)
@@ -1222,7 +1323,7 @@ By using the mean function, we are obviously calculating the arithmetic mean. Ho
 
 The variability of the closing stock prices determinies how vo widely prices are dispersed from the average price. If the prices are trading in narrow trading range the standard deviation will return a low value that indicates low volatility. If the prices are trading in wide trading range the standard deviation will return high value that indicates high volatility.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df['Std_dev']= df['Close'].rolling(7).std()  
 print(df['Std_dev'].tail(7))
 ```
@@ -1232,7 +1333,7 @@ print(df['Std_dev'].tail(7))
 
 The relative strength index is a indicator of mementum used in technical analysis that measures the magnitude of current price changes to know overbought or oversold conditions in the price of a stock or other asset. If RSI is above 70 then it is overbought. If RSI is below 30 then it is oversold condition.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df['RSI'] = talib.RSI(df['Close'].values, timeperiod = 9)    
 print(df[['RSI']].tail())
 ```
@@ -1241,7 +1342,7 @@ print(df[['RSI']].tail())
 *** `Average True range` ***
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df['ATR'] = talib.ATR(df['High'].values, df['Low'].values, df['Close'].values,timeperiod=14)
 df['ATR'] = df['ATR'] * 1000
 df['20dayEMA'] = df['ATR'].ewm(span=20, adjust=False).mean()
@@ -1254,7 +1355,7 @@ print(df[['ATR','20dayEMA','ATRdiff']].tail())
 
 Williams %R, or just %R, is a technical analysis oscillator showing the current closing price in relation to the high and low of the past N days.The oscillator is on a negative scale, from −100 (lowest) up to 0 (highest). A value of −100 means the close today was the lowest low of the past N days, and 0 means today's close was the highest high of the past N days.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df['Williams %R'] = talib.WILLR(df['High'].values,df['Low'].values, df['Close'].values, 7)
  
 print(df[['Williams %R']].tail(7))
@@ -1275,7 +1376,7 @@ ADX is used to quantify trend strength. ADX calculations are based on a moving a
 
 >75-100:	Extremely Strong Trend
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 df['ADX'] = talib.ADX(df['High'].values,df['Low'].values, df['Close'].values, 7)
 
@@ -1297,7 +1398,7 @@ print(df[['ROC']].tail(7))
 
 Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a security's price. The MACD is calculated by subtracting the 26-period Exponential Moving Average (EMA) from the 12-period EMA.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 ShortEMA = df.Close.ewm(span=12, adjust=False).mean() #AKA Fast moving average
 #Calculate the Long Term Exponential Moving Average
 LongEMA = df.Close.ewm(span=26, adjust=False).mean() #AKA Slow moving average
@@ -1321,7 +1422,7 @@ print(df[['MACD_IND']].tail(5).mean())
 
 Bollinger Bands are a type of statistical chart characterizing the prices and volatility over time of a financial instrument or commodity.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 from talib import MA_Type
 
@@ -1335,7 +1436,7 @@ print(round(upper[-1],2),round(middle[-1],2),round(lower[-1],2))
 
 In case we choose another value than zero for our min_periods parameter, we will end up with a couple of NaN-Values . These are not a number values and they are useless. Therefore, we would want to delete the entries that have such values.
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df.dropna( inplace = True )
 ```
 
@@ -1351,7 +1452,7 @@ To predict the movement of the stock we use 5 lag returns as the dependent varia
 ***3.1: Creating lag returns***
 
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 tslagret = pd.DataFrame(index=df.index)
 tslagret["Today"] = df["Close"]
@@ -1363,7 +1464,7 @@ for i in range(0, no_lags):
 
 ***3.2:  Creating returns dataframe***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df_ret = pd.DataFrame(index=tslagret.index)
 df_ret["Today"] = tslagret["Today"].pct_change()*100.0
 ```
@@ -1371,7 +1472,7 @@ df_ret["Today"] = tslagret["Today"].pct_change()*100.0
 
 ***3.2:  create the lagged percentage returns columns***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 for i in range(0, no_lags):
     df_ret["Lag%s" % str(i + 1)] = tslagret["Lag%s" % str(i + 1)].pct_change() * 100.0
@@ -1383,7 +1484,7 @@ print(df_ret.tail(10))
 
 ***3.3: "Direction" column (+1 or -1) indicating an up/down day***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 df_ret["Direction"] = np.sign(df_ret["Today"])
 
 df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
@@ -1393,7 +1494,7 @@ df_ret["Direction"] = np.where(df_ret["Direction"] <= 0, -1 , 1)
 
 ***3.4: Create the dependent and independent variables ***
 
-```{python, warnings = FALSE, message = FALSE,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 data = df_ret.copy()
 
@@ -1452,7 +1553,7 @@ y = data["Direction"]
 
 ***3.5:  Create training and test sets***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 start_test = datetime(2021, 1, 1)
 
 
@@ -1468,7 +1569,7 @@ print(X_test.tail(5))
 
 
 ***3.6:  Create model ***
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 
 # fit model no training data
 # model = XGBClassifier()
@@ -1479,43 +1580,37 @@ model = LogisticRegression(max_iter=10000)
 
 ***3.7:  train the model on the training set***
 
-```{python, warnings = FALSE, message = FALSE,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 model.fit(X_train, y_train)
 ```
 
 ***3.8:    make an array of predictions on the test set***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 y_pred = model.predict(X_test)
 ```
 
 ***3.9:    output the hit-rate and the confusion matrix for the model***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 accuracy_train = accuracy_score(y_train, model.predict(X_train))
 accuracy_test = accuracy_score(y_test, model.predict(X_test))
 print('\nTrain Accuracy:{: .2f}%'.format(accuracy_train*100))
 print('Test Accuracy:{: .2f}%'.format(accuracy_test*100))
 ```
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 print(confusion_matrix(y_pred,y_test))
 ```
 
 ***3.10:   Predict movement of stock for tomorrow. ***
 
-```{python,echo = FALSE}
+```{python,echo = FALSE, eval=FALSE}
 comp = pd.DataFrame()
 comp['y_test'] = y_test
 comp['y_pred'] = y_pred
 print(comp.tail(5))
-predictxagusd = model.predict(X_test.tail(1))
-print(predictxagusd)
-
-if(predictxagusd  == -1):
-  print("AMO Sell ", lclose - 100)
-else:
-  print("AMO Buy ", lclose + 100)
+predict = model.predict(X_test.tail(1))
+print(predict)
 
 ```
-
