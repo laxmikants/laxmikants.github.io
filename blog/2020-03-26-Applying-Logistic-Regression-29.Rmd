@@ -78,7 +78,7 @@ df = pd.read_excel('silverprices.xlsx')
 df['Volume'] = df['Volume']*1000
 df['Date'] = pd.to_datetime(df['Date'])
 df.set_index('Date', inplace=True)
-df.tail()
+#df.tail()
 ```
 
 ```{python, eval=FALSE, echo=FALSE}
@@ -116,7 +116,7 @@ symbol = "USDINR=X"
 usdinr = yf.download(symbol, start=from_date, end=to_date)
 
 # Print the retrieved data
-print(usdinr.tail())
+#print(usdinr.tail())
 ```
 
 ```{python,eval=FALSE, echo=FALSE}
@@ -166,7 +166,7 @@ symbol = "SI=F"
 dfusd = yf.download(symbol, start=from_date, end=to_date)
 
 # Print the retrieved data
-print(dfusd.tail())
+#print(dfusd.tail())
 ```
 
 ```{python, echo = FALSE, eval=FALSE}
@@ -209,7 +209,7 @@ df2 = df2.reset_index()
 
 df2['weekday'] = df2['Date'].dt.day_name()
 
-print(df2.tail(5))
+#print(df2.tail(5))
 
 ```
 ***1.2.2: Long positions gains***
@@ -218,19 +218,19 @@ print(df2.tail(5))
 
 short = short.reset_index()
 lng = lng.reset_index()
-print(lng.tail(5))
-print(short.tail(5))
+#print(lng.tail(5))
+#print(short.tail(5))
 ```
 
 ***1.2.3: Short positions gains***
 
 ```{python, echo = FALSE, warning = FALSE, message = FALSE,eval=FALSE}
-print(short.tail(5))
+#print(short.tail(5))
 ```
 
 ```{python,eval=FALSE,eval=FALSE}
-print(short['weekday'].value_counts())
-print(lng['weekday'].value_counts())
+#print(short['weekday'].value_counts())
+#print(lng['weekday'].value_counts())
 ```
 
 
@@ -268,7 +268,7 @@ df1.Close.resample("M").mean()
 
 meanprice = df1.Close.mean()
 
-print('meanprice is ', meanprice)
+#print('meanprice is ', meanprice)
 
 ```
 
@@ -279,7 +279,7 @@ print('meanprice is ', meanprice)
 ```{python,echo = FALSE, eval=FALSE}
 
 data1 = investpy.moving_averages(name='MCX Silver Micro', country='India', product_type='commodity', interval='1hour')
-print(data1.head())
+#print(data1.head())
 
 ```
 
@@ -288,10 +288,10 @@ print(data1.head())
 ```{python,echo = FALSE}
 
 df['zscore'] = stats.zscore(df['Close'])
-print(df['zscore'].tail(5))
+#print(df['zscore'].tail(5))
 
 df['zscorevolume'] = stats.zscore(df['Volume'])
-print(df['zscorevolume'].tail(5))
+#print(df['zscorevolume'].tail(5))
 
 ```
 
@@ -314,7 +314,7 @@ def PPSR(df):
     #df = df.join(PSR)  
     return psrdf.round().tail()
   
-PPSR(df) 
+#PPSR(df) 
 ```
 
 
@@ -367,7 +367,7 @@ t6 = [{'min': price_min}]
 print('Retracement levels for falling price')
 
 rl = pd.DataFrame([t1,t2,t3,t4,t5,t6])
-print(rl)
+#print(rl)
 
 ```
 
@@ -491,12 +491,12 @@ df[ 'PCT_Change' ] = (df[ 'Close' ] - df[ 'Open' ]) / df[ 'Open' ]
 The calculation is quite simple. We create a new column with the name PCT_Change and the values are just the difference of the closing and opening values divided by the opening values. Since the open value is the beginning value of that day, we take it as a basis. We could also multiply the result by 100 to get the actual percentage.
 
 ```{python,echo = FALSE}
-df[["PCT_Change"]].describe()
+#df[["PCT_Change"]].describe()
 ```
 
 
 ```{python,echo = FALSE}
-print(df[["Close"]].tail(1))
+#print(df[["Close"]].tail(1))
 ```
 
 *** `HIGH LOW PERCENTAGE` ***
@@ -507,7 +507,7 @@ By doing that we can get a feeling of how volatile the stock is.
 
 ```{python,echo = FALSE}
 df[ 'HL_PCT' ] = (df[ 'High' ] - df[ 'Low' ]) / df[ 'Close' ]
-print(df.tail())
+#print(df.tail())
 ```
 These statistical values can be used with many others to get a lot of valuable information about specific stocks. This improves the decision making
 
