@@ -23,7 +23,6 @@ output:
 ---
 
 
-
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(magick)
@@ -68,6 +67,7 @@ to_date = "2023-06-28"
 ```
 
 </p>
+
 
   ***1.2:Load the data***
 
