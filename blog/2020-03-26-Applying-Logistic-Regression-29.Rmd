@@ -62,7 +62,7 @@ import investpy
 
 # Set the desired date range
 from_date = "2019-11-18"
-to_date = "2023-06-28"
+to_date = "2023-11-13"
 
 ```
 
@@ -877,8 +877,6 @@ print(predict)
 #lclose = dfs.iloc[-1]['Close'].astype(int)
 
 ```
-
-
 ```{python,echo = FALSE, eval=FALSE}
 
 print('Hourly Technical Indicators:')
